@@ -19,9 +19,9 @@ $ composer require localheinz/phpstan-rules
 
 This package provides the following rules for use with [`phpstan/phpstan`](https://github.com/phpstan/phpstan):
 
-* [`Localheinz\PHPStan\Rules\Classes\AbstractOrFinal`](https://github.com/localheinz/phpstan-rules#classesabstractorfinal)
+* [`Localheinz\PHPStan\Rules\Classes\AbstractOrFinalRule`](https://github.com/localheinz/phpstan-rules#classesabstractorfinalrule)
 
-### `Classes\AbstractOrFinal`
+### `Classes\AbstractOrFinalRule`
 
 This rule reports an error when a non-anonymous class is neither `abstract` nor `final`.
 
