@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 For a full diff see (https://github.com/localheinz/phpstan-rules/compare/0.1.0...HEAD).
 
+### Added
+
+* added `Classes\FinalRule`, which reports an error when a non-anonymous
+  class is not `final`, ([#4](https://github.com/localheinz/phpstan-rules/pull/#4)), by [@localheinz](https://github.com/localheinz)
+
 ## [`0.1.0`](https://github.com/localheinz/phpstan-rules/releases/tag/0.3.0)
 
 For a full diff see [`362c7ea...0.1.0`](https://github.com/localheinz/phpstan-rules/compare/362c7ea...0.1.0).

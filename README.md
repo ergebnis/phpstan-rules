@@ -20,10 +20,15 @@ $ composer require localheinz/phpstan-rules
 This package provides the following rules for use with [`phpstan/phpstan`](https://github.com/phpstan/phpstan):
 
 * [`Localheinz\PHPStan\Rules\Classes\AbstractOrFinalRule`](https://github.com/localheinz/phpstan-rules#classesabstractorfinalrule)
+* [`Localheinz\PHPStan\Rules\Classes\FinalRule`](https://github.com/localheinz/phpstan-rules#classesfinalrule)
 
 ### `Classes\AbstractOrFinalRule`
 
 This rule reports an error when a non-anonymous class is neither `abstract` nor `final`.
+
+### `Classes\FinalRule`
+
+This rule reports an error when a non-anonymous class is not `final`.
 
 ## Usage
 
