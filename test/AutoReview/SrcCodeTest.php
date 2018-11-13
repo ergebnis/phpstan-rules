@@ -23,6 +23,15 @@ final class SrcCodeTest extends Framework\TestCase
 {
     use Helper;
 
+    public function testSrcClassesHaveIntegrationTests(): void
+    {
+        $this->assertClassesHaveTests(
+            __DIR__ . '/../../src',
+            'Localheinz\\PHPStan\\Rules\\',
+            'Localheinz\\PHPStan\\Rules\\Test\\Integration\\'
+        );
+    }
+
     public function testSrcClassesHaveUnitTests(): void
     {
         $this->assertClassesHaveTests(
