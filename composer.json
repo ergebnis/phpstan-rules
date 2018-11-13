@@ -1,0 +1,47 @@
+{
+  "name": "localheinz/phpstan-rules",
+  "type": "library",
+  "description": "Provides additional rules for phpstan/phpstan.",
+  "keywords": [
+    "phpstan",
+    "phpstan-rules"
+  ],
+  "homepage": "https://github.com/localheinz/phpstan-rules",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Andreas Möller",
+      "email": "am@localheinz.com"
+    }
+  ],
+  "require": {
+    "php": "^7.1"
+  },
+  "require-dev": {
+    "infection/infection": "~0.11.0",
+    "localheinz/composer-normalize": "~0.9.0",
+    "localheinz/php-cs-fixer-config": "~1.15.0",
+    "localheinz/test-util": "~0.7.0",
+    "phpstan/phpstan": "~0.10.5",
+    "phpstan/phpstan-strict-rules": "~0.10.1",
+    "phpunit/phpunit": "^7.4.3"
+  },
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "Localheinz\\PHPStan\\Rules\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Localheinz\\PHPStan\\Rules\\Test\\": "test/"
+    }
+  },
+  "support": {
+    "issues": "https://github.com/localheinz/phpstan-rules/issues",
+    "source": "https://github.com/localheinz/phpstan-rules"
+  }
+}
