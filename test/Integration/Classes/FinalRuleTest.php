@@ -23,62 +23,62 @@ use PHPStan\Testing\RuleTestCase;
  */
 final class FinalRuleTest extends RuleTestCase
 {
-    public function testNotClasses(): void
+    /**
+     * @dataProvider providerAnalysisDoesNotResultInErrors
+     *
+     * @param string $path
+     */
+    public function testAnalysisDoesNotResultInErrors(string $path): void
     {
         $this->analyse(
             [
-                __DIR__ . '/../../Fixture/Classes/FinalRule/ExampleInterface.php',
-                __DIR__ . '/../../Fixture/Classes/FinalRule/ExampleTrait.php',
+                $path,
             ],
             []
         );
     }
 
-    public function testFinalClasses(): void
+    public function providerAnalysisDoesNotResultInErrors(): \Generator
+    {
+        $paths = [
+            'final-class' => __DIR__ . '/../../Fixture/Classes/FinalRule/FinalClass.php',
+            'final-class-with-anonymous-class' => __DIR__ . '/../../Fixture/Classes/FinalRule/FinalClassWithAnonymousClass.php',
+            'interface' => __DIR__ . '/../../Fixture/Classes/FinalRule/ExampleInterface.php',
+            'script-with-anonymous-class' => __DIR__ . '/../../Fixture/Classes/FinalRule/script-with-anonymous-class.php',
+            'trait' => __DIR__ . '/../../Fixture/Classes/FinalRule/ExampleTrait.php',
+            'trait-with-anonymous-class' => __DIR__ . '/../../Fixture/Classes/FinalRule/TraitWithAnonymousClass.php',
+        ];
+
+        foreach ($paths as $description => $path) {
+            yield $description => [
+                $path,
+            ];
+        }
+    }
+
+    /**
+     * @dataProvider providerAnalysisResultsInErrors
+     *
+     * @param string $path
+     * @param array  $error
+     */
+    public function testAnalysisResultsInErrors(string $path, array $error): void
     {
         $this->analyse(
             [
-                __DIR__ . '/../../Fixture/Classes/FinalRule/FinalClass.php',
+                $path,
             ],
-            []
+            [
+                $error,
+            ]
         );
     }
 
-    public function testConstructsWithAnonymousClasses(): void
+    public function providerAnalysisResultsInErrors(): \Generator
     {
-        $this->analyse(
-            [
-                __DIR__ . '/../../Fixture/Classes/FinalRule/FinalClassWithAnonymousClass.php',
-                __DIR__ . '/../../Fixture/Classes/FinalRule/script-with-anonymous-class.php',
-                __DIR__ . '/../../Fixture/Classes/FinalRule/TraitWithAnonymousClass.php',
-            ],
-            []
-        );
-    }
-
-    public function testNotFinalClasses(): void
-    {
-        $this->analyse(
-            [
-                __DIR__ . '/../../Fixture/Classes/FinalRule/AbstractClass.php',
-                __DIR__ . '/../../Fixture/Classes/FinalRule/AbstractClassWithAnonymousClass.php',
+        $paths = [
+            'abstract-class' => [
                 __DIR__ . '/../../Fixture/Classes/FinalRule/NeitherAbstractNorFinalClass.php',
-            ],
-            [
-                [
-                    \sprintf(
-                        'Class "%s" should be marked as final.',
-                        Fixture\Classes\FinalRule\AbstractClass::class
-                    ),
-                    16,
-                ],
-                [
-                    \sprintf(
-                        'Class "%s" should be marked as final.',
-                        Fixture\Classes\FinalRule\AbstractClassWithAnonymousClass::class
-                    ),
-                    16,
-                ],
                 [
                     \sprintf(
                         'Class "%s" should be marked as final.',
@@ -86,8 +86,35 @@ final class FinalRuleTest extends RuleTestCase
                     ),
                     16,
                 ],
-            ]
-        );
+            ],
+            'abstract-class-with-anonymous-class' => [
+                __DIR__ . '/../../Fixture/Classes/FinalRule/AbstractClassWithAnonymousClass.php',
+                [
+                    \sprintf(
+                        'Class "%s" should be marked as final.',
+                        Fixture\Classes\FinalRule\AbstractClassWithAnonymousClass::class
+                    ),
+                    16,
+                ],
+            ],
+            'neither-abstract-nor-final-class' => [
+                __DIR__ . '/../../Fixture/Classes/FinalRule/NeitherAbstractNorFinalClass.php',
+                [
+                    \sprintf(
+                        'Class "%s" should be marked as final.',
+                        Fixture\Classes\FinalRule\NeitherAbstractNorFinalClass::class
+                    ),
+                    16,
+                ],
+            ],
+        ];
+
+        foreach ($paths as $description => [$path, $error]) {
+            yield $description => [
+                $path,
+                $error,
+            ];
+        }
     }
 
     protected function getRule(): Rule

@@ -23,48 +23,64 @@ use PHPStan\Testing\RuleTestCase;
  */
 final class AbstractOrFinalRuleTest extends RuleTestCase
 {
-    public function testNotClasses(): void
+    /**
+     * @dataProvider providerAnalysisDoesNotResultInErrors
+     *
+     * @param string $path
+     */
+    public function testAnalysisDoesNotResultInErrors(string $path): void
     {
         $this->analyse(
             [
-                __DIR__ . '/../../Fixture/Classes/AbstractOrFinalRule/ExampleInterface.php',
-                __DIR__ . '/../../Fixture/Classes/AbstractOrFinalRule/ExampleTrait.php',
+                $path,
             ],
             []
         );
     }
 
-    public function testAbstractOrFinalClasses(): void
+    public function providerAnalysisDoesNotResultInErrors(): \Generator
+    {
+        $paths = [
+            'abstract-class' => __DIR__ . '/../../Fixture/Classes/AbstractOrFinalRule/AbstractClass.php',
+            'abstract-class-with-anonymous-class' => __DIR__ . '/../../Fixture/Classes/AbstractOrFinalRule/AbstractClassWithAnonymousClass.php',
+            'final-class' => __DIR__ . '/../../Fixture/Classes/AbstractOrFinalRule/FinalClass.php',
+            'final-class-with-anonymous-class' => __DIR__ . '/../../Fixture/Classes/AbstractOrFinalRule/FinalClassWithAnonymousClass.php',
+            'interface' => __DIR__ . '/../../Fixture/Classes/AbstractOrFinalRule/ExampleInterface.php',
+            'script-with-anonymous-class' => __DIR__ . '/../../Fixture/Classes/AbstractOrFinalRule/script-with-anonymous-class.php',
+            'trait' => __DIR__ . '/../../Fixture/Classes/AbstractOrFinalRule/ExampleTrait.php',
+            'trait-with-anonymous-class' => __DIR__ . '/../../Fixture/Classes/AbstractOrFinalRule/TraitWithAnonymousClass.php',
+        ];
+
+        foreach ($paths as $description => $path) {
+            yield $description => [
+                $path,
+            ];
+        }
+    }
+
+    /**
+     * @dataProvider providerAnalysisResultsInErrors
+     *
+     * @param string $path
+     * @param array  $error
+     */
+    public function testAnalysisResultsInErrors(string $path, array $error): void
     {
         $this->analyse(
             [
-                __DIR__ . '/../../Fixture/Classes/AbstractOrFinalRule/AbstractClass.php',
-                __DIR__ . '/../../Fixture/Classes/AbstractOrFinalRule/FinalClass.php',
+                $path,
             ],
-            []
+            [
+                $error,
+            ]
         );
     }
 
-    public function testConstructsWithAnonymousClasses(): void
+    public function providerAnalysisResultsInErrors(): \Generator
     {
-        $this->analyse(
-            [
-                __DIR__ . '/../../Fixture/Classes/AbstractOrFinalRule/AbstractClassWithAnonymousClass.php',
-                __DIR__ . '/../../Fixture/Classes/AbstractOrFinalRule/FinalClassWithAnonymousClass.php',
-                __DIR__ . '/../../Fixture/Classes/AbstractOrFinalRule/script-with-anonymous-class.php',
-                __DIR__ . '/../../Fixture/Classes/AbstractOrFinalRule/TraitWithAnonymousClass.php',
-            ],
-            []
-        );
-    }
-
-    public function testNeitherAbstractNorFinalClass(): void
-    {
-        $this->analyse(
-            [
+        $paths = [
+            'class-neither-abstract-nor-final' => [
                 __DIR__ . '/../../Fixture/Classes/AbstractOrFinalRule/NeitherAbstractNorFinalClass.php',
-            ],
-            [
                 [
                     \sprintf(
                         'Class "%s" should be marked as abstract or final.',
@@ -72,8 +88,15 @@ final class AbstractOrFinalRuleTest extends RuleTestCase
                     ),
                     16,
                 ],
-            ]
-        );
+            ],
+        ];
+
+        foreach ($paths as $description => [$path, $error]) {
+            yield $description => [
+                $path,
+                $error,
+            ];
+        }
     }
 
     protected function getRule(): Rule
