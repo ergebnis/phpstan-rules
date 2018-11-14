@@ -11,8 +11,8 @@ declare(strict_types=1);
  * @see https://github.com/localheinz/phpstan-rules
  */
 
-namespace Localheinz\PHPStan\Rules\Test\Integration\Classes\Fixture;
+namespace Localheinz\PHPStan\Rules\Test\Fixture\Classes\FinalRule;
 
-abstract class AbstractClass
+interface ExampleInterface
 {
 }

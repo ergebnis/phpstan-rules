@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Localheinz\PHPStan\Rules\Test\Integration\Classes;
 
 use Localheinz\PHPStan\Rules\Classes\AbstractOrFinalRule;
+use Localheinz\PHPStan\Rules\Test\Fixture;
 use PHPStan\Rules\Rule;
 use PHPStan\Testing\RuleTestCase;
 
@@ -26,8 +27,8 @@ final class AbstractOrFinalRuleTest extends RuleTestCase
     {
         $this->analyse(
             [
-                __DIR__ . '/Fixture/ExampleInterface.php',
-                __DIR__ . '/Fixture/ExampleTrait.php',
+                __DIR__ . '/../../Fixture/Classes/AbstractOrFinalRule/ExampleInterface.php',
+                __DIR__ . '/../../Fixture/Classes/AbstractOrFinalRule/ExampleTrait.php',
             ],
             []
         );
@@ -37,8 +38,8 @@ final class AbstractOrFinalRuleTest extends RuleTestCase
     {
         $this->analyse(
             [
-                __DIR__ . '/Fixture/AbstractClass.php',
-                __DIR__ . '/Fixture/FinalClass.php',
+                __DIR__ . '/../../Fixture/Classes/AbstractOrFinalRule/AbstractClass.php',
+                __DIR__ . '/../../Fixture/Classes/AbstractOrFinalRule/FinalClass.php',
             ],
             []
         );
@@ -48,10 +49,10 @@ final class AbstractOrFinalRuleTest extends RuleTestCase
     {
         $this->analyse(
             [
-                __DIR__ . '/Fixture/AbstractClassWithAnonymousClass.php',
-                __DIR__ . '/Fixture/FinalClassWithAnonymousClass.php',
-                __DIR__ . '/Fixture/script-with-anonymous-class.php',
-                __DIR__ . '/Fixture/TraitWithAnonymousClass.php',
+                __DIR__ . '/../../Fixture/Classes/AbstractOrFinalRule/AbstractClassWithAnonymousClass.php',
+                __DIR__ . '/../../Fixture/Classes/AbstractOrFinalRule/FinalClassWithAnonymousClass.php',
+                __DIR__ . '/../../Fixture/Classes/AbstractOrFinalRule/script-with-anonymous-class.php',
+                __DIR__ . '/../../Fixture/Classes/AbstractOrFinalRule/TraitWithAnonymousClass.php',
             ],
             []
         );
@@ -61,13 +62,13 @@ final class AbstractOrFinalRuleTest extends RuleTestCase
     {
         $this->analyse(
             [
-                __DIR__ . '/Fixture/NeitherAbstractNorFinalClass.php',
+                __DIR__ . '/../../Fixture/Classes/AbstractOrFinalRule/NeitherAbstractNorFinalClass.php',
             ],
             [
                 [
                     \sprintf(
                         'Class "%s" should be marked as abstract or final.',
-                        Fixture\NeitherAbstractNorFinalClass::class
+                        Fixture\Classes\AbstractOrFinalRule\NeitherAbstractNorFinalClass::class
                     ),
                     16,
                 ],
