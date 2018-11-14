@@ -12,7 +12,7 @@ Provides additional rules for [`phpstan/phpstan`](https://github.com/phpstan/php
 Run
 
 ```
-$ composer require localheinz/phpstan-rules
+$ composer require --dev localheinz/phpstan-rules
 ```
 
 ## Rules
