@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Localheinz\PHPStan\Rules\Test\Integration\Classes;
 
 use Localheinz\PHPStan\Rules\Classes\FinalRule;
+use Localheinz\PHPStan\Rules\Test\Fixture;
 use PHPStan\Rules\Rule;
 use PHPStan\Testing\RuleTestCase;
 
@@ -26,8 +27,8 @@ final class FinalRuleTest extends RuleTestCase
     {
         $this->analyse(
             [
-                __DIR__ . '/Fixture/ExampleInterface.php',
-                __DIR__ . '/Fixture/ExampleTrait.php',
+                __DIR__ . '/../../Fixture/Classes/FinalRule/ExampleInterface.php',
+                __DIR__ . '/../../Fixture/Classes/FinalRule/ExampleTrait.php',
             ],
             []
         );
@@ -37,7 +38,7 @@ final class FinalRuleTest extends RuleTestCase
     {
         $this->analyse(
             [
-                __DIR__ . '/Fixture/FinalClass.php',
+                __DIR__ . '/../../Fixture/Classes/FinalRule/FinalClass.php',
             ],
             []
         );
@@ -47,9 +48,9 @@ final class FinalRuleTest extends RuleTestCase
     {
         $this->analyse(
             [
-                __DIR__ . '/Fixture/FinalClassWithAnonymousClass.php',
-                __DIR__ . '/Fixture/script-with-anonymous-class.php',
-                __DIR__ . '/Fixture/TraitWithAnonymousClass.php',
+                __DIR__ . '/../../Fixture/Classes/FinalRule/FinalClassWithAnonymousClass.php',
+                __DIR__ . '/../../Fixture/Classes/FinalRule/script-with-anonymous-class.php',
+                __DIR__ . '/../../Fixture/Classes/FinalRule/TraitWithAnonymousClass.php',
             ],
             []
         );
@@ -59,29 +60,29 @@ final class FinalRuleTest extends RuleTestCase
     {
         $this->analyse(
             [
-                __DIR__ . '/Fixture/AbstractClass.php',
-                __DIR__ . '/Fixture/AbstractClassWithAnonymousClass.php',
-                __DIR__ . '/Fixture/NeitherAbstractNorFinalClass.php',
+                __DIR__ . '/../../Fixture/Classes/FinalRule/AbstractClass.php',
+                __DIR__ . '/../../Fixture/Classes/FinalRule/AbstractClassWithAnonymousClass.php',
+                __DIR__ . '/../../Fixture/Classes/FinalRule/NeitherAbstractNorFinalClass.php',
             ],
             [
                 [
                     \sprintf(
                         'Class "%s" should be marked as final.',
-                        Fixture\AbstractClass::class
+                        Fixture\Classes\FinalRule\AbstractClass::class
                     ),
                     16,
                 ],
                 [
                     \sprintf(
                         'Class "%s" should be marked as final.',
-                        Fixture\AbstractClassWithAnonymousClass::class
+                        Fixture\Classes\FinalRule\AbstractClassWithAnonymousClass::class
                     ),
                     16,
                 ],
                 [
                     \sprintf(
                         'Class "%s" should be marked as final.',
-                        Fixture\NeitherAbstractNorFinalClass::class
+                        Fixture\Classes\FinalRule\NeitherAbstractNorFinalClass::class
                     ),
                     16,
                 ],
