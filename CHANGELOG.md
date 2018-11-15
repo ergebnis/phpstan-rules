@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+For a full diff see (https://github.com/localheinz/phpstan-rules/compare/0.2.0...HEAD).
+
+## [`0.2.0`](https://github.com/localheinz/phpstan-rules/releases/tag/0.2.0)
+
 For a full diff see (https://github.com/localheinz/phpstan-rules/compare/0.1.0...HEAD).
 
 ### Added
@@ -14,7 +18,12 @@ For a full diff see (https://github.com/localheinz/phpstan-rules/compare/0.1.0..
 * added `Classes\FinalRule`, which reports an error when a non-anonymous
   class is not `final`, ([#4](https://github.com/localheinz/phpstan-rules/pull/#4)), by [@localheinz](https://github.com/localheinz)
 
-## [`0.1.0`](https://github.com/localheinz/phpstan-rules/releases/tag/0.3.0)
+### Changed
+
+* added an `$excludeClassNames` argument to the constructors of `Classes\AbstractOrFinalRule` and
+  `Classes\FinalRule` to allow whitelisting of classes, ([#4](https://github.com/localheinz/phpstan-rules/pull/#11)), by [@localheinz](https://github.com/localheinz)
+
+## [`0.1.0`](https://github.com/localheinz/phpstan-rules/releases/tag/0.1.0)
 
 For a full diff see [`362c7ea...0.1.0`](https://github.com/localheinz/phpstan-rules/compare/362c7ea...0.1.0).
 

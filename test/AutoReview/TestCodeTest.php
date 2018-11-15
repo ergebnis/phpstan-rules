@@ -28,7 +28,9 @@ final class TestCodeTest extends Framework\TestCase
     {
         $this->assertClassesAreAbstractOrFinal(__DIR__ . '/..', [
             Fixture\Classes\AbstractOrFinalRule\NeitherAbstractNorFinalClass::class,
+            Fixture\Classes\AbstractOrFinalRule\NeitherAbstractNorFinalClassButWhitelisted::class,
             Fixture\Classes\FinalRule\NeitherAbstractNorFinalClass::class,
+            Fixture\Classes\FinalRule\NeitherAbstractNorFinalClassButWhitelisted::class,
         ]);
     }
 }
