@@ -101,7 +101,7 @@ final class AbstractOrFinalRuleTest extends RuleTestCase
         $this->assertEmpty($errors);
     }
 
-    public function testProcessNodeReturnsEmptyArrayWhenClassIsNeitherAbstractNorFinal(): void
+    public function testProcessNodeReturnsArrayWithErrorWhenClassIsNeitherAbstractNorFinal(): void
     {
         $fullyQualifiedClassName = $this->faker()->word;
 
