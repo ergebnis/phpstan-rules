@@ -16,9 +16,11 @@ namespace Localheinz\PHPStan\Rules\Test\Unit\Classes;
 use Localheinz\PHPStan\Rules\Classes\AbstractOrFinalRule;
 use Localheinz\Test\Util\Helper;
 use PhpParser\Node;
+use PhpParser\NodeAbstract;
 use PHPStan\Analyser;
 use PHPStan\Rules;
 use PHPStan\Rules\Rule;
+use PHPStan\ShouldNotHappenException;
 use PHPStan\Testing\RuleTestCase;
 
 /**
@@ -54,11 +56,25 @@ final class AbstractOrFinalRuleTest extends RuleTestCase
         $this->assertEmpty($errors);
     }
 
+    public function testProcessNodeRejectsNodeWhenItIsNotClassStatement(): void
+    {
+        $node = $this->prophesize(NodeAbstract::class);
+
+        $rule = new AbstractOrFinalRule();
+
+        $this->expectException(ShouldNotHappenException::class);
+
+        $rule->processNode(
+            $node->reveal(),
+            $this->prophesize(Analyser\Scope::class)->reveal()
+        );
+    }
+
     public function testProcessNodeReturnsEmptyArrayWhenClassIsAbstract(): void
     {
         $node = $this->prophesize(Node\Stmt\Class_::class);
 
-        $node->namespacedName = $this->faker()->word;
+        $node->namespacedName = new Node\Name($this->faker()->word);
 
         $node
             ->isAbstract()
@@ -79,7 +95,7 @@ final class AbstractOrFinalRuleTest extends RuleTestCase
     {
         $node = $this->prophesize(Node\Stmt\Class_::class);
 
-        $node->namespacedName = $this->faker()->word;
+        $node->namespacedName = new Node\Name($this->faker()->word);
 
         $node
             ->isAbstract()
@@ -101,7 +117,37 @@ final class AbstractOrFinalRuleTest extends RuleTestCase
         $this->assertEmpty($errors);
     }
 
-    public function testProcessNodeReturnsArrayWithErrorWhenClassIsNeitherAbstractNorFinal(): void
+    public function testProcessNodeReturnsEmptyArrayWhenClassIsNeitherAbstractNorFinalAndExcluded(): void
+    {
+        $faker = $this->faker();
+
+        $excludedClassNames = $faker->unique()->words(10);
+
+        $fullyQualifiedClassName = $faker->randomElement($excludedClassNames);
+
+        $node = $this->prophesize(Node\Stmt\Class_::class);
+
+        $node->namespacedName = new Node\Name($fullyQualifiedClassName);
+
+        $node
+            ->isAbstract()
+            ->willReturn(false);
+
+        $node
+            ->isFinal()
+            ->willReturn(false);
+
+        $rule = new AbstractOrFinalRule($excludedClassNames);
+
+        $errors = $rule->processNode(
+            $node->reveal(),
+            $this->prophesize(Analyser\Scope::class)->reveal()
+        );
+
+        $this->assertEmpty($errors);
+    }
+
+    public function testProcessNodeReturnsArrayWithErrorWhenClassIsNeitherAbstractNorFinalAndNotExcluded(): void
     {
         $fullyQualifiedClassName = $this->faker()->word;
 
@@ -117,7 +163,7 @@ final class AbstractOrFinalRuleTest extends RuleTestCase
             ->shouldBeCalled()
             ->willReturn(false);
 
-        $node->namespacedName = $fullyQualifiedClassName;
+        $node->namespacedName = new Node\Name($fullyQualifiedClassName);
 
         $rule = new AbstractOrFinalRule();
 

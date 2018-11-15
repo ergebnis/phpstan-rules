@@ -16,9 +16,11 @@ namespace Localheinz\PHPStan\Rules\Test\Unit\Classes;
 use Localheinz\PHPStan\Rules\Classes\FinalRule;
 use Localheinz\Test\Util\Helper;
 use PhpParser\Node;
+use PhpParser\NodeAbstract;
 use PHPStan\Analyser;
 use PHPStan\Rules;
 use PHPStan\Rules\Rule;
+use PHPStan\ShouldNotHappenException;
 use PHPStan\Testing\RuleTestCase;
 
 /**
@@ -40,6 +42,20 @@ final class FinalRuleTest extends RuleTestCase
         $this->assertSame(Node\Stmt\Class_::class, $rule->getNodeType());
     }
 
+    public function testProcessNodeRejectsNodeWhenItIsNotClassStatement(): void
+    {
+        $node = $this->prophesize(NodeAbstract::class);
+
+        $rule = new FinalRule();
+
+        $this->expectException(ShouldNotHappenException::class);
+
+        $rule->processNode(
+            $node->reveal(),
+            $this->prophesize(Analyser\Scope::class)->reveal()
+        );
+    }
+
     public function testProcessNodeReturnsEmptyArrayWhenClassHasNoNamespacedName(): void
     {
         $node = $this->prophesize(Node\Stmt\Class_::class);
@@ -58,7 +74,7 @@ final class FinalRuleTest extends RuleTestCase
     {
         $node = $this->prophesize(Node\Stmt\Class_::class);
 
-        $node->namespacedName = $this->faker()->word;
+        $node->namespacedName = new Node\Name($this->faker()->word);
 
         $node
             ->isFinal()
@@ -75,18 +91,44 @@ final class FinalRuleTest extends RuleTestCase
         $this->assertEmpty($errors);
     }
 
-    public function testProcessNodeReturnsArrayWithErrorWhenClassIsNotFinal(): void
+    public function testProcessNodeReturnsEmptyArrayWhenClassIsNotFinalButExcluded(): void
+    {
+        $faker = $this->faker();
+
+        $excludedClassNames = $faker->unique()->words;
+
+        $fullyQualifiedClassName = $faker->randomElement($excludedClassNames);
+
+        $node = $this->prophesize(Node\Stmt\Class_::class);
+
+        $node->namespacedName = new Node\Name($fullyQualifiedClassName);
+
+        $node
+            ->isFinal()
+            ->willReturn(false);
+
+        $rule = new FinalRule($excludedClassNames);
+
+        $errors = $rule->processNode(
+            $node->reveal(),
+            $this->prophesize(Analyser\Scope::class)->reveal()
+        );
+
+        $this->assertEmpty($errors);
+    }
+
+    public function testProcessNodeReturnsArrayWithErrorWhenClassIsNotFinalAndNotExcluded(): void
     {
         $fullyQualifiedClassName = $this->faker()->word;
 
         $node = $this->prophesize(Node\Stmt\Class_::class);
 
+        $node->namespacedName = new Node\Name($fullyQualifiedClassName);
+
         $node
             ->isFinal()
             ->shouldBeCalled()
             ->willReturn(false);
-
-        $node->namespacedName = $fullyQualifiedClassName;
 
         $rule = new FinalRule();
 

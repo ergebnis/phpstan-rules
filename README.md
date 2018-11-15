@@ -26,17 +26,50 @@ This package provides the following rules for use with [`phpstan/phpstan`](https
 
 This rule reports an error when a non-anonymous class is neither `abstract` nor `final`.
 
-### `Classes\FinalRule`
-
-This rule reports an error when a non-anonymous class is not `final`.
-
-## Usage
-
-Add the rule of your choice to your `phpstan.neon`:
+If you want to use this rule, add it to your `phpstan.neon`:
 
 ```neon
 rules:
 	- Localheinz\PHPStan\Rules\Classes\AbstractOrFinalRule
+```
+
+:bulb: Optionally, you can configure the rule to ignore classes:
+
+```neon
+services:
+	-
+		class: Localheinz\PHPStan\Rules\Classes\AbstractOrFinalRule
+		tags:
+			- phpstan.rules.rule
+		arguments:
+			excludedClassNames:
+				- Bar\Foo
+				- Foo\Bar
+```
+
+### `Classes\FinalRule`
+
+This rule reports an error when a non-anonymous class is not `final`.
+
+If you want to use this rule, add it to your `phpstan.neon`:
+
+```neon
+rules:
+	- Localheinz\PHPStan\Rules\Classes\FinalRule
+```
+
+:bulb: Optionally, you can configure the rule to ignore classes:
+
+```neon
+services:
+	-
+		class: Localheinz\PHPStan\Rules\Classes\FinalRule
+		tags:
+			- phpstan.rules.rule
+		arguments:
+			excludedClassNames:
+				- Bar\Foo
+				- Foo\Bar
 ```
 
 ## Changelog
