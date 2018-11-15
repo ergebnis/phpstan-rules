@@ -75,7 +75,7 @@ final class FinalRuleTest extends RuleTestCase
         $this->assertEmpty($errors);
     }
 
-    public function testProcessNodeReturnsEmptyArrayWhenClassIsNotFinal(): void
+    public function testProcessNodeReturnsArrayWithErrorWhenClassIsNotFinal(): void
     {
         $fullyQualifiedClassName = $this->faker()->word;
 
