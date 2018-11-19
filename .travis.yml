@@ -77,9 +77,8 @@ jobs:
       script:
         - vendor/bin/phpunit --configuration=test/AutoReview/phpunit.xml
         - if [[ "$WITH_COVERAGE" == "true" ]]; then xdebug-enable; fi
-        - if [[ "$WITH_COVERAGE" == "true" ]]; then vendor/bin/phpunit --configuration=test/Unit/phpunit.xml --coverage-clover=build/logs/clover.xml; else vendor/bin/phpunit --configuration=test/Unit/phpunit.xml; fi
+        - if [[ "$WITH_COVERAGE" == "true" ]]; then vendor/bin/phpunit --configuration=test/Integration/phpunit.xml --coverage-clover=build/logs/clover.xml; else vendor/bin/phpunit --configuration=test/Integration/phpunit.xml; fi
         - if [[ "$WITH_COVERAGE" == "true" ]]; then xdebug-disable; fi
-        - vendor/bin/phpunit --configuration=test/Integration/phpunit.xml
 
       after_success:
         - if [[ "$WITH_COVERAGE" == "true" ]]; then bash <(curl -s https://codecov.io/bash); fi
@@ -131,7 +130,7 @@ jobs:
         - xdebug-enable
 
       script:
-        - vendor/bin/infection --min-covered-msi=80 --min-msi=80
+        - vendor/bin/infection --min-covered-msi=77 --min-msi=77
 
 notifications:
   email: false
