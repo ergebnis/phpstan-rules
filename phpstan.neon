@@ -3,3 +3,5 @@ includes:
 
 rules:
 	- Localheinz\PHPStan\Rules\Classes\AbstractOrFinalRule
+	- Localheinz\PHPStan\Rules\Functions\NoNullableReturnTypeDeclarationRule
+	- Localheinz\PHPStan\Rules\Methods\NoNullableReturnTypeDeclarationRule

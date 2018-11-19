@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 For a full diff see [`0.2.0...master`](https://github.com/localheinz/phpstan-rules/compare/0.2.0...master).
 
+### Added
+
+* added `Functions\NoNullableReturnTypeDeclarationRule`, which reports an
+  error when a named function has a nullable return type declaration, and
+  `Methods\NoNullableReturnTypeDeclarationRule`, which reports an error
+  when a method declared on an anonymous class, a class, or am interface has a
+  nullable return type declaration ([#16](https://github.com/localheinz/phpstan-rules/pull/16)), by [@localheinz](https://github.com/localheinz)
+
 ## [`0.2.0`](https://github.com/localheinz/phpstan-rules/releases/tag/0.2.0)
 
 For a full diff see [`0.1.0...0.2.0`](https://github.com/localheinz/phpstan-rules/compare/0.1.0...0.2.0).

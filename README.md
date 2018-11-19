@@ -21,6 +21,8 @@ This package provides the following rules for use with [`phpstan/phpstan`](https
 
 * [`Localheinz\PHPStan\Rules\Classes\AbstractOrFinalRule`](https://github.com/localheinz/phpstan-rules#classesabstractorfinalrule)
 * [`Localheinz\PHPStan\Rules\Classes\FinalRule`](https://github.com/localheinz/phpstan-rules#classesfinalrule)
+* [`Localheinz\PHPStan\Rules\Functions\NoNullableReturnTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#functionsnonullablereturntypedeclarationrule)
+* [`Localheinz\PHPStan\Rules\Methods\NoNullableReturnTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#methodsnonullablereturntypedeclarationrule)
 
 ### `Classes\AbstractOrFinalRule`
 
@@ -70,6 +72,28 @@ services:
 			excludedClassNames:
 				- Bar\Foo
 				- Foo\Bar
+```
+
+### `Functions\NoNullableReturnTypeDeclarationRule`
+
+This rule reports an error when a named function uses a nullable return type declaration.
+
+If you want to use this rule, add it to your `phpstan.neon`:
+
+```neon
+rules:
+	- Localheinz\PHPStan\Rules\Functions\NoNullableReturnTypeDeclarationRule
+```
+
+### `Methods\NoNullableReturnTypeDeclarationRule`
+
+This rule reports an error when a method declared on an anonymous class, a class, or an interface uses a nullable return type declaration.
+
+If you want to use this rule, add it to your `phpstan.neon`:
+
+```neon
+rules:
+	- Localheinz\PHPStan\Rules\Methods\NoNullableReturnTypeDeclarationRule
 ```
 
 ## Changelog
