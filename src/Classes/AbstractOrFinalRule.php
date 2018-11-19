@@ -16,7 +16,6 @@ namespace Localheinz\PHPStan\Rules\Classes;
 use PhpParser\Node;
 use PHPStan\Analyser\Scope;
 use PHPStan\Rules\Rule;
-use PHPStan\ShouldNotHappenException;
 
 final class AbstractOrFinalRule implements Rule
 {
@@ -40,16 +39,18 @@ final class AbstractOrFinalRule implements Rule
         return Node\Stmt\Class_::class;
     }
 
+    /**
+     * @param Node\Stmt\Class_ $node
+     * @param Scope            $scope
+     *
+     * @return array
+     */
     public function processNode(Node $node, Scope $scope): array
     {
-        if (!$node instanceof Node\Stmt\Class_) {
-            throw new ShouldNotHappenException();
-        }
-
         if (!isset($node->namespacedName)
-            || \in_array($node->namespacedName->toString(), $this->excludedClassNames, true)
             || $node->isAbstract()
             || $node->isFinal()
+            || \in_array($node->namespacedName->toString(), $this->excludedClassNames, true)
         ) {
             return [];
         }
