@@ -11,7 +11,7 @@ For a full diff see [`0.2.0...master`](https://github.com/localheinz/phpstan-rul
 
 ## [`0.2.0`](https://github.com/localheinz/phpstan-rules/releases/tag/0.2.0)
 
-For a full diff see [`0.1.0...master`](https://github.com/localheinz/phpstan-rules/compare/0.1.0...master).
+For a full diff see [`0.1.0...0.2.0`](https://github.com/localheinz/phpstan-rules/compare/0.1.0...0.2.0).
 
 ### Added
 
