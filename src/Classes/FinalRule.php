@@ -40,8 +40,8 @@ final class FinalRule implements Rule
     }
 
     /**
-     * @param Node\Stmt\Class_$node
-     * @param Scope $scope
+     * @param Node\Stmt\Class_ $node
+     * @param Scope            $scope
      *
      * @return array
      */
