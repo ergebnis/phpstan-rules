@@ -13,12 +13,10 @@ EOF;
 
 $config = Config\Factory::fromRuleSet(new Config\RuleSet\Php71($header));
 
-$config->getFinder()
-    ->in(__DIR__)
-    ->exclude('test/Fixture');
+$config->getFinder()->in(__DIR__ . '/test/Fixture');
 
 $cacheDir = \getenv('TRAVIS') ? \getenv('HOME') . '/.php-cs-fixer' : __DIR__;
 
-$config->setCacheFile($cacheDir . '/.php_cs.cache');
+$config->setCacheFile($cacheDir . '/.php_cs.fixture.cache');
 
 return $config;

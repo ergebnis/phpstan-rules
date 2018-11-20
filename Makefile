@@ -7,6 +7,7 @@ coverage: vendor
 
 cs: vendor
 	vendor/bin/php-cs-fixer fix --config=.php_cs --diff --verbose
+	vendor/bin/php-cs-fixer fix --config=.php_cs.fixture --diff --verbose
 
 infection: vendor
 	vendor/bin/infection --min-covered-msi=84 --min-msi=84
