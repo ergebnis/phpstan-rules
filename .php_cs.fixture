@@ -2,7 +2,9 @@
 
 use Localheinz\PhpCsFixer\Config;
 
-$config = Config\Factory::fromRuleSet(new Config\RuleSet\Php71(''));
+$config = Config\Factory::fromRuleSet(new Config\RuleSet\Php71(''), [
+    'static_lambda' => false,
+]);
 
 $config->getFinder()->in(__DIR__ . '/test/Fixture');
 
