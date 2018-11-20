@@ -87,7 +87,7 @@ final class AbstractOrFinalRuleTest extends RuleTestCase
                         'Class "%s" should be marked as abstract or final.',
                         Fixture\Classes\AbstractOrFinalRule\NeitherAbstractNorFinalClass::class
                     ),
-                    16,
+                    7,
                 ],
             ],
         ];
