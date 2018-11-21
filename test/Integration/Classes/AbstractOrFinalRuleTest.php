@@ -15,30 +15,15 @@ namespace Localheinz\PHPStan\Rules\Test\Integration\Classes;
 
 use Localheinz\PHPStan\Rules\Classes\AbstractOrFinalRule;
 use Localheinz\PHPStan\Rules\Test\Fixture;
+use Localheinz\PHPStan\Rules\Test\Integration\AbstractTestCase;
 use PHPStan\Rules\Rule;
-use PHPStan\Testing\RuleTestCase;
 
 /**
  * @internal
  */
-final class AbstractOrFinalRuleTest extends RuleTestCase
+final class AbstractOrFinalRuleTest extends AbstractTestCase
 {
-    /**
-     * @dataProvider providerAnalysisDoesNotResultInErrors
-     *
-     * @param string $path
-     */
-    public function testAnalysisDoesNotResultInErrors(string $path): void
-    {
-        $this->analyse(
-            [
-                $path,
-            ],
-            []
-        );
-    }
-
-    public function providerAnalysisDoesNotResultInErrors(): \Generator
+    public function providerAnalysisSucceeds(): \Generator
     {
         $paths = [
             'abstract-class' => __DIR__ . '/../../Fixture/Classes/AbstractOrFinalRule/AbstractClass.php',
@@ -59,25 +44,7 @@ final class AbstractOrFinalRuleTest extends RuleTestCase
         }
     }
 
-    /**
-     * @dataProvider providerAnalysisResultsInErrors
-     *
-     * @param string $path
-     * @param array  $error
-     */
-    public function testAnalysisResultsInErrors(string $path, array $error): void
-    {
-        $this->analyse(
-            [
-                $path,
-            ],
-            [
-                $error,
-            ]
-        );
-    }
-
-    public function providerAnalysisResultsInErrors(): \Generator
+    public function providerAnalysisFails(): \Generator
     {
         $paths = [
             'class-neither-abstract-nor-final' => [

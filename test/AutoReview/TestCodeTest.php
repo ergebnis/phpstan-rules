@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Localheinz\PHPStan\Rules\Test\AutoReview;
 
 use Localheinz\PHPStan\Rules\Test\Fixture;
+use Localheinz\PHPStan\Rules\Test\Integration;
 use Localheinz\Test\Util\Helper;
 use PHPUnit\Framework;
 
@@ -32,5 +33,27 @@ final class TestCodeTest extends Framework\TestCase
             Fixture\Classes\FinalRule\NeitherAbstractNorFinalClass::class,
             Fixture\Classes\FinalRule\NeitherAbstractNorFinalClassButWhitelisted::class,
         ]);
+    }
+
+    public function testIntegrationTestClassesExtendFromAbstractTestCase(): void
+    {
+        $this->assertClassyConstructsSatisfySpecification(
+            static function (string $className): bool {
+                $reflection = new \ReflectionClass($className);
+
+                if ($reflection->isAbstract() || $reflection->isInterface() || $reflection->isTrait()) {
+                    return true;
+                }
+
+                return $reflection->isSubclassOf(Integration\AbstractTestCase::class);
+            },
+            __DIR__ . '/../Integration',
+            [],
+            \sprintf(
+                "Failed asserting that the integration test classes\n\n%s\n\nextend from \"%s\".",
+                '%s', // 😉
+                Integration\AbstractTestCase::class
+            )
+        );
     }
 }
