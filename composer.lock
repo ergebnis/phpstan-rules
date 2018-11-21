@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "32ce965733ed2b96e346b14c74f99df6",
+    "content-hash": "1ea848a3f0d3655a09c801185de9d905",
     "packages": [
         {
             "name": "composer/xdebug-handler",
@@ -2010,16 +2010,16 @@
         },
         {
             "name": "localheinz/php-cs-fixer-config",
-            "version": "1.16.0",
+            "version": "1.16.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localheinz/php-cs-fixer-config.git",
-                "reference": "35e63ae236a53f7c0327d62537a7b98d3d25bcdb"
+                "reference": "fcdf8540b50ab3a6eac8c6015914af6f88db41ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localheinz/php-cs-fixer-config/zipball/35e63ae236a53f7c0327d62537a7b98d3d25bcdb",
-                "reference": "35e63ae236a53f7c0327d62537a7b98d3d25bcdb",
+                "url": "https://api.github.com/repos/localheinz/php-cs-fixer-config/zipball/fcdf8540b50ab3a6eac8c6015914af6f88db41ae",
+                "reference": "fcdf8540b50ab3a6eac8c6015914af6f88db41ae",
                 "shasum": ""
             },
             "require": {
@@ -2047,7 +2047,7 @@
             ],
             "description": "Provides a configuration factory and multiple rule sets for friendsofphp/php-cs-fixer.",
             "homepage": "https://github.com/localheinz/php-cs-fixer-config",
-            "time": "2018-11-15T13:53:06+00:00"
+            "time": "2018-11-20T22:00:43+00:00"
         },
         {
             "name": "localheinz/test-util",
