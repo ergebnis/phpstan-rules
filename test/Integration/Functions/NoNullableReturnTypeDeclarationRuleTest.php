@@ -14,30 +14,15 @@ declare(strict_types=1);
 namespace Localheinz\PHPStan\Rules\Test\Integration\Functions;
 
 use Localheinz\PHPStan\Rules\Functions\NoNullableReturnTypeDeclarationRule;
+use Localheinz\PHPStan\Rules\Test\Integration\AbstractTestCase;
 use PHPStan\Rules\Rule;
-use PHPStan\Testing\RuleTestCase;
 
 /**
  * @internal
  */
-final class NoNullableReturnTypeDeclarationRuleTest extends RuleTestCase
+final class NoNullableReturnTypeDeclarationRuleTest extends AbstractTestCase
 {
-    /**
-     * @dataProvider providerAnalysisDoesNotResultInErrors
-     *
-     * @param string $path
-     */
-    public function testAnalysisDoesNotResultInErrors(string $path): void
-    {
-        $this->analyse(
-            [
-                $path,
-            ],
-            []
-        );
-    }
-
-    public function providerAnalysisDoesNotResultInErrors(): \Generator
+    public function providerAnalysisSucceeds(): \Generator
     {
         $paths = [
             // anonymous functions are not supported, apparently
@@ -55,25 +40,7 @@ final class NoNullableReturnTypeDeclarationRuleTest extends RuleTestCase
         }
     }
 
-    /**
-     * @dataProvider providerAnalysisResultsInErrors
-     *
-     * @param string $path
-     * @param array  $error
-     */
-    public function testAnalysisResultsInErrors(string $path, array $error): void
-    {
-        $this->analyse(
-            [
-                $path,
-            ],
-            [
-                $error,
-            ]
-        );
-    }
-
-    public function providerAnalysisResultsInErrors(): \Generator
+    public function providerAnalysisFails(): \Generator
     {
         $paths = [
             'named-function-in-script-with-nullable-return-type-declaration' => [
