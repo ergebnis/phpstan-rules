@@ -46,11 +46,11 @@ final class FinalRuleTest extends AbstractTestCase
     {
         $paths = [
             'abstract-class' => [
-                __DIR__ . '/../../Fixture/Classes/FinalRule/Failure/NeitherAbstractNorFinalClass.php',
+                __DIR__ . '/../../Fixture/Classes/FinalRule/Failure/AbstractClass.php',
                 [
                     \sprintf(
                         'Class "%s" should be marked as final.',
-                        Fixture\Classes\FinalRule\Failure\NeitherAbstractNorFinalClass::class
+                        Fixture\Classes\FinalRule\Failure\AbstractClass::class
                     ),
                     7,
                 ],
