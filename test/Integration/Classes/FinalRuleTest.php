@@ -26,13 +26,13 @@ final class FinalRuleTest extends AbstractTestCase
     public function providerAnalysisSucceeds(): \Generator
     {
         $paths = [
-            'final-class' => __DIR__ . '/../../Fixture/Classes/FinalRule/FinalClass.php',
-            'final-class-with-anonymous-class' => __DIR__ . '/../../Fixture/Classes/FinalRule/FinalClassWithAnonymousClass.php',
-            'class-neither-abstract-nor-final-but-whitelisted' => __DIR__ . '/../../Fixture/Classes/FinalRule/NeitherAbstractNorFinalClassButWhitelisted.php',
-            'interface' => __DIR__ . '/../../Fixture/Classes/FinalRule/ExampleInterface.php',
-            'script-with-anonymous-class' => __DIR__ . '/../../Fixture/Classes/FinalRule/script-with-anonymous-class.php',
-            'trait' => __DIR__ . '/../../Fixture/Classes/FinalRule/ExampleTrait.php',
-            'trait-with-anonymous-class' => __DIR__ . '/../../Fixture/Classes/FinalRule/TraitWithAnonymousClass.php',
+            'final-class' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/FinalClass.php',
+            'final-class-with-anonymous-class' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/FinalClassWithAnonymousClass.php',
+            'class-neither-abstract-nor-final-but-whitelisted' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/NeitherAbstractNorFinalClassButWhitelisted.php',
+            'interface' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/ExampleInterface.php',
+            'script-with-anonymous-class' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/script-with-anonymous-class.php',
+            'trait' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/ExampleTrait.php',
+            'trait-with-anonymous-class' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/TraitWithAnonymousClass.php',
         ];
 
         foreach ($paths as $description => $path) {
@@ -46,31 +46,31 @@ final class FinalRuleTest extends AbstractTestCase
     {
         $paths = [
             'abstract-class' => [
-                __DIR__ . '/../../Fixture/Classes/FinalRule/NeitherAbstractNorFinalClass.php',
+                __DIR__ . '/../../Fixture/Classes/FinalRule/Failure/AbstractClass.php',
                 [
                     \sprintf(
                         'Class "%s" should be marked as final.',
-                        Fixture\Classes\FinalRule\NeitherAbstractNorFinalClass::class
+                        Fixture\Classes\FinalRule\Failure\AbstractClass::class
                     ),
                     7,
                 ],
             ],
             'abstract-class-with-anonymous-class' => [
-                __DIR__ . '/../../Fixture/Classes/FinalRule/AbstractClassWithAnonymousClass.php',
+                __DIR__ . '/../../Fixture/Classes/FinalRule/Failure/AbstractClassWithAnonymousClass.php',
                 [
                     \sprintf(
                         'Class "%s" should be marked as final.',
-                        Fixture\Classes\FinalRule\AbstractClassWithAnonymousClass::class
+                        Fixture\Classes\FinalRule\Failure\AbstractClassWithAnonymousClass::class
                     ),
                     7,
                 ],
             ],
             'neither-abstract-nor-final-class' => [
-                __DIR__ . '/../../Fixture/Classes/FinalRule/NeitherAbstractNorFinalClass.php',
+                __DIR__ . '/../../Fixture/Classes/FinalRule/Failure/NeitherAbstractNorFinalClass.php',
                 [
                     \sprintf(
                         'Class "%s" should be marked as final.',
-                        Fixture\Classes\FinalRule\NeitherAbstractNorFinalClass::class
+                        Fixture\Classes\FinalRule\Failure\NeitherAbstractNorFinalClass::class
                     ),
                     7,
                 ],
@@ -88,7 +88,7 @@ final class FinalRuleTest extends AbstractTestCase
     protected function getRule(): Rule
     {
         return new FinalRule([
-            Fixture\Classes\FinalRule\NeitherAbstractNorFinalClassButWhitelisted::class,
+            Fixture\Classes\FinalRule\Success\NeitherAbstractNorFinalClassButWhitelisted::class,
         ]);
     }
 }
