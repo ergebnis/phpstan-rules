@@ -27,12 +27,11 @@ final class AbstractOrFinalRuleTest extends AbstractTestCase
     {
         $paths = [
             'abstract-class' => __DIR__ . '/../../Fixture/Classes/AbstractOrFinalRule/Success/AbstractClass.php',
-            'abstract-class-with-anonymous-class' => __DIR__ . '/../../Fixture/Classes/AbstractOrFinalRule/Success/AbstractClassWithAnonymousClass.php',
+            'anonymous-class' => __DIR__ . '/../../Fixture/Classes/AbstractOrFinalRule/Success/anonymous-class.php',
             'class-neither-abstract-nor-final-but-whitelisted' => __DIR__ . '/../../Fixture/Classes/AbstractOrFinalRule/Success/NeitherAbstractNorFinalClassButWhitelisted.php',
             'final-class' => __DIR__ . '/../../Fixture/Classes/AbstractOrFinalRule/Success/FinalClass.php',
             'final-class-with-anonymous-class' => __DIR__ . '/../../Fixture/Classes/AbstractOrFinalRule/Success/FinalClassWithAnonymousClass.php',
             'interface' => __DIR__ . '/../../Fixture/Classes/AbstractOrFinalRule/Success/ExampleInterface.php',
-            'script-with-anonymous-class' => __DIR__ . '/../../Fixture/Classes/AbstractOrFinalRule/Success/script-with-anonymous-class.php',
             'trait' => __DIR__ . '/../../Fixture/Classes/AbstractOrFinalRule/Success/ExampleTrait.php',
             'trait-with-anonymous-class' => __DIR__ . '/../../Fixture/Classes/AbstractOrFinalRule/Success/TraitWithAnonymousClass.php',
         ];

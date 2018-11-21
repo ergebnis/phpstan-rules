@@ -26,11 +26,11 @@ final class NoNullableReturnTypeDeclarationRuleTest extends AbstractTestCase
     {
         $paths = [
             // anonymous functions are not supported, apparently
-            'anonymous-function-in-script-with-nullable-return-type-declaration' => __DIR__ . '/../../Fixture/Functions/NoNullableReturnTypeDeclaration/Success/anonymous-function-in-script-with-nullable-return-type-declaration.php',
-            'anonymous-function-in-script-with-return-type-declaration' => __DIR__ . '/../../Fixture/Functions/NoNullableReturnTypeDeclaration/Success/anonymous-function-in-script-with-return-type-declaration.php',
-            'anonymous-function-in-script-without-return-type-declaration' => __DIR__ . '/../../Fixture/Functions/NoNullableReturnTypeDeclaration/Success/anonymous-function-in-script-without-return-type-declaration.php',
-            'named-function-in-script-with-return-type-declaration' => __DIR__ . '/../../Fixture/Functions/NoNullableReturnTypeDeclaration/Success/named-function-in-script-with-return-type-declaration.php',
-            'named-function-in-script-without-return-type-declaration' => __DIR__ . '/../../Fixture/Functions/NoNullableReturnTypeDeclaration/Success/named-function-in-script-without-return-type-declaration.php',
+            'anonymous-function-with-nullable-return-type-declaration' => __DIR__ . '/../../Fixture/Functions/NoNullableReturnTypeDeclaration/Success/anonymous-function-with-nullable-return-type-declaration.php',
+            'anonymous-function-with-return-type-declaration' => __DIR__ . '/../../Fixture/Functions/NoNullableReturnTypeDeclaration/Success/anonymous-function-with-return-type-declaration.php',
+            'anonymous-function-without-return-type-declaration' => __DIR__ . '/../../Fixture/Functions/NoNullableReturnTypeDeclaration/Success/anonymous-function-without-return-type-declaration.php',
+            'named-function-with-return-type-declaration' => __DIR__ . '/../../Fixture/Functions/NoNullableReturnTypeDeclaration/Success/named-function-with-return-type-declaration.php',
+            'named-function-without-return-type-declaration' => __DIR__ . '/../../Fixture/Functions/NoNullableReturnTypeDeclaration/Success/named-function-without-return-type-declaration.php',
         ];
 
         foreach ($paths as $description => $path) {
@@ -44,7 +44,7 @@ final class NoNullableReturnTypeDeclarationRuleTest extends AbstractTestCase
     {
         $paths = [
             'named-function-in-script-with-nullable-return-type-declaration' => [
-                __DIR__ . '/../../Fixture/Functions/NoNullableReturnTypeDeclaration/Failure/named-function-in-script-with-nullable-return-type-declaration.php',
+                __DIR__ . '/../../Fixture/Functions/NoNullableReturnTypeDeclaration/Failure/named-function-with-nullable-return-type-declaration.php',
                 [
                     'Function "Localheinz\PHPStan\Rules\Test\Fixture\Functions\NoNullablReturnTypeDeclaration\Failure\foo()" should not have a nullable return type declaration.',
                     7,
