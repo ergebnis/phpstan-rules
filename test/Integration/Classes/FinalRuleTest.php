@@ -30,7 +30,7 @@ final class FinalRuleTest extends AbstractTestCase
             'final-class-with-anonymous-class' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/FinalClassWithAnonymousClass.php',
             'class-neither-abstract-nor-final-but-whitelisted' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/NeitherAbstractNorFinalClassButWhitelisted.php',
             'interface' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/ExampleInterface.php',
-            'script-with-anonymous-class' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/script-with-anonymous-class.php',
+            'script-with-anonymous-class' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/anonymous-class.php',
             'trait' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/ExampleTrait.php',
             'trait-with-anonymous-class' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/TraitWithAnonymousClass.php',
         ];
@@ -51,16 +51,6 @@ final class FinalRuleTest extends AbstractTestCase
                     \sprintf(
                         'Class "%s" should be marked as final.',
                         Fixture\Classes\FinalRule\Failure\AbstractClass::class
-                    ),
-                    7,
-                ],
-            ],
-            'abstract-class-with-anonymous-class' => [
-                __DIR__ . '/../../Fixture/Classes/FinalRule/Failure/AbstractClassWithAnonymousClass.php',
-                [
-                    \sprintf(
-                        'Class "%s" should be marked as final.',
-                        Fixture\Classes\FinalRule\Failure\AbstractClassWithAnonymousClass::class
                     ),
                     7,
                 ],
