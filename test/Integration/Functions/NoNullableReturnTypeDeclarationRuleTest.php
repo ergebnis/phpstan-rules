@@ -80,7 +80,7 @@ final class NoNullableReturnTypeDeclarationRuleTest extends RuleTestCase
                 __DIR__ . '/../../Fixture/Functions/NoNullableReturnTypeDeclaration/named-function-in-script-with-nullable-return-type-declaration.php',
                 [
                     'Function "Localheinz\PHPStan\Rules\Test\Fixture\Functions\NoNullablReturnTypeDeclaration\foo()" should not have a nullable return type declaration.',
-                    16,
+                    7,
                 ],
             ],
         ];

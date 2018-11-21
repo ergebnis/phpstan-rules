@@ -85,7 +85,7 @@ final class NoNullableReturnTypeDeclarationRuleTest extends RuleTestCase
                 __DIR__ . '/../../Fixture/Methods/NoNullableReturnTypeDeclaration/MethodInAnonymousClassWithNullableReturnTypeDeclaration.php',
                 [
                     'Method "toString()" in anonymous class should not have a nullable return type declaration.',
-                    21,
+                    12,
                 ],
             ],
             'method-in-class-with-nullable-return-type-declaration' => [
@@ -95,7 +95,7 @@ final class NoNullableReturnTypeDeclarationRuleTest extends RuleTestCase
                         'Method "%s::toString()" should not have a nullable return type declaration.',
                         Fixture\Methods\NoNullableReturnTypeDeclaration\MethodInClassWithNullableReturnTypeDeclaration::class
                     ),
-                    18,
+                    9,
                 ],
             ],
             'method-in-interface-with-nullable-return-type-declaration' => [
@@ -105,7 +105,7 @@ final class NoNullableReturnTypeDeclarationRuleTest extends RuleTestCase
                     'Method "%s::toString()" should not have a nullable return type declaration.',
                     Fixture\Methods\NoNullableReturnTypeDeclaration\MethodInInterfaceWithNullableReturnTypeDeclaration::class
                     ),
-                    18,
+                    9,
                 ],
             ],
         ];

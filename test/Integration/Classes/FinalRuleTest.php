@@ -85,7 +85,7 @@ final class FinalRuleTest extends RuleTestCase
                         'Class "%s" should be marked as final.',
                         Fixture\Classes\FinalRule\NeitherAbstractNorFinalClass::class
                     ),
-                    16,
+                    7,
                 ],
             ],
             'abstract-class-with-anonymous-class' => [
@@ -95,7 +95,7 @@ final class FinalRuleTest extends RuleTestCase
                         'Class "%s" should be marked as final.',
                         Fixture\Classes\FinalRule\AbstractClassWithAnonymousClass::class
                     ),
-                    16,
+                    7,
                 ],
             ],
             'neither-abstract-nor-final-class' => [
@@ -105,7 +105,7 @@ final class FinalRuleTest extends RuleTestCase
                         'Class "%s" should be marked as final.',
                         Fixture\Classes\FinalRule\NeitherAbstractNorFinalClass::class
                     ),
-                    16,
+                    7,
                 ],
             ],
         ];

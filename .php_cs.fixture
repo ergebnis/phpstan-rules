@@ -1,0 +1,15 @@
+<?php
+
+use Localheinz\PhpCsFixer\Config;
+
+$config = Config\Factory::fromRuleSet(new Config\RuleSet\Php71(''), [
+    'static_lambda' => false,
+]);
+
+$config->getFinder()->in(__DIR__ . '/test/Fixture');
+
+$cacheDir = \getenv('TRAVIS') ? \getenv('HOME') . '/.php-cs-fixer' : __DIR__;
+
+$config->setCacheFile($cacheDir . '/.php_cs.fixture.cache');
+
+return $config;

@@ -13,7 +13,9 @@ EOF;
 
 $config = Config\Factory::fromRuleSet(new Config\RuleSet\Php71($header));
 
-$config->getFinder()->in(__DIR__);
+$config->getFinder()
+    ->in(__DIR__)
+    ->exclude('test/Fixture');
 
 $cacheDir = \getenv('TRAVIS') ? \getenv('HOME') . '/.php-cs-fixer' : __DIR__;
 
