@@ -69,8 +69,8 @@ final class NoNullableReturnTypeDeclarationRuleTest extends AbstractTestCase
                 __DIR__ . '/../../Fixture/Methods/NoNullableReturnTypeDeclaration/Failure/MethodInInterfaceWithNullableReturnTypeDeclaration.php',
                 [
                     \sprintf(
-                    'Method "%s::toString()" should not have a nullable return type declaration.',
-                    Fixture\Methods\NoNullableReturnTypeDeclaration\Failure\MethodInInterfaceWithNullableReturnTypeDeclaration::class
+                        'Method "%s::toString()" should not have a nullable return type declaration.',
+                        Fixture\Methods\NoNullableReturnTypeDeclaration\Failure\MethodInInterfaceWithNullableReturnTypeDeclaration::class
                     ),
                     9,
                 ],
