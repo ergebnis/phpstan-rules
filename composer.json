@@ -4,7 +4,8 @@
   "description": "Provides additional rules for phpstan/phpstan.",
   "keywords": [
     "phpstan",
-    "phpstan-rules"
+    "phpstan-rules",
+    "phpstan-extreme-rules"
   ],
   "homepage": "https://github.com/localheinz/phpstan-rules",
   "license": "MIT",
