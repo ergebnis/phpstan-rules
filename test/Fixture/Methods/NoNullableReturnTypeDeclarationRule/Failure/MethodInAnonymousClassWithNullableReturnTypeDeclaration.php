@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Localheinz\PHPStan\Rules\Test\Fixture\Methods\NoNullableReturnTypeDeclaration\Failure;
+namespace Localheinz\PHPStan\Rules\Test\Fixture\Methods\NoNullableReturnTypeDeclarationRule\Failure;
 
 final class MethodInAnonymousClassWithNullableReturnTypeDeclaration
 {
