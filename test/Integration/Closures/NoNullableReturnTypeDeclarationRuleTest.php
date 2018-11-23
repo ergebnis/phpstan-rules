@@ -11,9 +11,9 @@ declare(strict_types=1);
  * @see https://github.com/localheinz/phpstan-rules
  */
 
-namespace Localheinz\PHPStan\Rules\Test\Integration\Functions;
+namespace Localheinz\PHPStan\Rules\Test\Integration\Closures;
 
-use Localheinz\PHPStan\Rules\Functions\NoNullableReturnTypeDeclarationRule;
+use Localheinz\PHPStan\Rules\Closures\NoNullableReturnTypeDeclarationRule;
 use Localheinz\PHPStan\Rules\Test\Integration\AbstractTestCase;
 use PHPStan\Rules\Rule;
 
@@ -25,8 +25,8 @@ final class NoNullableReturnTypeDeclarationRuleTest extends AbstractTestCase
     public function providerAnalysisSucceeds(): \Generator
     {
         $paths = [
-            'function--with-return-type-declaration' => __DIR__ . '/../../Fixture/Functions/NoNullableReturnTypeDeclarationRule/Success/function-with-return-type-declaration.php',
-            'function--without-return-type-declaration' => __DIR__ . '/../../Fixture/Functions/NoNullableReturnTypeDeclarationRule/Success/function-without-return-type-declaration.php',
+            'closure-with-return-type-declaration' => __DIR__ . '/../../Fixture/Closures/NoNullableReturnTypeDeclarationRule/Success/closure-with-return-type-declaration.php',
+            'closure-function-without-return-type-declaration' => __DIR__ . '/../../Fixture/Closures/NoNullableReturnTypeDeclarationRule/Success/closure-without-return-type-declaration.php',
         ];
 
         foreach ($paths as $description => $path) {
@@ -39,10 +39,10 @@ final class NoNullableReturnTypeDeclarationRuleTest extends AbstractTestCase
     public function providerAnalysisFails(): \Generator
     {
         $paths = [
-            'function-with-nullable-return-type-declaration' => [
-                __DIR__ . '/../../Fixture/Functions/NoNullableReturnTypeDeclarationRule/Failure/function-with-nullable-return-type-declaration.php',
+            'closure-with-nullable-return-type-declaration' => [
+                __DIR__ . '/../../Fixture/Closures/NoNullableReturnTypeDeclarationRule/Failure/closure-with-nullable-return-type-declaration.php',
                 [
-                    'Function "Localheinz\PHPStan\Rules\Test\Fixture\Functions\NoNullableReturnTypeDeclarationRule\Failure\foo()" should not have a nullable return type declaration.',
+                    'Closure should not have a nullable return type declaration.',
                     7,
                 ],
             ],
