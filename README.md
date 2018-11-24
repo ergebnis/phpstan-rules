@@ -26,6 +26,7 @@ This package provides the following rules for use with [`phpstan/phpstan`](https
 * [`Localheinz\PHPStan\Rules\Functions\NoNullableReturnTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#functionsnonullablereturntypedeclarationrule)
 * [`Localheinz\PHPStan\Rules\Functions\NoParameterWithNullDefaultValueRule`](https://github.com/localheinz/phpstan-rules#functionsnoparameterwithnulldefaultvaluerule)
 * [`Localheinz\PHPStan\Rules\Methods\NoNullableReturnTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#methodsnonullablereturntypedeclarationrule)
+* [`Localheinz\PHPStan\Rules\Methods\NoParameterWithNullDefaultValueRule`](https://github.com/localheinz/phpstan-rules#methodsnoparameterwithnulldefaultvaluerule)
 
 ### `Classes\AbstractOrFinalRule`
 
@@ -130,6 +131,17 @@ If you want to use this rule, add it to your `phpstan.neon`:
 ```neon
 rules:
 	- Localheinz\PHPStan\Rules\Methods\NoNullableReturnTypeDeclarationRule
+```
+
+### `Methods\NoParameterWithNullDefaultValueRule`
+
+This rule reports an error when a method declared in an anonymous class, a class, or an interface has a parameter with `null` as default value.
+
+If you want to use this rule, add it to your `phpstan.neon`:
+
+```neon
+rules:
+	- Localheinz\PHPStan\Rules\Methods\NoParameterWithNullDefaultValueRule
 ```
 
 ## Changelog

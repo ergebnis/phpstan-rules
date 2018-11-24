@@ -7,3 +7,4 @@ rules:
 	- Localheinz\PHPStan\Rules\Functions\NoNullableReturnTypeDeclarationRule
 	- Localheinz\PHPStan\Rules\Functions\NoParameterWithNullDefaultValueRule
 	- Localheinz\PHPStan\Rules\Methods\NoNullableReturnTypeDeclarationRule
+	- Localheinz\PHPStan\Rules\Methods\NoParameterWithNullDefaultValueRule

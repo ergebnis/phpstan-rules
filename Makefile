@@ -10,7 +10,7 @@ cs: vendor
 	vendor/bin/php-cs-fixer fix --config=.php_cs.fixture --diff --verbose
 
 infection: vendor
-	vendor/bin/infection --min-covered-msi=92 --min-msi=92
+	vendor/bin/infection --min-covered-msi=94 --min-msi=94
 
 stan: vendor
 	vendor/bin/phpstan analyse --configuration=phpstan.neon --level=max src
