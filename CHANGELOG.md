@@ -29,6 +29,9 @@ For a full diff see [`0.2.0...master`](https://github.com/localheinz/phpstan-rul
   error when a closure has a parameter with a nullable type declaration ([#33](https://github.com/localheinz/phpstan-rules/pull/33)), by [@localheinz](https://github.com/localheinz)
 * added `Functions\NoParameterWithNullableTypeDeclarationRule`, which reports an
   error when a function has a parameter with a nullable type declaration ([#34](https://github.com/localheinz/phpstan-rules/pull/34)), by [@localheinz](https://github.com/localheinz)
+* added `Methods\NoParameterWithNullableTypeDeclarationRule`, which reports an
+  error when a method declared on an anonymous class, a class, or an interface
+  has a parameter with a nullable type declaration ([#35](https://github.com/localheinz/phpstan-rules/pull/35)), by [@localheinz](https://github.com/localheinz)
 
 ## [`0.2.0`](https://github.com/localheinz/phpstan-rules/releases/tag/0.2.0)
 
