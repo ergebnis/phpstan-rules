@@ -7,5 +7,6 @@ rules:
 	- Localheinz\PHPStan\Rules\Closures\NoParameterWithNullableTypeDeclarationRule
 	- Localheinz\PHPStan\Rules\Functions\NoNullableReturnTypeDeclarationRule
 	- Localheinz\PHPStan\Rules\Functions\NoParameterWithNullDefaultValueRule
+	- Localheinz\PHPStan\Rules\Functions\NoParameterWithNullableTypeDeclarationRule
 	- Localheinz\PHPStan\Rules\Methods\NoNullableReturnTypeDeclarationRule
 	- Localheinz\PHPStan\Rules\Methods\NoParameterWithNullDefaultValueRule
