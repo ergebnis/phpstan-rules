@@ -22,6 +22,7 @@ This package provides the following rules for use with [`phpstan/phpstan`](https
 * [`Localheinz\PHPStan\Rules\Classes\AbstractOrFinalRule`](https://github.com/localheinz/phpstan-rules#classesabstractorfinalrule)
 * [`Localheinz\PHPStan\Rules\Classes\FinalRule`](https://github.com/localheinz/phpstan-rules#classesfinalrule)
 * [`Localheinz\PHPStan\Rules\Closures\NoNullableReturnTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#closuresnonullablereturntypedeclarationrule)
+* [`Localheinz\PHPStan\Rules\Closures\NoParameterWithNullDefaultValueRule`](https://github.com/localheinz/phpstan-rules#closuresnoparameterwithnulldefaultvaluerule)
 * [`Localheinz\PHPStan\Rules\Functions\NoNullableReturnTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#functionsnonullablereturntypedeclarationrule)
 * [`Localheinz\PHPStan\Rules\Methods\NoNullableReturnTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#methodsnonullablereturntypedeclarationrule)
 
@@ -84,6 +85,17 @@ If you want to use this rule, add it to your `phpstan.neon`:
 ```neon
 rules:
 	- Localheinz\PHPStan\Rules\Closures\NoNullableReturnTypeDeclarationRule
+```
+
+### `Closures\NoParameterWithNullDefaultValueRule`
+
+This rule reports an error when a closure has a parameter with `null` as default value.
+
+If you want to use this rule, add it to your `phpstan.neon`:
+
+```neon
+rules:
+	- Localheinz\PHPStan\Rules\Closures\NoParameterWithNullDefaultValueRule
 ```
 
 ### `Functions\NoNullableReturnTypeDeclarationRule`

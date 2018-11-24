@@ -16,6 +16,8 @@ For a full diff see [`0.2.0...master`](https://github.com/localheinz/phpstan-rul
   `Methods\NoNullableReturnTypeDeclarationRule`, which reports an error
   when a method declared on an anonymous class, a class, or an interface has a
   nullable return type declaration ([#16](https://github.com/localheinz/phpstan-rules/pull/16)), by [@localheinz](https://github.com/localheinz)
+* added `Closures\NoParameterWithNullDefaultValueRule`, which reports an
+  error when a closure has a parameter with `null` as default value ([#26](https://github.com/localheinz/phpstan-rules/pull/26)), by [@localheinz](https://github.com/localheinz)
 * added `Closures\NoNullableReturnTypeDeclarationRule`, which reports an
   error when a closure has a nullable return type declaration ([#29](https://github.com/localheinz/phpstan-rules/pull/29)), by [@localheinz](https://github.com/localheinz)
 
