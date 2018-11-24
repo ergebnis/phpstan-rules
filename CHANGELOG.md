@@ -27,6 +27,8 @@ For a full diff see [`0.2.0...master`](https://github.com/localheinz/phpstan-rul
   has a parameter with `null` as default value ([#32](https://github.com/localheinz/phpstan-rules/pull/32)), by [@localheinz](https://github.com/localheinz)
 * added `Closures\NoParameterWithNullableTypeDeclarationRule`, which reports an
   error when a closure has a parameter with a nullable type declaration ([#33](https://github.com/localheinz/phpstan-rules/pull/33)), by [@localheinz](https://github.com/localheinz)
+* added `Functions\NoParameterWithNullableTypeDeclarationRule`, which reports an
+  error when a function has a parameter with a nullable type declaration ([#34](https://github.com/localheinz/phpstan-rules/pull/34)), by [@localheinz](https://github.com/localheinz)
 
 ## [`0.2.0`](https://github.com/localheinz/phpstan-rules/releases/tag/0.2.0)
 

@@ -26,6 +26,7 @@ This package provides the following rules for use with [`phpstan/phpstan`](https
 * [`Localheinz\PHPStan\Rules\Closures\NoParameterWithNullDefaultValueRule`](https://github.com/localheinz/phpstan-rules#closuresnoparameterwithnulldefaultvaluerule)
 * [`Localheinz\PHPStan\Rules\Functions\NoNullableReturnTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#functionsnonullablereturntypedeclarationrule)
 * [`Localheinz\PHPStan\Rules\Functions\NoParameterWithNullDefaultValueRule`](https://github.com/localheinz/phpstan-rules#functionsnoparameterwithnulldefaultvaluerule)
+* [`Localheinz\PHPStan\Rules\Functions\NoParameterWithNullableTypeDeclaration`](https://github.com/localheinz/phpstan-rules#functionsnoparameterwithnullabletypedeclarationrule)
 * [`Localheinz\PHPStan\Rules\Methods\NoNullableReturnTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#methodsnonullablereturntypedeclarationrule)
 * [`Localheinz\PHPStan\Rules\Methods\NoParameterWithNullDefaultValueRule`](https://github.com/localheinz/phpstan-rules#methodsnoparameterwithnulldefaultvaluerule)
 
@@ -121,6 +122,17 @@ If you want to use this rule, add it to your `phpstan.neon`:
 ```neon
 rules:
 	- Localheinz\PHPStan\Rules\Functions\NoNullableReturnTypeDeclarationRule
+```
+
+### `Functions\NoParameterWithNullableTypeDeclarationRule`
+
+This rule reports an error when a function has a parameter with a nullable type declaration.
+
+If you want to use this rule, add it to your `phpstan.neon`:
+
+```neon
+rules:
+	- Localheinz\PHPStan\Rules\Functions\NoParameterWithNullableTypeDeclarationRule
 ```
 
 ### `Functions\NoParameterWithNullDefaultValueRule`
