@@ -31,6 +31,15 @@ This package provides the following rules for use with [`phpstan/phpstan`](https
 * [`Localheinz\PHPStan\Rules\Methods\NoParameterWithNullableTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#methodsnoparameterwithnullabletypedeclarationrule)
 * [`Localheinz\PHPStan\Rules\Methods\NoParameterWithNullDefaultValueRule`](https://github.com/localheinz/phpstan-rules#methodsnoparameterwithnulldefaultvaluerule)
 
+:bulb: If you want to use all of these rules, include [`rules.neon`](rules.neon) in your `phpstan.neon`:
+
+```neon
+includes:
+	- vendor/localheinz/phpstan-rules/rules.neon
+```
+
+You probably want to use these rules on top of [`phpstan/phpstan-strict-rules`](https://github.com/phpstan/phpstan-strict-rules).
+
 ### `Classes\AbstractOrFinalRule`
 
 This rule reports an error when a non-anonymous class is neither `abstract` nor `final`.

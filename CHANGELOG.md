@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 For a full diff see [`0.2.0...master`](https://github.com/localheinz/phpstan-rules/compare/0.2.0...master).
 
+## [`0.3.0`](https://github.com/localheinz/phpstan-rules/releases/tag/0.3.0)
+
+For a full diff see [`0.2.0...0.3.0`](https://github.com/localheinz/phpstan-rules/compare/0.2.0...0.3.0).
+
 ### Added
 
 * added `Functions\NoNullableReturnTypeDeclarationRule`, which reports an
@@ -32,6 +36,8 @@ For a full diff see [`0.2.0...master`](https://github.com/localheinz/phpstan-rul
 * added `Methods\NoParameterWithNullableTypeDeclarationRule`, which reports an
   error when a method declared in an anonymous class, a class, or an interface
   has a parameter with a nullable type declaration ([#35](https://github.com/localheinz/phpstan-rules/pull/35)), by [@localheinz](https://github.com/localheinz)
+* extracted `rules.neon`, so you can easily enable all rules by including it
+  in your `phpstan.neon` ([#37](https://github.com/localheinz/phpstan-rules/pull/37)), by [@localheinz](https://github.com/localheinz)
 
 ## [`0.2.0`](https://github.com/localheinz/phpstan-rules/releases/tag/0.2.0)
 
