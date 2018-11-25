@@ -10,3 +10,4 @@ rules:
 	- Localheinz\PHPStan\Rules\Functions\NoParameterWithNullableTypeDeclarationRule
 	- Localheinz\PHPStan\Rules\Methods\NoNullableReturnTypeDeclarationRule
 	- Localheinz\PHPStan\Rules\Methods\NoParameterWithNullDefaultValueRule
+	- Localheinz\PHPStan\Rules\Methods\NoParameterWithNullableTypeDeclarationRule
