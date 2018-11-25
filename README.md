@@ -149,7 +149,7 @@ rules:
 
 ### `Methods\NoNullableReturnTypeDeclarationRule`
 
-This rule reports an error when a method declared on an anonymous class, a class, or an interface uses a nullable return type declaration.
+This rule reports an error when a method declared in an anonymous class, a class, or an interface uses a nullable return type declaration.
 
 If you want to use this rule, add it to your `phpstan.neon`:
 
