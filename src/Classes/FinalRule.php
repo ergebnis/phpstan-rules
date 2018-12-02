@@ -56,7 +56,7 @@ final class FinalRule implements Rule
 
         return [
             \sprintf(
-                'Class "%s" should be marked as final.',
+                'Class %s should be marked as final.',
                 $node->namespacedName
             ),
         ];

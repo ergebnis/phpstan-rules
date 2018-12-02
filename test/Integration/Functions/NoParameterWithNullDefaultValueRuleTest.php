@@ -43,21 +43,21 @@ final class NoParameterWithNullDefaultValueRuleTest extends AbstractTestCase
             'function-with-parameter-with-null-default-value' => [
                 __DIR__ . '/../../Fixture/Functions/NoParameterWithNullDefaultValueRule/Failure/function-with-parameter-with-null-default-value.php',
                 [
-                    'Parameter "$bar" of function "Localheinz\PHPStan\Rules\Test\Fixture\Functions\NoParameterWithNullDefaultValueRule\Failure\foo()" should not have null as default value.',
+                    'Parameter $bar of function Localheinz\PHPStan\Rules\Test\Fixture\Functions\NoParameterWithNullDefaultValueRule\Failure\foo() should not have null as default value.',
                     7,
                 ],
             ],
             'function-with-parameter-with-root-namespace-referenced-null-default-value' => [
                 __DIR__ . '/../../Fixture/Functions/NoParameterWithNullDefaultValueRule/Failure/function-with-parameter-with-root-namespace-referenced-null-default-value.php',
                 [
-                    'Parameter "$bar" of function "Localheinz\PHPStan\Rules\Test\Fixture\Functions\NoParameterWithNullDefaultValueRule\Failure\foo()" should not have null as default value.',
+                    'Parameter $bar of function Localheinz\PHPStan\Rules\Test\Fixture\Functions\NoParameterWithNullDefaultValueRule\Failure\foo() should not have null as default value.',
                     7,
                 ],
             ],
             'function-with-parameter-with-wrongly-capitalized-null-default-value' => [
                 __DIR__ . '/../../Fixture/Functions/NoParameterWithNullDefaultValueRule/Failure/function-with-parameter-with-wrongly-capitalized-null-default-value.php',
                 [
-                    'Parameter "$bar" of function "Localheinz\PHPStan\Rules\Test\Fixture\Functions\NoParameterWithNullDefaultValueRule\Failure\foo()" should not have null as default value.',
+                    'Parameter $bar of function Localheinz\PHPStan\Rules\Test\Fixture\Functions\NoParameterWithNullDefaultValueRule\Failure\foo() should not have null as default value.',
                     7,
                 ],
             ],

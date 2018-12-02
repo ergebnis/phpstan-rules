@@ -50,7 +50,7 @@ final class AbstractOrFinalRuleTest extends AbstractTestCase
                 __DIR__ . '/../../Fixture/Classes/AbstractOrFinalRule/Failure/NeitherAbstractNorFinalClass.php',
                 [
                     \sprintf(
-                        'Class "%s" should be marked as abstract or final.',
+                        'Class %s should be marked as abstract or final.',
                         Fixture\Classes\AbstractOrFinalRule\Failure\NeitherAbstractNorFinalClass::class
                     ),
                     7,

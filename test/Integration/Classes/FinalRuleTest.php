@@ -49,7 +49,7 @@ final class FinalRuleTest extends AbstractTestCase
                 __DIR__ . '/../../Fixture/Classes/FinalRule/Failure/AbstractClass.php',
                 [
                     \sprintf(
-                        'Class "%s" should be marked as final.',
+                        'Class %s should be marked as final.',
                         Fixture\Classes\FinalRule\Failure\AbstractClass::class
                     ),
                     7,
@@ -59,7 +59,7 @@ final class FinalRuleTest extends AbstractTestCase
                 __DIR__ . '/../../Fixture/Classes/FinalRule/Failure/NeitherAbstractNorFinalClass.php',
                 [
                     \sprintf(
-                        'Class "%s" should be marked as final.',
+                        'Class %s should be marked as final.',
                         Fixture\Classes\FinalRule\Failure\NeitherAbstractNorFinalClass::class
                     ),
                     7,
