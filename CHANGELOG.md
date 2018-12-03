@@ -30,7 +30,7 @@ For a full diff see [`0.2.0...0.3.0`](https://github.com/localheinz/phpstan-rule
 * Added `Closures\NoParameterWithNullableTypeDeclarationRule`, which reports an error when a closure has a parameter with a nullable type declaration ([#33](https://github.com/localheinz/phpstan-rules/pull/33)), by [@localheinz](https://github.com/localheinz)
 * Added `Functions\NoParameterWithNullableTypeDeclarationRule`, which reports an error when a function has a parameter with a nullable type declaration ([#34](https://github.com/localheinz/phpstan-rules/pull/34)), by [@localheinz](https://github.com/localheinz)
 * Added `Methods\NoParameterWithNullableTypeDeclarationRule`, which reports an error when a method declared in an anonymous class, a class, or an interface has a parameter with a nullable type declaration ([#35](https://github.com/localheinz/phpstan-rules/pull/35)), by [@localheinz](https://github.com/localheinz)
-* extracted `rules.neon`, so you can easily enable all rules by including it in your `phpstan.neon` ([#37](https://github.com/localheinz/phpstan-rules/pull/37)), by [@localheinz](https://github.com/localheinz)
+* Extracted `rules.neon`, so you can easily enable all rules by including it in your `phpstan.neon` ([#37](https://github.com/localheinz/phpstan-rules/pull/37)), by [@localheinz](https://github.com/localheinz)
 
 ## [`0.2.0`](https://github.com/localheinz/phpstan-rules/releases/tag/0.2.0)
 
