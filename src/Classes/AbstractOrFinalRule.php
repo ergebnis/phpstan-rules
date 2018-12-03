@@ -57,7 +57,7 @@ final class AbstractOrFinalRule implements Rule
 
         return [
             \sprintf(
-                'Class "%s" should be marked as abstract or final.',
+                'Class %s should be marked as abstract or final.',
                 $node->namespacedName
             ),
         ];

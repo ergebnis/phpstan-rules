@@ -58,7 +58,7 @@ final class NoParameterWithNullDefaultValueRule implements Rule
             $parameterName = $variable->name;
 
             return \sprintf(
-                'Parameter "$%s" of function "%s()" should not have null as default value.',
+                'Parameter $%s of function %s() should not have null as default value.',
                 $parameterName,
                 $functionName
             );

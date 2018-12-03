@@ -57,21 +57,21 @@ final class NoParameterWithNullDefaultValueRuleTest extends AbstractTestCase
             'method-in-anonymous-class-with-parameter-with-null-default-value' => [
                 __DIR__ . '/../../Fixture/Methods/NoParameterWithNullDefaultValueRule/Failure/method-in-anonymous-class-with-parameter-with-null-default-value.php',
                 [
-                    'Parameter "$bar" of method "foo()" in anonymous class should not have null as default value.',
+                    'Parameter $bar of method foo() in anonymous class should not have null as default value.',
                     8,
                 ],
             ],
             'method-in-anonymous-class-with-parameter-with-root-namespace-referenced-null-default-value' => [
                 __DIR__ . '/../../Fixture/Methods/NoParameterWithNullDefaultValueRule/Failure/method-in-anonymous-class-with-parameter-with-root-namespace-referenced-null-default-value.php',
                 [
-                    'Parameter "$bar" of method "foo()" in anonymous class should not have null as default value.',
+                    'Parameter $bar of method foo() in anonymous class should not have null as default value.',
                     8,
                 ],
             ],
             'method-in-anonymous-class-with-parameter-with-wrongly-capitalized-null-default-value' => [
                 __DIR__ . '/../../Fixture/Methods/NoParameterWithNullDefaultValueRule/Failure/method-in-anonymous-class-with-parameter-with-wrongly-capitalized-null-default-value.php',
                 [
-                    'Parameter "$bar" of method "foo()" in anonymous class should not have null as default value.',
+                    'Parameter $bar of method foo() in anonymous class should not have null as default value.',
                     8,
                 ],
             ],
@@ -79,7 +79,7 @@ final class NoParameterWithNullDefaultValueRuleTest extends AbstractTestCase
                 __DIR__ . '/../../Fixture/Methods/NoParameterWithNullDefaultValueRule/Failure/MethodInClassWithParameterWithNullDefaultValue.php',
                 [
                     \sprintf(
-                        'Parameter "$bar" of method "%s::foo()" should not have null as default value.',
+                        'Parameter $bar of method %s::foo() should not have null as default value.',
                         Fixture\Methods\NoParameterWithNullDefaultValueRule\Failure\MethodInClassWithParameterWithNullDefaultValue::class
                     ),
                     9,
@@ -89,7 +89,7 @@ final class NoParameterWithNullDefaultValueRuleTest extends AbstractTestCase
                 __DIR__ . '/../../Fixture/Methods/NoParameterWithNullDefaultValueRule/Failure/MethodInClassWithParameterWithRootNamespaceReferencedNullDefaultValue.php',
                 [
                     \sprintf(
-                        'Parameter "$bar" of method "%s::foo()" should not have null as default value.',
+                        'Parameter $bar of method %s::foo() should not have null as default value.',
                         Fixture\Methods\NoParameterWithNullDefaultValueRule\Failure\MethodInClassWithParameterWithRootNamespaceReferencedNullDefaultValue::class
                     ),
                     9,
@@ -99,7 +99,7 @@ final class NoParameterWithNullDefaultValueRuleTest extends AbstractTestCase
                 __DIR__ . '/../../Fixture/Methods/NoParameterWithNullDefaultValueRule/Failure/MethodInClassWithParameterWithWronglyCapitalizedNullDefaultValue.php',
                 [
                     \sprintf(
-                        'Parameter "$bar" of method "%s::foo()" should not have null as default value.',
+                        'Parameter $bar of method %s::foo() should not have null as default value.',
                         Fixture\Methods\NoParameterWithNullDefaultValueRule\Failure\MethodInClassWithParameterWithWronglyCapitalizedNullDefaultValue::class
                     ),
                     9,
@@ -109,7 +109,7 @@ final class NoParameterWithNullDefaultValueRuleTest extends AbstractTestCase
                 __DIR__ . '/../../Fixture/Methods/NoParameterWithNullDefaultValueRule/Failure/MethodInInterfaceWithParameterWithNullDefaultValue.php',
                 [
                     \sprintf(
-                        'Parameter "$bar" of method "%s::foo()" should not have null as default value.',
+                        'Parameter $bar of method %s::foo() should not have null as default value.',
                         Fixture\Methods\NoParameterWithNullDefaultValueRule\Failure\MethodInInterfaceWithParameterWithNullDefaultValue::class
                     ),
                     9,
@@ -119,7 +119,7 @@ final class NoParameterWithNullDefaultValueRuleTest extends AbstractTestCase
                 __DIR__ . '/../../Fixture/Methods/NoParameterWithNullDefaultValueRule/Failure/MethodInInterfaceWithParameterWithRootNamespaceReferencedNullDefaultValue.php',
                 [
                     \sprintf(
-                        'Parameter "$bar" of method "%s::foo()" should not have null as default value.',
+                        'Parameter $bar of method %s::foo() should not have null as default value.',
                         Fixture\Methods\NoParameterWithNullDefaultValueRule\Failure\MethodInInterfaceWithParameterWithRootNamespaceReferencedNullDefaultValue::class
                     ),
                     9,
@@ -129,7 +129,7 @@ final class NoParameterWithNullDefaultValueRuleTest extends AbstractTestCase
                 __DIR__ . '/../../Fixture/Methods/NoParameterWithNullDefaultValueRule/Failure/MethodInInterfaceWithParameterWithWronlgyCapitalizedNullDefaultValue.php',
                 [
                     \sprintf(
-                        'Parameter "$bar" of method "%s::foo()" should not have null as default value.',
+                        'Parameter $bar of method %s::foo() should not have null as default value.',
                         Fixture\Methods\NoParameterWithNullDefaultValueRule\Failure\MethodInInterfaceWithParameterWithWronlgyCapitalizedNullDefaultValue::class
                     ),
                     9,

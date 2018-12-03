@@ -56,7 +56,7 @@ final class NoParameterWithNullDefaultValueRule implements Rule
             $parameterName = $variable->name;
 
             return \sprintf(
-                'Parameter "$%s" of closure should not have null as default value.',
+                'Parameter $%s of closure should not have null as default value.',
                 $parameterName
             );
         }, $params);

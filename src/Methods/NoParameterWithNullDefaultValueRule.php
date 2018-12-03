@@ -63,7 +63,7 @@ final class NoParameterWithNullDefaultValueRule implements Rule
                 $parameterName = $variable->name;
 
                 return \sprintf(
-                    'Parameter "$%s" of method "%s()" in anonymous class should not have null as default value.',
+                    'Parameter $%s of method %s() in anonymous class should not have null as default value.',
                     $parameterName,
                     $methodName
                 );
@@ -80,7 +80,7 @@ final class NoParameterWithNullDefaultValueRule implements Rule
             $parameterName = $variable->name;
 
             return \sprintf(
-                'Parameter "$%s" of method "%s::%s()" should not have null as default value.',
+                'Parameter $%s of method %s::%s() should not have null as default value.',
                 $parameterName,
                 $className,
                 $methodName
