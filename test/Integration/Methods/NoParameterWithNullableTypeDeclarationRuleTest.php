@@ -54,7 +54,7 @@ final class NoParameterWithNullableTypeDeclarationRuleTest extends AbstractTestC
             'method-in-anonymous-class-with-parameter-with-nullable-type-declaration' => [
                 __DIR__ . '/../../Fixture/Methods/NoParameterWithNullableTypeDeclarationRule/Failure/method-in-anonymous-class-with-parameter-with-nullable-type-declaration.php',
                 [
-                    'Parameter $bar of method foo() in anonymous class should not have a nullable type declaration.',
+                    'Method foo() in anonymous class has parameter $bar with a nullable type declaration.',
                     8,
                 ],
             ],
@@ -62,7 +62,7 @@ final class NoParameterWithNullableTypeDeclarationRuleTest extends AbstractTestC
                 __DIR__ . '/../../Fixture/Methods/NoParameterWithNullableTypeDeclarationRule/Failure/MethodInClassWithParameterWithNullableTypeDeclaration.php',
                 [
                     \sprintf(
-                        'Parameter $bar of method %s::foo() should not have a nullable type declaration.',
+                        'Method %s::foo() has parameter $bar with a nullable type declaration.',
                         Fixture\Methods\NoParameterWithNullableTypeDeclarationRule\Failure\MethodInClassWithParameterWithNullableTypeDeclaration::class
                     ),
                     9,
@@ -72,7 +72,7 @@ final class NoParameterWithNullableTypeDeclarationRuleTest extends AbstractTestC
                 __DIR__ . '/../../Fixture/Methods/NoParameterWithNullableTypeDeclarationRule/Failure/MethodInInterfaceWithParameterWithNullableTypeDeclaration.php',
                 [
                     \sprintf(
-                        'Parameter $bar of method %s::foo() should not have a nullable type declaration.',
+                        'Method %s::foo() has parameter $bar with a nullable type declaration.',
                         Fixture\Methods\NoParameterWithNullableTypeDeclarationRule\Failure\MethodInInterfaceWithParameterWithNullableTypeDeclaration::class
                     ),
                     9,

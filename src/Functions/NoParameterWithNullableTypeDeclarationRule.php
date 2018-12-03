@@ -54,9 +54,9 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rule
             $parameterName = $variable->name;
 
             return \sprintf(
-                'Parameter $%s of function "%s()" should not have a nullable type declaration.',
-                $parameterName,
-                $functionName
+                'Function %s() has parameter $%s with a nullable type declaration.',
+                $functionName,
+                $parameterName
             );
         }, $params);
     }

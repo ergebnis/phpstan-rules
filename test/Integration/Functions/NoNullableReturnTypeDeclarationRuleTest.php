@@ -42,7 +42,7 @@ final class NoNullableReturnTypeDeclarationRuleTest extends AbstractTestCase
             'function-with-nullable-return-type-declaration' => [
                 __DIR__ . '/../../Fixture/Functions/NoNullableReturnTypeDeclarationRule/Failure/function-with-nullable-return-type-declaration.php',
                 [
-                    'Function Localheinz\PHPStan\Rules\Test\Fixture\Functions\NoNullableReturnTypeDeclarationRule\Failure\foo() should not have a nullable return type declaration.',
+                    'Function Localheinz\PHPStan\Rules\Test\Fixture\Functions\NoNullableReturnTypeDeclarationRule\Failure\foo() has a nullable return type declaration.',
                     7,
                 ],
             ],

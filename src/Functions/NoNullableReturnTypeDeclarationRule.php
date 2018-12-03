@@ -38,7 +38,7 @@ final class NoNullableReturnTypeDeclarationRule implements Rule
 
         return [
             \sprintf(
-                'Function %s() should not have a nullable return type declaration.',
+                'Function %s() has a nullable return type declaration.',
                 $node->namespacedName
             ),
         ];

@@ -45,7 +45,7 @@ final class NoNullableReturnTypeDeclarationRule implements Rule
         if ($classReflection->isAnonymous()) {
             return [
                 \sprintf(
-                    'Method %s() in anonymous class should not have a nullable return type declaration.',
+                    'Method %s() in anonymous class has a nullable return type declaration.',
                     $node->name->name
                 ),
             ];
@@ -53,7 +53,7 @@ final class NoNullableReturnTypeDeclarationRule implements Rule
 
         return [
             \sprintf(
-                'Method %s::%s() should not have a nullable return type declaration.',
+                'Method %s::%s() has a nullable return type declaration.',
                 $classReflection->getName(),
                 $node->name->name
             ),
