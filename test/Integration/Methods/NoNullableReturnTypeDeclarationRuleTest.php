@@ -51,7 +51,7 @@ final class NoNullableReturnTypeDeclarationRuleTest extends AbstractTestCase
             'method-in-anonymous-class-with-nullable-return-type-declaration' => [
                 __DIR__ . '/../../Fixture/Methods/NoNullableReturnTypeDeclarationRule/Failure/MethodInAnonymousClassWithNullableReturnTypeDeclaration.php',
                 [
-                    'Method toString() in anonymous class should not have a nullable return type declaration.',
+                    'Method toString() in anonymous class has a nullable return type declaration.',
                     12,
                 ],
             ],
@@ -59,7 +59,7 @@ final class NoNullableReturnTypeDeclarationRuleTest extends AbstractTestCase
                 __DIR__ . '/../../Fixture/Methods/NoNullableReturnTypeDeclarationRule/Failure/MethodInClassWithNullableReturnTypeDeclaration.php',
                 [
                     \sprintf(
-                        'Method %s::toString() should not have a nullable return type declaration.',
+                        'Method %s::toString() has a nullable return type declaration.',
                         Fixture\Methods\NoNullableReturnTypeDeclarationRule\Failure\MethodInClassWithNullableReturnTypeDeclaration::class
                     ),
                     9,
@@ -69,7 +69,7 @@ final class NoNullableReturnTypeDeclarationRuleTest extends AbstractTestCase
                 __DIR__ . '/../../Fixture/Methods/NoNullableReturnTypeDeclarationRule/Failure/MethodInInterfaceWithNullableReturnTypeDeclaration.php',
                 [
                     \sprintf(
-                        'Method %s::toString() should not have a nullable return type declaration.',
+                        'Method %s::toString() has a nullable return type declaration.',
                         Fixture\Methods\NoNullableReturnTypeDeclarationRule\Failure\MethodInInterfaceWithNullableReturnTypeDeclaration::class
                     ),
                     9,

@@ -43,21 +43,21 @@ final class NoParameterWithNullDefaultValueRuleTest extends AbstractTestCase
             'closure-with-parameter-with-null-default-value' => [
                 __DIR__ . '/../../Fixture/Closures/NoParameterWithNullDefaultValueRule/Failure/closure-with-parameter-with-null-default-value.php',
                 [
-                    'Parameter $bar of closure should not have null as default value.',
+                    'Closure has parameter $bar with null as default value.',
                     7,
                 ],
             ],
             'closure-with-parameter-with-root-namespace-referenced-null-default-value' => [
                 __DIR__ . '/../../Fixture/Closures/NoParameterWithNullDefaultValueRule/Failure/closure-with-parameter-with-root-namespace-referenced-null-default-value.php',
                 [
-                    'Parameter $bar of closure should not have null as default value.',
+                    'Closure has parameter $bar with null as default value.',
                     7,
                 ],
             ],
             'closure-with-parameter-with-wrongly-capitalized-null-default-value' => [
                 __DIR__ . '/../../Fixture/Closures/NoParameterWithNullDefaultValueRule/Failure/closure-with-parameter-with-wrongly-capitalized-null-default-value.php',
                 [
-                    'Parameter $bar of closure should not have null as default value.',
+                    'Closure has parameter $bar with null as default value.',
                     7,
                 ],
             ],

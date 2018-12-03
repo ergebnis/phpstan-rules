@@ -52,7 +52,7 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rule
             $parameterName = $variable->name;
 
             return \sprintf(
-                'Parameter $%s of closure should not have a nullable type declaration.',
+                'Closure has parameter $%s with a nullable type declaration.',
                 $parameterName
             );
         }, $params);

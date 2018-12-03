@@ -43,7 +43,7 @@ final class NoParameterWithNullableTypeDeclarationRuleTest extends AbstractTestC
             'closure-with-parameter-with-nullable-type-declaration' => [
                 __DIR__ . '/../../Fixture/Closures/NoParameterWithNullableTypeDeclarationRule/Failure/closure-with-parameter-with-nullable-type-declaration.php',
                 [
-                    'Parameter $bar of closure should not have a nullable type declaration.',
+                    'Closure has parameter $bar with a nullable type declaration.',
                     7,
                 ],
             ],

@@ -59,9 +59,9 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rule
                 $parameterName = $variable->name;
 
                 return \sprintf(
-                    'Parameter $%s of method %s() in anonymous class should not have a nullable type declaration.',
-                    $parameterName,
-                    $methodName
+                    'Method %s() in anonymous class has parameter $%s with a nullable type declaration.',
+                    $methodName,
+                    $parameterName
                 );
             }, $params);
         }
@@ -76,10 +76,10 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rule
             $parameterName = $variable->name;
 
             return \sprintf(
-                'Parameter $%s of method %s::%s() should not have a nullable type declaration.',
-                $parameterName,
+                'Method %s::%s() has parameter $%s with a nullable type declaration.',
                 $className,
-                $methodName
+                $methodName,
+                $parameterName
             );
         }, $params);
     }

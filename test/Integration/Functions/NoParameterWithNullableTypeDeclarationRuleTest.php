@@ -43,7 +43,7 @@ final class NoParameterWithNullableTypeDeclarationRuleTest extends AbstractTestC
             'function-with-parameter-with-nullable-type-declaration' => [
                 __DIR__ . '/../../Fixture/Functions/NoParameterWithNullableTypeDeclarationRule/Failure/function-with-parameter-with-nullable-type-declaration.php',
                 [
-                    'Parameter $bar of function "Localheinz\PHPStan\Rules\Test\Fixture\Functions\NoParameterWithNullableTypeDeclarationRule\Failure\foo()" should not have a nullable type declaration.',
+                    'Function Localheinz\PHPStan\Rules\Test\Fixture\Functions\NoParameterWithNullableTypeDeclarationRule\Failure\foo() has parameter $bar with a nullable type declaration.',
                     7,
                 ],
             ],

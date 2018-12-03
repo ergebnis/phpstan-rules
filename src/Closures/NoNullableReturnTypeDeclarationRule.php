@@ -37,7 +37,7 @@ final class NoNullableReturnTypeDeclarationRule implements Rule
         }
 
         return [
-            'Closure should not have a nullable return type declaration.',
+            'Closure has a nullable return type declaration.',
         ];
     }
 }

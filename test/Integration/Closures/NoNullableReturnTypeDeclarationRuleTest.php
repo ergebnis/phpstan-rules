@@ -42,7 +42,7 @@ final class NoNullableReturnTypeDeclarationRuleTest extends AbstractTestCase
             'closure-with-nullable-return-type-declaration' => [
                 __DIR__ . '/../../Fixture/Closures/NoNullableReturnTypeDeclarationRule/Failure/closure-with-nullable-return-type-declaration.php',
                 [
-                    'Closure should not have a nullable return type declaration.',
+                    'Closure has a nullable return type declaration.',
                     7,
                 ],
             ],
