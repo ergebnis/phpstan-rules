@@ -7,3 +7,4 @@ includes:
 parameters:
 	excludes_analyse:
 		- %currentWorkingDirectory%/test/Fixture/
+	tmpDir: %currentWorkingDirectory%/.phpstan
