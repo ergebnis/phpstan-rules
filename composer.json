@@ -26,7 +26,7 @@
     "localheinz/php-cs-fixer-config": "~1.17.0",
     "localheinz/test-util": "~0.7.0",
     "phpstan/phpstan-strict-rules": "~0.10.1",
-    "phpunit/phpunit": "^7.4.3"
+    "phpunit/phpunit": "^7.4.5"
   },
   "config": {
     "preferred-install": "dist",
