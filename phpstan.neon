@@ -1,3 +1,8 @@
 includes:
 	- vendor/phpstan/phpstan-strict-rules/rules.neon
 	- rules.neon
+
+parameters:
+	ignoreErrors:
+		- '#Constructor in Localheinz\\PHPStan\\Rules\\Classes\\AbstractOrFinalRule has parameter \$excludedClassNames with default value.#'
+		- '#Constructor in Localheinz\\PHPStan\\Rules\\Classes\\FinalRule has parameter \$excludedClassNames with default value.#'

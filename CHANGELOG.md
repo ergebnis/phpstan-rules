@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`0.4.0...master`](https://github.com/localheinz/phpstan-rules/compare/0.4.0...master).
 
+### Added
+
+* Added `Methods\NoConstructorParameterWithDefaultValueRule`, which reports an error when a constructor of an anonymous class or a class has a parameter with a default value ([#45](https://github.com/localheinz/phpstan-rules/pull/45)), by [@localheinz](https://github.com/localheinz)
+
 ## [`0.4.0`](https://github.com/localheinz/phpstan-rules/releases/tag/0.3.0)
 
 For a full diff see [`0.3.0...0.4.0`](https://github.com/localheinz/phpstan-rules/compare/0.3.0...0.4.0).
