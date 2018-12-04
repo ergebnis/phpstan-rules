@@ -1,6 +1,7 @@
 includes:
-	- vendor/phpstan/phpstan-strict-rules/rules.neon
 	- rules.neon
+	- vendor/phpstan/phpstan-strict-rules/rules.neon
+	- vendor/phpstan/phpstan/conf/config.levelmax.neon
 
 parameters:
 	ignoreErrors:
