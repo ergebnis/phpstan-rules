@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Localheinz\PHPStan\Rules\Test\AutoReview;
 
-use Localheinz\PHPStan\Rules\Test\Fixture;
 use Localheinz\PHPStan\Rules\Test\Integration;
 use Localheinz\Test\Util\Helper;
 use PHPUnit\Framework;
@@ -24,16 +23,6 @@ use PHPUnit\Framework;
 final class TestCodeTest extends Framework\TestCase
 {
     use Helper;
-
-    public function testTestClassesAreAbstractOrFinal(): void
-    {
-        $this->assertClassesAreAbstractOrFinal(__DIR__ . '/..', [
-            Fixture\Classes\FinalRule\Failure\NeitherAbstractNorFinalClass::class,
-            Fixture\Classes\FinalRuleWithAbstractClassesAllowed\Failure\NeitherAbstractNorFinalClass::class,
-            Fixture\Classes\FinalRuleWithExcludedClassNames\Failure\NeitherAbstractNorFinalClass::class,
-            Fixture\Classes\FinalRuleWithExcludedClassNames\Success\NeitherAbstractNorFinalClassButWhitelisted::class,
-        ]);
-    }
 
     public function testIntegrationTestClassesExtendFromAbstractTestCase(): void
     {
