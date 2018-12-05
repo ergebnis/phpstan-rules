@@ -28,7 +28,6 @@ final class FinalRuleTest extends AbstractTestCase
         $paths = [
             'final-class' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/FinalClass.php',
             'final-class-with-anonymous-class' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/FinalClassWithAnonymousClass.php',
-            'class-neither-abstract-nor-final-but-whitelisted' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/NeitherAbstractNorFinalClassButWhitelisted.php',
             'interface' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/ExampleInterface.php',
             'script-with-anonymous-class' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/anonymous-class.php',
             'trait' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/ExampleTrait.php',
@@ -77,8 +76,9 @@ final class FinalRuleTest extends AbstractTestCase
 
     protected function getRule(): Rule
     {
-        return new FinalRule([
-            Fixture\Classes\FinalRule\Success\NeitherAbstractNorFinalClassButWhitelisted::class,
-        ]);
+        return new FinalRule(
+            false,
+            []
+        );
     }
 }

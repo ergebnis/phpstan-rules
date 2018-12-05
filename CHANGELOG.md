@@ -11,6 +11,11 @@ For a full diff see [`0.4.0...master`](https://github.com/localheinz/phpstan-rul
 ### Added
 
 * Added `Methods\NoConstructorParameterWithDefaultValueRule`, which reports an error when a constructor of an anonymous class or a class has a parameter with a default value ([#45](https://github.com/localheinz/phpstan-rules/pull/45)), by [@localheinz](https://github.com/localheinz)
+* Added parameters `$allowAbstractClasses` and `$classesNotRequiredToBeAbstractOrFinal` to allow configuration of `Classes`FinalRule` ([#51](https://github.com/localheinz/phpstan-rules/pull/51)), by [@localheinz](https://github.com/localheinz)
+
+### Removed
+
+* Removed `Classes\AbstractOrFinalRule` after merging behaviour into `Classes\FinalRule` ([#51](https://github.com/localheinz/phpstan-rules/pull/51)), by [@localheinz](https://github.com/localheinz)
 
 ## [`0.4.0`](https://github.com/localheinz/phpstan-rules/releases/tag/0.3.0)
 

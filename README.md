@@ -19,7 +19,6 @@ $ composer require --dev localheinz/phpstan-rules
 
 This package provides the following rules for use with [`phpstan/phpstan`](https://github.com/phpstan/phpstan):
 
-* [`Localheinz\PHPStan\Rules\Classes\AbstractOrFinalRule`](https://github.com/localheinz/phpstan-rules#classesabstractorfinalrule)
 * [`Localheinz\PHPStan\Rules\Classes\FinalRule`](https://github.com/localheinz/phpstan-rules#classesfinalrule)
 * [`Localheinz\PHPStan\Rules\Closures\NoNullableReturnTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#closuresnonullablereturntypedeclarationrule)
 * [`Localheinz\PHPStan\Rules\Closures\NoParameterWithNullableTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#closuresnoparameterwithnullabletypedeclarationrule)
@@ -41,33 +40,6 @@ includes:
 
 :bulb: You probably want to use these rules on top of [`phpstan/phpstan-strict-rules`](https://github.com/phpstan/phpstan-strict-rules).
 
-### `Classes\AbstractOrFinalRule`
-
-This rule reports an error when a non-anonymous class is neither `abstract` nor `final`.
-
-If you want to use this rule, add it to your `phpstan.neon`:
-
-```neon
-rules:
-	- Localheinz\PHPStan\Rules\Classes\AbstractOrFinalRule
-```
-
-:bulb: Optionally, you can configure the rule to ignore classes:
-
-```neon
-services:
-	-
-		class: Localheinz\PHPStan\Rules\Classes\AbstractOrFinalRule
-		tags:
-			- phpstan.rules.rule
-		arguments:
-			excludedClassNames:
-				- Bar\Foo
-				- Foo\Bar
-```
-
-:exclamation: This rule conflicts with [`Localheinz\PHPStan\Rules\Classes\FinalRule`](https://github.com/localheinz/phpstan-rules#classesfinalrule), so you probably only want to use one of these.
-
 ### `Classes\FinalRule`
 
 This rule reports an error when a non-anonymous class is not `final`.
@@ -79,20 +51,26 @@ rules:
 	- Localheinz\PHPStan\Rules\Classes\FinalRule
 ```
 
-:bulb: Optionally, you can configure the rule to ignore classes:
+:bulb: Optionally, you can configure the rule to
+
+* allow abstract classes
+* ignore classes that are not required to be abstract or final
 
 ```neon
+parameters: 
+	allowAbstractClasses: true
+	classesNotRequiredToBeAbstractOrFinal:
+		- Localheinz\PHPStan\Rules\Test\Fixture\Classes\FinalRuleWithExcludedClassNames\Success\NeitherAbstractNorFinalClassButWhitelisted
+
 services:
 	-
 		class: Localheinz\PHPStan\Rules\Classes\FinalRule
+		arguments:
+			allowAbstractClasses: %allowAbstractClasses%
+			classesNotRequiredToBeAbstractOrFinal: %classesNotRequiredToBeAbstractOrFinal%
 		tags:
 			- phpstan.rules.rule
-		arguments:
-			excludedClassNames:
-				- Bar\Foo
-				- Foo\Bar
 ```
-:exclamation: This rule conflicts with [`Localheinz\PHPStan\Rules\Classes\AbstractOrFinalRule`](https://github.com/localheinz/phpstan-rules#classesabstractorfinalrule), so you probably only want to use one of these.
 
 ### `Closures\NoNullableReturnTypeDeclarationRule`
 

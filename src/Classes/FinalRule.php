@@ -20,18 +20,34 @@ use PHPStan\Rules\Rule;
 final class FinalRule implements Rule
 {
     /**
-     * @var string[]
+     * @var bool
      */
-    private $excludedClassNames;
+    private $allowAbstractClasses;
 
     /**
-     * @param string[] $excludedClassNames
+     * @var string[]
      */
-    public function __construct(array $excludedClassNames = [])
+    private $classesNotRequiredToBeAbstractOrFinal;
+
+    /**
+     * @var string
+     */
+    private $errorMessageTemplate = 'Class %s is not final.';
+
+    /**
+     * @param bool     $allowAbstractClasses
+     * @param string[] $classesNotRequiredToBeAbstractOrFinal
+     */
+    public function __construct(bool $allowAbstractClasses = false, array $classesNotRequiredToBeAbstractOrFinal = [])
     {
-        $this->excludedClassNames = \array_map(static function (string $excludedClassName): string {
-            return $excludedClassName;
-        }, $excludedClassNames);
+        $this->allowAbstractClasses = $allowAbstractClasses;
+        $this->classesNotRequiredToBeAbstractOrFinal = \array_map(static function (string $classNotRequiredToBeAbstractOrFinal): string {
+            return $classNotRequiredToBeAbstractOrFinal;
+        }, $classesNotRequiredToBeAbstractOrFinal);
+
+        if (true === $allowAbstractClasses) {
+            $this->errorMessageTemplate = 'Class %s is neither abstract nor final.';
+        }
     }
 
     public function getNodeType(): string
@@ -48,15 +64,22 @@ final class FinalRule implements Rule
     public function processNode(Node $node, Scope $scope): array
     {
         if (!isset($node->namespacedName)
-            || $node->isFinal()
-            || \in_array($node->namespacedName->toString(), $this->excludedClassNames, true)
+            || \in_array($node->namespacedName->toString(), $this->classesNotRequiredToBeAbstractOrFinal, true)
         ) {
+            return [];
+        }
+
+        if (true === $this->allowAbstractClasses && $node->isAbstract()) {
+            return [];
+        }
+
+        if ($node->isFinal()) {
             return [];
         }
 
         return [
             \sprintf(
-                'Class %s is not final.',
+                $this->errorMessageTemplate,
                 $node->namespacedName
             ),
         ];

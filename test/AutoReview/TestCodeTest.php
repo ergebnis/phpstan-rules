@@ -28,10 +28,10 @@ final class TestCodeTest extends Framework\TestCase
     public function testTestClassesAreAbstractOrFinal(): void
     {
         $this->assertClassesAreAbstractOrFinal(__DIR__ . '/..', [
-            Fixture\Classes\AbstractOrFinalRule\Failure\NeitherAbstractNorFinalClass::class,
-            Fixture\Classes\AbstractOrFinalRule\Success\NeitherAbstractNorFinalClassButWhitelisted::class,
             Fixture\Classes\FinalRule\Failure\NeitherAbstractNorFinalClass::class,
-            Fixture\Classes\FinalRule\Success\NeitherAbstractNorFinalClassButWhitelisted::class,
+            Fixture\Classes\FinalRuleWithAbstractClassesAllowed\Failure\NeitherAbstractNorFinalClass::class,
+            Fixture\Classes\FinalRuleWithExcludedClassNames\Failure\NeitherAbstractNorFinalClass::class,
+            Fixture\Classes\FinalRuleWithExcludedClassNames\Success\NeitherAbstractNorFinalClassButWhitelisted::class,
         ]);
     }
 

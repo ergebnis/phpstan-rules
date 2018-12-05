@@ -7,5 +7,5 @@ parameters:
 	excludes_analyse:
 		- %currentWorkingDirectory%/test/Fixture/
 	ignoreErrors:
-		- '#Constructor in Localheinz\\PHPStan\\Rules\\Classes\\AbstractOrFinalRule has parameter \$excludedClassNames with default value.#'
-		- '#Constructor in Localheinz\\PHPStan\\Rules\\Classes\\FinalRule has parameter \$excludedClassNames with default value.#'
+		- '#Constructor in Localheinz\\PHPStan\\Rules\\Classes\\FinalRule has parameter \$allowAbstractClasses with default value.#'
+		- '#Constructor in Localheinz\\PHPStan\\Rules\\Classes\\FinalRule has parameter \$classesNotRequiredToBeAbstractOrFinal with default value.#'

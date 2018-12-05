@@ -1,5 +1,8 @@
+parameters:
+	allowAbstractClasses: true
+	classesNotRequiredToBeAbstractOrFinal: []
+
 rules:
-	- Localheinz\PHPStan\Rules\Classes\AbstractOrFinalRule
 	- Localheinz\PHPStan\Rules\Closures\NoNullableReturnTypeDeclarationRule
 	- Localheinz\PHPStan\Rules\Closures\NoParameterWithNullableTypeDeclarationRule
 	- Localheinz\PHPStan\Rules\Functions\NoNullableReturnTypeDeclarationRule
@@ -9,3 +12,12 @@ rules:
 	- Localheinz\PHPStan\Rules\Methods\NoNullableReturnTypeDeclarationRule
 	- Localheinz\PHPStan\Rules\Methods\NoParameterWithNullableTypeDeclarationRule
 	- Localheinz\PHPStan\Rules\Methods\NoParameterWithNullDefaultValueRule
+
+services:
+	-
+		class: Localheinz\PHPStan\Rules\Classes\FinalRule
+		arguments:
+			allowAbstractClasses: %allowAbstractClasses%
+			classesNotRequiredToBeAbstractOrFinal: %classesNotRequiredToBeAbstractOrFinal%
+		tags:
+			- phpstan.rules.rule
