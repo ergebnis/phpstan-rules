@@ -18,7 +18,7 @@ For a full diff see [`0.4.0...master`](https://github.com/localheinz/phpstan-rul
 * Removed `Classes\AbstractOrFinalRule` after merging behaviour into `Classes\FinalRule` ([#51](https://github.com/localheinz/phpstan-rules/pull/51)), by [@localheinz](https://github.com/localheinz)
 * Removed default values from constructor of `Classes\FinalRule` ([#53](https://github.com/localheinz/phpstan-rules/pull/53)), by [@localheinz](https://github.com/localheinz)
 
-## [`0.4.0`](https://github.com/localheinz/phpstan-rules/releases/tag/0.3.0)
+## [`0.4.0`](https://github.com/localheinz/phpstan-rules/releases/tag/0.4.0)
 
 For a full diff see [`0.3.0...0.4.0`](https://github.com/localheinz/phpstan-rules/compare/0.3.0...0.4.0).
 
