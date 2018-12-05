@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Localheinz\PHPStan\Rules\Test\Fixture\Classes\AbstractOrFinalRule\Success;
+namespace Localheinz\PHPStan\Rules\Test\Fixture\Classes\FinalRuleWithExcludedClassNames\Success;
 
-final class FinalClassWithAnonymousClass
+trait TraitWithAnonymousClass
 {
     public function create()
     {
