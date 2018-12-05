@@ -15,6 +15,21 @@ Run
 $ composer require --dev localheinz/phpstan-rules
 ```
 
+## Usage
+
+All of the [rules](https://github.com/localheinz/phpstan-rules#rules) provided (and used) by this library are included in [`rules.neon`](rules.neon). The easiest way to use these rules in your project is to include `rules.neon` in your `phpstan.neon`:
+
+```neon
+includes:
+	- vendor/localheinz/phpstan-rules/rules.neon
+```
+
+:bulb: You probably want to use these rules on top of the rules provided by:
+
+* [`phpstan/phpstan`](https://github.com/phpstan/phpstan)
+* [`phpstan/phpstan-deprecation-rules`](https://github.com/phpstan/phpstan)
+* [`phpstan/phpstan-strict-rules`](https://github.com/phpstan/phpstan-strict-rules)
+
 ## Rules
 
 This package provides the following rules for use with [`phpstan/phpstan`](https://github.com/phpstan/phpstan):
@@ -31,156 +46,69 @@ This package provides the following rules for use with [`phpstan/phpstan`](https
 * [`Localheinz\PHPStan\Rules\Methods\NoParameterWithNullableTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#methodsnoparameterwithnullabletypedeclarationrule)
 * [`Localheinz\PHPStan\Rules\Methods\NoParameterWithNullDefaultValueRule`](https://github.com/localheinz/phpstan-rules#methodsnoparameterwithnulldefaultvaluerule)
 
-:bulb: If you want to use the same rules as used by this project, include [`rules.neon`](rules.neon) in your `phpstan.neon`:
-
-```neon
-includes:
-	- vendor/localheinz/phpstan-rules/rules.neon
-```
-
-:bulb: You probably want to use these rules on top of [`phpstan/phpstan-strict-rules`](https://github.com/phpstan/phpstan-strict-rules).
-
 ### `Classes\FinalRule`
 
 This rule reports an error when a non-anonymous class is not `final`.
 
-If you want to use this rule, add it to your `phpstan.neon`:
+#### Allowing `abstract` classes
 
-```neon
-rules:
-	- Localheinz\PHPStan\Rules\Classes\FinalRule
-```
-
-:bulb: Optionally, you can configure the rule to
-
-* allow abstract classes
-* ignore classes that are not required to be abstract or final
+If you also want to disallow `abstract` classes, you can set the `allowAbstractClasses` parameter to `false`:
 
 ```neon
 parameters: 
-	allowAbstractClasses: true
-	classesNotRequiredToBeAbstractOrFinal:
-		- Localheinz\PHPStan\Rules\Test\Fixture\Classes\FinalRuleWithExcludedClassNames\Success\NeitherAbstractNorFinalClassButWhitelisted
+	allowAbstractClasses: false
+```
 
-services:
-	-
-		class: Localheinz\PHPStan\Rules\Classes\FinalRule
-		arguments:
-			allowAbstractClasses: %allowAbstractClasses%
-			classesNotRequiredToBeAbstractOrFinal: %classesNotRequiredToBeAbstractOrFinal%
-		tags:
-			- phpstan.rules.rule
+#### Excluding classes from inspection
+
+If you want to exclude classes from being inspected by this rule, you can set the `classesNotRequiredToBeAbstractOrFinal` to a list of class names:
+
+```neon
+parameters: 
+	classesNotRequiredToBeAbstractOrFinal:
+		- Foo\Bar\NeitherAbstractNorFinal
+		- Bar\Baz\NeitherAbstractNorFinal
 ```
 
 ### `Closures\NoNullableReturnTypeDeclarationRule`
 
 This rule reports an error when a closure uses a nullable return type declaration.
 
-If you want to use this rule, add it to your `phpstan.neon`:
-
-```neon
-rules:
-	- Localheinz\PHPStan\Rules\Closures\NoNullableReturnTypeDeclarationRule
-```
-
 ### `Closures\NoParameterWithNullableTypeDeclarationRule`
 
 This rule reports an error when a closure has a parameter with a nullable type declaration.
-
-If you want to use this rule, add it to your `phpstan.neon`:
-
-```neon
-rules:
-	- Localheinz\PHPStan\Rules\Closures\NoParameterWithNullableTypeDeclarationRule
-```
 
 ### `Closures\NoParameterWithNullDefaultValueRule`
 
 This rule reports an error when a closure has a parameter with `null` as default value.
 
-If you want to use this rule, add it to your `phpstan.neon`:
-
-```neon
-rules:
-	- Localheinz\PHPStan\Rules\Closures\NoParameterWithNullDefaultValueRule
-```
-
 ### `Functions\NoNullableReturnTypeDeclarationRule`
 
 This rule reports an error when a function uses a nullable return type declaration.
-
-If you want to use this rule, add it to your `phpstan.neon`:
-
-```neon
-rules:
-	- Localheinz\PHPStan\Rules\Functions\NoNullableReturnTypeDeclarationRule
-```
 
 ### `Functions\NoParameterWithNullableTypeDeclarationRule`
 
 This rule reports an error when a function has a parameter with a nullable type declaration.
 
-If you want to use this rule, add it to your `phpstan.neon`:
-
-```neon
-rules:
-	- Localheinz\PHPStan\Rules\Functions\NoParameterWithNullableTypeDeclarationRule
-```
-
 ### `Functions\NoParameterWithNullDefaultValueRule`
 
 This rule reports an error when a function has a parameter with `null` as default value.
-
-If you want to use this rule, add it to your `phpstan.neon`:
-
-```neon
-rules:
-	- Localheinz\PHPStan\Rules\Functions\NoParameterWithNullDefaultValueRule
-```
 
 ### `Methods\NoConstructorParameterWithDefaultValueRule`
 
 This rule reports an error when a constructor declared in an anonymous class or a class has a default value.
 
-If you want to use this rule, add it to your `phpstan.neon`:
-
-```neon
-rules:
-	- Localheinz\PHPStan\Rules\Methods\NoConstructorParameterWithDefaultValueRule
-```
-
 ### `Methods\NoNullableReturnTypeDeclarationRule`
 
 This rule reports an error when a method declared in an anonymous class, a class, or an interface uses a nullable return type declaration.
-
-If you want to use this rule, add it to your `phpstan.neon`:
-
-```neon
-rules:
-	- Localheinz\PHPStan\Rules\Methods\NoNullableReturnTypeDeclarationRule
-```
 
 ### `Methods\NoParameterWithNullableTypeDeclarationRule`
 
 This rule reports an error when a method declared in an anonymous class, a class, or an interface has a parameter with a nullable type declaration.
 
-If you want to use this rule, add it to your `phpstan.neon`:
-
-```neon
-rules:
-	- Localheinz\PHPStan\Rules\Methods\NoParameterWithNullableTypeDeclarationRule
-```
-
 ### `Methods\NoParameterWithNullDefaultValueRule`
 
 This rule reports an error when a method declared in an anonymous class, a class, or an interface has a parameter with `null` as default value.
-
-If you want to use this rule, add it to your `phpstan.neon`:
-
-```neon
-rules:
-	- Localheinz\PHPStan\Rules\Methods\NoParameterWithNullDefaultValueRule
-```
 
 ## Changelog
 
