@@ -46,20 +46,22 @@ This package provides the following rules for use with [`phpstan/phpstan`](https
 * [`Localheinz\PHPStan\Rules\Methods\NoParameterWithNullableTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#methodsnoparameterwithnullabletypedeclarationrule)
 * [`Localheinz\PHPStan\Rules\Methods\NoParameterWithNullDefaultValueRule`](https://github.com/localheinz/phpstan-rules#methodsnoparameterwithnulldefaultvaluerule)
 
-### `Classes\FinalRule`
+### Classes
+
+#### `Classes\FinalRule`
 
 This rule reports an error when a non-anonymous class is not `final`.
 
-#### Allowing `abstract` classes
+##### Disallowing `abstract` classes
 
-If you also want to disallow `abstract` classes, you can set the `allowAbstractClasses` parameter to `false`:
+This rule allows to declare `abstract` classes. If you want to disallow `abstract` classes, you can set the `allowAbstractClasses` parameter to `false`:
 
 ```neon
 parameters: 
 	allowAbstractClasses: false
 ```
 
-#### Excluding classes from inspection
+##### Excluding classes from inspection
 
 If you want to exclude classes from being inspected by this rule, you can set the `classesNotRequiredToBeAbstractOrFinal` to a list of class names:
 
@@ -70,45 +72,74 @@ parameters:
 		- Bar\Baz\NeitherAbstractNorFinal
 ```
 
-### `Closures\NoNullableReturnTypeDeclarationRule`
+### Closures
+
+#### `Closures\NoNullableReturnTypeDeclarationRule`
 
 This rule reports an error when a closure uses a nullable return type declaration.
 
-### `Closures\NoParameterWithNullableTypeDeclarationRule`
+#### `Closures\NoParameterWithNullableTypeDeclarationRule`
 
 This rule reports an error when a closure has a parameter with a nullable type declaration.
 
-### `Closures\NoParameterWithNullDefaultValueRule`
+#### `Closures\NoParameterWithNullDefaultValueRule`
 
 This rule reports an error when a closure has a parameter with `null` as default value.
 
-### `Functions\NoNullableReturnTypeDeclarationRule`
+### Functions
+
+#### `Functions\NoNullableReturnTypeDeclarationRule`
 
 This rule reports an error when a function uses a nullable return type declaration.
 
-### `Functions\NoParameterWithNullableTypeDeclarationRule`
+#### `Functions\NoParameterWithNullableTypeDeclarationRule`
 
 This rule reports an error when a function has a parameter with a nullable type declaration.
 
-### `Functions\NoParameterWithNullDefaultValueRule`
+#### `Functions\NoParameterWithNullDefaultValueRule`
 
 This rule reports an error when a function has a parameter with `null` as default value.
 
-### `Methods\NoConstructorParameterWithDefaultValueRule`
+### Methods
 
-This rule reports an error when a constructor declared in an anonymous class or a class has a default value.
+#### `Methods\NoConstructorParameterWithDefaultValueRule`
 
-### `Methods\NoNullableReturnTypeDeclarationRule`
+This rule reports an error when a constructor declared in
 
-This rule reports an error when a method declared in an anonymous class, a class, or an interface uses a nullable return type declaration.
+* an anonymous class
+* a class
 
-### `Methods\NoParameterWithNullableTypeDeclarationRule`
+has a default value.
 
-This rule reports an error when a method declared in an anonymous class, a class, or an interface has a parameter with a nullable type declaration.
+#### `Methods\NoNullableReturnTypeDeclarationRule`
 
-### `Methods\NoParameterWithNullDefaultValueRule`
+This rule reports an error when a method declared in
 
-This rule reports an error when a method declared in an anonymous class, a class, or an interface has a parameter with `null` as default value.
+* an anonymous class
+* a class
+* an interface
+
+uses a nullable return type declaration.
+
+#### `Methods\NoParameterWithNullableTypeDeclarationRule`
+
+This rule reports an error when a method declared in
+
+* an anonymous class
+* a class
+* an interface
+
+has a parameter with a nullable type declaration.
+
+#### `Methods\NoParameterWithNullDefaultValueRule`
+
+This rule reports an error when a method declared in
+
+* an anonymous class
+* a class
+* an interface
+
+has a parameter with `null` as default value.
 
 ## Changelog
 
