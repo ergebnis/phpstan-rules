@@ -38,7 +38,7 @@ final class FinalRule implements Rule
      * @param bool     $allowAbstractClasses
      * @param string[] $classesNotRequiredToBeAbstractOrFinal
      */
-    public function __construct(bool $allowAbstractClasses = false, array $classesNotRequiredToBeAbstractOrFinal = [])
+    public function __construct(bool $allowAbstractClasses, array $classesNotRequiredToBeAbstractOrFinal)
     {
         $this->allowAbstractClasses = $allowAbstractClasses;
         $this->classesNotRequiredToBeAbstractOrFinal = \array_map(static function (string $classNotRequiredToBeAbstractOrFinal): string {
