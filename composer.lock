@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "542c7080548979cf8e70da0e337bdc2e",
+    "content-hash": "106e8440d14bb23d6ec6ea83d33bf835",
     "packages": [
         {
             "name": "composer/xdebug-handler",
@@ -842,7 +842,7 @@
         },
         {
             "name": "symfony/console",
-            "version": "v4.2.0",
+            "version": "v4.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
@@ -911,16 +911,16 @@
         },
         {
             "name": "symfony/contracts",
-            "version": "v1.0.1",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/contracts.git",
-                "reference": "3edf0ab943d1985a356721952cba36ff31bd6e5f"
+                "reference": "1aa7ab2429c3d594dd70689604b5cf7421254cdf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/contracts/zipball/3edf0ab943d1985a356721952cba36ff31bd6e5f",
-                "reference": "3edf0ab943d1985a356721952cba36ff31bd6e5f",
+                "url": "https://api.github.com/repos/symfony/contracts/zipball/1aa7ab2429c3d594dd70689604b5cf7421254cdf",
+                "reference": "1aa7ab2429c3d594dd70689604b5cf7421254cdf",
                 "shasum": ""
             },
             "require": {
@@ -975,11 +975,11 @@
                 "interoperability",
                 "standards"
             ],
-            "time": "2018-11-24T09:35:08+00:00"
+            "time": "2018-12-05T08:06:11+00:00"
         },
         {
             "name": "symfony/finder",
-            "version": "v4.2.0",
+            "version": "v4.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -1665,16 +1665,16 @@
         },
         {
             "name": "infection/infection",
-            "version": "0.11.2",
+            "version": "0.11.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/infection/infection.git",
-                "reference": "62b41f817e116052b7fbdc9c2bababd64aa7f48a"
+                "reference": "c13106c6bbeeaa7b49260b3fdccc798179bc2e91"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/infection/infection/zipball/62b41f817e116052b7fbdc9c2bababd64aa7f48a",
-                "reference": "62b41f817e116052b7fbdc9c2bababd64aa7f48a",
+                "url": "https://api.github.com/repos/infection/infection/zipball/c13106c6bbeeaa7b49260b3fdccc798179bc2e91",
+                "reference": "c13106c6bbeeaa7b49260b3fdccc798179bc2e91",
                 "shasum": ""
             },
             "require": {
@@ -1751,7 +1751,7 @@
                 "testing",
                 "unit testing"
             ],
-            "time": "2018-11-18T02:40:38+00:00"
+            "time": "2018-12-08T08:47:37+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
@@ -4001,7 +4001,7 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v4.2.0",
+            "version": "v4.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
@@ -4277,7 +4277,7 @@
         },
         {
             "name": "symfony/process",
-            "version": "v4.2.0",
+            "version": "v4.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
@@ -4375,7 +4375,7 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v4.2.0",
+            "version": "v4.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
