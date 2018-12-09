@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "106e8440d14bb23d6ec6ea83d33bf835",
+    "content-hash": "3cf953edbf3ee3b0ce4bd166c7103acb",
     "packages": [
         {
             "name": "composer/xdebug-handler",
@@ -1665,16 +1665,16 @@
         },
         {
             "name": "infection/infection",
-            "version": "0.11.3",
+            "version": "0.11.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/infection/infection.git",
-                "reference": "c13106c6bbeeaa7b49260b3fdccc798179bc2e91"
+                "reference": "f71d7af4332e0c3760aab45c16a6f750db1475a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/infection/infection/zipball/c13106c6bbeeaa7b49260b3fdccc798179bc2e91",
-                "reference": "c13106c6bbeeaa7b49260b3fdccc798179bc2e91",
+                "url": "https://api.github.com/repos/infection/infection/zipball/f71d7af4332e0c3760aab45c16a6f750db1475a6",
+                "reference": "f71d7af4332e0c3760aab45c16a6f750db1475a6",
                 "shasum": ""
             },
             "require": {
@@ -1751,7 +1751,7 @@
                 "testing",
                 "unit testing"
             ],
-            "time": "2018-12-08T08:47:37+00:00"
+            "time": "2018-12-09T15:26:00+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
