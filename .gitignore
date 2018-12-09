@@ -1,4 +1,5 @@
+/.infection/
+/.php-cs-fixer/
+/.phpstan/
+/.phpunit/
 /vendor/
-/.php_cs.cache
-/.php_cs.fixture.cache
-/infection-log.txt
