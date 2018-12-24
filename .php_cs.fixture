@@ -14,6 +14,6 @@ $config->getFinder()->in(__DIR__ . '/test/Fixture');
 
 $directory = \getenv('TRAVIS') ? \getenv('HOME') : __DIR__;
 
-$config->setCacheFile($directory . '/.php-cs-fixer/.php_cs.fixture.cache');
+$config->setCacheFile($directory . '/.build/php-cs-fixer/.php_cs.fixture.cache');
 
 return $config;

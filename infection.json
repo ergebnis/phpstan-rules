@@ -9,6 +9,6 @@
     "configDir": "test\/Integration"
   },
   "logs": {
-    "text": ".infection/infection-log.txt"
+    "text": ".build/infection/infection-log.txt"
   }
 }
