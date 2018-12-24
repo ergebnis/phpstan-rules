@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "456d52bfa05ff1d697eeccef6146d3d3",
+    "content-hash": "7d5d86cd2ca6723f06cf857fc13a96f1",
     "packages": [
         {
             "name": "composer/xdebug-handler",
@@ -1145,16 +1145,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "1.7.3",
+            "version": "1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "e965b9aaa8854c3067f1ed2ae45f436572d73eb7"
+                "reference": "d8aef3af866b28786ce9b8647e52c42496436669"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/e965b9aaa8854c3067f1ed2ae45f436572d73eb7",
-                "reference": "e965b9aaa8854c3067f1ed2ae45f436572d73eb7",
+                "url": "https://api.github.com/repos/composer/composer/zipball/d8aef3af866b28786ce9b8647e52c42496436669",
+                "reference": "d8aef3af866b28786ce9b8647e52c42496436669",
                 "shasum": ""
             },
             "require": {
@@ -1190,7 +1190,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.7-dev"
+                    "dev-master": "1.8-dev"
                 }
             },
             "autoload": {
@@ -1221,7 +1221,7 @@
                 "dependency",
                 "package"
             ],
-            "time": "2018-11-01T09:05:06+00:00"
+            "time": "2018-12-03T09:31:16+00:00"
         },
         {
             "name": "composer/semver",
@@ -1916,16 +1916,16 @@
         },
         {
             "name": "localheinz/composer-normalize",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localheinz/composer-normalize.git",
-                "reference": "c676a282a3949273d0ed38b6fce841d248f6e3bf"
+                "reference": "dabf192e6fd26113bc0dd24933502b820a0b83c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localheinz/composer-normalize/zipball/c676a282a3949273d0ed38b6fce841d248f6e3bf",
-                "reference": "c676a282a3949273d0ed38b6fce841d248f6e3bf",
+                "url": "https://api.github.com/repos/localheinz/composer-normalize/zipball/dabf192e6fd26113bc0dd24933502b820a0b83c4",
+                "reference": "dabf192e6fd26113bc0dd24933502b820a0b83c4",
                 "shasum": ""
             },
             "require": {
@@ -1933,22 +1933,24 @@
                 "localheinz/composer-json-normalizer": "^1.0.1",
                 "localheinz/json-normalizer": "~0.9.0",
                 "php": "^7.1",
-                "sebastian/diff": "^2.0.1 || ^3.0.0",
-                "symfony/console": "^2.5.0 || ^3.0.0 || ^4.0.0"
+                "sebastian/diff": "^2.0.1 || ^3.0.0"
             },
             "require-dev": {
-                "composer/composer": "^1.1.0",
-                "infection/infection": "~0.11.1",
-                "localheinz/php-cs-fixer-config": "~1.15.0",
-                "localheinz/phpstan-rules": "~0.1.0",
+                "composer/composer": "^1.7.0",
+                "jangregor/phpstan-prophecy": "~0.2.0",
+                "localheinz/php-cs-fixer-config": "~1.17.0",
+                "localheinz/phpstan-rules": "~0.5.0",
                 "localheinz/test-util": "0.6.1",
-                "mikey179/vfsstream": "^1.6.5",
                 "phpstan/phpstan": "~0.10.5",
                 "phpstan/phpstan-strict-rules": "~0.10.1",
-                "phpunit/phpunit": "^6.5.13 || ^7.4.3"
+                "phpunit/phpunit": "^6.5.13 || ^7.5.0",
+                "symfony/filesystem": "^4.2.1"
             },
             "type": "composer-plugin",
             "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                },
                 "class": "Localheinz\\Composer\\Normalize\\NormalizePlugin"
             },
             "autoload": {
@@ -1974,7 +1976,7 @@
                 "normalizer",
                 "plugin"
             ],
-            "time": "2018-11-17T15:51:26+00:00"
+            "time": "2018-12-24T16:04:04+00:00"
         },
         {
             "name": "localheinz/json-normalizer",
