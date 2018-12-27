@@ -6,17 +6,17 @@ coverage: vendor
 	vendor/bin/phpunit --configuration=test/Integration/phpunit.xml --coverage-text
 
 cs: vendor
-	mkdir -p .php-cs-fixer
+	mkdir -p .build/php-cs-fixer
 	vendor/bin/php-cs-fixer fix --config=.php_cs --diff --verbose
 	vendor/bin/php-cs-fixer fix --config=.php_cs.fixture --diff --verbose
 
 infection: vendor
-	mkdir -p .infection
+	mkdir -p .build/infection
 	vendor/bin/infection --ignore-msi-with-no-mutations --min-covered-msi=98 --min-msi=98
 
 stan: vendor
-	mkdir -p .phpstan
-	vendor/bin/phpstan analyse --configuration=phpstan.neon src test
+	mkdir -p .build/phpstan
+	vendor/bin/phpstan analyse --configuration=phpstan.neon
 
 test: vendor
 	vendor/bin/phpunit --configuration=test/AutoReview/phpunit.xml

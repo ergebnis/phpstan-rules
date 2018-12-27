@@ -6,9 +6,10 @@ env:
 
 cache:
   directories:
+    - $HOME/.build/php-cs-fixer
+    - $HOME/.build/phpstan
+    - $HOME/.build/phpunit
     - $HOME/.composer/cache
-    - $HOME/.php-cs-fixer
-    - $HOME/.phpstan
 
 stages:
   - style
@@ -32,7 +33,7 @@ jobs:
         - composer install
 
       before_script:
-        - mkdir -p $HOME/.php-cs-fixer
+        - mkdir -p $HOME/.build/php-cs-fixer
 
       script:
         - composer normalize --dry-run
@@ -41,22 +42,23 @@ jobs:
 
     - stage: Stan
 
-      php: 7.1
+      php: 7.3
 
       before_install:
         - source .travis/xdebug.sh
         - xdebug-disable
         - composer validate
         - if [[ -n "$GITHUB_TOKEN" ]]; then composer config github-oauth.github.com $GITHUB_TOKEN; fi
+        - if [[ "$TRAVIS_PHP_VERSION" == "7.3" ]]; then composer remove --dev localheinz/php-cs-fixer-config; fi
 
       install:
         - composer install
 
       before_script:
-        - mkdir -p $HOME/.phpstan
+        - mkdir -p $HOME/.build/phpstan
 
       script:
-        - vendor/bin/phpstan analyse --configuration=phpstan.neon src test
+        - vendor/bin/phpstan analyse --configuration=phpstan.neon
 
     - &TEST
 
@@ -71,9 +73,9 @@ jobs:
         - xdebug-disable
         - composer validate
         - if [[ -n "$GITHUB_TOKEN" ]]; then composer config github-oauth.github.com $GITHUB_TOKEN; fi
+        - if [[ "$TRAVIS_PHP_VERSION" == "7.3" ]]; then composer remove --dev localheinz/php-cs-fixer-config; fi
 
       install:
-        - if [[ "$TRAVIS_PHP_VERSION" == "7.3" ]]; then composer remove --dev localheinz/php-cs-fixer-config; fi
         - if [[ "$WITH_LOWEST" == "true" ]]; then composer update --prefer-lowest; fi
         - if [[ "$WITH_LOCKED" == "true" ]]; then composer install; fi
         - if [[ "$WITH_HIGHEST" == "true" ]]; then composer update; fi
@@ -150,7 +152,7 @@ jobs:
 
       before_script:
         - xdebug-enable
-        - mkdir -p $HOME/.infection
+        - mkdir -p $HOME/.build/infection
 
       script:
         - vendor/bin/infection --ignore-msi-with-no-mutations --min-covered-msi=98 --min-msi=98
