@@ -6,7 +6,7 @@ namespace Localheinz\PHPStan\Rules\Test\Fixture\Methods\NoParameterWithNullableT
 
 trait MethodInTraitWithoutParameters
 {
-    public function foo()
+    public function foo(): void
     {
     }
 }

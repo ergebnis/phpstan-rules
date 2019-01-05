@@ -6,7 +6,7 @@ namespace Localheinz\PHPStan\Rules\Test\Fixture\Methods\NoParameterWithNullDefau
 
 final class MethodInClassWithoutParameters
 {
-    public function foo()
+    public function foo(): void
     {
     }
 }

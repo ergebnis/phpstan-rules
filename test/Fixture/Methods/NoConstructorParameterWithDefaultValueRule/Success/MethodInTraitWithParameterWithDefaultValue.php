@@ -6,7 +6,7 @@ namespace Localheinz\PHPStan\Rules\Test\Fixture\Methods\NoConstructorParameterWi
 
 trait MethodInTraitWithParameterWithDefaultValue
 {
-    public function foo($bar = 9000)
+    public function foo($bar = 9000): void
     {
     }
 }
