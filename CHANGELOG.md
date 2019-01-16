@@ -6,7 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`0.4.0...master`](https://github.com/localheinz/phpstan-rules/compare/0.5.0...master).
+For a full diff see [`0.6.0...master`](https://github.com/localheinz/phpstan-rules/compare/0.6.0...master).
+
+## [`0.6.0`](https://github.com/localheinz/phpstan-rules/releases/tag/0.6.0)
+
+For a full diff see [`0.5.0...0.6.0`](https://github.com/localheinz/phpstan-rules/compare/0.5.0...0.6.0).
+
+### Added
+
+* Allow installation with `phpstan/phpstan:~0.11.0` ([#65](https://github.com/localheinz/phpstan-rules/pull/65)), by [@localheinz](https://github.com/localheinz)
 
 ## [`0.5.0`](https://github.com/localheinz/phpstan-rules/releases/tag/0.5.0)
 
