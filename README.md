@@ -57,7 +57,7 @@ This rule reports an error when a non-anonymous class is not `final`.
 This rule allows to declare `abstract` classes. If you want to disallow `abstract` classes, you can set the `allowAbstractClasses` parameter to `false`:
 
 ```neon
-parameters: 
+parameters:
 	allowAbstractClasses: false
 ```
 
@@ -66,7 +66,7 @@ parameters:
 If you want to exclude classes from being inspected by this rule, you can set the `classesNotRequiredToBeAbstractOrFinal` to a list of class names:
 
 ```neon
-parameters: 
+parameters:
 	classesNotRequiredToBeAbstractOrFinal:
 		- Foo\Bar\NeitherAbstractNorFinal
 		- Bar\Baz\NeitherAbstractNorFinal

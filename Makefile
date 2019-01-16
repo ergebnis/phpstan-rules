@@ -3,7 +3,8 @@
 it: cs stan test
 
 coverage: vendor
-	vendor/bin/phpunit --configuration=test/Integration/phpunit.xml --coverage-text
+	vendor/bin/phpunit --configuration=test/Integration/phpunit.xml --dump-xdebug-filter=.build/phpunit/xdebug-filter.php
+	vendor/bin/phpunit --configuration=test/Integration/phpunit.xml --coverage-text --prepend=.build/phpunit/xdebug-filter.php
 
 cs: vendor
 	mkdir -p .build/php-cs-fixer
