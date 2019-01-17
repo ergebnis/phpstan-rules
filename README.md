@@ -55,7 +55,7 @@ This rule reports an error when a non-anonymous class is not `final`.
 
 ##### Disallowing `abstract` classes
 
-This rule allows to declare `abstract` classes. If you want to disallow `abstract` classes, you can set the `allowAbstractClasses` parameter to `false`:
+By default, this rule allows to declare `abstract` classes. If you want to disallow declaring `abstract` classes, you can set the `allowAbstractClasses` parameter to `false`:
 
 ```neon
 parameters:
@@ -64,7 +64,7 @@ parameters:
 
 ##### Excluding classes from inspection
 
-If you want to exclude classes from being inspected by this rule, you can set the `classesNotRequiredToBeAbstractOrFinal` to a list of class names:
+If you want to exclude classes from being inspected by this rule, you can set the `classesNotRequiredToBeAbstractOrFinal` parameter to a list of class names:
 
 ```neon
 parameters:
