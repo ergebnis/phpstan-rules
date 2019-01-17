@@ -8,7 +8,6 @@ parameters:
 	classesAllowedToBeExtended:
 		- Localheinz\PHPStan\Rules\Test\Integration\AbstractTestCase
 		- PHPStan\Testing\RuleTestCase
-		- PHPUnit\Framework\TestCase
 	excludes_analyse:
 		- %currentWorkingDirectory%/test/Fixture/
 	paths:

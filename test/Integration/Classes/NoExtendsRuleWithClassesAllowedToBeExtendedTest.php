@@ -28,6 +28,7 @@ final class NoExtendsRuleWithClassesAllowedToBeExtendedTest extends AbstractTest
         $paths = [
             'class' => __DIR__ . '/../../Fixture/Classes/NoExtendsRuleWithClassesAllowedToBeExtended/Success/ExampleClass.php',
             'class-extending-class-allowed-to-be-extended' => __DIR__ . '/../../Fixture/Classes/NoExtendsRuleWithClassesAllowedToBeExtended/Success/ClassExtendingClassAllowedToBeExtended.php',
+            'class-extending-php-unit-framework-test-case' => __DIR__ . '/../../Fixture/Classes/NoExtendsRuleWithClassesAllowedToBeExtended/Success/ClassExtendingPhpUnitFrameworkTestCase.php',
             'interface' => __DIR__ . '/../../Fixture/Classes/NoExtendsRuleWithClassesAllowedToBeExtended/Success/ExampleInterface.php',
             'interface-extending-other-interface' => __DIR__ . '/../../Fixture/Classes/NoExtendsRuleWithClassesAllowedToBeExtended/Success/InterfaceExtendingOtherInterface.php',
             'script-with-anonymous-class' => __DIR__ . '/../../Fixture/Classes/NoExtendsRuleWithClassesAllowedToBeExtended/Success/anonymous-class.php',

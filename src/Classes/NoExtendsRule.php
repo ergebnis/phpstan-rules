@@ -22,6 +22,13 @@ final class NoExtendsRule implements Rule
     /**
      * @var string[]
      */
+    private static $defaultClassesAllowedToBeExtended = [
+        'PHPUnit\\Framework\\TestCase',
+    ];
+
+    /**
+     * @var string[]
+     */
     private $classesAllowedToBeExtended;
 
     /**
@@ -29,9 +36,12 @@ final class NoExtendsRule implements Rule
      */
     public function __construct(array $classesAllowedToBeExtended)
     {
-        $this->classesAllowedToBeExtended = \array_map(static function (string $classAllowedToBeExtended): string {
-            return $classAllowedToBeExtended;
-        }, $classesAllowedToBeExtended);
+        $this->classesAllowedToBeExtended = \array_unique(\array_merge(
+            self::$defaultClassesAllowedToBeExtended,
+            \array_map(static function (string $classAllowedToBeExtended): string {
+                return $classAllowedToBeExtended;
+            }, $classesAllowedToBeExtended)
+        ));
     }
 
     public function getNodeType(): string

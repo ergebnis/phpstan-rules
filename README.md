@@ -77,16 +77,21 @@ parameters:
 
 This rule reports an error when a class extends another class.
 
+##### Defaults
+
+By default, this rule allows the following classes to be extended:
+
+* [`PHPUnit\Framework\TestCase`](https://github.com/sebastianbergmann/phpunit/blob/7.5.2/src/Framework/TestCase.php)
+
 ##### Allowing classes to be extended
 
-If you want to allow some classes to be extended, you can set the `classesAllowedToBeExtended` parameter to a list of class names:
+If you want to allow additional classes to be extended, you can set the `classesAllowedToBeExtended` parameter to a list of class names:
 
 ```neon
 parameters:
 	classesAllowedToBeExtended:
 		- Localheinz\PHPStan\Rules\Test\Integration\AbstractTestCase
 		- PHPStan\Testing\RuleTestCase
-		- PHPUnit\Framework\TestCase
 ```
 
 ### Closures

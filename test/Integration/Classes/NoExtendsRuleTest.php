@@ -27,6 +27,7 @@ final class NoExtendsRuleTest extends AbstractTestCase
     {
         $paths = [
             'class' => __DIR__ . '/../../Fixture/Classes/NoExtendsRule/Success/ExampleClass.php',
+            'class-extending-php-unit-framework-test-case' => __DIR__ . '/../../Fixture/Classes/NoExtendsRule/Success/ClassExtendingPhpUnitFrameworkTestCase.php',
             'interface' => __DIR__ . '/../../Fixture/Classes/NoExtendsRule/Success/ExampleInterface.php',
             'interface-extending-other-interface' => __DIR__ . '/../../Fixture/Classes/NoExtendsRule/Success/InterfaceExtendingOtherInterface.php',
             'script-with-anonymous-class' => __DIR__ . '/../../Fixture/Classes/NoExtendsRule/Success/anonymous-class.php',
