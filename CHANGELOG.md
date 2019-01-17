@@ -6,7 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`0.6.0...master`](https://github.com/localheinz/phpstan-rules/compare/0.6.0...master).
+For a full diff see [`0.7.0...master`](https://github.com/localheinz/phpstan-rules/compare/0.7.0...master).
+
+## [`0.7.0`](https://github.com/localheinz/phpstan-rules/releases/tag/0.7.0)
+
+For a full diff see [`0.6.0...0.7.0`](https://github.com/localheinz/phpstan-rules/compare/0.6.0...0.7.0).
 
 ### Added
 
