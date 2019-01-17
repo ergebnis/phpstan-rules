@@ -1,5 +1,6 @@
 parameters:
 	allowAbstractClasses: true
+	classesAllowedToBeExtended: []
 	classesNotRequiredToBeAbstractOrFinal: []
 
 rules:
@@ -19,5 +20,11 @@ services:
 		arguments:
 			allowAbstractClasses: %allowAbstractClasses%
 			classesNotRequiredToBeAbstractOrFinal: %classesNotRequiredToBeAbstractOrFinal%
+		tags:
+			- phpstan.rules.rule
+	-
+		class: Localheinz\PHPStan\Rules\Classes\NoExtendsRule
+		arguments:
+			classesAllowedToBeExtended: %classesAllowedToBeExtended%
 		tags:
 			- phpstan.rules.rule

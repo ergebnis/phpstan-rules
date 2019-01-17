@@ -13,7 +13,7 @@ cs: vendor
 
 infection: vendor
 	mkdir -p .build/infection
-	vendor/bin/infection --ignore-msi-with-no-mutations --min-covered-msi=98 --min-msi=98
+	vendor/bin/infection --ignore-msi-with-no-mutations --min-covered-msi=96 --min-msi=96
 
 stan: vendor
 	mkdir -p .build/phpstan

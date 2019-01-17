@@ -35,6 +35,7 @@ includes:
 This package provides the following rules for use with [`phpstan/phpstan`](https://github.com/phpstan/phpstan):
 
 * [`Localheinz\PHPStan\Rules\Classes\FinalRule`](https://github.com/localheinz/phpstan-rules#classesfinalrule)
+* [`Localheinz\PHPStan\Rules\Classes\NoExtendsRule`](https://github.com/localheinz/phpstan-rules#classesnoextendsrule)
 * [`Localheinz\PHPStan\Rules\Closures\NoNullableReturnTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#closuresnonullablereturntypedeclarationrule)
 * [`Localheinz\PHPStan\Rules\Closures\NoParameterWithNullableTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#closuresnoparameterwithnullabletypedeclarationrule)
 * [`Localheinz\PHPStan\Rules\Closures\NoParameterWithNullDefaultValueRule`](https://github.com/localheinz/phpstan-rules#closuresnoparameterwithnulldefaultvaluerule)
@@ -70,6 +71,22 @@ parameters:
 	classesNotRequiredToBeAbstractOrFinal:
 		- Foo\Bar\NeitherAbstractNorFinal
 		- Bar\Baz\NeitherAbstractNorFinal
+```
+
+#### `Classes\NoExtendsRule`
+
+This rule reports an error when a class extends another class.
+
+##### Allowing classes to be extended
+
+If you want to allow some classes to be extended, you can set the `classesAllowedToBeExtended` parameter to a list of class names:
+
+```neon
+parameters:
+	classesAllowedToBeExtended:
+		- Localheinz\PHPStan\Rules\Test\Integration\AbstractTestCase
+		- PHPStan\Testing\RuleTestCase
+		- PHPUnit\Framework\TestCase
 ```
 
 ### Closures
