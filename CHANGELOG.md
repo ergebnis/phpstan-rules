@@ -6,7 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`0.7.0...master`](https://github.com/localheinz/phpstan-rules/compare/0.7.0...master).
+For a full diff see [`0.7.1...master`](https://github.com/localheinz/phpstan-rules/compare/0.7.1...master).
+
+## [`0.7.1`](https://github.com/localheinz/phpstan-rules/releases/tag/0.7.1)
+
+For a full diff see [`0.7.0...0.7.1`](https://github.com/localheinz/phpstan-rules/compare/0.7.0...0.7.1).
+
+### Changed
+
+* Configured `Classes\NoExtendsRule` to allow a set of default classes to be extended ([#73](https://github.com/localheinz/phpstan-rules/pull/73)), by [@localheinz](https://github.com/localheinz)
 
 ## [`0.7.0`](https://github.com/localheinz/phpstan-rules/releases/tag/0.7.0)
 
