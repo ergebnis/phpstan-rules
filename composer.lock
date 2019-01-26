@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "557ecd5c3f7d240ce4730f9c63909689",
+    "content-hash": "b06b91efc6ead32962c008288d0b8f51",
     "packages": [
         {
             "name": "composer/xdebug-handler",
@@ -1533,16 +1533,16 @@
         },
         {
             "name": "infection/infection",
-            "version": "0.11.5",
+            "version": "0.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/infection/infection.git",
-                "reference": "20c87babc55e7b49bf2b8410fc1dd1fa87177824"
+                "reference": "8a4d0fbf8de0dca0e590ad590a0052154fd7ca56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/infection/infection/zipball/20c87babc55e7b49bf2b8410fc1dd1fa87177824",
-                "reference": "20c87babc55e7b49bf2b8410fc1dd1fa87177824",
+                "url": "https://api.github.com/repos/infection/infection/zipball/8a4d0fbf8de0dca0e590ad590a0052154fd7ca56",
+                "reference": "8a4d0fbf8de0dca0e590ad590a0052154fd7ca56",
                 "shasum": ""
             },
             "require": {
@@ -1554,14 +1554,14 @@
                 "nikic/php-parser": "^4.1",
                 "ocramius/package-versions": "^1.2",
                 "padraic/phar-updater": "^1.0.4",
-                "php": "^7.1",
+                "php": "^7.1.3",
                 "pimple/pimple": "^3.2",
                 "sebastian/diff": "^1.4 || ^2.0 || ^3.0",
-                "symfony/console": "^3.2 || ^4.0",
-                "symfony/filesystem": "^3.2 || ^4.0",
-                "symfony/finder": "^3.2 || ^4.0",
-                "symfony/process": "^3.2 || ^4.0",
-                "symfony/yaml": "^3.2 || ^4.0",
+                "symfony/console": "^3.4 || ^4.0",
+                "symfony/filesystem": "^3.4 || ^4.0",
+                "symfony/finder": "^3.4 || ^4.0",
+                "symfony/process": "^3.4|| ^4.0",
+                "symfony/yaml": "^3.4 || ^4.0",
                 "webmozart/assert": "^1.3"
             },
             "conflict": {
@@ -1569,8 +1569,7 @@
                 "symfony/process": "3.4.2"
             },
             "require-dev": {
-                "mockery/mockery": "^1.1",
-                "phpunit/phpunit": "^6"
+                "phpunit/phpunit": "^6.2"
             },
             "bin": [
                 "bin/infection"
@@ -1619,7 +1618,7 @@
                 "testing",
                 "unit testing"
             ],
-            "time": "2019-01-13T06:56:41+00:00"
+            "time": "2019-01-24T20:28:57+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
