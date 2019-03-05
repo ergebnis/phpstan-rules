@@ -25,7 +25,7 @@ abstract class AbstractTestCase extends RuleTestCase
      *
      * @param string $path
      */
-    final public function testTestsAnalysisSucceeds(string $path): void
+    final public function testAnalysisSucceeds(string $path): void
     {
         $this->analyse(
             [
