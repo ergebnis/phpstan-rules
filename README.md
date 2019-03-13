@@ -27,7 +27,7 @@ includes:
 :bulb: You probably want to use these rules on top of the rules provided by:
 
 * [`phpstan/phpstan`](https://github.com/phpstan/phpstan)
-* [`phpstan/phpstan-deprecation-rules`](https://github.com/phpstan/phpstan)
+* [`phpstan/phpstan-deprecation-rules`](https://github.com/phpstan/phpstan-deprecation-rules)
 * [`phpstan/phpstan-strict-rules`](https://github.com/phpstan/phpstan-strict-rules)
 
 ## Rules
