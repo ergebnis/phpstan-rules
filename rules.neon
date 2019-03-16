@@ -12,6 +12,7 @@ rules:
 	- Localheinz\PHPStan\Rules\Closures\NoNullableReturnTypeDeclarationRule
 	- Localheinz\PHPStan\Rules\Closures\NoParameterWithNullableTypeDeclarationRule
 	- Localheinz\PHPStan\Rules\Expressions\NoIssetRule
+	- Localheinz\PHPStan\Rules\Files\DeclareStrictTypesRule
 	- Localheinz\PHPStan\Rules\Functions\NoNullableReturnTypeDeclarationRule
 	- Localheinz\PHPStan\Rules\Functions\NoParameterWithNullableTypeDeclarationRule
 	- Localheinz\PHPStan\Rules\Functions\NoParameterWithNullDefaultValueRule
