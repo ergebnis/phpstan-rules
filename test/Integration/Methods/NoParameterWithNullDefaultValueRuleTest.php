@@ -20,6 +20,8 @@ use PHPStan\Rules\Rule;
 
 /**
  * @internal
+ *
+ * @covers \Localheinz\PHPStan\Rules\Methods\NoParameterWithNullDefaultValueRule
  */
 final class NoParameterWithNullDefaultValueRuleTest extends AbstractTestCase
 {

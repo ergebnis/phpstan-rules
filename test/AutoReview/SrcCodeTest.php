@@ -18,6 +18,8 @@ use PHPUnit\Framework;
 
 /**
  * @internal
+ *
+ * @coversNothing
  */
 final class SrcCodeTest extends Framework\TestCase
 {

@@ -19,6 +19,8 @@ use PHPStan\Rules\Rule;
 
 /**
  * @internal
+ *
+ * @covers \Localheinz\PHPStan\Rules\Expressions\NoIssetRule
  */
 final class NoIssetRuleTest extends AbstractTestCase
 {

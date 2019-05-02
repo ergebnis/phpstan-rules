@@ -20,6 +20,8 @@ use PHPStan\Rules\Rule;
 
 /**
  * @internal
+ *
+ * @covers \Localheinz\PHPStan\Rules\Classes\FinalRule
  */
 final class FinalRuleTest extends AbstractTestCase
 {
