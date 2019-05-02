@@ -20,7 +20,8 @@ use PHPStan\Rules\Rule;
 
 /**
  * @internal
- * @coversNothing
+ *
+ * @covers \Localheinz\PHPStan\Rules\Classes\NoExtendsRule
  */
 final class NoExtendsRuleWithClassesAllowedToBeExtendedTest extends AbstractTestCase
 {

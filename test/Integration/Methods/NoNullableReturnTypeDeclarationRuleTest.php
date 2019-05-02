@@ -20,7 +20,8 @@ use PHPStan\Rules\Rule;
 
 /**
  * @internal
- * @coversNothing
+ *
+ * @covers \Localheinz\PHPStan\Rules\Methods\NoNullableReturnTypeDeclarationRule
  */
 final class NoNullableReturnTypeDeclarationRuleTest extends AbstractTestCase
 {

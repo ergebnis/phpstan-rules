@@ -19,7 +19,8 @@ use PHPStan\Rules\Rule;
 
 /**
  * @internal
- * @coversNothing
+ *
+ * @covers \Localheinz\PHPStan\Rules\Closures\NoParameterWithNullableTypeDeclarationRule
  */
 final class NoParameterWithNullableTypeDeclarationRuleTest extends AbstractTestCase
 {

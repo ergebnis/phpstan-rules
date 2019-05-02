@@ -19,7 +19,8 @@ use PHPStan\Rules\Rule;
 
 /**
  * @internal
- * @coversNothing
+ *
+ * @covers \Localheinz\PHPStan\Rules\Closures\NoParameterWithNullDefaultValueRule
  */
 final class NoParameterWithNullDefaultValueRuleTest extends AbstractTestCase
 {
