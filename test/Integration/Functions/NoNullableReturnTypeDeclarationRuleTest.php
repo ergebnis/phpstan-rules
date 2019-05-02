@@ -25,8 +25,8 @@ final class NoNullableReturnTypeDeclarationRuleTest extends AbstractTestCase
     public function providerAnalysisSucceeds(): \Generator
     {
         $paths = [
-            'function--with-return-type-declaration' => __DIR__ . '/../../Fixture/Functions/NoNullableReturnTypeDeclarationRule/Success/function-with-return-type-declaration.php',
-            'function--without-return-type-declaration' => __DIR__ . '/../../Fixture/Functions/NoNullableReturnTypeDeclarationRule/Success/function-without-return-type-declaration.php',
+            'function-with-return-type-declaration' => __DIR__ . '/../../Fixture/Functions/NoNullableReturnTypeDeclarationRule/Success/function-with-return-type-declaration.php',
+            'function-without-return-type-declaration' => __DIR__ . '/../../Fixture/Functions/NoNullableReturnTypeDeclarationRule/Success/function-without-return-type-declaration.php',
         ];
 
         foreach ($paths as $description => $path) {
