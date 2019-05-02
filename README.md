@@ -39,9 +39,10 @@ This package provides the following rules for use with [`phpstan/phpstan`](https
 * [`Localheinz\PHPStan\Rules\Closures\NoNullableReturnTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#closuresnonullablereturntypedeclarationrule)
 * [`Localheinz\PHPStan\Rules\Closures\NoParameterWithNullableTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#closuresnoparameterwithnullabletypedeclarationrule)
 * [`Localheinz\PHPStan\Rules\Closures\NoParameterWithNullDefaultValueRule`](https://github.com/localheinz/phpstan-rules#closuresnoparameterwithnulldefaultvaluerule)
+* [`Localheinz\PHPStan\Rules\Expressions\NoIssetRule`](https://github.com/localheinz/phpstan-rules#expressionsnoissetrule)
 * [`Localheinz\PHPStan\Rules\Functions\NoNullableReturnTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#functionsnonullablereturntypedeclarationrule)
-* [`Localheinz\PHPStan\Rules\Functions\NoParameterWithNullDefaultValueRule`](https://github.com/localheinz/phpstan-rules#functionsnoparameterwithnulldefaultvaluerule)
 * [`Localheinz\PHPStan\Rules\Functions\NoParameterWithNullableTypeDeclaration`](https://github.com/localheinz/phpstan-rules#functionsnoparameterwithnullabletypedeclarationrule)
+* [`Localheinz\PHPStan\Rules\Functions\NoParameterWithNullDefaultValueRule`](https://github.com/localheinz/phpstan-rules#functionsnoparameterwithnulldefaultvaluerule)
 * [`Localheinz\PHPStan\Rules\Methods\NoConstructorParameterWithDefaultValueRule`](https://github.com/localheinz/phpstan-rules#methodsnoconstructorparameterwithdefaultvaluerule)
 * [`Localheinz\PHPStan\Rules\Methods\NoNullableReturnTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#methodsnonullablereturntypedeclarationrule)
 * [`Localheinz\PHPStan\Rules\Methods\NoParameterWithNullableTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#methodsnoparameterwithnullabletypedeclarationrule)
@@ -107,6 +108,12 @@ This rule reports an error when a closure has a parameter with a nullable type d
 #### `Closures\NoParameterWithNullDefaultValueRule`
 
 This rule reports an error when a closure has a parameter with `null` as default value.
+
+### Expressions
+
+#### `Expressions\NoIssetRule`
+
+This rule reports an error when the language construct `isset()` is used.
 
 ### Functions
 

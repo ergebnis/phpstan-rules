@@ -6,7 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`0.7.1...master`](https://github.com/localheinz/phpstan-rules/compare/0.7.1...master).
+For a full diff see [`0.8.0...master`](https://github.com/localheinz/phpstan-rules/compare/0.8.0...master).
+
+## [`0.8.0`](https://github.com/localheinz/phpstan-rules/releases/tag/0.8.0)
+
+For a full diff see [`0.7.1...0.8.0`](https://github.com/localheinz/phpstan-rules/compare/0.7.1...0.8.0).
+
+### Added
+
+* Added `Expressions\NoIssetRule`, which reports an error when the language construct `isset()` is used ([#81](https://github.com/localheinz/phpstan-rules/pull/81)), by [@localheinz](https://github.com/localheinz)
 
 ## [`0.7.1`](https://github.com/localheinz/phpstan-rules/releases/tag/0.7.1)
 
