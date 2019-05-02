@@ -19,6 +19,7 @@ use PHPStan\Rules\Rule;
 
 /**
  * @internal
+ * @coversNothing
  */
 final class NoNullableReturnTypeDeclarationRuleTest extends AbstractTestCase
 {
