@@ -6,7 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`0.8.1...master`](https://github.com/localheinz/phpstan-rules/compare/0.8.1...master).
+For a full diff see [`0.9.0...master`](https://github.com/localheinz/phpstan-rules/compare/0.9.0...master).
+
+## [`0.9.0`](https://github.com/localheinz/phpstan-rules/releases/tag/0.9.0)
+
+For a full diff see [`0.8.1...0.9.0`](https://github.com/localheinz/phpstan-rules/compare/0.8.1...0.9.0).
+
+### Changed
+
+* Adjusted `Classes\FinalRule` to ignore Doctrine entities when they are annotated ([#84](https://github.com/localheinz/phpstan-rules/pull/84)), by [@localheinz](https://github.com/localheinz)
 
 ## [`0.8.1`](https://github.com/localheinz/phpstan-rules/releases/tag/0.8.1)
 

@@ -31,6 +31,10 @@ final class FinalRuleTest extends AbstractTestCase
             'final-class' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/FinalClass.php',
             'final-class-with-anonymous-class' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/FinalClassWithAnonymousClass.php',
             'interface' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/ExampleInterface.php',
+            'non-final-class-with-entity-annotation-in-inline-doc-block' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/NonFinalClassWithEntityAnnotationInInlineDocBlock.php',
+            'non-final-class-with-entity-annotation-in-multi-line-doc-block' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/NonFinalClassWithEntityAnnotationInMultilineDocBlock.php',
+            'non-final-class-with-orm-entity-annotation-in-inline-doc-block' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/NonFinalClassWithOrmEntityAnnotationInInlineDocBlock.php',
+            'non-final-class-with-orm-entity-annotation-in-multi-line-doc-block' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/NonFinalClassWithOrmEntityAnnotationInMultilineDocBlock.php',
             'script-with-anonymous-class' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/anonymous-class.php',
             'trait' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/ExampleTrait.php',
             'trait-with-anonymous-class' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/TraitWithAnonymousClass.php',
@@ -64,6 +68,46 @@ final class FinalRuleTest extends AbstractTestCase
                         Fixture\Classes\FinalRule\Failure\NeitherAbstractNorFinalClass::class
                     ),
                     7,
+                ],
+            ],
+            'non-final-class-without-entity-annotation-in-inline-doc-block' => [
+                __DIR__ . '/../../Fixture/Classes/FinalRule/Failure/NonFinalClassWithoutEntityAnnotationInInlineDocBlock.php',
+                [
+                    \sprintf(
+                        'Class %s is not final.',
+                        Fixture\Classes\FinalRule\Failure\NonFinalClassWithoutEntityAnnotationInInlineDocBlock::class
+                    ),
+                    8,
+                ],
+            ],
+            'non-final-class-without-entity-annotation-in-multi-line-doc-block' => [
+                __DIR__ . '/../../Fixture/Classes/FinalRule/Failure/NonFinalClassWithoutEntityAnnotationInMultilineDocBlock.php',
+                [
+                    \sprintf(
+                        'Class %s is not final.',
+                        Fixture\Classes\FinalRule\Failure\NonFinalClassWithoutEntityAnnotationInMultilineDocBlock::class
+                    ),
+                    11,
+                ],
+            ],
+            'non-final-class-without-orm-entity-annotation-in-inline-doc-block' => [
+                __DIR__ . '/../../Fixture/Classes/FinalRule/Failure/NonFinalClassWithoutOrmEntityAnnotationInInlineDocBlock.php',
+                [
+                    \sprintf(
+                        'Class %s is not final.',
+                        Fixture\Classes\FinalRule\Failure\NonFinalClassWithoutOrmEntityAnnotationInInlineDocBlock::class
+                    ),
+                    8,
+                ],
+            ],
+            'non-final-class-without-orm-entity-annotation-in-multi-line-doc-block' => [
+                __DIR__ . '/../../Fixture/Classes/FinalRule/Failure/NonFinalClassWithoutOrmEntityAnnotationInMultilineDocBlock.php',
+                [
+                    \sprintf(
+                        'Class %s is not final.',
+                        Fixture\Classes\FinalRule\Failure\NonFinalClassWithoutOrmEntityAnnotationInMultilineDocBlock::class
+                    ),
+                    11,
                 ],
             ],
         ];

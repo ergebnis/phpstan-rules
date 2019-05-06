@@ -13,12 +13,21 @@ declare(strict_types=1);
 
 namespace Localheinz\PHPStan\Rules\Classes;
 
+use PhpParser\Comment;
 use PhpParser\Node;
 use PHPStan\Analyser\Scope;
 use PHPStan\Rules\Rule;
 
 final class FinalRule implements Rule
 {
+    /**
+     * @var string[]
+     */
+    private static $whitelistedAnnotations = [
+        'Entity',
+        'ORM\Entity',
+    ];
+
     /**
      * @var bool
      */
@@ -77,11 +86,51 @@ final class FinalRule implements Rule
             return [];
         }
 
+        if ($this->isWhitelisted($node)) {
+            return [];
+        }
+
         return [
             \sprintf(
                 $this->errorMessageTemplate,
                 $node->namespacedName
             ),
         ];
+    }
+
+    /**
+     * This method is inspired by the work on PhpCsFixer\Fixer\ClassNotation\FinalClassFixer and
+     * PhpCsFixer\Fixer\ClassNotation\FinalInternalClassFixer contributed by Dariusz Rumiński, Filippo Tessarotto, and
+     * Spacepossum for friendsofphp/php-cs-fixer.
+     *
+     * @see https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/2.15/src/Fixer/ClassNotation/FinalClassFixer.php
+     * @see https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/2.15/src/Fixer/ClassNotation/FinalInternalClassFixer.php
+     * @see https://github.com/keradus
+     * @see https://github.com/SpacePossum
+     * @see https://github.com/Slamdunk
+     *
+     * @param Node $node
+     *
+     * @return bool
+     */
+    private function isWhitelisted(Node $node): bool
+    {
+        $docComment = $node->getDocComment();
+
+        if (!$docComment instanceof Comment\Doc) {
+            return false;
+        }
+
+        if (\is_int(\preg_match_all('/@(\S+)(?=\s|$)/', $docComment->getReformattedText(), $matches))) {
+            foreach ($matches[1] as $annotation) {
+                foreach (self::$whitelistedAnnotations as $whitelistedAnnotation) {
+                    if (0 === \mb_strpos($annotation, $whitelistedAnnotation)) {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
     }
 }
