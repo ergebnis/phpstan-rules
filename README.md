@@ -54,6 +54,8 @@ This package provides the following rules for use with [`phpstan/phpstan`](https
 
 This rule reports an error when a non-anonymous class is not `final`.
 
+:bulb: Doctrine entities are currently ignored when they are annotated with `@ORM\Entity` or `@Entity`.
+
 ##### Disallowing `abstract` classes
 
 By default, this rule allows to declare `abstract` classes. If you want to disallow declaring `abstract` classes, you can set the `allowAbstractClasses` parameter to `false`:
@@ -185,3 +187,7 @@ Please have a look at [`CODE_OF_CONDUCT.md`](.github/CODE_OF_CONDUCT.md).
 ## License
 
 This package is licensed using the MIT License.
+
+## Credits
+
+The method [`FinalRule::isWhitelistedClass()`](src/Classes/FinalRule.php) is inspired by the work on [`PhpCsFixer\Fixer\ClassNotation\FinalClassFixer`](https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/2.15/src/Fixer/ClassNotation/FinalClassFixer.php) and [`PhpCsFixer\Fixer\ClassNotation\FinalInternalClassFixer`](https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/2.15/src/Fixer/ClassNotation/FinalInternalClassFixer.php), contributed by [Dariusz Rumiński](https://github.com/keradus), [Filippo Tessarotto](https://github.com/Slamdunk), and [Spacepossum](https://github.com/SpacePossum) for [`friendsofphp/php-cs-fixer`](https://github.com/FriendsOfPHP/PHP-CS-Fixer) (originally licensed under MIT).
