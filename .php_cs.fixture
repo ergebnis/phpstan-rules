@@ -5,6 +5,7 @@ declare(strict_types=1);
 use Localheinz\PhpCsFixer\Config;
 
 $config = Config\Factory::fromRuleSet(new Config\RuleSet\Php71(''), [
+    'final_class' => false,
     'lowercase_constants' => false,
     'lowercase_keywords' => false,
     'magic_method_casing' => false,
