@@ -1,6 +1,6 @@
 {
   "name": "localheinz/phpstan-rules",
-  "type": "library",
+  "type": "phpstan-extension",
   "description": "Provides additional rules for phpstan/phpstan.",
   "keywords": [
     "phpstan",
@@ -32,6 +32,13 @@
   "config": {
     "preferred-install": "dist",
     "sort-packages": true
+  },
+  "extra": {
+    "phpstan": {
+      "includes": [
+        "rules.neon"
+      ]
+    }
   },
   "autoload": {
     "psr-4": {

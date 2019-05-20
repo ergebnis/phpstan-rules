@@ -17,7 +17,11 @@ $ composer require --dev localheinz/phpstan-rules
 
 ## Usage
 
-All of the [rules](https://github.com/localheinz/phpstan-rules#rules) provided (and used) by this library are included in [`rules.neon`](rules.neon). The easiest way to use these rules in your project is to include `rules.neon` in your `phpstan.neon`:
+All of the [rules](https://github.com/localheinz/phpstan-rules#rules) provided (and used) by this library are included in [`rules.neon`](rules.neon).
+
+When you are using [`phpstan/extension-installer`](https://github.com/phpstan/extension-installer), `rules.neon` will be automatically included.
+
+Otherwise you need to include `rules.neon` in your `phpstan.neon`:
 
 ```neon
 includes:
