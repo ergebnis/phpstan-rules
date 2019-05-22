@@ -16,6 +16,7 @@ namespace Localheinz\PHPStan\Rules\Closures;
 use PhpParser\Node;
 use PHPStan\Analyser\Scope;
 use PHPStan\Rules\Rule;
+use PHPStan\ShouldNotHappenException;
 
 final class NoNullableReturnTypeDeclarationRule implements Rule
 {
@@ -24,14 +25,16 @@ final class NoNullableReturnTypeDeclarationRule implements Rule
         return Node\Expr\Closure::class;
     }
 
-    /**
-     * @param Node\Expr\Closure $node
-     * @param Scope             $scope
-     *
-     * @return array
-     */
     public function processNode(Node $node, Scope $scope): array
     {
+        if (!$node instanceof Node\Expr\Closure) {
+            throw new ShouldNotHappenException(\sprintf(
+                'Expected node to be instance of "%s", but got instance of "%s" instead.',
+                Node\Expr\Closure::class,
+                \get_class($node)
+            ));
+        }
+
         if (!$node->getReturnType() instanceof Node\NullableType) {
             return [];
         }

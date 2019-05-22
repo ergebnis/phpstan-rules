@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`0.9.1...master`](https://github.com/localheinz/phpstan-rules/compare/0.9.1...master).
 
+### Changed
+
+* Require at least `phpstan/phpstan:~0.11.7` ([#91](https://github.com/localheinz/phpstan-rules/pull/91)), by [@localheinz](https://github.com/localheinz)
+
 ## [`0.9.1`](https://github.com/localheinz/phpstan-rules/releases/tag/0.9.1)
 
 For a full diff see [`0.9.0...0.9.1`](https://github.com/localheinz/phpstan-rules/compare/0.9.0...0.9.1).

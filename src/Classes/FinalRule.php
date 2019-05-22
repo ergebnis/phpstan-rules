@@ -17,6 +17,7 @@ use PhpParser\Comment;
 use PhpParser\Node;
 use PHPStan\Analyser\Scope;
 use PHPStan\Rules\Rule;
+use PHPStan\ShouldNotHappenException;
 
 final class FinalRule implements Rule
 {
@@ -64,14 +65,16 @@ final class FinalRule implements Rule
         return Node\Stmt\Class_::class;
     }
 
-    /**
-     * @param Node\Stmt\Class_ $node
-     * @param Scope            $scope
-     *
-     * @return array
-     */
     public function processNode(Node $node, Scope $scope): array
     {
+        if (!$node instanceof Node\Stmt\Class_) {
+            throw new ShouldNotHappenException(\sprintf(
+                'Expected node to be instance of "%s", but got instance of "%s" instead.',
+                Node\Stmt\Class_::class,
+                \get_class($node)
+            ));
+        }
+
         if (!isset($node->namespacedName)
             || \in_array($node->namespacedName->toString(), $this->classesNotRequiredToBeAbstractOrFinal, true)
         ) {

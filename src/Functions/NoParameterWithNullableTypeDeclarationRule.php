@@ -16,6 +16,7 @@ namespace Localheinz\PHPStan\Rules\Functions;
 use PhpParser\Node;
 use PHPStan\Analyser\Scope;
 use PHPStan\Rules\Rule;
+use PHPStan\ShouldNotHappenException;
 
 final class NoParameterWithNullableTypeDeclarationRule implements Rule
 {
@@ -24,14 +25,16 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rule
         return Node\Stmt\Function_::class;
     }
 
-    /**
-     * @param Node\Stmt\Function_ $node
-     * @param Scope               $scope
-     *
-     * @return array
-     */
     public function processNode(Node $node, Scope $scope): array
     {
+        if (!$node instanceof Node\Stmt\Function_) {
+            throw new ShouldNotHappenException(\sprintf(
+                'Expected node to be instance of "%s", but got instance of "%s" instead.',
+                Node\Stmt\Function_::class,
+                \get_class($node)
+            ));
+        }
+
         if (0 === \count($node->params)) {
             return [];
         }
