@@ -25,7 +25,7 @@ use PHPStan\Rules\Rule;
  */
 final class NoParameterWithNullDefaultValueRuleTest extends AbstractTestCase
 {
-    public function providerAnalysisSucceeds(): \Generator
+    public function providerAnalysisSucceeds(): iterable
     {
         $paths = [
             'method-in-anonymous-class-with-parameter-with-non-null-default-value' => __DIR__ . '/../../Fixture/Methods/NoParameterWithNullDefaultValueRule/Success/method-in-anonymous-class-with-parameter-with-non-null-default-value.php',
@@ -53,7 +53,7 @@ final class NoParameterWithNullDefaultValueRuleTest extends AbstractTestCase
         }
     }
 
-    public function providerAnalysisFails(): \Generator
+    public function providerAnalysisFails(): iterable
     {
         $paths = [
             'method-in-anonymous-class-with-parameter-with-null-default-value' => [

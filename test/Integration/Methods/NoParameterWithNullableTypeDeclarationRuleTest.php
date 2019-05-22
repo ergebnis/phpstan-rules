@@ -25,7 +25,7 @@ use PHPStan\Rules\Rule;
  */
 final class NoParameterWithNullableTypeDeclarationRuleTest extends AbstractTestCase
 {
-    public function providerAnalysisSucceeds(): \Generator
+    public function providerAnalysisSucceeds(): iterable
     {
         $paths = [
             'method-in-anonymous-class-with-parameter-with-type-declaration' => __DIR__ . '/../../Fixture/Methods/NoParameterWithNullableTypeDeclarationRule/Success/method-in-anonymous-class-with-parameter-with-type-declaration.php',
@@ -50,7 +50,7 @@ final class NoParameterWithNullableTypeDeclarationRuleTest extends AbstractTestC
         }
     }
 
-    public function providerAnalysisFails(): \Generator
+    public function providerAnalysisFails(): iterable
     {
         $paths = [
             'method-in-anonymous-class-with-parameter-with-nullable-type-declaration' => [

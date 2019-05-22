@@ -53,7 +53,7 @@ abstract class AbstractTestCase extends RuleTestCase
         );
     }
 
-    abstract public function providerAnalysisSucceeds(): \Generator;
+    abstract public function providerAnalysisSucceeds(): iterable;
 
-    abstract public function providerAnalysisFails(): \Generator;
+    abstract public function providerAnalysisFails(): iterable;
 }
