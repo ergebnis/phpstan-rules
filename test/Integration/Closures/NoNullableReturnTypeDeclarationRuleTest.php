@@ -24,7 +24,7 @@ use PHPStan\Rules\Rule;
  */
 final class NoNullableReturnTypeDeclarationRuleTest extends AbstractTestCase
 {
-    public function providerAnalysisSucceeds(): \Generator
+    public function providerAnalysisSucceeds(): iterable
     {
         $paths = [
             'closure-with-return-type-declaration' => __DIR__ . '/../../Fixture/Closures/NoNullableReturnTypeDeclarationRule/Success/closure-with-return-type-declaration.php',
@@ -38,7 +38,7 @@ final class NoNullableReturnTypeDeclarationRuleTest extends AbstractTestCase
         }
     }
 
-    public function providerAnalysisFails(): \Generator
+    public function providerAnalysisFails(): iterable
     {
         $paths = [
             'closure-with-nullable-return-type-declaration' => [

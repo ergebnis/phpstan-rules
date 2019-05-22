@@ -24,7 +24,7 @@ use PHPStan\Rules\Rule;
  */
 final class NoIssetRuleTest extends AbstractTestCase
 {
-    public function providerAnalysisSucceeds(): \Generator
+    public function providerAnalysisSucceeds(): iterable
     {
         $paths = [
             'isset-not-used' => __DIR__ . '/../../Fixture/Expressions/NoIssetRule/Success/isset-not-used.php',
@@ -37,7 +37,7 @@ final class NoIssetRuleTest extends AbstractTestCase
         }
     }
 
-    public function providerAnalysisFails(): \Generator
+    public function providerAnalysisFails(): iterable
     {
         $paths = [
             'isset-used-with-correct-case' => [

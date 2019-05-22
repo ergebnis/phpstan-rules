@@ -25,7 +25,7 @@ use PHPStan\Rules\Rule;
  */
 final class FinalRuleWithExcludedClassNamesTest extends AbstractTestCase
 {
-    public function providerAnalysisSucceeds(): \Generator
+    public function providerAnalysisSucceeds(): iterable
     {
         $paths = [
             'final-class' => __DIR__ . '/../../Fixture/Classes/FinalRuleWithExcludedClassNames/Success/FinalClass.php',
@@ -44,7 +44,7 @@ final class FinalRuleWithExcludedClassNamesTest extends AbstractTestCase
         }
     }
 
-    public function providerAnalysisFails(): \Generator
+    public function providerAnalysisFails(): iterable
     {
         $paths = [
             'abstract-class' => [
