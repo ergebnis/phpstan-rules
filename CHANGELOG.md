@@ -6,12 +6,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`0.9.1...master`](https://github.com/localheinz/phpstan-rules/compare/0.9.1...master).
+For a full diff see [`0.10.0...master`](https://github.com/localheinz/phpstan-rules/compare/0.10.0...master).
+
+## [`0.10.0`](https://github.com/localheinz/phpstan-rules/releases/tag/0.10.0)
+
+For a full diff see [`0.9.1...0.10.0`](https://github.com/localheinz/phpstan-rules/compare/0.9.1...0.10.0).
 
 ### Changed
 
 * Require at least `phpstan/phpstan:~0.11.7` ([#91](https://github.com/localheinz/phpstan-rules/pull/91)), by [@localheinz](https://github.com/localheinz)
 
+### Fixed
+
+* Added missing `parametersSchema` configuration to `rules.neon`, which is required for use with `bleedingEdge.neon`, see [`phpstan/phpstan@54a125d`](https://github.com/phpstan/phpstan/commit/54a125df47fa097b792cb9a3e70c49f753f66b85) ([#93](https://github.com/localheinz/phpstan-rules/pull/93)), by [@localheinz](https://github.com/localheinz)
+*
 ## [`0.9.1`](https://github.com/localheinz/phpstan-rules/releases/tag/0.9.1)
 
 For a full diff see [`0.9.0...0.9.1`](https://github.com/localheinz/phpstan-rules/compare/0.9.0...0.9.1).

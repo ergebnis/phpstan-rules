@@ -3,6 +3,11 @@ parameters:
 	classesAllowedToBeExtended: []
 	classesNotRequiredToBeAbstractOrFinal: []
 
+parametersSchema:
+	allowAbstractClasses: bool()
+	classesAllowedToBeExtended: listOf(string())
+	classesNotRequiredToBeAbstractOrFinal: listOf(string())
+
 rules:
 	- Localheinz\PHPStan\Rules\Closures\NoNullableReturnTypeDeclarationRule
 	- Localheinz\PHPStan\Rules\Closures\NoParameterWithNullableTypeDeclarationRule
