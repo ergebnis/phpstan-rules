@@ -154,7 +154,7 @@ jobs:
         - mkdir -p $HOME/.build/infection
 
       script:
-        - vendor/bin/infection --ignore-msi-with-no-mutations --min-covered-msi=100 --min-msi=100
+        - vendor/bin/infection --ignore-msi-with-no-mutations --min-covered-msi=86 --min-msi=86
 
 notifications:
   email: false

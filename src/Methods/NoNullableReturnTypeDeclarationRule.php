@@ -17,6 +17,7 @@ use PhpParser\Node;
 use PHPStan\Analyser\Scope;
 use PHPStan\Reflection;
 use PHPStan\Rules\Rule;
+use PHPStan\ShouldNotHappenException;
 
 final class NoNullableReturnTypeDeclarationRule implements Rule
 {
@@ -25,14 +26,16 @@ final class NoNullableReturnTypeDeclarationRule implements Rule
         return Node\Stmt\ClassMethod::class;
     }
 
-    /**
-     * @param Node\Stmt\ClassMethod $node
-     * @param Scope                 $scope
-     *
-     * @return array
-     */
     public function processNode(Node $node, Scope $scope): array
     {
+        if (!$node instanceof Node\Stmt\ClassMethod) {
+            throw new ShouldNotHappenException(\sprintf(
+                'Expected node to be instance of "%s", but got instance of "%s" instead.',
+                Node\Stmt\ClassMethod::class,
+                \get_class($node)
+            ));
+        }
+
         $returnType = $node->getReturnType();
 
         if (!$returnType instanceof Node\NullableType) {
