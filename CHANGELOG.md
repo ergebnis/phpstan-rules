@@ -8,6 +8,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`0.10.0...master`](https://github.com/localheinz/phpstan-rules/compare/0.10.0...master).
 
+### Changed
+
+* Require at least `nikic/php-parser:~0.11.15` ([#102](https://github.com/localheinz/phpstan-rules/pull/102)), by [@localheinz](https://github.com/localheinz)
+* Require at least `phpstan/phpstan:~0.11.15` ([#103](https://github.com/localheinz/phpstan-rules/pull/103)), by [@localheinz](https://github.com/localheinz)
+
 ## [`0.10.0`](https://github.com/localheinz/phpstan-rules/releases/tag/0.10.0)
 
 For a full diff see [`0.9.1...0.10.0`](https://github.com/localheinz/phpstan-rules/compare/0.9.1...0.10.0).
