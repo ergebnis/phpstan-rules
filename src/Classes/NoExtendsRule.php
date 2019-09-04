@@ -27,9 +27,6 @@ final class NoExtendsRule implements Rule
         'PHPUnit\\Framework\\TestCase',
     ];
 
-    /**
-     * @var string[]
-     */
     private $classesAllowedToBeExtended;
 
     /**
