@@ -22,7 +22,7 @@
   },
   "require-dev": {
     "infection/infection": "~0.12.2",
-    "localheinz/composer-normalize": "^1.1.1",
+    "localheinz/composer-normalize": "^1.3.0",
     "localheinz/php-cs-fixer-config": "~1.21.0",
     "localheinz/test-util": "~0.7.0",
     "phpstan/phpstan-deprecation-rules": "~0.11.1",
