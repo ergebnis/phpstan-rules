@@ -1,0 +1,18 @@
+# https://dependabot.com/docs/config-file/
+
+version: 1
+
+update_configs:
+  - default_assignees:
+      - "localheinz"
+    default_reviewers:
+      - "localheinz"
+    directory: "/"
+    ignored_updates:
+      - match:
+          dependency_name: "nikic/php-parser"
+      - match:
+          dependency_name: "phpstan/phpstan"
+    package_manager: "php:composer"
+    update_schedule: "live"
+    version_requirement_updates: "increase_versions"
