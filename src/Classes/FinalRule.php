@@ -29,14 +29,8 @@ final class FinalRule implements Rule
         'ORM\Entity',
     ];
 
-    /**
-     * @var bool
-     */
     private $allowAbstractClasses;
 
-    /**
-     * @var string[]
-     */
     private $classesNotRequiredToBeAbstractOrFinal;
 
     /**

@@ -13,6 +13,7 @@ parameters:
 		- %currentWorkingDirectory%/test/Fixture/
 	ignoreErrors:
 		- '#Language construct isset\(\) should not be used.#'
+	inferPrivatePropertyTypeFromConstructor: true
 	paths:
 		- src
 		- test
