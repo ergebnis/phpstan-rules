@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`0.10.0...master`](https://github.com/localheinz/phpstan-rules/compare/0.10.0...master).
 
+### Added
+
+* Added `Files\DeclareStrictTypesRule`, which reports an error when a PHP file does not have a `declare(strict_types=1)` declaration ([#79](https://github.com/localheinz/phpstan-rules/pull/79)), by [@dmecke](https://github.com/dmecke)
+
 ### Changed
 
 * Require at least `nikic/php-parser:~0.11.15` ([#102](https://github.com/localheinz/phpstan-rules/pull/102)), by [@localheinz](https://github.com/localheinz)
