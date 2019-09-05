@@ -43,6 +43,7 @@ This package provides the following rules for use with [`phpstan/phpstan`](https
 * [`Localheinz\PHPStan\Rules\Closures\NoNullableReturnTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#closuresnonullablereturntypedeclarationrule)
 * [`Localheinz\PHPStan\Rules\Closures\NoParameterWithNullableTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#closuresnoparameterwithnullabletypedeclarationrule)
 * [`Localheinz\PHPStan\Rules\Closures\NoParameterWithNullDefaultValueRule`](https://github.com/localheinz/phpstan-rules#closuresnoparameterwithnulldefaultvaluerule)
+* [`Localheinz\PHPStan\Rules\Expressions\NoCompactRule`](https://github.com/localheinz/phpstan-rules#expressionsnocompactrule)
 * [`Localheinz\PHPStan\Rules\Expressions\NoEmptyRule`](https://github.com/localheinz/phpstan-rules#expressionsnoemptyrule)
 * [`Localheinz\PHPStan\Rules\Expressions\NoErrorSuppressionRule`](https://github.com/localheinz/phpstan-rules#expressionserrorsuppressionrule)
 * [`Localheinz\PHPStan\Rules\Expressions\NoEvalRule`](https://github.com/localheinz/phpstan-rules#expressionsnoevalrule)
@@ -120,6 +121,10 @@ This rule reports an error when a closure has a parameter with a nullable type d
 This rule reports an error when a closure has a parameter with `null` as default value.
 
 ### Expressions
+
+#### `Expressions\NoCompactRule`
+
+This rule reports an error when the function [`compact()`](https://www.php.net/compact) is used.
 
 #### `Expressions\NoEmptyRule`
 

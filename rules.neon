@@ -11,6 +11,7 @@ parametersSchema:
 rules:
 	- Localheinz\PHPStan\Rules\Closures\NoNullableReturnTypeDeclarationRule
 	- Localheinz\PHPStan\Rules\Closures\NoParameterWithNullableTypeDeclarationRule
+	- Localheinz\PHPStan\Rules\Expressions\NoCompactRule
 	- Localheinz\PHPStan\Rules\Expressions\NoEmptyRule
 	- Localheinz\PHPStan\Rules\Expressions\NoErrorSuppressionRule
 	- Localheinz\PHPStan\Rules\Expressions\NoEvalRule
