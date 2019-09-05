@@ -17,7 +17,7 @@ For a full diff see [`0.10.0...master`](https://github.com/localheinz/phpstan-ru
 
 ### Changed
 
-* Require at least `nikic/php-parser:~0.11.15` ([#102](https://github.com/localheinz/phpstan-rules/pull/102)), by [@localheinz](https://github.com/localheinz)
+* Require at least `nikic/php-parser:^4.2.3` ([#102](https://github.com/localheinz/phpstan-rules/pull/102)), by [@localheinz](https://github.com/localheinz)
 * Require at least `phpstan/phpstan:~0.11.15` ([#103](https://github.com/localheinz/phpstan-rules/pull/103)), by [@localheinz](https://github.com/localheinz)
 
 ## [`0.10.0`](https://github.com/localheinz/phpstan-rules/releases/tag/0.10.0)
