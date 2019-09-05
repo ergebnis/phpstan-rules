@@ -12,6 +12,7 @@ For a full diff see [`0.10.0...master`](https://github.com/localheinz/phpstan-ru
 
 * Added `Files\DeclareStrictTypesRule`, which reports an error when a PHP file does not have a `declare(strict_types=1)` declaration ([#79](https://github.com/localheinz/phpstan-rules/pull/79)), by [@dmecke](https://github.com/dmecke)
 * Added `Expressions\NoEmptyRule`, which reports an error when the language construct `empty()` is used ([#110](https://github.com/localheinz/phpstan-rules/pull/110)), by [@localheinz](https://github.com/localheinz)
+* Added `Expressions\NoEvalRule`, which reports an error when the language construct `eval()` is used ([#112](https://github.com/localheinz/phpstan-rules/pull/112)), by [@localheinz](https://github.com/localheinz)
 
 ### Changed
 

@@ -44,6 +44,7 @@ This package provides the following rules for use with [`phpstan/phpstan`](https
 * [`Localheinz\PHPStan\Rules\Closures\NoParameterWithNullableTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#closuresnoparameterwithnullabletypedeclarationrule)
 * [`Localheinz\PHPStan\Rules\Closures\NoParameterWithNullDefaultValueRule`](https://github.com/localheinz/phpstan-rules#closuresnoparameterwithnulldefaultvaluerule)
 * [`Localheinz\PHPStan\Rules\Expressions\NoEmptyRule`](https://github.com/localheinz/phpstan-rules#expressionsnoemptyrule)
+* [`Localheinz\PHPStan\Rules\Expressions\NoEvalRule`](https://github.com/localheinz/phpstan-rules#expressionsnoevalrule)
 * [`Localheinz\PHPStan\Rules\Expressions\NoIssetRule`](https://github.com/localheinz/phpstan-rules#expressionsnoissetrule)
 * [`Localheinz\PHPStan\Rules\Files\DeclareStrictTypesRule`](https://github.com/localheinz/phpstan-rules#filesdeclarestricttypesrule)
 * [`Localheinz\PHPStan\Rules\Functions\NoNullableReturnTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#functionsnonullablereturntypedeclarationrule)
@@ -122,6 +123,10 @@ This rule reports an error when a closure has a parameter with `null` as default
 #### `Expressions\NoEmptyRule`
 
 This rule reports an error when the language construct [`empty()`](https://www.php.net/empty) is used.
+
+#### `Expressions\NoEvalRule`
+
+This rule reports an error when the language construct [`eval()`](https://www.php.net/eval) is used.
 
 #### `Expressions\NoIssetRule`
 
