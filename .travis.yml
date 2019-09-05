@@ -138,7 +138,7 @@ jobs:
 
     - stage: Infection
 
-      php: 7.2
+      php: 7.3
 
       before_install:
         - source .travis/xdebug.sh
