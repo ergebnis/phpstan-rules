@@ -44,6 +44,7 @@ This package provides the following rules for use with [`phpstan/phpstan`](https
 * [`Localheinz\PHPStan\Rules\Closures\NoParameterWithNullableTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#closuresnoparameterwithnullabletypedeclarationrule)
 * [`Localheinz\PHPStan\Rules\Closures\NoParameterWithNullDefaultValueRule`](https://github.com/localheinz/phpstan-rules#closuresnoparameterwithnulldefaultvaluerule)
 * [`Localheinz\PHPStan\Rules\Expressions\NoEmptyRule`](https://github.com/localheinz/phpstan-rules#expressionsnoemptyrule)
+* [`Localheinz\PHPStan\Rules\Expressions\NoErrorSuppressionRule`](https://github.com/localheinz/phpstan-rules#expressionserrorsuppressionrule)
 * [`Localheinz\PHPStan\Rules\Expressions\NoEvalRule`](https://github.com/localheinz/phpstan-rules#expressionsnoevalrule)
 * [`Localheinz\PHPStan\Rules\Expressions\NoIssetRule`](https://github.com/localheinz/phpstan-rules#expressionsnoissetrule)
 * [`Localheinz\PHPStan\Rules\Files\DeclareStrictTypesRule`](https://github.com/localheinz/phpstan-rules#filesdeclarestricttypesrule)
@@ -127,6 +128,10 @@ This rule reports an error when the language construct [`empty()`](https://www.p
 #### `Expressions\NoEvalRule`
 
 This rule reports an error when the language construct [`eval()`](https://www.php.net/eval) is used.
+
+#### `Expressions\NoErrorSuppressionRule`
+
+This rule reports an error when [`@`](https://www.php.net/manual/en/language.operators.errorcontrol.php) is used to suppress errors.
 
 #### `Expressions\NoIssetRule`
 
