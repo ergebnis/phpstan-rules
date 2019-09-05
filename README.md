@@ -120,7 +120,7 @@ This rule reports an error when a closure has a parameter with `null` as default
 
 #### `Expressions\NoIssetRule`
 
-This rule reports an error when the language construct `isset()` is used.
+This rule reports an error when the language construct [`isset()`](https://www.php.net/isset) is used.
 
 ### Files
 
