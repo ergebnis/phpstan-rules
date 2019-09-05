@@ -125,7 +125,7 @@ This rule reports an error when the language construct [`empty()`](https://www.p
 
 #### `Expressions\NoIssetRule`
 
-This rule reports an error when the language construct `isset()` is used.
+This rule reports an error when the language construct [`isset()`](https://www.php.net/isset) is used.
 
 ### Files
 
