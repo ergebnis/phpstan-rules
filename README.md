@@ -56,6 +56,7 @@ This package provides the following rules for use with [`phpstan/phpstan`](https
 * [`Localheinz\PHPStan\Rules\Methods\NoNullableReturnTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#methodsnonullablereturntypedeclarationrule)
 * [`Localheinz\PHPStan\Rules\Methods\NoParameterWithNullableTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#methodsnoparameterwithnullabletypedeclarationrule)
 * [`Localheinz\PHPStan\Rules\Methods\NoParameterWithNullDefaultValueRule`](https://github.com/localheinz/phpstan-rules#methodsnoparameterwithnulldefaultvaluerule)
+* [`Localheinz\PHPStan\Rules\Statements\NoSwitchRule`](https://github.com/localheinz/phpstan-rules#statementsnoswitchrule)
 
 ### Classes
 
@@ -202,6 +203,10 @@ This rule reports an error when a method declared in
 * an interface
 
 has a parameter with `null` as default value.
+
+#### `Statements\NoSwitchRule`
+
+This rule reports an error when the statement [`switch()`](https://www.php.net/manual/control-structures.switch.php) is used.
 
 ## Changelog
 
