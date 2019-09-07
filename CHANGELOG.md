@@ -15,6 +15,7 @@ For a full diff see [`0.10.0...master`](https://github.com/localheinz/phpstan-ru
 * Added `Expressions\NoEvalRule`, which reports an error when the language construct `eval()` is used ([#112](https://github.com/localheinz/phpstan-rules/pull/112)), by [@localheinz](https://github.com/localheinz)
 * Added `Expressions\NoErrorSuppressionRule`, which reports an error when `@` is used to suppress errors ([#113](https://github.com/localheinz/phpstan-rules/pull/113)), by [@localheinz](https://github.com/localheinz)
 * Added `Expressions\NoCompactRule`, which reports an error when the function `compact()` is used ([#116](https://github.com/localheinz/phpstan-rules/pull/116)), by [@localheinz](https://github.com/localheinz)
+* Added `Statements\NoSwitchRule`, which reports an error when the statement `switch()` is used ([#117](https://github.com/localheinz/phpstan-rules/pull/117)), by [@localheinz](https://github.com/localheinz)
 
 ### Changed
 
