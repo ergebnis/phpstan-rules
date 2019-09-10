@@ -1,6 +1,6 @@
 # phpstan-rules
 
-[![Build Status](https://travis-ci.com/localheinz/phpstan-rules.svg?branch=master)](https://travis-ci.com/localheinz/phpstan-rules)
+[![CI Status](https://github.com/localheinz/phpstan-rules/workflows/Continuous%20Integration/badge.svg)](https://github.com/localheinz/phpstan-rules/actions)
 [![codecov](https://codecov.io/gh/localheinz/phpstan-rules/branch/master/graph/badge.svg)](https://codecov.io/gh/localheinz/phpstan-rules)
 [![Latest Stable Version](https://poser.pugx.org/localheinz/phpstan-rules/v/stable)](https://packagist.org/packages/localheinz/phpstan-rules)
 [![Total Downloads](https://poser.pugx.org/localheinz/phpstan-rules/downloads)](https://packagist.org/packages/localheinz/phpstan-rules)
