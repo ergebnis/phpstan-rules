@@ -28,15 +28,13 @@ $config->getFinder()
     ->ignoreDotFiles(false)
     ->in(__DIR__)
     ->exclude([
-        '.github',
         '.build',
-        '.travis',
+        '.dependabot',
+        '.github',
         'test/Fixture',
     ])
     ->name('.php_cs');
 
-$directory = \getenv('TRAVIS') ? \getenv('HOME') : __DIR__;
-
-$config->setCacheFile($directory . '/.build/php-cs-fixer/.php_cs.cache');
+$config->setCacheFile(__DIR__ . '/.build/php-cs-fixer/.php_cs.cache');
 
 return $config;
