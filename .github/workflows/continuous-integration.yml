@@ -17,13 +17,13 @@ jobs:
         uses: actions/checkout@master
 
       - name: "Validate composer.json and composer.lock"
-        run: php7.1 /usr/bin/composer validate --strict
+        run: php7.1 $(which composer) validate --strict
 
       - name: "Install locked dependencies with composer"
-        run: php7.1 /usr/bin/composer install --no-interaction --no-progress --no-suggest
+        run: php7.1 $(which composer) install --no-interaction --no-progress --no-suggest
 
       - name: "Run localheinz/composer-normalize"
-        run: php7.1 /usr/bin/composer normalize --dry-run
+        run: php7.1 $(which composer) normalize --dry-run
 
       - name: "Run friendsofphp/php-cs-fixer for source"
         run: php7.1 vendor/bin/php-cs-fixer fix --config=.php_cs --diff --diff-format=udiff --using-cache=no --verbose
@@ -41,7 +41,7 @@ jobs:
         uses: actions/checkout@master
 
       - name: "Install locked dependencies with composer"
-        run: php7.3 /usr/bin/composer install --no-interaction --no-progress --no-suggest
+        run: php7.3 $(which composer) install --no-interaction --no-progress --no-suggest
 
       - name: "Run phpstan/phpstan"
         run: php7.3 vendor/bin/phpstan analyse --configuration=phpstan.neon
@@ -69,15 +69,15 @@ jobs:
 
       - name: "Install lowest dependencies with composer"
         if: matrix.dependencies == 'lowest'
-        run: ${{ matrix.php-binary }} /usr/bin/composer update --prefer-lowest --no-interaction --no-progress --no-suggest
+        run: ${{ matrix.php-binary }} $(which composer) update --prefer-lowest --no-interaction --no-progress --no-suggest
 
       - name: "Install locked dependencies with composer"
         if: matrix.dependencies == 'locked'
-        run: ${{ matrix.php-binary }} /usr/bin/composer install --no-interaction --no-progress --no-suggest
+        run: ${{ matrix.php-binary }} $(which composer) install --no-interaction --no-progress --no-suggest
 
       - name: "Install highest dependencies with composer"
         if: matrix.dependencies == 'highest'
-        run: ${{ matrix.php-binary }} /usr/bin/composer update --no-interaction --no-progress --no-suggest
+        run: ${{ matrix.php-binary }} $(which composer) update --no-interaction --no-progress --no-suggest
 
       - name: "Run auto-review tests with phpunit/phpunit"
         run: ${{ matrix.php-binary }} vendor/bin/phpunit --configuration=test/AutoReview/phpunit.xml
@@ -95,7 +95,7 @@ jobs:
         uses: actions/checkout@master
 
       - name: "Install locked dependencies with composer"
-        run: php7.3 /usr/bin/composer install --no-interaction --no-progress --no-suggest
+        run: php7.3 $(which composer) install --no-interaction --no-progress --no-suggest
 
       - name: "Dump Xdebug filter with phpunit/phpunit"
         run: php7.3 vendor/bin/phpunit --configuration=test/Integration/phpunit.xml --dump-xdebug-filter=.build/phpunit/xdebug-filter.php
@@ -107,4 +107,4 @@ jobs:
         run: curl -s https://codecov.io/bash -o codecov
 
       - name: "Send code coverage report to Codecov.io"
-        run: bash codecov -t ${{ secrets.CODECOV_TOKEN }}
+        run: bash codecov -t ${{ secrets.CODECOV_TOKEN }} -Z
