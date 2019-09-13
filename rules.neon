@@ -23,6 +23,7 @@ rules:
 	- Localheinz\PHPStan\Rules\Functions\NoNullableReturnTypeDeclarationRule
 	- Localheinz\PHPStan\Rules\Functions\NoParameterWithNullableTypeDeclarationRule
 	- Localheinz\PHPStan\Rules\Functions\NoParameterWithNullDefaultValueRule
+	- Localheinz\PHPStan\Rules\Methods\FinalInAbstractClassRule
 	- Localheinz\PHPStan\Rules\Methods\NoConstructorParameterWithDefaultValueRule
 	- Localheinz\PHPStan\Rules\Methods\NoNullableReturnTypeDeclarationRule
 	- Localheinz\PHPStan\Rules\Methods\NoParameterWithNullableTypeDeclarationRule

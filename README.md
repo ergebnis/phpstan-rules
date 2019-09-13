@@ -52,6 +52,7 @@ This package provides the following rules for use with [`phpstan/phpstan`](https
 * [`Localheinz\PHPStan\Rules\Functions\NoNullableReturnTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#functionsnonullablereturntypedeclarationrule)
 * [`Localheinz\PHPStan\Rules\Functions\NoParameterWithNullableTypeDeclaration`](https://github.com/localheinz/phpstan-rules#functionsnoparameterwithnullabletypedeclarationrule)
 * [`Localheinz\PHPStan\Rules\Functions\NoParameterWithNullDefaultValueRule`](https://github.com/localheinz/phpstan-rules#functionsnoparameterwithnulldefaultvaluerule)
+* [`Localheinz\PHPStan\Rules\Methods\FinalInAbstractClassRule`](https://github.com/localheinz/phpstan-rules#methodsfinalinabstractclassrule)
 * [`Localheinz\PHPStan\Rules\Methods\NoConstructorParameterWithDefaultValueRule`](https://github.com/localheinz/phpstan-rules#methodsnoconstructorparameterwithdefaultvaluerule)
 * [`Localheinz\PHPStan\Rules\Methods\NoNullableReturnTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#methodsnonullablereturntypedeclarationrule)
 * [`Localheinz\PHPStan\Rules\Methods\NoParameterWithContainerTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#methodsnoparamterwithcontainertypedeclarationrule)
@@ -165,6 +166,10 @@ This rule reports an error when a function has a parameter with a nullable type 
 This rule reports an error when a function has a parameter with `null` as default value.
 
 ### Methods
+
+#### `Methods\FinalInAbstractClassRule`
+
+This rule reports an error when a concrete `public` or `protected `method in an `abstract` class is not `final`.
 
 #### `Methods\NoConstructorParameterWithDefaultValueRule`
 
