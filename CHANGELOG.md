@@ -6,11 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`0.11.0...master`](https://github.com/localheinz/phpstan-rules/compare/0.11.0...master).
+For a full diff see [`0.12.0...master`](https://github.com/localheinz/phpstan-rules/compare/0.12.0...master).
+
+## [`0.12.0`](https://github.com/localheinz/phpstan-rules/releases/tag/0.12.0)
+
+For a full diff see [`0.11.0...0.12.0`](https://github.com/localheinz/phpstan-rules/compare/0.11.0...0.12.0).
 
 ### Added
 
 * Added `Methods\NoParameterWithContainerTypeDeclarationRule`, which reports an error when a method has a type declaration that corresponds to a known dependency injection container or service locator ([#122](https://github.com/localheinz/phpstan-rules/pull/122)), by [@localheinz](https://github.com/localheinz)
+* Added `Methods\FinalInAbstractClassRule`, which reports an error when a concrete `public` or `protected` method in an `abstract` class is not `final` ([#123](https://github.com/localheinz/phpstan-rules/pull/123)), by [@localheinz](https://github.com/localheinz)
 
 ## [`0.11.0`](https://github.com/localheinz/phpstan-rules/releases/tag/0.11.0)
 
