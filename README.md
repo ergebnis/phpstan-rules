@@ -54,6 +54,7 @@ This package provides the following rules for use with [`phpstan/phpstan`](https
 * [`Localheinz\PHPStan\Rules\Functions\NoParameterWithNullDefaultValueRule`](https://github.com/localheinz/phpstan-rules#functionsnoparameterwithnulldefaultvaluerule)
 * [`Localheinz\PHPStan\Rules\Methods\NoConstructorParameterWithDefaultValueRule`](https://github.com/localheinz/phpstan-rules#methodsnoconstructorparameterwithdefaultvaluerule)
 * [`Localheinz\PHPStan\Rules\Methods\NoNullableReturnTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#methodsnonullablereturntypedeclarationrule)
+* [`Localheinz\PHPStan\Rules\Methods\NoParameterWithContainerTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#methodsnoparamterwithcontainertypedeclarationrule)
 * [`Localheinz\PHPStan\Rules\Methods\NoParameterWithNullableTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#methodsnoparameterwithnullabletypedeclarationrule)
 * [`Localheinz\PHPStan\Rules\Methods\NoParameterWithNullDefaultValueRule`](https://github.com/localheinz/phpstan-rules#methodsnoparameterwithnulldefaultvaluerule)
 * [`Localheinz\PHPStan\Rules\Statements\NoSwitchRule`](https://github.com/localheinz/phpstan-rules#statementsnoswitchrule)
@@ -183,6 +184,29 @@ This rule reports an error when a method declared in
 * an interface
 
 uses a nullable return type declaration.
+
+#### `Methods\NoParameterWithContainerTypeDeclarationRule`
+
+This rule reports an error when a method has a type declaration for a known dependency injection container or service locator.
+
+##### Defaults
+
+By default, this rule disallows the use of type declarations indicating an implementation of
+
+* [`Psr\Container\ContainerInterface`](https://github.com/php-fig/container/blob/1.0.0/src/ContainerInterface.php)
+
+is expected to be injected into a method.
+
+##### Configuring container interfaces
+
+If you want to configure the list of interfaces implemented by dependency injection containers and service locators yourself, you can set the `interfacesImplementedByContainers` parameter to a list of interface names:
+
+```neon
+parameters:
+	interfacesImplementedByContainers:
+		- Fancy\DependencyInjection\ContainerInterface
+		- Other\ServiceLocatorInterface
+```
 
 #### `Methods\NoParameterWithNullableTypeDeclarationRule`
 

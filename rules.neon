@@ -2,11 +2,14 @@ parameters:
 	allowAbstractClasses: true
 	classesAllowedToBeExtended: []
 	classesNotRequiredToBeAbstractOrFinal: []
+	interfacesImplementedByContainers:
+		- Psr\Container\ContainerInterface
 
 parametersSchema:
 	allowAbstractClasses: bool()
 	classesAllowedToBeExtended: listOf(string())
 	classesNotRequiredToBeAbstractOrFinal: listOf(string())
+	interfacesImplementedByContainers: listOf(string())
 
 rules:
 	- Localheinz\PHPStan\Rules\Closures\NoNullableReturnTypeDeclarationRule
@@ -38,5 +41,12 @@ services:
 		class: Localheinz\PHPStan\Rules\Classes\NoExtendsRule
 		arguments:
 			classesAllowedToBeExtended: %classesAllowedToBeExtended%
+		tags:
+			- phpstan.rules.rule
+
+	-
+		class: Localheinz\PHPStan\Rules\Methods\NoParameterWithContainerTypeDeclarationRule
+		arguments:
+			interfacesImplementedByContainers: %interfacesImplementedByContainers%
 		tags:
 			- phpstan.rules.rule
