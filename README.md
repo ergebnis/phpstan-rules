@@ -233,6 +233,8 @@ This rule reports an error when a method declared in
 
 has a parameter with `null` as default value.
 
+### Statements
+
 #### `Statements\NoSwitchRule`
 
 This rule reports an error when the statement [`switch()`](https://www.php.net/manual/control-structures.switch.php) is used.
