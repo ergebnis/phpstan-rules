@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`0.12.1...master`](https://github.com/localheinz/phpstan-rules/compare/0.11.0...master).
 
+### Added
+
+* Added `Methods\FinalInAbstractClassRule`, which reports an error when a method in a `final` class is `protected` but could be `private` ([#125](https://github.com/localheinz/phpstan-rules/pull/125)), by [@localheinz](https://github.com/localheinz)
+
 ## [`0.12.1`](https://github.com/localheinz/phpstan-rules/releases/tag/0.12.1)
 
 For a full diff see [`0.12.0...0.12.1`](https://github.com/localheinz/phpstan-rules/compare/0.12.0...0.12.1).
