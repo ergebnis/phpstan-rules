@@ -73,7 +73,7 @@ final class NoParameterWithContainerTypeDeclarationRule implements Rule
 
         return \array_reduce(
             $node->params,
-            function (array $errors, Node\Param $node) use ($containingClass, $methodName) {
+            function (array $errors, Node\Param $node) use ($scope, $containingClass, $methodName) {
                 $type = $node->type;
 
                 if (!$type instanceof Node\Name) {
@@ -86,7 +86,7 @@ final class NoParameterWithContainerTypeDeclarationRule implements Rule
                 /** @var string $parameterName */
                 $parameterName = $variable->name;
 
-                $classUsedInTypeDeclaration = $this->broker->getClass($type->toCodeString());
+                $classUsedInTypeDeclaration = $this->broker->getClass($scope->resolveName($type));
 
                 if ($classUsedInTypeDeclaration->isInterface()) {
                     foreach ($this->interfacesImplementedByContainers as $interfaceImplementedByContainer) {
