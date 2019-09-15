@@ -6,7 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`0.12.0...master`](https://github.com/localheinz/phpstan-rules/compare/0.12.0...master).
+For a full diff see [`0.12.1...master`](https://github.com/localheinz/phpstan-rules/compare/0.11.0...master).
+
+## [`0.12.1`](https://github.com/localheinz/phpstan-rules/releases/tag/0.12.1)
+
+For a full diff see [`0.12.0...0.12.1`](https://github.com/localheinz/phpstan-rules/compare/0.12.0...0.12.1).
+
+### Fixed
+
+* Started resolving class name in type declaration before attempting to analyze it in the `Methods\NoParameterWithContainerTypeDeclarationRule` to avoid errors where class `self` is not found ([#128](https://github.com/localheinz/phpstan-rules/pull/128)), by [@localheinz](https://github.com/localheinz)
 
 ## [`0.12.0`](https://github.com/localheinz/phpstan-rules/releases/tag/0.12.0)
 
