@@ -88,6 +88,17 @@ final class NoParameterWithContainerTypeDeclarationRuleTest extends AbstractTest
                     11,
                 ],
             ],
+            'class-implementing-container-interface-with-method-with-parameter-with-self-as-type-declaration' => [
+                __DIR__ . '/../../Fixture/Methods/NoParameterWithContainerTypeDeclarationRule/Failure/ClassImplementingContainerInterfaceWithMethodWithParameterWithSelfAsTypeDeclaration.php',
+                [
+                    \sprintf(
+                        'Method %s::method() has a parameter $container with a type declaration of %s, but containers should not be injected.',
+                        Fixture\Methods\NoParameterWithContainerTypeDeclarationRule\Failure\ClassImplementingContainerInterfaceWithMethodWithParameterWithSelfAsTypeDeclaration::class,
+                        Fixture\Methods\NoParameterWithContainerTypeDeclarationRule\Failure\ClassImplementingContainerInterfaceWithMethodWithParameterWithSelfAsTypeDeclaration::class
+                    ),
+                    11,
+                ],
+            ],
             'class-with-method-with-parameter-with-class-implementing-container-interface-as-type-declaration' => [
                 __DIR__ . '/../../Fixture/Methods/NoParameterWithContainerTypeDeclarationRule/Failure/ClassWithMethodWithParameterWithClassImplementingContainerInterfaceAsTypeDeclaration.php',
                 [
