@@ -43,6 +43,10 @@ final class FinalInAbstractClassRule implements Rule
             return [];
         }
 
+        if ($containingClass->isInterface()) {
+            return [];
+        }
+
         if ($node->isAbstract()) {
             return [];
         }
