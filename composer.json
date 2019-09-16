@@ -29,7 +29,7 @@
     "phpstan/phpstan-strict-rules": "~0.11.1",
     "phpunit/phpunit": "^7.5.16",
     "psr/container": "^1.0.0",
-    "zendframework/zend-servicemanager": "^2.0.0"
+    "zendframework/zend-servicemanager": "^3.4.0"
   },
   "config": {
     "preferred-install": "dist",
