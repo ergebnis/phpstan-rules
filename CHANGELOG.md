@@ -6,7 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`0.12.1...master`](https://github.com/localheinz/phpstan-rules/compare/0.11.0...master).
+For a full diff see [`0.12.2...master`](https://github.com/localheinz/phpstan-rules/compare/0.12.2...master).
+
+## [`0.12.2`](https://github.com/localheinz/phpstan-rules/releases/tag/0.12.2)
+
+For a full diff see [`0.12.0...0.12.1`](https://github.com/localheinz/phpstan-rules/compare/0.12.1...0.12.2).
+
+### Fixed
+
+* Started ignoring interfaces from analysis by `Methods\FinalInAbstractClassRule` to avoid inappropriate errors ([#132](https://github.com/localheinz/phpstan-rules/pull/132)), by [@localheinz](https://github.com/localheinz)
 
 ## [`0.12.1`](https://github.com/localheinz/phpstan-rules/releases/tag/0.12.1)
 
