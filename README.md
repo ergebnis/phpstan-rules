@@ -58,6 +58,7 @@ This package provides the following rules for use with [`phpstan/phpstan`](https
 * [`Localheinz\PHPStan\Rules\Methods\NoParameterWithContainerTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#methodsnoparameterwithcontainertypedeclarationrule)
 * [`Localheinz\PHPStan\Rules\Methods\NoParameterWithNullableTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#methodsnoparameterwithnullabletypedeclarationrule)
 * [`Localheinz\PHPStan\Rules\Methods\NoParameterWithNullDefaultValueRule`](https://github.com/localheinz/phpstan-rules#methodsnoparameterwithnulldefaultvaluerule)
+* [`Localheinz\PHPStan\Rules\Methods\PrivateInFinalClassRule`](https://github.com/localheinz/phpstan-rules#methodsprivateinfinalclassrule)
 * [`Localheinz\PHPStan\Rules\Statements\NoSwitchRule`](https://github.com/localheinz/phpstan-rules#statementsnoswitchrule)
 
 ### Classes
@@ -232,6 +233,10 @@ This rule reports an error when a method declared in
 * an interface
 
 has a parameter with `null` as default value.
+
+#### `Methods\PrivateInFinalClassRule`
+
+This rule reports an error when a method in a `final` class is `protected` but could be `private`.
 
 ### Statements
 

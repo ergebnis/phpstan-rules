@@ -28,6 +28,7 @@ rules:
 	- Localheinz\PHPStan\Rules\Methods\NoNullableReturnTypeDeclarationRule
 	- Localheinz\PHPStan\Rules\Methods\NoParameterWithNullableTypeDeclarationRule
 	- Localheinz\PHPStan\Rules\Methods\NoParameterWithNullDefaultValueRule
+	- Localheinz\PHPStan\Rules\Methods\PrivateInFinalClassRule
 	- Localheinz\PHPStan\Rules\Statements\NoSwitchRule
 
 services:
