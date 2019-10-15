@@ -6,19 +6,23 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`0.12.2...master`](https://github.com/localheinz/phpstan-rules/compare/0.12.2...master).
+For a full diff see [`0.13.0...master`](https://github.com/localheinz/phpstan-rules/compare/0.13.0...master).
+
+## [`0.13.0`](https://github.com/localheinz/phpstan-rules/releases/tag/0.13.0)
+
+For a full diff see [`0.12.2...0.13.0`](https://github.com/localheinz/phpstan-rules/compare/0.12.2...0.13.0).
+
+### Added
+
+* Added `Methods\PrivateInFinalClassRule` which reports an error when a method in a `final` class is `protected` when it could be `private` ([#126](https://github.com/localheinz/phpstan-rules/pull/126)), by [@localheinz](https://github.com/localheinz)
 
 ## [`0.12.2`](https://github.com/localheinz/phpstan-rules/releases/tag/0.12.2)
 
-For a full diff see [`0.12.0...0.12.1`](https://github.com/localheinz/phpstan-rules/compare/0.12.1...0.12.2).
+For a full diff see [`0.12.1...0.12.2`](https://github.com/localheinz/phpstan-rules/compare/0.12.1...0.12.2).
 
 ### Fixed
 
 * Started ignoring interfaces from analysis by `Methods\FinalInAbstractClassRule` to avoid inappropriate errors ([#132](https://github.com/localheinz/phpstan-rules/pull/132)), by [@localheinz](https://github.com/localheinz)
-
-### Added
-
-* Added `Methods\FinalInAbstractClassRule`, which reports an error when a method in a `final` class is `protected` but could be `private` ([#125](https://github.com/localheinz/phpstan-rules/pull/125)), by [@localheinz](https://github.com/localheinz)
 
 ## [`0.12.1`](https://github.com/localheinz/phpstan-rules/releases/tag/0.12.1)
 
