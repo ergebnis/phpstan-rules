@@ -28,9 +28,9 @@ final class FinalRuleWithExcludedClassNamesTest extends AbstractTestCase
     public function providerAnalysisSucceeds(): iterable
     {
         $paths = [
+            'class-neither-abstract-nor-final-but-whitelisted' => __DIR__ . '/../../Fixture/Classes/FinalRuleWithExcludedClassNames/Success/NeitherAbstractNorFinalClassButWhitelisted.php',
             'final-class' => __DIR__ . '/../../Fixture/Classes/FinalRuleWithExcludedClassNames/Success/FinalClass.php',
             'final-class-with-anonymous-class' => __DIR__ . '/../../Fixture/Classes/FinalRuleWithExcludedClassNames/Success/FinalClassWithAnonymousClass.php',
-            'class-neither-abstract-nor-final-but-whitelisted' => __DIR__ . '/../../Fixture/Classes/FinalRuleWithExcludedClassNames/Success/NeitherAbstractNorFinalClassButWhitelisted.php',
             'interface' => __DIR__ . '/../../Fixture/Classes/FinalRuleWithExcludedClassNames/Success/ExampleInterface.php',
             'script-with-anonymous-class' => __DIR__ . '/../../Fixture/Classes/FinalRuleWithExcludedClassNames/Success/anonymous-class.php',
             'trait' => __DIR__ . '/../../Fixture/Classes/FinalRuleWithExcludedClassNames/Success/ExampleTrait.php',

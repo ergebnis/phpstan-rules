@@ -47,7 +47,7 @@ final class NoSwitchRuleTest extends AbstractTestCase
                     7,
                 ],
             ],
-            'isset-used-with-incorrect-case' => [
+            'switch-used-with-incorrect-case' => [
                 __DIR__ . '/../../Fixture/Statements/NoSwitchRule/Failure/switch-used-with-incorrect-case.php',
                 [
                     'Control structures using switch should not be used.',
