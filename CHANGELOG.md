@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`0.13.0...master`](https://github.com/localheinz/phpstan-rules/compare/0.13.0...master).
 
+### Fixed
+
+* Dropped support for PHP 7.1 ([#141](https://github.com/localheinz/phpstan-rules/pull/141)), by [@localheinz](https://github.com/localheinz)
+
 ## [`0.13.0`](https://github.com/localheinz/phpstan-rules/releases/tag/0.13.0)
 
 For a full diff see [`0.12.2...0.13.0`](https://github.com/localheinz/phpstan-rules/compare/0.12.2...0.13.0).
