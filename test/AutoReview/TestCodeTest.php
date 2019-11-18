@@ -28,7 +28,7 @@ final class TestCodeTest extends Framework\TestCase
 
     public function testIntegrationTestClassesExtendFromAbstractTestCase(): void
     {
-        $this->assertClassyConstructsSatisfySpecification(
+        self::assertClassyConstructsSatisfySpecification(
             static function (string $className): bool {
                 $reflection = new \ReflectionClass($className);
 
