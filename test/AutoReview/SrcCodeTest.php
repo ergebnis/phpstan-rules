@@ -27,7 +27,7 @@ final class SrcCodeTest extends Framework\TestCase
 
     public function testSrcClassesHaveIntegrationTests(): void
     {
-        $this->assertClassesHaveTests(
+        self::assertClassesHaveTests(
             __DIR__ . '/../../src',
             'Localheinz\\PHPStan\\Rules\\',
             'Localheinz\\PHPStan\\Rules\\Test\\Integration\\'
