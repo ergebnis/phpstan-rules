@@ -21,9 +21,9 @@
     "phpstan/phpstan": "~0.11.15"
   },
   "require-dev": {
+    "ergebnis/php-cs-fixer-config": "~1.0.0",
     "infection/infection": "~0.13.6",
     "localheinz/composer-normalize": "^1.3.1",
-    "localheinz/php-cs-fixer-config": "~1.23.0",
     "localheinz/test-util": "~0.8.0",
     "phpstan/phpstan-deprecation-rules": "~0.11.2",
     "phpstan/phpstan-strict-rules": "~0.11.1",
