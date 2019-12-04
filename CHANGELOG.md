@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`0.13.0...master`][0.13.0...master].
 
+### Changed
+
+* Allowed installation of `phpstan/phpstan:~0.12.0`  ([#147], by [@localheinz]
+
 ### Fixed
 
 * Dropped support for PHP 7.1 ([#141], by [@localheinz]
@@ -269,5 +273,6 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#128]: https://github.com/localheinz/phpstan-rules/pull/128
 [#132]: https://github.com/localheinz/phpstan-rules/pull/132
 [#141]: https://github.com/localheinz/phpstan-rules/pull/141
+[#147]: https://github.com/localheinz/phpstan-rules/pull/147
 
 [@localheinz]: https://github.com/localheinz
