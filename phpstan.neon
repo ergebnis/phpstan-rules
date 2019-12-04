@@ -1,4 +1,5 @@
 includes:
+	- phpstan-baseline.neon
 	- rules.neon
 	- vendor/phpstan/phpstan-deprecation-rules/rules.neon
 	- vendor/phpstan/phpstan-strict-rules/rules.neon
@@ -11,8 +12,6 @@ parameters:
 		- PHPStan\Testing\RuleTestCase
 	excludes_analyse:
 		- %currentWorkingDirectory%/test/Fixture/
-	ignoreErrors:
-		- '#Language construct isset\(\) should not be used.#'
 	inferPrivatePropertyTypeFromConstructor: true
 	paths:
 		- src
