@@ -18,7 +18,7 @@
   "require": {
     "php": "^7.2",
     "nikic/php-parser": "^4.2.3",
-    "phpstan/phpstan": "~0.11.15"
+    "phpstan/phpstan": "~0.11.15 || ~0.12.0"
   },
   "require-dev": {
     "ergebnis/php-cs-fixer-config": "~1.1.0",
