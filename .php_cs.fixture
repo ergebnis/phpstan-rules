@@ -5,6 +5,7 @@ declare(strict_types=1);
 use Ergebnis\PhpCsFixer\Config;
 
 $config = Config\Factory::fromRuleSet(new Config\RuleSet\Php71(''), [
+    'constant_case' => false,
     'declare_strict_types' => false,
     'error_suppression' => false,
     'final_class' => false,
