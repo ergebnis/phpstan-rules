@@ -2,12 +2,14 @@
 
 declare(strict_types=1);
 
-use Localheinz\PhpCsFixer\Config;
+use Ergebnis\PhpCsFixer\Config;
 
 $config = Config\Factory::fromRuleSet(new Config\RuleSet\Php71(''), [
+    'constant_case' => false,
     'declare_strict_types' => false,
     'error_suppression' => false,
     'final_class' => false,
+    'final_public_method_for_abstract_class' => false,
     'header_comment' => false,
     'lowercase_constants' => false,
     'lowercase_keywords' => false,
