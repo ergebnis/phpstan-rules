@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Localheinz\PhpCsFixer\Config;
+use Ergebnis\PhpCsFixer\Config;
 
 $config = Config\Factory::fromRuleSet(new Config\RuleSet\Php71(''), [
     'declare_strict_types' => false,
