@@ -25,10 +25,11 @@ jobs:
       - name: "Checkout"
         uses: actions/checkout@v1
 
-      - name: "Install PHP"
+      - name: "Install PHP with extensions"
         uses: shivammathur/setup-php@v1
         with:
           coverage: none
+          extension-csv: "mbstring"
           php-version: ${{ matrix.php-version }}
 
       - name: "Validate composer.json and composer.lock"
@@ -54,7 +55,7 @@ jobs:
       - name: "Cache cache directory for friendsofphp/php-cs-fixer"
         uses: actions/cache@v1
         with:
-          path: ~/.build/php-cs-fixer
+          path: .build/php-cs-fixer
           key: php${{ matrix.php-version }}-php-cs-fixer-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
             php${{ matrix.php-version }}-php-cs-fixer-
@@ -79,10 +80,11 @@ jobs:
       - name: "Checkout"
         uses: actions/checkout@v1
 
-      - name: "Install PHP"
+      - name: "Install PHP with extensions"
         uses: shivammathur/setup-php@v1
         with:
           coverage: none
+          extension-csv: "mbstring"
           php-version: ${{ matrix.php-version }}
 
       - name: "Cache dependencies installed with composer"
@@ -113,10 +115,11 @@ jobs:
       - name: "Checkout"
         uses: actions/checkout@v1
 
-      - name: "Install PHP"
+      - name: "Install PHP with extensions"
         uses: shivammathur/setup-php@v1
         with:
           coverage: none
+          extension-csv: "mbstring"
           php-version: ${{ matrix.php-version }}
 
       - name: "Cache dependencies installed with composer"
@@ -153,10 +156,11 @@ jobs:
       - name: "Checkout"
         uses: actions/checkout@v1
 
-      - name: "Install PHP"
+      - name: "Install PHP with extensions"
         uses: shivammathur/setup-php@v1
         with:
           coverage: none
+          extension-csv: "mbstring"
           php-version: ${{ matrix.php-version }}
 
       - name: "Cache dependencies installed with composer"
@@ -182,6 +186,9 @@ jobs:
       - name: "Run auto-review tests with phpunit/phpunit"
         run: vendor/bin/phpunit --configuration=test/AutoReview/phpunit.xml
 
+      - name: "Run unit tests with phpunit/phpunit"
+        run: vendor/bin/phpunit --configuration=test/Unit/phpunit.xml
+
       - name: "Run integration tests with phpunit/phpunit"
         run: vendor/bin/phpunit --configuration=test/Integration/phpunit.xml
 
@@ -199,10 +206,11 @@ jobs:
       - name: "Checkout"
         uses: actions/checkout@v1
 
-      - name: "Install PHP"
+      - name: "Install PHP with extensions"
         uses: shivammathur/setup-php@v1
         with:
           coverage: xdebug
+          extension-csv: "mbstring"
           php-version: ${{ matrix.php-version }}
 
       - name: "Cache dependencies installed with composer"
@@ -241,10 +249,11 @@ jobs:
       - name: "Checkout"
         uses: actions/checkout@v1
 
-      - name: "Install PHP"
+      - name: "Install PHP with extensions"
         uses: shivammathur/setup-php@v1
         with:
           coverage: xdebug
+          extension-csv: "mbstring"
           php-version: ${{ matrix.php-version }}
 
       - name: "Cache dependencies installed with composer"

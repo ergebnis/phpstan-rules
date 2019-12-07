@@ -33,7 +33,8 @@ $config->getFinder()
         '.github',
         'test/Fixture',
     ])
-    ->name('.php_cs');
+    ->name('.php_cs')
+    ->name('.php_cs.fixture');
 
 $config->setCacheFile(__DIR__ . '/.build/php-cs-fixer/.php_cs.cache');
 
