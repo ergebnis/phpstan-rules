@@ -1,10 +1,6 @@
 includes:
 	- phpstan-baseline.neon
 	- rules.neon
-	- vendor/phpstan/phpstan-deprecation-rules/rules.neon
-	- vendor/phpstan/phpstan-strict-rules/rules.neon
-	- vendor/phpstan/phpstan/conf/bleedingEdge.neon
-	- vendor/phpstan/phpstan/conf/config.levelmax.neon
 
 parameters:
 	classesAllowedToBeExtended:
@@ -13,6 +9,7 @@ parameters:
 	excludes_analyse:
 		- %currentWorkingDirectory%/test/Fixture/
 	inferPrivatePropertyTypeFromConstructor: true
+	level: max
 	paths:
 		- src
 		- test
