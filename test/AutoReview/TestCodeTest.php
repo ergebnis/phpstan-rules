@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Localheinz\PHPStan\Rules\Test\AutoReview;
 
+use Ergebnis\Test\Util\Helper;
 use Localheinz\PHPStan\Rules\Test\Integration;
-use Localheinz\Test\Util\Helper;
 use PHPUnit\Framework;
 
 /**
