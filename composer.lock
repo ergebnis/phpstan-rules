@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "718b2beb3d79506ddc67ce3bd277191c",
+    "content-hash": "86cf242d470402407a67acd1f36005f9",
     "packages": [
         {
             "name": "composer/xdebug-handler",
@@ -2300,6 +2300,7 @@
                 "json",
                 "printer"
             ],
+            "abandoned": "ergebnis/json-printer",
             "time": "2018-08-11T23:54:50+00:00"
         },
         {
