@@ -1,9 +1,9 @@
 # phpstan-rules
 
-[![Continuous Integration](https://github.com/localheinz/phpstan-rules/workflows/Continuous%20Integration/badge.svg)](https://github.com/localheinz/phpstan-rules/actions)
-[![Code Coverage](https://codecov.io/gh/localheinz/phpstan-rules/branch/master/graph/badge.svg)](https://codecov.io/gh/localheinz/phpstan-rules)
-[![Latest Stable Version](https://poser.pugx.org/localheinz/phpstan-rules/v/stable)](https://packagist.org/packages/localheinz/phpstan-rules)
-[![Total Downloads](https://poser.pugx.org/localheinz/phpstan-rules/downloads)](https://packagist.org/packages/localheinz/phpstan-rules)
+[![Continuous Integration](https://github.com/ergebnis/phpstan-rules/workflows/Continuous%20Integration/badge.svg)](https://github.com/ergebnis/phpstan-rules/actions)
+[![Code Coverage](https://codecov.io/gh/ergebnis/phpstan-rules/branch/master/graph/badge.svg)](https://codecov.io/gh/ergebnis/phpstan-rules)
+[![Latest Stable Version](https://poser.pugx.org/ergebnis/phpstan-rules/v/stable)](https://packagist.org/packages/ergebnis/phpstan-rules)
+[![Total Downloads](https://poser.pugx.org/ergebnis/phpstan-rules/downloads)](https://packagist.org/packages/ergebnis/phpstan-rules)
 
 Provides additional rules for [`phpstan/phpstan`](https://github.com/phpstan/phpstan).
 
@@ -12,12 +12,12 @@ Provides additional rules for [`phpstan/phpstan`](https://github.com/phpstan/php
 Run
 
 ```
-$ composer require --dev localheinz/phpstan-rules
+$ composer require --dev ergebnis/phpstan-rules
 ```
 
 ## Usage
 
-All of the [rules](https://github.com/localheinz/phpstan-rules#rules) provided (and used) by this library are included in [`rules.neon`](rules.neon).
+All of the [rules](https://github.com/ergebnis/phpstan-rules#rules) provided (and used) by this library are included in [`rules.neon`](rules.neon).
 
 When you are using [`phpstan/extension-installer`](https://github.com/phpstan/extension-installer), `rules.neon` will be automatically included.
 
@@ -25,7 +25,7 @@ Otherwise you need to include `rules.neon` in your `phpstan.neon`:
 
 ```neon
 includes:
-	- vendor/localheinz/phpstan-rules/rules.neon
+	- vendor/ergebnis/phpstan-rules/rules.neon
 ```
 
 :bulb: You probably want to use these rules on top of the rules provided by:
@@ -38,28 +38,28 @@ includes:
 
 This package provides the following rules for use with [`phpstan/phpstan`](https://github.com/phpstan/phpstan):
 
-* [`Localheinz\PHPStan\Rules\Classes\FinalRule`](https://github.com/localheinz/phpstan-rules#classesfinalrule)
-* [`Localheinz\PHPStan\Rules\Classes\NoExtendsRule`](https://github.com/localheinz/phpstan-rules#classesnoextendsrule)
-* [`Localheinz\PHPStan\Rules\Closures\NoNullableReturnTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#closuresnonullablereturntypedeclarationrule)
-* [`Localheinz\PHPStan\Rules\Closures\NoParameterWithNullableTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#closuresnoparameterwithnullabletypedeclarationrule)
-* [`Localheinz\PHPStan\Rules\Closures\NoParameterWithNullDefaultValueRule`](https://github.com/localheinz/phpstan-rules#closuresnoparameterwithnulldefaultvaluerule)
-* [`Localheinz\PHPStan\Rules\Expressions\NoCompactRule`](https://github.com/localheinz/phpstan-rules#expressionsnocompactrule)
-* [`Localheinz\PHPStan\Rules\Expressions\NoEmptyRule`](https://github.com/localheinz/phpstan-rules#expressionsnoemptyrule)
-* [`Localheinz\PHPStan\Rules\Expressions\NoErrorSuppressionRule`](https://github.com/localheinz/phpstan-rules#expressionserrorsuppressionrule)
-* [`Localheinz\PHPStan\Rules\Expressions\NoEvalRule`](https://github.com/localheinz/phpstan-rules#expressionsnoevalrule)
-* [`Localheinz\PHPStan\Rules\Expressions\NoIssetRule`](https://github.com/localheinz/phpstan-rules#expressionsnoissetrule)
-* [`Localheinz\PHPStan\Rules\Files\DeclareStrictTypesRule`](https://github.com/localheinz/phpstan-rules#filesdeclarestricttypesrule)
-* [`Localheinz\PHPStan\Rules\Functions\NoNullableReturnTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#functionsnonullablereturntypedeclarationrule)
-* [`Localheinz\PHPStan\Rules\Functions\NoParameterWithNullableTypeDeclaration`](https://github.com/localheinz/phpstan-rules#functionsnoparameterwithnullabletypedeclarationrule)
-* [`Localheinz\PHPStan\Rules\Functions\NoParameterWithNullDefaultValueRule`](https://github.com/localheinz/phpstan-rules#functionsnoparameterwithnulldefaultvaluerule)
-* [`Localheinz\PHPStan\Rules\Methods\FinalInAbstractClassRule`](https://github.com/localheinz/phpstan-rules#methodsfinalinabstractclassrule)
-* [`Localheinz\PHPStan\Rules\Methods\NoConstructorParameterWithDefaultValueRule`](https://github.com/localheinz/phpstan-rules#methodsnoconstructorparameterwithdefaultvaluerule)
-* [`Localheinz\PHPStan\Rules\Methods\NoNullableReturnTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#methodsnonullablereturntypedeclarationrule)
-* [`Localheinz\PHPStan\Rules\Methods\NoParameterWithContainerTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#methodsnoparameterwithcontainertypedeclarationrule)
-* [`Localheinz\PHPStan\Rules\Methods\NoParameterWithNullableTypeDeclarationRule`](https://github.com/localheinz/phpstan-rules#methodsnoparameterwithnullabletypedeclarationrule)
-* [`Localheinz\PHPStan\Rules\Methods\NoParameterWithNullDefaultValueRule`](https://github.com/localheinz/phpstan-rules#methodsnoparameterwithnulldefaultvaluerule)
-* [`Localheinz\PHPStan\Rules\Methods\PrivateInFinalClassRule`](https://github.com/localheinz/phpstan-rules#methodsprivateinfinalclassrule)
-* [`Localheinz\PHPStan\Rules\Statements\NoSwitchRule`](https://github.com/localheinz/phpstan-rules#statementsnoswitchrule)
+* [`Ergebnis\PHPStan\Rules\Classes\FinalRule`](https://github.com/ergebnis/phpstan-rules#classesfinalrule)
+* [`Ergebnis\PHPStan\Rules\Classes\NoExtendsRule`](https://github.com/ergebnis/phpstan-rules#classesnoextendsrule)
+* [`Ergebnis\PHPStan\Rules\Closures\NoNullableReturnTypeDeclarationRule`](https://github.com/ergebnis/phpstan-rules#closuresnonullablereturntypedeclarationrule)
+* [`Ergebnis\PHPStan\Rules\Closures\NoParameterWithNullableTypeDeclarationRule`](https://github.com/ergebnis/phpstan-rules#closuresnoparameterwithnullabletypedeclarationrule)
+* [`Ergebnis\PHPStan\Rules\Closures\NoParameterWithNullDefaultValueRule`](https://github.com/ergebnis/phpstan-rules#closuresnoparameterwithnulldefaultvaluerule)
+* [`Ergebnis\PHPStan\Rules\Expressions\NoCompactRule`](https://github.com/ergebnis/phpstan-rules#expressionsnocompactrule)
+* [`Ergebnis\PHPStan\Rules\Expressions\NoEmptyRule`](https://github.com/ergebnis/phpstan-rules#expressionsnoemptyrule)
+* [`Ergebnis\PHPStan\Rules\Expressions\NoErrorSuppressionRule`](https://github.com/ergebnis/phpstan-rules#expressionserrorsuppressionrule)
+* [`Ergebnis\PHPStan\Rules\Expressions\NoEvalRule`](https://github.com/ergebnis/phpstan-rules#expressionsnoevalrule)
+* [`Ergebnis\PHPStan\Rules\Expressions\NoIssetRule`](https://github.com/ergebnis/phpstan-rules#expressionsnoissetrule)
+* [`Ergebnis\PHPStan\Rules\Files\DeclareStrictTypesRule`](https://github.com/ergebnis/phpstan-rules#filesdeclarestricttypesrule)
+* [`Ergebnis\PHPStan\Rules\Functions\NoNullableReturnTypeDeclarationRule`](https://github.com/ergebnis/phpstan-rules#functionsnonullablereturntypedeclarationrule)
+* [`Ergebnis\PHPStan\Rules\Functions\NoParameterWithNullableTypeDeclaration`](https://github.com/ergebnis/phpstan-rules#functionsnoparameterwithnullabletypedeclarationrule)
+* [`Ergebnis\PHPStan\Rules\Functions\NoParameterWithNullDefaultValueRule`](https://github.com/ergebnis/phpstan-rules#functionsnoparameterwithnulldefaultvaluerule)
+* [`Ergebnis\PHPStan\Rules\Methods\FinalInAbstractClassRule`](https://github.com/ergebnis/phpstan-rules#methodsfinalinabstractclassrule)
+* [`Ergebnis\PHPStan\Rules\Methods\NoConstructorParameterWithDefaultValueRule`](https://github.com/ergebnis/phpstan-rules#methodsnoconstructorparameterwithdefaultvaluerule)
+* [`Ergebnis\PHPStan\Rules\Methods\NoNullableReturnTypeDeclarationRule`](https://github.com/ergebnis/phpstan-rules#methodsnonullablereturntypedeclarationrule)
+* [`Ergebnis\PHPStan\Rules\Methods\NoParameterWithContainerTypeDeclarationRule`](https://github.com/ergebnis/phpstan-rules#methodsnoparameterwithcontainertypedeclarationrule)
+* [`Ergebnis\PHPStan\Rules\Methods\NoParameterWithNullableTypeDeclarationRule`](https://github.com/ergebnis/phpstan-rules#methodsnoparameterwithnullabletypedeclarationrule)
+* [`Ergebnis\PHPStan\Rules\Methods\NoParameterWithNullDefaultValueRule`](https://github.com/ergebnis/phpstan-rules#methodsnoparameterwithnulldefaultvaluerule)
+* [`Ergebnis\PHPStan\Rules\Methods\PrivateInFinalClassRule`](https://github.com/ergebnis/phpstan-rules#methodsprivateinfinalclassrule)
+* [`Ergebnis\PHPStan\Rules\Statements\NoSwitchRule`](https://github.com/ergebnis/phpstan-rules#statementsnoswitchrule)
 
 ### Classes
 
@@ -106,7 +106,7 @@ If you want to allow additional classes to be extended, you can set the `classes
 ```neon
 parameters:
 	classesAllowedToBeExtended:
-		- Localheinz\PHPStan\Rules\Test\Integration\AbstractTestCase
+		- Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase
 		- PHPStan\Testing\RuleTestCase
 ```
 

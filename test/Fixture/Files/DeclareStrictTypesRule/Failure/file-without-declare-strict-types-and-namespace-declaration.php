@@ -1,5 +1,5 @@
 <?php
 
-namespace Localheinz\PHPStan\Rules\Test\Fixture\Classes\DeclareStrictTypesRule\Failure;
+namespace Ergebnis\PHPStan\Rules\Test\Fixture\Classes\DeclareStrictTypesRule\Failure;
 
 echo 'Hello!';

@@ -1,5 +1,5 @@
 {
-  "name": "localheinz/phpstan-rules",
+  "name": "ergebnis/phpstan-rules",
   "type": "phpstan-extension",
   "description": "Provides additional rules for phpstan/phpstan.",
   "keywords": [
@@ -7,7 +7,7 @@
     "phpstan-rules",
     "phpstan-extreme-rules"
   ],
-  "homepage": "https://github.com/localheinz/phpstan-rules",
+  "homepage": "https://github.com/ergebnis/phpstan-rules",
   "license": "MIT",
   "authors": [
     {
@@ -20,6 +20,9 @@
     "ext-mbstring": "*",
     "nikic/php-parser": "^4.2.3",
     "phpstan/phpstan": "~0.11.15 || ~0.12.0"
+  },
+  "replace": {
+    "localheinz/phpstan-rules": "*"
   },
   "require-dev": {
     "ergebnis/php-cs-fixer-config": "~1.1.0",
@@ -46,16 +49,16 @@
   },
   "autoload": {
     "psr-4": {
-      "Localheinz\\PHPStan\\Rules\\": "src/"
+      "Ergebnis\\PHPStan\\Rules\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Localheinz\\PHPStan\\Rules\\Test\\": "test/"
+      "Ergebnis\\PHPStan\\Rules\\Test\\": "test/"
     }
   },
   "support": {
-    "issues": "https://github.com/localheinz/phpstan-rules/issues",
-    "source": "https://github.com/localheinz/phpstan-rules"
+    "issues": "https://github.com/ergebnis/phpstan-rules/issues",
+    "source": "https://github.com/ergebnis/phpstan-rules"
   }
 }

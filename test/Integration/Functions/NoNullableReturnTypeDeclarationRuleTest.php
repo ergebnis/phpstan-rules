@@ -8,19 +8,19 @@ declare(strict_types=1);
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
  *
- * @see https://github.com/localheinz/phpstan-rules
+ * @see https://github.com/ergebnis/phpstan-rules
  */
 
-namespace Localheinz\PHPStan\Rules\Test\Integration\Functions;
+namespace Ergebnis\PHPStan\Rules\Test\Integration\Functions;
 
-use Localheinz\PHPStan\Rules\Functions\NoNullableReturnTypeDeclarationRule;
-use Localheinz\PHPStan\Rules\Test\Integration\AbstractTestCase;
+use Ergebnis\PHPStan\Rules\Functions\NoNullableReturnTypeDeclarationRule;
+use Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase;
 use PHPStan\Rules\Rule;
 
 /**
  * @internal
  *
- * @covers \Localheinz\PHPStan\Rules\Functions\NoNullableReturnTypeDeclarationRule
+ * @covers \Ergebnis\PHPStan\Rules\Functions\NoNullableReturnTypeDeclarationRule
  */
 final class NoNullableReturnTypeDeclarationRuleTest extends AbstractTestCase
 {
@@ -44,7 +44,7 @@ final class NoNullableReturnTypeDeclarationRuleTest extends AbstractTestCase
             'function-with-nullable-return-type-declaration' => [
                 __DIR__ . '/../../Fixture/Functions/NoNullableReturnTypeDeclarationRule/Failure/function-with-nullable-return-type-declaration.php',
                 [
-                    'Function Localheinz\PHPStan\Rules\Test\Fixture\Functions\NoNullableReturnTypeDeclarationRule\Failure\foo() has a nullable return type declaration.',
+                    'Function Ergebnis\PHPStan\Rules\Test\Fixture\Functions\NoNullableReturnTypeDeclarationRule\Failure\foo() has a nullable return type declaration.',
                     7,
                 ],
             ],

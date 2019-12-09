@@ -8,19 +8,19 @@ declare(strict_types=1);
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
  *
- * @see https://github.com/localheinz/phpstan-rules
+ * @see https://github.com/ergebnis/phpstan-rules
  */
 
-namespace Localheinz\PHPStan\Rules\Test\Integration\Files;
+namespace Ergebnis\PHPStan\Rules\Test\Integration\Files;
 
-use Localheinz\PHPStan\Rules\Files\DeclareStrictTypesRule;
-use Localheinz\PHPStan\Rules\Test\Integration\AbstractTestCase;
+use Ergebnis\PHPStan\Rules\Files\DeclareStrictTypesRule;
+use Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase;
 use PHPStan\Rules\Rule;
 
 /**
  * @internal
  *
- * @covers \Localheinz\PHPStan\Rules\Files\DeclareStrictTypesRule
+ * @covers \Ergebnis\PHPStan\Rules\Files\DeclareStrictTypesRule
  */
 final class DeclareStrictTypesRuleTest extends AbstractTestCase
 {

@@ -11,6 +11,37 @@ For a full diff see [`0.13.0...master`][0.13.0...master].
 ### Changed
 
 * Allowed installation of `phpstan/phpstan:~0.12.0`  ([#147], by [@localheinz]
+* Renamed vendor namespace `Localheinz` to `Ergebnis` after move to [@ergebnis] ([#157]), by [@localheinz]
+
+  Run
+
+  ```
+  $ composer remove localheinz/phpstan-rules
+  ```
+
+  and
+
+  ```
+  $ composer require ergebnis/phpstan-rules
+  ```
+
+  to update.
+
+  Run
+
+  ```
+  $ find . -type f -exec sed -i '.bak' 's/Localheinz\\PHPStan/Ergebnis\\PHPStan/g' {} \;
+  ```
+
+  to replace occurrences of `Localheinz\PHPStan` with `Ergebnis\PHPStan`.
+
+  Run
+
+  ```
+  $ find -type f -name '*.bak' -delete
+  ```
+
+  to delete backup files created in the previous step.
 
 ### Fixed
 
@@ -194,85 +225,87 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 
 * Added `Classes\AbstractOrFinalRule`, which reports an error when a non-anonymous class is neither `abstract` nor `final`, ([#1]), by [@localheinz]
 
-[0.1.0]: https://github.com/localheinz/phpstan-rules/releases/tag/0.1.0
-[0.2.0]: https://github.com/localheinz/phpstan-rules/releases/tag/0.2.0
-[0.3.0]: https://github.com/localheinz/phpstan-rules/releases/tag/0.3.0
-[0.4.0]: https://github.com/localheinz/phpstan-rules/releases/tag/0.4.0
-[0.5.0]: https://github.com/localheinz/phpstan-rules/releases/tag/0.5.0
-[0.6.0]: https://github.com/localheinz/phpstan-rules/releases/tag/0.6.0
-[0.7.0]: https://github.com/localheinz/phpstan-rules/releases/tag/0.7.0
-[0.7.1]: https://github.com/localheinz/phpstan-rules/releases/tag/0.7.1
-[0.8.0]: https://github.com/localheinz/phpstan-rules/releases/tag/0.8.0
-[0.8.1]: https://github.com/localheinz/phpstan-rules/releases/tag/0.8.1
-[0.9.0]: https://github.com/localheinz/phpstan-rules/releases/tag/0.9.0
-[0.9.1]: https://github.com/localheinz/phpstan-rules/releases/tag/0.9.1
-[0.10.0]: https://github.com/localheinz/phpstan-rules/releases/tag/0.10.0
-[0.11.0]: https://github.com/localheinz/phpstan-rules/releases/tag/0.11.0
-[0.12.0]: https://github.com/localheinz/phpstan-rules/releases/tag/0.12.0
-[0.12.1]: https://github.com/localheinz/phpstan-rules/releases/tag/0.12.1
-[0.12.2]: https://github.com/localheinz/phpstan-rules/releases/tag/0.12.2
-[0.13.0]: https://github.com/localheinz/phpstan-rules/releases/tag/0.13.0
+[0.1.0]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.1.0
+[0.2.0]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.2.0
+[0.3.0]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.3.0
+[0.4.0]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.4.0
+[0.5.0]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.5.0
+[0.6.0]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.6.0
+[0.7.0]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.7.0
+[0.7.1]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.7.1
+[0.8.0]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.8.0
+[0.8.1]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.8.1
+[0.9.0]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.9.0
+[0.9.1]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.9.1
+[0.10.0]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.10.0
+[0.11.0]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.11.0
+[0.12.0]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.12.0
+[0.12.1]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.12.1
+[0.12.2]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.12.2
+[0.13.0]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.13.0
 
-[362c7ea...0.1.0]: https://github.com/localheinz/phpstan-rules/compare/362c7ea...0.1.0
-[0.1.0...0.2.0]: https://github.com/localheinz/phpstan-rules/compare/0.1.0...0.2.0
-[0.2.0...0.3.0]: https://github.com/localheinz/phpstan-rules/compare/0.2.0...0.3.0
-[0.3.0...0.4.0]: https://github.com/localheinz/phpstan-rules/compare/0.3.0...0.4.0
-[0.4.0...0.5.0]: https://github.com/localheinz/phpstan-rules/compare/0.4.0...0.5.0
-[0.5.0...0.6.0]: https://github.com/localheinz/phpstan-rules/compare/0.5.0...0.6.0
-[0.6.0...0.7.0]: https://github.com/localheinz/phpstan-rules/compare/0.6.0...0.7.0
-[0.7.0...0.7.1]: https://github.com/localheinz/phpstan-rules/compare/0.7.0...0.7.1
-[0.7.1...0.8.0]: https://github.com/localheinz/phpstan-rules/compare/0.7.1...0.8.0
-[0.8.0...0.8.1]: https://github.com/localheinz/phpstan-rules/compare/0.8.0...0.8.1
-[0.8.1...0.9.0]: https://github.com/localheinz/phpstan-rules/compare/0.8.1...0.9.0
-[0.9.0...0.9.1]: https://github.com/localheinz/phpstan-rules/compare/0.9.0...0.9.1
-[0.9.1...0.10.0]: https://github.com/localheinz/phpstan-rules/compare/0.9.1...0.10.0
-[0.10.0...0.11.0]: https://github.com/localheinz/phpstan-rules/compare/0.10.0...0.11.0
-[0.11.0...0.12.0]: https://github.com/localheinz/phpstan-rules/compare/0.11.0...0.12.0
-[0.12.0...0.12.1]: https://github.com/localheinz/phpstan-rules/compare/0.12.0...0.12.1
-[0.12.1...0.12.2]: https://github.com/localheinz/phpstan-rules/compare/0.12.1...0.12.2
-[0.12.2...0.13.0]: https://github.com/localheinz/phpstan-rules/compare/0.12.2...0.13.0
-[0.13.0...master]: https://github.com/localheinz/phpstan-rules/compare/0.13.0...master
+[362c7ea...0.1.0]: https://github.com/ergebnis/phpstan-rules/compare/362c7ea...0.1.0
+[0.1.0...0.2.0]: https://github.com/ergebnis/phpstan-rules/compare/0.1.0...0.2.0
+[0.2.0...0.3.0]: https://github.com/ergebnis/phpstan-rules/compare/0.2.0...0.3.0
+[0.3.0...0.4.0]: https://github.com/ergebnis/phpstan-rules/compare/0.3.0...0.4.0
+[0.4.0...0.5.0]: https://github.com/ergebnis/phpstan-rules/compare/0.4.0...0.5.0
+[0.5.0...0.6.0]: https://github.com/ergebnis/phpstan-rules/compare/0.5.0...0.6.0
+[0.6.0...0.7.0]: https://github.com/ergebnis/phpstan-rules/compare/0.6.0...0.7.0
+[0.7.0...0.7.1]: https://github.com/ergebnis/phpstan-rules/compare/0.7.0...0.7.1
+[0.7.1...0.8.0]: https://github.com/ergebnis/phpstan-rules/compare/0.7.1...0.8.0
+[0.8.0...0.8.1]: https://github.com/ergebnis/phpstan-rules/compare/0.8.0...0.8.1
+[0.8.1...0.9.0]: https://github.com/ergebnis/phpstan-rules/compare/0.8.1...0.9.0
+[0.9.0...0.9.1]: https://github.com/ergebnis/phpstan-rules/compare/0.9.0...0.9.1
+[0.9.1...0.10.0]: https://github.com/ergebnis/phpstan-rules/compare/0.9.1...0.10.0
+[0.10.0...0.11.0]: https://github.com/ergebnis/phpstan-rules/compare/0.10.0...0.11.0
+[0.11.0...0.12.0]: https://github.com/ergebnis/phpstan-rules/compare/0.11.0...0.12.0
+[0.12.0...0.12.1]: https://github.com/ergebnis/phpstan-rules/compare/0.12.0...0.12.1
+[0.12.1...0.12.2]: https://github.com/ergebnis/phpstan-rules/compare/0.12.1...0.12.2
+[0.12.2...0.13.0]: https://github.com/ergebnis/phpstan-rules/compare/0.12.2...0.13.0
+[0.13.0...master]: https://github.com/ergebnis/phpstan-rules/compare/0.13.0...master
 
-[#1]: https://github.com/localheinz/phpstan-rules/pull/1
-[#4]: https://github.com/localheinz/phpstan-rules/pull/4
-[#11]: https://github.com/localheinz/phpstan-rules/pull/11
-[#16]: https://github.com/localheinz/phpstan-rules/pull/16
-[#26]: https://github.com/localheinz/phpstan-rules/pull/26
-[#29]: https://github.com/localheinz/phpstan-rules/pull/29
-[#31]: https://github.com/localheinz/phpstan-rules/pull/31
-[#32]: https://github.com/localheinz/phpstan-rules/pull/32
-[#33]: https://github.com/localheinz/phpstan-rules/pull/33
-[#34]: https://github.com/localheinz/phpstan-rules/pull/34
-[#35]: https://github.com/localheinz/phpstan-rules/pull/35
-[#37]: https://github.com/localheinz/phpstan-rules/pull/37
-[#39]: https://github.com/localheinz/phpstan-rules/pull/39
-[#42]: https://github.com/localheinz/phpstan-rules/pull/42
-[#45]: https://github.com/localheinz/phpstan-rules/pull/45
-[#51]: https://github.com/localheinz/phpstan-rules/pull/51
-[#53]: https://github.com/localheinz/phpstan-rules/pull/53
-[#65]: https://github.com/localheinz/phpstan-rules/pull/65
-[#68]: https://github.com/localheinz/phpstan-rules/pull/68
-[#73]: https://github.com/localheinz/phpstan-rules/pull/73
-[#79]: https://github.com/localheinz/phpstan-rules/pull/79
-[#81]: https://github.com/localheinz/phpstan-rules/pull/81
-[#83]: https://github.com/localheinz/phpstan-rules/pull/83
-[#84]: https://github.com/localheinz/phpstan-rules/pull/84
-[#89]: https://github.com/localheinz/phpstan-rules/pull/89
-[#91]: https://github.com/localheinz/phpstan-rules/pull/91
-[#93]: https://github.com/localheinz/phpstan-rules/pull/93
-[#102]: https://github.com/localheinz/phpstan-rules/pull/102
-[#103]: https://github.com/localheinz/phpstan-rules/pull/103
-[#110]: https://github.com/localheinz/phpstan-rules/pull/110
-[#112]: https://github.com/localheinz/phpstan-rules/pull/112
-[#113]: https://github.com/localheinz/phpstan-rules/pull/113
-[#116]: https://github.com/localheinz/phpstan-rules/pull/116
-[#117]: https://github.com/localheinz/phpstan-rules/pull/117
-[#122]: https://github.com/localheinz/phpstan-rules/pull/122
-[#123]: https://github.com/localheinz/phpstan-rules/pull/123
-[#126]: https://github.com/localheinz/phpstan-rules/pull/126
-[#128]: https://github.com/localheinz/phpstan-rules/pull/128
-[#132]: https://github.com/localheinz/phpstan-rules/pull/132
-[#141]: https://github.com/localheinz/phpstan-rules/pull/141
-[#147]: https://github.com/localheinz/phpstan-rules/pull/147
+[#1]: https://github.com/ergebnis/phpstan-rules/pull/1
+[#4]: https://github.com/ergebnis/phpstan-rules/pull/4
+[#11]: https://github.com/ergebnis/phpstan-rules/pull/11
+[#16]: https://github.com/ergebnis/phpstan-rules/pull/16
+[#26]: https://github.com/ergebnis/phpstan-rules/pull/26
+[#29]: https://github.com/ergebnis/phpstan-rules/pull/29
+[#31]: https://github.com/ergebnis/phpstan-rules/pull/31
+[#32]: https://github.com/ergebnis/phpstan-rules/pull/32
+[#33]: https://github.com/ergebnis/phpstan-rules/pull/33
+[#34]: https://github.com/ergebnis/phpstan-rules/pull/34
+[#35]: https://github.com/ergebnis/phpstan-rules/pull/35
+[#37]: https://github.com/ergebnis/phpstan-rules/pull/37
+[#39]: https://github.com/ergebnis/phpstan-rules/pull/39
+[#42]: https://github.com/ergebnis/phpstan-rules/pull/42
+[#45]: https://github.com/ergebnis/phpstan-rules/pull/45
+[#51]: https://github.com/ergebnis/phpstan-rules/pull/51
+[#53]: https://github.com/ergebnis/phpstan-rules/pull/53
+[#65]: https://github.com/ergebnis/phpstan-rules/pull/65
+[#68]: https://github.com/ergebnis/phpstan-rules/pull/68
+[#73]: https://github.com/ergebnis/phpstan-rules/pull/73
+[#79]: https://github.com/ergebnis/phpstan-rules/pull/79
+[#81]: https://github.com/ergebnis/phpstan-rules/pull/81
+[#83]: https://github.com/ergebnis/phpstan-rules/pull/83
+[#84]: https://github.com/ergebnis/phpstan-rules/pull/84
+[#89]: https://github.com/ergebnis/phpstan-rules/pull/89
+[#91]: https://github.com/ergebnis/phpstan-rules/pull/91
+[#93]: https://github.com/ergebnis/phpstan-rules/pull/93
+[#102]: https://github.com/ergebnis/phpstan-rules/pull/102
+[#103]: https://github.com/ergebnis/phpstan-rules/pull/103
+[#110]: https://github.com/ergebnis/phpstan-rules/pull/110
+[#112]: https://github.com/ergebnis/phpstan-rules/pull/112
+[#113]: https://github.com/ergebnis/phpstan-rules/pull/113
+[#116]: https://github.com/ergebnis/phpstan-rules/pull/116
+[#117]: https://github.com/ergebnis/phpstan-rules/pull/117
+[#122]: https://github.com/ergebnis/phpstan-rules/pull/122
+[#123]: https://github.com/ergebnis/phpstan-rules/pull/123
+[#126]: https://github.com/ergebnis/phpstan-rules/pull/126
+[#128]: https://github.com/ergebnis/phpstan-rules/pull/128
+[#132]: https://github.com/ergebnis/phpstan-rules/pull/132
+[#141]: https://github.com/ergebnis/phpstan-rules/pull/141
+[#147]: https://github.com/ergebnis/phpstan-rules/pull/147
+[#157]: https://github.com/ergebnis/phpstan-rules/pull/157
 
+[@ergebnis]: https://github.com/ergebnis
 [@localheinz]: https://github.com/localheinz

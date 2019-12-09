@@ -8,10 +8,10 @@ declare(strict_types=1);
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
  *
- * @see https://github.com/localheinz/phpstan-rules
+ * @see https://github.com/ergebnis/phpstan-rules
  */
 
-namespace Localheinz\PHPStan\Rules\Classes;
+namespace Ergebnis\PHPStan\Rules\Classes;
 
 use PhpParser\Node;
 use PHPStan\Analyser\Scope;
