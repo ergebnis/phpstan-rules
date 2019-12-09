@@ -3,9 +3,10 @@ includes:
 	- rules.neon
 
 parameters:
-	classesAllowedToBeExtended:
-		- Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase
-		- PHPStan\Testing\RuleTestCase
+	ergebnis:
+		classesAllowedToBeExtended:
+			- Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase
+			- PHPStan\Testing\RuleTestCase
 	excludes_analyse:
 		- %currentWorkingDirectory%/test/Fixture/
 	inferPrivatePropertyTypeFromConstructor: true

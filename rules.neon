@@ -1,15 +1,18 @@
 parameters:
-	allowAbstractClasses: true
-	classesAllowedToBeExtended: []
-	classesNotRequiredToBeAbstractOrFinal: []
-	interfacesImplementedByContainers:
-		- Psr\Container\ContainerInterface
+	ergebnis:
+		allowAbstractClasses: true
+		classesAllowedToBeExtended: []
+		classesNotRequiredToBeAbstractOrFinal: []
+		interfacesImplementedByContainers:
+			- Psr\Container\ContainerInterface
 
 parametersSchema:
-	allowAbstractClasses: bool()
-	classesAllowedToBeExtended: listOf(string())
-	classesNotRequiredToBeAbstractOrFinal: listOf(string())
-	interfacesImplementedByContainers: listOf(string())
+	ergebnis: structure([
+		allowAbstractClasses: bool()
+		classesAllowedToBeExtended: listOf(string())
+		classesNotRequiredToBeAbstractOrFinal: listOf(string())
+		interfacesImplementedByContainers: listOf(string())
+	])
 
 rules:
 	- Ergebnis\PHPStan\Rules\Closures\NoNullableReturnTypeDeclarationRule
@@ -35,20 +38,20 @@ services:
 	-
 		class: Ergebnis\PHPStan\Rules\Classes\FinalRule
 		arguments:
-			allowAbstractClasses: %allowAbstractClasses%
-			classesNotRequiredToBeAbstractOrFinal: %classesNotRequiredToBeAbstractOrFinal%
+			allowAbstractClasses: %ergebnis.allowAbstractClasses%
+			classesNotRequiredToBeAbstractOrFinal: %ergebnis.classesNotRequiredToBeAbstractOrFinal%
 		tags:
 			- phpstan.rules.rule
 	-
 		class: Ergebnis\PHPStan\Rules\Classes\NoExtendsRule
 		arguments:
-			classesAllowedToBeExtended: %classesAllowedToBeExtended%
+			classesAllowedToBeExtended: %ergebnis.classesAllowedToBeExtended%
 		tags:
 			- phpstan.rules.rule
 
 	-
 		class: Ergebnis\PHPStan\Rules\Methods\NoParameterWithContainerTypeDeclarationRule
 		arguments:
-			interfacesImplementedByContainers: %interfacesImplementedByContainers%
+			interfacesImplementedByContainers: %ergebnis.interfacesImplementedByContainers%
 		tags:
 			- phpstan.rules.rule
