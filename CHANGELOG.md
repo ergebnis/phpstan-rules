@@ -6,11 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`0.13.0...master`][0.13.0...master].
+For a full diff see [`0.14.0...master`][0.14.0...master].
+
+## [`0.14.0`][0.14.0]
+
+For a full diff see [`0.13.0...0.14.0`][0.13.0...0.14.0].
 
 ### Changed
 
-* Allowed installation of `phpstan/phpstan:~0.12.0`  ([#147], by [@localheinz]
+* Allowed installation of `phpstan/phpstan:~0.12.0`  ([#147]), by [@localheinz]
 * Renamed vendor namespace `Localheinz` to `Ergebnis` after move to [@ergebnis] ([#157]), by [@localheinz]
 
   Run
@@ -42,6 +46,36 @@ For a full diff see [`0.13.0...master`][0.13.0...master].
   ```
 
   to delete backup files created in the previous step.
+
+* Moved paramaters into `ergebnis` section to prevent conflicts with global parameters ([#158]), by [@localheinz]
+
+  Where previously `phpstan.neon` looked like the following
+
+  ```neon
+  parameters:
+      allowAbstractClasses: true
+      classesAllowedToBeExtended: []
+      classesNotRequiredToBeAbstractOrFinal: []
+      interfacesImplementedByContainers:
+          - Psr\Container\ContainerInterface
+  ```
+
+  these parameters now need to be moved into an `ergebnis` section:
+
+  ```diff
+   parameters:
+  -    allowAbstractClasses: true
+  -    classesAllowedToBeExtended: []
+  -    classesNotRequiredToBeAbstractOrFinal: []
+  -    interfacesImplementedByContainers:
+  -        - Psr\Container\ContainerInterface
+  +    ergebnis:
+  +        allowAbstractClasses: true
+  +        classesAllowedToBeExtended: []
+  +        classesNotRequiredToBeAbstractOrFinal: []
+  +        interfacesImplementedByContainers:
+  +            - Psr\Container\ContainerInterface
+  ```
 
 ### Fixed
 
@@ -243,6 +277,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [0.12.1]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.12.1
 [0.12.2]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.12.2
 [0.13.0]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.13.0
+[0.14.0]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.14.0
 
 [362c7ea...0.1.0]: https://github.com/ergebnis/phpstan-rules/compare/362c7ea...0.1.0
 [0.1.0...0.2.0]: https://github.com/ergebnis/phpstan-rules/compare/0.1.0...0.2.0
@@ -262,7 +297,8 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [0.12.0...0.12.1]: https://github.com/ergebnis/phpstan-rules/compare/0.12.0...0.12.1
 [0.12.1...0.12.2]: https://github.com/ergebnis/phpstan-rules/compare/0.12.1...0.12.2
 [0.12.2...0.13.0]: https://github.com/ergebnis/phpstan-rules/compare/0.12.2...0.13.0
-[0.13.0...master]: https://github.com/ergebnis/phpstan-rules/compare/0.13.0...master
+[0.13.0...0.14.0]: https://github.com/ergebnis/phpstan-rules/compare/0.13.0...0.14.0
+[0.14.0...master]: https://github.com/ergebnis/phpstan-rules/compare/0.14.0...master
 
 [#1]: https://github.com/ergebnis/phpstan-rules/pull/1
 [#4]: https://github.com/ergebnis/phpstan-rules/pull/4
@@ -306,6 +342,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#141]: https://github.com/ergebnis/phpstan-rules/pull/141
 [#147]: https://github.com/ergebnis/phpstan-rules/pull/147
 [#157]: https://github.com/ergebnis/phpstan-rules/pull/157
+[#158]: https://github.com/ergebnis/phpstan-rules/pull/158
 
 [@ergebnis]: https://github.com/ergebnis
 [@localheinz]: https://github.com/localheinz
