@@ -8,19 +8,19 @@ declare(strict_types=1);
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
  *
- * @see https://github.com/localheinz/phpstan-rules
+ * @see https://github.com/ergebnis/phpstan-rules
  */
 
-namespace Localheinz\PHPStan\Rules\Test\Integration\Statements;
+namespace Ergebnis\PHPStan\Rules\Test\Integration\Statements;
 
-use Localheinz\PHPStan\Rules\Statements\NoSwitchRule;
-use Localheinz\PHPStan\Rules\Test\Integration\AbstractTestCase;
+use Ergebnis\PHPStan\Rules\Statements\NoSwitchRule;
+use Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase;
 use PHPStan\Rules\Rule;
 
 /**
  * @internal
  *
- * @covers \Localheinz\PHPStan\Rules\Statements\NoSwitchRule
+ * @covers \Ergebnis\PHPStan\Rules\Statements\NoSwitchRule
  */
 final class NoSwitchRuleTest extends AbstractTestCase
 {

@@ -12,42 +12,42 @@ parametersSchema:
 	interfacesImplementedByContainers: listOf(string())
 
 rules:
-	- Localheinz\PHPStan\Rules\Closures\NoNullableReturnTypeDeclarationRule
-	- Localheinz\PHPStan\Rules\Closures\NoParameterWithNullableTypeDeclarationRule
-	- Localheinz\PHPStan\Rules\Expressions\NoCompactRule
-	- Localheinz\PHPStan\Rules\Expressions\NoEmptyRule
-	- Localheinz\PHPStan\Rules\Expressions\NoErrorSuppressionRule
-	- Localheinz\PHPStan\Rules\Expressions\NoEvalRule
-	- Localheinz\PHPStan\Rules\Expressions\NoIssetRule
-	- Localheinz\PHPStan\Rules\Files\DeclareStrictTypesRule
-	- Localheinz\PHPStan\Rules\Functions\NoNullableReturnTypeDeclarationRule
-	- Localheinz\PHPStan\Rules\Functions\NoParameterWithNullableTypeDeclarationRule
-	- Localheinz\PHPStan\Rules\Functions\NoParameterWithNullDefaultValueRule
-	- Localheinz\PHPStan\Rules\Methods\FinalInAbstractClassRule
-	- Localheinz\PHPStan\Rules\Methods\NoConstructorParameterWithDefaultValueRule
-	- Localheinz\PHPStan\Rules\Methods\NoNullableReturnTypeDeclarationRule
-	- Localheinz\PHPStan\Rules\Methods\NoParameterWithNullableTypeDeclarationRule
-	- Localheinz\PHPStan\Rules\Methods\NoParameterWithNullDefaultValueRule
-	- Localheinz\PHPStan\Rules\Methods\PrivateInFinalClassRule
-	- Localheinz\PHPStan\Rules\Statements\NoSwitchRule
+	- Ergebnis\PHPStan\Rules\Closures\NoNullableReturnTypeDeclarationRule
+	- Ergebnis\PHPStan\Rules\Closures\NoParameterWithNullableTypeDeclarationRule
+	- Ergebnis\PHPStan\Rules\Expressions\NoCompactRule
+	- Ergebnis\PHPStan\Rules\Expressions\NoEmptyRule
+	- Ergebnis\PHPStan\Rules\Expressions\NoErrorSuppressionRule
+	- Ergebnis\PHPStan\Rules\Expressions\NoEvalRule
+	- Ergebnis\PHPStan\Rules\Expressions\NoIssetRule
+	- Ergebnis\PHPStan\Rules\Files\DeclareStrictTypesRule
+	- Ergebnis\PHPStan\Rules\Functions\NoNullableReturnTypeDeclarationRule
+	- Ergebnis\PHPStan\Rules\Functions\NoParameterWithNullableTypeDeclarationRule
+	- Ergebnis\PHPStan\Rules\Functions\NoParameterWithNullDefaultValueRule
+	- Ergebnis\PHPStan\Rules\Methods\FinalInAbstractClassRule
+	- Ergebnis\PHPStan\Rules\Methods\NoConstructorParameterWithDefaultValueRule
+	- Ergebnis\PHPStan\Rules\Methods\NoNullableReturnTypeDeclarationRule
+	- Ergebnis\PHPStan\Rules\Methods\NoParameterWithNullableTypeDeclarationRule
+	- Ergebnis\PHPStan\Rules\Methods\NoParameterWithNullDefaultValueRule
+	- Ergebnis\PHPStan\Rules\Methods\PrivateInFinalClassRule
+	- Ergebnis\PHPStan\Rules\Statements\NoSwitchRule
 
 services:
 	-
-		class: Localheinz\PHPStan\Rules\Classes\FinalRule
+		class: Ergebnis\PHPStan\Rules\Classes\FinalRule
 		arguments:
 			allowAbstractClasses: %allowAbstractClasses%
 			classesNotRequiredToBeAbstractOrFinal: %classesNotRequiredToBeAbstractOrFinal%
 		tags:
 			- phpstan.rules.rule
 	-
-		class: Localheinz\PHPStan\Rules\Classes\NoExtendsRule
+		class: Ergebnis\PHPStan\Rules\Classes\NoExtendsRule
 		arguments:
 			classesAllowedToBeExtended: %classesAllowedToBeExtended%
 		tags:
 			- phpstan.rules.rule
 
 	-
-		class: Localheinz\PHPStan\Rules\Methods\NoParameterWithContainerTypeDeclarationRule
+		class: Ergebnis\PHPStan\Rules\Methods\NoParameterWithContainerTypeDeclarationRule
 		arguments:
 			interfacesImplementedByContainers: %interfacesImplementedByContainers%
 		tags:

@@ -8,14 +8,14 @@ declare(strict_types=1);
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
  *
- * @see https://github.com/localheinz/phpstan-rules
+ * @see https://github.com/ergebnis/phpstan-rules
  */
 
-namespace Localheinz\PHPStan\Rules\Test\Integration\Methods;
+namespace Ergebnis\PHPStan\Rules\Test\Integration\Methods;
 
-use Localheinz\PHPStan\Rules\Methods\NoParameterWithContainerTypeDeclarationRule;
-use Localheinz\PHPStan\Rules\Test\Fixture;
-use Localheinz\PHPStan\Rules\Test\Integration\AbstractTestCase;
+use Ergebnis\PHPStan\Rules\Methods\NoParameterWithContainerTypeDeclarationRule;
+use Ergebnis\PHPStan\Rules\Test\Fixture;
+use Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase;
 use PHPStan\Rules\Rule;
 use Psr\Container;
 use Zend\ServiceManager;
@@ -23,7 +23,7 @@ use Zend\ServiceManager;
 /**
  * @internal
  *
- * @covers \Localheinz\PHPStan\Rules\Methods\NoParameterWithContainerTypeDeclarationRule
+ * @covers \Ergebnis\PHPStan\Rules\Methods\NoParameterWithContainerTypeDeclarationRule
  */
 final class NoParameterWithContainerTypeDeclarationRuleTest extends AbstractTestCase
 {

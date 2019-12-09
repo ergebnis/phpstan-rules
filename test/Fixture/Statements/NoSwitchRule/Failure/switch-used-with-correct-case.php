@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Localheinz\PHPStan\Rules\Test\Fixture\Expressions\NoSwitchRule\Failure;
+namespace Ergebnis\PHPStan\Rules\Test\Fixture\Expressions\NoSwitchRule\Failure;
 
 switch ($foo) {
     case 'foo':

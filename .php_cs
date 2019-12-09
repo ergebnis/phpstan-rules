@@ -8,7 +8,7 @@ declare(strict_types=1);
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
  *
- * @see https://github.com/localheinz/phpstan-rules
+ * @see https://github.com/ergebnis/phpstan-rules
  */
 
 use Ergebnis\PhpCsFixer\Config;
@@ -19,7 +19,7 @@ Copyright (c) 2018 Andreas Möller
 For the full copyright and license information, please view
 the LICENSE file that was distributed with this source code.
 
-@see https://github.com/localheinz/phpstan-rules
+@see https://github.com/ergebnis/phpstan-rules
 EOF;
 
 $config = Config\Factory::fromRuleSet(new Config\RuleSet\Php71($header));

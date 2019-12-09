@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Localheinz\PHPStan\Rules\Test\Fixture\Methods\NoParameterWithContainerTypeDeclarationRule\Failure;
+namespace Ergebnis\PHPStan\Rules\Test\Fixture\Methods\NoParameterWithContainerTypeDeclarationRule\Failure;
 
 /** @var InterfaceExtendingContainerInterface $container */
 new class($container) {

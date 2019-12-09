@@ -8,13 +8,13 @@ declare(strict_types=1);
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
  *
- * @see https://github.com/localheinz/phpstan-rules
+ * @see https://github.com/ergebnis/phpstan-rules
  */
 
-namespace Localheinz\PHPStan\Rules\Test\AutoReview;
+namespace Ergebnis\PHPStan\Rules\Test\AutoReview;
 
+use Ergebnis\PHPStan\Rules\Test\Integration;
 use Ergebnis\Test\Util\Helper;
-use Localheinz\PHPStan\Rules\Test\Integration;
 use PHPUnit\Framework;
 
 /**

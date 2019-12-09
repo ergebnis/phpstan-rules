@@ -8,10 +8,10 @@ declare(strict_types=1);
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
  *
- * @see https://github.com/localheinz/phpstan-rules
+ * @see https://github.com/ergebnis/phpstan-rules
  */
 
-namespace Localheinz\PHPStan\Rules\Test\AutoReview;
+namespace Ergebnis\PHPStan\Rules\Test\AutoReview;
 
 use Ergebnis\Test\Util\Helper;
 use PHPUnit\Framework;
@@ -29,8 +29,8 @@ final class SrcCodeTest extends Framework\TestCase
     {
         self::assertClassesHaveTests(
             __DIR__ . '/../../src',
-            'Localheinz\\PHPStan\\Rules\\',
-            'Localheinz\\PHPStan\\Rules\\Test\\Integration\\'
+            'Ergebnis\\PHPStan\\Rules\\',
+            'Ergebnis\\PHPStan\\Rules\\Test\\Integration\\'
         );
     }
 }
