@@ -68,7 +68,7 @@ to run all the tests.
 
 We are using [`infection/infection`](https://github.com/infection/infection) to ensure a minimum quality of the tests.
 
-Enable `Xdebug` and run
+Enable `pcov` or `Xdebug` and run
 
 ```
 $ make mutation-tests
