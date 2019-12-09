@@ -29,7 +29,7 @@ jobs:
         uses: shivammathur/setup-php@v1
         with:
           coverage: none
-          extension-csv: "mbstring"
+          extensions: "mbstring"
           php-version: ${{ matrix.php-version }}
 
       - name: "Validate composer.json and composer.lock"
@@ -84,7 +84,7 @@ jobs:
         uses: shivammathur/setup-php@v1
         with:
           coverage: none
-          extension-csv: "mbstring"
+          extensions: "mbstring"
           php-version: ${{ matrix.php-version }}
 
       - name: "Cache dependencies installed with composer"
@@ -119,7 +119,7 @@ jobs:
         uses: shivammathur/setup-php@v1
         with:
           coverage: none
-          extension-csv: "mbstring"
+          extensions: "mbstring"
           php-version: ${{ matrix.php-version }}
 
       - name: "Cache dependencies installed with composer"
@@ -160,7 +160,7 @@ jobs:
         uses: shivammathur/setup-php@v1
         with:
           coverage: none
-          extension-csv: "mbstring"
+          extensions: "mbstring"
           php-version: ${{ matrix.php-version }}
 
       - name: "Cache dependencies installed with composer"
@@ -209,8 +209,8 @@ jobs:
       - name: "Install PHP with extensions"
         uses: shivammathur/setup-php@v1
         with:
-          coverage: xdebug
-          extension-csv: "mbstring"
+          coverage: pcov
+          extensions: "mbstring"
           php-version: ${{ matrix.php-version }}
 
       - name: "Cache dependencies installed with composer"
@@ -224,11 +224,8 @@ jobs:
       - name: "Install locked dependencies with composer"
         run: composer install --no-interaction --no-progress --no-suggest
 
-      - name: "Dump Xdebug filter with phpunit/phpunit"
-        run: vendor/bin/phpunit --configuration=test/Integration/phpunit.xml --dump-xdebug-filter=.build/phpunit/xdebug-filter.php
-
-      - name: "Collect code coverage with Xdebug and phpunit/phpunit"
-        run: vendor/bin/phpunit --configuration=test/Integration/phpunit.xml --coverage-clover=build/logs/clover.xml --prepend=.build/phpunit/xdebug-filter.php
+      - name: "Collect code coverage with pcov and phpunit/phpunit"
+        run: vendor/bin/phpunit --configuration=test/Integration/phpunit.xml --coverage-clover=build/logs/clover.xml
 
       - name: "Send code coverage report to Codecov.io"
         env:
@@ -252,8 +249,8 @@ jobs:
       - name: "Install PHP with extensions"
         uses: shivammathur/setup-php@v1
         with:
-          coverage: xdebug
-          extension-csv: "mbstring"
+          coverage: pcov
+          extensions: "mbstring"
           php-version: ${{ matrix.php-version }}
 
       - name: "Cache dependencies installed with composer"
@@ -267,5 +264,5 @@ jobs:
       - name: "Install locked dependencies with composer"
         run: composer install --no-interaction --no-progress --no-suggest
 
-      - name: "Run mutation tests with infection/infection"
+      - name: "Run mutation tests with pcov and infection/infection"
         run: vendor/bin/infection --ignore-msi-with-no-mutations --min-covered-msi=93 --min-msi=83
