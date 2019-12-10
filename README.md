@@ -75,7 +75,8 @@ By default, this rule allows to declare `abstract` classes. If you want to disal
 
 ```neon
 parameters:
-	allowAbstractClasses: false
+	ergebnis:
+		allowAbstractClasses: false
 ```
 
 ##### Excluding classes from inspection
@@ -84,9 +85,10 @@ If you want to exclude classes from being inspected by this rule, you can set th
 
 ```neon
 parameters:
-	classesNotRequiredToBeAbstractOrFinal:
-		- Foo\Bar\NeitherAbstractNorFinal
-		- Bar\Baz\NeitherAbstractNorFinal
+	ergebnis:
+		classesNotRequiredToBeAbstractOrFinal:
+			- Foo\Bar\NeitherAbstractNorFinal
+			- Bar\Baz\NeitherAbstractNorFinal
 ```
 
 #### `Classes\NoExtendsRule`
@@ -105,9 +107,10 @@ If you want to allow additional classes to be extended, you can set the `classes
 
 ```neon
 parameters:
-	classesAllowedToBeExtended:
-		- Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase
-		- PHPStan\Testing\RuleTestCase
+	ergebnis:
+		classesAllowedToBeExtended:
+			- Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase
+			- PHPStan\Testing\RuleTestCase
 ```
 
 ### Closures
@@ -209,9 +212,10 @@ If you want to configure the list of interfaces implemented by dependency inject
 
 ```neon
 parameters:
-	interfacesImplementedByContainers:
-		- Fancy\DependencyInjection\ContainerInterface
-		- Other\ServiceLocatorInterface
+	ergebnis:
+		interfacesImplementedByContainers:
+			- Fancy\DependencyInjection\ContainerInterface
+			- Other\ServiceLocatorInterface
 ```
 
 #### `Methods\NoParameterWithNullableTypeDeclarationRule`
