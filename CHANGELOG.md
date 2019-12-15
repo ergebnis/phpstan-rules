@@ -47,7 +47,7 @@ For a full diff see [`0.13.0...0.14.0`][0.13.0...0.14.0].
 
   to delete backup files created in the previous step.
 
-* Moved paramaters into `ergebnis` section to prevent conflicts with global parameters ([#158]), by [@localheinz]
+* Moved parameters into `ergebnis` section to prevent conflicts with global parameters ([#158]), by [@localheinz]
 
   Where previously `phpstan.neon` looked like the following
 
