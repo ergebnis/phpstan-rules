@@ -21,9 +21,6 @@
     "nikic/php-parser": "^4.2.3",
     "phpstan/phpstan": "~0.11.15 || ~0.12.0"
   },
-  "replace": {
-    "localheinz/phpstan-rules": "*"
-  },
   "require-dev": {
     "ergebnis/php-cs-fixer-config": "~1.1.0",
     "ergebnis/test-util": "~0.9.0",
