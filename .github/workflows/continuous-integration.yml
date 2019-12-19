@@ -19,7 +19,7 @@ jobs:
     strategy:
       matrix:
         php-version:
-          - 7.2
+          - 7.1
 
     steps:
       - name: "Checkout"
@@ -144,6 +144,7 @@ jobs:
     strategy:
       matrix:
         php-version:
+          - 7.1
           - 7.2
           - 7.3
           - 7.4
@@ -210,7 +211,7 @@ jobs:
       - name: "Install PHP with extensions"
         uses: shivammathur/setup-php@v1
         with:
-          coverage: pcov
+          coverage: xdebug
           extensions: "mbstring"
           php-version: ${{ matrix.php-version }}
 
@@ -225,8 +226,11 @@ jobs:
       - name: "Install locked dependencies with composer"
         run: composer install --no-interaction --no-progress --no-suggest
 
-      - name: "Collect code coverage with pcov and phpunit/phpunit"
-        run: vendor/bin/phpunit --configuration=test/Integration/phpunit.xml --coverage-clover=build/logs/clover.xml
+      - name: "Dump Xdebug filter with phpunit/phpunit"
+        run: vendor/bin/phpunit --configuration=test/Integration/phpunit.xml --dump-xdebug-filter=.build/phpunit/xdebug-filter.php
+
+      - name: "Collect code coverage with Xdebug and phpunit/phpunit"
+        run: vendor/bin/phpunit --configuration=test/Integration/phpunit.xml --coverage-clover=build/logs/clover.xml --prepend=.build/phpunit/xdebug-filter.php
 
       - name: "Send code coverage report to Codecov.io"
         env:
@@ -250,7 +254,7 @@ jobs:
       - name: "Install PHP with extensions"
         uses: shivammathur/setup-php@v1
         with:
-          coverage: pcov
+          coverage: xdebug
           extensions: "mbstring"
           php-version: ${{ matrix.php-version }}
 
@@ -265,5 +269,5 @@ jobs:
       - name: "Install locked dependencies with composer"
         run: composer install --no-interaction --no-progress --no-suggest
 
-      - name: "Run mutation tests with pcov and infection/infection"
+      - name: "Run mutation tests with Xdebug and infection/infection"
         run: vendor/bin/infection --ignore-msi-with-no-mutations --min-covered-msi=93 --min-msi=83

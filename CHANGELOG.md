@@ -6,7 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`0.14.1...master`][0.14.1...master].
+For a full diff see [`0.14.2...master`][0.14.2...master].
+
+## [`0.14.2`][0.14.2]
+
+For a full diff see [`0.14.1...0.14.2`][0.14.1...0.14.2].
+
+### Fixed
+
+* Brought back support for PHP 7.1 ([#166]), by [@localheinz]
 
 ## [`0.14.1`][0.14.1]
 
@@ -287,6 +295,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [0.13.0]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.13.0
 [0.14.0]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.14.0
 [0.14.1]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.14.1
+[0.14.2]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.14.2
 
 [362c7ea...0.1.0]: https://github.com/ergebnis/phpstan-rules/compare/362c7ea...0.1.0
 [0.1.0...0.2.0]: https://github.com/ergebnis/phpstan-rules/compare/0.1.0...0.2.0
@@ -308,7 +317,8 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [0.12.2...0.13.0]: https://github.com/ergebnis/phpstan-rules/compare/0.12.2...0.13.0
 [0.13.0...0.14.0]: https://github.com/ergebnis/phpstan-rules/compare/0.13.0...0.14.0
 [0.14.0...0.14.1]: https://github.com/ergebnis/phpstan-rules/compare/0.14.0...0.14.1
-[0.14.1...master]: https://github.com/ergebnis/phpstan-rules/compare/0.14.1...master
+[0.14.1...0.14.2]: https://github.com/ergebnis/phpstan-rules/compare/0.14.1...0.14.2
+[0.14.2...master]: https://github.com/ergebnis/phpstan-rules/compare/0.14.2...master
 
 [#1]: https://github.com/ergebnis/phpstan-rules/pull/1
 [#4]: https://github.com/ergebnis/phpstan-rules/pull/4
@@ -354,6 +364,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#157]: https://github.com/ergebnis/phpstan-rules/pull/157
 [#158]: https://github.com/ergebnis/phpstan-rules/pull/158
 [#161]: https://github.com/ergebnis/phpstan-rules/pull/161
+[#166]: https://github.com/ergebnis/phpstan-rules/pull/166
 
 [@ergebnis]: https://github.com/ergebnis
 [@localheinz]: https://github.com/localheinz
