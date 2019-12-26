@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "97e785b5234d4e0720e872e9aa2249c1",
+    "content-hash": "0d8f054430c142b29dc2af83ff4b4873",
     "packages": [
         {
             "name": "composer/xdebug-handler",
@@ -1695,16 +1695,16 @@
         },
         {
             "name": "ergebnis/composer-normalize",
-            "version": "2.1.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/composer-normalize.git",
-                "reference": "b89248fed5de4c070ef62fe9908b5efdf1e2d21d"
+                "reference": "3d8b5818b5bfeda21d8a8077d0eda4112734695c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/composer-normalize/zipball/b89248fed5de4c070ef62fe9908b5efdf1e2d21d",
-                "reference": "b89248fed5de4c070ef62fe9908b5efdf1e2d21d",
+                "url": "https://api.github.com/repos/ergebnis/composer-normalize/zipball/3d8b5818b5bfeda21d8a8077d0eda4112734695c",
+                "reference": "3d8b5818b5bfeda21d8a8077d0eda4112734695c",
                 "shasum": ""
             },
             "require": {
@@ -1756,7 +1756,7 @@
                 "normalizer",
                 "plugin"
             ],
-            "time": "2019-12-25T19:48:13+00:00"
+            "time": "2019-12-26T22:01:46+00:00"
         },
         {
             "name": "ergebnis/json-normalizer",
