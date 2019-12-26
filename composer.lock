@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f8cd5a0948fe9fbda518f62a71d81bc3",
+    "content-hash": "97e785b5234d4e0720e872e9aa2249c1",
     "packages": [
         {
             "name": "composer/xdebug-handler",
@@ -1695,16 +1695,16 @@
         },
         {
             "name": "ergebnis/composer-normalize",
-            "version": "2.0.2",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/composer-normalize.git",
-                "reference": "523deef61bb9bc45ce6b5f9a19d3bba8a06cbfcd"
+                "reference": "b89248fed5de4c070ef62fe9908b5efdf1e2d21d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/composer-normalize/zipball/523deef61bb9bc45ce6b5f9a19d3bba8a06cbfcd",
-                "reference": "523deef61bb9bc45ce6b5f9a19d3bba8a06cbfcd",
+                "url": "https://api.github.com/repos/ergebnis/composer-normalize/zipball/b89248fed5de4c070ef62fe9908b5efdf1e2d21d",
+                "reference": "b89248fed5de4c070ef62fe9908b5efdf1e2d21d",
                 "shasum": ""
             },
             "require": {
@@ -1720,11 +1720,12 @@
                 "ergebnis/php-cs-fixer-config": "~1.1.2",
                 "ergebnis/phpstan-rules": "~0.14.2",
                 "ergebnis/test-util": "~0.9.1",
-                "jangregor/phpstan-prophecy": "~0.5.0",
+                "jangregor/phpstan-prophecy": "~0.5.1",
                 "phpstan/extension-installer": "^1.0.3",
-                "phpstan/phpstan": "~0.11.19",
-                "phpstan/phpstan-deprecation-rules": "~0.11.2",
-                "phpstan/phpstan-strict-rules": "~0.11.1",
+                "phpstan/phpstan": "~0.12.3",
+                "phpstan/phpstan-deprecation-rules": "~0.12.0",
+                "phpstan/phpstan-phpunit": "~0.12.3",
+                "phpstan/phpstan-strict-rules": "~0.12.0",
                 "phpunit/phpunit": "^7.5.18",
                 "symfony/filesystem": "^4.4.1"
             },
@@ -1755,7 +1756,7 @@
                 "normalizer",
                 "plugin"
             ],
-            "time": "2019-12-19T21:54:28+00:00"
+            "time": "2019-12-25T19:48:13+00:00"
         },
         {
             "name": "ergebnis/json-normalizer",
