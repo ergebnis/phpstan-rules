@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "41dcac288ebbeadf1d2b4c5de46a1de8",
+    "content-hash": "924ba5ad27f9f16f2e99c7b8be075fcd",
     "packages": [
         {
             "name": "composer/xdebug-handler",
@@ -1695,16 +1695,16 @@
         },
         {
             "name": "ergebnis/composer-normalize",
-            "version": "2.1.2",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/composer-normalize.git",
-                "reference": "a60faee62f227485f36151e7da06155146e204a1"
+                "reference": "38a8ce53a18e0c6b1e00eb3da57c27d695fe38df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/composer-normalize/zipball/a60faee62f227485f36151e7da06155146e204a1",
-                "reference": "a60faee62f227485f36151e7da06155146e204a1",
+                "url": "https://api.github.com/repos/ergebnis/composer-normalize/zipball/38a8ce53a18e0c6b1e00eb3da57c27d695fe38df",
+                "reference": "38a8ce53a18e0c6b1e00eb3da57c27d695fe38df",
                 "shasum": ""
             },
             "require": {
@@ -1720,7 +1720,7 @@
                 "ergebnis/php-cs-fixer-config": "~1.1.2",
                 "ergebnis/phpstan-rules": "~0.14.2",
                 "ergebnis/test-util": "~0.9.1",
-                "jangregor/phpstan-prophecy": "~0.5.1",
+                "jangregor/phpstan-prophecy": "~0.6.0",
                 "phpstan/extension-installer": "^1.0.3",
                 "phpstan/phpstan": "~0.12.3",
                 "phpstan/phpstan-deprecation-rules": "~0.12.0",
@@ -1756,7 +1756,7 @@
                 "normalizer",
                 "plugin"
             ],
-            "time": "2019-12-28T16:36:23+00:00"
+            "time": "2020-01-01T11:15:02+00:00"
         },
         {
             "name": "ergebnis/json-normalizer",
@@ -4657,6 +4657,7 @@
                 "servicemanager",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-servicemanager",
             "time": "2018-06-22T14:49:54+00:00"
         }
     ],
