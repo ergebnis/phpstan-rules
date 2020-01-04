@@ -22,13 +22,19 @@ use PHPStan\ShouldNotHappenException;
 
 final class NoParameterWithContainerTypeDeclarationRule implements Rule
 {
+    /**
+     * @var Broker
+     */
     private $broker;
 
+    /**
+     * @var array<int, string>
+     */
     private $interfacesImplementedByContainers;
 
     /**
-     * @param string[] $interfacesImplementedByContainers
-     * @param Broker   $broker
+     * @param array<int, string> $interfacesImplementedByContainers
+     * @param Broker             $broker
      */
     public function __construct(Broker $broker, array $interfacesImplementedByContainers)
     {

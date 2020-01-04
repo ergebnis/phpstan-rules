@@ -23,17 +23,22 @@
   },
   "require-dev": {
     "ergebnis/composer-normalize": "^2.2.0",
-    "ergebnis/php-cs-fixer-config": "~1.1.2",
+    "ergebnis/php-cs-fixer-config": "^1.1.3",
     "ergebnis/test-util": "~0.9.1",
     "infection/infection": "~0.13.6",
     "nette/di": "^3.0.1",
     "phpstan/phpstan-deprecation-rules": "~0.11.2",
     "phpstan/phpstan-strict-rules": "~0.11.1",
     "phpunit/phpunit": "^7.5.18",
+    "psalm/plugin-phpunit": "~0.8.0",
     "psr/container": "^1.0.0",
+    "vimeo/psalm": "^3.8.1",
     "zendframework/zend-servicemanager": "^2.0.0"
   },
   "config": {
+    "platform": {
+      "php": "7.1.33"
+    },
     "preferred-install": "dist",
     "sort-packages": true
   },

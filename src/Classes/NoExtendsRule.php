@@ -21,22 +21,26 @@ use PHPStan\ShouldNotHappenException;
 final class NoExtendsRule implements Rule
 {
     /**
-     * @var string[]
+     * @var array<int, class-string>
      */
     private static $defaultClassesAllowedToBeExtended = [
         'PHPUnit\\Framework\\TestCase',
     ];
 
+    /**
+     * @var array<int, class-string>
+     */
     private $classesAllowedToBeExtended;
 
     /**
-     * @param string[] $classesAllowedToBeExtended
+     * @param array<int, class-string> $classesAllowedToBeExtended
      */
     public function __construct(array $classesAllowedToBeExtended)
     {
         $this->classesAllowedToBeExtended = \array_unique(\array_merge(
             self::$defaultClassesAllowedToBeExtended,
             \array_map(static function (string $classAllowedToBeExtended): string {
+                /** @var class-string $classAllowedToBeExtended */
                 return $classAllowedToBeExtended;
             }, $classesAllowedToBeExtended)
         ));
