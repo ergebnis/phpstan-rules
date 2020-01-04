@@ -3,7 +3,13 @@
 version: 1
 
 update_configs:
-  - default_assignees:
+  - automerged_updates:
+      - match:
+          dependency_type: "development"
+    commit_message:
+      include_scope: true
+      prefix: "Build"
+    default_assignees:
       - "localheinz"
     default_labels:
       - "dependency"

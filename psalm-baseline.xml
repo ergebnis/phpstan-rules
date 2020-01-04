@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="3.8.1@8e54e3aa060fc490d86d0e2abbf62750516d40fd">
+  <file src="src/Classes/NoExtendsRule.php">
+    <PropertyTypeCoercion occurrences="1"/>
+  </file>
+  <file src="src/Functions/NoParameterWithNullDefaultValueRule.php">
+    <UndefinedPropertyFetch occurrences="1">
+      <code>$node-&gt;namespacedName</code>
+    </UndefinedPropertyFetch>
+  </file>
+  <file src="src/Functions/NoParameterWithNullableTypeDeclarationRule.php">
+    <UndefinedPropertyFetch occurrences="1">
+      <code>$node-&gt;namespacedName</code>
+    </UndefinedPropertyFetch>
+  </file>
+  <file src="test/AutoReview/TestCodeTest.php">
+    <ArgumentTypeCoercion occurrences="1">
+      <code>$className</code>
+    </ArgumentTypeCoercion>
+  </file>
+</files>

@@ -3,6 +3,7 @@ includes:
 	- rules.neon
 
 parameters:
+	checkMissingIterableValueType: false
 	ergebnis:
 		classesAllowedToBeExtended:
 			- Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase
