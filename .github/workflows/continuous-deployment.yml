@@ -21,7 +21,7 @@ jobs:
       - name: "Create release"
         uses: "actions/create-release@v1.0.0"
         env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          GITHUB_TOKEN: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
         with:
           draft: false
           prerelease: false
