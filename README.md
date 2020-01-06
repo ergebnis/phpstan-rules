@@ -1,7 +1,9 @@
 # phpstan-rules
 
+[![Continuous Deployment](https://github.com/ergebnis/phpstan-rules/workflows/Continuous%20Deployment/badge.svg)](https://github.com/ergebnis/phpstan-rules/actions)
 [![Continuous Integration](https://github.com/ergebnis/phpstan-rules/workflows/Continuous%20Integration/badge.svg)](https://github.com/ergebnis/phpstan-rules/actions)
 [![Code Coverage](https://codecov.io/gh/ergebnis/phpstan-rules/branch/master/graph/badge.svg)](https://codecov.io/gh/ergebnis/phpstan-rules)
+[![Type Coverage](https://shepherd.dev/github/ergebnis/phpstan-rules/coverage.svg)](https://shepherd.dev/github/ergebnis/phpstan-rules)
 [![Latest Stable Version](https://poser.pugx.org/ergebnis/phpstan-rules/v/stable)](https://packagist.org/packages/ergebnis/phpstan-rules)
 [![Total Downloads](https://poser.pugx.org/ergebnis/phpstan-rules/downloads)](https://packagist.org/packages/ergebnis/phpstan-rules)
 
