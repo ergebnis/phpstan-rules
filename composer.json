@@ -32,7 +32,7 @@
     "phpunit/phpunit": "^7.5.20",
     "psalm/plugin-phpunit": "~0.8.1",
     "psr/container": "^1.0.0",
-    "vimeo/psalm": "^3.8.2",
+    "vimeo/psalm": "^3.8.3",
     "zendframework/zend-servicemanager": "^2.0.0"
   },
   "config": {
