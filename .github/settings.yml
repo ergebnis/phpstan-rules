@@ -75,7 +75,9 @@ repository:
   allow_merge_commit: true
   allow_rebase_merge: false
   allow_squash_merge: false
+  archived: false
   default_branch: "master"
+  delete_branch_on_merge: true
   description: ":eyeglasses: Provides additional rules for phpstan/phpstan."
   has_downloads: true
   has_issues: true
