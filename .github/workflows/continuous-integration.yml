@@ -9,7 +9,7 @@ on:
       - "master"
 
 env:
-  MIN_COVERED_MSI: 93
+  MIN_COVERED_MSI: 92
   MIN_MSI: 83
   REQUIRED_PHP_EXTENSIONS: "mbstring"
 

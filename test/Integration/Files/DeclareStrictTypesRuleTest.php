@@ -40,6 +40,7 @@ final class DeclareStrictTypesRuleTest extends AbstractTestCase
             'file-with-doc-block-and-declare-strict-types-on-and-invalid-casing' => __DIR__ . '/../../Fixture/Files/DeclareStrictTypesRule/Success/file-with-doc-block-and-declare-strict-types-on-and-invalid-casing.php',
             'file-with-doc-block-and-declare-strict-types-on-and-multiple-declares' => __DIR__ . '/../../Fixture/Files/DeclareStrictTypesRule/Success/file-with-doc-block-and-declare-strict-types-on-and-multiple-declares.php',
             'file-with-doc-block-and-declare-strict-types-on-and-namespace-declaration' => __DIR__ . '/../../Fixture/Files/DeclareStrictTypesRule/Success/file-with-doc-block-and-declare-strict-types-on-and-namespace-declaration.php',
+            'file-with-shebang-and-declare-strict-types-on' => __DIR__ . '/../../Fixture/Files/DeclareStrictTypesRule/Success/file-with-shebang-and-declare-strict-types-on.php',
         ];
 
         foreach ($paths as $description => $path) {
@@ -120,6 +121,27 @@ final class DeclareStrictTypesRuleTest extends AbstractTestCase
                 [
                     'File is missing a "declare(strict_types=1)" declaration.',
                     7,
+                ],
+            ],
+            'file-with-shebang-and-another-one-text-line-before-opening-tag' => [
+                __DIR__ . '/../../Fixture/Files/DeclareStrictTypesRule/Failure/file-with-shebang-and-another-one-text-line-before-opening-tag.php',
+                [
+                    'File is missing a "declare(strict_types=1)" declaration.',
+                    1,
+                ],
+            ],
+            'file-with-shebang-and-declare-strict-types-off' => [
+                __DIR__ . '/../../Fixture/Files/DeclareStrictTypesRule/Failure/file-with-shebang-and-declare-strict-types-off.php',
+                [
+                    'File is missing a "declare(strict_types=1)" declaration.',
+                    1,
+                ],
+            ],
+            'file-with-text-before-opening-tag' => [
+                __DIR__ . '/../../Fixture/Files/DeclareStrictTypesRule/Failure/file-with-text-before-opening-tag.php',
+                [
+                    'File is missing a "declare(strict_types=1)" declaration.',
+                    1,
                 ],
             ],
             'file-without-declare-strict-types-and-namespace-declaration' => [
