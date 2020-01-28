@@ -44,6 +44,14 @@ final class DeclareStrictTypesRule implements Rule
 
         $firstNode = \array_shift($nodes);
 
+        if (
+            $firstNode instanceof Node\Stmt\InlineHTML
+            && 2 === $firstNode->getEndLine()
+            && 0 === \mb_strpos($firstNode->value, '#!')
+        ) {
+            $firstNode = \array_shift($nodes);
+        }
+
         if ($firstNode instanceof Node\Stmt\Declare_) {
             foreach ($firstNode->declares as $declare) {
                 if (
