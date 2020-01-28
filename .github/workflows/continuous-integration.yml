@@ -32,7 +32,7 @@ jobs:
         uses: "actions/checkout@v2.0.0"
 
       - name: "Install PHP with extensions"
-        uses: "shivammathur/setup-php@1.7.3"
+        uses: "shivammathur/setup-php@1.8.1"
         with:
           coverage: "none"
           extensions: "${{ env.REQUIRED_PHP_EXTENSIONS }}"
@@ -94,7 +94,7 @@ jobs:
         uses: "actions/checkout@v2.0.0"
 
       - name: "Install PHP with extensions"
-        uses: "shivammathur/setup-php@1.7.3"
+        uses: "shivammathur/setup-php@1.8.1"
         with:
           coverage: "none"
           extensions: "${{ env.REQUIRED_PHP_EXTENSIONS }}"
@@ -140,7 +140,7 @@ jobs:
         uses: "actions/checkout@v2.0.0"
 
       - name: "Install PHP with extensions"
-        uses: "shivammathur/setup-php@1.7.3"
+        uses: "shivammathur/setup-php@1.8.1"
         with:
           coverage: "none"
           extensions: "${{ env.REQUIRED_PHP_EXTENSIONS }}"
@@ -200,7 +200,7 @@ jobs:
         uses: "actions/checkout@v2.0.0"
 
       - name: "Install PHP with extensions"
-        uses: "shivammathur/setup-php@1.7.3"
+        uses: "shivammathur/setup-php@1.8.1"
         with:
           coverage: "none"
           extensions: "${{ env.REQUIRED_PHP_EXTENSIONS }}"
@@ -252,7 +252,7 @@ jobs:
         uses: "actions/checkout@v2.0.0"
 
       - name: "Install PHP with extensions"
-        uses: "shivammathur/setup-php@1.7.3"
+        uses: "shivammathur/setup-php@1.8.1"
         with:
           coverage: "xdebug"
           extensions: "${{ env.REQUIRED_PHP_EXTENSIONS }}"
@@ -306,7 +306,7 @@ jobs:
         uses: "actions/checkout@v2.0.0"
 
       - name: "Install PHP with extensions"
-        uses: "shivammathur/setup-php@1.7.3"
+        uses: "shivammathur/setup-php@1.8.1"
         with:
           coverage: "xdebug"
           extensions: "${{ env.REQUIRED_PHP_EXTENSIONS }}"
