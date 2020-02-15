@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c92ffe384a43a67e516fe50d6bc36f94",
+    "content-hash": "d398569b065f2068923a1423f6611dd5",
     "packages": [
         {
             "name": "composer/xdebug-handler",
@@ -1773,16 +1773,16 @@
         },
         {
             "name": "ergebnis/composer-normalize",
-            "version": "2.2.2",
+            "version": "2.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/composer-normalize.git",
-                "reference": "782ee45ab0cae61f92292e3e2138bbc6e829bb65"
+                "reference": "57c77f496d34a873475300e65613f8ed1fa5b624"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/composer-normalize/zipball/782ee45ab0cae61f92292e3e2138bbc6e829bb65",
-                "reference": "782ee45ab0cae61f92292e3e2138bbc6e829bb65",
+                "url": "https://api.github.com/repos/ergebnis/composer-normalize/zipball/57c77f496d34a873475300e65613f8ed1fa5b624",
+                "reference": "57c77f496d34a873475300e65613f8ed1fa5b624",
                 "shasum": ""
             },
             "require": {
@@ -1794,19 +1794,20 @@
             },
             "require-dev": {
                 "composer/composer": "^1.7.0",
-                "ergebnis/php-cs-fixer-config": "^1.1.3",
-                "ergebnis/phpstan-rules": "~0.14.2",
+                "ergebnis/license": "~0.1.0",
+                "ergebnis/php-cs-fixer-config": "^2.0.0",
+                "ergebnis/phpstan-rules": "~0.14.3",
                 "ergebnis/test-util": "~0.9.1",
-                "jangregor/phpstan-prophecy": "~0.6.0",
+                "jangregor/phpstan-prophecy": "~0.6.1",
                 "phpstan/extension-installer": "^1.0.3",
-                "phpstan/phpstan": "~0.12.5",
+                "phpstan/phpstan": "~0.12.10",
                 "phpstan/phpstan-deprecation-rules": "~0.12.2",
                 "phpstan/phpstan-phpunit": "~0.12.6",
-                "phpstan/phpstan-strict-rules": "~0.12.1",
+                "phpstan/phpstan-strict-rules": "~0.12.2",
                 "phpunit/phpunit": "^7.5.20",
-                "psalm/plugin-phpunit": "~0.8.1",
-                "symfony/filesystem": "^4.4.1",
-                "vimeo/psalm": "^3.8.2"
+                "psalm/plugin-phpunit": "~0.9.0",
+                "symfony/filesystem": "^4.4.4",
+                "vimeo/psalm": "^3.8.5"
             },
             "type": "composer-plugin",
             "extra": {
@@ -1835,7 +1836,7 @@
                 "normalizer",
                 "plugin"
             ],
-            "time": "2020-01-14T12:29:50+00:00"
+            "time": "2020-02-15T11:54:45+00:00"
         },
         {
             "name": "ergebnis/json-normalizer",
