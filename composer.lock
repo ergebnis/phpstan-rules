@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dd1d54e0391b686254839dda72b72a44",
+    "content-hash": "d6b00a89f9ded3db24d13e72176d9fcd",
     "packages": [
         {
             "name": "composer/xdebug-handler",
@@ -1773,16 +1773,16 @@
         },
         {
             "name": "ergebnis/composer-normalize",
-            "version": "2.2.3",
+            "version": "2.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/composer-normalize.git",
-                "reference": "57c77f496d34a873475300e65613f8ed1fa5b624"
+                "reference": "069fadf1ecf277c878affeb4f4e8c2881d7b141d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/composer-normalize/zipball/57c77f496d34a873475300e65613f8ed1fa5b624",
-                "reference": "57c77f496d34a873475300e65613f8ed1fa5b624",
+                "url": "https://api.github.com/repos/ergebnis/composer-normalize/zipball/069fadf1ecf277c878affeb4f4e8c2881d7b141d",
+                "reference": "069fadf1ecf277c878affeb4f4e8c2881d7b141d",
                 "shasum": ""
             },
             "require": {
@@ -1798,16 +1798,16 @@
                 "ergebnis/php-cs-fixer-config": "^2.0.0",
                 "ergebnis/phpstan-rules": "~0.14.3",
                 "ergebnis/test-util": "~0.9.1",
-                "jangregor/phpstan-prophecy": "~0.6.1",
+                "jangregor/phpstan-prophecy": "~0.6.2",
                 "phpstan/extension-installer": "^1.0.3",
-                "phpstan/phpstan": "~0.12.10",
+                "phpstan/phpstan": "~0.12.11",
                 "phpstan/phpstan-deprecation-rules": "~0.12.2",
                 "phpstan/phpstan-phpunit": "~0.12.6",
                 "phpstan/phpstan-strict-rules": "~0.12.2",
                 "phpunit/phpunit": "^7.5.20",
                 "psalm/plugin-phpunit": "~0.9.0",
                 "symfony/filesystem": "^4.4.4",
-                "vimeo/psalm": "^3.8.5"
+                "vimeo/psalm": "^3.9.3"
             },
             "type": "composer-plugin",
             "extra": {
@@ -1836,7 +1836,7 @@
                 "normalizer",
                 "plugin"
             ],
-            "time": "2020-02-15T11:54:45+00:00"
+            "time": "2020-02-22T12:20:17+00:00"
         },
         {
             "name": "ergebnis/json-normalizer",
