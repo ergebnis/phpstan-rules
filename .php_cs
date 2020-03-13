@@ -32,13 +32,15 @@ $config->getFinder()
     ->ignoreDotFiles(false)
     ->in(__DIR__)
     ->exclude([
-        '.build',
-        '.dependabot',
-        '.github',
-        'test/Fixture',
+        '.build/',
+        '.dependabot/',
+        '.github/',
+        'test/Fixture/',
     ])
-    ->name('.php_cs')
-    ->name('.php_cs.fixture');
+    ->name([
+        '.php_cs',
+        '.php_cs.fixture',
+    ]);
 
 $config->setCacheFile(__DIR__ . '/.build/php-cs-fixer/.php_cs.cache');
 

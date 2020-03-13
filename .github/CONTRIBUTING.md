@@ -2,7 +2,12 @@
 
 We are using [GitHub Actions](https://github.com/features/actions) as a continuous integration system.
 
-For details, see [`workflows/continuous-integration.yml`](workflows/continuous-integration.yml).
+For details, take a look at the following workflow configuration files:
+
+- [`workflows/integrate.yaml`](workflows/integrate.yaml)
+- [`workflows/prune.yaml`](workflows/prune.yaml)
+- [`workflows/release.yaml`](workflows/release.yaml)
+- [`workflows/renew.yaml`](workflows/renew.yaml)
 
 ## Coding Standards
 
@@ -40,7 +45,7 @@ $ make static-code-analysis
 
 to run a static code analysis.
 
-We are also using the baseline features of [`phpstan/phpstan`(https://medium.com/@ondrejmirtes/phpstans-baseline-feature-lets-you-hold-new-code-to-a-higher-standard-e77d815a5dff) and [`vimeo/psalm`](https://psalm.dev/docs/running_psalm/dealing_with_code_issues/#using-a-baseline-file).
+We are also using the baseline features of [`phpstan/phpstan`](https://medium.com/@ondrejmirtes/phpstans-baseline-feature-lets-you-hold-new-code-to-a-higher-standard-e77d815a5dff) and [`vimeo/psalm`](https://psalm.dev/docs/running_psalm/dealing_with_code_issues/#using-a-baseline-file).
 
 Run
 

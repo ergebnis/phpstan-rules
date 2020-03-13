@@ -1,14 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="3.9.3@2e4154d76e24d1b4e59e6cc2bebef7790cb9e550">
+<files psalm-version="3.9.5@0cfe565d0afbcd31eadcc281b9017b5692911661">
+  <file src="src/Classes/FinalRule.php">
+    <MixedArgument occurrences="3">
+      <code>$node-&gt;namespacedName</code>
+      <code>$docComment-&gt;getReformattedText()</code>
+      <code>$annotation</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$annotation</code>
+    </MixedAssignment>
+    <MixedMethodCall occurrences="1">
+      <code>toString</code>
+    </MixedMethodCall>
+    <MixedPropertyTypeCoercion occurrences="1"/>
+  </file>
   <file src="src/Classes/NoExtendsRule.php">
+    <MixedArgument occurrences="1">
+      <code>$node-&gt;namespacedName</code>
+    </MixedArgument>
     <PropertyTypeCoercion occurrences="1"/>
   </file>
+  <file src="src/Functions/NoNullableReturnTypeDeclarationRule.php">
+    <MixedArgument occurrences="1">
+      <code>$node-&gt;namespacedName</code>
+    </MixedArgument>
+  </file>
   <file src="src/Functions/NoParameterWithNullDefaultValueRule.php">
+    <MixedArgument occurrences="1">
+      <code>$functionName</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$functionName</code>
+    </MixedAssignment>
     <UndefinedPropertyFetch occurrences="1">
       <code>$node-&gt;namespacedName</code>
     </UndefinedPropertyFetch>
   </file>
   <file src="src/Functions/NoParameterWithNullableTypeDeclarationRule.php">
+    <MixedArgument occurrences="1">
+      <code>$functionName</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$functionName</code>
+    </MixedAssignment>
     <UndefinedPropertyFetch occurrences="1">
       <code>$node-&gt;namespacedName</code>
     </UndefinedPropertyFetch>
@@ -18,10 +52,19 @@
       <code>$interfaceImplementedByContainer</code>
       <code>$interfaceImplementedByContainer</code>
     </ArgumentTypeCoercion>
+    <MixedReturnTypeCoercion occurrences="2">
+      <code>array</code>
+    </MixedReturnTypeCoercion>
   </file>
   <file src="test/AutoReview/TestCodeTest.php">
     <ArgumentTypeCoercion occurrences="1">
       <code>$className</code>
     </ArgumentTypeCoercion>
+  </file>
+  <file src="test/Integration/AbstractTestCase.php">
+    <MixedInferredReturnType occurrences="2">
+      <code>iterable</code>
+      <code>iterable</code>
+    </MixedInferredReturnType>
   </file>
 </files>

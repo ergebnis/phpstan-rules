@@ -1,8 +1,8 @@
 # https://help.github.com/en/categories/automating-your-workflow-with-github-actions
 
-name: "Continuous Deployment"
+name: "Release"
 
-on:
+on: # yamllint disable-line rule:truthy
   push:
     tags:
       - "**"
@@ -19,7 +19,7 @@ jobs:
         run: "echo \"::set-output name=tag::${GITHUB_REF#refs/tags/}\""
 
       - name: "Create release"
-        uses: "actions/create-release@v1.0.0"
+        uses: "actions/create-release@v1"
         env:
           GITHUB_TOKEN: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
         with:
