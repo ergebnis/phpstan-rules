@@ -27,6 +27,7 @@ final class FinalRule implements Rule
     private static $whitelistedAnnotations = [
         'Entity',
         'ORM\Entity',
+        'ORM\Mapping\Entity',
     ];
 
     /**
