@@ -35,6 +35,8 @@ final class FinalRuleTest extends AbstractTestCase
             'non-final-class-with-entity-annotation-in-multi-line-doc-block' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/NonFinalClassWithEntityAnnotationInMultilineDocBlock.php',
             'non-final-class-with-orm-entity-annotation-in-inline-doc-block' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/NonFinalClassWithOrmEntityAnnotationInInlineDocBlock.php',
             'non-final-class-with-orm-entity-annotation-in-multi-line-doc-block' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/NonFinalClassWithOrmEntityAnnotationInMultilineDocBlock.php',
+            'non-final-class-with-orm-mapping-entity-annotation-in-inline-doc-block' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/NonFinalClassWithOrmMappingEntityAnnotationInInlineDocBlock.php',
+            'non-final-class-with-orm-mapping-entity-annotation-in-multi-line-doc-block' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/NonFinalClassWithOrmMappingEntityAnnotationInMultilineDocBlock.php',
             'script-with-anonymous-class' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/anonymous-class.php',
             'trait' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/ExampleTrait.php',
             'trait-with-anonymous-class' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/TraitWithAnonymousClass.php',
