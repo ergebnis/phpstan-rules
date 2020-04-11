@@ -24,7 +24,7 @@
   "require-dev": {
     "ergebnis/composer-normalize": "^2.3.2",
     "ergebnis/license": "~0.1.0",
-    "ergebnis/php-cs-fixer-config": "^2.1.0",
+    "ergebnis/php-cs-fixer-config": "^2.1.1",
     "ergebnis/test-util": "~1.0.0",
     "infection/infection": "~0.13.6",
     "nette/di": "^3.0.1",
