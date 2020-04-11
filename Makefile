@@ -2,7 +2,7 @@ MIN_COVERED_MSI:=92
 MIN_MSI:=83
 
 .PHONY: it
-it: coding-standards dependency-analysis static-code-analysis tests ## Runs the coding-standards, dependency-analysis, static-code-analysis, and tests targets
+it: coding-standards static-code-analysis tests ## Runs the coding-standards, static-code-analysis, and tests targets
 
 .PHONY: code-coverage
 code-coverage: vendor ## Collects coverage from running unit tests with phpunit/phpunit
@@ -34,7 +34,7 @@ static-code-analysis: vendor ## Runs a static code analysis with phpstan/phpstan
 	mkdir -p .build/phpstan
 	vendor/bin/phpstan analyse --configuration=phpstan.neon
 	mkdir -p .build/psalm
-	vendor/bin/psalm --config=psalm.xml --show-info=false --stats
+	vendor/bin/psalm --config=psalm.xml --diff --diff-methods --show-info=false --stats --threads=4
 
 .PHONY: static-code-analysis-baseline
 static-code-analysis-baseline: vendor ## Generates a baseline for static code analysis with phpstan/phpstan and vimeo/psalm
