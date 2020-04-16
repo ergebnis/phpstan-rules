@@ -11,7 +11,7 @@
 [![Latest Stable Version](https://poser.pugx.org/ergebnis/phpstan-rules/v/stable)](https://packagist.org/packages/ergebnis/phpstan-rules)
 [![Total Downloads](https://poser.pugx.org/ergebnis/phpstan-rules/downloads)](https://packagist.org/packages/ergebnis/phpstan-rules)
 
-Provides additional rules for [`phpstan/phpstan`](https://github.com/phpstan/phpstan).
+Provides additional rules for [PHPStan](https://phpstan.org/).
 
 ## Installation
 
@@ -36,13 +36,13 @@ includes:
 
 :bulb: You probably want to use these rules on top of the rules provided by:
 
-* [`phpstan/phpstan`](https://github.com/phpstan/phpstan)
+* [PHPStan](https://phpstan.org/)
 * [`phpstan/phpstan-deprecation-rules`](https://github.com/phpstan/phpstan-deprecation-rules)
 * [`phpstan/phpstan-strict-rules`](https://github.com/phpstan/phpstan-strict-rules)
 
 ## Rules
 
-This package provides the following rules for use with [`phpstan/phpstan`](https://github.com/phpstan/phpstan):
+This package provides the following rules for use with [PHPStan](https://phpstan.org/):
 
 * [`Ergebnis\PHPStan\Rules\Classes\FinalRule`](https://github.com/ergebnis/phpstan-rules#classesfinalrule)
 * [`Ergebnis\PHPStan\Rules\Classes\NoExtendsRule`](https://github.com/ergebnis/phpstan-rules#classesnoextendsrule)
