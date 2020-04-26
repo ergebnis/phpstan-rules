@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1efcb5142c69498f3398232d81133c9f",
+    "content-hash": "5df8b7fec777d25c3319e4d7de8cb154",
     "packages": [
         {
             "name": "composer/xdebug-handler",
@@ -1544,16 +1544,16 @@
         },
         {
             "name": "doctrine/annotations",
-            "version": "1.10.1",
+            "version": "1.10.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/annotations.git",
-                "reference": "5eb79f3dbdffed6544e1fc287572c0f462bd29bb"
+                "reference": "b9d758e831c70751155c698c2f7df4665314a1cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/5eb79f3dbdffed6544e1fc287572c0f462bd29bb",
-                "reference": "5eb79f3dbdffed6544e1fc287572c0f462bd29bb",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/b9d758e831c70751155c698c2f7df4665314a1cb",
+                "reference": "b9d758e831c70751155c698c2f7df4665314a1cb",
                 "shasum": ""
             },
             "require": {
@@ -1609,7 +1609,7 @@
                 "docblock",
                 "parser"
             ],
-            "time": "2020-04-02T12:33:25+00:00"
+            "time": "2020-04-20T09:18:32+00:00"
         },
         {
             "name": "doctrine/instantiator",
@@ -2026,21 +2026,21 @@
         },
         {
             "name": "ergebnis/php-cs-fixer-config",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/php-cs-fixer-config.git",
-                "reference": "f831e9038ec748be2e44d17eb6f3fac1cc0a1603"
+                "reference": "c811e48e106a6decc20b3e305629e11c515a772c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/php-cs-fixer-config/zipball/f831e9038ec748be2e44d17eb6f3fac1cc0a1603",
-                "reference": "f831e9038ec748be2e44d17eb6f3fac1cc0a1603",
+                "url": "https://api.github.com/repos/ergebnis/php-cs-fixer-config/zipball/c811e48e106a6decc20b3e305629e11c515a772c",
+                "reference": "c811e48e106a6decc20b3e305629e11c515a772c",
                 "shasum": ""
             },
             "require": {
                 "ext-filter": "*",
-                "friendsofphp/php-cs-fixer": "~2.16.2",
+                "friendsofphp/php-cs-fixer": "~2.16.3",
                 "php": "^7.1"
             },
             "require-dev": {
@@ -2053,12 +2053,12 @@
                 "phpstan/extension-installer": "^1.0.4",
                 "phpstan/phpstan": "~0.12.18",
                 "phpstan/phpstan-deprecation-rules": "~0.12.2",
-                "phpstan/phpstan-phpunit": "~0.12.6",
+                "phpstan/phpstan-phpunit": "~0.12.7",
                 "phpstan/phpstan-strict-rules": "~0.12.2",
                 "phpunit/phpunit": "^7.5.20",
                 "psalm/plugin-phpunit": "~0.10.0",
                 "symfony/filesystem": "^4.4.0",
-                "vimeo/psalm": "^3.10.1"
+                "vimeo/psalm": "^3.11.2"
             },
             "type": "library",
             "autoload": {
@@ -2078,7 +2078,7 @@
             ],
             "description": "Provides a configuration factory and multiple rule sets for friendsofphp/php-cs-fixer.",
             "homepage": "https://github.com/ergebnis/php-cs-fixer-config",
-            "time": "2020-04-11T09:41:42+00:00"
+            "time": "2020-04-16T08:02:53+00:00"
         },
         {
             "name": "ergebnis/test-util",
@@ -2230,16 +2230,16 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "v2.16.2",
+            "version": "v2.16.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "c460a3cbaa58f983fe026cd52c45950bf61e9239"
+                "reference": "83baf823a33a1cbd5416c8626935cf3f843c10b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/c460a3cbaa58f983fe026cd52c45950bf61e9239",
-                "reference": "c460a3cbaa58f983fe026cd52c45950bf61e9239",
+                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/83baf823a33a1cbd5416c8626935cf3f843c10b0",
+                "reference": "83baf823a33a1cbd5416c8626935cf3f843c10b0",
                 "shasum": ""
             },
             "require": {
@@ -2317,7 +2317,7 @@
                 }
             ],
             "description": "A tool to automatically fix PHP code style",
-            "time": "2020-04-10T21:08:06+00:00"
+            "time": "2020-04-15T18:51:10+00:00"
         },
         {
             "name": "fzaninotto/faker",
