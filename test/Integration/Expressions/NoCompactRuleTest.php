@@ -24,7 +24,7 @@ use PHPStan\Rules\Rule;
  */
 final class NoCompactRuleTest extends AbstractTestCase
 {
-    public function providerAnalysisSucceeds(): iterable
+    public function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
         $paths = [
             'compact-not-used' => __DIR__ . '/../../Fixture/Expressions/NoCompactRule/Success/compact-not-used.php',
@@ -37,7 +37,7 @@ final class NoCompactRuleTest extends AbstractTestCase
         }
     }
 
-    public function providerAnalysisFails(): iterable
+    public function provideCasesWhereAnalysisShouldFail(): iterable
     {
         $paths = [
             'compact-used-with-alias' => [

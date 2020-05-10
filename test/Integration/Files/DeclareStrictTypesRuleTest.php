@@ -24,7 +24,7 @@ use PHPStan\Rules\Rule;
  */
 final class DeclareStrictTypesRuleTest extends AbstractTestCase
 {
-    public function providerAnalysisSucceeds(): iterable
+    public function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
         $paths = [
             'file-empty' => __DIR__ . '/../../Fixture/Files/DeclareStrictTypesRule/Success/file-empty.php',
@@ -50,7 +50,7 @@ final class DeclareStrictTypesRuleTest extends AbstractTestCase
         }
     }
 
-    public function providerAnalysisFails(): iterable
+    public function provideCasesWhereAnalysisShouldFail(): iterable
     {
         $paths = [
             'file-with-comment-and-declare-strict-types-off' => [

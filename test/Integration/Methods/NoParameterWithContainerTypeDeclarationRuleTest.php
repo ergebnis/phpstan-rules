@@ -27,7 +27,7 @@ use Zend\ServiceManager;
  */
 final class NoParameterWithContainerTypeDeclarationRuleTest extends AbstractTestCase
 {
-    public function providerAnalysisSucceeds(): iterable
+    public function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
         $paths = [
             'anonymous-class-with-method-with-parameter-with-other-type-declaration' => __DIR__ . '/../../Fixture/Methods/NoParameterWithContainerTypeDeclarationRule/Success/anonymous-class-with-method-with-parameter-with-other-type-declaration.php',
@@ -45,7 +45,7 @@ final class NoParameterWithContainerTypeDeclarationRuleTest extends AbstractTest
         }
     }
 
-    public function providerAnalysisFails(): iterable
+    public function provideCasesWhereAnalysisShouldFail(): iterable
     {
         $paths = [
             'anonymous-class-with-method-with-parameter-with-class-implementing-container-interface-as-type-declaration' => [

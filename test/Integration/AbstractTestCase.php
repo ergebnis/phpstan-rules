@@ -21,7 +21,7 @@ use PHPStan\Testing\RuleTestCase;
 abstract class AbstractTestCase extends RuleTestCase
 {
     /**
-     * @dataProvider providerAnalysisSucceeds
+     * @dataProvider provideCasesWhereAnalysisShouldSucceed
      *
      * @param string $path
      */
@@ -36,7 +36,7 @@ abstract class AbstractTestCase extends RuleTestCase
     }
 
     /**
-     * @dataProvider providerAnalysisFails
+     * @dataProvider provideCasesWhereAnalysisShouldFail
      *
      * @param string $path
      * @param array  $error
@@ -53,7 +53,7 @@ abstract class AbstractTestCase extends RuleTestCase
         );
     }
 
-    abstract public function providerAnalysisSucceeds(): iterable;
+    abstract public function provideCasesWhereAnalysisShouldSucceed(): iterable;
 
-    abstract public function providerAnalysisFails(): iterable;
+    abstract public function provideCasesWhereAnalysisShouldFail(): iterable;
 }

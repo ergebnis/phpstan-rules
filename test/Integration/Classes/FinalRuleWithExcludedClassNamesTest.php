@@ -25,7 +25,7 @@ use PHPStan\Rules\Rule;
  */
 final class FinalRuleWithExcludedClassNamesTest extends AbstractTestCase
 {
-    public function providerAnalysisSucceeds(): iterable
+    public function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
         $paths = [
             'class-neither-abstract-nor-final-but-whitelisted' => __DIR__ . '/../../Fixture/Classes/FinalRuleWithExcludedClassNames/Success/NeitherAbstractNorFinalClassButWhitelisted.php',
@@ -44,7 +44,7 @@ final class FinalRuleWithExcludedClassNamesTest extends AbstractTestCase
         }
     }
 
-    public function providerAnalysisFails(): iterable
+    public function provideCasesWhereAnalysisShouldFail(): iterable
     {
         $paths = [
             'abstract-class' => [
