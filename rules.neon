@@ -42,10 +42,16 @@ services:
 			classesNotRequiredToBeAbstractOrFinal: %ergebnis.classesNotRequiredToBeAbstractOrFinal%
 		tags:
 			- phpstan.rules.rule
+
 	-
 		class: Ergebnis\PHPStan\Rules\Classes\NoExtendsRule
 		arguments:
 			classesAllowedToBeExtended: %ergebnis.classesAllowedToBeExtended%
+		tags:
+			- phpstan.rules.rule
+
+	-
+		class: Ergebnis\PHPStan\Rules\Classes\PHPUnit\Framework\TestCaseWithSuffixRule
 		tags:
 			- phpstan.rules.rule
 

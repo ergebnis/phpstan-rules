@@ -25,6 +25,11 @@ parameters:
 		-
 			message: "#^Language construct isset\\(\\) should not be used\\.$#"
 			count: 1
+			path: src/Classes/PHPUnit/Framework/TestCaseWithSuffixRule.php
+
+		-
+			message: "#^Language construct isset\\(\\) should not be used\\.$#"
+			count: 1
 			path: src/Functions/NoNullableReturnTypeDeclarationRule.php
 
 

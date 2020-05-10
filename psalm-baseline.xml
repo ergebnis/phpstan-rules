@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="3.10.1@eeed5ecccc10131397f0eb7ee6da810c0be3a7fc">
+<files psalm-version="3.11.2@d470903722cfcbc1cd04744c5491d3e6d13ec3d9">
   <file src="src/Classes/FinalRule.php">
     <MixedArgument occurrences="3">
       <code>$node-&gt;namespacedName</code>
@@ -19,6 +19,15 @@
       <code>$node-&gt;namespacedName</code>
     </MixedArgument>
     <PropertyTypeCoercion occurrences="1"/>
+  </file>
+  <file src="src/Classes/PHPUnit/Framework/TestCaseWithSuffixRule.php">
+    <MixedArgument occurrences="2">
+      <code>$node-&gt;namespacedName-&gt;toString()</code>
+      <code>$node-&gt;namespacedName</code>
+    </MixedArgument>
+    <MixedMethodCall occurrences="1">
+      <code>toString</code>
+    </MixedMethodCall>
   </file>
   <file src="src/Functions/NoNullableReturnTypeDeclarationRule.php">
     <MixedArgument occurrences="1">
