@@ -8,8 +8,11 @@ For details, take a look at the following workflow configuration files:
 - [`workflows/prune.yaml`](workflows/prune.yaml)
 - [`workflows/release.yaml`](workflows/release.yaml)
 - [`workflows/renew.yaml`](workflows/renew.yaml)
+- [`workflows/triage.yaml`](workflows/triage.yaml)
 
 ## Coding Standards
+
+We are using [`ergebnis/composer-normalize`](https://github.com/ergebnis/composer-normalize) to normalize `composer.json`.
 
 We are using [`yamllint`](https://github.com/adrienverge/yamllint) to enforce coding standards in YAML files.
 
