@@ -18,6 +18,7 @@ $config = Config\Factory::fromRuleSet(new Config\RuleSet\Php71(''), [
     'declare_strict_types' => false,
     'error_suppression' => false,
     'final_class' => false,
+    'final_internal_class' => false,
     'final_public_method_for_abstract_class' => false,
     'header_comment' => false,
     'lowercase_constants' => false,

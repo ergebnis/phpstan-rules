@@ -46,6 +46,7 @@ This package provides the following rules for use with [`phpstan/phpstan`](https
 
 * [`Ergebnis\PHPStan\Rules\Classes\FinalRule`](https://github.com/ergebnis/phpstan-rules#classesfinalrule)
 * [`Ergebnis\PHPStan\Rules\Classes\NoExtendsRule`](https://github.com/ergebnis/phpstan-rules#classesnoextendsrule)
+* [`Ergebnis\PHPStan\Rules\Classes\PHPUnit\Framework\TestCaseWithSuffixRule`](https://github.com/ergebnis/phpstan-rules#classesphpunitframeworktestcasewithsuffixrule)
 * [`Ergebnis\PHPStan\Rules\Closures\NoNullableReturnTypeDeclarationRule`](https://github.com/ergebnis/phpstan-rules#closuresnonullablereturntypedeclarationrule)
 * [`Ergebnis\PHPStan\Rules\Closures\NoParameterWithNullableTypeDeclarationRule`](https://github.com/ergebnis/phpstan-rules#closuresnoparameterwithnullabletypedeclarationrule)
 * [`Ergebnis\PHPStan\Rules\Closures\NoParameterWithNullDefaultValueRule`](https://github.com/ergebnis/phpstan-rules#closuresnoparameterwithnulldefaultvaluerule)
@@ -118,6 +119,9 @@ parameters:
 			- Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase
 			- PHPStan\Testing\RuleTestCase
 ```
+#### `Classes\PHPUnit\Framework\TestCaseWithSuffixRule`
+
+This rule reports an error when a concrete class is a sub-class of `PHPUnit\Framework\TestCase` but does not have a `Test` suffix.
 
 ### Closures
 

@@ -6,7 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`0.14.4...master`][0.14.4...master].
+For a full diff see [`0.15.0...master`][0.15.0...master].
+
+## [`0.15.0`][0.15.0]
+
+For a full diff see [`0.14.4...0.15.0`][0.14.4...0.15.0].
+
+### Added
+
+* Added `Classes\PHPUnit\Framework\TestCaseWithSuffixRule`, which reports an error when a concrete class extending `PHPUnit\Framework\TestCase` does not have a `Test` suffix ([#225], by [@localheinz]
 
 ## [`0.14.4`][0.14.4]
 
@@ -314,6 +322,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [0.14.2]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.14.2
 [0.14.3]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.14.3
 [0.14.4]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.14.4
+[0.15.0]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.15.0
 
 [362c7ea...0.1.0]: https://github.com/ergebnis/phpstan-rules/compare/362c7ea...0.1.0
 [0.1.0...0.2.0]: https://github.com/ergebnis/phpstan-rules/compare/0.1.0...0.2.0
@@ -338,7 +347,8 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [0.14.1...0.14.2]: https://github.com/ergebnis/phpstan-rules/compare/0.14.1...0.14.2
 [0.14.2...0.14.3]: https://github.com/ergebnis/phpstan-rules/compare/0.14.2...0.14.3
 [0.14.3...0.14.4]: https://github.com/ergebnis/phpstan-rules/compare/0.14.3...0.14.4
-[0.14.4...master]: https://github.com/ergebnis/phpstan-rules/compare/0.14.4...master
+[0.14.4...0.15.0]: https://github.com/ergebnis/phpstan-rules/compare/0.14.4...0.15.0
+[0.15.0...master]: https://github.com/ergebnis/phpstan-rules/compare/0.15.0...master
 
 [#1]: https://github.com/ergebnis/phpstan-rules/pull/1
 [#4]: https://github.com/ergebnis/phpstan-rules/pull/4
@@ -387,6 +397,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#166]: https://github.com/ergebnis/phpstan-rules/pull/166
 [#186]: https://github.com/ergebnis/phpstan-rules/pull/186
 [#202]: https://github.com/ergebnis/phpstan-rules/pull/202
+[#225]: https://github.com/ergebnis/phpstan-rules/pull/225
 
 [@ergebnis]: https://github.com/ergebnis
 [@Great-Antique]: https://github.com/Great-Antique
