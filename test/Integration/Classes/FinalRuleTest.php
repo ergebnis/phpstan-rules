@@ -25,7 +25,7 @@ use PHPStan\Rules\Rule;
  */
 final class FinalRuleTest extends AbstractTestCase
 {
-    public function providerAnalysisSucceeds(): iterable
+    public function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
         $paths = [
             'final-class' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/FinalClass.php',
@@ -49,7 +49,7 @@ final class FinalRuleTest extends AbstractTestCase
         }
     }
 
-    public function providerAnalysisFails(): iterable
+    public function provideCasesWhereAnalysisShouldFail(): iterable
     {
         $paths = [
             'abstract-class' => [

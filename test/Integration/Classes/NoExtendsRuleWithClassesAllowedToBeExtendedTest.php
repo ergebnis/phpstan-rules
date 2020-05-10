@@ -25,7 +25,7 @@ use PHPStan\Rules\Rule;
  */
 final class NoExtendsRuleWithClassesAllowedToBeExtendedTest extends AbstractTestCase
 {
-    public function providerAnalysisSucceeds(): iterable
+    public function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
         $paths = [
             'class' => __DIR__ . '/../../Fixture/Classes/NoExtendsRuleWithClassesAllowedToBeExtended/Success/ExampleClass.php',
@@ -44,7 +44,7 @@ final class NoExtendsRuleWithClassesAllowedToBeExtendedTest extends AbstractTest
         }
     }
 
-    public function providerAnalysisFails(): iterable
+    public function provideCasesWhereAnalysisShouldFail(): iterable
     {
         $paths = [
             'class-extending-other-class' => [

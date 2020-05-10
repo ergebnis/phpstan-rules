@@ -25,7 +25,7 @@ use PHPStan\Rules\Rule;
  */
 final class NoNullableReturnTypeDeclarationRuleTest extends AbstractTestCase
 {
-    public function providerAnalysisSucceeds(): iterable
+    public function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
         $paths = [
             'method-in-anonymous-class-with-return-type-declaration' => __DIR__ . '/../../Fixture/Methods/NoNullableReturnTypeDeclarationRule/Success/MethodInAnonymousClassWithReturnTypeDeclaration.php',
@@ -47,7 +47,7 @@ final class NoNullableReturnTypeDeclarationRuleTest extends AbstractTestCase
         }
     }
 
-    public function providerAnalysisFails(): iterable
+    public function provideCasesWhereAnalysisShouldFail(): iterable
     {
         $paths = [
             'method-in-anonymous-class-with-nullable-return-type-declaration' => [

@@ -25,7 +25,7 @@ use PHPStan\Rules\Rule;
  */
 final class NoConstructorParameterWithDefaultValueRuleTest extends AbstractTestCase
 {
-    public function providerAnalysisSucceeds(): iterable
+    public function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
         $paths = [
             'constructor-in-anonymous-class-with-parameter-without-default-value' => __DIR__ . '/../../Fixture/Methods/NoConstructorParameterWithDefaultValueRule/Success/constructor-in-anonymous-class-with-parameter-without-default-value.php',
@@ -49,7 +49,7 @@ final class NoConstructorParameterWithDefaultValueRuleTest extends AbstractTestC
         }
     }
 
-    public function providerAnalysisFails(): iterable
+    public function provideCasesWhereAnalysisShouldFail(): iterable
     {
         $paths = [
             'constructor-in-anonymous-class-with-parameter-with-default-value' => [

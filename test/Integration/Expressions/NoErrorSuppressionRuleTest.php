@@ -24,7 +24,7 @@ use PHPStan\Rules\Rule;
  */
 final class NoErrorSuppressionRuleTest extends AbstractTestCase
 {
-    public function providerAnalysisSucceeds(): iterable
+    public function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
         $paths = [
             'error-suppression-not-used' => __DIR__ . '/../../Fixture/Expressions/NoErrorSuppressionRule/Success/error-suppression-not-used.php',
@@ -37,7 +37,7 @@ final class NoErrorSuppressionRuleTest extends AbstractTestCase
         }
     }
 
-    public function providerAnalysisFails(): iterable
+    public function provideCasesWhereAnalysisShouldFail(): iterable
     {
         $paths = [
             'error-suppression-used' => [
