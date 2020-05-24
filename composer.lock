@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1d44991df1f6e02b5fb64c318616c08c",
+    "content-hash": "e33903cf8f0a75d4b1fbdaa388f89e39",
     "packages": [
         {
             "name": "composer/xdebug-handler",
@@ -3735,16 +3735,16 @@
         },
         {
             "name": "psalm/plugin-phpunit",
-            "version": "0.10.0",
+            "version": "0.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/psalm/psalm-plugin-phpunit.git",
-                "reference": "12b3978cea0e9ad3aa3a127a93d3b8a1ce0eb2af"
+                "reference": "138998ffd32b76a2e69eb1ff94ef2bf110967273"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/psalm/psalm-plugin-phpunit/zipball/12b3978cea0e9ad3aa3a127a93d3b8a1ce0eb2af",
-                "reference": "12b3978cea0e9ad3aa3a127a93d3b8a1ce0eb2af",
+                "url": "https://api.github.com/repos/psalm/psalm-plugin-phpunit/zipball/138998ffd32b76a2e69eb1ff94ef2bf110967273",
+                "reference": "138998ffd32b76a2e69eb1ff94ef2bf110967273",
                 "shasum": ""
             },
             "require": {
@@ -3758,7 +3758,7 @@
             "require-dev": {
                 "codeception/codeception": "^4.0.3",
                 "squizlabs/php_codesniffer": "^3.3.1",
-                "weirdan/codeception-psalm-module": "^0.4.0"
+                "weirdan/codeception-psalm-module": "^0.7.1"
             },
             "type": "psalm-plugin",
             "extra": {
@@ -3782,7 +3782,7 @@
                 }
             ],
             "description": "Psalm plugin for PHPUnit",
-            "time": "2020-04-05T22:49:26+00:00"
+            "time": "2020-05-24T20:30:10+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
