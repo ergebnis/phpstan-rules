@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`0.15.0...master`][0.15.0...master].
+For a full diff see [`0.15.0...main`][0.15.0...main].
 
 ## [`0.15.0`][0.15.0]
 
@@ -348,7 +348,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [0.14.2...0.14.3]: https://github.com/ergebnis/phpstan-rules/compare/0.14.2...0.14.3
 [0.14.3...0.14.4]: https://github.com/ergebnis/phpstan-rules/compare/0.14.3...0.14.4
 [0.14.4...0.15.0]: https://github.com/ergebnis/phpstan-rules/compare/0.14.4...0.15.0
-[0.15.0...master]: https://github.com/ergebnis/phpstan-rules/compare/0.15.0...master
+[0.15.0...main]: https://github.com/ergebnis/phpstan-rules/compare/0.15.0...main
 
 [#1]: https://github.com/ergebnis/phpstan-rules/pull/1
 [#4]: https://github.com/ergebnis/phpstan-rules/pull/4

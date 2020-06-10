@@ -1,11 +1,11 @@
 # phpstan-rules
 
-[![Integrate](https://github.com/ergebnis/phpstan-rules/workflows/Integrate/badge.svg?branch=master)](https://github.com/ergebnis/phpstan-rules/actions)
-[![Prune](https://github.com/ergebnis/phpstan-rules/workflows/Prune/badge.svg?branch=master)](https://github.com/ergebnis/phpstan-rules/actions)
-[![Release](https://github.com/ergebnis/phpstan-rules/workflows/Release/badge.svg?branch=master)](https://github.com/ergebnis/phpstan-rules/actions)
-[![Renew](https://github.com/ergebnis/phpstan-rules/workflows/Renew/badge.svg?branch=master)](https://github.com/ergebnis/phpstan-rules/actions)
+[![Integrate](https://github.com/ergebnis/phpstan-rules/workflows/Integrate/badge.svg?branch=main)](https://github.com/ergebnis/phpstan-rules/actions)
+[![Prune](https://github.com/ergebnis/phpstan-rules/workflows/Prune/badge.svg?branch=main)](https://github.com/ergebnis/phpstan-rules/actions)
+[![Release](https://github.com/ergebnis/phpstan-rules/workflows/Release/badge.svg?branch=main)](https://github.com/ergebnis/phpstan-rules/actions)
+[![Renew](https://github.com/ergebnis/phpstan-rules/workflows/Renew/badge.svg?branch=main)](https://github.com/ergebnis/phpstan-rules/actions)
 
-[![Code Coverage](https://codecov.io/gh/ergebnis/phpstan-rules/branch/master/graph/badge.svg)](https://codecov.io/gh/ergebnis/phpstan-rules)
+[![Code Coverage](https://codecov.io/gh/ergebnis/phpstan-rules/branch/main/graph/badge.svg)](https://codecov.io/gh/ergebnis/phpstan-rules)
 [![Type Coverage](https://shepherd.dev/github/ergebnis/phpstan-rules/coverage.svg)](https://shepherd.dev/github/ergebnis/phpstan-rules)
 
 [![Latest Stable Version](https://poser.pugx.org/ergebnis/phpstan-rules/v/stable)](https://packagist.org/packages/ergebnis/phpstan-rules)
@@ -268,7 +268,7 @@ Please have a look at [`CONTRIBUTING.md`](.github/CONTRIBUTING.md).
 
 ## Code of Conduct
 
-Please have a look at [`CODE_OF_CONDUCT.md`](https://github.com/ergebnis/.github/blob/master/CODE_OF_CONDUCT.md).
+Please have a look at [`CODE_OF_CONDUCT.md`](https://github.com/ergebnis/.github/blob/main/CODE_OF_CONDUCT.md).
 
 ## License
 
