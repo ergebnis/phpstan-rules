@@ -1,14 +1,14 @@
 {
-  "timeout": 10,
+  "logs": {
+    "text": ".build/infection/infection-log.txt"
+  },
+  "phpUnit": {
+    "configDir": "test\/Integration"
+  },
   "source": {
     "directories": [
       "src"
     ]
   },
-  "phpUnit": {
-    "configDir": "test\/Integration"
-  },
-  "logs": {
-    "text": ".build/infection/infection-log.txt"
-  }
+  "timeout": 10
 }
