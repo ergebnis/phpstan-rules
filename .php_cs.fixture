@@ -11,9 +11,9 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/phpstan-rules
  */
 
-use Ergebnis\PhpCsFixer\Config;
+use Ergebnis\PhpCsFixer;
 
-$config = Config\Factory::fromRuleSet(new Config\RuleSet\Php71(''), [
+$config = PhpCsFixer\Config\Factory::fromRuleSet(new PhpCsFixer\Config\RuleSet\Php71(''), [
     'constant_case' => false,
     'declare_strict_types' => false,
     'error_suppression' => false,
@@ -30,8 +30,6 @@ $config = Config\Factory::fromRuleSet(new Config\RuleSet\Php71(''), [
 
 $config->getFinder()->in(__DIR__ . '/test/Fixture');
 
-$directory = \getenv('TRAVIS') ? \getenv('HOME') : __DIR__;
-
-$config->setCacheFile($directory . '/.build/php-cs-fixer/.php_cs.fixture.cache');
+$config->setCacheFile(__DIR__ . '/.build/php-cs-fixer/.php_cs.fixture.cache');
 
 return $config;
