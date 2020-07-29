@@ -59,6 +59,10 @@ final class FinalInAbstractClassRule implements Rule
             return [];
         }
 
+        if ('__construct' === $node->name->name) {
+            return [];
+        }
+
         return [
             \sprintf(
                 'Method %s::%s() is not final, but since the containing class is abstract, it should be.',
