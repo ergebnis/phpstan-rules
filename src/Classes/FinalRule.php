@@ -97,7 +97,7 @@ final class FinalRule implements Rule
         return [
             \sprintf(
                 $this->errorMessageTemplate,
-                $node->namespacedName
+                $node->namespacedName->toString()
             ),
         ];
     }
