@@ -6,7 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`0.15.0...main`][0.15.0...main].
+For a full diff see [`0.15.1...main`][0.15.1...main].
+
+## [`0.15.1`][0.15.1]
+
+For a full diff see [`0.15.0...0.15.1`][0.15.0...0.15.1].
+
+### Changed
+
+* Adjusted `Methods\FinalInAbstractClass` rule to allow non-`final` `public` constructors in abstract classes ([#248]), by [@Slamdunk]
 
 ## [`0.15.0`][0.15.0]
 
@@ -323,6 +331,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [0.14.3]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.14.3
 [0.14.4]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.14.4
 [0.15.0]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.15.0
+[0.15.1]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.15.1
 
 [362c7ea...0.1.0]: https://github.com/ergebnis/phpstan-rules/compare/362c7ea...0.1.0
 [0.1.0...0.2.0]: https://github.com/ergebnis/phpstan-rules/compare/0.1.0...0.2.0
@@ -348,7 +357,8 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [0.14.2...0.14.3]: https://github.com/ergebnis/phpstan-rules/compare/0.14.2...0.14.3
 [0.14.3...0.14.4]: https://github.com/ergebnis/phpstan-rules/compare/0.14.3...0.14.4
 [0.14.4...0.15.0]: https://github.com/ergebnis/phpstan-rules/compare/0.14.4...0.15.0
-[0.15.0...main]: https://github.com/ergebnis/phpstan-rules/compare/0.15.0...main
+[0.15.0...0.15.1]: https://github.com/ergebnis/phpstan-rules/compare/0.15.0...0.15.1
+[0.15.1...main]: https://github.com/ergebnis/phpstan-rules/compare/0.15.1...main
 
 [#1]: https://github.com/ergebnis/phpstan-rules/pull/1
 [#4]: https://github.com/ergebnis/phpstan-rules/pull/4
@@ -398,7 +408,9 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#186]: https://github.com/ergebnis/phpstan-rules/pull/186
 [#202]: https://github.com/ergebnis/phpstan-rules/pull/202
 [#225]: https://github.com/ergebnis/phpstan-rules/pull/225
+[#248]: https://github.com/ergebnis/phpstan-rules/pull/248
 
 [@ergebnis]: https://github.com/ergebnis
 [@Great-Antique]: https://github.com/Great-Antique
 [@localheinz]: https://github.com/localheinz
+[@Slamdunk]: https://github.com/Slamdunk
