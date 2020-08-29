@@ -6,7 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`0.15.1...main`][0.15.1...main].
+For a full diff see [`0.15.2...main`][0.15.2...main].
+
+## [`0.15.2`][0.15.2]
+
+For a full diff see [`0.15.1...0.15.2`][0.15.1...0.15.2].
+
+### Changed
+
+* Dropped support for PHP 7.1 ([#259]), by [@localheinz]
 
 ## [`0.15.1`][0.15.1]
 
@@ -332,6 +340,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [0.14.4]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.14.4
 [0.15.0]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.15.0
 [0.15.1]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.15.1
+[0.15.2]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.15.2
 
 [362c7ea...0.1.0]: https://github.com/ergebnis/phpstan-rules/compare/362c7ea...0.1.0
 [0.1.0...0.2.0]: https://github.com/ergebnis/phpstan-rules/compare/0.1.0...0.2.0
@@ -358,7 +367,8 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [0.14.3...0.14.4]: https://github.com/ergebnis/phpstan-rules/compare/0.14.3...0.14.4
 [0.14.4...0.15.0]: https://github.com/ergebnis/phpstan-rules/compare/0.14.4...0.15.0
 [0.15.0...0.15.1]: https://github.com/ergebnis/phpstan-rules/compare/0.15.0...0.15.1
-[0.15.1...main]: https://github.com/ergebnis/phpstan-rules/compare/0.15.1...main
+[0.15.1...0.15.2]: https://github.com/ergebnis/phpstan-rules/compare/0.15.1...0.15.2
+[0.15.2...main]: https://github.com/ergebnis/phpstan-rules/compare/0.15.2...main
 
 [#1]: https://github.com/ergebnis/phpstan-rules/pull/1
 [#4]: https://github.com/ergebnis/phpstan-rules/pull/4
@@ -409,6 +419,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#202]: https://github.com/ergebnis/phpstan-rules/pull/202
 [#225]: https://github.com/ergebnis/phpstan-rules/pull/225
 [#248]: https://github.com/ergebnis/phpstan-rules/pull/248
+[#259]: https://github.com/ergebnis/phpstan-rules/pull/259
 
 [@ergebnis]: https://github.com/ergebnis
 [@Great-Antique]: https://github.com/Great-Antique
