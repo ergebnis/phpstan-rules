@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="3.13.1@afd8874a9e4562eac42a02de90e42e430c3a1db1">
+<files psalm-version="3.14.2@3538fe1955d47f6ee926c0769d71af6db08aa488">
   <file src="src/Classes/FinalRule.php">
     <MixedArgument occurrences="2">
       <code>$docComment-&gt;getReformattedText()</code>
@@ -9,6 +9,9 @@
       <code>$annotation</code>
     </MixedAssignment>
     <MixedPropertyTypeCoercion occurrences="1"/>
+    <RedundantIdentityWithTrue occurrences="1">
+      <code>true === $allowAbstractClasses</code>
+    </RedundantIdentityWithTrue>
   </file>
   <file src="src/Classes/NoExtendsRule.php">
     <DocblockTypeContradiction occurrences="1">
@@ -20,6 +23,9 @@
     <DocblockTypeContradiction occurrences="1">
       <code>isset($node-&gt;namespacedName)</code>
     </DocblockTypeContradiction>
+    <UnnecessaryVarAnnotation occurrences="1">
+      <code>string</code>
+    </UnnecessaryVarAnnotation>
   </file>
   <file src="src/Functions/NoParameterWithNullDefaultValueRule.php">
     <MixedArgument occurrences="1">
