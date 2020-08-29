@@ -26,7 +26,7 @@
     "ergebnis/license": "^1.0.0",
     "ergebnis/php-cs-fixer-config": "^2.2.1",
     "ergebnis/test-util": "^1.0.0",
-    "infection/infection": "~0.13.6",
+    "infection/infection": "~0.15.3",
     "nette/di": "^3.0.1",
     "phpstan/phpstan-deprecation-rules": "~0.11.2",
     "phpstan/phpstan-strict-rules": "~0.11.1",
