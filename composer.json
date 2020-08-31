@@ -31,7 +31,7 @@
     "phpstan/phpstan-deprecation-rules": "~0.11.2",
     "phpstan/phpstan-strict-rules": "~0.11.1",
     "phpunit/phpunit": "^8.5.8",
-    "psalm/plugin-phpunit": "~0.11.0",
+    "psalm/plugin-phpunit": "~0.12.1",
     "psr/container": "^1.0.0",
     "vimeo/psalm": "^3.14.2",
     "zendframework/zend-servicemanager": "^2.0.0"
