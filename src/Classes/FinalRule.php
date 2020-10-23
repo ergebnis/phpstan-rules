@@ -46,7 +46,6 @@ final class FinalRule implements Rule
     private $errorMessageTemplate = 'Class %s is not final.';
 
     /**
-     * @param bool     $allowAbstractClasses
      * @param string[] $classesNotRequiredToBeAbstractOrFinal
      */
     public function __construct(bool $allowAbstractClasses, array $classesNotRequiredToBeAbstractOrFinal)
@@ -112,10 +111,6 @@ final class FinalRule implements Rule
      * @see https://github.com/keradus
      * @see https://github.com/SpacePossum
      * @see https://github.com/Slamdunk
-     *
-     * @param Node $node
-     *
-     * @return bool
      */
     private function isWhitelisted(Node $node): bool
     {

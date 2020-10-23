@@ -34,7 +34,6 @@ final class NoParameterWithContainerTypeDeclarationRule implements Rule
 
     /**
      * @param array<int, string> $interfacesImplementedByContainers
-     * @param Broker             $broker
      */
     public function __construct(Broker $broker, array $interfacesImplementedByContainers)
     {

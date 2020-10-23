@@ -22,8 +22,6 @@ abstract class AbstractTestCase extends RuleTestCase
 {
     /**
      * @dataProvider provideCasesWhereAnalysisShouldSucceed
-     *
-     * @param string $path
      */
     final public function testAnalysisSucceeds(string $path): void
     {
@@ -37,9 +35,6 @@ abstract class AbstractTestCase extends RuleTestCase
 
     /**
      * @dataProvider provideCasesWhereAnalysisShouldFail
-     *
-     * @param string $path
-     * @param array  $error
      */
     final public function testAnalysisFails(string $path, array $error): void
     {
