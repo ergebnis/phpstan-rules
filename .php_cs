@@ -37,10 +37,7 @@ $config->getFinder()
         '.notes/',
         'test/Fixture/',
     ])
-    ->name([
-        '.php_cs',
-        '.php_cs.fixture',
-    ]);
+    ->name('.php_cs');
 
 $config->setCacheFile(__DIR__ . '/.build/php-cs-fixer/.php_cs.cache');
 

@@ -74,7 +74,7 @@ jobs:
         uses: "actions/cache@v2.1.2"
         with:
           path: ".build/php-cs-fixer"
-          key: "php-${{ matrix.php-version }}-php-cs-fixer-${{ hashFiles('composer.lock') }}"
+          key: "php-${{ matrix.php-version }}-php-cs-fixer-${{ github.sha }}"
           restore-keys: "php-${{ matrix.php-version }}-php-cs-fixer-"
 
       - name: "Run friendsofphp/php-cs-fixer"
@@ -120,7 +120,7 @@ jobs:
           dependencies: "${{ matrix.dependencies }}"
 
       - name: "Run maglnet/composer-require-checker"
-        run: "tools/composer-require-checker check --config-file=$(pwd)/composer-require-checker.json"
+        run: ".phive/composer-require-checker check --config-file=$(pwd)/composer-require-checker.json"
 
   static-code-analysis:
     name: "Static Code Analysis"
@@ -185,7 +185,7 @@ jobs:
           restore-keys: "php-${{ matrix.php-version }}-psalm-"
 
       - name: "Run vimeo/psalm"
-        run: "vendor/bin/psalm --config=psalm.xml --diff --diff-methods --shepherd --show-info=false --stats --threads=4"
+        run: "vendor/bin/psalm --config=psalm.xml --diff --shepherd --show-info=false --stats --threads=4"
 
   tests:
     name: "Tests"
@@ -285,7 +285,7 @@ jobs:
           dependencies: "${{ matrix.dependencies }}"
 
       - name: "Collect code coverage with pcov and phpunit/phpunit"
-        run: "vendor/bin/phpunit --configuration=test/Integration/phpunit.xml --coverage-clover=.build/logs/clover.xml"
+        run: "vendor/bin/phpunit --configuration=test/Integration/phpunit.xml --coverage-clover=.build/phpunit/logs/clover.xml"
 
       - name: "Send code coverage report to Codecov.io"
         env:
