@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "331ea10e1dcd3cc58b81922270ec6c3f",
+    "content-hash": "7dabde6e9e38fd9a8d0109b549ef6094",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -2289,16 +2289,16 @@
         },
         {
             "name": "ergebnis/php-cs-fixer-config",
-            "version": "2.5.1",
+            "version": "2.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/php-cs-fixer-config.git",
-                "reference": "0c5c31ff846db43f15b33f4244ec73abe3fdadc4"
+                "reference": "5d4d140f4fa0109bf4b7cf64cb557099a9f049df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/php-cs-fixer-config/zipball/0c5c31ff846db43f15b33f4244ec73abe3fdadc4",
-                "reference": "0c5c31ff846db43f15b33f4244ec73abe3fdadc4",
+                "url": "https://api.github.com/repos/ergebnis/php-cs-fixer-config/zipball/5d4d140f4fa0109bf4b7cf64cb557099a9f049df",
+                "reference": "5d4d140f4fa0109bf4b7cf64cb557099a9f049df",
                 "shasum": ""
             },
             "require": {
@@ -2307,9 +2307,9 @@
                 "php": "^7.2"
             },
             "require-dev": {
-                "ergebnis/composer-normalize": "^2.9.0",
+                "ergebnis/composer-normalize": "^2.10.0",
                 "ergebnis/license": "^1.1.0",
-                "ergebnis/phpstan-rules": "~0.15.2",
+                "ergebnis/phpstan-rules": "~0.15.3",
                 "ergebnis/test-util": "^1.3.0",
                 "infection/infection": "~0.15.3",
                 "jangregor/phpstan-prophecy": "~0.8.1",
@@ -2324,6 +2324,12 @@
                 "vimeo/psalm": "^3.18"
             },
             "type": "library",
+            "extra": {
+                "composer-normalize": {
+                    "indent-size": 2,
+                    "indent-style": "space"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Ergebnis\\PhpCsFixer\\Config\\": "src"
@@ -2347,7 +2353,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-10-28T08:24:54+00:00"
+            "time": "2020-11-01T19:07:47+00:00"
         },
         {
             "name": "ergebnis/test-util",
@@ -2648,6 +2654,7 @@
                 "faker",
                 "fixtures"
             ],
+            "abandoned": true,
             "time": "2019-12-12T13:22:17+00:00"
         },
         {
