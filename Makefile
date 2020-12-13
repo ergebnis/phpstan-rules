@@ -53,4 +53,4 @@ tests: vendor ## Runs auto-review, unit, and integration tests with phpunit/phpu
 
 vendor: composer.json composer.lock
 	composer validate --strict
-	composer install --no-interaction --no-progress --no-suggest
+	composer install --no-interaction --no-progress
