@@ -4,15 +4,21 @@ includes:
 
 parameters:
 	checkMissingIterableValueType: false
+
 	ergebnis:
 		classesAllowedToBeExtended:
 			- Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase
 			- PHPStan\Testing\RuleTestCase
+
 	excludes_analyse:
 		- %currentWorkingDirectory%/test/Fixture/
+
 	inferPrivatePropertyTypeFromConstructor: true
+
 	level: max
+
 	paths:
 		- src/
 		- test/
+
 	tmpDir: .build/phpstan/
