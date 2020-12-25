@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "86e1a613c8aa071a67dba3a95eb2b061",
+    "content-hash": "65ab4192b9b1804eb32e1372efe6e1b1",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -2284,21 +2284,21 @@
         },
         {
             "name": "ergebnis/php-cs-fixer-config",
-            "version": "2.8.0",
+            "version": "2.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/php-cs-fixer-config.git",
-                "reference": "40490fc58c0939c13ff3205cce5e7dfc793c68dc"
+                "reference": "64a920e1d7b3c01f5f05a2eb33782ade642762af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/php-cs-fixer-config/zipball/40490fc58c0939c13ff3205cce5e7dfc793c68dc",
-                "reference": "40490fc58c0939c13ff3205cce5e7dfc793c68dc",
+                "url": "https://api.github.com/repos/ergebnis/php-cs-fixer-config/zipball/64a920e1d7b3c01f5f05a2eb33782ade642762af",
+                "reference": "64a920e1d7b3c01f5f05a2eb33782ade642762af",
                 "shasum": ""
             },
             "require": {
                 "ext-filter": "*",
-                "friendsofphp/php-cs-fixer": "~2.17.1",
+                "friendsofphp/php-cs-fixer": "~2.17.3",
                 "php": "^7.2 || ^8.0"
             },
             "require-dev": {
@@ -2309,9 +2309,9 @@
                 "infection/infection": "~0.15.3",
                 "jangregor/phpstan-prophecy": "~0.8.1",
                 "phpstan/extension-installer": "^1.1.0",
-                "phpstan/phpstan": "~0.12.59",
+                "phpstan/phpstan": "~0.12.64",
                 "phpstan/phpstan-deprecation-rules": "~0.12.6",
-                "phpstan/phpstan-phpunit": "~0.12.16",
+                "phpstan/phpstan-phpunit": "~0.12.17",
                 "phpstan/phpstan-strict-rules": "~0.12.7",
                 "phpunit/phpunit": "^8.5.13",
                 "psalm/plugin-phpunit": "~0.12.2",
@@ -2348,7 +2348,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-12-18T17:31:35+00:00"
+            "time": "2020-12-24T14:52:38+00:00"
         },
         {
             "name": "ergebnis/test-util",
@@ -2560,16 +2560,16 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "v2.17.2",
+            "version": "v2.17.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "aaee4f3d16a996fc0b570be0c69d3b80c909c507"
+                "reference": "bd32f5dd72cdfc7b53f54077f980e144bfa2f595"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/aaee4f3d16a996fc0b570be0c69d3b80c909c507",
-                "reference": "aaee4f3d16a996fc0b570be0c69d3b80c909c507",
+                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/bd32f5dd72cdfc7b53f54077f980e144bfa2f595",
+                "reference": "bd32f5dd72cdfc7b53f54077f980e144bfa2f595",
                 "shasum": ""
             },
             "require": {
@@ -2595,7 +2595,7 @@
                 "justinrainbow/json-schema": "^5.0",
                 "keradus/cli-executor": "^1.4",
                 "mikey179/vfsstream": "^1.6",
-                "php-coveralls/php-coveralls": "^2.4.1",
+                "php-coveralls/php-coveralls": "^2.4.2",
                 "php-cs-fixer/accessible-object": "^1.0",
                 "php-cs-fixer/phpunit-constraint-isidenticalstring": "^1.2",
                 "php-cs-fixer/phpunit-constraint-xmlmatchesxsd": "^1.2.1",
@@ -2656,7 +2656,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-12-17T16:41:55+00:00"
+            "time": "2020-12-24T11:14:44+00:00"
         },
         {
             "name": "infection/infection",
