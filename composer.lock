@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "65ab4192b9b1804eb32e1372efe6e1b1",
+    "content-hash": "a0dd6e05020a7ec53b9c80f03fe823f7",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -2284,16 +2284,16 @@
         },
         {
             "name": "ergebnis/php-cs-fixer-config",
-            "version": "2.9.0",
+            "version": "2.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/php-cs-fixer-config.git",
-                "reference": "64a920e1d7b3c01f5f05a2eb33782ade642762af"
+                "reference": "cb5395a2ba10fecd481254bfbf5026ea905f04f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/php-cs-fixer-config/zipball/64a920e1d7b3c01f5f05a2eb33782ade642762af",
-                "reference": "64a920e1d7b3c01f5f05a2eb33782ade642762af",
+                "url": "https://api.github.com/repos/ergebnis/php-cs-fixer-config/zipball/cb5395a2ba10fecd481254bfbf5026ea905f04f6",
+                "reference": "cb5395a2ba10fecd481254bfbf5026ea905f04f6",
                 "shasum": ""
             },
             "require": {
@@ -2348,7 +2348,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-12-24T14:52:38+00:00"
+            "time": "2020-12-26T14:52:34+00:00"
         },
         {
             "name": "ergebnis/test-util",
