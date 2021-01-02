@@ -28,6 +28,9 @@ branches:
           - "Tests (7.4, highest)"
           - "Tests (7.4, locked)"
           - "Tests (7.4, lowest)"
+          - "Tests (8.0, highest)"
+          - "Tests (8.0, locked)"
+          - "Tests (8.0, lowest)"
         strict: false
       restrictions:
 
