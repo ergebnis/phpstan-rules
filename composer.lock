@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8b47da13996ccb77a9d6ea9fff43c895",
+    "content-hash": "d043a77136b3042d9f31dba476ad2af7",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -2300,21 +2300,21 @@
         },
         {
             "name": "ergebnis/php-cs-fixer-config",
-            "version": "2.12.0",
+            "version": "2.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/php-cs-fixer-config.git",
-                "reference": "3185c44d933b607b834936c2ad804f69af109882"
+                "reference": "40245b4b3971648c37cd2be275f4974725cfb664"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/php-cs-fixer-config/zipball/3185c44d933b607b834936c2ad804f69af109882",
-                "reference": "3185c44d933b607b834936c2ad804f69af109882",
+                "url": "https://api.github.com/repos/ergebnis/php-cs-fixer-config/zipball/40245b4b3971648c37cd2be275f4974725cfb664",
+                "reference": "40245b4b3971648c37cd2be275f4974725cfb664",
                 "shasum": ""
             },
             "require": {
                 "ext-filter": "*",
-                "friendsofphp/php-cs-fixer": "~2.18.1",
+                "friendsofphp/php-cs-fixer": "~2.18.2",
                 "php": "^7.2 || ^8.0"
             },
             "replace": {
@@ -2330,12 +2330,12 @@
                 "infection/infection": "~0.15.3",
                 "jangregor/phpstan-prophecy": "~0.8.1",
                 "phpstan/extension-installer": "^1.1.0",
-                "phpstan/phpstan": "~0.12.68",
+                "phpstan/phpstan": "~0.12.69",
                 "phpstan/phpstan-deprecation-rules": "~0.12.6",
                 "phpstan/phpstan-phpunit": "~0.12.17",
                 "phpstan/phpstan-strict-rules": "~0.12.9",
                 "phpunit/phpunit": "^8.5.14",
-                "psalm/plugin-phpunit": "~0.15.0",
+                "psalm/plugin-phpunit": "~0.15.1",
                 "symfony/filesystem": "^4.4.0",
                 "vimeo/psalm": "^4.4.1"
             },
@@ -2369,7 +2369,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-01-22T09:12:40+00:00"
+            "time": "2021-01-26T08:32:03+00:00"
         },
         {
             "name": "ergebnis/test-util",
@@ -2581,16 +2581,16 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "v2.18.1",
+            "version": "v2.18.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "c68ff6231adb276857761e43b7ed082f164dce0b"
+                "reference": "18f8c9d184ba777380794a389fabc179896ba913"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/c68ff6231adb276857761e43b7ed082f164dce0b",
-                "reference": "c68ff6231adb276857761e43b7ed082f164dce0b",
+                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/18f8c9d184ba777380794a389fabc179896ba913",
+                "reference": "18f8c9d184ba777380794a389fabc179896ba913",
                 "shasum": ""
             },
             "require": {
@@ -2676,7 +2676,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-01-21T18:50:42+00:00"
+            "time": "2021-01-26T00:22:21+00:00"
         },
         {
             "name": "infection/infection",
