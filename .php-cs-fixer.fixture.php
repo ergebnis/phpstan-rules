@@ -28,7 +28,9 @@ $config = PhpCsFixer\Config\Factory::fromRuleSet(new PhpCsFixer\Config\RuleSet\P
     'static_lambda' => false,
 ]);
 
-$config->getFinder()->in(__DIR__ . '/test/Fixture');
+$config->getFinder()
+    ->exclude('Classes/PHPUnit/Framework/TestCaseWithSuffixRule/Success/ImplicitlyAbstractTestCase.php')
+    ->in(__DIR__ . '/test/Fixture');
 
 $config->setCacheFile(__DIR__ . '/.build/php-cs-fixer/.php_cs.fixture.cache');
 
