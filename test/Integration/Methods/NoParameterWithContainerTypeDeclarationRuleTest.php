@@ -178,7 +178,7 @@ final class NoParameterWithContainerTypeDeclarationRuleTest extends AbstractTest
     protected function getRule(): Rule
     {
         return new NoParameterWithContainerTypeDeclarationRule(
-            $this->createBroker(),
+            $this->createReflectionProvider(),
             [
                 Container\ContainerInterface::class,
                 ServiceManager\ServiceLocatorInterface::class,

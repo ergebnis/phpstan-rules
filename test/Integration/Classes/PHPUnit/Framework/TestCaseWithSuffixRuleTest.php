@@ -78,6 +78,6 @@ final class TestCaseWithSuffixRuleTest extends AbstractTestCase
 
     protected function getRule(): Rule
     {
-        return new TestCaseWithSuffixRule($this->createBroker());
+        return new TestCaseWithSuffixRule($this->createReflectionProvider());
     }
 }

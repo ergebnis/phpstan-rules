@@ -4,13 +4,14 @@ includes:
 
 parameters:
 	checkMissingIterableValueType: false
+	checkGenericClassInNonGenericObjectType: false
 
 	ergebnis:
 		classesAllowedToBeExtended:
 			- Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase
 			- PHPStan\Testing\RuleTestCase
 
-	excludes_analyse:
+	excludePaths:
 		- %currentWorkingDirectory%/test/Fixture/
 
 	inferPrivatePropertyTypeFromConstructor: true

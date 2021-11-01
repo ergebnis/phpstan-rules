@@ -8,16 +8,6 @@ parameters:
 			path: src/Classes/FinalRule.php
 
 		-
-			message: "#^PHPDoc tag @var has invalid value \\(array\\<int, class\\-string\\>\\)\\: Unexpected token \"\\-string\\>\", expected '\\>' at offset 32$#"
-			count: 2
-			path: src/Classes/NoExtendsRule.php
-
-		-
-			message: "#^PHPDoc tag @param has invalid value \\(array\\<int, class\\-string\\> \\$classesAllowedToBeExtended\\)\\: Unexpected token \"\\-string\\>\", expected '\\>' at offset 34$#"
-			count: 1
-			path: src/Classes/NoExtendsRule.php
-
-		-
 			message: "#^Language construct isset\\(\\) should not be used\\.$#"
 			count: 1
 			path: src/Classes/NoExtendsRule.php
@@ -32,4 +22,7 @@ parameters:
 			count: 1
 			path: src/Functions/NoNullableReturnTypeDeclarationRule.php
 
-
+		-
+			message: "#^Parameter \\#1 \\$argument of class ReflectionClass constructor expects class-string<T of object>\\|T of object, string given\\.$#"
+			count: 1
+			path: test/AutoReview/TestCodeTest.php
