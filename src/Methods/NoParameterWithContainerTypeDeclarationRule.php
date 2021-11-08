@@ -15,7 +15,6 @@ namespace Ergebnis\PHPStan\Rules\Methods;
 
 use PhpParser\Node;
 use PHPStan\Analyser\Scope;
-use PHPStan\Broker\Broker;
 use PHPStan\Reflection;
 use PHPStan\Rules\Rule;
 use PHPStan\ShouldNotHappenException;
@@ -23,9 +22,9 @@ use PHPStan\ShouldNotHappenException;
 final class NoParameterWithContainerTypeDeclarationRule implements Rule
 {
     /**
-     * @var Broker
+     * @var Reflection\ReflectionProvider
      */
-    private $broker;
+    private $reflectionProvider;
 
     /**
      * @var array<int, string>
@@ -35,9 +34,9 @@ final class NoParameterWithContainerTypeDeclarationRule implements Rule
     /**
      * @param array<int, string> $interfacesImplementedByContainers
      */
-    public function __construct(Broker $broker, array $interfacesImplementedByContainers)
+    public function __construct(Reflection\ReflectionProvider $reflectionProvider, array $interfacesImplementedByContainers)
     {
-        $this->broker = $broker;
+        $this->reflectionProvider = $reflectionProvider;
         $this->interfacesImplementedByContainers = \array_filter(
             \array_map(static function (string $interfaceImplementedByContainers): string {
                 return $interfaceImplementedByContainers;
@@ -91,7 +90,7 @@ final class NoParameterWithContainerTypeDeclarationRule implements Rule
                 /** @var string $parameterName */
                 $parameterName = $variable->name;
 
-                $classUsedInTypeDeclaration = $this->broker->getClass($scope->resolveName($type));
+                $classUsedInTypeDeclaration = $this->reflectionProvider->getClass($scope->resolveName($type));
 
                 if ($classUsedInTypeDeclaration->isInterface()) {
                     foreach ($this->interfacesImplementedByContainers as $interfaceImplementedByContainer) {

@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`0.15.3...main`][0.15.3...main].
 
+### Changed
+
+* Added support for `phpstan/phpstan:^1.0.0` and dropped support for non-stable versions of `phpstan/phpstan` ([#381]), by [@rpkamp]
+
 ## [`0.15.3`][0.15.3]
 
 For a full diff see [`0.15.2...0.15.3`][0.15.2...0.15.3].
@@ -431,8 +435,10 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#248]: https://github.com/ergebnis/phpstan-rules/pull/248
 [#259]: https://github.com/ergebnis/phpstan-rules/pull/259
 [#294]: https://github.com/ergebnis/phpstan-rules/pull/294
+[#381]: https://github.com/ergebnis/phpstan-rules/pull/381
 
 [@ergebnis]: https://github.com/ergebnis
 [@Great-Antique]: https://github.com/Great-Antique
 [@localheinz]: https://github.com/localheinz
+[@rpkamp]: https://github.com/rpkamp
 [@Slamdunk]: https://github.com/Slamdunk

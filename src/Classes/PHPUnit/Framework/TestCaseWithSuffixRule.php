@@ -15,7 +15,7 @@ namespace Ergebnis\PHPStan\Rules\Classes\PHPUnit\Framework;
 
 use PhpParser\Node;
 use PHPStan\Analyser;
-use PHPStan\Broker;
+use PHPStan\Reflection;
 use PHPStan\Rules;
 use PHPStan\ShouldNotHappenException;
 
@@ -29,13 +29,13 @@ final class TestCaseWithSuffixRule implements Rules\Rule
     ];
 
     /**
-     * @var Broker\Broker
+     * @var Reflection\ReflectionProvider
      */
-    private $broker;
+    private $reflectionProvider;
 
-    public function __construct(Broker\Broker $broker)
+    public function __construct(Reflection\ReflectionProvider $reflectionProvider)
     {
-        $this->broker = $broker;
+        $this->reflectionProvider = $reflectionProvider;
     }
 
     public function getNodeType(): string
@@ -68,7 +68,7 @@ final class TestCaseWithSuffixRule implements Rules\Rule
         /** @var string $fullyQualifiedClassName */
         $fullyQualifiedClassName = $node->namespacedName->toString();
 
-        $classReflection = $this->broker->getClass($fullyQualifiedClassName);
+        $classReflection = $this->reflectionProvider->getClass($fullyQualifiedClassName);
 
         $extendedPhpunitTestCaseClassName = '';
 
