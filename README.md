@@ -75,7 +75,12 @@ This package provides the following rules for use with [`phpstan/phpstan`](https
 
 This rule reports an error when a non-anonymous class is not `final`.
 
-:bulb: Doctrine entities are currently ignored when they are annotated with `@ORM\Entity` or `@Entity`.
+:bulb: This rule ignores classes that
+
+- use `@Entity`, `@ORM\Entity`, or `@ORM\Mapping\Entity` annotations
+- use `Doctrine\ORM\Mapping\Entity` attributes
+
+on the class level.
 
 ##### Disallowing `abstract` classes
 
