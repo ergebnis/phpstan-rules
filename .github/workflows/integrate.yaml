@@ -163,25 +163,11 @@ jobs:
       - name: "Create cache directory for phpstan/phpstan"
         run: "mkdir -p .build/phpstan"
 
-      - name: "Cache cache directory for phpstan/phpstan"
-        uses: "actions/cache@v2.1.6"
-        with:
-          path: ".build/phpstan"
-          key: "php-${{ matrix.php-version }}-phpstan-${{ github.sha }}"
-          restore-keys: "php-${{ matrix.php-version }}-phpstan-"
-
       - name: "Run phpstan/phpstan"
         run: "vendor/bin/phpstan analyse --configuration=phpstan.neon --memory-limit=-1"
 
       - name: "Create cache directory for vimeo/psalm"
         run: "mkdir -p .build/psalm"
-
-      - name: "Cache cache directory for vimeo/psalm"
-        uses: "actions/cache@v2.1.6"
-        with:
-          path: ".build/psalm"
-          key: "php-${{ matrix.php-version }}-psalm-${{ github.sha }}"
-          restore-keys: "php-${{ matrix.php-version }}-psalm-"
 
       - name: "Run vimeo/psalm"
         run: "vendor/bin/psalm --config=psalm.xml --diff --shepherd --show-info=false --stats --threads=4"
