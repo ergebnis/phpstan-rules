@@ -8,7 +8,6 @@
       <code>toString</code>
       <code>toString</code>
     </MixedMethodCall>
-    <MixedPropertyTypeCoercion occurrences="1"/>
     <RedundantIdentityWithTrue occurrences="1">
       <code>true === $allowAbstractClasses</code>
     </RedundantIdentityWithTrue>
@@ -26,6 +25,7 @@
     <MixedMethodCall occurrences="1">
       <code>toString</code>
     </MixedMethodCall>
+    <PropertyTypeCoercion occurrences="1"/>
   </file>
   <file src="src/Functions/NoNullableReturnTypeDeclarationRule.php">
     <MixedArgument occurrences="1">
