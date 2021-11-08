@@ -21,14 +21,15 @@ $config = PhpCsFixer\Config\Factory::fromRuleSet(new PhpCsFixer\Config\RuleSet\P
     'final_internal_class' => false,
     'final_public_method_for_abstract_class' => false,
     'header_comment' => false,
-    'lowercase_constants' => false,
     'lowercase_keywords' => false,
     'magic_method_casing' => false,
     'protected_to_private' => false,
     'static_lambda' => false,
 ]);
 
-$config->getFinder()->in(__DIR__ . '/test/Fixture');
+$config->getFinder()
+    ->in(__DIR__ . '/test/Fixture')
+    ->notPath('Classes/PHPUnit/Framework/TestCaseWithSuffixRule/Success/ImplicitlyAbstractTestCase.php');
 
 $config->setCacheFile(__DIR__ . '/.build/php-cs-fixer/.php_cs.fixture.cache');
 
