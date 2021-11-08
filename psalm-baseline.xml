@@ -1,24 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="3.18.2@19aa905f7c3c7350569999a93c40ae91ae4e1626">
+<files psalm-version="4.12.0@e42bc4a23f67acba28a23bb09c348e2ff38a1d87">
   <file src="src/Classes/FinalRule.php">
+    <MixedArgument occurrences="1">
+      <code>$node-&gt;namespacedName-&gt;toString()</code>
+    </MixedArgument>
+    <MixedMethodCall occurrences="2">
+      <code>toString</code>
+      <code>toString</code>
+    </MixedMethodCall>
     <MixedPropertyTypeCoercion occurrences="1"/>
     <RedundantIdentityWithTrue occurrences="1">
       <code>true === $allowAbstractClasses</code>
     </RedundantIdentityWithTrue>
   </file>
   <file src="src/Classes/NoExtendsRule.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>isset($node-&gt;namespacedName)</code>
-    </DocblockTypeContradiction>
+    <MixedArgument occurrences="1">
+      <code>$node-&gt;namespacedName-&gt;toString()</code>
+    </MixedArgument>
+    <MixedMethodCall occurrences="1">
+      <code>toString</code>
+    </MixedMethodCall>
     <PropertyTypeCoercion occurrences="1"/>
   </file>
   <file src="src/Classes/PHPUnit/Framework/TestCaseWithSuffixRule.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>isset($node-&gt;namespacedName)</code>
-    </DocblockTypeContradiction>
-    <UnnecessaryVarAnnotation occurrences="1">
-      <code>string</code>
-    </UnnecessaryVarAnnotation>
+    <MixedMethodCall occurrences="1">
+      <code>toString</code>
+    </MixedMethodCall>
+  </file>
+  <file src="src/Functions/NoNullableReturnTypeDeclarationRule.php">
+    <MixedArgument occurrences="1">
+      <code>$node-&gt;namespacedName-&gt;toString()</code>
+    </MixedArgument>
+    <MixedMethodCall occurrences="1">
+      <code>toString</code>
+    </MixedMethodCall>
   </file>
   <file src="src/Functions/NoParameterWithNullDefaultValueRule.php">
     <MixedArgument occurrences="1">
