@@ -16,6 +16,8 @@ namespace Ergebnis\PHPStan\Rules\Methods;
 use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Node;
 use PHPStan\Analyser;
+use PHPStan\PhpDoc;
+use PHPStan\PhpDocParser;
 use PHPStan\Reflection;
 use PHPStan\Rules;
 
@@ -24,6 +26,19 @@ use PHPStan\Rules;
  */
 final class FinalInAbstractClassRule implements Rules\Rule
 {
+    private const DOCTRINE_ATTRIBUTE_NAMES = [
+        'Doctrine\\ORM\\Mapping\\Embeddable',
+        'Doctrine\\ORM\\Mapping\\Entity',
+    ];
+    private const DOCTRINE_TAG_NAMES = [
+        '@ORM\\Mapping\\Embeddable',
+        '@ORM\\Embeddable',
+        '@Embeddable',
+        '@ORM\\Mapping\\Entity',
+        '@ORM\\Entity',
+        '@Entity',
+    ];
+
     public function getNodeType(): string
     {
         return Node\Stmt\ClassMethod::class;
@@ -35,6 +50,10 @@ final class FinalInAbstractClassRule implements Rules\Rule
     ): array {
         /** @var Reflection\ClassReflection $containingClass */
         $containingClass = $scope->getClassReflection();
+
+        if (self::isDoctrineEntity($containingClass)) {
+            return [];
+        }
 
         if (!$containingClass->isAbstract()) {
             return [];
@@ -69,5 +88,34 @@ final class FinalInAbstractClassRule implements Rules\Rule
         return [
             $ruleErrorBuilder->identifier(ErrorIdentifier::finalInAbstractClass()->toString())->build(),
         ];
+    }
+
+    private static function isDoctrineEntity(Reflection\ClassReflection $containingClass): bool
+    {
+        $attributes = $containingClass->getNativeReflection()->getAttributes();
+
+        foreach ($attributes as $attribute) {
+            if (\in_array($attribute->getName(), self::DOCTRINE_ATTRIBUTE_NAMES, true)) {
+                return true;
+            }
+        }
+
+        $resolvedPhpDocBlock = $containingClass->getResolvedPhpDoc();
+
+        if ($resolvedPhpDocBlock instanceof PhpDoc\ResolvedPhpDocBlock) {
+            foreach ($resolvedPhpDocBlock->getPhpDocNodes() as $phpDocNode) {
+                foreach ($phpDocNode->children as $child) {
+                    if (!$child instanceof PhpDocParser\Ast\PhpDoc\PhpDocTagNode) {
+                        continue;
+                    }
+
+                    if (\in_array($child->name, self::DOCTRINE_TAG_NAMES, true)) {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
     }
 }
