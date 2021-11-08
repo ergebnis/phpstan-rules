@@ -1,5 +1,3 @@
-
-
 parameters:
 	ignoreErrors:
 		-
@@ -23,6 +21,7 @@ parameters:
 			path: src/Functions/NoNullableReturnTypeDeclarationRule.php
 
 		-
-			message: "#^Parameter \\#1 \\$argument of class ReflectionClass constructor expects class-string<T of object>\\|T of object, string given\\.$#"
+			message: "#^Parameter \\#1 \\$argument of class ReflectionClass constructor expects class\\-string\\<T of object\\>\\|T of object, string given\\.$#"
 			count: 1
 			path: test/AutoReview/TestCodeTest.php
+
