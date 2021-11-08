@@ -34,8 +34,10 @@ final class NoParameterWithContainerTypeDeclarationRule implements Rule
     /**
      * @param array<int, string> $interfacesImplementedByContainers
      */
-    public function __construct(Reflection\ReflectionProvider $reflectionProvider, array $interfacesImplementedByContainers)
-    {
+    public function __construct(
+        Reflection\ReflectionProvider $reflectionProvider,
+        array $interfacesImplementedByContainers
+    ) {
         $this->reflectionProvider = $reflectionProvider;
         $this->interfacesImplementedByContainers = \array_filter(
             \array_map(static function (string $interfaceImplementedByContainers): string {
@@ -52,8 +54,10 @@ final class NoParameterWithContainerTypeDeclarationRule implements Rule
         return Node\Stmt\ClassMethod::class;
     }
 
-    public function processNode(Node $node, Scope $scope): array
-    {
+    public function processNode(
+        Node $node,
+        Scope $scope
+    ): array {
         if (!$node instanceof Node\Stmt\ClassMethod) {
             throw new ShouldNotHappenException(\sprintf(
                 'Expected node to be instance of "%s", but got instance of "%s" instead.',

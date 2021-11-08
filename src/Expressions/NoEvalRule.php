@@ -24,8 +24,10 @@ final class NoEvalRule implements Rule
         return Node\Expr\Eval_::class;
     }
 
-    public function processNode(Node $node, Scope $scope): array
-    {
+    public function processNode(
+        Node $node,
+        Scope $scope
+    ): array {
         return [
             'Language construct eval() should not be used.',
         ];

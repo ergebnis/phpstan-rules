@@ -24,8 +24,10 @@ final class NoErrorSuppressionRule implements Rule
         return Node\Expr\ErrorSuppress::class;
     }
 
-    public function processNode(Node $node, Scope $scope): array
-    {
+    public function processNode(
+        Node $node,
+        Scope $scope
+    ): array {
         return [
             'Error suppression via "@" should not be used.',
         ];
