@@ -22,7 +22,7 @@ use PHPStan\ShouldNotHappenException;
 final class FinalRule implements Rule
 {
     /**
-     * @var string[]
+     * @var array<int, string>
      */
     private static $whitelistedAnnotations = [
         'Entity',
@@ -46,7 +46,7 @@ final class FinalRule implements Rule
     private $errorMessageTemplate = 'Class %s is not final.';
 
     /**
-     * @param string[] $classesNotRequiredToBeAbstractOrFinal
+     * @param array<int, class-string> $classesNotRequiredToBeAbstractOrFinal
      */
     public function __construct(
         bool $allowAbstractClasses,

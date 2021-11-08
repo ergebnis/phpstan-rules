@@ -22,7 +22,7 @@ use PHPStan\ShouldNotHappenException;
 final class TestCaseWithSuffixRule implements Rules\Rule
 {
     /**
-     * @var string[]
+     * @var array<int, class-string>
      */
     private static $phpunitTestCaseClassNames = [
         'PHPUnit\Framework\TestCase',
