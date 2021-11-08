@@ -8,9 +8,6 @@
       <code>toString</code>
       <code>toString</code>
     </MixedMethodCall>
-    <RedundantIdentityWithTrue occurrences="1">
-      <code>true === $allowAbstractClasses</code>
-    </RedundantIdentityWithTrue>
   </file>
   <file src="src/Classes/NoExtendsRule.php">
     <MixedArgument occurrences="1">
