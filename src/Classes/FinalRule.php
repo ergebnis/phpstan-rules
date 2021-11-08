@@ -75,9 +75,11 @@ final class FinalRule implements Rule
             ));
         }
 
-        if (!isset($node->namespacedName)
-            || \in_array($node->namespacedName->toString(), $this->classesNotRequiredToBeAbstractOrFinal, true)
-        ) {
+        if (!isset($node->namespacedName)) {
+            return [];
+        }
+
+        if (\in_array($node->namespacedName->toString(), $this->classesNotRequiredToBeAbstractOrFinal, true)) {
             return [];
         }
 
