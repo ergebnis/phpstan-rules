@@ -28,8 +28,8 @@ $config = PhpCsFixer\Config\Factory::fromRuleSet(new PhpCsFixer\Config\RuleSet\P
 ]);
 
 $config->getFinder()
-    ->exclude('Classes/PHPUnit/Framework/TestCaseWithSuffixRule/Success/ImplicitlyAbstractTestCase.php')
-    ->in(__DIR__ . '/test/Fixture');
+    ->in(__DIR__ . '/test/Fixture')
+    ->notPath('Classes/PHPUnit/Framework/TestCaseWithSuffixRule/Success/ImplicitlyAbstractTestCase.php');
 
 $config->setCacheFile(__DIR__ . '/.build/php-cs-fixer/.php_cs.fixture.cache');
 
