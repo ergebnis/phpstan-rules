@@ -12,6 +12,10 @@ For a full diff see [`0.15.3...main`][0.15.3...main].
 
 * Added support for `phpstan/phpstan:^1.0.0` and dropped support for non-stable versions of `phpstan/phpstan` ([#381]), by [@rpkamp]
 
+### Fixed
+
+* Adjusted `Classes\FinalRule` to not report an error when a non-final class has a `Doctrinbe\ORM\Mapping\Entity` attribute ([#395]), by [@localheinz]
+
 ## [`0.15.3`][0.15.3]
 
 For a full diff see [`0.15.2...0.15.3`][0.15.2...0.15.3].
@@ -436,6 +440,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#259]: https://github.com/ergebnis/phpstan-rules/pull/259
 [#294]: https://github.com/ergebnis/phpstan-rules/pull/294
 [#381]: https://github.com/ergebnis/phpstan-rules/pull/381
+[#395]: https://github.com/ergebnis/phpstan-rules/pull/395
 
 [@ergebnis]: https://github.com/ergebnis
 [@Great-Antique]: https://github.com/Great-Antique

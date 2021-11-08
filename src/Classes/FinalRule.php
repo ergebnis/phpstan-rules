@@ -31,6 +31,13 @@ final class FinalRule implements Rule
     ];
 
     /**
+     * @var array<int, class-string>
+     */
+    private static $whitelistedAttributes = [
+        'Doctrine\ORM\Mapping\Entity',
+    ];
+
+    /**
      * @var bool
      */
     private $allowAbstractClasses;
@@ -118,8 +125,16 @@ final class FinalRule implements Rule
      * @see https://github.com/SpacePossum
      * @see https://github.com/Slamdunk
      */
-    private function isWhitelisted(Node $node): bool
+    private function isWhitelisted(Node\Stmt\Class_ $node): bool
     {
+        foreach ($node->attrGroups as $attributeGroup) {
+            foreach ($attributeGroup->attrs as $attribute) {
+                if (\in_array($attribute->name->toString(), self::$whitelistedAttributes, true)) {
+                    return true;
+                }
+            }
+        }
+
         $docComment = $node->getDocComment();
 
         if (!$docComment instanceof Comment\Doc) {
