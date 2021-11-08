@@ -37,7 +37,11 @@ final class NoNullableReturnTypeDeclarationRule implements Rule
             ));
         }
 
-        if (!isset($node->namespacedName) || !$node->getReturnType() instanceof Node\NullableType) {
+        if (!isset($node->namespacedName)) {
+            return [];
+        }
+
+        if (!$node->getReturnType() instanceof Node\NullableType) {
             return [];
         }
 
