@@ -24,8 +24,10 @@ final class NoEmptyRule implements Rule
         return Node\Expr\Empty_::class;
     }
 
-    public function processNode(Node $node, Scope $scope): array
-    {
+    public function processNode(
+        Node $node,
+        Scope $scope
+    ): array {
         return [
             'Language construct empty() should not be used.',
         ];

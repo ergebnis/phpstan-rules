@@ -48,8 +48,10 @@ final class FinalRule implements Rule
     /**
      * @param string[] $classesNotRequiredToBeAbstractOrFinal
      */
-    public function __construct(bool $allowAbstractClasses, array $classesNotRequiredToBeAbstractOrFinal)
-    {
+    public function __construct(
+        bool $allowAbstractClasses,
+        array $classesNotRequiredToBeAbstractOrFinal
+    ) {
         $this->allowAbstractClasses = $allowAbstractClasses;
         $this->classesNotRequiredToBeAbstractOrFinal = \array_map(static function (string $classNotRequiredToBeAbstractOrFinal): string {
             return $classNotRequiredToBeAbstractOrFinal;
@@ -65,8 +67,10 @@ final class FinalRule implements Rule
         return Node\Stmt\Class_::class;
     }
 
-    public function processNode(Node $node, Scope $scope): array
-    {
+    public function processNode(
+        Node $node,
+        Scope $scope
+    ): array {
         if (!$node instanceof Node\Stmt\Class_) {
             throw new ShouldNotHappenException(\sprintf(
                 'Expected node to be instance of "%s", but got instance of "%s" instead.',

@@ -24,8 +24,10 @@ final class NoSwitchRule implements Rule
         return Node\Stmt\Switch_::class;
     }
 
-    public function processNode(Node $node, Scope $scope): array
-    {
+    public function processNode(
+        Node $node,
+        Scope $scope
+    ): array {
         return [
             'Control structures using switch should not be used.',
         ];

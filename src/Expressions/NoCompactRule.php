@@ -25,8 +25,10 @@ final class NoCompactRule implements Rule
         return Node\Expr\FuncCall::class;
     }
 
-    public function processNode(Node $node, Scope $scope): array
-    {
+    public function processNode(
+        Node $node,
+        Scope $scope
+    ): array {
         if (!$node instanceof Node\Expr\FuncCall) {
             throw new ShouldNotHappenException(\sprintf(
                 'Expected node to be instance of "%s", but got instance of "%s" instead.',

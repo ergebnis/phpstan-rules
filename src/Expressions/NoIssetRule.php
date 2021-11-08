@@ -24,8 +24,10 @@ final class NoIssetRule implements Rule
         return Node\Expr\Isset_::class;
     }
 
-    public function processNode(Node $node, Scope $scope): array
-    {
+    public function processNode(
+        Node $node,
+        Scope $scope
+    ): array {
         return [
             'Language construct isset() should not be used.',
         ];
