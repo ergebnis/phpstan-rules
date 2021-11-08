@@ -57,7 +57,7 @@ final class FinalRule implements Rule
             return $classNotRequiredToBeAbstractOrFinal;
         }, $classesNotRequiredToBeAbstractOrFinal);
 
-        if (true === $allowAbstractClasses) {
+        if ($allowAbstractClasses) {
             $this->errorMessageTemplate = 'Class %s is neither abstract nor final.';
         }
     }
@@ -87,7 +87,7 @@ final class FinalRule implements Rule
             return [];
         }
 
-        if (true === $this->allowAbstractClasses && $node->isAbstract()) {
+        if ($this->allowAbstractClasses && $node->isAbstract()) {
             return [];
         }
 
