@@ -34,7 +34,7 @@
     "phpunit/phpunit": "^8.5.21",
     "psalm/plugin-phpunit": "~0.16.1",
     "psr/container": "^1.0.0",
-    "vimeo/psalm": "^4.12.0",
+    "vimeo/psalm": "^4.13.0",
     "zendframework/zend-servicemanager": "^2.0.0"
   },
   "config": {
