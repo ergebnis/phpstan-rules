@@ -6,7 +6,17 @@ parameters:
 			path: src/Classes/FinalRule.php
 
 		-
+			message: "#^Property PhpParser\\\\Node\\\\Stmt\\\\ClassLike\\:\\:\\$namespacedName \\(PhpParser\\\\Node\\\\Name\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: src/Classes/FinalRule.php
+
+		-
 			message: "#^Language construct isset\\(\\) should not be used\\.$#"
+			count: 1
+			path: src/Classes/NoExtendsRule.php
+
+		-
+			message: "#^Property PhpParser\\\\Node\\\\Stmt\\\\ClassLike\\:\\:\\$namespacedName \\(PhpParser\\\\Node\\\\Name\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: src/Classes/NoExtendsRule.php
 
@@ -16,7 +26,17 @@ parameters:
 			path: src/Classes/PHPUnit/Framework/TestCaseWithSuffixRule.php
 
 		-
+			message: "#^Property PhpParser\\\\Node\\\\Stmt\\\\ClassLike\\:\\:\\$namespacedName \\(PhpParser\\\\Node\\\\Name\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: src/Classes/PHPUnit/Framework/TestCaseWithSuffixRule.php
+
+		-
 			message: "#^Language construct isset\\(\\) should not be used\\.$#"
+			count: 1
+			path: src/Functions/NoNullableReturnTypeDeclarationRule.php
+
+		-
+			message: "#^Property PhpParser\\\\Node\\\\Stmt\\\\Function_\\:\\:\\$namespacedName \\(PhpParser\\\\Node\\\\Name\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: src/Functions/NoNullableReturnTypeDeclarationRule.php
 

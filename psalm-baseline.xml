@@ -1,59 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.12.0@e42bc4a23f67acba28a23bb09c348e2ff38a1d87">
+<files psalm-version="v4.14.0@14dcbc908ab2625cd7a74258ee6c740cbecc6140">
   <file src="src/Classes/FinalRule.php">
-    <MixedArgument occurrences="1">
-      <code>$node-&gt;namespacedName-&gt;toString()</code>
-    </MixedArgument>
-    <MixedMethodCall occurrences="2">
-      <code>toString</code>
-      <code>toString</code>
-    </MixedMethodCall>
+    <DocblockTypeContradiction occurrences="1">
+      <code>isset($node-&gt;namespacedName)</code>
+    </DocblockTypeContradiction>
     <PropertyTypeCoercion occurrences="1"/>
   </file>
   <file src="src/Classes/NoExtendsRule.php">
-    <MixedArgument occurrences="1">
-      <code>$node-&gt;namespacedName-&gt;toString()</code>
-    </MixedArgument>
-    <MixedMethodCall occurrences="1">
-      <code>toString</code>
-    </MixedMethodCall>
+    <DocblockTypeContradiction occurrences="1">
+      <code>isset($node-&gt;namespacedName)</code>
+    </DocblockTypeContradiction>
     <PropertyTypeCoercion occurrences="1"/>
   </file>
   <file src="src/Classes/PHPUnit/Framework/TestCaseWithSuffixRule.php">
-    <MixedMethodCall occurrences="1">
-      <code>toString</code>
-    </MixedMethodCall>
+    <DocblockTypeContradiction occurrences="1">
+      <code>isset($node-&gt;namespacedName)</code>
+    </DocblockTypeContradiction>
     <PropertyTypeCoercion occurrences="1"/>
+    <UnnecessaryVarAnnotation occurrences="1">
+      <code>string</code>
+    </UnnecessaryVarAnnotation>
   </file>
   <file src="src/Functions/NoNullableReturnTypeDeclarationRule.php">
-    <MixedArgument occurrences="1">
-      <code>$node-&gt;namespacedName-&gt;toString()</code>
-    </MixedArgument>
-    <MixedMethodCall occurrences="1">
-      <code>toString</code>
-    </MixedMethodCall>
+    <DocblockTypeContradiction occurrences="1">
+      <code>isset($node-&gt;namespacedName)</code>
+    </DocblockTypeContradiction>
   </file>
   <file src="src/Functions/NoParameterWithNullDefaultValueRule.php">
-    <MixedArgument occurrences="1">
+    <ImplicitToStringCast occurrences="1">
       <code>$functionName</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$functionName</code>
-    </MixedAssignment>
-    <UndefinedPropertyFetch occurrences="1">
-      <code>$node-&gt;namespacedName</code>
-    </UndefinedPropertyFetch>
+    </ImplicitToStringCast>
   </file>
   <file src="src/Functions/NoParameterWithNullableTypeDeclarationRule.php">
-    <MixedArgument occurrences="1">
+    <ImplicitToStringCast occurrences="1">
       <code>$functionName</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="1">
-      <code>$functionName</code>
-    </MixedAssignment>
-    <UndefinedPropertyFetch occurrences="1">
-      <code>$node-&gt;namespacedName</code>
-    </UndefinedPropertyFetch>
+    </ImplicitToStringCast>
   </file>
   <file src="src/Methods/NoParameterWithContainerTypeDeclarationRule.php">
     <ArgumentTypeCoercion occurrences="2">
