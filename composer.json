@@ -1,20 +1,24 @@
 {
   "name": "ergebnis/phpstan-rules",
-  "type": "phpstan-extension",
   "description": "Provides additional rules for phpstan/phpstan.",
+  "license": "MIT",
+  "type": "phpstan-extension",
   "keywords": [
     "phpstan",
     "phpstan-rules",
     "phpstan-extreme-rules"
   ],
-  "homepage": "https://github.com/ergebnis/phpstan-rules",
-  "license": "MIT",
   "authors": [
     {
       "name": "Andreas Möller",
       "email": "am@localheinz.com"
     }
   ],
+  "homepage": "https://github.com/ergebnis/phpstan-rules",
+  "support": {
+    "issues": "https://github.com/ergebnis/phpstan-rules/issues",
+    "source": "https://github.com/ergebnis/phpstan-rules"
+  },
   "require": {
     "php": "^7.2 || ^8.0",
     "ext-mbstring": "*",
@@ -37,6 +41,16 @@
     "vimeo/psalm": "^4.13.1",
     "zendframework/zend-servicemanager": "^2.0.0"
   },
+  "autoload": {
+    "psr-4": {
+      "Ergebnis\\PHPStan\\Rules\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Ergebnis\\PHPStan\\Rules\\Test\\": "test/"
+    }
+  },
   "config": {
     "platform": {
       "php": "7.2.33"
@@ -50,19 +64,5 @@
         "rules.neon"
       ]
     }
-  },
-  "autoload": {
-    "psr-4": {
-      "Ergebnis\\PHPStan\\Rules\\": "src/"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "Ergebnis\\PHPStan\\Rules\\Test\\": "test/"
-    }
-  },
-  "support": {
-    "issues": "https://github.com/ergebnis/phpstan-rules/issues",
-    "source": "https://github.com/ergebnis/phpstan-rules"
   }
 }
