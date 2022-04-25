@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a0e54aa0aa32f2b289e60ff61c63ba0a",
+    "content-hash": "fc4d823459795a5970b0a16091f51035",
     "packages": [
         {
             "name": "nikic/php-parser",
@@ -1400,16 +1400,16 @@
         },
         {
             "name": "doctrine/orm",
-            "version": "2.12.0",
+            "version": "2.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/orm.git",
-                "reference": "d5503644314ed825fe4b276a588458a033fa3e7c"
+                "reference": "2e4a8722721b934149ff53b191522a6829b6d73b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/orm/zipball/d5503644314ed825fe4b276a588458a033fa3e7c",
-                "reference": "d5503644314ed825fe4b276a588458a033fa3e7c",
+                "url": "https://api.github.com/repos/doctrine/orm/zipball/2e4a8722721b934149ff53b191522a6829b6d73b",
+                "reference": "2e4a8722721b934149ff53b191522a6829b6d73b",
                 "shasum": ""
             },
             "require": {
@@ -1493,9 +1493,9 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/orm/issues",
-                "source": "https://github.com/doctrine/orm/tree/2.12.0"
+                "source": "https://github.com/doctrine/orm/tree/2.12.1"
             },
-            "time": "2022-04-19T18:34:28+00:00"
+            "time": "2022-04-22T17:46:03+00:00"
         },
         {
             "name": "doctrine/persistence",
