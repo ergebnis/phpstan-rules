@@ -19,7 +19,7 @@ Provides additional rules for [`phpstan/phpstan`](https://github.com/phpstan/php
 Run
 
 ```sh
-$ composer require --dev ergebnis/phpstan-rules
+composer require --dev ergebnis/phpstan-rules
 ```
 
 ## Usage
