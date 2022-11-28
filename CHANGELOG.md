@@ -14,11 +14,11 @@ For a full diff see [`0.15.3...1.0.0`][0.15.3...1.0.0].
 
 ### Changed
 
-* Added support for `phpstan/phpstan:^1.0.0` and dropped support for non-stable versions of `phpstan/phpstan` ([#381]), by [@rpkamp]
+- Added support for `phpstan/phpstan:^1.0.0` and dropped support for non-stable versions of `phpstan/phpstan` ([#381]), by [@rpkamp]
 
 ### Fixed
 
-* Adjusted `Classes\FinalRule` to not report an error when a non-final class has a `Doctrinbe\ORM\Mapping\Entity` attribute ([#395]), by [@localheinz]
+- Adjusted `Classes\FinalRule` to not report an error when a non-final class has a `Doctrinbe\ORM\Mapping\Entity` attribute ([#395]), by [@localheinz]
 
 ## [`0.15.3`][0.15.3]
 
@@ -26,7 +26,7 @@ For a full diff see [`0.15.2...0.15.3`][0.15.2...0.15.3].
 
 ### Changed
 
-* Allow installation with PHP 8.0 ([#294]), by [@localheinz]
+- Allow installation with PHP 8.0 ([#294]), by [@localheinz]
 
 ## [`0.15.2`][0.15.2]
 
@@ -34,7 +34,7 @@ For a full diff see [`0.15.1...0.15.2`][0.15.1...0.15.2].
 
 ### Changed
 
-* Dropped support for PHP 7.1 ([#259]), by [@localheinz]
+- Dropped support for PHP 7.1 ([#259]), by [@localheinz]
 
 ## [`0.15.1`][0.15.1]
 
@@ -42,7 +42,7 @@ For a full diff see [`0.15.0...0.15.1`][0.15.0...0.15.1].
 
 ### Changed
 
-* Adjusted `Methods\FinalInAbstractClass` rule to allow non-`final` `public` constructors in abstract classes ([#248]), by [@Slamdunk]
+- Adjusted `Methods\FinalInAbstractClass` rule to allow non-`final` `public` constructors in abstract classes ([#248]), by [@Slamdunk]
 
 ## [`0.15.0`][0.15.0]
 
@@ -50,7 +50,7 @@ For a full diff see [`0.14.4...0.15.0`][0.14.4...0.15.0].
 
 ### Added
 
-* Added `Classes\PHPUnit\Framework\TestCaseWithSuffixRule`, which reports an error when a concrete class extending `PHPUnit\Framework\TestCase` does not have a `Test` suffix ([#225]), by [@localheinz]
+- Added `Classes\PHPUnit\Framework\TestCaseWithSuffixRule`, which reports an error when a concrete class extending `PHPUnit\Framework\TestCase` does not have a `Test` suffix ([#225]), by [@localheinz]
 
 ## [`0.14.4`][0.14.4]
 
@@ -58,7 +58,7 @@ For a full diff see [`0.14.3...0.14.4`][0.14.3...0.14.4].
 
 ### Fixed
 
-* Ignored classes with `@ORM\Mapping\Entity` annotations in `FinalRule` ([#202]), by [@localheinz]
+- Ignored classes with `@ORM\Mapping\Entity` annotations in `FinalRule` ([#202]), by [@localheinz]
 
 ## [`0.14.3`][0.14.3]
 
@@ -66,7 +66,7 @@ For a full diff see [`0.14.2...0.14.3`][0.14.2...0.14.3].
 
 ### Fixed
 
-* Ignored first line in `DeclareStrictTypesRule` when it is a shebang ([#186]), by [@Great-Antique]
+- Ignored first line in `DeclareStrictTypesRule` when it is a shebang ([#186]), by [@Great-Antique]
 
 ## [`0.14.2`][0.14.2]
 
@@ -74,7 +74,7 @@ For a full diff see [`0.14.1...0.14.2`][0.14.1...0.14.2].
 
 ### Fixed
 
-* Brought back support for PHP 7.1 ([#166]), by [@localheinz]
+- Brought back support for PHP 7.1 ([#166]), by [@localheinz]
 
 ## [`0.14.1`][0.14.1]
 
@@ -82,7 +82,7 @@ For a full diff see [`0.14.0...0.14.1`][0.14.0...0.14.1].
 
 ### Fixed
 
-* Removed an inappropriate `replace` configuration from `composer.json` ([#161]), by [@localheinz]
+- Removed an inappropriate `replace` configuration from `composer.json` ([#161]), by [@localheinz]
 
 ## [`0.14.0`][0.14.0]
 
@@ -90,8 +90,8 @@ For a full diff see [`0.13.0...0.14.0`][0.13.0...0.14.0].
 
 ### Changed
 
-* Allowed installation of `phpstan/phpstan:~0.12.0`  ([#147]), by [@localheinz]
-* Renamed vendor namespace `Localheinz` to `Ergebnis` after move to [@ergebnis] ([#157]), by [@localheinz]
+- Allowed installation of `phpstan/phpstan:~0.12.0`  ([#147]), by [@localheinz]
+- Renamed vendor namespace `Localheinz` to `Ergebnis` after move to [@ergebnis] ([#157]), by [@localheinz]
 
   Run
 
@@ -123,7 +123,7 @@ For a full diff see [`0.13.0...0.14.0`][0.13.0...0.14.0].
 
   to delete backup files created in the previous step.
 
-* Moved parameters into `ergebnis` section to prevent conflicts with global parameters ([#158]), by [@localheinz]
+- Moved parameters into `ergebnis` section to prevent conflicts with global parameters ([#158]), by [@localheinz]
 
   Where previously `phpstan.neon` looked like the following
 
@@ -155,7 +155,7 @@ For a full diff see [`0.13.0...0.14.0`][0.13.0...0.14.0].
 
 ### Fixed
 
-* Dropped support for PHP 7.1 ([#141]), by [@localheinz]
+- Dropped support for PHP 7.1 ([#141]), by [@localheinz]
 
 ## [`0.13.0`][0.13.0]
 
@@ -163,7 +163,7 @@ For a full diff see [`0.12.2...0.13.0`][0.12.2...0.13.0].
 
 ### Added
 
-* Added `Methods\PrivateInFinalClassRule` which reports an error when a method in a `final` class is `protected` when it could be `private` ([#126]), by [@localheinz]
+- Added `Methods\PrivateInFinalClassRule` which reports an error when a method in a `final` class is `protected` when it could be `private` ([#126]), by [@localheinz]
 
 ## [`0.12.2`][0.12.2]
 
@@ -171,7 +171,7 @@ For a full diff see [`0.12.1...0.12.2`][0.12.1...0.12.2].
 
 ### Fixed
 
-* Started ignoring interfaces from analysis by `Methods\FinalInAbstractClassRule` to avoid inappropriate errors ([#132]), by [@localheinz]
+- Started ignoring interfaces from analysis by `Methods\FinalInAbstractClassRule` to avoid inappropriate errors ([#132]), by [@localheinz]
 
 ## [`0.12.1`][0.12.1]
 
@@ -179,7 +179,7 @@ For a full diff see [`0.12.0...0.12.1`][0.12.0...0.12.1].
 
 ### Fixed
 
-* Started resolving class name in type declaration before attempting to analyze it in the `Methods\NoParameterWithContainerTypeDeclarationRule` to avoid errors where class `self` is not found ([#128]), by [@localheinz]
+- Started resolving class name in type declaration before attempting to analyze it in the `Methods\NoParameterWithContainerTypeDeclarationRule` to avoid errors where class `self` is not found ([#128]), by [@localheinz]
 
 ## [`0.12.0`][0.12.0]
 
@@ -187,8 +187,8 @@ For a full diff see [`0.11.0...0.12.0`][0.11.0...0.12.0].
 
 ### Added
 
-* Added `Methods\NoParameterWithContainerTypeDeclarationRule`, which reports an error when a method has a type declaration that corresponds to a known dependency injection container or service locator ([#122]), by [@localheinz]
-* Added `Methods\FinalInAbstractClassRule`, which reports an error when a concrete `public` or `protected` method in an `abstract` class is not `final` ([#123]), by [@localheinz]
+- Added `Methods\NoParameterWithContainerTypeDeclarationRule`, which reports an error when a method has a type declaration that corresponds to a known dependency injection container or service locator ([#122]), by [@localheinz]
+- Added `Methods\FinalInAbstractClassRule`, which reports an error when a concrete `public` or `protected` method in an `abstract` class is not `final` ([#123]), by [@localheinz]
 
 ## [`0.11.0`][0.11.0]
 
@@ -196,17 +196,17 @@ For a full diff see [`0.10.0...0.11.0`][0.10.0...0.11.0].
 
 ### Added
 
-* Added `Files\DeclareStrictTypesRule`, which reports an error when a PHP file does not have a `declare(strict_types=1)` declaration ([#79]
-* Added `Expressions\NoEmptyRule`, which reports an error when the language construct `empty()` is used ([#110]), by [@localheinz]
-* Added `Expressions\NoEvalRule`, which reports an error when the language construct `eval()` is used ([#112]), by [@localheinz]
-* Added `Expressions\NoErrorSuppressionRule`, which reports an error when `@` is used to suppress errors ([#113]), by [@localheinz]
-* Added `Expressions\NoCompactRule`, which reports an error when the function `compact()` is used ([#116]), by [@localheinz]
-* Added `Statements\NoSwitchRule`, which reports an error when the statement `switch()` is used ([#117]), by [@localheinz]
+- Added `Files\DeclareStrictTypesRule`, which reports an error when a PHP file does not have a `declare(strict_types=1)` declaration ([#79]
+- Added `Expressions\NoEmptyRule`, which reports an error when the language construct `empty()` is used ([#110]), by [@localheinz]
+- Added `Expressions\NoEvalRule`, which reports an error when the language construct `eval()` is used ([#112]), by [@localheinz]
+- Added `Expressions\NoErrorSuppressionRule`, which reports an error when `@` is used to suppress errors ([#113]), by [@localheinz]
+- Added `Expressions\NoCompactRule`, which reports an error when the function `compact()` is used ([#116]), by [@localheinz]
+- Added `Statements\NoSwitchRule`, which reports an error when the statement `switch()` is used ([#117]), by [@localheinz]
 
 ### Changed
 
-* Require at least `nikic/php-parser:^4.2.3` ([#102]), by [@localheinz]
-* Require at least `phpstan/phpstan:~0.11.15` ([#103]), by [@localheinz]
+- Require at least `nikic/php-parser:^4.2.3` ([#102]), by [@localheinz]
+- Require at least `phpstan/phpstan:~0.11.15` ([#103]), by [@localheinz]
 
 ## [`0.10.0`][0.10.0]
 
@@ -214,11 +214,11 @@ For a full diff see [`0.9.1...0.10.0`][0.9.1...0.10.0].
 
 ### Changed
 
-* Require at least `phpstan/phpstan:~0.11.7` ([#91]), by [@localheinz]
+- Require at least `phpstan/phpstan:~0.11.7` ([#91]), by [@localheinz]
 
 ### Fixed
 
-* Added missing `parametersSchema` configuration to `rules.neon`, which is required for use with `bleedingEdge.neon`, see [`phpstan/phpstan@54a125d`](https://github.com/phpstan/phpstan/commit/54a125df47fa097b792cb9a3e70c49f753f66b85) ([#93]), by [@localheinz]
+- Added missing `parametersSchema` configuration to `rules.neon`, which is required for use with `bleedingEdge.neon`, see [`phpstan/phpstan@54a125d`](https://github.com/phpstan/phpstan/commit/54a125df47fa097b792cb9a3e70c49f753f66b85) ([#93]), by [@localheinz]
 *
 ## [`0.9.1`][0.9.1]
 
@@ -226,7 +226,7 @@ For a full diff see [`0.9.0...0.9.1`][0.9.0...0.9.1].
 
 ### Changed
 
-* Allow usage with [`phpstan/extension-installer`](https://github.com/phpstan/extension-installer) ([#89]), by [@localheinz]
+- Allow usage with [`phpstan/extension-installer`](https://github.com/phpstan/extension-installer) ([#89]), by [@localheinz]
 
 ## [`0.9.0`][0.9.0]
 
@@ -234,7 +234,7 @@ For a full diff see [`0.8.1...0.9.0`][0.8.1...0.9.0].
 
 ### Changed
 
-* Adjusted `Classes\FinalRule` to ignore Doctrine entities when they are annotated ([#84]), by [@localheinz]
+- Adjusted `Classes\FinalRule` to ignore Doctrine entities when they are annotated ([#84]), by [@localheinz]
 
 ## [`0.8.1`][0.8.1]
 
@@ -242,7 +242,7 @@ For a full diff see [`0.8.0...0.8.1`][0.8.0...0.8.1].
 
 ### Fixed
 
-* Actually enable `Expressions\NoIssetRule` ([#83]), by [@localheinz]
+- Actually enable `Expressions\NoIssetRule` ([#83]), by [@localheinz]
 
 ## [`0.8.0`][0.8.0]
 
@@ -250,7 +250,7 @@ For a full diff see [`0.7.1...0.8.0`][0.7.1...0.8.0].
 
 ### Added
 
-* Added `Expressions\NoIssetRule`, which reports an error when the language construct `isset()` is used ([#81]), by [@localheinz]
+- Added `Expressions\NoIssetRule`, which reports an error when the language construct `isset()` is used ([#81]), by [@localheinz]
 
 ## [`0.7.1`][0.7.1]
 
@@ -258,7 +258,7 @@ For a full diff see [`0.7.0...0.7.1`][0.7.0...0.7.1].
 
 ### Changed
 
-* Configured `Classes\NoExtendsRule` to allow a set of default classes to be extended ([#73]), by [@localheinz]
+- Configured `Classes\NoExtendsRule` to allow a set of default classes to be extended ([#73]), by [@localheinz]
 
 ## [`0.7.0`][0.7.0]
 
@@ -266,7 +266,7 @@ For a full diff see [`0.6.0...0.7.0`][0.6.0...0.7.0].
 
 ### Added
 
-* Added `Classes\NoExtendsRule`, which reports an error when a class extends a class that is not allowed to be extended ([#68]), by [@localheinz]
+- Added `Classes\NoExtendsRule`, which reports an error when a class extends a class that is not allowed to be extended ([#68]), by [@localheinz]
 
 ## [`0.6.0`][0.6.0]
 
@@ -274,7 +274,7 @@ For a full diff see [`0.5.0...0.6.0`][0.5.0...0.6.0].
 
 ### Added
 
-* Allow installation with `phpstan/phpstan:~0.11.0` ([#65]), by [@localheinz]
+- Allow installation with `phpstan/phpstan:~0.11.0` ([#65]), by [@localheinz]
 
 ## [`0.5.0`][0.5.0]
 
@@ -282,13 +282,13 @@ For a full diff see [`0.4.0...0.5.0`][0.4.0...0.5.0].
 
 ### Added
 
-* Added `Methods\NoConstructorParameterWithDefaultValueRule`, which reports an error when a constructor of an anonymous class or a class has a parameter with a default value ([#45]), by [@localheinz]
-* Added parameters `$allowAbstractClasses` and `$classesNotRequiredToBeAbstractOrFinal` to allow configuration of `Classes`FinalRule` ([#51]), by [@localheinz]
+- Added `Methods\NoConstructorParameterWithDefaultValueRule`, which reports an error when a constructor of an anonymous class or a class has a parameter with a default value ([#45]), by [@localheinz]
+- Added parameters `$allowAbstractClasses` and `$classesNotRequiredToBeAbstractOrFinal` to allow configuration of `Classes`FinalRule` ([#51]), by [@localheinz]
 
 ### Removed
 
-* Removed `Classes\AbstractOrFinalRule` after merging behaviour into `Classes\FinalRule` ([#51]), by [@localheinz]
-* Removed default values from constructor of `Classes\FinalRule` ([#53]), by [@localheinz]
+- Removed `Classes\AbstractOrFinalRule` after merging behaviour into `Classes\FinalRule` ([#51]), by [@localheinz]
+- Removed default values from constructor of `Classes\FinalRule` ([#53]), by [@localheinz]
 
 ## [`0.4.0`][0.4.0]
 
@@ -296,8 +296,8 @@ For a full diff see [`0.3.0...0.4.0`][0.3.0...0.4.0]
 
 ### Changed
 
-* Removed double-quotes from error messages to be more consistent with error messages generated by `phpstan/phstan` ([#39]), by [@localheinz]
-* Modified wording and placement of method, function, and parameter names in error messages to be more consistent with error messages generated by `phpstan/phstan` ([#42]), by [@localheinz]
+- Removed double-quotes from error messages to be more consistent with error messages generated by `phpstan/phstan` ([#39]), by [@localheinz]
+- Modified wording and placement of method, function, and parameter names in error messages to be more consistent with error messages generated by `phpstan/phstan` ([#42]), by [@localheinz]
 
 ## [`0.3.0`][0.3.0]
 
@@ -305,15 +305,15 @@ For a full diff see [`0.2.0...0.3.0`][0.2.0...0.3.0]
 
 ### Added
 
-* Added `Functions\NoNullableReturnTypeDeclarationRule`, which reports an error when a function has a nullable return type declaration, and `Methods\NoNullableReturnTypeDeclarationRule`, which reports an error when a method declared in an anonymous class, a class, or an interface has a nullable return type declaration ([#16]), by [@localheinz]
-* Added `Closures\NoParameterWithNullDefaultValueRule`, which reports an error when a closure has a parameter with `null` as default value ([#26]), by [@localheinz]
-* Added `Closures\NoNullableReturnTypeDeclarationRule`, which reports an error when a closure has a nullable return type declaration ([#29]), by [@localheinz]
-* Added `Functions\NoParameterWithNullDefaultValueRule`, which reports an error when a function has a parameter with `null` as default value ([#31]), by [@localheinz]
-* Added `Methods\NoParameterWithNullDefaultValueRule`, which reports an error when a method declared in an anonymous class, a class, or an interface has a parameter with `null` as default value ([#32]), by [@localheinz]
-* Added `Closures\NoParameterWithNullableTypeDeclarationRule`, which reports an error when a closure has a parameter with a nullable type declaration ([#33]), by [@localheinz]
-* Added `Functions\NoParameterWithNullableTypeDeclarationRule`, which reports an error when a function has a parameter with a nullable type declaration ([#34]), by [@localheinz]
-* Added `Methods\NoParameterWithNullableTypeDeclarationRule`, which reports an error when a method declared in an anonymous class, a class, or an interface has a parameter with a nullable type declaration ([#35]), by [@localheinz]
-* Extracted `rules.neon`, so you can easily enable all rules by including it in your `phpstan.neon` ([#37]), by [@localheinz]
+- Added `Functions\NoNullableReturnTypeDeclarationRule`, which reports an error when a function has a nullable return type declaration, and `Methods\NoNullableReturnTypeDeclarationRule`, which reports an error when a method declared in an anonymous class, a class, or an interface has a nullable return type declaration ([#16]), by [@localheinz]
+- Added `Closures\NoParameterWithNullDefaultValueRule`, which reports an error when a closure has a parameter with `null` as default value ([#26]), by [@localheinz]
+- Added `Closures\NoNullableReturnTypeDeclarationRule`, which reports an error when a closure has a nullable return type declaration ([#29]), by [@localheinz]
+- Added `Functions\NoParameterWithNullDefaultValueRule`, which reports an error when a function has a parameter with `null` as default value ([#31]), by [@localheinz]
+- Added `Methods\NoParameterWithNullDefaultValueRule`, which reports an error when a method declared in an anonymous class, a class, or an interface has a parameter with `null` as default value ([#32]), by [@localheinz]
+- Added `Closures\NoParameterWithNullableTypeDeclarationRule`, which reports an error when a closure has a parameter with a nullable type declaration ([#33]), by [@localheinz]
+- Added `Functions\NoParameterWithNullableTypeDeclarationRule`, which reports an error when a function has a parameter with a nullable type declaration ([#34]), by [@localheinz]
+- Added `Methods\NoParameterWithNullableTypeDeclarationRule`, which reports an error when a method declared in an anonymous class, a class, or an interface has a parameter with a nullable type declaration ([#35]), by [@localheinz]
+- Extracted `rules.neon`, so you can easily enable all rules by including it in your `phpstan.neon` ([#37]), by [@localheinz]
 
 ## [`0.2.0`][0.2.0]
 
@@ -321,11 +321,11 @@ For a full diff see [`0.1.0...0.2.0`][0.1.0...0.2.0]
 
 ### Added
 
-* Added `Classes\FinalRule`, which reports an error when a non-anonymous class is not `final`, ([#4]), by [@localheinz]
+- Added `Classes\FinalRule`, which reports an error when a non-anonymous class is not `final`, ([#4]), by [@localheinz]
 
 ### Changed
 
-* Added an `$excludeClassNames` argument to the constructors of `Classes\AbstractOrFinalRule` and `Classes\FinalRule` to allow whitelisting of classes, ([#11]), by [@localheinz]
+- Added an `$excludeClassNames` argument to the constructors of `Classes\AbstractOrFinalRule` and `Classes\FinalRule` to allow whitelisting of classes, ([#11]), by [@localheinz]
 
 ## [`0.1.0`][0.1.0]
 
@@ -333,7 +333,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 
 ### Added
 
-* Added `Classes\AbstractOrFinalRule`, which reports an error when a non-anonymous class is neither `abstract` nor `final`, ([#1]), by [@localheinz]
+- Added `Classes\AbstractOrFinalRule`, which reports an error when a non-anonymous class is neither `abstract` nor `final`, ([#1]), by [@localheinz]
 
 [0.1.0]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.1.0
 [0.2.0]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.2.0
