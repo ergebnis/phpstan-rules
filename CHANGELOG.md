@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`1.0.0...main`][1.0.0...main].
 
+### Changed
+
+- Dropped support for PHP 7.2 ([#496]), by [@localheinz]
+
 ## [`1.0.0`][1.0.0]
 
 For a full diff see [`0.15.3...1.0.0`][0.15.3...1.0.0].
@@ -447,6 +451,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#294]: https://github.com/ergebnis/phpstan-rules/pull/294
 [#381]: https://github.com/ergebnis/phpstan-rules/pull/381
 [#395]: https://github.com/ergebnis/phpstan-rules/pull/395
+[#496]: https://github.com/ergebnis/phpstan-rules/pull/496
 
 [@ergebnis]: https://github.com/ergebnis
 [@Great-Antique]: https://github.com/Great-Antique
