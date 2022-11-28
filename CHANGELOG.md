@@ -95,30 +95,30 @@ For a full diff see [`0.13.0...0.14.0`][0.13.0...0.14.0].
 
   Run
 
-  ```
-  $ composer remove localheinz/phpstan-rules
+  ```sh
+  composer remove localheinz/phpstan-rules
   ```
 
   and
 
-  ```
-  $ composer require ergebnis/phpstan-rules
+  ```sh
+  composer require ergebnis/phpstan-rules
   ```
 
   to update.
 
   Run
 
-  ```
-  $ find . -type f -exec sed -i '.bak' 's/Localheinz\\PHPStan/Ergebnis\\PHPStan/g' {} \;
+  ```sh
+  find . -type f -exec sed -i '.bak' 's/Localheinz\\PHPStan/Ergebnis\\PHPStan/g' {} \;
   ```
 
   to replace occurrences of `Localheinz\PHPStan` with `Ergebnis\PHPStan`.
 
   Run
 
-  ```
-  $ find -type f -name '*.bak' -delete
+  ```sh
+  find -type f -name '*.bak' -delete
   ```
 
   to delete backup files created in the previous step.
