@@ -37,37 +37,37 @@ includes:
 
 :bulb: You probably want to use these rules on top of the rules provided by:
 
-* [`phpstan/phpstan`](https://github.com/phpstan/phpstan)
-* [`phpstan/phpstan-deprecation-rules`](https://github.com/phpstan/phpstan-deprecation-rules)
-* [`phpstan/phpstan-strict-rules`](https://github.com/phpstan/phpstan-strict-rules)
+- [`phpstan/phpstan`](https://github.com/phpstan/phpstan)
+- [`phpstan/phpstan-deprecation-rules`](https://github.com/phpstan/phpstan-deprecation-rules)
+- [`phpstan/phpstan-strict-rules`](https://github.com/phpstan/phpstan-strict-rules)
 
 ## Rules
 
 This package provides the following rules for use with [`phpstan/phpstan`](https://github.com/phpstan/phpstan):
 
-* [`Ergebnis\PHPStan\Rules\Classes\FinalRule`](https://github.com/ergebnis/phpstan-rules#classesfinalrule)
-* [`Ergebnis\PHPStan\Rules\Classes\NoExtendsRule`](https://github.com/ergebnis/phpstan-rules#classesnoextendsrule)
-* [`Ergebnis\PHPStan\Rules\Classes\PHPUnit\Framework\TestCaseWithSuffixRule`](https://github.com/ergebnis/phpstan-rules#classesphpunitframeworktestcasewithsuffixrule)
-* [`Ergebnis\PHPStan\Rules\Closures\NoNullableReturnTypeDeclarationRule`](https://github.com/ergebnis/phpstan-rules#closuresnonullablereturntypedeclarationrule)
-* [`Ergebnis\PHPStan\Rules\Closures\NoParameterWithNullableTypeDeclarationRule`](https://github.com/ergebnis/phpstan-rules#closuresnoparameterwithnullabletypedeclarationrule)
-* [`Ergebnis\PHPStan\Rules\Closures\NoParameterWithNullDefaultValueRule`](https://github.com/ergebnis/phpstan-rules#closuresnoparameterwithnulldefaultvaluerule)
-* [`Ergebnis\PHPStan\Rules\Expressions\NoCompactRule`](https://github.com/ergebnis/phpstan-rules#expressionsnocompactrule)
-* [`Ergebnis\PHPStan\Rules\Expressions\NoEmptyRule`](https://github.com/ergebnis/phpstan-rules#expressionsnoemptyrule)
-* [`Ergebnis\PHPStan\Rules\Expressions\NoErrorSuppressionRule`](https://github.com/ergebnis/phpstan-rules#expressionsnoerrorsuppressionrule)
-* [`Ergebnis\PHPStan\Rules\Expressions\NoEvalRule`](https://github.com/ergebnis/phpstan-rules#expressionsnoevalrule)
-* [`Ergebnis\PHPStan\Rules\Expressions\NoIssetRule`](https://github.com/ergebnis/phpstan-rules#expressionsnoissetrule)
-* [`Ergebnis\PHPStan\Rules\Files\DeclareStrictTypesRule`](https://github.com/ergebnis/phpstan-rules#filesdeclarestricttypesrule)
-* [`Ergebnis\PHPStan\Rules\Functions\NoNullableReturnTypeDeclarationRule`](https://github.com/ergebnis/phpstan-rules#functionsnonullablereturntypedeclarationrule)
-* [`Ergebnis\PHPStan\Rules\Functions\NoParameterWithNullableTypeDeclaration`](https://github.com/ergebnis/phpstan-rules#functionsnoparameterwithnullabletypedeclarationrule)
-* [`Ergebnis\PHPStan\Rules\Functions\NoParameterWithNullDefaultValueRule`](https://github.com/ergebnis/phpstan-rules#functionsnoparameterwithnulldefaultvaluerule)
-* [`Ergebnis\PHPStan\Rules\Methods\FinalInAbstractClassRule`](https://github.com/ergebnis/phpstan-rules#methodsfinalinabstractclassrule)
-* [`Ergebnis\PHPStan\Rules\Methods\NoConstructorParameterWithDefaultValueRule`](https://github.com/ergebnis/phpstan-rules#methodsnoconstructorparameterwithdefaultvaluerule)
-* [`Ergebnis\PHPStan\Rules\Methods\NoNullableReturnTypeDeclarationRule`](https://github.com/ergebnis/phpstan-rules#methodsnonullablereturntypedeclarationrule)
-* [`Ergebnis\PHPStan\Rules\Methods\NoParameterWithContainerTypeDeclarationRule`](https://github.com/ergebnis/phpstan-rules#methodsnoparameterwithcontainertypedeclarationrule)
-* [`Ergebnis\PHPStan\Rules\Methods\NoParameterWithNullableTypeDeclarationRule`](https://github.com/ergebnis/phpstan-rules#methodsnoparameterwithnullabletypedeclarationrule)
-* [`Ergebnis\PHPStan\Rules\Methods\NoParameterWithNullDefaultValueRule`](https://github.com/ergebnis/phpstan-rules#methodsnoparameterwithnulldefaultvaluerule)
-* [`Ergebnis\PHPStan\Rules\Methods\PrivateInFinalClassRule`](https://github.com/ergebnis/phpstan-rules#methodsprivateinfinalclassrule)
-* [`Ergebnis\PHPStan\Rules\Statements\NoSwitchRule`](https://github.com/ergebnis/phpstan-rules#statementsnoswitchrule)
+- [`Ergebnis\PHPStan\Rules\Classes\FinalRule`](https://github.com/ergebnis/phpstan-rules#classesfinalrule)
+- [`Ergebnis\PHPStan\Rules\Classes\NoExtendsRule`](https://github.com/ergebnis/phpstan-rules#classesnoextendsrule)
+- [`Ergebnis\PHPStan\Rules\Classes\PHPUnit\Framework\TestCaseWithSuffixRule`](https://github.com/ergebnis/phpstan-rules#classesphpunitframeworktestcasewithsuffixrule)
+- [`Ergebnis\PHPStan\Rules\Closures\NoNullableReturnTypeDeclarationRule`](https://github.com/ergebnis/phpstan-rules#closuresnonullablereturntypedeclarationrule)
+- [`Ergebnis\PHPStan\Rules\Closures\NoParameterWithNullableTypeDeclarationRule`](https://github.com/ergebnis/phpstan-rules#closuresnoparameterwithnullabletypedeclarationrule)
+- [`Ergebnis\PHPStan\Rules\Closures\NoParameterWithNullDefaultValueRule`](https://github.com/ergebnis/phpstan-rules#closuresnoparameterwithnulldefaultvaluerule)
+- [`Ergebnis\PHPStan\Rules\Expressions\NoCompactRule`](https://github.com/ergebnis/phpstan-rules#expressionsnocompactrule)
+- [`Ergebnis\PHPStan\Rules\Expressions\NoEmptyRule`](https://github.com/ergebnis/phpstan-rules#expressionsnoemptyrule)
+- [`Ergebnis\PHPStan\Rules\Expressions\NoErrorSuppressionRule`](https://github.com/ergebnis/phpstan-rules#expressionsnoerrorsuppressionrule)
+- [`Ergebnis\PHPStan\Rules\Expressions\NoEvalRule`](https://github.com/ergebnis/phpstan-rules#expressionsnoevalrule)
+- [`Ergebnis\PHPStan\Rules\Expressions\NoIssetRule`](https://github.com/ergebnis/phpstan-rules#expressionsnoissetrule)
+- [`Ergebnis\PHPStan\Rules\Files\DeclareStrictTypesRule`](https://github.com/ergebnis/phpstan-rules#filesdeclarestricttypesrule)
+- [`Ergebnis\PHPStan\Rules\Functions\NoNullableReturnTypeDeclarationRule`](https://github.com/ergebnis/phpstan-rules#functionsnonullablereturntypedeclarationrule)
+- [`Ergebnis\PHPStan\Rules\Functions\NoParameterWithNullableTypeDeclaration`](https://github.com/ergebnis/phpstan-rules#functionsnoparameterwithnullabletypedeclarationrule)
+- [`Ergebnis\PHPStan\Rules\Functions\NoParameterWithNullDefaultValueRule`](https://github.com/ergebnis/phpstan-rules#functionsnoparameterwithnulldefaultvaluerule)
+- [`Ergebnis\PHPStan\Rules\Methods\FinalInAbstractClassRule`](https://github.com/ergebnis/phpstan-rules#methodsfinalinabstractclassrule)
+- [`Ergebnis\PHPStan\Rules\Methods\NoConstructorParameterWithDefaultValueRule`](https://github.com/ergebnis/phpstan-rules#methodsnoconstructorparameterwithdefaultvaluerule)
+- [`Ergebnis\PHPStan\Rules\Methods\NoNullableReturnTypeDeclarationRule`](https://github.com/ergebnis/phpstan-rules#methodsnonullablereturntypedeclarationrule)
+- [`Ergebnis\PHPStan\Rules\Methods\NoParameterWithContainerTypeDeclarationRule`](https://github.com/ergebnis/phpstan-rules#methodsnoparameterwithcontainertypedeclarationrule)
+- [`Ergebnis\PHPStan\Rules\Methods\NoParameterWithNullableTypeDeclarationRule`](https://github.com/ergebnis/phpstan-rules#methodsnoparameterwithnullabletypedeclarationrule)
+- [`Ergebnis\PHPStan\Rules\Methods\NoParameterWithNullDefaultValueRule`](https://github.com/ergebnis/phpstan-rules#methodsnoparameterwithnulldefaultvaluerule)
+- [`Ergebnis\PHPStan\Rules\Methods\PrivateInFinalClassRule`](https://github.com/ergebnis/phpstan-rules#methodsprivateinfinalclassrule)
+- [`Ergebnis\PHPStan\Rules\Statements\NoSwitchRule`](https://github.com/ergebnis/phpstan-rules#statementsnoswitchrule)
 
 ### Classes
 
@@ -112,7 +112,7 @@ This rule reports an error when a class extends another class.
 
 By default, this rule allows the following classes to be extended:
 
-* [`PHPUnit\Framework\TestCase`](https://github.com/sebastianbergmann/phpunit/blob/7.5.2/src/Framework/TestCase.php)
+- [`PHPUnit\Framework\TestCase`](https://github.com/sebastianbergmann/phpunit/blob/7.5.2/src/Framework/TestCase.php)
 
 ##### Allowing classes to be extended
 
@@ -195,8 +195,8 @@ This rule reports an error when a concrete `public` or `protected `method in an 
 
 This rule reports an error when a constructor declared in
 
-* an anonymous class
-* a class
+- an anonymous class
+- a class
 
 has a default value.
 
@@ -204,9 +204,9 @@ has a default value.
 
 This rule reports an error when a method declared in
 
-* an anonymous class
-* a class
-* an interface
+- an anonymous class
+- a class
+- an interface
 
 uses a nullable return type declaration.
 
@@ -218,7 +218,7 @@ This rule reports an error when a method has a type declaration for a known depe
 
 By default, this rule disallows the use of type declarations indicating an implementation of
 
-* [`Psr\Container\ContainerInterface`](https://github.com/php-fig/container/blob/1.0.0/src/ContainerInterface.php)
+- [`Psr\Container\ContainerInterface`](https://github.com/php-fig/container/blob/1.0.0/src/ContainerInterface.php)
 
 is expected to be injected into a method.
 
@@ -238,9 +238,9 @@ parameters:
 
 This rule reports an error when a method declared in
 
-* an anonymous class
-* a class
-* an interface
+- an anonymous class
+- a class
+- an interface
 
 has a parameter with a nullable type declaration.
 
@@ -248,9 +248,9 @@ has a parameter with a nullable type declaration.
 
 This rule reports an error when a method declared in
 
-* an anonymous class
-* a class
-* an interface
+- an anonymous class
+- a class
+- an interface
 
 has a parameter with `null` as default value.
 
