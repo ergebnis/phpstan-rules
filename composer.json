@@ -20,7 +20,7 @@
     "source": "https://github.com/ergebnis/phpstan-rules"
   },
   "require": {
-    "php": "^7.3 || ^8.0",
+    "php": "^7.4 || ^8.0",
     "ext-mbstring": "*",
     "nikic/php-parser": "^4.2.3",
     "phpstan/phpstan": "^1.0.0"
@@ -56,7 +56,7 @@
       "ergebnis/composer-normalize": true
     },
     "platform": {
-      "php": "7.3.33"
+      "php": "7.4.29"
     },
     "preferred-install": "dist",
     "sort-packages": true
