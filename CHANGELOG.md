@@ -12,6 +12,7 @@ For a full diff see [`1.0.0...main`][1.0.0...main].
 
 - Dropped support for PHP 7.2 ([#496]), by [@localheinz]
 - Dropped support for PHP 7.3 ([#498]), by [@localheinz]
+- Dropped support for PHP 7.4 ([#499]), by [@localheinz]
 
 ## [`1.0.0`][1.0.0]
 
@@ -454,6 +455,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#395]: https://github.com/ergebnis/phpstan-rules/pull/395
 [#496]: https://github.com/ergebnis/phpstan-rules/pull/496
 [#498]: https://github.com/ergebnis/phpstan-rules/pull/498
+[#499]: https://github.com/ergebnis/phpstan-rules/pull/498
 
 [@ergebnis]: https://github.com/ergebnis
 [@Great-Antique]: https://github.com/Great-Antique

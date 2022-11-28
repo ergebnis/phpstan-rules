@@ -18,7 +18,6 @@ use Ergebnis\PHPStan\Rules\Test\Fixture;
 use Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase;
 use PHPStan\Rules\Rule;
 use Psr\Container;
-use Zend\ServiceManager;
 
 /**
  * @internal
@@ -78,16 +77,6 @@ final class NoParameterWithContainerTypeDeclarationRuleTest extends AbstractTest
                     9,
                 ],
             ],
-            'anonymous-class-with-method-with-parameter-with-service-locator-interface-as-type-declaration' => [
-                __DIR__ . '/../../Fixture/Methods/NoParameterWithContainerTypeDeclarationRule/Failure/anonymous-class-with-method-with-parameter-with-service-locator-interface-as-type-declaration.php',
-                [
-                    \sprintf(
-                        'Method __construct() in anonymous class has a parameter $container with a type declaration of %s, but containers should not be injected.',
-                        ServiceManager\ServiceLocatorInterface::class
-                    ),
-                    11,
-                ],
-            ],
             'class-implementing-container-interface-with-method-with-parameter-with-self-as-type-declaration' => [
                 __DIR__ . '/../../Fixture/Methods/NoParameterWithContainerTypeDeclarationRule/Failure/ClassImplementingContainerInterfaceWithMethodWithParameterWithSelfAsTypeDeclaration.php',
                 [
@@ -132,17 +121,6 @@ final class NoParameterWithContainerTypeDeclarationRuleTest extends AbstractTest
                     9,
                 ],
             ],
-            'class-with-method-with-parameter-with-service-locator-interface-as-type-declaration' => [
-                __DIR__ . '/../../Fixture/Methods/NoParameterWithContainerTypeDeclarationRule/Failure/ClassWithMethodWithParameterWithServiceLocatorInterfaceAsTypeDeclaration.php',
-                [
-                    \sprintf(
-                        'Method %s::method() has a parameter $container with a type declaration of %s, but containers should not be injected.',
-                        Fixture\Methods\NoParameterWithContainerTypeDeclarationRule\Failure\ClassWithMethodWithParameterWithServiceLocatorInterfaceAsTypeDeclaration::class,
-                        ServiceManager\ServiceLocatorInterface::class
-                    ),
-                    11,
-                ],
-            ],
             'interface-with-method-with-parameter-with-container-interface-as-type-declaration' => [
                 __DIR__ . '/../../Fixture/Methods/NoParameterWithContainerTypeDeclarationRule/Failure/InterfaceWithMethodWithParameterWithContainerInterfaceAsTypeDeclaration.php',
                 [
@@ -150,17 +128,6 @@ final class NoParameterWithContainerTypeDeclarationRuleTest extends AbstractTest
                         'Method %s::method() has a parameter $container with a type declaration of %s, but containers should not be injected.',
                         Fixture\Methods\NoParameterWithContainerTypeDeclarationRule\Failure\InterfaceWithMethodWithParameterWithContainerInterfaceAsTypeDeclaration::class,
                         Container\ContainerInterface::class
-                    ),
-                    11,
-                ],
-            ],
-            'interface-with-method-with-parameter-with-service-locator-interface-as-type-declaration' => [
-                __DIR__ . '/../../Fixture/Methods/NoParameterWithContainerTypeDeclarationRule/Failure/InterfaceWithMethodWithParameterWithServiceLocatorInterfaceAsTypeDeclaration.php',
-                [
-                    \sprintf(
-                        'Method %s::method() has a parameter $container with a type declaration of %s, but containers should not be injected.',
-                        Fixture\Methods\NoParameterWithContainerTypeDeclarationRule\Failure\InterfaceWithMethodWithParameterWithServiceLocatorInterfaceAsTypeDeclaration::class,
-                        ServiceManager\ServiceLocatorInterface::class
                     ),
                     11,
                 ],
@@ -181,7 +148,6 @@ final class NoParameterWithContainerTypeDeclarationRuleTest extends AbstractTest
             $this->createReflectionProvider(),
             [
                 Container\ContainerInterface::class,
-                ServiceManager\ServiceLocatorInterface::class,
             ]
         );
     }
