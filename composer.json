@@ -20,7 +20,7 @@
     "source": "https://github.com/ergebnis/phpstan-rules"
   },
   "require": {
-    "php": "^7.4 || ^8.0",
+    "php": "~7.4.0 || ~8.0.0 || ~8.1.0",
     "ext-mbstring": "*",
     "nikic/php-parser": "^4.2.3",
     "phpstan/phpstan": "^1.0.0"
