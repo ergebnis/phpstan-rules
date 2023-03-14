@@ -2,7 +2,6 @@
 
 [![Integrate](https://github.com/ergebnis/phpstan-rules/workflows/Integrate/badge.svg)](https://github.com/ergebnis/phpstan-rules/actions)
 [![Merge](https://github.com/ergebnis/phpstan-rules/workflows/Merge/badge.svg)](https://github.com/ergebnis/phpstan-rules/actions)
-[![Prune](https://github.com/ergebnis/phpstan-rules/workflows/Prune/badge.svg)](https://github.com/ergebnis/phpstan-rules/actions)
 [![Release](https://github.com/ergebnis/phpstan-rules/workflows/Release/badge.svg)](https://github.com/ergebnis/phpstan-rules/actions)
 [![Renew](https://github.com/ergebnis/phpstan-rules/workflows/Renew/badge.svg)](https://github.com/ergebnis/phpstan-rules/actions)
 
