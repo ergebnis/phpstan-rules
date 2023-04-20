@@ -15,6 +15,7 @@ parametersSchema:
 	])
 
 rules:
+	- Ergebnis\PHPStan\Rules\Classes\PHPUnit\Framework\TestCaseWithSuffixRule
 	- Ergebnis\PHPStan\Rules\Closures\NoNullableReturnTypeDeclarationRule
 	- Ergebnis\PHPStan\Rules\Closures\NoParameterWithNullableTypeDeclarationRule
 	- Ergebnis\PHPStan\Rules\Expressions\NoCompactRule
@@ -47,11 +48,6 @@ services:
 		class: Ergebnis\PHPStan\Rules\Classes\NoExtendsRule
 		arguments:
 			classesAllowedToBeExtended: %ergebnis.classesAllowedToBeExtended%
-		tags:
-			- phpstan.rules.rule
-
-	-
-		class: Ergebnis\PHPStan\Rules\Classes\PHPUnit\Framework\TestCaseWithSuffixRule
 		tags:
 			- phpstan.rules.rule
 
