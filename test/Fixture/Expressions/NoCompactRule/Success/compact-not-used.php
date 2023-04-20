@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ergebnis\PHPStan\Rules\Test\Fixture\Expressions\NoEmptyRule\Success;
+namespace Ergebnis\PHPStan\Rules\Test\Fixture\Expressions\NoCompactRule\Success;
 
 function _compact(string ...$names): array
 {

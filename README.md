@@ -51,7 +51,6 @@ This package provides the following rules for use with [`phpstan/phpstan`](https
 - [`Ergebnis\PHPStan\Rules\Closures\NoParameterWithNullableTypeDeclarationRule`](https://github.com/ergebnis/phpstan-rules#closuresnoparameterwithnullabletypedeclarationrule)
 - [`Ergebnis\PHPStan\Rules\Closures\NoParameterWithNullDefaultValueRule`](https://github.com/ergebnis/phpstan-rules#closuresnoparameterwithnulldefaultvaluerule)
 - [`Ergebnis\PHPStan\Rules\Expressions\NoCompactRule`](https://github.com/ergebnis/phpstan-rules#expressionsnocompactrule)
-- [`Ergebnis\PHPStan\Rules\Expressions\NoEmptyRule`](https://github.com/ergebnis/phpstan-rules#expressionsnoemptyrule)
 - [`Ergebnis\PHPStan\Rules\Expressions\NoErrorSuppressionRule`](https://github.com/ergebnis/phpstan-rules#expressionsnoerrorsuppressionrule)
 - [`Ergebnis\PHPStan\Rules\Expressions\NoEvalRule`](https://github.com/ergebnis/phpstan-rules#expressionsnoevalrule)
 - [`Ergebnis\PHPStan\Rules\Expressions\NoIssetRule`](https://github.com/ergebnis/phpstan-rules#expressionsnoissetrule)
@@ -147,10 +146,6 @@ This rule reports an error when a closure has a parameter with `null` as default
 #### `Expressions\NoCompactRule`
 
 This rule reports an error when the function [`compact()`](https://www.php.net/compact) is used.
-
-#### `Expressions\NoEmptyRule`
-
-This rule reports an error when the language construct [`empty()`](https://www.php.net/empty) is used.
 
 #### `Expressions\NoEvalRule`
 
