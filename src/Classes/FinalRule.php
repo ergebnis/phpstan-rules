@@ -36,14 +36,12 @@ final class FinalRule implements Rule
     private static array $whitelistedAttributes = [
         'Doctrine\ORM\Mapping\Entity',
     ];
-
     private bool $allowAbstractClasses;
 
     /**
      * @var array<int, string>
      */
     private array $classesNotRequiredToBeAbstractOrFinal;
-
     private string $errorMessageTemplate = 'Class %s is not final.';
 
     /**
