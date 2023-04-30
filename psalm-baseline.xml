@@ -45,11 +45,6 @@
       <code>array</code>
     </MixedReturnTypeCoercion>
   </file>
-  <file src="test/AutoReview/TestCodeTest.php">
-    <ArgumentTypeCoercion occurrences="1">
-      <code>$className</code>
-    </ArgumentTypeCoercion>
-  </file>
   <file src="test/Integration/AbstractTestCase.php">
     <MixedInferredReturnType occurrences="2">
       <code>iterable</code>
