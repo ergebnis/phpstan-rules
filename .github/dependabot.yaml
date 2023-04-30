@@ -7,13 +7,6 @@ updates:
       include: "scope"
       prefix: "composer"
     directory: "/"
-    ignore:
-      - dependency-name: "nikic/php-parser"
-        versions:
-          - ">= 0"
-      - dependency-name: "phpstan/phpstan"
-        versions:
-          - ">= 0"
     labels:
       - "dependency"
     open-pull-requests-limit: 10
