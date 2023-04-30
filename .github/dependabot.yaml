@@ -14,9 +14,6 @@ updates:
       - dependency-name: "phpstan/phpstan"
         versions:
           - ">= 0"
-      - dependency-name: "zendframework/zend-servicemanager"
-        versions:
-          - ">= 0"
     labels:
       - "dependency"
     open-pull-requests-limit: 10
