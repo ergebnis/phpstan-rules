@@ -20,3 +20,8 @@ parameters:
 			count: 1
 			path: src/Functions/NoNullableReturnTypeDeclarationRule.php
 
+		-
+			message: "#^Parameter \\#2 \\$expectedErrors of method PHPStan\\\\Testing\\\\RuleTestCase\\<PHPStan\\\\Rules\\\\Rule\\>\\:\\:analyse\\(\\) expects array\\<int, array\\{0\\: string, 1\\: int, 2\\?\\: string\\}\\>, array\\{array\\} given\\.$#"
+			count: 1
+			path: test/Integration/AbstractTestCase.php
+

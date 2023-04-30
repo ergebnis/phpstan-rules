@@ -38,6 +38,7 @@
     </MixedReturnTypeCoercion>
   </file>
   <file src="test/Integration/AbstractTestCase.php">
+    <MixedArgumentTypeCoercion occurrences="1"/>
     <MixedInferredReturnType occurrences="2">
       <code>iterable</code>
       <code>iterable</code>
