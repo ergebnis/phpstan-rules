@@ -1,40 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="4.22.0@fc2c6ab4d5fa5d644d8617089f012f3bb84b8703">
   <file src="src/Classes/FinalRule.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>isset($node-&gt;namespacedName)</code>
-    </DocblockTypeContradiction>
     <PropertyTypeCoercion occurrences="1"/>
   </file>
   <file src="src/Classes/NoExtendsRule.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>isset($node-&gt;namespacedName)</code>
-    </DocblockTypeContradiction>
     <PropertyTypeCoercion occurrences="1"/>
   </file>
   <file src="src/Classes/PHPUnit/Framework/TestCaseWithSuffixRule.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>isset($node-&gt;namespacedName)</code>
-    </DocblockTypeContradiction>
     <PropertyTypeCoercion occurrences="1"/>
     <UnnecessaryVarAnnotation occurrences="1">
       <code>string</code>
     </UnnecessaryVarAnnotation>
   </file>
-  <file src="src/Functions/NoNullableReturnTypeDeclarationRule.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>isset($node-&gt;namespacedName)</code>
-    </DocblockTypeContradiction>
-  </file>
   <file src="src/Functions/NoParameterWithNullDefaultValueRule.php">
     <ImplicitToStringCast occurrences="1">
       <code>$functionName</code>
     </ImplicitToStringCast>
+    <PossiblyNullArgument occurrences="1">
+      <code>$functionName</code>
+    </PossiblyNullArgument>
   </file>
   <file src="src/Functions/NoParameterWithNullableTypeDeclarationRule.php">
     <ImplicitToStringCast occurrences="1">
       <code>$functionName</code>
     </ImplicitToStringCast>
+    <PossiblyNullArgument occurrences="1">
+      <code>$functionName</code>
+    </PossiblyNullArgument>
   </file>
   <file src="src/Methods/NoParameterWithContainerTypeDeclarationRule.php">
     <ArgumentTypeCoercion occurrences="2">
