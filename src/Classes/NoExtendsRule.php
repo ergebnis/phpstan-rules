@@ -23,14 +23,14 @@ final class NoExtendsRule implements Rule
     /**
      * @var array<int, class-string>
      */
-    private static $defaultClassesAllowedToBeExtended = [
+    private static array $defaultClassesAllowedToBeExtended = [
         'PHPUnit\\Framework\\TestCase',
     ];
 
     /**
      * @var array<int, class-string>
      */
-    private $classesAllowedToBeExtended;
+    private array $classesAllowedToBeExtended;
 
     /**
      * @param array<int, class-string> $classesAllowedToBeExtended
@@ -53,13 +53,13 @@ final class NoExtendsRule implements Rule
 
     public function processNode(
         Node $node,
-        Scope $scope
+        Scope $scope,
     ): array {
         if (!$node instanceof Node\Stmt\Class_) {
             throw new ShouldNotHappenException(\sprintf(
                 'Expected node to be instance of "%s", but got instance of "%s" instead.',
                 Node\Stmt\Class_::class,
-                \get_class($node),
+                $node::class,
             ));
         }
 

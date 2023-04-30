@@ -26,7 +26,7 @@ final class NoEvalRule implements Rule
 
     public function processNode(
         Node $node,
-        Scope $scope
+        Scope $scope,
     ): array {
         return [
             'Language construct eval() should not be used.',

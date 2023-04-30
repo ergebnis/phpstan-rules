@@ -26,7 +26,7 @@ final class NoSwitchRule implements Rule
 
     public function processNode(
         Node $node,
-        Scope $scope
+        Scope $scope,
     ): array {
         return [
             'Control structures using switch should not be used.',

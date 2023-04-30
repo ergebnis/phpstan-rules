@@ -14,5 +14,5 @@ $bar = 42;
 
 return _compact(
     'foo',
-    'bar'
+    'bar',
 );

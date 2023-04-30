@@ -26,7 +26,7 @@ final class NoEmptyRule implements Rule
 
     public function processNode(
         Node $node,
-        Scope $scope
+        Scope $scope,
     ): array {
         return [
             'Language construct empty() should not be used.',

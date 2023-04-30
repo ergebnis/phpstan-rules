@@ -26,7 +26,7 @@ final class NoIssetRule implements Rule
 
     public function processNode(
         Node $node,
-        Scope $scope
+        Scope $scope,
     ): array {
         return [
             'Language construct isset() should not be used.',

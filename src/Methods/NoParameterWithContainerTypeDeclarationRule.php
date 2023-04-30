@@ -21,22 +21,19 @@ use PHPStan\ShouldNotHappenException;
 
 final class NoParameterWithContainerTypeDeclarationRule implements Rule
 {
-    /**
-     * @var Reflection\ReflectionProvider
-     */
-    private $reflectionProvider;
+    private Reflection\ReflectionProvider $reflectionProvider;
 
     /**
      * @var array<int, string>
      */
-    private $interfacesImplementedByContainers;
+    private array $interfacesImplementedByContainers;
 
     /**
      * @param array<int, string> $interfacesImplementedByContainers
      */
     public function __construct(
         Reflection\ReflectionProvider $reflectionProvider,
-        array $interfacesImplementedByContainers
+        array $interfacesImplementedByContainers,
     ) {
         $this->reflectionProvider = $reflectionProvider;
         $this->interfacesImplementedByContainers = \array_filter(
@@ -56,13 +53,13 @@ final class NoParameterWithContainerTypeDeclarationRule implements Rule
 
     public function processNode(
         Node $node,
-        Scope $scope
+        Scope $scope,
     ): array {
         if (!$node instanceof Node\Stmt\ClassMethod) {
             throw new ShouldNotHappenException(\sprintf(
                 'Expected node to be instance of "%s", but got instance of "%s" instead.',
                 Node\Stmt\ClassMethod::class,
-                \get_class($node),
+                $node::class,
             ));
         }
 
@@ -134,7 +131,7 @@ final class NoParameterWithContainerTypeDeclarationRule implements Rule
         Reflection\ClassReflection $classReflection,
         string $methodName,
         string $parameterName,
-        Reflection\ClassReflection $classUsedInTypeDeclaration
+        Reflection\ClassReflection $classUsedInTypeDeclaration,
     ): string {
         if ($classReflection->isAnonymous()) {
             return \sprintf(

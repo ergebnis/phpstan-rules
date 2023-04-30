@@ -27,13 +27,13 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rule
 
     public function processNode(
         Node $node,
-        Scope $scope
+        Scope $scope,
     ): array {
         if (!$node instanceof Node\Stmt\Function_) {
             throw new ShouldNotHappenException(\sprintf(
                 'Expected node to be instance of "%s", but got instance of "%s" instead.',
                 Node\Stmt\Function_::class,
-                \get_class($node),
+                $node::class,
             ));
         }
 

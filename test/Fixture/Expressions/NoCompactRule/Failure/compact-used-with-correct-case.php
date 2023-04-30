@@ -9,5 +9,5 @@ $bar = 42;
 
 return \compact(
     'foo',
-    'bar'
+    'bar',
 );

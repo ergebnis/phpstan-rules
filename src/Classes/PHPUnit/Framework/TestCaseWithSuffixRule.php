@@ -24,14 +24,11 @@ final class TestCaseWithSuffixRule implements Rules\Rule
     /**
      * @var array<int, class-string>
      */
-    private static $phpunitTestCaseClassNames = [
+    private static array $phpunitTestCaseClassNames = [
         'PHPUnit\Framework\TestCase',
     ];
 
-    /**
-     * @var Reflection\ReflectionProvider
-     */
-    private $reflectionProvider;
+    private Reflection\ReflectionProvider $reflectionProvider;
 
     public function __construct(Reflection\ReflectionProvider $reflectionProvider)
     {
@@ -45,13 +42,13 @@ final class TestCaseWithSuffixRule implements Rules\Rule
 
     public function processNode(
         Node $node,
-        Analyser\Scope $scope
+        Analyser\Scope $scope,
     ): array {
         if (!$node instanceof Node\Stmt\Class_) {
             throw new ShouldNotHappenException(\sprintf(
                 'Expected node to be instance of "%s", but got instance of "%s" instead.',
                 Node\Stmt\Class_::class,
-                \get_class($node),
+                $node::class,
             ));
         }
 

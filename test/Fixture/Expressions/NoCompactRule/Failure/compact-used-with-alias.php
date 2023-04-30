@@ -11,5 +11,5 @@ $bar = 42;
 
 return compress(
     'foo',
-    'bar'
+    'bar',
 );

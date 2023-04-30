@@ -24,7 +24,7 @@ final class FinalRule implements Rule
     /**
      * @var array<int, string>
      */
-    private static $whitelistedAnnotations = [
+    private static array $whitelistedAnnotations = [
         'Entity',
         'ORM\Entity',
         'ORM\Mapping\Entity',
@@ -33,31 +33,25 @@ final class FinalRule implements Rule
     /**
      * @var array<int, class-string>
      */
-    private static $whitelistedAttributes = [
+    private static array $whitelistedAttributes = [
         'Doctrine\ORM\Mapping\Entity',
     ];
 
-    /**
-     * @var bool
-     */
-    private $allowAbstractClasses;
+    private bool $allowAbstractClasses;
 
     /**
      * @var array<int, string>
      */
-    private $classesNotRequiredToBeAbstractOrFinal;
+    private array $classesNotRequiredToBeAbstractOrFinal;
 
-    /**
-     * @var string
-     */
-    private $errorMessageTemplate = 'Class %s is not final.';
+    private string $errorMessageTemplate = 'Class %s is not final.';
 
     /**
      * @param array<int, class-string> $classesNotRequiredToBeAbstractOrFinal
      */
     public function __construct(
         bool $allowAbstractClasses,
-        array $classesNotRequiredToBeAbstractOrFinal
+        array $classesNotRequiredToBeAbstractOrFinal,
     ) {
         $this->allowAbstractClasses = $allowAbstractClasses;
         $this->classesNotRequiredToBeAbstractOrFinal = \array_map(static function (string $classNotRequiredToBeAbstractOrFinal): string {
@@ -76,13 +70,13 @@ final class FinalRule implements Rule
 
     public function processNode(
         Node $node,
-        Scope $scope
+        Scope $scope,
     ): array {
         if (!$node instanceof Node\Stmt\Class_) {
             throw new ShouldNotHappenException(\sprintf(
                 'Expected node to be instance of "%s", but got instance of "%s" instead.',
                 Node\Stmt\Class_::class,
-                \get_class($node),
+                $node::class,
             ));
         }
 

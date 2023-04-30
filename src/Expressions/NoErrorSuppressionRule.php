@@ -26,7 +26,7 @@ final class NoErrorSuppressionRule implements Rule
 
     public function processNode(
         Node $node,
-        Scope $scope
+        Scope $scope,
     ): array {
         return [
             'Error suppression via "@" should not be used.',
