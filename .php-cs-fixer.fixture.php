@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 use Ergebnis\PhpCsFixer;
 
-$config = PhpCsFixer\Config\Factory::fromRuleSet(new PhpCsFixer\Config\RuleSet\Php71(''), [
+$config = PhpCsFixer\Config\Factory::fromRuleSet(new PhpCsFixer\Config\RuleSet\Php80(''), [
     'constant_case' => false,
     'declare_strict_types' => false,
     'error_suppression' => false,
