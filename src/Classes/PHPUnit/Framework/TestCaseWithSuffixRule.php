@@ -51,7 +51,7 @@ final class TestCaseWithSuffixRule implements Rules\Rule
             throw new ShouldNotHappenException(\sprintf(
                 'Expected node to be instance of "%s", but got instance of "%s" instead.',
                 Node\Stmt\Class_::class,
-                \get_class($node)
+                \get_class($node),
             ));
         }
 
@@ -94,7 +94,7 @@ final class TestCaseWithSuffixRule implements Rules\Rule
             \sprintf(
                 'Class %s extends %s, is concrete, but does not have a Test suffix.',
                 $fullyQualifiedClassName,
-                $extendedPhpunitTestCaseClassName
+                $extendedPhpunitTestCaseClassName,
             ),
         ];
     }

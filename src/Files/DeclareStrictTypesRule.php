@@ -34,7 +34,7 @@ final class DeclareStrictTypesRule implements Rule
             throw new ShouldNotHappenException(\sprintf(
                 'Expected node to be instance of "%s", but got instance of "%s" instead.',
                 FileNode::class,
-                \get_class($node)
+                \get_class($node),
             ));
         }
 

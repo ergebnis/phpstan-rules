@@ -42,7 +42,7 @@ final class NoExtendsRule implements Rule
             \array_map(static function (string $classAllowedToBeExtended): string {
                 /** @var class-string $classAllowedToBeExtended */
                 return $classAllowedToBeExtended;
-            }, $classesAllowedToBeExtended)
+            }, $classesAllowedToBeExtended),
         ));
     }
 
@@ -59,7 +59,7 @@ final class NoExtendsRule implements Rule
             throw new ShouldNotHappenException(\sprintf(
                 'Expected node to be instance of "%s", but got instance of "%s" instead.',
                 Node\Stmt\Class_::class,
-                \get_class($node)
+                \get_class($node),
             ));
         }
 
@@ -77,7 +77,7 @@ final class NoExtendsRule implements Rule
             return [
                 \sprintf(
                     'Anonymous class is not allowed to extend "%s".',
-                    $extendedClassName
+                    $extendedClassName,
                 ),
             ];
         }
@@ -86,7 +86,7 @@ final class NoExtendsRule implements Rule
             \sprintf(
                 'Class "%s" is not allowed to extend "%s".',
                 $node->namespacedName->toString(),
-                $extendedClassName
+                $extendedClassName,
             ),
         ];
     }

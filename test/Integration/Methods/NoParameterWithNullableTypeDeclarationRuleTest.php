@@ -65,7 +65,7 @@ final class NoParameterWithNullableTypeDeclarationRuleTest extends AbstractTestC
                 [
                     \sprintf(
                         'Method %s::foo() has parameter $bar with a nullable type declaration.',
-                        Fixture\Methods\NoParameterWithNullableTypeDeclarationRule\Failure\MethodInClassWithParameterWithNullableTypeDeclaration::class
+                        Fixture\Methods\NoParameterWithNullableTypeDeclarationRule\Failure\MethodInClassWithParameterWithNullableTypeDeclaration::class,
                     ),
                     9,
                 ],
@@ -75,7 +75,7 @@ final class NoParameterWithNullableTypeDeclarationRuleTest extends AbstractTestC
                 [
                     \sprintf(
                         'Method %s::foo() has parameter $bar with a nullable type declaration.',
-                        Fixture\Methods\NoParameterWithNullableTypeDeclarationRule\Failure\MethodInInterfaceWithParameterWithNullableTypeDeclaration::class
+                        Fixture\Methods\NoParameterWithNullableTypeDeclarationRule\Failure\MethodInInterfaceWithParameterWithNullableTypeDeclaration::class,
                     ),
                     9,
                 ],

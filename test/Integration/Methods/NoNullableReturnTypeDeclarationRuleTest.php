@@ -62,7 +62,7 @@ final class NoNullableReturnTypeDeclarationRuleTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Method %s::toString() has a nullable return type declaration.',
-                        Fixture\Methods\NoNullableReturnTypeDeclarationRule\Failure\MethodInClassWithNullableReturnTypeDeclaration::class
+                        Fixture\Methods\NoNullableReturnTypeDeclarationRule\Failure\MethodInClassWithNullableReturnTypeDeclaration::class,
                     ),
                     9,
                 ],
@@ -72,7 +72,7 @@ final class NoNullableReturnTypeDeclarationRuleTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Method %s::toString() has a nullable return type declaration.',
-                        Fixture\Methods\NoNullableReturnTypeDeclarationRule\Failure\MethodInInterfaceWithNullableReturnTypeDeclaration::class
+                        Fixture\Methods\NoNullableReturnTypeDeclarationRule\Failure\MethodInInterfaceWithNullableReturnTypeDeclaration::class,
                     ),
                     9,
                 ],

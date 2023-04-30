@@ -33,7 +33,7 @@ final class NoNullableReturnTypeDeclarationRule implements Rule
             throw new ShouldNotHappenException(\sprintf(
                 'Expected node to be instance of "%s", but got instance of "%s" instead.',
                 Node\Stmt\Function_::class,
-                \get_class($node)
+                \get_class($node),
             ));
         }
 
@@ -48,7 +48,7 @@ final class NoNullableReturnTypeDeclarationRule implements Rule
         return [
             \sprintf(
                 'Function %s() has a nullable return type declaration.',
-                $node->namespacedName->toString()
+                $node->namespacedName->toString(),
             ),
         ];
     }

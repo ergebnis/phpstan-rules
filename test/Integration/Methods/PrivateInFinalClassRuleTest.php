@@ -51,7 +51,7 @@ final class PrivateInFinalClassRuleTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Method %s::method() is protected, but since the containing class is final, it can be private.',
-                        Fixture\Methods\PrivateInFinalClassRule\Failure\FinalClassWithProtectedMethod::class
+                        Fixture\Methods\PrivateInFinalClassRule\Failure\FinalClassWithProtectedMethod::class,
                     ),
                     9,
                 ],

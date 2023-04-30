@@ -45,7 +45,7 @@ final class NoParameterWithContainerTypeDeclarationRule implements Rule
             }, $interfacesImplementedByContainers),
             static function (string $interfaceImplementedByContainer): bool {
                 return \interface_exists($interfaceImplementedByContainer);
-            }
+            },
         );
     }
 
@@ -62,7 +62,7 @@ final class NoParameterWithContainerTypeDeclarationRule implements Rule
             throw new ShouldNotHappenException(\sprintf(
                 'Expected node to be instance of "%s", but got instance of "%s" instead.',
                 Node\Stmt\ClassMethod::class,
-                \get_class($node)
+                \get_class($node),
             ));
         }
 
@@ -103,7 +103,7 @@ final class NoParameterWithContainerTypeDeclarationRule implements Rule
                                 $containingClass,
                                 $methodName,
                                 $parameterName,
-                                $classUsedInTypeDeclaration
+                                $classUsedInTypeDeclaration,
                             );
 
                             return $errors;
@@ -117,7 +117,7 @@ final class NoParameterWithContainerTypeDeclarationRule implements Rule
                             $containingClass,
                             $methodName,
                             $parameterName,
-                            $classUsedInTypeDeclaration
+                            $classUsedInTypeDeclaration,
                         );
 
                         return $errors;
@@ -126,7 +126,7 @@ final class NoParameterWithContainerTypeDeclarationRule implements Rule
 
                 return $errors;
             },
-            []
+            [],
         );
     }
 
@@ -141,7 +141,7 @@ final class NoParameterWithContainerTypeDeclarationRule implements Rule
                 'Method %s() in anonymous class has a parameter $%s with a type declaration of %s, but containers should not be injected.',
                 $methodName,
                 $parameterName,
-                $classUsedInTypeDeclaration->getName()
+                $classUsedInTypeDeclaration->getName(),
             );
         }
 
@@ -150,7 +150,7 @@ final class NoParameterWithContainerTypeDeclarationRule implements Rule
             $classReflection->getName(),
             $methodName,
             $parameterName,
-            $classUsedInTypeDeclaration->getName()
+            $classUsedInTypeDeclaration->getName(),
         );
     }
 }

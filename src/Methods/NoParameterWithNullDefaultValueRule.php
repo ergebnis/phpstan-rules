@@ -34,7 +34,7 @@ final class NoParameterWithNullDefaultValueRule implements Rule
             throw new ShouldNotHappenException(\sprintf(
                 'Expected node to be instance of "%s", but got instance of "%s" instead.',
                 Node\Stmt\ClassMethod::class,
-                \get_class($node)
+                \get_class($node),
             ));
         }
 
@@ -70,7 +70,7 @@ final class NoParameterWithNullDefaultValueRule implements Rule
                 return \sprintf(
                     'Method %s() in anonymous class has parameter $%s with null as default value.',
                     $methodName,
-                    $parameterName
+                    $parameterName,
                 );
             }, $params);
         }
@@ -88,7 +88,7 @@ final class NoParameterWithNullDefaultValueRule implements Rule
                 'Method %s::%s() has parameter $%s with null as default value.',
                 $className,
                 $methodName,
-                $parameterName
+                $parameterName,
             );
         }, $params);
     }

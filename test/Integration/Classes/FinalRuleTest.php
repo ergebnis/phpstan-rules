@@ -57,7 +57,7 @@ final class FinalRuleTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Fixture\Classes\FinalRule\Failure\AbstractClass::class
+                        Fixture\Classes\FinalRule\Failure\AbstractClass::class,
                     ),
                     7,
                 ],
@@ -67,7 +67,7 @@ final class FinalRuleTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Fixture\Classes\FinalRule\Failure\NeitherAbstractNorFinalClass::class
+                        Fixture\Classes\FinalRule\Failure\NeitherAbstractNorFinalClass::class,
                     ),
                     7,
                 ],
@@ -77,7 +77,7 @@ final class FinalRuleTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Fixture\Classes\FinalRule\Failure\NonFinalClassWithoutEntityAnnotationInInlineDocBlock::class
+                        Fixture\Classes\FinalRule\Failure\NonFinalClassWithoutEntityAnnotationInInlineDocBlock::class,
                     ),
                     8,
                 ],
@@ -87,7 +87,7 @@ final class FinalRuleTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Fixture\Classes\FinalRule\Failure\NonFinalClassWithoutEntityAnnotationInMultilineDocBlock::class
+                        Fixture\Classes\FinalRule\Failure\NonFinalClassWithoutEntityAnnotationInMultilineDocBlock::class,
                     ),
                     11,
                 ],
@@ -97,7 +97,7 @@ final class FinalRuleTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Fixture\Classes\FinalRule\Failure\NonFinalClassWithoutOrmEntityAnnotationInInlineDocBlock::class
+                        Fixture\Classes\FinalRule\Failure\NonFinalClassWithoutOrmEntityAnnotationInInlineDocBlock::class,
                     ),
                     8,
                 ],
@@ -107,7 +107,7 @@ final class FinalRuleTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Fixture\Classes\FinalRule\Failure\NonFinalClassWithoutOrmEntityAnnotationInMultilineDocBlock::class
+                        Fixture\Classes\FinalRule\Failure\NonFinalClassWithoutOrmEntityAnnotationInMultilineDocBlock::class,
                     ),
                     11,
                 ],
@@ -126,7 +126,7 @@ final class FinalRuleTest extends AbstractTestCase
     {
         return new FinalRule(
             false,
-            []
+            [],
         );
     }
 }

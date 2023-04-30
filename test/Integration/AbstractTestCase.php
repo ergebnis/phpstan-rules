@@ -29,7 +29,7 @@ abstract class AbstractTestCase extends RuleTestCase
             [
                 $path,
             ],
-            []
+            [],
         );
     }
 
@@ -44,7 +44,7 @@ abstract class AbstractTestCase extends RuleTestCase
             ],
             [
                 $error,
-            ]
+            ],
         );
     }
 

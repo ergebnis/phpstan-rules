@@ -34,7 +34,7 @@ final class NoConstructorParameterWithDefaultValueRule implements Rule
             throw new ShouldNotHappenException(\sprintf(
                 'Expected node to be instance of "%s", but got instance of "%s" instead.',
                 Node\Stmt\ClassMethod::class,
-                \get_class($node)
+                \get_class($node),
             ));
         }
 
@@ -67,7 +67,7 @@ final class NoConstructorParameterWithDefaultValueRule implements Rule
 
                 return \sprintf(
                     'Constructor in anonymous class has parameter $%s with default value.',
-                    $parameterName
+                    $parameterName,
                 );
             }, $params);
         }
@@ -84,7 +84,7 @@ final class NoConstructorParameterWithDefaultValueRule implements Rule
             return \sprintf(
                 'Constructor in %s has parameter $%s with default value.',
                 $className,
-                $parameterName
+                $parameterName,
             );
         }, $params);
     }

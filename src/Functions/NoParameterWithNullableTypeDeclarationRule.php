@@ -33,7 +33,7 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rule
             throw new ShouldNotHappenException(\sprintf(
                 'Expected node to be instance of "%s", but got instance of "%s" instead.',
                 Node\Stmt\Function_::class,
-                \get_class($node)
+                \get_class($node),
             ));
         }
 
@@ -61,7 +61,7 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rule
             return \sprintf(
                 'Function %s() has parameter $%s with a nullable type declaration.',
                 $functionName,
-                $parameterName
+                $parameterName,
             );
         }, $params);
     }

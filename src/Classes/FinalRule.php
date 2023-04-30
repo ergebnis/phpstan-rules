@@ -82,7 +82,7 @@ final class FinalRule implements Rule
             throw new ShouldNotHappenException(\sprintf(
                 'Expected node to be instance of "%s", but got instance of "%s" instead.',
                 Node\Stmt\Class_::class,
-                \get_class($node)
+                \get_class($node),
             ));
         }
 
@@ -109,7 +109,7 @@ final class FinalRule implements Rule
         return [
             \sprintf(
                 $this->errorMessageTemplate,
-                $node->namespacedName->toString()
+                $node->namespacedName->toString(),
             ),
         ];
     }

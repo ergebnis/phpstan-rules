@@ -33,7 +33,7 @@ final class NoCompactRule implements Rule
             throw new ShouldNotHappenException(\sprintf(
                 'Expected node to be instance of "%s", but got instance of "%s" instead.',
                 Node\Expr\FuncCall::class,
-                \get_class($node)
+                \get_class($node),
             ));
         }
 

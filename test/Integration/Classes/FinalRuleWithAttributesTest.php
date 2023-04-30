@@ -52,7 +52,7 @@ final class FinalRuleWithAttributesTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Fixture\Classes\FinalRuleWithAttributes\Failure\NonFinalClassWithUnqualifiedDoctrineOrmMappingEntityAttribute::class
+                        Fixture\Classes\FinalRuleWithAttributes\Failure\NonFinalClassWithUnqualifiedDoctrineOrmMappingEntityAttribute::class,
                     ),
                     7,
                 ],
@@ -62,7 +62,7 @@ final class FinalRuleWithAttributesTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Fixture\Classes\FinalRuleWithAttributes\Failure\NonFinalClassWithUnqualifiedEntityAttribute::class
+                        Fixture\Classes\FinalRuleWithAttributes\Failure\NonFinalClassWithUnqualifiedEntityAttribute::class,
                     ),
                     7,
                 ],
@@ -72,7 +72,7 @@ final class FinalRuleWithAttributesTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Fixture\Classes\FinalRuleWithAttributes\Failure\NonFinalClassWithUnqualifiedOrmEntityAttribute::class
+                        Fixture\Classes\FinalRuleWithAttributes\Failure\NonFinalClassWithUnqualifiedOrmEntityAttribute::class,
                     ),
                     7,
                 ],
@@ -82,7 +82,7 @@ final class FinalRuleWithAttributesTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Fixture\Classes\FinalRuleWithAttributes\Failure\NonFinalClassWithUnqualifiedOrmMappingEntityAttribute::class
+                        Fixture\Classes\FinalRuleWithAttributes\Failure\NonFinalClassWithUnqualifiedOrmMappingEntityAttribute::class,
                     ),
                     7,
                 ],
@@ -101,7 +101,7 @@ final class FinalRuleWithAttributesTest extends AbstractTestCase
     {
         return new FinalRule(
             false,
-            []
+            [],
         );
     }
 }

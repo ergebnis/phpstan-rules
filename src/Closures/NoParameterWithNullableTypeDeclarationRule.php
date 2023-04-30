@@ -33,7 +33,7 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rule
             throw new ShouldNotHappenException(\sprintf(
                 'Expected node to be instance of "%s", but got instance of "%s" instead.',
                 Node\Expr\Closure::class,
-                \get_class($node)
+                \get_class($node),
             ));
         }
 
@@ -58,7 +58,7 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rule
 
             return \sprintf(
                 'Closure has parameter $%s with a nullable type declaration.',
-                $parameterName
+                $parameterName,
             );
         }, $params);
     }

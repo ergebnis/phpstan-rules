@@ -52,7 +52,7 @@ final class FinalRuleWithExcludedClassNamesTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Fixture\Classes\FinalRuleWithExcludedClassNames\Failure\AbstractClass::class
+                        Fixture\Classes\FinalRuleWithExcludedClassNames\Failure\AbstractClass::class,
                     ),
                     7,
                 ],
@@ -62,7 +62,7 @@ final class FinalRuleWithExcludedClassNamesTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Fixture\Classes\FinalRuleWithExcludedClassNames\Failure\NeitherAbstractNorFinalClass::class
+                        Fixture\Classes\FinalRuleWithExcludedClassNames\Failure\NeitherAbstractNorFinalClass::class,
                     ),
                     7,
                 ],
@@ -83,7 +83,7 @@ final class FinalRuleWithExcludedClassNamesTest extends AbstractTestCase
             false,
             [
                 Fixture\Classes\FinalRuleWithExcludedClassNames\Success\NeitherAbstractNorFinalClassButWhitelisted::class,
-            ]
+            ],
         );
     }
 }

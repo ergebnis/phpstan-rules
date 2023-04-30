@@ -71,7 +71,7 @@ final class NoConstructorParameterWithDefaultValueRuleTest extends AbstractTestC
                 [
                     \sprintf(
                         'Constructor in %s has parameter $bar with default value.',
-                        Fixture\Methods\NoConstructorParameterWithDefaultValueRule\Failure\ConstructorInClassWithParameterWithDefaultValue::class
+                        Fixture\Methods\NoConstructorParameterWithDefaultValueRule\Failure\ConstructorInClassWithParameterWithDefaultValue::class,
                     ),
                     9,
                 ],
@@ -81,7 +81,7 @@ final class NoConstructorParameterWithDefaultValueRuleTest extends AbstractTestC
                 [
                     \sprintf(
                         'Constructor in %s has parameter $bar with default value.',
-                        Fixture\Methods\NoConstructorParameterWithDefaultValueRule\Failure\ConstructorWithWrongCapitalizationInClassWithParameterWithDefaultValue::class
+                        Fixture\Methods\NoConstructorParameterWithDefaultValueRule\Failure\ConstructorWithWrongCapitalizationInClassWithParameterWithDefaultValue::class,
                     ),
                     9,
                 ],

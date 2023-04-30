@@ -51,7 +51,7 @@ final class NoExtendsRuleTest extends AbstractTestCase
                     \sprintf(
                         'Class "%s" is not allowed to extend "%s".',
                         Fixture\Classes\NoExtendsRule\Failure\ClassExtendingOtherClass::class,
-                        Fixture\Classes\NoExtendsRule\Failure\OtherClass::class
+                        Fixture\Classes\NoExtendsRule\Failure\OtherClass::class,
                     ),
                     7,
                 ],
@@ -61,7 +61,7 @@ final class NoExtendsRuleTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Anonymous class is not allowed to extend "%s".',
-                        Fixture\Classes\NoExtendsRule\Failure\OtherClass::class
+                        Fixture\Classes\NoExtendsRule\Failure\OtherClass::class,
                     ),
                     7,
                 ],

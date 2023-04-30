@@ -51,7 +51,7 @@ final class FinalInAbstractClassRuleTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Method %s::method() is not final, but since the containing class is abstract, it should be.',
-                        Fixture\Methods\FinalInAbstractClassRule\Failure\AbstractClassWithProtectedMethod::class
+                        Fixture\Methods\FinalInAbstractClassRule\Failure\AbstractClassWithProtectedMethod::class,
                     ),
                     9,
                 ],
@@ -61,7 +61,7 @@ final class FinalInAbstractClassRuleTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Method %s::method() is not final, but since the containing class is abstract, it should be.',
-                        Fixture\Methods\FinalInAbstractClassRule\Failure\AbstractClassWithPublicMethod::class
+                        Fixture\Methods\FinalInAbstractClassRule\Failure\AbstractClassWithPublicMethod::class,
                     ),
                     9,
                 ],

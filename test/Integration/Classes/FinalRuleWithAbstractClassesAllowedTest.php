@@ -52,7 +52,7 @@ final class FinalRuleWithAbstractClassesAllowedTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Class %s is neither abstract nor final.',
-                        Fixture\Classes\FinalRuleWithAbstractClassesAllowed\Failure\NeitherAbstractNorFinalClass::class
+                        Fixture\Classes\FinalRuleWithAbstractClassesAllowed\Failure\NeitherAbstractNorFinalClass::class,
                     ),
                     7,
                 ],
@@ -71,7 +71,7 @@ final class FinalRuleWithAbstractClassesAllowedTest extends AbstractTestCase
     {
         return new FinalRule(
             true,
-            []
+            [],
         );
     }
 }
