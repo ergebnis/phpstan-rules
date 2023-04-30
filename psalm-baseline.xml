@@ -1,45 +1,227 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.30.0@d0bc6e25d89f649e4f36a534f330f8bb4643dd69">
+<files psalm-version="5.9.0@8b9ad1eb9e8b7d3101f949291da2b9f7767cd163">
   <file src="src/Classes/FinalRule.php">
-    <PropertyTypeCoercion occurrences="1"/>
+    <MissingTemplateParam>
+      <code>Rule</code>
+    </MissingTemplateParam>
+    <PropertyTypeCoercion>
+      <code>[
+        'Doctrine\ORM\Mapping\Entity',
+    ]</code>
+    </PropertyTypeCoercion>
   </file>
   <file src="src/Classes/NoExtendsRule.php">
-    <PropertyTypeCoercion occurrences="1"/>
+    <MissingTemplateParam>
+      <code>Rule</code>
+    </MissingTemplateParam>
+    <PropertyTypeCoercion>
+      <code>[
+        'PHPUnit\\Framework\\TestCase',
+    ]</code>
+    </PropertyTypeCoercion>
   </file>
   <file src="src/Classes/PHPUnit/Framework/TestCaseWithSuffixRule.php">
-    <PropertyTypeCoercion occurrences="1"/>
-    <UnnecessaryVarAnnotation occurrences="1">
+    <MissingTemplateParam>
+      <code>Rules\Rule</code>
+    </MissingTemplateParam>
+    <PropertyTypeCoercion>
+      <code>[
+        'PHPUnit\Framework\TestCase',
+    ]</code>
+    </PropertyTypeCoercion>
+    <UnnecessaryVarAnnotation>
       <code>string</code>
     </UnnecessaryVarAnnotation>
   </file>
+  <file src="src/Closures/NoNullableReturnTypeDeclarationRule.php">
+    <MissingTemplateParam>
+      <code>Rule</code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/Closures/NoParameterWithNullDefaultValueRule.php">
+    <MissingTemplateParam>
+      <code>Rule</code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/Closures/NoParameterWithNullableTypeDeclarationRule.php">
+    <MissingTemplateParam>
+      <code>Rule</code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/Expressions/NoCompactRule.php">
+    <MissingTemplateParam>
+      <code>Rule</code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/Expressions/NoEmptyRule.php">
+    <MissingTemplateParam>
+      <code>Rule</code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/Expressions/NoErrorSuppressionRule.php">
+    <MissingTemplateParam>
+      <code>Rule</code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/Expressions/NoEvalRule.php">
+    <MissingTemplateParam>
+      <code>Rule</code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/Expressions/NoIssetRule.php">
+    <MissingTemplateParam>
+      <code>Rule</code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/Files/DeclareStrictTypesRule.php">
+    <MissingTemplateParam>
+      <code>Rule</code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/Functions/NoNullableReturnTypeDeclarationRule.php">
+    <MissingTemplateParam>
+      <code>Rule</code>
+    </MissingTemplateParam>
+  </file>
   <file src="src/Functions/NoParameterWithNullDefaultValueRule.php">
-    <ImplicitToStringCast occurrences="1">
+    <ImplicitToStringCast>
       <code>$functionName</code>
     </ImplicitToStringCast>
-    <PossiblyNullArgument occurrences="1">
+    <MissingTemplateParam>
+      <code>Rule</code>
+    </MissingTemplateParam>
+    <PossiblyNullArgument>
       <code>$functionName</code>
     </PossiblyNullArgument>
   </file>
   <file src="src/Functions/NoParameterWithNullableTypeDeclarationRule.php">
-    <ImplicitToStringCast occurrences="1">
+    <ImplicitToStringCast>
       <code>$functionName</code>
     </ImplicitToStringCast>
-    <PossiblyNullArgument occurrences="1">
+    <MissingTemplateParam>
+      <code>Rule</code>
+    </MissingTemplateParam>
+    <PossiblyNullArgument>
       <code>$functionName</code>
     </PossiblyNullArgument>
   </file>
+  <file src="src/Methods/FinalInAbstractClassRule.php">
+    <MissingTemplateParam>
+      <code>Rule</code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/Methods/NoConstructorParameterWithDefaultValueRule.php">
+    <MissingTemplateParam>
+      <code>Rule</code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/Methods/NoNullableReturnTypeDeclarationRule.php">
+    <MissingTemplateParam>
+      <code>Rule</code>
+    </MissingTemplateParam>
+  </file>
   <file src="src/Methods/NoParameterWithContainerTypeDeclarationRule.php">
-    <ArgumentTypeCoercion occurrences="2">
+    <ArgumentTypeCoercion>
       <code>$interfaceImplementedByContainer</code>
       <code>$interfaceImplementedByContainer</code>
     </ArgumentTypeCoercion>
-    <MixedReturnTypeCoercion occurrences="2">
+    <MissingTemplateParam>
+      <code>Rule</code>
+    </MissingTemplateParam>
+    <MixedReturnTypeCoercion>
+      <code><![CDATA[\array_reduce(
+            $node->params,
+            function (array $errors, Node\Param $node) use ($scope, $containingClass, $methodName) {
+                $type = $node->type;
+
+                if (!$type instanceof Node\Name) {
+                    return $errors;
+                }
+
+                /** @var Node\Expr\Variable $variable */
+                $variable = $node->var;
+
+                /** @var string $parameterName */
+                $parameterName = $variable->name;
+
+                $classUsedInTypeDeclaration = $this->reflectionProvider->getClass($scope->resolveName($type));
+
+                if ($classUsedInTypeDeclaration->isInterface()) {
+                    foreach ($this->interfacesImplementedByContainers as $interfaceImplementedByContainer) {
+                        if ($classUsedInTypeDeclaration->getDisplayName() === $interfaceImplementedByContainer) {
+                            $errors[] = self::createError(
+                                $containingClass,
+                                $methodName,
+                                $parameterName,
+                                $classUsedInTypeDeclaration,
+                            );
+
+                            return $errors;
+                        }
+
+                        if ($classUsedInTypeDeclaration->getNativeReflection()->isSubclassOf($interfaceImplementedByContainer)) {
+                            $errors[] = self::createError(
+                                $containingClass,
+                                $methodName,
+                                $parameterName,
+                                $classUsedInTypeDeclaration,
+                            );
+
+                            return $errors;
+                        }
+                    }
+                }
+
+                foreach ($this->interfacesImplementedByContainers as $interfaceImplementedByContainer) {
+                    if ($classUsedInTypeDeclaration->getNativeReflection()->implementsInterface($interfaceImplementedByContainer)) {
+                        $errors[] = self::createError(
+                            $containingClass,
+                            $methodName,
+                            $parameterName,
+                            $classUsedInTypeDeclaration,
+                        );
+
+                        return $errors;
+                    }
+                }
+
+                return $errors;
+            },
+            [],
+        )]]></code>
       <code>array</code>
     </MixedReturnTypeCoercion>
   </file>
+  <file src="src/Methods/NoParameterWithNullDefaultValueRule.php">
+    <MissingTemplateParam>
+      <code>Rule</code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/Methods/NoParameterWithNullableTypeDeclarationRule.php">
+    <MissingTemplateParam>
+      <code>Rule</code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/Methods/PrivateInFinalClassRule.php">
+    <MissingTemplateParam>
+      <code>Rule</code>
+    </MissingTemplateParam>
+  </file>
+  <file src="src/Statements/NoSwitchRule.php">
+    <MissingTemplateParam>
+      <code>Rule</code>
+    </MissingTemplateParam>
+  </file>
   <file src="test/Integration/AbstractTestCase.php">
-    <MixedArgumentTypeCoercion occurrences="1"/>
-    <MixedInferredReturnType occurrences="2">
+    <InvalidArgument>
+      <code>[
+                $error,
+            ]</code>
+    </InvalidArgument>
+    <MissingTemplateParam>
+      <code>AbstractTestCase</code>
+    </MissingTemplateParam>
+    <MixedInferredReturnType>
       <code>iterable</code>
       <code>iterable</code>
     </MixedInferredReturnType>
