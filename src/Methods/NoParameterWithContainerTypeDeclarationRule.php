@@ -95,7 +95,7 @@ final class NoParameterWithContainerTypeDeclarationRule implements Rule
 
                 if ($classUsedInTypeDeclaration->isInterface()) {
                     foreach ($this->interfacesImplementedByContainers as $interfaceImplementedByContainer) {
-                        if ($classUsedInTypeDeclaration->getDisplayName() === $interfaceImplementedByContainer) {
+                        if ($classUsedInTypeDeclaration->getName() === $interfaceImplementedByContainer) {
                             $errors[] = self::createError(
                                 $containingClass,
                                 $methodName,
