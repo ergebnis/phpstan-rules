@@ -31,7 +31,6 @@
     "ergebnis/license": "^1.1.0",
     "ergebnis/php-cs-fixer-config": "^2.14.0",
     "ergebnis/test-util": "^1.5.0",
-    "infection/infection": "~0.15.3",
     "nette/di": "^3.0.13",
     "phpstan/phpstan-deprecation-rules": "^1.0.0",
     "phpstan/phpstan-strict-rules": "^1.1.0",
@@ -53,7 +52,8 @@
   },
   "config": {
     "allow-plugins": {
-      "ergebnis/composer-normalize": true
+      "ergebnis/composer-normalize": true,
+      "infection/extension-installer": true
     },
     "platform": {
       "php": "7.4.29"

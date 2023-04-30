@@ -82,18 +82,6 @@ $ make tests
 
 to run all the tests.
 
-## Mutation Tests
-
-We are using [`infection/infection`](https://github.com/infection/infection) to ensure a minimum quality of the tests.
-
-Enable `Xdebug` and run
-
-```sh
-$ make mutation-tests
-```
-
-to run mutation tests.
-
 ## Extra lazy?
 
 Run
