@@ -123,7 +123,6 @@
   <file src="src/Methods/NoParameterWithContainerTypeDeclarationRule.php">
     <ArgumentTypeCoercion>
       <code>$interfaceImplementedByContainer</code>
-      <code>$interfaceImplementedByContainer</code>
     </ArgumentTypeCoercion>
     <MissingTemplateParam>
       <code>Rule</code>
@@ -148,7 +147,7 @@
 
                 if ($classUsedInTypeDeclaration->isInterface()) {
                     foreach ($this->interfacesImplementedByContainers as $interfaceImplementedByContainer) {
-                        if ($classUsedInTypeDeclaration->getDisplayName() === $interfaceImplementedByContainer) {
+                        if ($classUsedInTypeDeclaration->getName() === $interfaceImplementedByContainer) {
                             $errors[] = self::createError(
                                 $containingClass,
                                 $methodName,
@@ -191,6 +190,10 @@
         )]]></code>
       <code>array</code>
     </MixedReturnTypeCoercion>
+    <UndefinedDocblockClass>
+      <code><![CDATA[$classUsedInTypeDeclaration->getNativeReflection()]]></code>
+      <code><![CDATA[$classUsedInTypeDeclaration->getNativeReflection()]]></code>
+    </UndefinedDocblockClass>
   </file>
   <file src="src/Methods/NoParameterWithNullDefaultValueRule.php">
     <MissingTemplateParam>
@@ -206,6 +209,9 @@
     <MissingTemplateParam>
       <code>Rule</code>
     </MissingTemplateParam>
+    <UndefinedDocblockClass>
+      <code><![CDATA[$containingClass->getNativeReflection()]]></code>
+    </UndefinedDocblockClass>
   </file>
   <file src="src/Statements/NoSwitchRule.php">
     <MissingTemplateParam>
