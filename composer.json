@@ -20,7 +20,7 @@
     "source": "https://github.com/ergebnis/phpstan-rules"
   },
   "require": {
-    "php": "~7.4.0 || ~8.0.0 || ~8.1.0",
+    "php": "~8.0.0 || ~8.1.0",
     "ext-mbstring": "*",
     "nikic/php-parser": "^4.2.3",
     "phpstan/phpstan": "^1.0.0"
@@ -37,8 +37,7 @@
     "phpunit/phpunit": "^8.5.26",
     "psalm/plugin-phpunit": "~0.16.1",
     "psr/container": "^1.0.0",
-    "vimeo/psalm": "^4.22",
-    "zendframework/zend-servicemanager": "^2.0.0"
+    "vimeo/psalm": "^4.22"
   },
   "autoload": {
     "psr-4": {
@@ -56,7 +55,7 @@
       "infection/extension-installer": true
     },
     "platform": {
-      "php": "7.4.29"
+      "php": "8.0.27"
     },
     "preferred-install": "dist",
     "sort-packages": true
