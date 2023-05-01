@@ -17,6 +17,7 @@ branches:
           - "Code Coverage (8.0, locked)"
           - "Coding Standards (8.0, locked)"
           - "Dependency Analysis (8.0, locked)"
+          - "Mutation Tests (8.0, locked)"
           - "Static Code Analysis (8.0, locked)"
           - "Tests (8.0, highest)"
           - "Tests (8.0, locked)"

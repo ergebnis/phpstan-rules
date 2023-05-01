@@ -25,6 +25,11 @@ dependency-analysis: vendor ## Runs a dependency analysis with maglnet/composer-
 help: ## Displays this list of targets with descriptions
 	@grep -E '^[a-zA-Z0-9_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}'
 
+.PHONY: mutation-tests
+mutation-tests: vendor ## Runs mutation tests with infection/infection
+	mkdir -p .build/infection
+	vendor/bin/infection --configuration=infection.json
+
 .PHONY: static-code-analysis
 static-code-analysis: vendor ## Runs a static code analysis with phpstan/phpstan and vimeo/psalm
 	mkdir -p .build/phpstan
