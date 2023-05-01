@@ -89,7 +89,7 @@ final class FinalRuleTest extends AbstractTestCase
                         'Class %s is not final.',
                         Fixture\Classes\FinalRule\Failure\NonFinalClassWithoutEntityAnnotationInMultilineDocBlock::class,
                     ),
-                    11,
+                    12,
                 ],
             ],
             'non-final-class-without-orm-entity-annotation-in-inline-doc-block' => [
@@ -109,7 +109,7 @@ final class FinalRuleTest extends AbstractTestCase
                         'Class %s is not final.',
                         Fixture\Classes\FinalRule\Failure\NonFinalClassWithoutOrmEntityAnnotationInMultilineDocBlock::class,
                     ),
-                    11,
+                    12,
                 ],
             ],
         ];
