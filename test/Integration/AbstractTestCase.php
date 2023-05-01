@@ -48,7 +48,7 @@ abstract class AbstractTestCase extends RuleTestCase
         );
     }
 
-    abstract public function provideCasesWhereAnalysisShouldSucceed(): iterable;
+    abstract public static function provideCasesWhereAnalysisShouldSucceed(): iterable;
 
-    abstract public function provideCasesWhereAnalysisShouldFail(): iterable;
+    abstract public static function provideCasesWhereAnalysisShouldFail(): iterable;
 }
