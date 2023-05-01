@@ -12,6 +12,56 @@ env:
   PHP_EXTENSIONS: "mbstring"
 
 jobs:
+  code-coverage:
+    name: "Code Coverage"
+
+    runs-on: "ubuntu-latest"
+
+    strategy:
+      matrix:
+        php-version:
+          - "8.0"
+
+        dependencies:
+          - "locked"
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v3"
+
+      - name: "Install PHP with extensions"
+        uses: "shivammathur/setup-php@2.25.1"
+        with:
+          coverage: "xdebug"
+          extensions: "${{ env.PHP_EXTENSIONS }}"
+          php-version: "${{ matrix.php-version }}"
+
+      - name: "Set up problem matchers for phpunit/phpunit"
+        run: "echo \"::add-matcher::${{ runner.tool_cache }}/phpunit.json\""
+
+      - name: "Determine composer cache directory"
+        uses: "./.github/actions/composer/composer/determine-cache-directory"
+
+      - name: "Cache dependencies installed with composer"
+        uses: "actions/cache@v3"
+        with:
+          path: "${{ env.COMPOSER_CACHE_DIR }}"
+          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
+          restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
+
+      - name: "Install ${{ matrix.dependencies }} dependencies with composer"
+        uses: "./.github/actions/composer/composer/install"
+        with:
+          dependencies: "${{ matrix.dependencies }}"
+
+      - name: "Collect code coverage with Xdebug and phpunit/phpunit"
+        run: "vendor/bin/phpunit --configuration=test/Integration/phpunit.xml --coverage-clover=.build/phpunit/logs/clover.xml"
+
+      - name: "Send code coverage report to Codecov.io"
+        env:
+          CODECOV_TOKEN: "${{ secrets.CODECOV_TOKEN }}"
+        run: "bash <(curl -s https://codecov.io/bash)"
+
   coding-standards:
     name: "Coding Standards"
 
@@ -122,6 +172,48 @@ jobs:
       - name: "Run maglnet/composer-require-checker"
         run: ".phive/composer-require-checker check --config-file=$(pwd)/composer-require-checker.json"
 
+  mutation-tests:
+    name: "Mutation Tests"
+
+    runs-on: "ubuntu-latest"
+
+    strategy:
+      matrix:
+        php-version:
+          - "8.0"
+
+        dependencies:
+          - "locked"
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v3"
+
+      - name: "Install PHP with extensions"
+        uses: "shivammathur/setup-php@2.18.1"
+        with:
+          coverage: "xdebug"
+          extensions: "${{ env.PHP_EXTENSIONS }}"
+          php-version: "${{ matrix.php-version }}"
+
+      - name: "Determine composer cache directory"
+        uses: "./.github/actions/composer/composer/determine-cache-directory"
+
+      - name: "Cache dependencies installed with composer"
+        uses: "actions/cache@v3"
+        with:
+          path: "${{ env.COMPOSER_CACHE_DIR }}"
+          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
+          restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
+
+      - name: "Install ${{ matrix.dependencies }} dependencies with composer"
+        uses: "./.github/actions/composer/composer/install"
+        with:
+          dependencies: "${{ matrix.dependencies }}"
+
+      - name: "Run mutation tests with Xdebug and infection/infection"
+        run: "vendor/bin/infection --configuration=infection.json"
+
   static-code-analysis:
     name: "Static Code Analysis"
 
@@ -221,95 +313,3 @@ jobs:
 
       - name: "Run integration tests with phpunit/phpunit"
         run: "vendor/bin/phpunit --configuration=test/Integration/phpunit.xml"
-
-  code-coverage:
-    name: "Code Coverage"
-
-    runs-on: "ubuntu-latest"
-
-    strategy:
-      matrix:
-        php-version:
-          - "8.0"
-
-        dependencies:
-          - "locked"
-
-    steps:
-      - name: "Checkout"
-        uses: "actions/checkout@v3"
-
-      - name: "Install PHP with extensions"
-        uses: "shivammathur/setup-php@2.25.1"
-        with:
-          coverage: "xdebug"
-          extensions: "${{ env.PHP_EXTENSIONS }}"
-          php-version: "${{ matrix.php-version }}"
-
-      - name: "Set up problem matchers for phpunit/phpunit"
-        run: "echo \"::add-matcher::${{ runner.tool_cache }}/phpunit.json\""
-
-      - name: "Determine composer cache directory"
-        uses: "./.github/actions/composer/composer/determine-cache-directory"
-
-      - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v3"
-        with:
-          path: "${{ env.COMPOSER_CACHE_DIR }}"
-          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
-          restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
-
-      - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "./.github/actions/composer/composer/install"
-        with:
-          dependencies: "${{ matrix.dependencies }}"
-
-      - name: "Collect code coverage with Xdebug and phpunit/phpunit"
-        run: "vendor/bin/phpunit --configuration=test/Integration/phpunit.xml --coverage-clover=.build/phpunit/logs/clover.xml"
-
-      - name: "Send code coverage report to Codecov.io"
-        env:
-          CODECOV_TOKEN: "${{ secrets.CODECOV_TOKEN }}"
-        run: "bash <(curl -s https://codecov.io/bash)"
-
-  mutation-tests:
-    name: "Mutation Tests"
-
-    runs-on: "ubuntu-latest"
-
-    strategy:
-      matrix:
-        php-version:
-          - "8.0"
-
-        dependencies:
-          - "locked"
-
-    steps:
-      - name: "Checkout"
-        uses: "actions/checkout@v3"
-
-      - name: "Install PHP with extensions"
-        uses: "shivammathur/setup-php@2.18.1"
-        with:
-          coverage: "xdebug"
-          extensions: "${{ env.PHP_EXTENSIONS }}"
-          php-version: "${{ matrix.php-version }}"
-
-      - name: "Determine composer cache directory"
-        uses: "./.github/actions/composer/composer/determine-cache-directory"
-
-      - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v3"
-        with:
-          path: "${{ env.COMPOSER_CACHE_DIR }}"
-          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
-          restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
-
-      - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "./.github/actions/composer/composer/install"
-        with:
-          dependencies: "${{ matrix.dependencies }}"
-
-      - name: "Run mutation tests with Xdebug and infection/infection"
-        run: "vendor/bin/infection --configuration=infection.json"
