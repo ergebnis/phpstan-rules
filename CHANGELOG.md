@@ -11,6 +11,7 @@ For a full diff see [`1.0.0...main`][1.0.0...main].
 ### Added
 
 - Added `methodsAllowedToUseContainerTypeDeclarations` parameter to allow configuring a list of method names that are allowed to have container parameter type declarations ([#541), by [@localheinz]
+- Allowed disabling rules ([#542), by [@localheinz]
 
 ### Changed
 
@@ -468,6 +469,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#525]: https://github.com/ergebnis/phpstan-rules/pull/525
 [#540]: https://github.com/ergebnis/phpstan-rules/pull/540
 [#541]: https://github.com/ergebnis/phpstan-rules/pull/541
+[#542]: https://github.com/ergebnis/phpstan-rules/pull/542
 
 [@enumag]: https://github.com/enumag
 [@ergebnis]: https://github.com/ergebnis
