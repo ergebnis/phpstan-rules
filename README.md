@@ -280,6 +280,6 @@ Please have a look at [`LICENSE.md`](LICENSE.md).
 
 The method [`FinalRule::isWhitelistedClass()`](src/Classes/FinalRule.php) is inspired by the work on [`FinalClassFixer`](https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/2.15/src/Fixer/ClassNotation/FinalClassFixer.php) and [`FinalInternalClassFixer`](https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/2.15/src/Fixer/ClassNotation/FinalInternalClassFixer.php), contributed by [Dariusz Rumiński](https://github.com/keradus), [Filippo Tessarotto](https://github.com/Slamdunk), and [Spacepossum](https://github.com/SpacePossum) for [`friendsofphp/php-cs-fixer`](https://github.com/FriendsOfPHP/PHP-CS-Fixer) (originally licensed under MIT).
 
-## Curious what I am building?
+## Curious what I am up to?
 
-:mailbox_with_mail: [Subscribe to my list](https://localheinz.com/projects/), and I will occasionally send you an email to let you know what I am working on.
+Follow me on [Twitter](https://twitter.com/intent/follow?screen_name=localheinz)!

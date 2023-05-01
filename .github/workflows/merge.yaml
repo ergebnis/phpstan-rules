@@ -24,71 +24,24 @@ jobs:
       )
 
     steps:
-
       - name: "Request review from @ergebnis-bot"
-        uses: "actions/github-script@v6"
+        uses: "ergebnis/.github/actions/github/pull-request/request-review@1.8.0"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
-          script: |
-            const pullRequest = context.payload.workflow_run.pull_requests[0]
-            const repository = context.repo
-
-            const reviewers = [
-              "ergebnis-bot",
-            ]
-
-            await github.rest.pulls.requestReviewers({
-              owner: repository.owner,
-              repo: repository.repo,
-              pull_number: pullRequest.number,
-              reviewers: reviewers,
-            })
+          reviewer: "ergebnis-bot"
 
       - name: "Assign @ergebnis-bot"
-        uses: "actions/github-script@v6"
+        uses: "ergebnis/.github/actions/github/pull-request/add-assignee@1.8.0"
         with:
+          assignee: "ergebnis-bot"
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
-          script: |
-            const pullRequest = context.payload.workflow_run.pull_requests[0]
-            const repository = context.repo
-
-            const assignees = [
-              "ergebnis-bot",
-            ]
-
-            await github.rest.issues.addAssignees({
-              owner: repository.owner,
-              repo: repository.repo,
-              assignees: assignees,
-              issue_number: pullRequest.number
-            })
 
       - name: "Approve pull request"
-        uses: "actions/github-script@v6"
+        uses: "ergebnis/.github/actions/github/pull-request/approve@1.8.0"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
-          script: |
-            const pullRequest = context.payload.workflow_run.pull_requests[0]
-            const repository = context.repo
-
-            await github.rest.pulls.createReview({
-              event: "APPROVE",
-              owner: repository.owner,
-              repo: repository.repo,
-              pull_number: pullRequest.number,
-            })
 
       - name: "Merge pull request"
-        uses: "actions/github-script@v6"
+        uses: "ergebnis/.github/actions/github/pull-request/merge@1.8.0"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
-          script: |
-            const pullRequest = context.payload.workflow_run.pull_requests[0]
-            const repository = context.repo
-
-            await github.rest.pulls.merge({
-              merge_method: "merge",
-              owner: repository.owner,
-              pull_number: pullRequest.number,
-              repo: repository.repo,
-            })
