@@ -30,7 +30,7 @@
     "ergebnis/composer-normalize": "^2.30.2",
     "ergebnis/license": "^2.1.0",
     "ergebnis/php-cs-fixer-config": "^5.5.2",
-    "infection/infection": "~0.26.16",
+    "infection/infection": "~0.26.19",
     "nette/di": "^3.1.2",
     "phpstan/phpstan-deprecation-rules": "^1.0.0",
     "phpstan/phpstan-strict-rules": "^1.1.0",
