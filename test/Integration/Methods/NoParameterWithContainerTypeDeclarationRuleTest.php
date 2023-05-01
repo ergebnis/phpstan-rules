@@ -29,10 +29,13 @@ final class NoParameterWithContainerTypeDeclarationRuleTest extends AbstractTest
     public static function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
         $paths = [
+            'anonymous-class-with-method-with-parameter-with-class-implementing-container-interface-as-type-declaration-where-name-is-excluded' => __DIR__ . '/../../Fixture/Methods/NoParameterWithContainerTypeDeclarationRule/Success/anonymous-class-with-method-with-parameter-with-class-implementing-container-interface-as-type-declaration-where-name-is-excluded.php',
             'anonymous-class-with-method-with-parameter-with-other-type-declaration' => __DIR__ . '/../../Fixture/Methods/NoParameterWithContainerTypeDeclarationRule/Success/anonymous-class-with-method-with-parameter-with-other-type-declaration.php',
             'anonymous-class-with-method-without-parameters' => __DIR__ . '/../../Fixture/Methods/NoParameterWithContainerTypeDeclarationRule/Success/anonymous-class-with-method-without-parameter.php',
+            'class-with-method-with-parameter-with-class-implementing-container-interface-as-type-declaration-where-name-is-excluded' => __DIR__ . '/../../Fixture/Methods/NoParameterWithContainerTypeDeclarationRule/Success/ClassWithMethodWithParameterWithClassImplementingContainerInterfaceAsTypeDeclarationWhereNameIsExcluded.php',
             'class-with-method-with-parameter-with-other-type-declaration' => __DIR__ . '/../../Fixture/Methods/NoParameterWithContainerTypeDeclarationRule/Success/ClassWithMethodWithParameterWithOtherTypeDeclaration.php',
             'class-with-method-without-parameter' => __DIR__ . '/../../Fixture/Methods/NoParameterWithContainerTypeDeclarationRule/Success/ClassWithMethodWithoutParameter.php',
+            'interface-with-method-with-parameter-with-class-implementing-container-interface-as-type-declaration-where-name-is-excluded' => __DIR__ . '/../../Fixture/Methods/NoParameterWithContainerTypeDeclarationRule/Success/InterfaceWithMethodWithParameterWithContainerInterfaceAsTypeDeclarationWhereNameIsExcluded.php',
             'interface-with-method-with-parameter-with-other-type-declaration' => __DIR__ . '/../../Fixture/Methods/NoParameterWithContainerTypeDeclarationRule/Success/InterfaceWithMethodWithParameterWithOtherTypeDeclaration.php',
             'interface-with-method-without-parameter' => __DIR__ . '/../../Fixture/Methods/NoParameterWithContainerTypeDeclarationRule/Success/InterfaceWithMethodWithoutParameter.php',
         ];
@@ -148,6 +151,9 @@ final class NoParameterWithContainerTypeDeclarationRuleTest extends AbstractTest
             $this->createReflectionProvider(),
             [
                 Container\ContainerInterface::class,
+            ],
+            [
+                'loadExtension',
             ],
         );
     }

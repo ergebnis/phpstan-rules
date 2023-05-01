@@ -29,11 +29,18 @@ final class NoParameterWithContainerTypeDeclarationRule implements Rule
     private array $interfacesImplementedByContainers;
 
     /**
+     * @var array<int, string>
+     */
+    private array $methodsAllowedToUseContainerTypeDeclarations;
+
+    /**
      * @param array<int, string> $interfacesImplementedByContainers
+     * @param array<int, string> $methodsAllowedToUseContainerTypeDeclarations
      */
     public function __construct(
         Reflection\ReflectionProvider $reflectionProvider,
         array $interfacesImplementedByContainers,
+        array $methodsAllowedToUseContainerTypeDeclarations,
     ) {
         $this->reflectionProvider = $reflectionProvider;
         $this->interfacesImplementedByContainers = \array_filter(
@@ -44,6 +51,7 @@ final class NoParameterWithContainerTypeDeclarationRule implements Rule
                 return \interface_exists($interfaceImplementedByContainer);
             },
         );
+        $this->methodsAllowedToUseContainerTypeDeclarations = $methodsAllowedToUseContainerTypeDeclarations;
     }
 
     public function getNodeType(): string
@@ -72,6 +80,10 @@ final class NoParameterWithContainerTypeDeclarationRule implements Rule
         }
 
         $methodName = $node->name->toString();
+
+        if (\in_array($methodName, $this->methodsAllowedToUseContainerTypeDeclarations, true)) {
+            return [];
+        }
 
         /** @var Reflection\ClassReflection $containingClass */
         $containingClass = $scope->getClassReflection();

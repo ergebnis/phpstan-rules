@@ -5,6 +5,7 @@ parameters:
 		classesNotRequiredToBeAbstractOrFinal: []
 		interfacesImplementedByContainers:
 			- Psr\Container\ContainerInterface
+		methodsAllowedToUseContainerTypeDeclarations: []
 
 parametersSchema:
 	ergebnis: structure([
@@ -12,6 +13,7 @@ parametersSchema:
 		classesAllowedToBeExtended: listOf(string())
 		classesNotRequiredToBeAbstractOrFinal: listOf(string())
 		interfacesImplementedByContainers: listOf(string())
+		methodsAllowedToUseContainerTypeDeclarations: listOf(string())
 	])
 
 rules:
@@ -54,5 +56,6 @@ services:
 		class: Ergebnis\PHPStan\Rules\Methods\NoParameterWithContainerTypeDeclarationRule
 		arguments:
 			interfacesImplementedByContainers: %ergebnis.interfacesImplementedByContainers%
+			methodsAllowedToUseContainerTypeDeclarations: %ergebnis.methodsAllowedToUseContainerTypeDeclarations%
 		tags:
 			- phpstan.rules.rule
