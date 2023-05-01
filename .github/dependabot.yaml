@@ -8,6 +8,7 @@ updates:
       prefix: "composer"
     directory: "/"
     ignore:
+      - dependency-name: "nikic/php-parser"
       - dependency-name: "phpstan/phpstan"
     labels:
       - "dependency"
