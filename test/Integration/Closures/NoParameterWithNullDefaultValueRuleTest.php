@@ -24,7 +24,7 @@ use PHPStan\Rules\Rule;
  */
 final class NoParameterWithNullDefaultValueRuleTest extends AbstractTestCase
 {
-    public function provideCasesWhereAnalysisShouldSucceed(): iterable
+    public static function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
         $paths = [
             'closure-with-parameter-with-non-null-default-value' => __DIR__ . '/../../Fixture/Closures/NoParameterWithNullDefaultValueRule/Success/closure-with-parameter-with-non-null-default-value.php',
@@ -39,7 +39,7 @@ final class NoParameterWithNullDefaultValueRuleTest extends AbstractTestCase
         }
     }
 
-    public function provideCasesWhereAnalysisShouldFail(): iterable
+    public static function provideCasesWhereAnalysisShouldFail(): iterable
     {
         $paths = [
             'closure-with-parameter-with-null-default-value' => [

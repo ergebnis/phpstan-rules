@@ -6,6 +6,7 @@ namespace Ergebnis\PHPStan\Rules\Test\Fixture\Classes\FinalRule\Success;
 
 /**
  * @Table(name="hmm")
+ *
  * @Entity
  */
 class NonFinalClassWithEntityAnnotationInMultilineDocBlock

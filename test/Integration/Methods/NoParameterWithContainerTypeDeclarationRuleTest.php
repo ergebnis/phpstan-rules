@@ -26,7 +26,7 @@ use Psr\Container;
  */
 final class NoParameterWithContainerTypeDeclarationRuleTest extends AbstractTestCase
 {
-    public function provideCasesWhereAnalysisShouldSucceed(): iterable
+    public static function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
         $paths = [
             'anonymous-class-with-method-with-parameter-with-other-type-declaration' => __DIR__ . '/../../Fixture/Methods/NoParameterWithContainerTypeDeclarationRule/Success/anonymous-class-with-method-with-parameter-with-other-type-declaration.php',
@@ -44,7 +44,7 @@ final class NoParameterWithContainerTypeDeclarationRuleTest extends AbstractTest
         }
     }
 
-    public function provideCasesWhereAnalysisShouldFail(): iterable
+    public static function provideCasesWhereAnalysisShouldFail(): iterable
     {
         $paths = [
             'anonymous-class-with-method-with-parameter-with-class-implementing-container-interface-as-type-declaration' => [

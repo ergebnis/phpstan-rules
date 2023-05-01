@@ -24,7 +24,7 @@ use PHPStan\Rules\Rule;
  */
 final class NoSwitchRuleTest extends AbstractTestCase
 {
-    public function provideCasesWhereAnalysisShouldSucceed(): iterable
+    public static function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
         $paths = [
             'isset-not-used' => __DIR__ . '/../../Fixture/Statements/NoSwitchRule/Success/switch-not-used.php',
@@ -37,7 +37,7 @@ final class NoSwitchRuleTest extends AbstractTestCase
         }
     }
 
-    public function provideCasesWhereAnalysisShouldFail(): iterable
+    public static function provideCasesWhereAnalysisShouldFail(): iterable
     {
         $paths = [
             'switch-used-with-correct-case' => [

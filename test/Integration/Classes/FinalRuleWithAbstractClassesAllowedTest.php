@@ -25,7 +25,7 @@ use PHPStan\Rules\Rule;
  */
 final class FinalRuleWithAbstractClassesAllowedTest extends AbstractTestCase
 {
-    public function provideCasesWhereAnalysisShouldSucceed(): iterable
+    public static function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
         $paths = [
             'abstract-class' => __DIR__ . '/../../Fixture/Classes/FinalRuleWithAbstractClassesAllowed/Failure/AbstractClass.php',
@@ -44,7 +44,7 @@ final class FinalRuleWithAbstractClassesAllowedTest extends AbstractTestCase
         }
     }
 
-    public function provideCasesWhereAnalysisShouldFail(): iterable
+    public static function provideCasesWhereAnalysisShouldFail(): iterable
     {
         $paths = [
             'neither-abstract-nor-final-class' => [
