@@ -80,26 +80,41 @@ This rule reports an error when a non-anonymous class is not `final`.
 
 on the class level.
 
-##### Disallowing `abstract` classes
+##### Disabling the rule
 
-By default, this rule allows to declare `abstract` classes. If you want to disallow declaring `abstract` classes, you can set the `allowAbstractClasses` parameter to `false`:
+You can set the the `enabled` parameter to `false` to disable this rule.
 
 ```neon
 parameters:
 	ergebnis:
-		allowAbstractClasses: false
+		final:
+			enabled: false
+```
+
+##### Disallowing `abstract` classes
+
+By default, this rule allows to declare `abstract` classes.
+
+You can set the `allowAbstractClasses` parameter to `false` to disallow abstract classes.
+
+```neon
+parameters:
+	ergebnis:
+		final:
+			allowAbstractClasses: false
 ```
 
 ##### Excluding classes from inspection
 
-If you want to exclude classes from being inspected by this rule, you can set the `classesNotRequiredToBeAbstractOrFinal` parameter to a list of class names:
+You can set the `classesNotRequiredToBeAbstractOrFinal` parameter to a list of class names that you want to exclude from inspection.
 
 ```neon
 parameters:
 	ergebnis:
-		classesNotRequiredToBeAbstractOrFinal:
-			- Foo\Bar\NeitherAbstractNorFinal
-			- Bar\Baz\NeitherAbstractNorFinal
+		final:
+			classesNotRequiredToBeAbstractOrFinal:
+				- Foo\Bar\NeitherAbstractNorFinal
+				- Bar\Baz\NeitherAbstractNorFinal
 ```
 
 #### `Classes\NoExtendsRule`
@@ -112,20 +127,44 @@ By default, this rule allows the following classes to be extended:
 
 - [`PHPUnit\Framework\TestCase`](https://github.com/sebastianbergmann/phpunit/blob/7.5.2/src/Framework/TestCase.php)
 
-##### Allowing classes to be extended
+##### Disabling the rule
 
-If you want to allow additional classes to be extended, you can set the `classesAllowedToBeExtended` parameter to a list of class names:
+You can set the the `enabled` parameter to `false` to disable this rule.
 
 ```neon
 parameters:
 	ergebnis:
-		classesAllowedToBeExtended:
-			- Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase
-			- PHPStan\Testing\RuleTestCase
+		noExtends:
+			enabled: false
 ```
+
+##### Allowing classes to be extended
+
+You can set the `classesAllowedToBeExtended` parameter to a list of class names that you want to allow to be extended.
+
+```neon
+parameters:
+	ergebnis:
+		noExtends:
+			classesAllowedToBeExtended:
+				- Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase
+				- Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase
+```
+
 #### `Classes\PHPUnit\Framework\TestCaseWithSuffixRule`
 
 This rule reports an error when a concrete class is a sub-class of `PHPUnit\Framework\TestCase` but does not have a `Test` suffix.
+
+##### Disabling the rule
+
+You can set the the `enabled` parameter to `false` to disable this rule.
+
+```neon
+parameters:
+	ergebnis:
+		testCaseWithSuffix:
+			enabled: false
+```
 
 ### Closures
 
@@ -133,13 +172,46 @@ This rule reports an error when a concrete class is a sub-class of `PHPUnit\Fram
 
 This rule reports an error when a closure uses a nullable return type declaration.
 
+##### Disabling the rule
+
+You can set the the `enabled` parameter to `false` to disable this rule.
+
+```neon
+parameters:
+	ergebnis:
+		noNullableReturnTypeDeclaration:
+			enabled: false
+```
+
 #### `Closures\NoParameterWithNullableTypeDeclarationRule`
 
 This rule reports an error when a closure has a parameter with a nullable type declaration.
 
+##### Disabling the rule
+
+You can set the the `enabled` parameter to `false` to disable this rule.
+
+```neon
+parameters:
+	ergebnis:
+		noParameterWithNullableTypeDeclaration:
+			enabled: false
+```
+
 #### `Closures\NoParameterWithNullDefaultValueRule`
 
 This rule reports an error when a closure has a parameter with `null` as default value.
+
+##### Disabling the rule
+
+You can set the the `enabled` parameter to `false` to disable this rule.
+
+```neon
+parameters:
+	ergebnis:
+		noParameterWithNullDefaultValue:
+			enabled: false
+```
 
 ### Expressions
 
@@ -147,17 +219,61 @@ This rule reports an error when a closure has a parameter with `null` as default
 
 This rule reports an error when the function [`compact()`](https://www.php.net/compact) is used.
 
+##### Disabling the rule
+
+You can set the the `enabled` parameter to `false` to disable this rule.
+
+```neon
+parameters:
+	ergebnis:
+		noCompact:
+			enabled: false
+```
+
 #### `Expressions\NoEvalRule`
 
 This rule reports an error when the language construct [`eval()`](https://www.php.net/eval) is used.
+
+##### Disabling the rule
+
+You can set the the `enabled` parameter to `false` to disable this rule.
+
+```neon
+parameters:
+	ergebnis:
+		noEval:
+			enabled: false
+```
 
 #### `Expressions\NoErrorSuppressionRule`
 
 This rule reports an error when [`@`](https://www.php.net/manual/en/language.operators.errorcontrol.php) is used to suppress errors.
 
+##### Disabling the rule
+
+You can set the the `enabled` parameter to `false` to disable this rule.
+
+```neon
+parameters:
+	ergebnis:
+		noErrorSuppression:
+			enabled: false
+```
+
 #### `Expressions\NoIssetRule`
 
 This rule reports an error when the language construct [`isset()`](https://www.php.net/isset) is used.
+
+##### Disabling the rule
+
+You can set the the `enabled` parameter to `false` to disable this rule.
+
+```neon
+parameters:
+	ergebnis:
+		noIsset:
+			enabled: false
+```
 
 ### Files
 
@@ -165,25 +281,80 @@ This rule reports an error when the language construct [`isset()`](https://www.p
 
 This rule reports an error when a non-empty file does not contain a `declare(strict_types=1)` declaration.
 
+##### Disabling the rule
+
+You can set the the `enabled` parameter to `false` to disable this rule.
+
+```neon
+parameters:
+	ergebnis:
+		declareStrictTypes:
+			enabled: false
+```
+
 ### Functions
 
 #### `Functions\NoNullableReturnTypeDeclarationRule`
 
 This rule reports an error when a function uses a nullable return type declaration.
 
+##### Disabling the rule
+
+You can set the the `enabled` parameter to `false` to disable this rule.
+
+```neon
+parameters:
+	ergebnis:
+		noNullableReturnTypeDeclaration:
+			enabled: false
+```
+
 #### `Functions\NoParameterWithNullableTypeDeclarationRule`
 
 This rule reports an error when a function has a parameter with a nullable type declaration.
 
+##### Disabling the rule
+
+You can set the the `enabled` parameter to `false` to disable this rule.
+
+```neon
+parameters:
+	ergebnis:
+		noParameterWithNullableTypeDeclaration:
+			enabled: false
+```
+
 #### `Functions\NoParameterWithNullDefaultValueRule`
 
 This rule reports an error when a function has a parameter with `null` as default value.
+
+##### Disabling the rule
+
+You can set the the `enabled` parameter to `false` to disable this rule.
+
+```neon
+parameters:
+	ergebnis:
+		noParameterWithNullDefaultValue:
+			enabled: false
+```
 
 ### Methods
 
 #### `Methods\FinalInAbstractClassRule`
 
 This rule reports an error when a concrete `public` or `protected `method in an `abstract` class is not `final`.
+
+##### Disabling the rule
+
+You can set the the `enabled` parameter to `false` to disable this rule.
+
+```neon
+parameters:
+	ergebnis:
+		finalInAbstractClass:
+			enabled: false
+```
 
 #### `Methods\NoConstructorParameterWithDefaultValueRule`
 
@@ -194,6 +365,17 @@ This rule reports an error when a constructor declared in
 
 has a default value.
 
+##### Disabling the rule
+
+You can set the the `enabled` parameter to `false` to disable this rule.
+
+```neon
+parameters:
+	ergebnis:
+		noConstructorParameterWithDefaultValue:
+			enabled: false
+```
+
 #### `Methods\NoNullableReturnTypeDeclarationRule`
 
 This rule reports an error when a method declared in
@@ -203,6 +385,17 @@ This rule reports an error when a method declared in
 - an interface
 
 uses a nullable return type declaration.
+
+##### Disabling the rule
+
+You can set the the `enabled` parameter to `false` to disable this rule.
+
+```neon
+parameters:
+	ergebnis:
+		noNullableReturnTypeDeclaration:
+			enabled: false
+```
 
 #### `Methods\NoParameterWithContainerTypeDeclarationRule`
 
@@ -216,27 +409,40 @@ By default, this rule disallows the use of type declarations indicating an imple
 
 is expected to be injected into a method.
 
-##### Configuring container interfaces
+##### Disabling the rule
 
-If you want to configure the list of interfaces implemented by dependency injection containers and service locators yourself, you can set the `interfacesImplementedByContainers` parameter to a list of interface names:
+You can set the the `enabled` parameter to `false` to disable this rule.
 
 ```neon
 parameters:
 	ergebnis:
-		interfacesImplementedByContainers:
-			- Fancy\DependencyInjection\ContainerInterface
-			- Other\ServiceLocatorInterface
+		noParameterWithContainerTypeDeclaration:
+			enabled: false
+```
+
+##### Configuring container interfaces
+
+You can set the `interfacesImplementedByContainers` parameter to a list of interface names of additional containers and service locators.
+
+```neon
+parameters:
+	ergebnis:
+		noParameterWithContainerTypeDeclaration:
+			interfacesImplementedByContainers:
+				- Fancy\DependencyInjection\ContainerInterface
+				- Other\ServiceLocatorInterface
 ```
 
 ##### Configuring methods allowed to use parameters with container type declarations
 
-If you want to configure a list of method names that you want to allow using container type declarations, you can set the `methodsAllowedToUseContainerTypeDeclarations` parameter to a list of method names:
+You can set the `methodsAllowedToUseContainerTypeDeclarations` parameter to a list of method names that are allowed to use parameters with container type declarations.
 
 ```neon
 parameters:
 	ergebnis:
-		methodsAllowedToUseContainerTypeDeclarations:
-			- loadExtension
+		noParameterWithContainerTypeDeclaration:
+			methodsAllowedToUseContainerTypeDeclarations:
+				- loadExtension
 ```
 
 #### `Methods\NoParameterWithNullableTypeDeclarationRule`
@@ -249,6 +455,17 @@ This rule reports an error when a method declared in
 
 has a parameter with a nullable type declaration.
 
+##### Disabling the rule
+
+You can set the the `enabled` parameter to `false` to disable this rule.
+
+```neon
+parameters:
+	ergebnis:
+		noParameterWithNullableTypeDeclaration:
+			enabled: false
+```
+
 #### `Methods\NoParameterWithNullDefaultValueRule`
 
 This rule reports an error when a method declared in
@@ -259,15 +476,48 @@ This rule reports an error when a method declared in
 
 has a parameter with `null` as default value.
 
+##### Disabling the rule
+
+You can set the the `enabled` parameter to `false` to disable this rule.
+
+```neon
+parameters:
+	ergebnis:
+		noParameterWithNullDefaultValue:
+			enabled: false
+```
+
 #### `Methods\PrivateInFinalClassRule`
 
 This rule reports an error when a method in a `final` class is `protected` but could be `private`.
+
+##### Disabling the rule
+
+You can set the the `enabled` parameter to `false` to disable this rule.
+
+```neon
+parameters:
+	ergebnis:
+		privateInFinalClass:
+			enabled: false
+```
 
 ### Statements
 
 #### `Statements\NoSwitchRule`
 
 This rule reports an error when the statement [`switch()`](https://www.php.net/manual/control-structures.switch.php) is used.
+
+##### Disabling the rule
+
+You can set the the `enabled` parameter to `false` to disable this rule.
+
+```neon
+parameters:
+	ergebnis:
+		noSwitch:
+			enabled: false
+```
 
 ## Changelog
 

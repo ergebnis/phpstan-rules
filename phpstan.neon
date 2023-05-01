@@ -7,9 +7,10 @@ parameters:
 	checkGenericClassInNonGenericObjectType: false
 
 	ergebnis:
-		classesAllowedToBeExtended:
-			- Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase
-			- PHPStan\Testing\RuleTestCase
+		noExtends:
+			classesAllowedToBeExtended:
+				- Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase
+				- PHPStan\Testing\RuleTestCase
 
 	excludePaths:
 		- %currentWorkingDirectory%/test/Fixture/
