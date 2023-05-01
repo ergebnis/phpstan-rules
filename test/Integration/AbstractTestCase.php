@@ -25,6 +25,8 @@ abstract class AbstractTestCase extends RuleTestCase
      */
     final public function testAnalysisSucceeds(string $path): void
     {
+        self::assertFileExists($path);
+
         $this->analyse(
             [
                 $path,
@@ -38,6 +40,8 @@ abstract class AbstractTestCase extends RuleTestCase
      */
     final public function testAnalysisFails(string $path, array $error): void
     {
+        self::assertFileExists($path);
+
         $this->analyse(
             [
                 $path,
