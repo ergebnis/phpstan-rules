@@ -10,7 +10,7 @@ For a full diff see [`1.0.0...main`][1.0.0...main].
 
 ### Added
 
-- Added `methodsAllowedToUseContainerTypeDeclarations` parameter to allow configuring a list of method names that are allowed to have container parameter type declarations, ([#541), by [@localheinz]
+- Added `methodsAllowedToUseContainerTypeDeclarations` parameter to allow configuring a list of method names that are allowed to have container parameter type declarations ([#541), by [@localheinz]
 
 ### Changed
 
