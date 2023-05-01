@@ -257,7 +257,7 @@ jobs:
         run: "mkdir -p .build/phpstan"
 
       - name: "Run phpstan/phpstan"
-        run: "vendor/bin/phpstan analyse --configuration=phpstan.neon --memory-limit=-1"
+        run: "vendor/bin/phpstan --configuration=phpstan.neon --memory-limit=-1"
 
       - name: "Create cache directory for vimeo/psalm"
         run: "mkdir -p .build/psalm"
