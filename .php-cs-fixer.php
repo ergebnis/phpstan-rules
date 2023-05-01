@@ -39,6 +39,6 @@ $config->getFinder()
     ->in(__DIR__)
     ->name('.php-cs-fixer.php');
 
-$config->setCacheFile(__DIR__ . '/.build/php-cs-fixer/.php_cs.cache');
+$config->setCacheFile(__DIR__ . '/.build/php-cs-fixer/.php-cs-fixer.cache');
 
 return $config;

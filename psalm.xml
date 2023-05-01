@@ -6,8 +6,8 @@
     cacheDirectory=".build/psalm"
     errorBaseline="psalm-baseline.xml"
     errorLevel="1"
-    findUnusedCode="true"
     findUnusedBaselineEntry="true"
+    findUnusedCode="true"
     findUnusedVariablesAndParams="true"
     resolveFromConfigFile="true"
     strictBinaryOperands="true"
@@ -19,6 +19,7 @@
     <projectFiles>
         <directory name="src/" />
         <directory name="test/" />
+        <file name="rector.php" />
         <ignoreFiles>
             <directory name="test/Fixture/" />
             <directory name="vendor/" />
