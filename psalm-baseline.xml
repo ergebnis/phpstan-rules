@@ -53,11 +53,6 @@
       <code>Rule</code>
     </MissingTemplateParam>
   </file>
-  <file src="src/Expressions/NoEmptyRule.php">
-    <MissingTemplateParam>
-      <code>Rule</code>
-    </MissingTemplateParam>
-  </file>
   <file src="src/Expressions/NoErrorSuppressionRule.php">
     <MissingTemplateParam>
       <code>Rule</code>
