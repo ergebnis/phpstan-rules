@@ -24,7 +24,7 @@ use PHPStan\Rules\Rule;
  */
 final class NoParameterWithNullableTypeDeclarationRuleTest extends AbstractTestCase
 {
-    public function provideCasesWhereAnalysisShouldSucceed(): iterable
+    public static function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
         $paths = [
             'function-with-parameter-with-type-declaration' => __DIR__ . '/../../Fixture/Functions/NoParameterWithNullableTypeDeclarationRule/Success/function-with-parameter-with-type-declaration.php',
@@ -39,7 +39,7 @@ final class NoParameterWithNullableTypeDeclarationRuleTest extends AbstractTestC
         }
     }
 
-    public function provideCasesWhereAnalysisShouldFail(): iterable
+    public static function provideCasesWhereAnalysisShouldFail(): iterable
     {
         $paths = [
             'function-with-parameter-with-nullable-type-declaration' => [

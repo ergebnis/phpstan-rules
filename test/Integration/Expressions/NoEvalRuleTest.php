@@ -24,7 +24,7 @@ use PHPStan\Rules\Rule;
  */
 final class NoEvalRuleTest extends AbstractTestCase
 {
-    public function provideCasesWhereAnalysisShouldSucceed(): iterable
+    public static function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
         $paths = [
             'eval-not-used' => __DIR__ . '/../../Fixture/Expressions/NoEvalRule/Success/eval-not-used.php',
@@ -37,7 +37,7 @@ final class NoEvalRuleTest extends AbstractTestCase
         }
     }
 
-    public function provideCasesWhereAnalysisShouldFail(): iterable
+    public static function provideCasesWhereAnalysisShouldFail(): iterable
     {
         $paths = [
             'eval-used-with-correct-case' => [

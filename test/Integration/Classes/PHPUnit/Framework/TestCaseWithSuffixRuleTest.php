@@ -26,7 +26,7 @@ use PHPUnit\Framework;
  */
 final class TestCaseWithSuffixRuleTest extends AbstractTestCase
 {
-    public function provideCasesWhereAnalysisShouldSucceed(): iterable
+    public static function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
         $paths = [
             'concrete-test-case-with-suffix-test' => __DIR__ . '/../../../../Fixture/Classes/PHPUnit/Framework/TestCaseWithSuffixRule/Success/ConcreteTestCaseWithSuffixTest.php',
@@ -41,7 +41,7 @@ final class TestCaseWithSuffixRuleTest extends AbstractTestCase
         }
     }
 
-    public function provideCasesWhereAnalysisShouldFail(): iterable
+    public static function provideCasesWhereAnalysisShouldFail(): iterable
     {
         $paths = [
             'concrete-test-case-extending-abstract-test-case-without-test-suffix' => [

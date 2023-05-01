@@ -24,7 +24,7 @@ use PHPStan\Rules\Rule;
  */
 final class NoEmptyRuleTest extends AbstractTestCase
 {
-    public function provideCasesWhereAnalysisShouldSucceed(): iterable
+    public static function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
         $paths = [
             'empty-not-used' => __DIR__ . '/../../Fixture/Expressions/NoEmptyRule/Success/empty-not-used.php',
@@ -37,7 +37,7 @@ final class NoEmptyRuleTest extends AbstractTestCase
         }
     }
 
-    public function provideCasesWhereAnalysisShouldFail(): iterable
+    public static function provideCasesWhereAnalysisShouldFail(): iterable
     {
         $paths = [
             'empty-used-with-correct-case' => [

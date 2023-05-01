@@ -25,7 +25,7 @@ use PHPStan\Rules\Rule;
  */
 final class PrivateInFinalClassRuleTest extends AbstractTestCase
 {
-    public function provideCasesWhereAnalysisShouldSucceed(): iterable
+    public static function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
         $paths = [
             'abstract-class-with-protected-method' => __DIR__ . '/../../Fixture/Methods/PrivateInFinalClassRule/Success/AbstractClassWithProtectedMethod.php',
@@ -43,7 +43,7 @@ final class PrivateInFinalClassRuleTest extends AbstractTestCase
         }
     }
 
-    public function provideCasesWhereAnalysisShouldFail(): iterable
+    public static function provideCasesWhereAnalysisShouldFail(): iterable
     {
         $paths = [
             'final-class-with-protected-method' => [

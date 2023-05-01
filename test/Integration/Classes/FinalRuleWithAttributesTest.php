@@ -27,7 +27,7 @@ use PHPStan\Rules\Rule;
  */
 final class FinalRuleWithAttributesTest extends AbstractTestCase
 {
-    public function provideCasesWhereAnalysisShouldSucceed(): iterable
+    public static function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
         $paths = [
             'non-final-class-with-qualified-aliased-orm-mapping-entity-attribute' => __DIR__ . '/../../Fixture/Classes/FinalRuleWithAttributes/Success/NonFinalClassWithAliasedOrmEntityAttribute.php',
@@ -44,7 +44,7 @@ final class FinalRuleWithAttributesTest extends AbstractTestCase
         }
     }
 
-    public function provideCasesWhereAnalysisShouldFail(): iterable
+    public static function provideCasesWhereAnalysisShouldFail(): iterable
     {
         $paths = [
             'non-final-class-with-unqualified-doctrine-orm-mapping-entity-attribute' => [
