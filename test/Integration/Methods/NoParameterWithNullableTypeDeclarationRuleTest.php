@@ -60,6 +60,13 @@ final class NoParameterWithNullableTypeDeclarationRuleTest extends AbstractTestC
                     8,
                 ],
             ],
+            'method-in-anonymous-class-with-parameter-with-nullable-union-type-declaration' => [
+                __DIR__ . '/../../Fixture/Methods/NoParameterWithNullableTypeDeclarationRule/Failure/method-in-anonymous-class-with-parameter-with-nullable-union-type-declaration.php',
+                [
+                    'Method foo() in anonymous class has parameter $bar with a nullable type declaration.',
+                    8,
+                ],
+            ],
             'method-in-class-with-parameter-with-nullable-type-declaration' => [
                 __DIR__ . '/../../Fixture/Methods/NoParameterWithNullableTypeDeclarationRule/Failure/MethodInClassWithParameterWithNullableTypeDeclaration.php',
                 [
@@ -70,12 +77,32 @@ final class NoParameterWithNullableTypeDeclarationRuleTest extends AbstractTestC
                     9,
                 ],
             ],
+            'method-in-class-with-parameter-with-nullable-union-type-declaration' => [
+                __DIR__ . '/../../Fixture/Methods/NoParameterWithNullableTypeDeclarationRule/Failure/MethodInClassWithParameterWithNullableUnionTypeDeclaration.php',
+                [
+                    \sprintf(
+                        'Method %s::foo() has parameter $bar with a nullable type declaration.',
+                        Fixture\Methods\NoParameterWithNullableTypeDeclarationRule\Failure\MethodInClassWithParameterWithNullableUnionTypeDeclaration::class,
+                    ),
+                    9,
+                ],
+            ],
             'method-in-interface-with-parameter-with-nullable-type-declaration' => [
                 __DIR__ . '/../../Fixture/Methods/NoParameterWithNullableTypeDeclarationRule/Failure/MethodInInterfaceWithParameterWithNullableTypeDeclaration.php',
                 [
                     \sprintf(
                         'Method %s::foo() has parameter $bar with a nullable type declaration.',
                         Fixture\Methods\NoParameterWithNullableTypeDeclarationRule\Failure\MethodInInterfaceWithParameterWithNullableTypeDeclaration::class,
+                    ),
+                    9,
+                ],
+            ],
+            'method-in-interface-with-parameter-with-nullable-union-type-declaration' => [
+                __DIR__ . '/../../Fixture/Methods/NoParameterWithNullableTypeDeclarationRule/Failure/MethodInInterfaceWithParameterWithNullableUnionTypeDeclaration.php',
+                [
+                    \sprintf(
+                        'Method %s::foo() has parameter $bar with a nullable type declaration.',
+                        Fixture\Methods\NoParameterWithNullableTypeDeclarationRule\Failure\MethodInInterfaceWithParameterWithNullableUnionTypeDeclaration::class,
                     ),
                     9,
                 ],
