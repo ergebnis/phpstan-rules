@@ -228,6 +228,17 @@ parameters:
 			- Other\ServiceLocatorInterface
 ```
 
+##### Configuring methods allowed to use parameters with container type declarations
+
+If you want to configure a list of method names that you want to allow using container type declarations, you can set the `methodsAllowedToUseContainerTypeDeclarations` parameter to a list of method names:
+
+```neon
+parameters:
+	ergebnis:
+		methodsAllowedToUseContainerTypeDeclarations:
+			- loadExtension
+```
+
 #### `Methods\NoParameterWithNullableTypeDeclarationRule`
 
 This rule reports an error when a method declared in

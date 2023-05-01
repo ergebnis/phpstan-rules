@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`1.0.0...main`][1.0.0...main].
 
+### Added
+
+- Added `methodsAllowedToUseContainerTypeDeclarations` parameter to allow configuring a list of method names that are allowed to have container parameter type declarations, ([#541), by [@localheinz]
+
 ### Changed
 
 - Dropped support for PHP 7.2 ([#496]), by [@localheinz]
@@ -463,6 +467,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#499]: https://github.com/ergebnis/phpstan-rules/pull/498
 [#525]: https://github.com/ergebnis/phpstan-rules/pull/525
 [#540]: https://github.com/ergebnis/phpstan-rules/pull/540
+[#541]: https://github.com/ergebnis/phpstan-rules/pull/541
 
 [@enumag]: https://github.com/enumag
 [@ergebnis]: https://github.com/ergebnis
