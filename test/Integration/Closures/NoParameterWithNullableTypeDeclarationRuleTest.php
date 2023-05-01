@@ -49,6 +49,13 @@ final class NoParameterWithNullableTypeDeclarationRuleTest extends AbstractTestC
                     7,
                 ],
             ],
+            'closure-with-parameter-with-nullable-union-type-declaration' => [
+                __DIR__ . '/../../Fixture/Closures/NoParameterWithNullableTypeDeclarationRule/Failure/closure-with-parameter-with-nullable-union-type-declaration.php',
+                [
+                    'Closure has parameter $bar with a nullable type declaration.',
+                    7,
+                ],
+            ],
         ];
 
         foreach ($paths as $description => [$path, $error]) {

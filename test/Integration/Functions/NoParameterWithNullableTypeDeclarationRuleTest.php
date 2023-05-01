@@ -49,6 +49,13 @@ final class NoParameterWithNullableTypeDeclarationRuleTest extends AbstractTestC
                     7,
                 ],
             ],
+            'function-with-parameter-with-nullable-union-type-declaration' => [
+                __DIR__ . '/../../Fixture/Functions/NoParameterWithNullableTypeDeclarationRule/Failure/function-with-parameter-with-nullable-union-type-declaration.php',
+                [
+                    'Function Ergebnis\PHPStan\Rules\Test\Fixture\Functions\NoParameterWithNullableTypeDeclarationRule\Failure\foo() has parameter $bar with a nullable type declaration.',
+                    7,
+                ],
+            ],
         ];
 
         foreach ($paths as $description => [$path, $error]) {

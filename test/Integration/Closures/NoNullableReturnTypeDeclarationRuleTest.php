@@ -48,6 +48,13 @@ final class NoNullableReturnTypeDeclarationRuleTest extends AbstractTestCase
                     7,
                 ],
             ],
+            'closure-with-nullable-union-return-type-declaration' => [
+                __DIR__ . '/../../Fixture/Closures/NoNullableReturnTypeDeclarationRule/Failure/closure-with-nullable-union-type-return-type-declaration.php',
+                [
+                    'Closure has a nullable return type declaration.',
+                    7,
+                ],
+            ],
         ];
 
         foreach ($paths as $description => [$path, $error]) {

@@ -57,6 +57,13 @@ final class NoNullableReturnTypeDeclarationRuleTest extends AbstractTestCase
                     12,
                 ],
             ],
+            'method-in-anonymous-class-with-nullable-union-return-type-declaration' => [
+                __DIR__ . '/../../Fixture/Methods/NoNullableReturnTypeDeclarationRule/Failure/MethodInAnonymousClassWithNullableUnionReturnTypeDeclaration.php',
+                [
+                    'Method toString() in anonymous class has a nullable return type declaration.',
+                    12,
+                ],
+            ],
             'method-in-class-with-nullable-return-type-declaration' => [
                 __DIR__ . '/../../Fixture/Methods/NoNullableReturnTypeDeclarationRule/Failure/MethodInClassWithNullableReturnTypeDeclaration.php',
                 [
@@ -67,12 +74,32 @@ final class NoNullableReturnTypeDeclarationRuleTest extends AbstractTestCase
                     9,
                 ],
             ],
+            'method-in-class-with-nullable-union-return-type-declaration' => [
+                __DIR__ . '/../../Fixture/Methods/NoNullableReturnTypeDeclarationRule/Failure/MethodInClassWithNullableUnionReturnTypeDeclaration.php',
+                [
+                    \sprintf(
+                        'Method %s::toString() has a nullable return type declaration.',
+                        Fixture\Methods\NoNullableReturnTypeDeclarationRule\Failure\MethodInClassWithNullableUnionReturnTypeDeclaration::class,
+                    ),
+                    9,
+                ],
+            ],
             'method-in-interface-with-nullable-return-type-declaration' => [
                 __DIR__ . '/../../Fixture/Methods/NoNullableReturnTypeDeclarationRule/Failure/MethodInInterfaceWithNullableReturnTypeDeclaration.php',
                 [
                     \sprintf(
                         'Method %s::toString() has a nullable return type declaration.',
                         Fixture\Methods\NoNullableReturnTypeDeclarationRule\Failure\MethodInInterfaceWithNullableReturnTypeDeclaration::class,
+                    ),
+                    9,
+                ],
+            ],
+            'method-in-interface-with-nullable-union-return-type-declaration' => [
+                __DIR__ . '/../../Fixture/Methods/NoNullableReturnTypeDeclarationRule/Failure/MethodInInterfaceWithNullableUnionReturnTypeDeclaration.php',
+                [
+                    \sprintf(
+                        'Method %s::toString() has a nullable return type declaration.',
+                        Fixture\Methods\NoNullableReturnTypeDeclarationRule\Failure\MethodInInterfaceWithNullableUnionReturnTypeDeclaration::class,
                     ),
                     9,
                 ],

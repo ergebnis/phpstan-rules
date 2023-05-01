@@ -43,7 +43,7 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rule
         }
 
         $params = \array_filter($node->params, static function (Node\Param $node): bool {
-            return $node->type instanceof Node\NullableType;
+            return self::isNullable($node);
         });
 
         if (0 === \count($params)) {
@@ -87,5 +87,28 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rule
                 $parameterName,
             );
         }, $params);
+    }
+
+    private static function isNullable(Node\Param $node): bool
+    {
+        if ($node->type instanceof Node\NullableType) {
+            return true;
+        }
+
+        if ($node->type instanceof Node\UnionType) {
+            foreach ($node->type->types as $type) {
+                if (!$type instanceof Node\Identifier) {
+                    continue;
+                }
+
+                if ('null' !== $type->toString()) {
+                    continue;
+                }
+
+                return true;
+            }
+        }
+
+        return false;
     }
 }

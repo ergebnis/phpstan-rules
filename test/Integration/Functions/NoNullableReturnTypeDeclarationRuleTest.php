@@ -48,6 +48,13 @@ final class NoNullableReturnTypeDeclarationRuleTest extends AbstractTestCase
                     7,
                 ],
             ],
+            'function-with-nullable-union-return-type-declaration' => [
+                __DIR__ . '/../../Fixture/Functions/NoNullableReturnTypeDeclarationRule/Failure/function-with-nullable-union-return-type-declaration.php',
+                [
+                    'Function Ergebnis\PHPStan\Rules\Test\Fixture\Functions\NoNullableReturnTypeDeclarationRule\Failure\foo() has a nullable return type declaration.',
+                    7,
+                ],
+            ],
         ];
 
         foreach ($paths as $description => [$path, $error]) {

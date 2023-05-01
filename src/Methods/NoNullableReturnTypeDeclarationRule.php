@@ -38,9 +38,7 @@ final class NoNullableReturnTypeDeclarationRule implements Rule
             ));
         }
 
-        $returnType = $node->getReturnType();
-
-        if (!$returnType instanceof Node\NullableType) {
+        if (!self::hasNullableReturnType($node)) {
             return [];
         }
 
@@ -63,5 +61,28 @@ final class NoNullableReturnTypeDeclarationRule implements Rule
                 $node->name->name,
             ),
         ];
+    }
+
+    private static function hasNullableReturnType(Node\Stmt\ClassMethod $node): bool
+    {
+        $returnType = $node->getReturnType();
+
+        if ($returnType instanceof Node\NullableType) {
+            return true;
+        }
+
+        if ($returnType instanceof Node\UnionType) {
+            foreach ($returnType->types as $type) {
+                if (!$type instanceof Node\Identifier) {
+                    continue;
+                }
+
+                if ('null' === $type->toString()) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 }
