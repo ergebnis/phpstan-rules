@@ -7,6 +7,8 @@ updates:
       include: "scope"
       prefix: "composer"
     directory: "/"
+    ignore:
+      - dependency-name: "phpstan/phpstan"
     labels:
       - "dependency"
     open-pull-requests-limit: 10
