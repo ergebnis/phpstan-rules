@@ -27,7 +27,7 @@
   },
   "require-dev": {
     "doctrine/orm": "^2.14.3",
-    "ergebnis/composer-normalize": "^2.30.2",
+    "ergebnis/composer-normalize": "^2.31.0",
     "ergebnis/license": "^2.1.0",
     "ergebnis/php-cs-fixer-config": "^5.5.2",
     "infection/infection": "~0.26.19",
