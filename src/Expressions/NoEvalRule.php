@@ -28,8 +28,10 @@ final class NoEvalRule implements Rules\Rule
         Node $node,
         Analyser\Scope $scope,
     ): array {
+        $ruleErrorBuilder = Rules\RuleErrorBuilder::message('Language construct eval() should not be used.');
+
         return [
-            'Language construct eval() should not be used.',
+            $ruleErrorBuilder->build(),
         ];
     }
 }

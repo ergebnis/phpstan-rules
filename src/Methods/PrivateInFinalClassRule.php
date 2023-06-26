@@ -65,12 +65,14 @@ final class PrivateInFinalClassRule implements Rules\Rule
             }
         }
 
+        $ruleErrorBuilder = Rules\RuleErrorBuilder::message(\sprintf(
+            'Method %s::%s() is protected, but since the containing class is final, it can be private.',
+            $containingClass->getName(),
+            $methodName,
+        ));
+
         return [
-            \sprintf(
-                'Method %s::%s() is protected, but since the containing class is final, it can be private.',
-                $containingClass->getName(),
-                $methodName,
-            ),
+            $ruleErrorBuilder->build(),
         ];
     }
 }

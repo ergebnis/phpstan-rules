@@ -58,17 +58,19 @@ final class NoConstructorParameterWithDefaultValueRule implements Rules\Rule
         $classReflection = $scope->getClassReflection();
 
         if ($classReflection->isAnonymous()) {
-            return \array_map(static function (Node\Param $node): string {
+            return \array_map(static function (Node\Param $node): Rules\RuleError {
                 /** @var Node\Expr\Variable $variable */
                 $variable = $node->var;
 
                 /** @var string $parameterName */
                 $parameterName = $variable->name;
 
-                return \sprintf(
+                $ruleErrorBuilder = Rules\RuleErrorBuilder::message(\sprintf(
                     'Constructor in anonymous class has parameter $%s with default value.',
                     $parameterName,
-                );
+                ));
+
+                return $ruleErrorBuilder->build();
             }, $params);
         }
 

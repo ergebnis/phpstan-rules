@@ -56,36 +56,40 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rules\Rule
         $classReflection = $scope->getClassReflection();
 
         if ($classReflection->isAnonymous()) {
-            return \array_map(static function (Node\Param $node) use ($methodName): string {
+            return \array_map(static function (Node\Param $node) use ($methodName): Rules\RuleError {
                 /** @var Node\Expr\Variable $variable */
                 $variable = $node->var;
 
                 /** @var string $parameterName */
                 $parameterName = $variable->name;
 
-                return \sprintf(
+                $ruleErrorBuilder = Rules\RuleErrorBuilder::message(\sprintf(
                     'Method %s() in anonymous class has parameter $%s with a nullable type declaration.',
                     $methodName,
                     $parameterName,
-                );
+                ));
+
+                return $ruleErrorBuilder->build();
             }, $params);
         }
 
         $className = $classReflection->getName();
 
-        return \array_map(static function (Node\Param $node) use ($className, $methodName): string {
+        return \array_map(static function (Node\Param $node) use ($className, $methodName): Rules\RuleError {
             /** @var Node\Expr\Variable $variable */
             $variable = $node->var;
 
             /** @var string $parameterName */
             $parameterName = $variable->name;
 
-            return \sprintf(
+            $ruleErrorBuilder = Rules\RuleErrorBuilder::message(\sprintf(
                 'Method %s::%s() has parameter $%s with a nullable type declaration.',
                 $className,
                 $methodName,
                 $parameterName,
-            );
+            ));
+
+            return $ruleErrorBuilder->build();
         }, $params);
     }
 

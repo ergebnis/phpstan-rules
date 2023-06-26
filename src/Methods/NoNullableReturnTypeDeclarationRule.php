@@ -46,20 +46,24 @@ final class NoNullableReturnTypeDeclarationRule implements Rules\Rule
         $classReflection = $scope->getClassReflection();
 
         if ($classReflection->isAnonymous()) {
+            $ruleErrorBuilder = Rules\RuleErrorBuilder::message(\sprintf(
+                'Method %s() in anonymous class has a nullable return type declaration.',
+                $node->name->name,
+            ));
+
             return [
-                \sprintf(
-                    'Method %s() in anonymous class has a nullable return type declaration.',
-                    $node->name->name,
-                ),
+                $ruleErrorBuilder->build(),
             ];
         }
 
+        $ruleErrorBuilder = Rules\RuleErrorBuilder::message(\sprintf(
+            'Method %s::%s() has a nullable return type declaration.',
+            $classReflection->getName(),
+            $node->name->name,
+        ));
+
         return [
-            \sprintf(
-                'Method %s::%s() has a nullable return type declaration.',
-                $classReflection->getName(),
-                $node->name->name,
-            ),
+            $ruleErrorBuilder->build(),
         ];
     }
 

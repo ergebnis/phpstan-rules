@@ -51,18 +51,20 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rules\Rule
 
         $functionName = $node->namespacedName;
 
-        return \array_map(static function (Node\Param $node) use ($functionName): string {
+        return \array_map(static function (Node\Param $node) use ($functionName): Rules\RuleError {
             /** @var Node\Expr\Variable $variable */
             $variable = $node->var;
 
             /** @var string $parameterName */
             $parameterName = $variable->name;
 
-            return \sprintf(
+            $ruleErrorBuilder = Rules\RuleErrorBuilder::message(\sprintf(
                 'Function %s() has parameter $%s with a nullable type declaration.',
                 $functionName,
                 $parameterName,
-            );
+            ));
+
+            return $ruleErrorBuilder->build();
         }, $params);
     }
 

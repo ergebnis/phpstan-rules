@@ -28,8 +28,10 @@ final class NoErrorSuppressionRule implements Rules\Rule
         Node $node,
         Analyser\Scope $scope,
     ): array {
+        $ruleErrorBuilder = Rules\RuleErrorBuilder::message('Error suppression via "@" should not be used.');
+
         return [
-            'Error suppression via "@" should not be used.',
+            $ruleErrorBuilder->build(),
         ];
     }
 }

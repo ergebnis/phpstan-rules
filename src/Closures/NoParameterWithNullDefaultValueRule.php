@@ -53,17 +53,19 @@ final class NoParameterWithNullDefaultValueRule implements Rules\Rule
             return [];
         }
 
-        return \array_map(static function (Node\Param $node): string {
+        return \array_map(static function (Node\Param $node): Rules\RuleError {
             /** @var Node\Expr\Variable $variable */
             $variable = $node->var;
 
             /** @var string $parameterName */
             $parameterName = $variable->name;
 
-            return \sprintf(
+            $ruleErrorBuilder = Rules\RuleErrorBuilder::message(\sprintf(
                 'Closure has parameter $%s with null as default value.',
                 $parameterName,
-            );
+            ));
+
+            return $ruleErrorBuilder->build();
         }, $params);
     }
 }

@@ -66,8 +66,10 @@ final class DeclareStrictTypesRule implements Rules\Rule
             }
         }
 
+        $ruleErrorBuilder = Rules\RuleErrorBuilder::message('File is missing a "declare(strict_types=1)" declaration.');
+
         return [
-            'File is missing a "declare(strict_types=1)" declaration.',
+            $ruleErrorBuilder->build(),
         ];
     }
 }

@@ -41,8 +41,10 @@ final class NoNullableReturnTypeDeclarationRule implements Rules\Rule
             return [];
         }
 
+        $ruleErrorBuilder = Rules\RuleErrorBuilder::message('Closure has a nullable return type declaration.');
+
         return [
-            'Closure has a nullable return type declaration.',
+            $ruleErrorBuilder->build(),
         ];
     }
 
