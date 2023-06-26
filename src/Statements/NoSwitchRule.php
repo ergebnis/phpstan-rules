@@ -14,10 +14,10 @@ declare(strict_types=1);
 namespace Ergebnis\PHPStan\Rules\Statements;
 
 use PhpParser\Node;
-use PHPStan\Analyser\Scope;
-use PHPStan\Rules\Rule;
+use PHPStan\Analyser;
+use PHPStan\Rules;
 
-final class NoSwitchRule implements Rule
+final class NoSwitchRule implements Rules\Rule
 {
     public function getNodeType(): string
     {
@@ -26,7 +26,7 @@ final class NoSwitchRule implements Rule
 
     public function processNode(
         Node $node,
-        Scope $scope,
+        Analyser\Scope $scope,
     ): array {
         return [
             'Control structures using switch should not be used.',

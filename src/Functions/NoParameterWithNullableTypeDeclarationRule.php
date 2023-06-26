@@ -14,11 +14,11 @@ declare(strict_types=1);
 namespace Ergebnis\PHPStan\Rules\Functions;
 
 use PhpParser\Node;
-use PHPStan\Analyser\Scope;
-use PHPStan\Rules\Rule;
+use PHPStan\Analyser;
+use PHPStan\Rules;
 use PHPStan\ShouldNotHappenException;
 
-final class NoParameterWithNullableTypeDeclarationRule implements Rule
+final class NoParameterWithNullableTypeDeclarationRule implements Rules\Rule
 {
     public function getNodeType(): string
     {
@@ -27,7 +27,7 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rule
 
     public function processNode(
         Node $node,
-        Scope $scope,
+        Analyser\Scope $scope,
     ): array {
         if (!$node instanceof Node\Stmt\Function_) {
             throw new ShouldNotHappenException(\sprintf(

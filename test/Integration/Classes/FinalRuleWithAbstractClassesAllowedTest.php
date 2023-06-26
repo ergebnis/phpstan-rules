@@ -15,7 +15,7 @@ namespace Ergebnis\PHPStan\Rules\Test\Integration\Classes;
 
 use Ergebnis\PHPStan\Rules\Classes;
 use Ergebnis\PHPStan\Rules\Test;
-use PHPStan\Rules\Rule;
+use PHPStan\Rules;
 use PHPUnit\Framework;
 
 #[Framework\Attributes\CoversClass(Classes\FinalRule::class)]
@@ -63,7 +63,7 @@ final class FinalRuleWithAbstractClassesAllowedTest extends Test\Integration\Abs
         }
     }
 
-    protected function getRule(): Rule
+    protected function getRule(): Rules\Rule
     {
         return new Classes\FinalRule(
             true,

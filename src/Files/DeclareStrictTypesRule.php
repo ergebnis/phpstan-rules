@@ -14,12 +14,12 @@ declare(strict_types=1);
 namespace Ergebnis\PHPStan\Rules\Files;
 
 use PhpParser\Node;
-use PHPStan\Analyser\Scope;
+use PHPStan\Analyser;
 use PHPStan\Node\FileNode;
-use PHPStan\Rules\Rule;
+use PHPStan\Rules;
 use PHPStan\ShouldNotHappenException;
 
-final class DeclareStrictTypesRule implements Rule
+final class DeclareStrictTypesRule implements Rules\Rule
 {
     public function getNodeType(): string
     {
@@ -28,7 +28,7 @@ final class DeclareStrictTypesRule implements Rule
 
     public function processNode(
         Node $node,
-        Scope $scope,
+        Analyser\Scope $scope,
     ): array {
         if (!$node instanceof FileNode) {
             throw new ShouldNotHappenException(\sprintf(

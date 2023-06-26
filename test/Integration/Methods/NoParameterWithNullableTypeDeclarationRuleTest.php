@@ -15,7 +15,7 @@ namespace Ergebnis\PHPStan\Rules\Test\Integration\Methods;
 
 use Ergebnis\PHPStan\Rules\Methods;
 use Ergebnis\PHPStan\Rules\Test;
-use PHPStan\Rules\Rule;
+use PHPStan\Rules;
 use PHPUnit\Framework;
 
 #[Framework\Attributes\CoversClass(Methods\NoParameterWithNullableTypeDeclarationRule::class)]
@@ -113,7 +113,7 @@ final class NoParameterWithNullableTypeDeclarationRuleTest extends Test\Integrat
         }
     }
 
-    protected function getRule(): Rule
+    protected function getRule(): Rules\Rule
     {
         return new Methods\NoParameterWithNullableTypeDeclarationRule();
     }

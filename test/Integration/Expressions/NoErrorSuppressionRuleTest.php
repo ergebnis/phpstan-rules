@@ -15,7 +15,7 @@ namespace Ergebnis\PHPStan\Rules\Test\Integration\Expressions;
 
 use Ergebnis\PHPStan\Rules\Expressions;
 use Ergebnis\PHPStan\Rules\Test;
-use PHPStan\Rules\Rule;
+use PHPStan\Rules;
 use PHPUnit\Framework;
 
 #[Framework\Attributes\CoversClass(Expressions\NoErrorSuppressionRule::class)]
@@ -54,7 +54,7 @@ final class NoErrorSuppressionRuleTest extends Test\Integration\AbstractTestCase
         }
     }
 
-    protected function getRule(): Rule
+    protected function getRule(): Rules\Rule
     {
         return new Expressions\NoErrorSuppressionRule();
     }

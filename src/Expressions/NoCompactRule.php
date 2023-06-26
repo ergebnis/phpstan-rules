@@ -14,11 +14,11 @@ declare(strict_types=1);
 namespace Ergebnis\PHPStan\Rules\Expressions;
 
 use PhpParser\Node;
-use PHPStan\Analyser\Scope;
-use PHPStan\Rules\Rule;
+use PHPStan\Analyser;
+use PHPStan\Rules;
 use PHPStan\ShouldNotHappenException;
 
-final class NoCompactRule implements Rule
+final class NoCompactRule implements Rules\Rule
 {
     public function getNodeType(): string
     {
@@ -27,7 +27,7 @@ final class NoCompactRule implements Rule
 
     public function processNode(
         Node $node,
-        Scope $scope,
+        Analyser\Scope $scope,
     ): array {
         if (!$node instanceof Node\Expr\FuncCall) {
             throw new ShouldNotHappenException(\sprintf(

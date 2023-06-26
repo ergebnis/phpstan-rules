@@ -2,7 +2,7 @@
 <files psalm-version="5.13.0@a0a9c27630bcf8301ee78cb06741d2907d8c9fef">
   <file src="src/Classes/FinalRule.php">
     <MissingTemplateParam>
-      <code>Rule</code>
+      <code>Rules\Rule</code>
     </MissingTemplateParam>
     <PropertyTypeCoercion>
       <code><![CDATA[[
@@ -12,7 +12,7 @@
   </file>
   <file src="src/Classes/NoExtendsRule.php">
     <MissingTemplateParam>
-      <code>Rule</code>
+      <code>Rules\Rule</code>
     </MissingTemplateParam>
     <PropertyTypeCoercion>
       <code><![CDATA[[
@@ -35,47 +35,47 @@
   </file>
   <file src="src/Closures/NoNullableReturnTypeDeclarationRule.php">
     <MissingTemplateParam>
-      <code>Rule</code>
+      <code>Rules\Rule</code>
     </MissingTemplateParam>
   </file>
   <file src="src/Closures/NoParameterWithNullDefaultValueRule.php">
     <MissingTemplateParam>
-      <code>Rule</code>
+      <code>Rules\Rule</code>
     </MissingTemplateParam>
   </file>
   <file src="src/Closures/NoParameterWithNullableTypeDeclarationRule.php">
     <MissingTemplateParam>
-      <code>Rule</code>
+      <code>Rules\Rule</code>
     </MissingTemplateParam>
   </file>
   <file src="src/Expressions/NoCompactRule.php">
     <MissingTemplateParam>
-      <code>Rule</code>
+      <code>Rules\Rule</code>
     </MissingTemplateParam>
   </file>
   <file src="src/Expressions/NoErrorSuppressionRule.php">
     <MissingTemplateParam>
-      <code>Rule</code>
+      <code>Rules\Rule</code>
     </MissingTemplateParam>
   </file>
   <file src="src/Expressions/NoEvalRule.php">
     <MissingTemplateParam>
-      <code>Rule</code>
+      <code>Rules\Rule</code>
     </MissingTemplateParam>
   </file>
   <file src="src/Expressions/NoIssetRule.php">
     <MissingTemplateParam>
-      <code>Rule</code>
+      <code>Rules\Rule</code>
     </MissingTemplateParam>
   </file>
   <file src="src/Files/DeclareStrictTypesRule.php">
     <MissingTemplateParam>
-      <code>Rule</code>
+      <code>Rules\Rule</code>
     </MissingTemplateParam>
   </file>
   <file src="src/Functions/NoNullableReturnTypeDeclarationRule.php">
     <MissingTemplateParam>
-      <code>Rule</code>
+      <code>Rules\Rule</code>
     </MissingTemplateParam>
   </file>
   <file src="src/Functions/NoParameterWithNullDefaultValueRule.php">
@@ -83,7 +83,7 @@
       <code>$functionName</code>
     </ImplicitToStringCast>
     <MissingTemplateParam>
-      <code>Rule</code>
+      <code>Rules\Rule</code>
     </MissingTemplateParam>
     <PossiblyNullArgument>
       <code>$functionName</code>
@@ -94,7 +94,7 @@
       <code>$functionName</code>
     </ImplicitToStringCast>
     <MissingTemplateParam>
-      <code>Rule</code>
+      <code>Rules\Rule</code>
     </MissingTemplateParam>
     <PossiblyNullArgument>
       <code>$functionName</code>
@@ -102,17 +102,17 @@
   </file>
   <file src="src/Methods/FinalInAbstractClassRule.php">
     <MissingTemplateParam>
-      <code>Rule</code>
+      <code>Rules\Rule</code>
     </MissingTemplateParam>
   </file>
   <file src="src/Methods/NoConstructorParameterWithDefaultValueRule.php">
     <MissingTemplateParam>
-      <code>Rule</code>
+      <code>Rules\Rule</code>
     </MissingTemplateParam>
   </file>
   <file src="src/Methods/NoNullableReturnTypeDeclarationRule.php">
     <MissingTemplateParam>
-      <code>Rule</code>
+      <code>Rules\Rule</code>
     </MissingTemplateParam>
   </file>
   <file src="src/Methods/NoParameterWithContainerTypeDeclarationRule.php">
@@ -122,7 +122,7 @@
       <code>$interfaceImplementedByContainer</code>
     </ArgumentTypeCoercion>
     <MissingTemplateParam>
-      <code>Rule</code>
+      <code>Rules\Rule</code>
     </MissingTemplateParam>
     <MixedReturnTypeCoercion>
       <code><![CDATA[\array_reduce(
@@ -190,22 +190,22 @@
   </file>
   <file src="src/Methods/NoParameterWithNullDefaultValueRule.php">
     <MissingTemplateParam>
-      <code>Rule</code>
+      <code>Rules\Rule</code>
     </MissingTemplateParam>
   </file>
   <file src="src/Methods/NoParameterWithNullableTypeDeclarationRule.php">
     <MissingTemplateParam>
-      <code>Rule</code>
+      <code>Rules\Rule</code>
     </MissingTemplateParam>
   </file>
   <file src="src/Methods/PrivateInFinalClassRule.php">
     <MissingTemplateParam>
-      <code>Rule</code>
+      <code>Rules\Rule</code>
     </MissingTemplateParam>
   </file>
   <file src="src/Statements/NoSwitchRule.php">
     <MissingTemplateParam>
-      <code>Rule</code>
+      <code>Rules\Rule</code>
     </MissingTemplateParam>
   </file>
   <file src="test/Integration/AbstractTestCase.php">

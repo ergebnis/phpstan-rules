@@ -14,10 +14,10 @@ declare(strict_types=1);
 namespace Ergebnis\PHPStan\Rules\Expressions;
 
 use PhpParser\Node;
-use PHPStan\Analyser\Scope;
-use PHPStan\Rules\Rule;
+use PHPStan\Analyser;
+use PHPStan\Rules;
 
-final class NoErrorSuppressionRule implements Rule
+final class NoErrorSuppressionRule implements Rules\Rule
 {
     public function getNodeType(): string
     {
@@ -26,7 +26,7 @@ final class NoErrorSuppressionRule implements Rule
 
     public function processNode(
         Node $node,
-        Scope $scope,
+        Analyser\Scope $scope,
     ): array {
         return [
             'Error suppression via "@" should not be used.',

@@ -14,11 +14,11 @@ declare(strict_types=1);
 namespace Ergebnis\PHPStan\Rules\Classes;
 
 use PhpParser\Node;
-use PHPStan\Analyser\Scope;
-use PHPStan\Rules\Rule;
+use PHPStan\Analyser;
+use PHPStan\Rules;
 use PHPStan\ShouldNotHappenException;
 
-final class NoExtendsRule implements Rule
+final class NoExtendsRule implements Rules\Rule
 {
     /**
      * @var array<int, class-string>
@@ -53,7 +53,7 @@ final class NoExtendsRule implements Rule
 
     public function processNode(
         Node $node,
-        Scope $scope,
+        Analyser\Scope $scope,
     ): array {
         if (!$node instanceof Node\Stmt\Class_) {
             throw new ShouldNotHappenException(\sprintf(

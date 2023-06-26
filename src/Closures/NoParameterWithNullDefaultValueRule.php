@@ -14,11 +14,11 @@ declare(strict_types=1);
 namespace Ergebnis\PHPStan\Rules\Closures;
 
 use PhpParser\Node;
-use PHPStan\Analyser\Scope;
-use PHPStan\Rules\Rule;
+use PHPStan\Analyser;
+use PHPStan\Rules;
 use PHPStan\ShouldNotHappenException;
 
-final class NoParameterWithNullDefaultValueRule implements Rule
+final class NoParameterWithNullDefaultValueRule implements Rules\Rule
 {
     public function getNodeType(): string
     {
@@ -27,7 +27,7 @@ final class NoParameterWithNullDefaultValueRule implements Rule
 
     public function processNode(
         Node $node,
-        Scope $scope,
+        Analyser\Scope $scope,
     ): array {
         if (!$node instanceof Node\Expr\Closure) {
             throw new ShouldNotHappenException(\sprintf(

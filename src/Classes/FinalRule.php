@@ -15,11 +15,11 @@ namespace Ergebnis\PHPStan\Rules\Classes;
 
 use PhpParser\Comment;
 use PhpParser\Node;
-use PHPStan\Analyser\Scope;
-use PHPStan\Rules\Rule;
+use PHPStan\Analyser;
+use PHPStan\Rules;
 use PHPStan\ShouldNotHappenException;
 
-final class FinalRule implements Rule
+final class FinalRule implements Rules\Rule
 {
     /**
      * @var array<int, string>
@@ -68,7 +68,7 @@ final class FinalRule implements Rule
 
     public function processNode(
         Node $node,
-        Scope $scope,
+        Analyser\Scope $scope,
     ): array {
         if (!$node instanceof Node\Stmt\Class_) {
             throw new ShouldNotHappenException(\sprintf(

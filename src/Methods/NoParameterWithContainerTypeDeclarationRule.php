@@ -14,12 +14,12 @@ declare(strict_types=1);
 namespace Ergebnis\PHPStan\Rules\Methods;
 
 use PhpParser\Node;
-use PHPStan\Analyser\Scope;
+use PHPStan\Analyser;
 use PHPStan\Reflection;
-use PHPStan\Rules\Rule;
+use PHPStan\Rules;
 use PHPStan\ShouldNotHappenException;
 
-final class NoParameterWithContainerTypeDeclarationRule implements Rule
+final class NoParameterWithContainerTypeDeclarationRule implements Rules\Rule
 {
     private readonly Reflection\ReflectionProvider $reflectionProvider;
 
@@ -61,7 +61,7 @@ final class NoParameterWithContainerTypeDeclarationRule implements Rule
 
     public function processNode(
         Node $node,
-        Scope $scope,
+        Analyser\Scope $scope,
     ): array {
         if (!$node instanceof Node\Stmt\ClassMethod) {
             throw new ShouldNotHappenException(\sprintf(

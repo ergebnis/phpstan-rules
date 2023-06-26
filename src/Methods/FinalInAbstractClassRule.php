@@ -14,12 +14,12 @@ declare(strict_types=1);
 namespace Ergebnis\PHPStan\Rules\Methods;
 
 use PhpParser\Node;
-use PHPStan\Analyser\Scope;
+use PHPStan\Analyser;
 use PHPStan\Reflection;
-use PHPStan\Rules\Rule;
+use PHPStan\Rules;
 use PHPStan\ShouldNotHappenException;
 
-final class FinalInAbstractClassRule implements Rule
+final class FinalInAbstractClassRule implements Rules\Rule
 {
     public function getNodeType(): string
     {
@@ -28,7 +28,7 @@ final class FinalInAbstractClassRule implements Rule
 
     public function processNode(
         Node $node,
-        Scope $scope,
+        Analyser\Scope $scope,
     ): array {
         if (!$node instanceof Node\Stmt\ClassMethod) {
             throw new ShouldNotHappenException(\sprintf(

@@ -15,7 +15,7 @@ namespace Ergebnis\PHPStan\Rules\Test\Integration\Methods;
 
 use Ergebnis\PHPStan\Rules\Methods;
 use Ergebnis\PHPStan\Rules\Test;
-use PHPStan\Rules\Rule;
+use PHPStan\Rules;
 use PHPUnit\Framework;
 use Psr\Container;
 
@@ -141,7 +141,7 @@ final class NoParameterWithContainerTypeDeclarationRuleTest extends Test\Integra
         }
     }
 
-    protected function getRule(): Rule
+    protected function getRule(): Rules\Rule
     {
         return new Methods\NoParameterWithContainerTypeDeclarationRule(
             $this->createReflectionProvider(),

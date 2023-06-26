@@ -15,7 +15,7 @@ namespace Ergebnis\PHPStan\Rules\Test\Integration\Functions;
 
 use Ergebnis\PHPStan\Rules\Functions;
 use Ergebnis\PHPStan\Rules\Test;
-use PHPStan\Rules\Rule;
+use PHPStan\Rules;
 use PHPUnit\Framework;
 
 #[Framework\Attributes\CoversClass(Functions\NoNullableReturnTypeDeclarationRule::class)]
@@ -62,7 +62,7 @@ final class NoNullableReturnTypeDeclarationRuleTest extends Test\Integration\Abs
         }
     }
 
-    protected function getRule(): Rule
+    protected function getRule(): Rules\Rule
     {
         return new Functions\NoNullableReturnTypeDeclarationRule();
     }
