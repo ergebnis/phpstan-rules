@@ -6,7 +6,7 @@ namespace Ergebnis\PHPStan\Rules\Test\Fixture\Methods\NoParameterWithNullableTyp
 
 final class MethodInClassWithParameterWithNullableUnionTypeDeclaration
 {
-    public function foo(string|null $bar)
+    public function foo(null|string $bar)
     {
         return $bar;
     }

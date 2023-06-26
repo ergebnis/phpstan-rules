@@ -6,7 +6,7 @@ namespace Ergebnis\PHPStan\Rules\Test\Fixture\Methods\NoNullableReturnTypeDeclar
 
 final class MethodInClassWithNullableUnionReturnTypeDeclaration
 {
-    public function toString(): string|null
+    public function toString(): null|string
     {
         return 'Hello';
     }

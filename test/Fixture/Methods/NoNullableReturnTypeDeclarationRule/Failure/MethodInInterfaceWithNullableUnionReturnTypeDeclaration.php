@@ -6,5 +6,5 @@ namespace Ergebnis\PHPStan\Rules\Test\Fixture\Methods\NoNullableReturnTypeDeclar
 
 interface MethodInInterfaceWithNullableUnionReturnTypeDeclaration
 {
-    public function toString(): string|null;
+    public function toString(): null|string;
 }
