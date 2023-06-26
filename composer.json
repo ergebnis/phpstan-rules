@@ -20,7 +20,7 @@
     "source": "https://github.com/ergebnis/phpstan-rules"
   },
   "require": {
-    "php": "~8.0.0 || ~8.1.0 || ~8.2.0",
+    "php": "~8.1.0 || ~8.2.0",
     "ext-mbstring": "*",
     "nikic/php-parser": "^4.2.3",
     "phpstan/phpstan": "^1.7.15"
@@ -56,7 +56,7 @@
       "infection/extension-installer": true
     },
     "platform": {
-      "php": "8.0.27"
+      "php": "8.1.20"
     },
     "preferred-install": "dist",
     "sort-packages": true
