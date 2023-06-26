@@ -16,12 +16,9 @@ namespace Ergebnis\PHPStan\Rules\Test\Integration\Methods;
 use Ergebnis\PHPStan\Rules\Methods;
 use Ergebnis\PHPStan\Rules\Test;
 use PHPStan\Rules\Rule;
+use PHPUnit\Framework;
 
-/**
- * @internal
- *
- * @covers \Ergebnis\PHPStan\Rules\Methods\NoParameterWithNullDefaultValueRule
- */
+#[Framework\Attributes\CoversClass(Methods\NoParameterWithNullDefaultValueRule::class)]
 final class NoParameterWithNullDefaultValueRuleTest extends Test\Integration\AbstractTestCase
 {
     public static function provideCasesWhereAnalysisShouldSucceed(): iterable

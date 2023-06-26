@@ -16,13 +16,10 @@ namespace Ergebnis\PHPStan\Rules\Test\Integration\Methods;
 use Ergebnis\PHPStan\Rules\Methods;
 use Ergebnis\PHPStan\Rules\Test;
 use PHPStan\Rules\Rule;
+use PHPUnit\Framework;
 use Psr\Container;
 
-/**
- * @internal
- *
- * @covers \Ergebnis\PHPStan\Rules\Methods\NoParameterWithContainerTypeDeclarationRule
- */
+#[Framework\Attributes\CoversClass(Methods\NoParameterWithContainerTypeDeclarationRule::class)]
 final class NoParameterWithContainerTypeDeclarationRuleTest extends Test\Integration\AbstractTestCase
 {
     public static function provideCasesWhereAnalysisShouldSucceed(): iterable

@@ -18,11 +18,7 @@ use Ergebnis\PHPStan\Rules\Test;
 use PHPStan\Rules\Rule;
 use PHPUnit\Framework;
 
-/**
- * @internal
- *
- * @covers \Ergebnis\PHPStan\Rules\Classes\PHPUnit\Framework\TestCaseWithSuffixRule
- */
+#[Framework\Attributes\CoversClass(Classes\PHPUnit\Framework\TestCaseWithSuffixRule::class)]
 final class TestCaseWithSuffixRuleTest extends Test\Integration\AbstractTestCase
 {
     public static function provideCasesWhereAnalysisShouldSucceed(): iterable
@@ -51,7 +47,7 @@ final class TestCaseWithSuffixRuleTest extends Test\Integration\AbstractTestCase
                         Test\Fixture\Classes\PHPUnit\Framework\TestCaseWithSuffixRule\Failure\ConcreteTestCaseExtendingAbstractTestCaseWithoutTestSuffix::class,
                         Framework\TestCase::class,
                     ),
-                    12,
+                    7,
                 ],
             ],
             'concrete-test-case-without-test-suffix' => [
@@ -62,7 +58,7 @@ final class TestCaseWithSuffixRuleTest extends Test\Integration\AbstractTestCase
                         Test\Fixture\Classes\PHPUnit\Framework\TestCaseWithSuffixRule\Failure\ConcreteTestCaseWithoutTestSuffix::class,
                         Framework\TestCase::class,
                     ),
-                    14,
+                    9,
                 ],
             ],
         ];

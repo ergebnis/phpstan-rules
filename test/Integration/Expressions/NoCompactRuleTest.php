@@ -16,12 +16,9 @@ namespace Ergebnis\PHPStan\Rules\Test\Integration\Expressions;
 use Ergebnis\PHPStan\Rules\Expressions;
 use Ergebnis\PHPStan\Rules\Test;
 use PHPStan\Rules\Rule;
+use PHPUnit\Framework;
 
-/**
- * @internal
- *
- * @covers \Ergebnis\PHPStan\Rules\Expressions\NoCompactRule
- */
+#[Framework\Attributes\CoversClass(Expressions\NoCompactRule::class)]
 final class NoCompactRuleTest extends Test\Integration\AbstractTestCase
 {
     public static function provideCasesWhereAnalysisShouldSucceed(): iterable

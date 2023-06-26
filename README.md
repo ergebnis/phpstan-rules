@@ -10,6 +10,7 @@
 
 [![Latest Stable Version](https://poser.pugx.org/ergebnis/phpstan-rules/v/stable)](https://packagist.org/packages/ergebnis/phpstan-rules)
 [![Total Downloads](https://poser.pugx.org/ergebnis/phpstan-rules/downloads)](https://packagist.org/packages/ergebnis/phpstan-rules)
+[![Monthly Downloads](http://poser.pugx.org/ergebnis/phpstan-rules/d/monthly)](https://packagist.org/packages/ergebnis/phpstan-rules)
 
 Provides additional rules for [`phpstan/phpstan`](https://github.com/phpstan/phpstan).
 
@@ -530,6 +531,10 @@ Please have a look at [`CONTRIBUTING.md`](.github/CONTRIBUTING.md).
 ## Code of Conduct
 
 Please have a look at [`CODE_OF_CONDUCT.md`](https://github.com/ergebnis/.github/blob/main/CODE_OF_CONDUCT.md).
+
+## Security Policy
+
+Please have a look at [`SECURITY.md`](.github/SECURITY.md).
 
 ## License
 

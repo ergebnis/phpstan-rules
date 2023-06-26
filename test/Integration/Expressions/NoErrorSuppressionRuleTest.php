@@ -16,12 +16,9 @@ namespace Ergebnis\PHPStan\Rules\Test\Integration\Expressions;
 use Ergebnis\PHPStan\Rules\Expressions;
 use Ergebnis\PHPStan\Rules\Test;
 use PHPStan\Rules\Rule;
+use PHPUnit\Framework;
 
-/**
- * @internal
- *
- * @covers \Ergebnis\PHPStan\Rules\Expressions\NoErrorSuppressionRule
- */
+#[Framework\Attributes\CoversClass(Expressions\NoErrorSuppressionRule::class)]
 final class NoErrorSuppressionRuleTest extends Test\Integration\AbstractTestCase
 {
     public static function provideCasesWhereAnalysisShouldSucceed(): iterable

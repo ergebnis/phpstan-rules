@@ -16,12 +16,9 @@ namespace Ergebnis\PHPStan\Rules\Test\Integration\Classes;
 use Ergebnis\PHPStan\Rules\Classes;
 use Ergebnis\PHPStan\Rules\Test;
 use PHPStan\Rules\Rule;
+use PHPUnit\Framework;
 
-/**
- * @internal
- *
- * @covers \Ergebnis\PHPStan\Rules\Classes\FinalRule
- */
+#[Framework\Attributes\CoversClass(Classes\FinalRule::class)]
 final class FinalRuleWithExcludedClassNamesTest extends Test\Integration\AbstractTestCase
 {
     public static function provideCasesWhereAnalysisShouldSucceed(): iterable

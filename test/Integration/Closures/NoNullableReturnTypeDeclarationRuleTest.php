@@ -16,12 +16,9 @@ namespace Ergebnis\PHPStan\Rules\Test\Integration\Closures;
 use Ergebnis\PHPStan\Rules\Closures;
 use Ergebnis\PHPStan\Rules\Test;
 use PHPStan\Rules\Rule;
+use PHPUnit\Framework;
 
-/**
- * @internal
- *
- * @covers \Ergebnis\PHPStan\Rules\Closures\NoNullableReturnTypeDeclarationRule
- */
+#[Framework\Attributes\CoversClass(Closures\NoNullableReturnTypeDeclarationRule::class)]
 final class NoNullableReturnTypeDeclarationRuleTest extends Test\Integration\AbstractTestCase
 {
     public static function provideCasesWhereAnalysisShouldSucceed(): iterable

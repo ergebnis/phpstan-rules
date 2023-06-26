@@ -14,15 +14,11 @@ declare(strict_types=1);
 namespace Ergebnis\PHPStan\Rules\Test\Integration;
 
 use PHPStan\Testing\RuleTestCase;
+use PHPUnit\Framework;
 
-/**
- * @internal
- */
 abstract class AbstractTestCase extends RuleTestCase
 {
-    /**
-     * @dataProvider provideCasesWhereAnalysisShouldSucceed
-     */
+    #[Framework\Attributes\DataProvider('provideCasesWhereAnalysisShouldSucceed')]
     final public function testAnalysisSucceeds(string $path): void
     {
         self::assertFileExists($path);
@@ -35,9 +31,7 @@ abstract class AbstractTestCase extends RuleTestCase
         );
     }
 
-    /**
-     * @dataProvider provideCasesWhereAnalysisShouldFail
-     */
+    #[Framework\Attributes\DataProvider('provideCasesWhereAnalysisShouldFail')]
     final public function testAnalysisFails(string $path, array $error): void
     {
         self::assertFileExists($path);
