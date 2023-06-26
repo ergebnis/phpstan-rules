@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.11.0@c9b192ab8400fdaf04b2b13d110575adc879aa90">
+<files psalm-version="5.13.0@a0a9c27630bcf8301ee78cb06741d2907d8c9fef">
   <file src="src/Classes/FinalRule.php">
     <MissingTemplateParam>
       <code>Rule</code>
     </MissingTemplateParam>
     <PropertyTypeCoercion>
-      <code>[
+      <code><![CDATA[[
         'Doctrine\ORM\Mapping\Entity',
-    ]</code>
+    ]]]></code>
     </PropertyTypeCoercion>
   </file>
   <file src="src/Classes/NoExtendsRule.php">
@@ -15,9 +15,9 @@
       <code>Rule</code>
     </MissingTemplateParam>
     <PropertyTypeCoercion>
-      <code>[
+      <code><![CDATA[[
         'PHPUnit\\Framework\\TestCase',
-    ]</code>
+    ]]]></code>
     </PropertyTypeCoercion>
   </file>
   <file src="src/Classes/PHPUnit/Framework/TestCaseWithSuffixRule.php">
@@ -25,9 +25,9 @@
       <code>Rules\Rule</code>
     </MissingTemplateParam>
     <PropertyTypeCoercion>
-      <code>[
+      <code><![CDATA[[
         'PHPUnit\Framework\TestCase',
-    ]</code>
+    ]]]></code>
     </PropertyTypeCoercion>
     <UnnecessaryVarAnnotation>
       <code>string</code>
@@ -118,6 +118,8 @@
   <file src="src/Methods/NoParameterWithContainerTypeDeclarationRule.php">
     <ArgumentTypeCoercion>
       <code>$interfaceImplementedByContainer</code>
+      <code>$interfaceImplementedByContainer</code>
+      <code>$interfaceImplementedByContainer</code>
     </ArgumentTypeCoercion>
     <MissingTemplateParam>
       <code>Rule</code>
@@ -185,10 +187,6 @@
         )]]></code>
       <code>array</code>
     </MixedReturnTypeCoercion>
-    <UndefinedDocblockClass>
-      <code><![CDATA[$classUsedInTypeDeclaration->getNativeReflection()]]></code>
-      <code><![CDATA[$classUsedInTypeDeclaration->getNativeReflection()]]></code>
-    </UndefinedDocblockClass>
   </file>
   <file src="src/Methods/NoParameterWithNullDefaultValueRule.php">
     <MissingTemplateParam>
@@ -204,9 +202,6 @@
     <MissingTemplateParam>
       <code>Rule</code>
     </MissingTemplateParam>
-    <UndefinedDocblockClass>
-      <code><![CDATA[$containingClass->getNativeReflection()]]></code>
-    </UndefinedDocblockClass>
   </file>
   <file src="src/Statements/NoSwitchRule.php">
     <MissingTemplateParam>
