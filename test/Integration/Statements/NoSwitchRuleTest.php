@@ -16,12 +16,9 @@ namespace Ergebnis\PHPStan\Rules\Test\Integration\Statements;
 use Ergebnis\PHPStan\Rules\Statements;
 use Ergebnis\PHPStan\Rules\Test;
 use PHPStan\Rules\Rule;
+use PHPUnit\Framework;
 
-/**
- * @internal
- *
- * @covers \Ergebnis\PHPStan\Rules\Statements\NoSwitchRule
- */
+#[Framework\Attributes\CoversClass(Statements\NoSwitchRule::class)]
 final class NoSwitchRuleTest extends Test\Integration\AbstractTestCase
 {
     public static function provideCasesWhereAnalysisShouldSucceed(): iterable

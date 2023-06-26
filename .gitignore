@@ -1,5 +1,5 @@
 /.build/
-/.notes/
+/.note/
 /.phive/
 /vendor/
 !/.phive/phars.xml

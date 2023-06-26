@@ -217,9 +217,165 @@
                 $error,
             ]</code>
     </MixedArgumentTypeCoercion>
-    <MixedInferredReturnType>
-      <code>iterable</code>
-      <code>iterable</code>
-    </MixedInferredReturnType>
+    <PossiblyUnusedMethod>
+      <code>provideCasesWhereAnalysisShouldFail</code>
+      <code>provideCasesWhereAnalysisShouldSucceed</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/Integration/Classes/FinalRuleTest.php">
+    <PossiblyUnusedMethod>
+      <code>provideCasesWhereAnalysisShouldFail</code>
+      <code>provideCasesWhereAnalysisShouldSucceed</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/Integration/Classes/FinalRuleWithAbstractClassesAllowedTest.php">
+    <PossiblyUnusedMethod>
+      <code>provideCasesWhereAnalysisShouldFail</code>
+      <code>provideCasesWhereAnalysisShouldSucceed</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/Integration/Classes/FinalRuleWithAttributesTest.php">
+    <PossiblyUnusedMethod>
+      <code>provideCasesWhereAnalysisShouldFail</code>
+      <code>provideCasesWhereAnalysisShouldSucceed</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/Integration/Classes/FinalRuleWithExcludedClassNamesTest.php">
+    <PossiblyUnusedMethod>
+      <code>provideCasesWhereAnalysisShouldFail</code>
+      <code>provideCasesWhereAnalysisShouldSucceed</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/Integration/Classes/NoExtendsRuleTest.php">
+    <PossiblyUnusedMethod>
+      <code>provideCasesWhereAnalysisShouldFail</code>
+      <code>provideCasesWhereAnalysisShouldSucceed</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/Integration/Classes/NoExtendsRuleWithClassesAllowedToBeExtendedTest.php">
+    <PossiblyUnusedMethod>
+      <code>provideCasesWhereAnalysisShouldFail</code>
+      <code>provideCasesWhereAnalysisShouldSucceed</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/Integration/Classes/PHPUnit/Framework/TestCaseWithSuffixRuleTest.php">
+    <PossiblyUnusedMethod>
+      <code>provideCasesWhereAnalysisShouldFail</code>
+      <code>provideCasesWhereAnalysisShouldSucceed</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/Integration/Closures/NoNullableReturnTypeDeclarationRuleTest.php">
+    <PossiblyUnusedMethod>
+      <code>provideCasesWhereAnalysisShouldFail</code>
+      <code>provideCasesWhereAnalysisShouldSucceed</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/Integration/Closures/NoParameterWithNullDefaultValueRuleTest.php">
+    <PossiblyUnusedMethod>
+      <code>provideCasesWhereAnalysisShouldFail</code>
+      <code>provideCasesWhereAnalysisShouldSucceed</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/Integration/Closures/NoParameterWithNullableTypeDeclarationRuleTest.php">
+    <PossiblyUnusedMethod>
+      <code>provideCasesWhereAnalysisShouldFail</code>
+      <code>provideCasesWhereAnalysisShouldSucceed</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/Integration/Expressions/NoCompactRuleTest.php">
+    <PossiblyUnusedMethod>
+      <code>provideCasesWhereAnalysisShouldFail</code>
+      <code>provideCasesWhereAnalysisShouldSucceed</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/Integration/Expressions/NoErrorSuppressionRuleTest.php">
+    <PossiblyUnusedMethod>
+      <code>provideCasesWhereAnalysisShouldFail</code>
+      <code>provideCasesWhereAnalysisShouldSucceed</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/Integration/Expressions/NoEvalRuleTest.php">
+    <PossiblyUnusedMethod>
+      <code>provideCasesWhereAnalysisShouldFail</code>
+      <code>provideCasesWhereAnalysisShouldSucceed</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/Integration/Expressions/NoIssetRuleTest.php">
+    <PossiblyUnusedMethod>
+      <code>provideCasesWhereAnalysisShouldFail</code>
+      <code>provideCasesWhereAnalysisShouldSucceed</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/Integration/Files/DeclareStrictTypesRuleTest.php">
+    <PossiblyUnusedMethod>
+      <code>provideCasesWhereAnalysisShouldFail</code>
+      <code>provideCasesWhereAnalysisShouldSucceed</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/Integration/Functions/NoNullableReturnTypeDeclarationRuleTest.php">
+    <PossiblyUnusedMethod>
+      <code>provideCasesWhereAnalysisShouldFail</code>
+      <code>provideCasesWhereAnalysisShouldSucceed</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/Integration/Functions/NoParameterWithNullDefaultValueRuleTest.php">
+    <PossiblyUnusedMethod>
+      <code>provideCasesWhereAnalysisShouldFail</code>
+      <code>provideCasesWhereAnalysisShouldSucceed</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/Integration/Functions/NoParameterWithNullableTypeDeclarationRuleTest.php">
+    <PossiblyUnusedMethod>
+      <code>provideCasesWhereAnalysisShouldFail</code>
+      <code>provideCasesWhereAnalysisShouldSucceed</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/Integration/Methods/FinalInAbstractClassRuleTest.php">
+    <PossiblyUnusedMethod>
+      <code>provideCasesWhereAnalysisShouldFail</code>
+      <code>provideCasesWhereAnalysisShouldSucceed</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/Integration/Methods/NoConstructorParameterWithDefaultValueRuleTest.php">
+    <PossiblyUnusedMethod>
+      <code>provideCasesWhereAnalysisShouldFail</code>
+      <code>provideCasesWhereAnalysisShouldSucceed</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/Integration/Methods/NoNullableReturnTypeDeclarationRuleTest.php">
+    <PossiblyUnusedMethod>
+      <code>provideCasesWhereAnalysisShouldFail</code>
+      <code>provideCasesWhereAnalysisShouldSucceed</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/Integration/Methods/NoParameterWithContainerTypeDeclarationRuleTest.php">
+    <PossiblyUnusedMethod>
+      <code>provideCasesWhereAnalysisShouldFail</code>
+      <code>provideCasesWhereAnalysisShouldSucceed</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/Integration/Methods/NoParameterWithNullDefaultValueRuleTest.php">
+    <PossiblyUnusedMethod>
+      <code>provideCasesWhereAnalysisShouldFail</code>
+      <code>provideCasesWhereAnalysisShouldSucceed</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/Integration/Methods/NoParameterWithNullableTypeDeclarationRuleTest.php">
+    <PossiblyUnusedMethod>
+      <code>provideCasesWhereAnalysisShouldFail</code>
+      <code>provideCasesWhereAnalysisShouldSucceed</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/Integration/Methods/PrivateInFinalClassRuleTest.php">
+    <PossiblyUnusedMethod>
+      <code>provideCasesWhereAnalysisShouldFail</code>
+      <code>provideCasesWhereAnalysisShouldSucceed</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/Integration/Statements/NoSwitchRuleTest.php">
+    <PossiblyUnusedMethod>
+      <code>provideCasesWhereAnalysisShouldFail</code>
+      <code>provideCasesWhereAnalysisShouldSucceed</code>
+    </PossiblyUnusedMethod>
   </file>
 </files>

@@ -16,12 +16,9 @@ namespace Ergebnis\PHPStan\Rules\Test\Integration\Files;
 use Ergebnis\PHPStan\Rules\Files;
 use Ergebnis\PHPStan\Rules\Test;
 use PHPStan\Rules\Rule;
+use PHPUnit\Framework;
 
-/**
- * @internal
- *
- * @covers \Ergebnis\PHPStan\Rules\Files\DeclareStrictTypesRule
- */
+#[Framework\Attributes\CoversClass(Files\DeclareStrictTypesRule::class)]
 final class DeclareStrictTypesRuleTest extends Test\Integration\AbstractTestCase
 {
     public static function provideCasesWhereAnalysisShouldSucceed(): iterable

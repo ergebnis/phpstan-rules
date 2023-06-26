@@ -27,7 +27,7 @@ final class TestCaseWithSuffixRule implements Rules\Rule
     private static array $phpunitTestCaseClassNames = [
         'PHPUnit\Framework\TestCase',
     ];
-    private Reflection\ReflectionProvider $reflectionProvider;
+    private readonly Reflection\ReflectionProvider $reflectionProvider;
 
     public function __construct(Reflection\ReflectionProvider $reflectionProvider)
     {

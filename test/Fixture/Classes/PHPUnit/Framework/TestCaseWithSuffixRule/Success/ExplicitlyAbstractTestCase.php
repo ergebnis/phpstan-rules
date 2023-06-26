@@ -6,9 +6,6 @@ namespace Ergebnis\PHPStan\Rules\Test\Fixture\Classes\PHPUnit\Framework\TestCase
 
 use PHPUnit\Framework;
 
-/**
- * @internal
- */
 abstract class ExplicitlyAbstractTestCase extends Framework\TestCase
 {
 }

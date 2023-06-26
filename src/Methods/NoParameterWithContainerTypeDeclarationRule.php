@@ -21,17 +21,17 @@ use PHPStan\ShouldNotHappenException;
 
 final class NoParameterWithContainerTypeDeclarationRule implements Rule
 {
-    private Reflection\ReflectionProvider $reflectionProvider;
+    private readonly Reflection\ReflectionProvider $reflectionProvider;
 
     /**
      * @var array<int, string>
      */
-    private array $interfacesImplementedByContainers;
+    private readonly array $interfacesImplementedByContainers;
 
     /**
      * @var array<int, string>
      */
-    private array $methodsAllowedToUseContainerTypeDeclarations;
+    private readonly array $methodsAllowedToUseContainerTypeDeclarations;
 
     /**
      * @param array<int, string> $interfacesImplementedByContainers
