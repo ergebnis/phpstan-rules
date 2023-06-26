@@ -13,9 +13,8 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Test\Integration\Classes;
 
-use Ergebnis\PHPStan\Rules\Classes\FinalRule;
-use Ergebnis\PHPStan\Rules\Test\Fixture;
-use Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase;
+use Ergebnis\PHPStan\Rules\Classes;
+use Ergebnis\PHPStan\Rules\Test;
 use PHPStan\Rules\Rule;
 
 /**
@@ -23,7 +22,7 @@ use PHPStan\Rules\Rule;
  *
  * @covers \Ergebnis\PHPStan\Rules\Classes\FinalRule
  */
-final class FinalRuleWithAbstractClassesAllowedTest extends AbstractTestCase
+final class FinalRuleWithAbstractClassesAllowedTest extends Test\Integration\AbstractTestCase
 {
     public static function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
@@ -52,7 +51,7 @@ final class FinalRuleWithAbstractClassesAllowedTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Class %s is neither abstract nor final.',
-                        Fixture\Classes\FinalRuleWithAbstractClassesAllowed\Failure\NeitherAbstractNorFinalClass::class,
+                        Test\Fixture\Classes\FinalRuleWithAbstractClassesAllowed\Failure\NeitherAbstractNorFinalClass::class,
                     ),
                     7,
                 ],
@@ -69,7 +68,7 @@ final class FinalRuleWithAbstractClassesAllowedTest extends AbstractTestCase
 
     protected function getRule(): Rule
     {
-        return new FinalRule(
+        return new Classes\FinalRule(
             true,
             [],
         );

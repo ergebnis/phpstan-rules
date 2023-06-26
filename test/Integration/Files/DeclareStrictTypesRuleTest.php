@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Test\Integration\Files;
 
-use Ergebnis\PHPStan\Rules\Files\DeclareStrictTypesRule;
-use Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase;
+use Ergebnis\PHPStan\Rules\Files;
+use Ergebnis\PHPStan\Rules\Test;
 use PHPStan\Rules\Rule;
 
 /**
@@ -22,7 +22,7 @@ use PHPStan\Rules\Rule;
  *
  * @covers \Ergebnis\PHPStan\Rules\Files\DeclareStrictTypesRule
  */
-final class DeclareStrictTypesRuleTest extends AbstractTestCase
+final class DeclareStrictTypesRuleTest extends Test\Integration\AbstractTestCase
 {
     public static function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
@@ -170,6 +170,6 @@ final class DeclareStrictTypesRuleTest extends AbstractTestCase
 
     protected function getRule(): Rule
     {
-        return new DeclareStrictTypesRule();
+        return new Files\DeclareStrictTypesRule();
     }
 }

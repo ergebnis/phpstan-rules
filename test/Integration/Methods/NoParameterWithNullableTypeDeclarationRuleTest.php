@@ -13,9 +13,8 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Test\Integration\Methods;
 
-use Ergebnis\PHPStan\Rules\Methods\NoParameterWithNullableTypeDeclarationRule;
-use Ergebnis\PHPStan\Rules\Test\Fixture;
-use Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase;
+use Ergebnis\PHPStan\Rules\Methods;
+use Ergebnis\PHPStan\Rules\Test;
 use PHPStan\Rules\Rule;
 
 /**
@@ -23,7 +22,7 @@ use PHPStan\Rules\Rule;
  *
  * @covers \Ergebnis\PHPStan\Rules\Methods\NoParameterWithNullableTypeDeclarationRule
  */
-final class NoParameterWithNullableTypeDeclarationRuleTest extends AbstractTestCase
+final class NoParameterWithNullableTypeDeclarationRuleTest extends Test\Integration\AbstractTestCase
 {
     public static function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
@@ -72,7 +71,7 @@ final class NoParameterWithNullableTypeDeclarationRuleTest extends AbstractTestC
                 [
                     \sprintf(
                         'Method %s::foo() has parameter $bar with a nullable type declaration.',
-                        Fixture\Methods\NoParameterWithNullableTypeDeclarationRule\Failure\MethodInClassWithParameterWithNullableTypeDeclaration::class,
+                        Test\Fixture\Methods\NoParameterWithNullableTypeDeclarationRule\Failure\MethodInClassWithParameterWithNullableTypeDeclaration::class,
                     ),
                     9,
                 ],
@@ -82,7 +81,7 @@ final class NoParameterWithNullableTypeDeclarationRuleTest extends AbstractTestC
                 [
                     \sprintf(
                         'Method %s::foo() has parameter $bar with a nullable type declaration.',
-                        Fixture\Methods\NoParameterWithNullableTypeDeclarationRule\Failure\MethodInClassWithParameterWithNullableUnionTypeDeclaration::class,
+                        Test\Fixture\Methods\NoParameterWithNullableTypeDeclarationRule\Failure\MethodInClassWithParameterWithNullableUnionTypeDeclaration::class,
                     ),
                     9,
                 ],
@@ -92,7 +91,7 @@ final class NoParameterWithNullableTypeDeclarationRuleTest extends AbstractTestC
                 [
                     \sprintf(
                         'Method %s::foo() has parameter $bar with a nullable type declaration.',
-                        Fixture\Methods\NoParameterWithNullableTypeDeclarationRule\Failure\MethodInInterfaceWithParameterWithNullableTypeDeclaration::class,
+                        Test\Fixture\Methods\NoParameterWithNullableTypeDeclarationRule\Failure\MethodInInterfaceWithParameterWithNullableTypeDeclaration::class,
                     ),
                     9,
                 ],
@@ -102,7 +101,7 @@ final class NoParameterWithNullableTypeDeclarationRuleTest extends AbstractTestC
                 [
                     \sprintf(
                         'Method %s::foo() has parameter $bar with a nullable type declaration.',
-                        Fixture\Methods\NoParameterWithNullableTypeDeclarationRule\Failure\MethodInInterfaceWithParameterWithNullableUnionTypeDeclaration::class,
+                        Test\Fixture\Methods\NoParameterWithNullableTypeDeclarationRule\Failure\MethodInInterfaceWithParameterWithNullableUnionTypeDeclaration::class,
                     ),
                     9,
                 ],
@@ -119,6 +118,6 @@ final class NoParameterWithNullableTypeDeclarationRuleTest extends AbstractTestC
 
     protected function getRule(): Rule
     {
-        return new NoParameterWithNullableTypeDeclarationRule();
+        return new Methods\NoParameterWithNullableTypeDeclarationRule();
     }
 }

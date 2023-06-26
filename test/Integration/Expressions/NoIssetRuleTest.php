@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Test\Integration\Expressions;
 
-use Ergebnis\PHPStan\Rules\Expressions\NoIssetRule;
-use Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase;
+use Ergebnis\PHPStan\Rules\Expressions;
+use Ergebnis\PHPStan\Rules\Test;
 use PHPStan\Rules\Rule;
 
 /**
@@ -22,7 +22,7 @@ use PHPStan\Rules\Rule;
  *
  * @covers \Ergebnis\PHPStan\Rules\Expressions\NoIssetRule
  */
-final class NoIssetRuleTest extends AbstractTestCase
+final class NoIssetRuleTest extends Test\Integration\AbstractTestCase
 {
     public static function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
@@ -66,6 +66,6 @@ final class NoIssetRuleTest extends AbstractTestCase
 
     protected function getRule(): Rule
     {
-        return new NoIssetRule();
+        return new Expressions\NoIssetRule();
     }
 }

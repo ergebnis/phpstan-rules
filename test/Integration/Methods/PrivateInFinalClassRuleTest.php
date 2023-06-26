@@ -13,9 +13,8 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Test\Integration\Methods;
 
-use Ergebnis\PHPStan\Rules\Methods\PrivateInFinalClassRule;
-use Ergebnis\PHPStan\Rules\Test\Fixture;
-use Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase;
+use Ergebnis\PHPStan\Rules\Methods;
+use Ergebnis\PHPStan\Rules\Test;
 use PHPStan\Rules\Rule;
 
 /**
@@ -23,7 +22,7 @@ use PHPStan\Rules\Rule;
  *
  * @covers \Ergebnis\PHPStan\Rules\Methods\PrivateInFinalClassRule
  */
-final class PrivateInFinalClassRuleTest extends AbstractTestCase
+final class PrivateInFinalClassRuleTest extends Test\Integration\AbstractTestCase
 {
     public static function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
@@ -51,7 +50,7 @@ final class PrivateInFinalClassRuleTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Method %s::method() is protected, but since the containing class is final, it can be private.',
-                        Fixture\Methods\PrivateInFinalClassRule\Failure\FinalClassWithProtectedMethod::class,
+                        Test\Fixture\Methods\PrivateInFinalClassRule\Failure\FinalClassWithProtectedMethod::class,
                     ),
                     9,
                 ],
@@ -68,6 +67,6 @@ final class PrivateInFinalClassRuleTest extends AbstractTestCase
 
     protected function getRule(): Rule
     {
-        return new PrivateInFinalClassRule();
+        return new Methods\PrivateInFinalClassRule();
     }
 }

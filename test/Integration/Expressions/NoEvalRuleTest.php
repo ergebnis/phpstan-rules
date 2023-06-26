@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Test\Integration\Expressions;
 
-use Ergebnis\PHPStan\Rules\Expressions\NoEvalRule;
-use Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase;
+use Ergebnis\PHPStan\Rules\Expressions;
+use Ergebnis\PHPStan\Rules\Test;
 use PHPStan\Rules\Rule;
 
 /**
@@ -22,7 +22,7 @@ use PHPStan\Rules\Rule;
  *
  * @covers \Ergebnis\PHPStan\Rules\Expressions\NoEvalRule
  */
-final class NoEvalRuleTest extends AbstractTestCase
+final class NoEvalRuleTest extends Test\Integration\AbstractTestCase
 {
     public static function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
@@ -66,6 +66,6 @@ final class NoEvalRuleTest extends AbstractTestCase
 
     protected function getRule(): Rule
     {
-        return new NoEvalRule();
+        return new Expressions\NoEvalRule();
     }
 }

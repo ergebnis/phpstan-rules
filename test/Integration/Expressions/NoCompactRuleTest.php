@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Test\Integration\Expressions;
 
-use Ergebnis\PHPStan\Rules\Expressions\NoCompactRule;
-use Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase;
+use Ergebnis\PHPStan\Rules\Expressions;
+use Ergebnis\PHPStan\Rules\Test;
 use PHPStan\Rules\Rule;
 
 /**
@@ -22,7 +22,7 @@ use PHPStan\Rules\Rule;
  *
  * @covers \Ergebnis\PHPStan\Rules\Expressions\NoCompactRule
  */
-final class NoCompactRuleTest extends AbstractTestCase
+final class NoCompactRuleTest extends Test\Integration\AbstractTestCase
 {
     public static function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
@@ -73,6 +73,6 @@ final class NoCompactRuleTest extends AbstractTestCase
 
     protected function getRule(): Rule
     {
-        return new NoCompactRule();
+        return new Expressions\NoCompactRule();
     }
 }

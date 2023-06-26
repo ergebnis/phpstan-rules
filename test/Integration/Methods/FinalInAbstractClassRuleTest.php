@@ -13,9 +13,8 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Test\Integration\Methods;
 
-use Ergebnis\PHPStan\Rules\Methods\FinalInAbstractClassRule;
-use Ergebnis\PHPStan\Rules\Test\Fixture;
-use Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase;
+use Ergebnis\PHPStan\Rules\Methods;
+use Ergebnis\PHPStan\Rules\Test;
 use PHPStan\Rules\Rule;
 
 /**
@@ -23,7 +22,7 @@ use PHPStan\Rules\Rule;
  *
  * @covers \Ergebnis\PHPStan\Rules\Methods\FinalInAbstractClassRule
  */
-final class FinalInAbstractClassRuleTest extends AbstractTestCase
+final class FinalInAbstractClassRuleTest extends Test\Integration\AbstractTestCase
 {
     public static function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
@@ -51,7 +50,7 @@ final class FinalInAbstractClassRuleTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Method %s::method() is not final, but since the containing class is abstract, it should be.',
-                        Fixture\Methods\FinalInAbstractClassRule\Failure\AbstractClassWithProtectedMethod::class,
+                        Test\Fixture\Methods\FinalInAbstractClassRule\Failure\AbstractClassWithProtectedMethod::class,
                     ),
                     9,
                 ],
@@ -61,7 +60,7 @@ final class FinalInAbstractClassRuleTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Method %s::method() is not final, but since the containing class is abstract, it should be.',
-                        Fixture\Methods\FinalInAbstractClassRule\Failure\AbstractClassWithPublicMethod::class,
+                        Test\Fixture\Methods\FinalInAbstractClassRule\Failure\AbstractClassWithPublicMethod::class,
                     ),
                     9,
                 ],
@@ -78,6 +77,6 @@ final class FinalInAbstractClassRuleTest extends AbstractTestCase
 
     protected function getRule(): Rule
     {
-        return new FinalInAbstractClassRule();
+        return new Methods\FinalInAbstractClassRule();
     }
 }

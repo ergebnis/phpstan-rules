@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Test\Integration\Statements;
 
-use Ergebnis\PHPStan\Rules\Statements\NoSwitchRule;
-use Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase;
+use Ergebnis\PHPStan\Rules\Statements;
+use Ergebnis\PHPStan\Rules\Test;
 use PHPStan\Rules\Rule;
 
 /**
@@ -22,7 +22,7 @@ use PHPStan\Rules\Rule;
  *
  * @covers \Ergebnis\PHPStan\Rules\Statements\NoSwitchRule
  */
-final class NoSwitchRuleTest extends AbstractTestCase
+final class NoSwitchRuleTest extends Test\Integration\AbstractTestCase
 {
     public static function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
@@ -66,6 +66,6 @@ final class NoSwitchRuleTest extends AbstractTestCase
 
     protected function getRule(): Rule
     {
-        return new NoSwitchRule();
+        return new Statements\NoSwitchRule();
     }
 }

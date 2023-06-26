@@ -13,9 +13,8 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Test\Integration\Methods;
 
-use Ergebnis\PHPStan\Rules\Methods\NoParameterWithContainerTypeDeclarationRule;
-use Ergebnis\PHPStan\Rules\Test\Fixture;
-use Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase;
+use Ergebnis\PHPStan\Rules\Methods;
+use Ergebnis\PHPStan\Rules\Test;
 use PHPStan\Rules\Rule;
 use Psr\Container;
 
@@ -24,7 +23,7 @@ use Psr\Container;
  *
  * @covers \Ergebnis\PHPStan\Rules\Methods\NoParameterWithContainerTypeDeclarationRule
  */
-final class NoParameterWithContainerTypeDeclarationRuleTest extends AbstractTestCase
+final class NoParameterWithContainerTypeDeclarationRuleTest extends Test\Integration\AbstractTestCase
 {
     public static function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
@@ -55,7 +54,7 @@ final class NoParameterWithContainerTypeDeclarationRuleTest extends AbstractTest
                 [
                     \sprintf(
                         'Method __construct() in anonymous class has a parameter $container with a type declaration of %s, but containers should not be injected.',
-                        Fixture\Methods\NoParameterWithContainerTypeDeclarationRule\Failure\ClassImplementingContainerInterface::class,
+                        Test\Fixture\Methods\NoParameterWithContainerTypeDeclarationRule\Failure\ClassImplementingContainerInterface::class,
                     ),
                     9,
                 ],
@@ -75,7 +74,7 @@ final class NoParameterWithContainerTypeDeclarationRuleTest extends AbstractTest
                 [
                     \sprintf(
                         'Method __construct() in anonymous class has a parameter $container with a type declaration of %s, but containers should not be injected.',
-                        Fixture\Methods\NoParameterWithContainerTypeDeclarationRule\Failure\InterfaceExtendingContainerInterface::class,
+                        Test\Fixture\Methods\NoParameterWithContainerTypeDeclarationRule\Failure\InterfaceExtendingContainerInterface::class,
                     ),
                     9,
                 ],
@@ -85,8 +84,8 @@ final class NoParameterWithContainerTypeDeclarationRuleTest extends AbstractTest
                 [
                     \sprintf(
                         'Method %s::method() has a parameter $container with a type declaration of %s, but containers should not be injected.',
-                        Fixture\Methods\NoParameterWithContainerTypeDeclarationRule\Failure\ClassImplementingContainerInterfaceWithMethodWithParameterWithSelfAsTypeDeclaration::class,
-                        Fixture\Methods\NoParameterWithContainerTypeDeclarationRule\Failure\ClassImplementingContainerInterfaceWithMethodWithParameterWithSelfAsTypeDeclaration::class,
+                        Test\Fixture\Methods\NoParameterWithContainerTypeDeclarationRule\Failure\ClassImplementingContainerInterfaceWithMethodWithParameterWithSelfAsTypeDeclaration::class,
+                        Test\Fixture\Methods\NoParameterWithContainerTypeDeclarationRule\Failure\ClassImplementingContainerInterfaceWithMethodWithParameterWithSelfAsTypeDeclaration::class,
                     ),
                     11,
                 ],
@@ -96,8 +95,8 @@ final class NoParameterWithContainerTypeDeclarationRuleTest extends AbstractTest
                 [
                     \sprintf(
                         'Method %s::method() has a parameter $container with a type declaration of %s, but containers should not be injected.',
-                        Fixture\Methods\NoParameterWithContainerTypeDeclarationRule\Failure\ClassWithMethodWithParameterWithClassImplementingContainerInterfaceAsTypeDeclaration::class,
-                        Fixture\Methods\NoParameterWithContainerTypeDeclarationRule\Failure\ClassImplementingContainerInterface::class,
+                        Test\Fixture\Methods\NoParameterWithContainerTypeDeclarationRule\Failure\ClassWithMethodWithParameterWithClassImplementingContainerInterfaceAsTypeDeclaration::class,
+                        Test\Fixture\Methods\NoParameterWithContainerTypeDeclarationRule\Failure\ClassImplementingContainerInterface::class,
                     ),
                     9,
                 ],
@@ -107,7 +106,7 @@ final class NoParameterWithContainerTypeDeclarationRuleTest extends AbstractTest
                 [
                     \sprintf(
                         'Method %s::method() has a parameter $container with a type declaration of %s, but containers should not be injected.',
-                        Fixture\Methods\NoParameterWithContainerTypeDeclarationRule\Failure\ClassWithMethodWithParameterWithContainerInterfaceAsTypeDeclaration::class,
+                        Test\Fixture\Methods\NoParameterWithContainerTypeDeclarationRule\Failure\ClassWithMethodWithParameterWithContainerInterfaceAsTypeDeclaration::class,
                         Container\ContainerInterface::class,
                     ),
                     11,
@@ -118,8 +117,8 @@ final class NoParameterWithContainerTypeDeclarationRuleTest extends AbstractTest
                 [
                     \sprintf(
                         'Method %s::method() has a parameter $container with a type declaration of %s, but containers should not be injected.',
-                        Fixture\Methods\NoParameterWithContainerTypeDeclarationRule\Failure\ClassWithMethodWithParameterWithInterfaceExtendingContainerInterfaceAsTypeDeclaration::class,
-                        Fixture\Methods\NoParameterWithContainerTypeDeclarationRule\Failure\InterfaceExtendingContainerInterface::class,
+                        Test\Fixture\Methods\NoParameterWithContainerTypeDeclarationRule\Failure\ClassWithMethodWithParameterWithInterfaceExtendingContainerInterfaceAsTypeDeclaration::class,
+                        Test\Fixture\Methods\NoParameterWithContainerTypeDeclarationRule\Failure\InterfaceExtendingContainerInterface::class,
                     ),
                     9,
                 ],
@@ -129,7 +128,7 @@ final class NoParameterWithContainerTypeDeclarationRuleTest extends AbstractTest
                 [
                     \sprintf(
                         'Method %s::method() has a parameter $container with a type declaration of %s, but containers should not be injected.',
-                        Fixture\Methods\NoParameterWithContainerTypeDeclarationRule\Failure\InterfaceWithMethodWithParameterWithContainerInterfaceAsTypeDeclaration::class,
+                        Test\Fixture\Methods\NoParameterWithContainerTypeDeclarationRule\Failure\InterfaceWithMethodWithParameterWithContainerInterfaceAsTypeDeclaration::class,
                         Container\ContainerInterface::class,
                     ),
                     11,
@@ -147,7 +146,7 @@ final class NoParameterWithContainerTypeDeclarationRuleTest extends AbstractTest
 
     protected function getRule(): Rule
     {
-        return new NoParameterWithContainerTypeDeclarationRule(
+        return new Methods\NoParameterWithContainerTypeDeclarationRule(
             $this->createReflectionProvider(),
             [
                 Container\ContainerInterface::class,

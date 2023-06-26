@@ -13,9 +13,8 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Test\Integration\Classes;
 
-use Ergebnis\PHPStan\Rules\Classes\FinalRule;
-use Ergebnis\PHPStan\Rules\Test\Fixture;
-use Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase;
+use Ergebnis\PHPStan\Rules\Classes;
+use Ergebnis\PHPStan\Rules\Test;
 use PHPStan\Rules\Rule;
 
 /**
@@ -23,7 +22,7 @@ use PHPStan\Rules\Rule;
  *
  * @covers \Ergebnis\PHPStan\Rules\Classes\FinalRule
  */
-final class FinalRuleTest extends AbstractTestCase
+final class FinalRuleTest extends Test\Integration\AbstractTestCase
 {
     public static function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
@@ -57,7 +56,7 @@ final class FinalRuleTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Fixture\Classes\FinalRule\Failure\AbstractClass::class,
+                        Test\Fixture\Classes\FinalRule\Failure\AbstractClass::class,
                     ),
                     7,
                 ],
@@ -67,7 +66,7 @@ final class FinalRuleTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Fixture\Classes\FinalRule\Failure\NeitherAbstractNorFinalClass::class,
+                        Test\Fixture\Classes\FinalRule\Failure\NeitherAbstractNorFinalClass::class,
                     ),
                     7,
                 ],
@@ -77,7 +76,7 @@ final class FinalRuleTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Fixture\Classes\FinalRule\Failure\NonFinalClassWithoutEntityAnnotationInInlineDocBlock::class,
+                        Test\Fixture\Classes\FinalRule\Failure\NonFinalClassWithoutEntityAnnotationInInlineDocBlock::class,
                     ),
                     8,
                 ],
@@ -87,7 +86,7 @@ final class FinalRuleTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Fixture\Classes\FinalRule\Failure\NonFinalClassWithoutEntityAnnotationInMultilineDocBlock::class,
+                        Test\Fixture\Classes\FinalRule\Failure\NonFinalClassWithoutEntityAnnotationInMultilineDocBlock::class,
                     ),
                     12,
                 ],
@@ -97,7 +96,7 @@ final class FinalRuleTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Fixture\Classes\FinalRule\Failure\NonFinalClassWithoutOrmEntityAnnotationInInlineDocBlock::class,
+                        Test\Fixture\Classes\FinalRule\Failure\NonFinalClassWithoutOrmEntityAnnotationInInlineDocBlock::class,
                     ),
                     8,
                 ],
@@ -107,7 +106,7 @@ final class FinalRuleTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Fixture\Classes\FinalRule\Failure\NonFinalClassWithoutOrmEntityAnnotationInMultilineDocBlock::class,
+                        Test\Fixture\Classes\FinalRule\Failure\NonFinalClassWithoutOrmEntityAnnotationInMultilineDocBlock::class,
                     ),
                     12,
                 ],
@@ -124,7 +123,7 @@ final class FinalRuleTest extends AbstractTestCase
 
     protected function getRule(): Rule
     {
-        return new FinalRule(
+        return new Classes\FinalRule(
             false,
             [],
         );

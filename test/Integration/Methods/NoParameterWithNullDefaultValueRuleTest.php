@@ -13,9 +13,8 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Test\Integration\Methods;
 
-use Ergebnis\PHPStan\Rules\Methods\NoParameterWithNullDefaultValueRule;
-use Ergebnis\PHPStan\Rules\Test\Fixture;
-use Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase;
+use Ergebnis\PHPStan\Rules\Methods;
+use Ergebnis\PHPStan\Rules\Test;
 use PHPStan\Rules\Rule;
 
 /**
@@ -23,7 +22,7 @@ use PHPStan\Rules\Rule;
  *
  * @covers \Ergebnis\PHPStan\Rules\Methods\NoParameterWithNullDefaultValueRule
  */
-final class NoParameterWithNullDefaultValueRuleTest extends AbstractTestCase
+final class NoParameterWithNullDefaultValueRuleTest extends Test\Integration\AbstractTestCase
 {
     public static function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
@@ -82,7 +81,7 @@ final class NoParameterWithNullDefaultValueRuleTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Method %s::foo() has parameter $bar with null as default value.',
-                        Fixture\Methods\NoParameterWithNullDefaultValueRule\Failure\MethodInClassWithParameterWithNullDefaultValue::class,
+                        Test\Fixture\Methods\NoParameterWithNullDefaultValueRule\Failure\MethodInClassWithParameterWithNullDefaultValue::class,
                     ),
                     9,
                 ],
@@ -92,7 +91,7 @@ final class NoParameterWithNullDefaultValueRuleTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Method %s::foo() has parameter $bar with null as default value.',
-                        Fixture\Methods\NoParameterWithNullDefaultValueRule\Failure\MethodInClassWithParameterWithRootNamespaceReferencedNullDefaultValue::class,
+                        Test\Fixture\Methods\NoParameterWithNullDefaultValueRule\Failure\MethodInClassWithParameterWithRootNamespaceReferencedNullDefaultValue::class,
                     ),
                     9,
                 ],
@@ -102,7 +101,7 @@ final class NoParameterWithNullDefaultValueRuleTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Method %s::foo() has parameter $bar with null as default value.',
-                        Fixture\Methods\NoParameterWithNullDefaultValueRule\Failure\MethodInClassWithParameterWithWronglyCapitalizedNullDefaultValue::class,
+                        Test\Fixture\Methods\NoParameterWithNullDefaultValueRule\Failure\MethodInClassWithParameterWithWronglyCapitalizedNullDefaultValue::class,
                     ),
                     9,
                 ],
@@ -112,7 +111,7 @@ final class NoParameterWithNullDefaultValueRuleTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Method %s::foo() has parameter $bar with null as default value.',
-                        Fixture\Methods\NoParameterWithNullDefaultValueRule\Failure\MethodInInterfaceWithParameterWithNullDefaultValue::class,
+                        Test\Fixture\Methods\NoParameterWithNullDefaultValueRule\Failure\MethodInInterfaceWithParameterWithNullDefaultValue::class,
                     ),
                     9,
                 ],
@@ -122,7 +121,7 @@ final class NoParameterWithNullDefaultValueRuleTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Method %s::foo() has parameter $bar with null as default value.',
-                        Fixture\Methods\NoParameterWithNullDefaultValueRule\Failure\MethodInInterfaceWithParameterWithRootNamespaceReferencedNullDefaultValue::class,
+                        Test\Fixture\Methods\NoParameterWithNullDefaultValueRule\Failure\MethodInInterfaceWithParameterWithRootNamespaceReferencedNullDefaultValue::class,
                     ),
                     9,
                 ],
@@ -132,7 +131,7 @@ final class NoParameterWithNullDefaultValueRuleTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Method %s::foo() has parameter $bar with null as default value.',
-                        Fixture\Methods\NoParameterWithNullDefaultValueRule\Failure\MethodInInterfaceWithParameterWithWronlgyCapitalizedNullDefaultValue::class,
+                        Test\Fixture\Methods\NoParameterWithNullDefaultValueRule\Failure\MethodInInterfaceWithParameterWithWronlgyCapitalizedNullDefaultValue::class,
                     ),
                     9,
                 ],
@@ -149,6 +148,6 @@ final class NoParameterWithNullDefaultValueRuleTest extends AbstractTestCase
 
     protected function getRule(): Rule
     {
-        return new NoParameterWithNullDefaultValueRule();
+        return new Methods\NoParameterWithNullDefaultValueRule();
     }
 }

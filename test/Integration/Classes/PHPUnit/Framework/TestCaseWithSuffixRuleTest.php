@@ -13,9 +13,8 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Test\Integration\Classes\PHPUnit\Framework;
 
-use Ergebnis\PHPStan\Rules\Classes\PHPUnit\Framework\TestCaseWithSuffixRule;
-use Ergebnis\PHPStan\Rules\Test\Fixture;
-use Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase;
+use Ergebnis\PHPStan\Rules\Classes;
+use Ergebnis\PHPStan\Rules\Test;
 use PHPStan\Rules\Rule;
 use PHPUnit\Framework;
 
@@ -24,7 +23,7 @@ use PHPUnit\Framework;
  *
  * @covers \Ergebnis\PHPStan\Rules\Classes\PHPUnit\Framework\TestCaseWithSuffixRule
  */
-final class TestCaseWithSuffixRuleTest extends AbstractTestCase
+final class TestCaseWithSuffixRuleTest extends Test\Integration\AbstractTestCase
 {
     public static function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
@@ -49,7 +48,7 @@ final class TestCaseWithSuffixRuleTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Class %s extends %s, is concrete, but does not have a Test suffix.',
-                        Fixture\Classes\PHPUnit\Framework\TestCaseWithSuffixRule\Failure\ConcreteTestCaseExtendingAbstractTestCaseWithoutTestSuffix::class,
+                        Test\Fixture\Classes\PHPUnit\Framework\TestCaseWithSuffixRule\Failure\ConcreteTestCaseExtendingAbstractTestCaseWithoutTestSuffix::class,
                         Framework\TestCase::class,
                     ),
                     12,
@@ -60,7 +59,7 @@ final class TestCaseWithSuffixRuleTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Class %s extends %s, is concrete, but does not have a Test suffix.',
-                        Fixture\Classes\PHPUnit\Framework\TestCaseWithSuffixRule\Failure\ConcreteTestCaseWithoutTestSuffix::class,
+                        Test\Fixture\Classes\PHPUnit\Framework\TestCaseWithSuffixRule\Failure\ConcreteTestCaseWithoutTestSuffix::class,
                         Framework\TestCase::class,
                     ),
                     14,
@@ -78,6 +77,6 @@ final class TestCaseWithSuffixRuleTest extends AbstractTestCase
 
     protected function getRule(): Rule
     {
-        return new TestCaseWithSuffixRule($this->createReflectionProvider());
+        return new Classes\PHPUnit\Framework\TestCaseWithSuffixRule($this->createReflectionProvider());
     }
 }

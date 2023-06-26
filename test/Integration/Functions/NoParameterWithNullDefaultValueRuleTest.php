@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Test\Integration\Functions;
 
-use Ergebnis\PHPStan\Rules\Functions\NoParameterWithNullDefaultValueRule;
-use Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase;
+use Ergebnis\PHPStan\Rules\Functions;
+use Ergebnis\PHPStan\Rules\Test;
 use PHPStan\Rules\Rule;
 
 /**
@@ -22,7 +22,7 @@ use PHPStan\Rules\Rule;
  *
  * @covers \Ergebnis\PHPStan\Rules\Functions\NoParameterWithNullDefaultValueRule
  */
-final class NoParameterWithNullDefaultValueRuleTest extends AbstractTestCase
+final class NoParameterWithNullDefaultValueRuleTest extends Test\Integration\AbstractTestCase
 {
     public static function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
@@ -75,6 +75,6 @@ final class NoParameterWithNullDefaultValueRuleTest extends AbstractTestCase
 
     protected function getRule(): Rule
     {
-        return new NoParameterWithNullDefaultValueRule();
+        return new Functions\NoParameterWithNullDefaultValueRule();
     }
 }

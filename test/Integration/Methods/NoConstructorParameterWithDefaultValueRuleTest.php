@@ -13,9 +13,8 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Test\Integration\Methods;
 
-use Ergebnis\PHPStan\Rules\Methods\NoConstructorParameterWithDefaultValueRule;
-use Ergebnis\PHPStan\Rules\Test\Fixture;
-use Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase;
+use Ergebnis\PHPStan\Rules\Methods;
+use Ergebnis\PHPStan\Rules\Test;
 use PHPStan\Rules\Rule;
 
 /**
@@ -23,7 +22,7 @@ use PHPStan\Rules\Rule;
  *
  * @covers \Ergebnis\PHPStan\Rules\Methods\NoConstructorParameterWithDefaultValueRule
  */
-final class NoConstructorParameterWithDefaultValueRuleTest extends AbstractTestCase
+final class NoConstructorParameterWithDefaultValueRuleTest extends Test\Integration\AbstractTestCase
 {
     public static function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
@@ -71,7 +70,7 @@ final class NoConstructorParameterWithDefaultValueRuleTest extends AbstractTestC
                 [
                     \sprintf(
                         'Constructor in %s has parameter $bar with default value.',
-                        Fixture\Methods\NoConstructorParameterWithDefaultValueRule\Failure\ConstructorInClassWithParameterWithDefaultValue::class,
+                        Test\Fixture\Methods\NoConstructorParameterWithDefaultValueRule\Failure\ConstructorInClassWithParameterWithDefaultValue::class,
                     ),
                     9,
                 ],
@@ -81,7 +80,7 @@ final class NoConstructorParameterWithDefaultValueRuleTest extends AbstractTestC
                 [
                     \sprintf(
                         'Constructor in %s has parameter $bar with default value.',
-                        Fixture\Methods\NoConstructorParameterWithDefaultValueRule\Failure\ConstructorWithWrongCapitalizationInClassWithParameterWithDefaultValue::class,
+                        Test\Fixture\Methods\NoConstructorParameterWithDefaultValueRule\Failure\ConstructorWithWrongCapitalizationInClassWithParameterWithDefaultValue::class,
                     ),
                     9,
                 ],
@@ -98,6 +97,6 @@ final class NoConstructorParameterWithDefaultValueRuleTest extends AbstractTestC
 
     protected function getRule(): Rule
     {
-        return new NoConstructorParameterWithDefaultValueRule();
+        return new Methods\NoConstructorParameterWithDefaultValueRule();
     }
 }

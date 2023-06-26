@@ -13,9 +13,8 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Test\Integration\Classes;
 
-use Ergebnis\PHPStan\Rules\Classes\NoExtendsRule;
-use Ergebnis\PHPStan\Rules\Test\Fixture;
-use Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase;
+use Ergebnis\PHPStan\Rules\Classes;
+use Ergebnis\PHPStan\Rules\Test;
 use PHPStan\Rules\Rule;
 
 /**
@@ -23,7 +22,7 @@ use PHPStan\Rules\Rule;
  *
  * @covers \Ergebnis\PHPStan\Rules\Classes\NoExtendsRule
  */
-final class NoExtendsRuleWithClassesAllowedToBeExtendedTest extends AbstractTestCase
+final class NoExtendsRuleWithClassesAllowedToBeExtendedTest extends Test\Integration\AbstractTestCase
 {
     public static function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
@@ -52,8 +51,8 @@ final class NoExtendsRuleWithClassesAllowedToBeExtendedTest extends AbstractTest
                 [
                     \sprintf(
                         'Class "%s" is not allowed to extend "%s".',
-                        Fixture\Classes\NoExtendsRuleWithClassesAllowedToBeExtended\Failure\ClassExtendingOtherClass::class,
-                        Fixture\Classes\NoExtendsRuleWithClassesAllowedToBeExtended\Failure\OtherClass::class,
+                        Test\Fixture\Classes\NoExtendsRuleWithClassesAllowedToBeExtended\Failure\ClassExtendingOtherClass::class,
+                        Test\Fixture\Classes\NoExtendsRuleWithClassesAllowedToBeExtended\Failure\OtherClass::class,
                     ),
                     7,
                 ],
@@ -63,7 +62,7 @@ final class NoExtendsRuleWithClassesAllowedToBeExtendedTest extends AbstractTest
                 [
                     \sprintf(
                         'Anonymous class is not allowed to extend "%s".',
-                        Fixture\Classes\NoExtendsRuleWithClassesAllowedToBeExtended\Failure\OtherClass::class,
+                        Test\Fixture\Classes\NoExtendsRuleWithClassesAllowedToBeExtended\Failure\OtherClass::class,
                     ),
                     7,
                 ],
@@ -80,8 +79,8 @@ final class NoExtendsRuleWithClassesAllowedToBeExtendedTest extends AbstractTest
 
     protected function getRule(): Rule
     {
-        return new NoExtendsRule([
-            Fixture\Classes\NoExtendsRuleWithClassesAllowedToBeExtended\Success\ClassAllowedToBeExtended::class,
+        return new Classes\NoExtendsRule([
+            Test\Fixture\Classes\NoExtendsRuleWithClassesAllowedToBeExtended\Success\ClassAllowedToBeExtended::class,
         ]);
     }
 }

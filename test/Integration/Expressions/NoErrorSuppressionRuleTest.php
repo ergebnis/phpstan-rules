@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Test\Integration\Expressions;
 
-use Ergebnis\PHPStan\Rules\Expressions\NoErrorSuppressionRule;
-use Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase;
+use Ergebnis\PHPStan\Rules\Expressions;
+use Ergebnis\PHPStan\Rules\Test;
 use PHPStan\Rules\Rule;
 
 /**
@@ -22,7 +22,7 @@ use PHPStan\Rules\Rule;
  *
  * @covers \Ergebnis\PHPStan\Rules\Expressions\NoErrorSuppressionRule
  */
-final class NoErrorSuppressionRuleTest extends AbstractTestCase
+final class NoErrorSuppressionRuleTest extends Test\Integration\AbstractTestCase
 {
     public static function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
@@ -59,6 +59,6 @@ final class NoErrorSuppressionRuleTest extends AbstractTestCase
 
     protected function getRule(): Rule
     {
-        return new NoErrorSuppressionRule();
+        return new Expressions\NoErrorSuppressionRule();
     }
 }

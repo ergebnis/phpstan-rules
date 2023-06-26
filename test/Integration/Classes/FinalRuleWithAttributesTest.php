@@ -13,9 +13,8 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Test\Integration\Classes;
 
-use Ergebnis\PHPStan\Rules\Classes\FinalRule;
-use Ergebnis\PHPStan\Rules\Test\Fixture;
-use Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase;
+use Ergebnis\PHPStan\Rules\Classes;
+use Ergebnis\PHPStan\Rules\Test;
 use PHPStan\Rules\Rule;
 
 /**
@@ -25,7 +24,7 @@ use PHPStan\Rules\Rule;
  *
  * @requires PHP 8.0
  */
-final class FinalRuleWithAttributesTest extends AbstractTestCase
+final class FinalRuleWithAttributesTest extends Test\Integration\AbstractTestCase
 {
     public static function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
@@ -52,7 +51,7 @@ final class FinalRuleWithAttributesTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Fixture\Classes\FinalRuleWithAttributes\Failure\NonFinalClassWithUnqualifiedDoctrineOrmMappingEntityAttribute::class,
+                        Test\Fixture\Classes\FinalRuleWithAttributes\Failure\NonFinalClassWithUnqualifiedDoctrineOrmMappingEntityAttribute::class,
                     ),
                     7,
                 ],
@@ -62,7 +61,7 @@ final class FinalRuleWithAttributesTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Fixture\Classes\FinalRuleWithAttributes\Failure\NonFinalClassWithUnqualifiedEntityAttribute::class,
+                        Test\Fixture\Classes\FinalRuleWithAttributes\Failure\NonFinalClassWithUnqualifiedEntityAttribute::class,
                     ),
                     7,
                 ],
@@ -72,7 +71,7 @@ final class FinalRuleWithAttributesTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Fixture\Classes\FinalRuleWithAttributes\Failure\NonFinalClassWithUnqualifiedOrmEntityAttribute::class,
+                        Test\Fixture\Classes\FinalRuleWithAttributes\Failure\NonFinalClassWithUnqualifiedOrmEntityAttribute::class,
                     ),
                     7,
                 ],
@@ -82,7 +81,7 @@ final class FinalRuleWithAttributesTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Fixture\Classes\FinalRuleWithAttributes\Failure\NonFinalClassWithUnqualifiedOrmMappingEntityAttribute::class,
+                        Test\Fixture\Classes\FinalRuleWithAttributes\Failure\NonFinalClassWithUnqualifiedOrmMappingEntityAttribute::class,
                     ),
                     7,
                 ],
@@ -99,7 +98,7 @@ final class FinalRuleWithAttributesTest extends AbstractTestCase
 
     protected function getRule(): Rule
     {
-        return new FinalRule(
+        return new Classes\FinalRule(
             false,
             [],
         );

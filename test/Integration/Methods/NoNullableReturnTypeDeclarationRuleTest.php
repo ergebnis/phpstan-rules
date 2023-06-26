@@ -13,9 +13,8 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Test\Integration\Methods;
 
-use Ergebnis\PHPStan\Rules\Methods\NoNullableReturnTypeDeclarationRule;
-use Ergebnis\PHPStan\Rules\Test\Fixture;
-use Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase;
+use Ergebnis\PHPStan\Rules\Methods;
+use Ergebnis\PHPStan\Rules\Test;
 use PHPStan\Rules\Rule;
 
 /**
@@ -23,7 +22,7 @@ use PHPStan\Rules\Rule;
  *
  * @covers \Ergebnis\PHPStan\Rules\Methods\NoNullableReturnTypeDeclarationRule
  */
-final class NoNullableReturnTypeDeclarationRuleTest extends AbstractTestCase
+final class NoNullableReturnTypeDeclarationRuleTest extends Test\Integration\AbstractTestCase
 {
     public static function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
@@ -69,7 +68,7 @@ final class NoNullableReturnTypeDeclarationRuleTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Method %s::toString() has a nullable return type declaration.',
-                        Fixture\Methods\NoNullableReturnTypeDeclarationRule\Failure\MethodInClassWithNullableReturnTypeDeclaration::class,
+                        Test\Fixture\Methods\NoNullableReturnTypeDeclarationRule\Failure\MethodInClassWithNullableReturnTypeDeclaration::class,
                     ),
                     9,
                 ],
@@ -79,7 +78,7 @@ final class NoNullableReturnTypeDeclarationRuleTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Method %s::toString() has a nullable return type declaration.',
-                        Fixture\Methods\NoNullableReturnTypeDeclarationRule\Failure\MethodInClassWithNullableUnionReturnTypeDeclaration::class,
+                        Test\Fixture\Methods\NoNullableReturnTypeDeclarationRule\Failure\MethodInClassWithNullableUnionReturnTypeDeclaration::class,
                     ),
                     9,
                 ],
@@ -89,7 +88,7 @@ final class NoNullableReturnTypeDeclarationRuleTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Method %s::toString() has a nullable return type declaration.',
-                        Fixture\Methods\NoNullableReturnTypeDeclarationRule\Failure\MethodInInterfaceWithNullableReturnTypeDeclaration::class,
+                        Test\Fixture\Methods\NoNullableReturnTypeDeclarationRule\Failure\MethodInInterfaceWithNullableReturnTypeDeclaration::class,
                     ),
                     9,
                 ],
@@ -99,7 +98,7 @@ final class NoNullableReturnTypeDeclarationRuleTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Method %s::toString() has a nullable return type declaration.',
-                        Fixture\Methods\NoNullableReturnTypeDeclarationRule\Failure\MethodInInterfaceWithNullableUnionReturnTypeDeclaration::class,
+                        Test\Fixture\Methods\NoNullableReturnTypeDeclarationRule\Failure\MethodInInterfaceWithNullableUnionReturnTypeDeclaration::class,
                     ),
                     9,
                 ],
@@ -116,6 +115,6 @@ final class NoNullableReturnTypeDeclarationRuleTest extends AbstractTestCase
 
     protected function getRule(): Rule
     {
-        return new NoNullableReturnTypeDeclarationRule();
+        return new Methods\NoNullableReturnTypeDeclarationRule();
     }
 }

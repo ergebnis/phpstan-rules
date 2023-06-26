@@ -13,9 +13,8 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Test\Integration\Classes;
 
-use Ergebnis\PHPStan\Rules\Classes\FinalRule;
-use Ergebnis\PHPStan\Rules\Test\Fixture;
-use Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase;
+use Ergebnis\PHPStan\Rules\Classes;
+use Ergebnis\PHPStan\Rules\Test;
 use PHPStan\Rules\Rule;
 
 /**
@@ -23,7 +22,7 @@ use PHPStan\Rules\Rule;
  *
  * @covers \Ergebnis\PHPStan\Rules\Classes\FinalRule
  */
-final class FinalRuleWithExcludedClassNamesTest extends AbstractTestCase
+final class FinalRuleWithExcludedClassNamesTest extends Test\Integration\AbstractTestCase
 {
     public static function provideCasesWhereAnalysisShouldSucceed(): iterable
     {
@@ -52,7 +51,7 @@ final class FinalRuleWithExcludedClassNamesTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Fixture\Classes\FinalRuleWithExcludedClassNames\Failure\AbstractClass::class,
+                        Test\Fixture\Classes\FinalRuleWithExcludedClassNames\Failure\AbstractClass::class,
                     ),
                     7,
                 ],
@@ -62,7 +61,7 @@ final class FinalRuleWithExcludedClassNamesTest extends AbstractTestCase
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Fixture\Classes\FinalRuleWithExcludedClassNames\Failure\NeitherAbstractNorFinalClass::class,
+                        Test\Fixture\Classes\FinalRuleWithExcludedClassNames\Failure\NeitherAbstractNorFinalClass::class,
                     ),
                     7,
                 ],
@@ -79,10 +78,10 @@ final class FinalRuleWithExcludedClassNamesTest extends AbstractTestCase
 
     protected function getRule(): Rule
     {
-        return new FinalRule(
+        return new Classes\FinalRule(
             false,
             [
-                Fixture\Classes\FinalRuleWithExcludedClassNames\Success\NeitherAbstractNorFinalClassButWhitelisted::class,
+                Test\Fixture\Classes\FinalRuleWithExcludedClassNames\Success\NeitherAbstractNorFinalClassButWhitelisted::class,
             ],
         );
     }
