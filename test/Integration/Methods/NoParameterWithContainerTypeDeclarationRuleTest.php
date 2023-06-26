@@ -144,7 +144,7 @@ final class NoParameterWithContainerTypeDeclarationRuleTest extends Test\Integra
     protected function getRule(): Rules\Rule
     {
         return new Methods\NoParameterWithContainerTypeDeclarationRule(
-            $this->createReflectionProvider(),
+            self::createReflectionProvider(),
             [
                 Container\ContainerInterface::class,
             ],

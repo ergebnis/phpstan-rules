@@ -73,6 +73,6 @@ final class TestCaseWithSuffixRuleTest extends Test\Integration\AbstractTestCase
 
     protected function getRule(): Rules\Rule
     {
-        return new Classes\PHPUnit\Framework\TestCaseWithSuffixRule($this->createReflectionProvider());
+        return new Classes\PHPUnit\Framework\TestCaseWithSuffixRule(self::createReflectionProvider());
     }
 }
