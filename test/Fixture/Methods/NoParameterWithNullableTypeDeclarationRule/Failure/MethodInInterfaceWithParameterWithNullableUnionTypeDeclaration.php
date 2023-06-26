@@ -6,5 +6,5 @@ namespace Ergebnis\PHPStan\Rules\Test\Fixture\Methods\NoParameterWithNullableTyp
 
 interface MethodInInterfaceWithParameterWithNullableUnionTypeDeclaration
 {
-    public function foo(string|null $bar);
+    public function foo(null|string $bar);
 }

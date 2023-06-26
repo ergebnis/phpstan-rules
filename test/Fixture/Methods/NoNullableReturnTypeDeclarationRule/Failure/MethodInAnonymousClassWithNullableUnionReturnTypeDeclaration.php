@@ -9,7 +9,7 @@ final class MethodInAnonymousClassWithNullableReturnTypeDeclaration
     public function foo()
     {
         return new class() {
-            public function toString(): string|null
+            public function toString(): null|string
             {
                 return 'Hello';
             }
