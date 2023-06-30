@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2c07e132b9401734e07dd68408828cf4",
+    "content-hash": "bf19427abdd950cd41220176758d419a",
     "packages": [
         {
             "name": "nikic/php-parser",
@@ -64,16 +64,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.18",
+            "version": "1.10.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "52b6416c579663eebdd2f1d97df21971daf3b43f"
+                "reference": "b2a30186be2e4d97dce754ae4e65eb0ec2f04eb5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/52b6416c579663eebdd2f1d97df21971daf3b43f",
-                "reference": "52b6416c579663eebdd2f1d97df21971daf3b43f",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/b2a30186be2e4d97dce754ae4e65eb0ec2f04eb5",
+                "reference": "b2a30186be2e4d97dce754ae4e65eb0ec2f04eb5",
                 "shasum": ""
             },
             "require": {
@@ -122,7 +122,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-06-07T22:00:43+00:00"
+            "time": "2023-06-21T20:07:58+00:00"
         }
     ],
     "packages-dev": [
