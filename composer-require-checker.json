@@ -5,6 +5,8 @@
     "PHPStan\\Reflection\\ClassReflection",
     "PHPStan\\Reflection\\ReflectionProvider",
     "PHPStan\\Rules\\Rule",
+    "PHPStan\\Rules\\RuleError",
+    "PHPStan\\Rules\\RuleErrorBuilder",
     "PHPStan\\ShouldNotHappenException"
   ]
 }
