@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "84afd1a82608a77e7db320e2a4ad2a16",
+    "content-hash": "ba94ac496e1282041f5d456afcd262b8",
     "packages": [
         {
             "name": "nikic/php-parser",
@@ -1732,16 +1732,16 @@
         },
         {
             "name": "ergebnis/composer-normalize",
-            "version": "2.31.0",
+            "version": "2.32.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/composer-normalize.git",
-                "reference": "da1d18bcc2ca02111359c2c76fd938a907ba0a16"
+                "reference": "7198c83a4ae261bec72726663be20a7639653a27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/composer-normalize/zipball/da1d18bcc2ca02111359c2c76fd938a907ba0a16",
-                "reference": "da1d18bcc2ca02111359c2c76fd938a907ba0a16",
+                "url": "https://api.github.com/repos/ergebnis/composer-normalize/zipball/7198c83a4ae261bec72726663be20a7639653a27",
+                "reference": "7198c83a4ae261bec72726663be20a7639653a27",
                 "shasum": ""
             },
             "require": {
@@ -1752,19 +1752,20 @@
                 "ext-json": "*",
                 "justinrainbow/json-schema": "^5.2.12",
                 "localheinz/diff": "^1.1.1",
-                "php": "~8.0.0 || ~8.1.0 || ~8.2.0"
+                "php": "~8.1.0 || ~8.2.0"
             },
             "require-dev": {
-                "composer/composer": "^2.5.5",
+                "composer/composer": "^2.5.8",
                 "ergebnis/license": "^2.1.0",
-                "ergebnis/php-cs-fixer-config": "^5.5.2",
-                "fakerphp/faker": "^1.21.0",
-                "infection/infection": "~0.26.19",
-                "phpunit/phpunit": "^9.6.7",
+                "ergebnis/php-cs-fixer-config": "^5.10.0",
+                "ergebnis/phpunit-slow-test-detector": "^2.3.0",
+                "fakerphp/faker": "^1.23.0",
+                "infection/infection": "~0.27.0",
+                "phpunit/phpunit": "^10.2.3",
                 "psalm/plugin-phpunit": "~0.18.4",
-                "rector/rector": "~0.15.25",
+                "rector/rector": "~0.17.2",
                 "symfony/filesystem": "^6.0.13",
-                "vimeo/psalm": "^5.9.0"
+                "vimeo/psalm": "^5.13.1"
             },
             "type": "composer-plugin",
             "extra": {
@@ -1803,7 +1804,7 @@
                 "security": "https://github.com/ergebnis/composer-normalize/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/composer-normalize"
             },
-            "time": "2023-05-02T14:10:33+00:00"
+            "time": "2023-06-30T10:51:27+00:00"
         },
         {
             "name": "ergebnis/json",
