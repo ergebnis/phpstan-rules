@@ -29,7 +29,7 @@
     "doctrine/orm": "^2.15.3",
     "ergebnis/composer-normalize": "^2.33.0",
     "ergebnis/license": "^2.1.0",
-    "ergebnis/php-cs-fixer-config": "^5.10.0",
+    "ergebnis/php-cs-fixer-config": "^5.11.0",
     "ergebnis/phpunit-slow-test-detector": "^2.3.0",
     "infection/infection": "~0.27.0",
     "nette/di": "^3.1.2",

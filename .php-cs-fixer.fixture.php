@@ -23,6 +23,7 @@ $config = PhpCsFixer\Config\Factory::fromRuleSet(new PhpCsFixer\Config\RuleSet\P
     'header_comment' => false,
     'lowercase_keywords' => false,
     'magic_method_casing' => false,
+    'nullable_type_declaration' => false,
     'protected_to_private' => false,
     'static_lambda' => false,
 ]);
