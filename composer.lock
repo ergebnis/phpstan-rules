@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5038c524e21f8b7c7b60ee47a8976cbb",
+    "content-hash": "c15cd368d9331ba25bf75f7fcd8c0eaf",
     "packages": [
         {
             "name": "nikic/php-parser",
@@ -1747,16 +1747,16 @@
         },
         {
             "name": "ergebnis/composer-normalize",
-            "version": "2.34.0",
+            "version": "2.35.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/composer-normalize.git",
-                "reference": "39beb6b5f1e2d923c27fe30c48c3b88582081228"
+                "reference": "fe5fab007825cdb2640e27726c17dbcf513af0d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/composer-normalize/zipball/39beb6b5f1e2d923c27fe30c48c3b88582081228",
-                "reference": "39beb6b5f1e2d923c27fe30c48c3b88582081228",
+                "url": "https://api.github.com/repos/ergebnis/composer-normalize/zipball/fe5fab007825cdb2640e27726c17dbcf513af0d6",
+                "reference": "fe5fab007825cdb2640e27726c17dbcf513af0d6",
                 "shasum": ""
             },
             "require": {
@@ -1776,11 +1776,11 @@
                 "ergebnis/phpunit-slow-test-detector": "^2.3.0",
                 "fakerphp/faker": "^1.23.0",
                 "infection/infection": "~0.27.0",
-                "phpunit/phpunit": "^10.2.6",
+                "phpunit/phpunit": "^10.3.1",
                 "psalm/plugin-phpunit": "~0.18.4",
-                "rector/rector": "~0.17.7",
+                "rector/rector": "~0.17.12",
                 "symfony/filesystem": "^6.0.13",
-                "vimeo/psalm": "^5.13.1"
+                "vimeo/psalm": "^5.14.1"
             },
             "type": "composer-plugin",
             "extra": {
@@ -1819,7 +1819,7 @@
                 "security": "https://github.com/ergebnis/composer-normalize/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/composer-normalize"
             },
-            "time": "2023-07-28T06:34:54+00:00"
+            "time": "2023-08-11T09:11:22+00:00"
         },
         {
             "name": "ergebnis/json",
