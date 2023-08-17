@@ -11,6 +11,7 @@ For a full diff see [`2.0.0...main`][2.0.0...main].
 ### Changed
 
 - Dropped support for PHP 8.0 ([#567]), by [@localheinz]
+- Added support for PHP 8.3 ([#604]), by [@nunomaduro]
 
 ## [`2.0.0`][2.0.0]
 
@@ -488,5 +489,6 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [@ergebnis]: https://github.com/ergebnis
 [@Great-Antique]: https://github.com/Great-Antique
 [@localheinz]: https://github.com/localheinz
+[@nunomaduro]: https://github.com/nunomaduro
 [@rpkamp]: https://github.com/rpkamp
 [@Slamdunk]: https://github.com/Slamdunk
