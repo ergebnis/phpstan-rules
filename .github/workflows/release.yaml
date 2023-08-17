@@ -13,6 +13,8 @@ jobs:
 
     runs-on: "ubuntu-latest"
 
+    timeout-minutes: 5
+
     steps:
       - name: "Create release"
         uses: "ergebnis/.github/actions/github/release/create@1.8.0"
