@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b10a20668cef16565ef112b9064e2c88",
+    "content-hash": "da530fb2b33b6015746e97a19b06be55",
     "packages": [
         {
             "name": "nikic/php-parser",
@@ -2124,16 +2124,16 @@
         },
         {
             "name": "ergebnis/php-cs-fixer-config",
-            "version": "5.16.0",
+            "version": "6.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/php-cs-fixer-config.git",
-                "reference": "227631ebd63e1eae63805a0ffc711dac45e3c7df"
+                "reference": "36408450f5c17d35fafc815ff55d60b8fd520644"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/php-cs-fixer-config/zipball/227631ebd63e1eae63805a0ffc711dac45e3c7df",
-                "reference": "227631ebd63e1eae63805a0ffc711dac45e3c7df",
+                "url": "https://api.github.com/repos/ergebnis/php-cs-fixer-config/zipball/36408450f5c17d35fafc815ff55d60b8fd520644",
+                "reference": "36408450f5c17d35fafc815ff55d60b8fd520644",
                 "shasum": ""
             },
             "require": {
@@ -2142,14 +2142,14 @@
                 "php": "~8.1.0 || ~8.2.0"
             },
             "require-dev": {
-                "ergebnis/composer-normalize": "^2.36.0",
-                "ergebnis/license": "^2.1.0",
+                "ergebnis/composer-normalize": "^2.37.0",
+                "ergebnis/data-provider": "^3.0.0",
+                "ergebnis/license": "^2.2.0",
                 "ergebnis/phpunit-slow-test-detector": "^2.3.0",
                 "fakerphp/faker": "^1.23.0",
-                "infection/infection": "~0.27.0",
-                "phpunit/phpunit": "^10.3.3",
+                "phpunit/phpunit": "^10.3.4",
                 "psalm/plugin-phpunit": "~0.18.4",
-                "rector/rector": "~0.18.2",
+                "rector/rector": "~0.18.3",
                 "symfony/filesystem": "^5.0.0 || ^6.0.0",
                 "symfony/process": "^5.0.0 || ^6.0.0",
                 "vimeo/psalm": "^5.15.0"
@@ -2182,7 +2182,7 @@
                 "issues": "https://github.com/ergebnis/php-cs-fixer-config/issues",
                 "source": "https://github.com/ergebnis/php-cs-fixer-config"
             },
-            "time": "2023-09-18T05:53:54+00:00"
+            "time": "2023-09-18T14:28:24+00:00"
         },
         {
             "name": "ergebnis/phpunit-slow-test-detector",
