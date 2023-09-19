@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f16892724a809ce30d6b144980f1dba0",
+    "content-hash": "22f352adc1776cb8efdec4e278e282c5",
     "packages": [
         {
             "name": "nikic/php-parser",
@@ -2688,16 +2688,16 @@
         },
         {
             "name": "infection/infection",
-            "version": "0.27.0",
+            "version": "0.27.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/infection/infection.git",
-                "reference": "a9ff8171577d98b887d7f16428edd81ff69ce887"
+                "reference": "5019cdc8d707ddacffbe991a1c12c8e8e348845f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/infection/infection/zipball/a9ff8171577d98b887d7f16428edd81ff69ce887",
-                "reference": "a9ff8171577d98b887d7f16428edd81ff69ce887",
+                "url": "https://api.github.com/repos/infection/infection/zipball/5019cdc8d707ddacffbe991a1c12c8e8e348845f",
+                "reference": "5019cdc8d707ddacffbe991a1c12c8e8e348845f",
                 "shasum": ""
             },
             "require": {
@@ -2745,7 +2745,7 @@
                 "phpstan/phpstan-webmozart-assert": "^1.0.2",
                 "phpunit/phpunit": "^9.5.5",
                 "rector/rector": "^0.16.0",
-                "sidz/phpstan-rules": "^0.2.1",
+                "sidz/phpstan-rules": "^0.3.0",
                 "symfony/phpunit-bridge": "^5.4 || ^6.0",
                 "symfony/yaml": "^5.4 || ^6.0",
                 "thecodingmachine/phpstan-safe-rule": "^1.2.0"
@@ -2804,7 +2804,7 @@
             ],
             "support": {
                 "issues": "https://github.com/infection/infection/issues",
-                "source": "https://github.com/infection/infection/tree/0.27.0"
+                "source": "https://github.com/infection/infection/tree/0.27.2"
             },
             "funding": [
                 {
@@ -2816,7 +2816,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2023-05-16T05:28:04+00:00"
+            "time": "2023-09-16T16:39:29+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
