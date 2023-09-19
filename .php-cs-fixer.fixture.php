@@ -13,20 +13,24 @@ declare(strict_types=1);
 
 use Ergebnis\PhpCsFixer;
 
-$config = PhpCsFixer\Config\Factory::fromRuleSet(new PhpCsFixer\Config\RuleSet\Php81(''), [
-    'constant_case' => false,
-    'declare_strict_types' => false,
-    'error_suppression' => false,
-    'final_class' => false,
-    'final_internal_class' => false,
-    'final_public_method_for_abstract_class' => false,
-    'header_comment' => false,
-    'lowercase_keywords' => false,
-    'magic_method_casing' => false,
-    'nullable_type_declaration' => false,
-    'protected_to_private' => false,
-    'static_lambda' => false,
-]);
+$ruleSet = PhpCsFixer\Config\RuleSet\Php81::create()
+    ->withHeader('')
+    ->withRules(PhpCsFixer\Config\Rules::fromArray([
+        'constant_case' => false,
+        'declare_strict_types' => false,
+        'error_suppression' => false,
+        'final_class' => false,
+        'final_internal_class' => false,
+        'final_public_method_for_abstract_class' => false,
+        'header_comment' => false,
+        'lowercase_keywords' => false,
+        'magic_method_casing' => false,
+        'nullable_type_declaration' => false,
+        'protected_to_private' => false,
+        'static_lambda' => false,
+    ]));
+
+$config = PhpCsFixer\Config\Factory::fromRuleSet($ruleSet);
 
 $config->getFinder()
     ->in(__DIR__ . '/test/Fixture')
