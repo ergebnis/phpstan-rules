@@ -9,7 +9,6 @@
 /.yamllint.yaml                 export-ignore
 /composer-require-checker.json  export-ignore
 /composer.lock                  export-ignore
-/infection.json                 export-ignore
 /Makefile                       export-ignore
 /phpstan-baseline.neon          export-ignore
 /phpstan.neon                   export-ignore
