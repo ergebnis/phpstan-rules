@@ -11,7 +11,8 @@
   "authors": [
     {
       "name": "Andreas Möller",
-      "email": "am@localheinz.com"
+      "email": "am@localheinz.com",
+      "homepage": "https://localheinz.com"
     }
   ],
   "homepage": "https://github.com/ergebnis/phpstan-rules",
