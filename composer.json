@@ -18,7 +18,8 @@
   "homepage": "https://github.com/ergebnis/phpstan-rules",
   "support": {
     "issues": "https://github.com/ergebnis/phpstan-rules/issues",
-    "source": "https://github.com/ergebnis/phpstan-rules"
+    "source": "https://github.com/ergebnis/phpstan-rules",
+    "security": "https://github.com/ergebnis/phpstan-rules/blob/main/.github/SECURITY.md"
   },
   "require": {
     "php": "~8.1.0 || ~8.2.0 || ~8.3.0",
