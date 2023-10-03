@@ -33,7 +33,7 @@
     "ergebnis/license": "^2.2.0",
     "ergebnis/php-cs-fixer-config": "^6.2.0",
     "ergebnis/phpunit-slow-test-detector": "^2.3.0",
-    "nette/di": "^3.1.4",
+    "nette/di": "^3.1.5",
     "phpstan/phpstan-deprecation-rules": "^1.1.4",
     "phpstan/phpstan-strict-rules": "^1.1.0",
     "phpunit/phpunit": "^10.3.5",
