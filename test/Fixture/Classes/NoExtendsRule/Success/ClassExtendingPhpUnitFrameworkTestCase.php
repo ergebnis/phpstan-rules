@@ -6,7 +6,7 @@ namespace Ergebnis\PHPStan\Rules\Test\Fixture\Classes\NoExtendsRule\Success;
 
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversNothing]
+#[Framework\Attributes\CoversNothing()]
 final class ClassExtendingPhpUnitFrameworkTestCase extends Framework\TestCase
 {
 }

@@ -6,7 +6,7 @@ namespace Ergebnis\PHPStan\Rules\Test\Fixture\Classes\FinalRuleWithAttributes\Su
 
 use Doctrine\ORM;
 
-#[ORM\Mapping\Entity]
+#[ORM\Mapping\Entity()]
 class NonFinalClassWithQualifiedOrmMappingEntityAttribute
 {
 }

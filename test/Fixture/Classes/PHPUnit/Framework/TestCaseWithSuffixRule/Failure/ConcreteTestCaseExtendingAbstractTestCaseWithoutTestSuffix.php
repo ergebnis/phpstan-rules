@@ -6,7 +6,7 @@ namespace Ergebnis\PHPStan\Rules\Test\Fixture\Classes\PHPUnit\Framework\TestCase
 
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversNothing]
+#[Framework\Attributes\CoversNothing()]
 final class ConcreteTestCaseExtendingAbstractTestCaseWithoutTestSuffix extends AbstractTestCase
 {
 }
