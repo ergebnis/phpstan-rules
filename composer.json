@@ -32,7 +32,7 @@
     "ergebnis/composer-normalize": "^2.39.0",
     "ergebnis/license": "^2.2.0",
     "ergebnis/php-cs-fixer-config": "^6.8.1",
-    "ergebnis/phpunit-slow-test-detector": "^2.3.0",
+    "ergebnis/phpunit-slow-test-detector": "^2.3.2",
     "nette/di": "^3.1.5",
     "phpstan/phpstan-deprecation-rules": "^1.1.4",
     "phpstan/phpstan-strict-rules": "^1.1.0",
