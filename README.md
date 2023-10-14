@@ -12,7 +12,7 @@
 [![Total Downloads](https://poser.pugx.org/ergebnis/phpstan-rules/downloads)](https://packagist.org/packages/ergebnis/phpstan-rules)
 [![Monthly Downloads](http://poser.pugx.org/ergebnis/phpstan-rules/d/monthly)](https://packagist.org/packages/ergebnis/phpstan-rules)
 
-Provides additional rules for [`phpstan/phpstan`](https://github.com/phpstan/phpstan).
+This package provides rules for [`phpstan/phpstan`](https://github.com/phpstan/phpstan).
 
 ## Installation
 

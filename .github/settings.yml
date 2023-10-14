@@ -75,7 +75,7 @@ repository:
   archived: false
   default_branch: "main"
   delete_branch_on_merge: true
-  description: ":eyeglasses: Provides additional rules for phpstan/phpstan."
+  description: ":eyeglasses: Provides rules for phpstan/phpstan."
   enable_automated_security_fixes: true
   enable_vulnerability_alerts: true
   has_discussions: false

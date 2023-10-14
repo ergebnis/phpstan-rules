@@ -1,12 +1,11 @@
 {
   "name": "ergebnis/phpstan-rules",
-  "description": "Provides additional rules for phpstan/phpstan.",
+  "description": "Provides rules for phpstan/phpstan.",
   "license": "MIT",
   "type": "phpstan-extension",
   "keywords": [
     "phpstan",
-    "phpstan-rules",
-    "phpstan-extreme-rules"
+    "phpstan-rules"
   ],
   "authors": [
     {
