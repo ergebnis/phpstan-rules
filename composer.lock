@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "50a81f44f48de50812470ef262388c4c",
+    "content-hash": "1c65b02a7bba40d84573195cc17cc7be",
     "packages": [
         {
             "name": "nikic/php-parser",
@@ -2791,16 +2791,16 @@
         },
         {
             "name": "nette/di",
-            "version": "v3.1.6",
+            "version": "v3.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/di.git",
-                "reference": "3b69f36529a793460d557503bbbae38ef19cbf1d"
+                "reference": "811e41961db5dc7675d6354f2c32bf5e0ed8ff33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/di/zipball/3b69f36529a793460d557503bbbae38ef19cbf1d",
-                "reference": "3b69f36529a793460d557503bbbae38ef19cbf1d",
+                "url": "https://api.github.com/repos/nette/di/zipball/811e41961db5dc7675d6354f2c32bf5e0ed8ff33",
+                "reference": "811e41961db5dc7675d6354f2c32bf5e0ed8ff33",
                 "shasum": ""
             },
             "require": {
@@ -2857,9 +2857,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/di/issues",
-                "source": "https://github.com/nette/di/tree/v3.1.6"
+                "source": "https://github.com/nette/di/tree/v3.1.7"
             },
-            "time": "2023-10-15T12:31:50+00:00"
+            "time": "2023-10-18T23:45:33+00:00"
         },
         {
             "name": "nette/neon",
@@ -2931,16 +2931,16 @@
         },
         {
             "name": "nette/php-generator",
-            "version": "v4.1.0",
+            "version": "v4.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/php-generator.git",
-                "reference": "8b728c622c49b196513c0f95508f2f66342d1e8f"
+                "reference": "d915b7fa643cd0cf6ffe306c25ac5c3db24914a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/php-generator/zipball/8b728c622c49b196513c0f95508f2f66342d1e8f",
-                "reference": "8b728c622c49b196513c0f95508f2f66342d1e8f",
+                "url": "https://api.github.com/repos/nette/php-generator/zipball/d915b7fa643cd0cf6ffe306c25ac5c3db24914a4",
+                "reference": "d915b7fa643cd0cf6ffe306c25ac5c3db24914a4",
                 "shasum": ""
             },
             "require": {
@@ -2994,9 +2994,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/php-generator/issues",
-                "source": "https://github.com/nette/php-generator/tree/v4.1.0"
+                "source": "https://github.com/nette/php-generator/tree/v4.1.1"
             },
-            "time": "2023-09-26T12:28:52+00:00"
+            "time": "2023-10-17T08:36:10+00:00"
         },
         {
             "name": "nette/robot-loader",
