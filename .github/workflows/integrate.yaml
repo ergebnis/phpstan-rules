@@ -199,7 +199,7 @@ jobs:
           trust-gpg-keys: "0x033E5F8D801A2F8D"
 
       - name: "Run maglnet/composer-require-checker"
-        run: ".phive/composer-require-checker check --ansi --config-file=$(pwd)/composer-require-checker.json"
+        run: ".phive/composer-require-checker check --ansi --config-file=$(pwd)/composer-require-checker.json --verbose"
 
   refactoring:
     name: "Refactoring"
@@ -427,4 +427,4 @@ jobs:
           dependencies: "${{ matrix.dependencies }}"
 
       - name: "Run integration tests with phpunit/phpunit"
-        run: "vendor/bin/phpunit --configuration=test/Integration/phpunit.xml"
+        run: "vendor/bin/phpunit --colors=always --configuration=test/Integration/phpunit.xml"

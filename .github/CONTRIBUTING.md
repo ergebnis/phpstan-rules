@@ -1,6 +1,6 @@
 # CONTRIBUTING
 
-We are using [GitHub Actions](https://github.com/features/actions) as a continuous integration system.
+We use [GitHub Actions](https://github.com/features/actions) as a continuous integration system.
 
 For details, take a look at the following workflow configuration files:
 
@@ -12,9 +12,9 @@ For details, take a look at the following workflow configuration files:
 
 ## Coding Standards
 
-We are using [`ergebnis/composer-normalize`](https://github.com/ergebnis/composer-normalize) to normalize `composer.json`.
+We use [`ergebnis/composer-normalize`](https://github.com/ergebnis/composer-normalize) to normalize `composer.json`.
 
-We are using [`yamllint`](https://github.com/adrienverge/yamllint) to enforce coding standards in YAML files.
+We use [`yamllint`](https://github.com/adrienverge/yamllint) to enforce coding standards in YAML files.
 
 If you do not have `yamllint` installed yet, run
 
@@ -24,7 +24,7 @@ brew install yamllint
 
 to install `yamllint`.
 
-We are using [`friendsofphp/php-cs-fixer`](https://github.com/FriendsOfPHP/PHP-CS-Fixer) to enforce coding standards in PHP files.
+We use [`friendsofphp/php-cs-fixer`](https://github.com/FriendsOfPHP/PHP-CS-Fixer) to enforce coding standards in PHP files.
 
 Run
 
@@ -36,7 +36,7 @@ to automatically fix coding standard violations.
 
 ## Dependency Analysis
 
-We are using [`maglnet/composer-require-checker`](https://github.com/maglnet/ComposerRequireChecker) to prevent the use of unknown symbols in production code.
+We use [`maglnet/composer-require-checker`](https://github.com/maglnet/ComposerRequireChecker) to prevent the use of unknown symbols in production code.
 
 Run
 
@@ -48,7 +48,7 @@ to run a dependency analysis.
 
 ## Refactoring
 
-We are using [`rector/rector`](https://github.com/rectorphp/rector) to automatically refactor code.
+We use [`rector/rector`](https://github.com/rectorphp/rector) to automatically refactor code.
 
 Run
 
@@ -60,7 +60,7 @@ to automatically refactor code.
 
 ## Security Analysis
 
-We are using [`composer`](https://github.com/composer/composer) to run a security analysis.
+We use [`composer`](https://github.com/composer/composer) to run a security analysis.
 
 Run
 
@@ -72,7 +72,7 @@ to run a security analysis.
 
 ## Static Code Analysis
 
-We are using [`phpstan/phpstan`](https://github.com/phpstan/phpstan) and [`vimeo/psalm`](https://github.com/vimeo/psalm) to statically analyze the code.
+We use [`phpstan/phpstan`](https://github.com/phpstan/phpstan) and [`vimeo/psalm`](https://github.com/vimeo/psalm) to statically analyze the code.
 
 Run
 
@@ -82,7 +82,7 @@ make static-code-analysis
 
 to run a static code analysis.
 
-We are also using the baseline features of [`phpstan/phpstan`](https://phpstan.org/user-guide/baseline) and [`vimeo/psalm`](https://psalm.dev/docs/running_psalm/dealing_with_code_issues/#using-a-baseline-file).
+We also use the baseline features of [`phpstan/phpstan`](https://phpstan.org/user-guide/baseline) and [`vimeo/psalm`](https://psalm.dev/docs/running_psalm/dealing_with_code_issues/#using-a-baseline-file).
 
 Run
 
@@ -96,7 +96,7 @@ to regenerate the baselines in [`../phpstan-baseline.neon`](../phpstan-baseline.
 
 ## Tests
 
-We are using [`phpunit/phpunit`](https://github.com/sebastianbergmann/phpunit) to drive the development.
+We use [`phpunit/phpunit`](https://github.com/sebastianbergmann/phpunit) to drive the development.
 
 Run
 
