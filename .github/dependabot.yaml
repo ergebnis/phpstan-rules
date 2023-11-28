@@ -3,13 +3,12 @@
 version: 2
 
 updates:
-  - commit-message:
+  - allow:
+      - dependency-type: "development"
+    commit-message:
       include: "scope"
       prefix: "composer"
     directory: "/"
-    ignore:
-      - dependency-name: "nikic/php-parser"
-      - dependency-name: "phpstan/phpstan"
     labels:
       - "dependency"
     open-pull-requests-limit: 10
