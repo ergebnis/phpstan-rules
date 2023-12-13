@@ -12,7 +12,7 @@
 [![Total Downloads](https://poser.pugx.org/ergebnis/phpstan-rules/downloads)](https://packagist.org/packages/ergebnis/phpstan-rules)
 [![Monthly Downloads](http://poser.pugx.org/ergebnis/phpstan-rules/d/monthly)](https://packagist.org/packages/ergebnis/phpstan-rules)
 
-This package provides rules for [`phpstan/phpstan`](https://github.com/phpstan/phpstan).
+This project provides a [`composer`](https://getcomposer.org) package with rules for [`phpstan/phpstan`](https://github.com/phpstan/phpstan).
 
 ## Installation
 
@@ -522,35 +522,35 @@ parameters:
 
 ## Changelog
 
-The maintainers of this package record notable changes to this project in a [changelog](CHANGELOG.md).
+The maintainers of this project record notable changes to this project in a [changelog](CHANGELOG.md).
 
 ## Contributing
 
-The maintainers of this package suggest following the [contribution guide](.github/CONTRIBUTING.md).
+The maintainers of this project suggest following the [contribution guide](.github/CONTRIBUTING.md).
 
 ## Code of Conduct
 
-The maintainers of this package ask contributors to follow the [code of conduct](https://github.com/ergebnis/.github/blob/main/CODE_OF_CONDUCT.md).
+The maintainers of this project ask contributors to follow the [code of conduct](https://github.com/ergebnis/.github/blob/main/CODE_OF_CONDUCT.md).
 
 ## General Support Policy
 
-The maintainers of this package provide limited support.
+The maintainers of this project provide limited support.
 
-You can support the maintenance of this package by [sponsoring @localheinz](https://github.com/sponsors/localheinz) or [requesting an invoice for services related to this package](mailto:am@localheinz.com?subject=ergebnis/phpstan-rules:%20Requesting%20invoice%20for%20services).
+You can support the maintenance of this project by [sponsoring @localheinz](https://github.com/sponsors/localheinz) or [requesting an invoice for services related to this project](mailto:am@localheinz.com?subject=ergebnis/phpstan-rules:%20Requesting%20invoice%20for%20services).
 
 ## PHP Version Support Policy
 
-This package supports PHP versions with [active support](https://www.php.net/supported-versions.php).
+This project supports PHP versions with [active and security support](https://www.php.net/supported-versions.php).
 
-The maintainers of this package add support for a PHP version following its initial release and drop support for a PHP version when it has reached its end of active support.
+The maintainers of this project add support for a PHP version following its initial release and drop support for a PHP version when it has reached the end of security support.
 
 ## Security Policy
 
-This package has a [security policy](.github/SECURITY.md).
+This project has a [security policy](.github/SECURITY.md).
 
 ## License
 
-This package uses the [MIT license](LICENSE.md).
+This project uses the [MIT license](LICENSE.md).
 
 ## Credits
 
