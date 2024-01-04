@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0f7c1a2f638441960a7e75d4c508ffcd",
+    "content-hash": "b1616e68872e99026c316927fc7d7063",
     "packages": [
         {
             "name": "nikic/php-parser",
@@ -2054,16 +2054,16 @@
         },
         {
             "name": "ergebnis/php-cs-fixer-config",
-            "version": "6.18.0",
+            "version": "6.19.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/php-cs-fixer-config.git",
-                "reference": "73ce57d61cee944392453747a479688f2d51bdfc"
+                "reference": "2c268b13551fee83fbdbe8297150fe38b3598598"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/php-cs-fixer-config/zipball/73ce57d61cee944392453747a479688f2d51bdfc",
-                "reference": "73ce57d61cee944392453747a479688f2d51bdfc",
+                "url": "https://api.github.com/repos/ergebnis/php-cs-fixer-config/zipball/2c268b13551fee83fbdbe8297150fe38b3598598",
+                "reference": "2c268b13551fee83fbdbe8297150fe38b3598598",
                 "shasum": ""
             },
             "require": {
@@ -2118,7 +2118,7 @@
                 "security": "https://github.com/ergebnis/php-cs-fixer-config/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/php-cs-fixer-config"
             },
-            "time": "2024-01-03T22:08:43+00:00"
+            "time": "2024-01-04T10:45:13+00:00"
         },
         {
             "name": "ergebnis/phpunit-slow-test-detector",
