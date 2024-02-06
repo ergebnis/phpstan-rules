@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0470ff7f11d774bff47dcf8332fa02ed",
+    "content-hash": "4f0f363896ce9275c35c39fdeb8ba71f",
     "packages": [
         {
             "name": "nikic/php-parser",
@@ -2586,36 +2586,36 @@
         },
         {
             "name": "nette/di",
-            "version": "v3.1.9",
+            "version": "v3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/di.git",
-                "reference": "3d56bca20300b78fe6de3e7f7749189c4bed8e3a"
+                "reference": "8140289e32e1b2bf2d8b5986bd92124b87fe6b2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/di/zipball/3d56bca20300b78fe6de3e7f7749189c4bed8e3a",
-                "reference": "3d56bca20300b78fe6de3e7f7749189c4bed8e3a",
+                "url": "https://api.github.com/repos/nette/di/zipball/8140289e32e1b2bf2d8b5986bd92124b87fe6b2f",
+                "reference": "8140289e32e1b2bf2d8b5986bd92124b87fe6b2f",
                 "shasum": ""
             },
             "require": {
                 "ext-tokenizer": "*",
                 "nette/neon": "^3.3 || ^4.0",
-                "nette/php-generator": "^3.5.4 || ^4.0",
-                "nette/robot-loader": "^3.2 || ~4.0.0",
+                "nette/php-generator": "^4.1.3",
+                "nette/robot-loader": "^4.0",
                 "nette/schema": "^1.2.5",
-                "nette/utils": "^3.2.5 || ~4.0.0",
-                "php": "7.2 - 8.3"
+                "nette/utils": "^4.0",
+                "php": "8.1 - 8.3"
             },
             "require-dev": {
-                "nette/tester": "^2.4",
+                "nette/tester": "^2.5.2",
                 "phpstan/phpstan": "^1.0",
                 "tracy/tracy": "^2.9"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.1-dev"
+                    "dev-master": "3.2-dev"
                 }
             },
             "autoload": {
@@ -2652,9 +2652,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/di/issues",
-                "source": "https://github.com/nette/di/tree/v3.1.9"
+                "source": "https://github.com/nette/di/tree/v3.2.0"
             },
-            "time": "2024-02-03T18:06:44+00:00"
+            "time": "2024-02-06T01:22:10+00:00"
         },
         {
             "name": "nette/neon",
