@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`2.1.0...main`][2.1.0...main].
 
+### Changed
+
+- Allowed installation of `nikic/php-parser:^5.0.0` ([#735]), by [@localheinz]
+
 ## [`2.1.0`][2.1.0]
 
 For a full diff see [`2.0.0...2.1.0`][2.0.0...2.1.0].
@@ -490,6 +494,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#542]: https://github.com/ergebnis/phpstan-rules/pull/542
 [#543]: https://github.com/ergebnis/phpstan-rules/pull/543
 [#567]: https://github.com/ergebnis/phpstan-rules/pull/567
+[#735]: https://github.com/ergebnis/phpstan-rules/pull/735
 
 [@enumag]: https://github.com/enumag
 [@ergebnis]: https://github.com/ergebnis

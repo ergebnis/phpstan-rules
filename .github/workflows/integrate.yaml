@@ -410,6 +410,9 @@ jobs:
           key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
+      - name: "Remove incompatible dependencies with composer"
+        run: "composer remove psalm/plugin-phpunit vimeo/psalm --ansi --dev --no-interaction --no-progress"
+
       - name: "Remove platform configuration with composer"
         if: "matrix.dependencies != 'locked'"
         run: "composer config platform.php --ansi --unset"
