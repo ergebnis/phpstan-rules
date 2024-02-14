@@ -39,7 +39,7 @@
     "psalm/plugin-phpunit": "~0.18.4",
     "psr/container": "^2.0.2",
     "rector/rector": "^1.0.0",
-    "vimeo/psalm": "^5.21.1"
+    "vimeo/psalm": "^5.22.0"
   },
   "autoload": {
     "psr-4": {
