@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f7049d0b9377aab86bdfccd5f2f4c592",
+    "content-hash": "4eb9b24db5fba408b96742e599eed2f7",
     "packages": [
         {
             "name": "nikic/php-parser",
@@ -2587,16 +2587,16 @@
         },
         {
             "name": "nette/di",
-            "version": "v3.2.0",
+            "version": "v3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/di.git",
-                "reference": "8140289e32e1b2bf2d8b5986bd92124b87fe6b2f"
+                "reference": "ee04330374b61c9cbff03f817def97c531769708"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/di/zipball/8140289e32e1b2bf2d8b5986bd92124b87fe6b2f",
-                "reference": "8140289e32e1b2bf2d8b5986bd92124b87fe6b2f",
+                "url": "https://api.github.com/repos/nette/di/zipball/ee04330374b61c9cbff03f817def97c531769708",
+                "reference": "ee04330374b61c9cbff03f817def97c531769708",
                 "shasum": ""
             },
             "require": {
@@ -2653,9 +2653,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/di/issues",
-                "source": "https://github.com/nette/di/tree/v3.2.0"
+                "source": "https://github.com/nette/di/tree/v3.2.1"
             },
-            "time": "2024-02-06T01:22:10+00:00"
+            "time": "2024-02-12T17:54:52+00:00"
         },
         {
             "name": "nette/neon",
