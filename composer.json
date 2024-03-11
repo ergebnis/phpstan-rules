@@ -35,7 +35,7 @@
     "nette/di": "^3.2.1",
     "phpstan/phpstan-deprecation-rules": "^1.1.4",
     "phpstan/phpstan-strict-rules": "^1.5.2",
-    "phpunit/phpunit": "^10.5.11",
+    "phpunit/phpunit": "^10.5.12",
     "psalm/plugin-phpunit": "~0.18.4",
     "psr/container": "^2.0.2",
     "rector/rector": "^1.0.2",
