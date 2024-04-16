@@ -27,7 +27,7 @@
     "phpstan/phpstan": "^1.10.21"
   },
   "require-dev": {
-    "doctrine/orm": "^3.1.1",
+    "doctrine/orm": "^3.1.2",
     "ergebnis/composer-normalize": "^2.42.0",
     "ergebnis/license": "^2.4.0",
     "ergebnis/php-cs-fixer-config": "^6.25.1",
