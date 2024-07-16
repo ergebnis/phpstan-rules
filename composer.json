@@ -30,7 +30,7 @@
     "doctrine/orm": "^3.2.1",
     "ergebnis/composer-normalize": "^2.43.0",
     "ergebnis/license": "^2.4.0",
-    "ergebnis/php-cs-fixer-config": "^6.31.0",
+    "ergebnis/php-cs-fixer-config": "^6.32.0",
     "ergebnis/phpunit-slow-test-detector": "^2.15.0",
     "nette/di": "^3.2.2",
     "phpstan/phpstan-deprecation-rules": "^1.2.0",
