@@ -19,8 +19,13 @@ use PHPStan\Reflection;
 use PHPStan\Rules;
 use PHPStan\ShouldNotHappenException;
 
+
 final class PrivateInFinalClassRule implements Rules\Rule
 {
+    private static $attributesThatIndicateProtectedIsOk = [
+        \PHPUnit\Framework\Attributes\Before::class
+    ];
+
     public function getNodeType(): string
     {
         return Node\Stmt\ClassMethod::class;
@@ -51,6 +56,15 @@ final class PrivateInFinalClassRule implements Rules\Rule
 
         if ($node->isPrivate()) {
             return [];
+        }
+
+        // Check attributes
+        foreach($node->attrGroups as $attrGroup) {
+            foreach($attrGroup->attrs as $attr) {
+                if (in_array($attr->name->toString(), self::$attributesThatIndicateProtectedIsOk)) {
+                    return [];
+                }
+            }
         }
 
         $methodName = $node->name->toString();
