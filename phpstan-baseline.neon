@@ -20,3 +20,23 @@ parameters:
 			count: 1
 			path: src/Functions/NoNullableReturnTypeDeclarationRule.php
 
+		-
+			message: "#^Class PHPUnit\\\\Framework\\\\Attributes\\\\After not found\\.$#"
+			count: 1
+			path: src/Methods/PrivateInFinalClassRule.php
+
+		-
+			message: "#^Class PHPUnit\\\\Framework\\\\Attributes\\\\Before not found\\.$#"
+			count: 1
+			path: src/Methods/PrivateInFinalClassRule.php
+
+		-
+			message: "#^Class PHPUnit\\\\Framework\\\\Attributes\\\\PostCondition not found\\.$#"
+			count: 1
+			path: src/Methods/PrivateInFinalClassRule.php
+
+		-
+			message: "#^Class PHPUnit\\\\Framework\\\\Attributes\\\\PreCondition not found\\.$#"
+			count: 1
+			path: src/Methods/PrivateInFinalClassRule.php
+
