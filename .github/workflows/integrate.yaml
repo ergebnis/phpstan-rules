@@ -357,9 +357,6 @@ jobs:
       - name: "Run phpstan/phpstan"
         run: "vendor/bin/phpstan --ansi --configuration=phpstan.neon --memory-limit=-1"
 
-      - name: "Run vimeo/psalm"
-        run: "vendor/bin/psalm --config=psalm.xml --output-format=github --shepherd --show-info=false --stats --threads=4"
-
   tests:
     name: "Tests"
 
@@ -409,9 +406,6 @@ jobs:
           path: "${{ env.COMPOSER_CACHE_DIR }}"
           key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
-
-      - name: "Remove incompatible dependencies with composer"
-        run: "composer remove psalm/plugin-phpunit vimeo/psalm --ansi --dev --no-interaction --no-progress"
 
       - name: "Remove platform configuration with composer"
         if: "matrix.dependencies != 'locked'"
