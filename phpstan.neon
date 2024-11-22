@@ -3,8 +3,6 @@ includes:
 	- rules.neon
 
 parameters:
-	checkGenericClassInNonGenericObjectType: false
-
 	ergebnis:
 		noExtends:
 			classesAllowedToBeExtended:
