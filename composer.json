@@ -23,7 +23,7 @@
   "require": {
     "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0",
     "ext-mbstring": "*",
-    "phpstan/phpstan": "^1.10.21"
+    "phpstan/phpstan": "^2.0.0"
   },
   "require-dev": {
     "doctrine/orm": "^2.20.0 || ^3.3.0",
@@ -34,8 +34,8 @@
     "nette/di": "^3.1.10",
     "nikic/php-parser": "^4.19.4",
     "phpstan/extension-installer": "^1.4.3",
-    "phpstan/phpstan-deprecation-rules": "^1.2.1",
-    "phpstan/phpstan-strict-rules": "^1.6.1",
+    "phpstan/phpstan-deprecation-rules": "^2.0.1",
+    "phpstan/phpstan-strict-rules": "^2.0.1",
     "phpunit/phpunit": "^9.6.21",
     "psr/container": "^2.0.2",
     "symfony/finder": "^5.4.45",
