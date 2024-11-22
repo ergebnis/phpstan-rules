@@ -31,6 +31,9 @@ abstract class AbstractTestCase extends RuleTestCase
         );
     }
 
+    /**
+     * @param array{0: string, 1: int} $error
+     */
     #[Framework\Attributes\DataProvider('provideCasesWhereAnalysisShouldFail')]
     final public function testAnalysisFails(string $path, array $error): void
     {
@@ -46,7 +49,13 @@ abstract class AbstractTestCase extends RuleTestCase
         );
     }
 
+    /**
+     * @return iterable<string, array{0: string}>
+     */
     abstract public static function provideCasesWhereAnalysisShouldSucceed(): iterable;
 
+    /**
+     * @return iterable<string, array{0: string, 1: array{0: string, 1: int}}>
+     */
     abstract public static function provideCasesWhereAnalysisShouldFail(): iterable;
 }
