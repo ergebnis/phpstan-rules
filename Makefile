@@ -33,18 +33,14 @@ security-analysis: vendor ## Runs a security analysis with composer
 	composer audit
 
 .PHONY: static-code-analysis
-static-code-analysis: vendor ## Runs a static code analysis with phpstan/phpstan and vimeo/psalm
+static-code-analysis: vendor ## Runs a static code analysis with phpstan/phpstan
 	vendor/bin/phpstan clear-result-cache --configuration=phpstan.neon
 	vendor/bin/phpstan --configuration=phpstan.neon --memory-limit=-1
-	vendor/bin/psalm --config=psalm.xml --clear-cache
-	vendor/bin/psalm --config=psalm.xml --show-info=false --stats --threads=4
 
 .PHONY: static-code-analysis-baseline
-static-code-analysis-baseline: vendor ## Generates a baseline for static code analysis with phpstan/phpstan and vimeo/psalm
+static-code-analysis-baseline: vendor ## Generates a baseline for static code analysis with phpstan/phpstan
 	vendor/bin/phpstan clear-result-cache --configuration=phpstan.neon
 	vendor/bin/phpstan --allow-empty-baseline --configuration=phpstan.neon --generate-baseline=phpstan-baseline.neon --memory-limit=-1
-	vendor/bin/psalm --config=psalm.xml --clear-cache
-	vendor/bin/psalm --config=psalm.xml --set-baseline=psalm-baseline.xml
 
 .PHONY: tests
 tests: vendor ## Runs integration tests with phpunit/phpunit
