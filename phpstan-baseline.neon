@@ -1,9 +1,19 @@
 parameters:
 	ignoreErrors:
 		-
+			message: "#^Class Ergebnis\\\\PHPStan\\\\Rules\\\\Classes\\\\FinalRule implements generic interface PHPStan\\\\Rules\\\\Rule but does not specify its types\\: TNodeType$#"
+			count: 1
+			path: src/Classes/FinalRule.php
+
+		-
 			message: "#^Language construct isset\\(\\) should not be used\\.$#"
 			count: 1
 			path: src/Classes/FinalRule.php
+
+		-
+			message: "#^Class Ergebnis\\\\PHPStan\\\\Rules\\\\Classes\\\\NoExtendsRule implements generic interface PHPStan\\\\Rules\\\\Rule but does not specify its types\\: TNodeType$#"
+			count: 1
+			path: src/Classes/NoExtendsRule.php
 
 		-
 			message: "#^Language construct isset\\(\\) should not be used\\.$#"
@@ -11,12 +21,247 @@ parameters:
 			path: src/Classes/NoExtendsRule.php
 
 		-
-			message: "#^Language construct isset\\(\\) should not be used\\.$#"
+			message: "#^Class Ergebnis\\\\PHPStan\\\\Rules\\\\Classes\\\\PHPUnit\\\\Framework\\\\TestCaseWithSuffixRule implements generic interface PHPStan\\\\Rules\\\\Rule but does not specify its types\\: TNodeType$#"
 			count: 1
 			path: src/Classes/PHPUnit/Framework/TestCaseWithSuffixRule.php
 
 		-
 			message: "#^Language construct isset\\(\\) should not be used\\.$#"
 			count: 1
+			path: src/Classes/PHPUnit/Framework/TestCaseWithSuffixRule.php
+
+		-
+			message: "#^Class Ergebnis\\\\PHPStan\\\\Rules\\\\Closures\\\\NoNullableReturnTypeDeclarationRule implements generic interface PHPStan\\\\Rules\\\\Rule but does not specify its types\\: TNodeType$#"
+			count: 1
+			path: src/Closures/NoNullableReturnTypeDeclarationRule.php
+
+		-
+			message: "#^Class Ergebnis\\\\PHPStan\\\\Rules\\\\Closures\\\\NoParameterWithNullDefaultValueRule implements generic interface PHPStan\\\\Rules\\\\Rule but does not specify its types\\: TNodeType$#"
+			count: 1
+			path: src/Closures/NoParameterWithNullDefaultValueRule.php
+
+		-
+			message: "#^Class Ergebnis\\\\PHPStan\\\\Rules\\\\Closures\\\\NoParameterWithNullableTypeDeclarationRule implements generic interface PHPStan\\\\Rules\\\\Rule but does not specify its types\\: TNodeType$#"
+			count: 1
+			path: src/Closures/NoParameterWithNullableTypeDeclarationRule.php
+
+		-
+			message: "#^Class Ergebnis\\\\PHPStan\\\\Rules\\\\Expressions\\\\NoCompactRule implements generic interface PHPStan\\\\Rules\\\\Rule but does not specify its types\\: TNodeType$#"
+			count: 1
+			path: src/Expressions/NoCompactRule.php
+
+		-
+			message: "#^Class Ergebnis\\\\PHPStan\\\\Rules\\\\Expressions\\\\NoErrorSuppressionRule implements generic interface PHPStan\\\\Rules\\\\Rule but does not specify its types\\: TNodeType$#"
+			count: 1
+			path: src/Expressions/NoErrorSuppressionRule.php
+
+		-
+			message: "#^Class Ergebnis\\\\PHPStan\\\\Rules\\\\Expressions\\\\NoEvalRule implements generic interface PHPStan\\\\Rules\\\\Rule but does not specify its types\\: TNodeType$#"
+			count: 1
+			path: src/Expressions/NoEvalRule.php
+
+		-
+			message: "#^Class Ergebnis\\\\PHPStan\\\\Rules\\\\Expressions\\\\NoIssetRule implements generic interface PHPStan\\\\Rules\\\\Rule but does not specify its types\\: TNodeType$#"
+			count: 1
+			path: src/Expressions/NoIssetRule.php
+
+		-
+			message: "#^Class Ergebnis\\\\PHPStan\\\\Rules\\\\Files\\\\DeclareStrictTypesRule implements generic interface PHPStan\\\\Rules\\\\Rule but does not specify its types\\: TNodeType$#"
+			count: 1
+			path: src/Files/DeclareStrictTypesRule.php
+
+		-
+			message: "#^Class Ergebnis\\\\PHPStan\\\\Rules\\\\Functions\\\\NoNullableReturnTypeDeclarationRule implements generic interface PHPStan\\\\Rules\\\\Rule but does not specify its types\\: TNodeType$#"
+			count: 1
 			path: src/Functions/NoNullableReturnTypeDeclarationRule.php
+
+		-
+			message: "#^Language construct isset\\(\\) should not be used\\.$#"
+			count: 1
+			path: src/Functions/NoNullableReturnTypeDeclarationRule.php
+
+		-
+			message: "#^Class Ergebnis\\\\PHPStan\\\\Rules\\\\Functions\\\\NoParameterWithNullDefaultValueRule implements generic interface PHPStan\\\\Rules\\\\Rule but does not specify its types\\: TNodeType$#"
+			count: 1
+			path: src/Functions/NoParameterWithNullDefaultValueRule.php
+
+		-
+			message: "#^Class Ergebnis\\\\PHPStan\\\\Rules\\\\Functions\\\\NoParameterWithNullableTypeDeclarationRule implements generic interface PHPStan\\\\Rules\\\\Rule but does not specify its types\\: TNodeType$#"
+			count: 1
+			path: src/Functions/NoParameterWithNullableTypeDeclarationRule.php
+
+		-
+			message: "#^Class Ergebnis\\\\PHPStan\\\\Rules\\\\Methods\\\\FinalInAbstractClassRule implements generic interface PHPStan\\\\Rules\\\\Rule but does not specify its types\\: TNodeType$#"
+			count: 1
+			path: src/Methods/FinalInAbstractClassRule.php
+
+		-
+			message: "#^Class Ergebnis\\\\PHPStan\\\\Rules\\\\Methods\\\\NoConstructorParameterWithDefaultValueRule implements generic interface PHPStan\\\\Rules\\\\Rule but does not specify its types\\: TNodeType$#"
+			count: 1
+			path: src/Methods/NoConstructorParameterWithDefaultValueRule.php
+
+		-
+			message: "#^Class Ergebnis\\\\PHPStan\\\\Rules\\\\Methods\\\\NoNullableReturnTypeDeclarationRule implements generic interface PHPStan\\\\Rules\\\\Rule but does not specify its types\\: TNodeType$#"
+			count: 1
+			path: src/Methods/NoNullableReturnTypeDeclarationRule.php
+
+		-
+			message: "#^Class Ergebnis\\\\PHPStan\\\\Rules\\\\Methods\\\\NoParameterWithContainerTypeDeclarationRule implements generic interface PHPStan\\\\Rules\\\\Rule but does not specify its types\\: TNodeType$#"
+			count: 1
+			path: src/Methods/NoParameterWithContainerTypeDeclarationRule.php
+
+		-
+			message: "#^Class Ergebnis\\\\PHPStan\\\\Rules\\\\Methods\\\\NoParameterWithNullDefaultValueRule implements generic interface PHPStan\\\\Rules\\\\Rule but does not specify its types\\: TNodeType$#"
+			count: 1
+			path: src/Methods/NoParameterWithNullDefaultValueRule.php
+
+		-
+			message: "#^Class Ergebnis\\\\PHPStan\\\\Rules\\\\Methods\\\\NoParameterWithNullableTypeDeclarationRule implements generic interface PHPStan\\\\Rules\\\\Rule but does not specify its types\\: TNodeType$#"
+			count: 1
+			path: src/Methods/NoParameterWithNullableTypeDeclarationRule.php
+
+		-
+			message: "#^Class Ergebnis\\\\PHPStan\\\\Rules\\\\Methods\\\\PrivateInFinalClassRule implements generic interface PHPStan\\\\Rules\\\\Rule but does not specify its types\\: TNodeType$#"
+			count: 1
+			path: src/Methods/PrivateInFinalClassRule.php
+
+		-
+			message: "#^Class Ergebnis\\\\PHPStan\\\\Rules\\\\Statements\\\\NoSwitchRule implements generic interface PHPStan\\\\Rules\\\\Rule but does not specify its types\\: TNodeType$#"
+			count: 1
+			path: src/Statements/NoSwitchRule.php
+
+		-
+			message: "#^Class Ergebnis\\\\PHPStan\\\\Rules\\\\Test\\\\Integration\\\\AbstractTestCase extends generic class PHPStan\\\\Testing\\\\RuleTestCase but does not specify its types\\: TRule$#"
+			count: 1
+			path: test/Integration/AbstractTestCase.php
+
+		-
+			message: "#^Method Ergebnis\\\\PHPStan\\\\Rules\\\\Test\\\\Integration\\\\Classes\\\\FinalRuleTest\\:\\:getRule\\(\\) return type with generic interface PHPStan\\\\Rules\\\\Rule does not specify its types\\: TNodeType$#"
+			count: 1
+			path: test/Integration/Classes/FinalRuleTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\PHPStan\\\\Rules\\\\Test\\\\Integration\\\\Classes\\\\FinalRuleWithAbstractClassesAllowedTest\\:\\:getRule\\(\\) return type with generic interface PHPStan\\\\Rules\\\\Rule does not specify its types\\: TNodeType$#"
+			count: 1
+			path: test/Integration/Classes/FinalRuleWithAbstractClassesAllowedTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\PHPStan\\\\Rules\\\\Test\\\\Integration\\\\Classes\\\\FinalRuleWithAttributesTest\\:\\:getRule\\(\\) return type with generic interface PHPStan\\\\Rules\\\\Rule does not specify its types\\: TNodeType$#"
+			count: 1
+			path: test/Integration/Classes/FinalRuleWithAttributesTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\PHPStan\\\\Rules\\\\Test\\\\Integration\\\\Classes\\\\FinalRuleWithExcludedClassNamesTest\\:\\:getRule\\(\\) return type with generic interface PHPStan\\\\Rules\\\\Rule does not specify its types\\: TNodeType$#"
+			count: 1
+			path: test/Integration/Classes/FinalRuleWithExcludedClassNamesTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\PHPStan\\\\Rules\\\\Test\\\\Integration\\\\Classes\\\\NoExtendsRuleTest\\:\\:getRule\\(\\) return type with generic interface PHPStan\\\\Rules\\\\Rule does not specify its types\\: TNodeType$#"
+			count: 1
+			path: test/Integration/Classes/NoExtendsRuleTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\PHPStan\\\\Rules\\\\Test\\\\Integration\\\\Classes\\\\NoExtendsRuleWithClassesAllowedToBeExtendedTest\\:\\:getRule\\(\\) return type with generic interface PHPStan\\\\Rules\\\\Rule does not specify its types\\: TNodeType$#"
+			count: 1
+			path: test/Integration/Classes/NoExtendsRuleWithClassesAllowedToBeExtendedTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\PHPStan\\\\Rules\\\\Test\\\\Integration\\\\Classes\\\\PHPUnit\\\\Framework\\\\TestCaseWithSuffixRuleTest\\:\\:getRule\\(\\) return type with generic interface PHPStan\\\\Rules\\\\Rule does not specify its types\\: TNodeType$#"
+			count: 1
+			path: test/Integration/Classes/PHPUnit/Framework/TestCaseWithSuffixRuleTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\PHPStan\\\\Rules\\\\Test\\\\Integration\\\\Closures\\\\NoNullableReturnTypeDeclarationRuleTest\\:\\:getRule\\(\\) return type with generic interface PHPStan\\\\Rules\\\\Rule does not specify its types\\: TNodeType$#"
+			count: 1
+			path: test/Integration/Closures/NoNullableReturnTypeDeclarationRuleTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\PHPStan\\\\Rules\\\\Test\\\\Integration\\\\Closures\\\\NoParameterWithNullDefaultValueRuleTest\\:\\:getRule\\(\\) return type with generic interface PHPStan\\\\Rules\\\\Rule does not specify its types\\: TNodeType$#"
+			count: 1
+			path: test/Integration/Closures/NoParameterWithNullDefaultValueRuleTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\PHPStan\\\\Rules\\\\Test\\\\Integration\\\\Closures\\\\NoParameterWithNullableTypeDeclarationRuleTest\\:\\:getRule\\(\\) return type with generic interface PHPStan\\\\Rules\\\\Rule does not specify its types\\: TNodeType$#"
+			count: 1
+			path: test/Integration/Closures/NoParameterWithNullableTypeDeclarationRuleTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\PHPStan\\\\Rules\\\\Test\\\\Integration\\\\Expressions\\\\NoCompactRuleTest\\:\\:getRule\\(\\) return type with generic interface PHPStan\\\\Rules\\\\Rule does not specify its types\\: TNodeType$#"
+			count: 1
+			path: test/Integration/Expressions/NoCompactRuleTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\PHPStan\\\\Rules\\\\Test\\\\Integration\\\\Expressions\\\\NoErrorSuppressionRuleTest\\:\\:getRule\\(\\) return type with generic interface PHPStan\\\\Rules\\\\Rule does not specify its types\\: TNodeType$#"
+			count: 1
+			path: test/Integration/Expressions/NoErrorSuppressionRuleTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\PHPStan\\\\Rules\\\\Test\\\\Integration\\\\Expressions\\\\NoEvalRuleTest\\:\\:getRule\\(\\) return type with generic interface PHPStan\\\\Rules\\\\Rule does not specify its types\\: TNodeType$#"
+			count: 1
+			path: test/Integration/Expressions/NoEvalRuleTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\PHPStan\\\\Rules\\\\Test\\\\Integration\\\\Expressions\\\\NoIssetRuleTest\\:\\:getRule\\(\\) return type with generic interface PHPStan\\\\Rules\\\\Rule does not specify its types\\: TNodeType$#"
+			count: 1
+			path: test/Integration/Expressions/NoIssetRuleTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\PHPStan\\\\Rules\\\\Test\\\\Integration\\\\Files\\\\DeclareStrictTypesRuleTest\\:\\:getRule\\(\\) return type with generic interface PHPStan\\\\Rules\\\\Rule does not specify its types\\: TNodeType$#"
+			count: 1
+			path: test/Integration/Files/DeclareStrictTypesRuleTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\PHPStan\\\\Rules\\\\Test\\\\Integration\\\\Functions\\\\NoNullableReturnTypeDeclarationRuleTest\\:\\:getRule\\(\\) return type with generic interface PHPStan\\\\Rules\\\\Rule does not specify its types\\: TNodeType$#"
+			count: 1
+			path: test/Integration/Functions/NoNullableReturnTypeDeclarationRuleTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\PHPStan\\\\Rules\\\\Test\\\\Integration\\\\Functions\\\\NoParameterWithNullDefaultValueRuleTest\\:\\:getRule\\(\\) return type with generic interface PHPStan\\\\Rules\\\\Rule does not specify its types\\: TNodeType$#"
+			count: 1
+			path: test/Integration/Functions/NoParameterWithNullDefaultValueRuleTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\PHPStan\\\\Rules\\\\Test\\\\Integration\\\\Functions\\\\NoParameterWithNullableTypeDeclarationRuleTest\\:\\:getRule\\(\\) return type with generic interface PHPStan\\\\Rules\\\\Rule does not specify its types\\: TNodeType$#"
+			count: 1
+			path: test/Integration/Functions/NoParameterWithNullableTypeDeclarationRuleTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\PHPStan\\\\Rules\\\\Test\\\\Integration\\\\Methods\\\\FinalInAbstractClassRuleTest\\:\\:getRule\\(\\) return type with generic interface PHPStan\\\\Rules\\\\Rule does not specify its types\\: TNodeType$#"
+			count: 1
+			path: test/Integration/Methods/FinalInAbstractClassRuleTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\PHPStan\\\\Rules\\\\Test\\\\Integration\\\\Methods\\\\NoConstructorParameterWithDefaultValueRuleTest\\:\\:getRule\\(\\) return type with generic interface PHPStan\\\\Rules\\\\Rule does not specify its types\\: TNodeType$#"
+			count: 1
+			path: test/Integration/Methods/NoConstructorParameterWithDefaultValueRuleTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\PHPStan\\\\Rules\\\\Test\\\\Integration\\\\Methods\\\\NoNullableReturnTypeDeclarationRuleTest\\:\\:getRule\\(\\) return type with generic interface PHPStan\\\\Rules\\\\Rule does not specify its types\\: TNodeType$#"
+			count: 1
+			path: test/Integration/Methods/NoNullableReturnTypeDeclarationRuleTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\PHPStan\\\\Rules\\\\Test\\\\Integration\\\\Methods\\\\NoParameterWithContainerTypeDeclarationRuleTest\\:\\:getRule\\(\\) return type with generic interface PHPStan\\\\Rules\\\\Rule does not specify its types\\: TNodeType$#"
+			count: 1
+			path: test/Integration/Methods/NoParameterWithContainerTypeDeclarationRuleTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\PHPStan\\\\Rules\\\\Test\\\\Integration\\\\Methods\\\\NoParameterWithNullDefaultValueRuleTest\\:\\:getRule\\(\\) return type with generic interface PHPStan\\\\Rules\\\\Rule does not specify its types\\: TNodeType$#"
+			count: 1
+			path: test/Integration/Methods/NoParameterWithNullDefaultValueRuleTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\PHPStan\\\\Rules\\\\Test\\\\Integration\\\\Methods\\\\NoParameterWithNullableTypeDeclarationRuleTest\\:\\:getRule\\(\\) return type with generic interface PHPStan\\\\Rules\\\\Rule does not specify its types\\: TNodeType$#"
+			count: 1
+			path: test/Integration/Methods/NoParameterWithNullableTypeDeclarationRuleTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\PHPStan\\\\Rules\\\\Test\\\\Integration\\\\Methods\\\\PrivateInFinalClassRuleTest\\:\\:getRule\\(\\) return type with generic interface PHPStan\\\\Rules\\\\Rule does not specify its types\\: TNodeType$#"
+			count: 1
+			path: test/Integration/Methods/PrivateInFinalClassRuleTest.php
+
+		-
+			message: "#^Method Ergebnis\\\\PHPStan\\\\Rules\\\\Test\\\\Integration\\\\Statements\\\\NoSwitchRuleTest\\:\\:getRule\\(\\) return type with generic interface PHPStan\\\\Rules\\\\Rule does not specify its types\\: TNodeType$#"
+			count: 1
+			path: test/Integration/Statements/NoSwitchRuleTest.php
 
