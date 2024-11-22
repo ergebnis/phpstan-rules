@@ -1,5 +1,5 @@
 .PHONY: it
-it: refactoring coding-standards security-analysis static-code-analysis tests ## Runs the refactoring, coding-standards, security-analysis, static-code-analysis, and tests targets
+it: coding-standards security-analysis static-code-analysis tests ## Runs the coding-standards, security-analysis, static-code-analysis, and tests targets
 
 .PHONY: code-coverage
 code-coverage: vendor ## Collects coverage from running integration tests with phpunit/phpunit
@@ -23,10 +23,6 @@ help: ## Displays this list of targets with descriptions
 .PHONY: phive
 phive: .phive ## Installs dependencies with phive
 	PHIVE_HOME=.build/phive phive install --trust-gpg-keys 0x033E5F8D801A2F8D
-
-.PHONY: refactoring
-refactoring: vendor ## Runs automated refactoring with rector/rector
-	vendor/bin/rector process --config=rector.php
 
 .PHONY: security-analysis
 security-analysis: vendor ## Runs a security analysis with composer

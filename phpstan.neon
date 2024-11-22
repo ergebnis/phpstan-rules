@@ -23,7 +23,6 @@ parameters:
 		- src/
 		- test/
 		- .php-cs-fixer.php
-		- rector.php
 
 	tmpDir: .build/phpstan/
 
