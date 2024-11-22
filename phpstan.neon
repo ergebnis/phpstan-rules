@@ -3,7 +3,6 @@ includes:
 	- rules.neon
 
 parameters:
-	checkMissingIterableValueType: false
 	checkGenericClassInNonGenericObjectType: false
 
 	ergebnis:
