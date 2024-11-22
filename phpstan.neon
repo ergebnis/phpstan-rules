@@ -24,7 +24,6 @@ parameters:
 		- test/
 		- .php-cs-fixer.fixture.php
 		- .php-cs-fixer.php
-		- rector.php
 
 	tmpDir: .build/phpstan/
 

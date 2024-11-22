@@ -46,18 +46,6 @@ make dependency-analysis
 
 to run a dependency analysis.
 
-## Refactoring
-
-We use [`rector/rector`](https://github.com/rectorphp/rector) to automatically refactor code.
-
-Run
-
-```sh
-make refactoring
-```
-
-to automatically refactor code.
-
 ## Security Analysis
 
 We use [`composer`](https://github.com/composer/composer) to run a security analysis.
