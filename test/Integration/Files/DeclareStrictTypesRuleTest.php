@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Test\Integration\Files;
 
+use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use Ergebnis\PHPStan\Rules\Files;
 use Ergebnis\PHPStan\Rules\Test;
 use PHPStan\Node;
@@ -20,6 +21,7 @@ use PHPStan\Rules;
 use PHPUnit\Framework;
 
 #[Framework\Attributes\CoversClass(Files\DeclareStrictTypesRule::class)]
+#[Framework\Attributes\UsesClass(ErrorIdentifier::class)]
 final class DeclareStrictTypesRuleTest extends Test\Integration\AbstractTestCase
 {
     public static function provideCasesWhereAnalysisShouldSucceed(): iterable

@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Functions;
 
+use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Node;
 use PHPStan\Analyser;
 use PHPStan\Rules;
@@ -71,7 +72,7 @@ final class NoParameterWithNullDefaultValueRule implements Rules\Rule
                 $parameterName,
             ));
 
-            return $ruleErrorBuilder->build();
+            return $ruleErrorBuilder->identifier(ErrorIdentifier::noParameterWithNullDefaultValue()->toString())->build();
         }, $params);
     }
 }

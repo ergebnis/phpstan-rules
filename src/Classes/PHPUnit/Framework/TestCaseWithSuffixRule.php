@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Classes\PHPUnit\Framework;
 
+use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Node;
 use PHPStan\Analyser;
 use PHPStan\Reflection;
@@ -96,7 +97,7 @@ final class TestCaseWithSuffixRule implements Rules\Rule
         ));
 
         return [
-            $ruleErrorBuilder->build(),
+            $ruleErrorBuilder->identifier(ErrorIdentifier::testCaseWithSuffix()->toString())->build(),
         ];
     }
 }

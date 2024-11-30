@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Statements;
 
+use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Node;
 use PHPStan\Analyser;
 use PHPStan\Rules;
@@ -34,7 +35,7 @@ final class NoSwitchRule implements Rules\Rule
         $ruleErrorBuilder = Rules\RuleErrorBuilder::message('Control structures using switch should not be used.');
 
         return [
-            $ruleErrorBuilder->build(),
+            $ruleErrorBuilder->identifier(ErrorIdentifier::noSwitch()->toString())->build(),
         ];
     }
 }

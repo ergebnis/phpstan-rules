@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Expressions;
 
+use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Node;
 use PHPStan\Analyser;
 use PHPStan\Rules;
@@ -34,7 +35,7 @@ final class NoErrorSuppressionRule implements Rules\Rule
         $ruleErrorBuilder = Rules\RuleErrorBuilder::message('Error suppression via "@" should not be used.');
 
         return [
-            $ruleErrorBuilder->build(),
+            $ruleErrorBuilder->identifier(ErrorIdentifier::noErrorSuppression()->toString())->build(),
         ];
     }
 }

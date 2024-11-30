@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Expressions;
 
+use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Node;
 use PHPStan\Analyser;
 use PHPStan\Rules;
@@ -51,7 +52,7 @@ final class NoCompactRule implements Rules\Rule
         $ruleErrorBuilder = Rules\RuleErrorBuilder::message('Function compact() should not be used.');
 
         return [
-            $ruleErrorBuilder->build(),
+            $ruleErrorBuilder->identifier(ErrorIdentifier::noCompact()->toString())->build(),
         ];
     }
 }

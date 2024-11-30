@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Methods;
 
+use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Node;
 use PHPStan\Analyser;
 use PHPStan\Reflection;
@@ -59,7 +60,7 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rules\Rule
         $classReflection = $scope->getClassReflection();
 
         if ($classReflection->isAnonymous()) {
-            return \array_map(static function (Node\Param $node) use ($methodName): Rules\RuleError {
+            return \array_values(\array_map(static function (Node\Param $node) use ($methodName): Rules\RuleError {
                 /** @var Node\Expr\Variable $variable */
                 $variable = $node->var;
 
@@ -72,13 +73,13 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rules\Rule
                     $parameterName,
                 ));
 
-                return $ruleErrorBuilder->build();
-            }, $params);
+                return $ruleErrorBuilder->identifier(ErrorIdentifier::noParameterWithContainerTypeDeclaration()->toString())->build();
+            }, $params));
         }
 
         $className = $classReflection->getName();
 
-        return \array_map(static function (Node\Param $node) use ($className, $methodName): Rules\RuleError {
+        return \array_values(\array_map(static function (Node\Param $node) use ($className, $methodName): Rules\RuleError {
             /** @var Node\Expr\Variable $variable */
             $variable = $node->var;
 
@@ -92,8 +93,8 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rules\Rule
                 $parameterName,
             ));
 
-            return $ruleErrorBuilder->build();
-        }, $params);
+            return $ruleErrorBuilder->identifier(ErrorIdentifier::noParameterWithContainerTypeDeclaration()->toString())->build();
+        }, $params));
     }
 
     private static function isNullable(Node\Param $node): bool

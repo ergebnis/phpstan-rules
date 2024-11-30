@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Methods;
 
+use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Node;
 use PHPStan\Analyser;
 use PHPStan\Reflection;
@@ -76,13 +77,13 @@ final class NoParameterWithNullDefaultValueRule implements Rules\Rule
                     $parameterName,
                 ));
 
-                return $ruleErrorBuilder->build();
+                return $ruleErrorBuilder->identifier(ErrorIdentifier::noParameterWithNullDefaultValue()->toString())->build();
             }, $params);
         }
 
         $className = $classReflection->getName();
 
-        return \array_map(static function (Node\Param $node) use ($className, $methodName): Rules\RuleError {
+        return \array_values(\array_map(static function (Node\Param $node) use ($className, $methodName): Rules\RuleError {
             /** @var Node\Expr\Variable $variable */
             $variable = $node->var;
 
@@ -96,7 +97,7 @@ final class NoParameterWithNullDefaultValueRule implements Rules\Rule
                 $parameterName,
             ));
 
-            return $ruleErrorBuilder->build();
-        }, $params);
+            return $ruleErrorBuilder->identifier(ErrorIdentifier::noParameterWithNullDefaultValue()->toString())->build();
+        }, $params));
     }
 }

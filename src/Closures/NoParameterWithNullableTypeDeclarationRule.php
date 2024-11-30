@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Closures;
 
+use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Node;
 use PHPStan\Analyser;
 use PHPStan\Rules;
@@ -64,7 +65,7 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rules\Rule
                 $parameterName,
             ));
 
-            return $ruleErrorBuilder->build();
+            return $ruleErrorBuilder->identifier(ErrorIdentifier::noParameterWithNullableTypeDeclaration()->toString())->build();
         }, $params);
     }
 
