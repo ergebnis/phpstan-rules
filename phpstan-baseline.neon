@@ -20,8 +20,3 @@ parameters:
 			count: 1
 			path: src/Functions/NoNullableReturnTypeDeclarationRule.php
 
-		-
-			message: "#^Class Ergebnis\\\\PHPStan\\\\Rules\\\\Test\\\\Integration\\\\AbstractTestCase extends generic class PHPStan\\\\Testing\\\\RuleTestCase but does not specify its types\\: TRule$#"
-			count: 1
-			path: test/Integration/AbstractTestCase.php
-

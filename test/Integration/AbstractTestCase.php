@@ -13,9 +13,13 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Test\Integration;
 
+use PHPStan\Rules;
 use PHPStan\Testing;
 use PHPUnit\Framework;
 
+/**
+ * @extends Testing\RuleTestCase<Rules\Rule>
+ */
 abstract class AbstractTestCase extends Testing\RuleTestCase
 {
     #[Framework\Attributes\DataProvider('provideCasesWhereAnalysisShouldSucceed')]
