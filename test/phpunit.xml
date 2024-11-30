@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <phpunit
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="../../vendor/phpunit/phpunit/phpunit.xsd"
+    xsi:noNamespaceSchemaLocation="../vendor/phpunit/phpunit/phpunit.xsd"
     beStrictAboutChangesToGlobalState="true"
     beStrictAboutCoverageMetadata="true"
     beStrictAboutOutputDuringTests="true"
     beStrictAboutTestsThatDoNotTestAnything="true"
-    bootstrap="../../vendor/autoload.php"
-    cacheDirectory="../../.build/phpunit/integration/"
+    bootstrap="../vendor/autoload.php"
+    cacheDirectory="../.build/phpunit/"
     cacheResult="true"
     colors="true"
     columns="max"
@@ -20,12 +20,15 @@
     <coverage includeUncoveredFiles="true"/>
     <source>
         <include>
-            <directory suffix=".php">../../src/</directory>
+            <directory suffix=".php">../src/</directory>
         </include>
     </source>
     <testsuites>
-        <testsuite name="Integration Tests">
-            <directory>.</directory>
+        <testsuite name="integration">
+            <directory>Integration/</directory>
+        </testsuite>
+        <testsuite name="unit">
+            <directory>Unit/</directory>
         </testsuite>
     </testsuites>
 </phpunit>

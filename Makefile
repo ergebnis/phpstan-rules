@@ -2,8 +2,8 @@
 it: coding-standards security-analysis static-code-analysis tests ## Runs the coding-standards, security-analysis, static-code-analysis, and tests targets
 
 .PHONY: code-coverage
-code-coverage: vendor ## Collects coverage from running integration tests with phpunit/phpunit
-	vendor/bin/phpunit --configuration=test/Integration/phpunit.xml --coverage-text
+code-coverage: vendor ## Collects coverage from running unit and integration tests with phpunit/phpunit
+	vendor/bin/phpunit --configuration=test/phpunit.xml --coverage-text
 
 .PHONY: coding-standards
 coding-standards: vendor ## Lints YAML files with yamllint, normalizes composer.json with ergebnis/composer-normalize, and fixes code style issues with friendsofphp/php-cs-fixer
@@ -39,8 +39,9 @@ static-code-analysis-baseline: vendor ## Generates a baseline for static code an
 	vendor/bin/phpstan --allow-empty-baseline --configuration=phpstan.neon --generate-baseline=phpstan-baseline.neon --memory-limit=-1
 
 .PHONY: tests
-tests: vendor ## Runs integration tests with phpunit/phpunit
-	vendor/bin/phpunit --configuration=test/Integration/phpunit.xml
+tests: vendor ## Runs unit and integration tests with phpunit/phpunit
+	vendor/bin/phpunit --configuration=test/phpunit.xml --testsuite=unit
+	vendor/bin/phpunit --configuration=test/phpunit.xml --testsuite=integration
 
 vendor: composer.json composer.lock
 	composer validate --strict

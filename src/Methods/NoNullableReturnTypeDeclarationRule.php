@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Methods;
 
+use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Node;
 use PHPStan\Analyser;
 use PHPStan\Reflection;
@@ -55,7 +56,7 @@ final class NoNullableReturnTypeDeclarationRule implements Rules\Rule
             ));
 
             return [
-                $ruleErrorBuilder->build(),
+                $ruleErrorBuilder->identifier(ErrorIdentifier::noNullableReturnTypeDeclaration()->toString())->build(),
             ];
         }
 
@@ -66,7 +67,7 @@ final class NoNullableReturnTypeDeclarationRule implements Rules\Rule
         ));
 
         return [
-            $ruleErrorBuilder->build(),
+            $ruleErrorBuilder->identifier(ErrorIdentifier::noNullableReturnTypeDeclaration()->toString())->build(),
         ];
     }
 

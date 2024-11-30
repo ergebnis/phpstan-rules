@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Classes;
 
+use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Node;
 use PHPStan\Analyser;
 use PHPStan\Rules;
@@ -83,7 +84,7 @@ final class NoExtendsRule implements Rules\Rule
             ));
 
             return [
-                $ruleErrorBuilder->build(),
+                $ruleErrorBuilder->identifier(ErrorIdentifier::noExtends()->toString())->build(),
             ];
         }
 
@@ -94,7 +95,7 @@ final class NoExtendsRule implements Rules\Rule
         ));
 
         return [
-            $ruleErrorBuilder->build(),
+            $ruleErrorBuilder->identifier(ErrorIdentifier::noExtends()->toString())->build(),
         ];
     }
 }

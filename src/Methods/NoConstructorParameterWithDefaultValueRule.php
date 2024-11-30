@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Methods;
 
+use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Node;
 use PHPStan\Analyser;
 use PHPStan\Reflection;
@@ -73,7 +74,7 @@ final class NoConstructorParameterWithDefaultValueRule implements Rules\Rule
                     $parameterName,
                 ));
 
-                return $ruleErrorBuilder->build();
+                return $ruleErrorBuilder->identifier(ErrorIdentifier::noConstructorParameterWithDefaultValue()->toString())->build();
             }, $params);
         }
 

@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Test\Integration\Methods;
 
+use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use Ergebnis\PHPStan\Rules\Methods;
 use Ergebnis\PHPStan\Rules\Test;
 use PhpParser\Node;
@@ -21,6 +22,7 @@ use PHPUnit\Framework;
 use Psr\Container;
 
 #[Framework\Attributes\CoversClass(Methods\NoParameterWithContainerTypeDeclarationRule::class)]
+#[Framework\Attributes\UsesClass(ErrorIdentifier::class)]
 final class NoParameterWithContainerTypeDeclarationRuleTest extends Test\Integration\AbstractTestCase
 {
     public static function provideCasesWhereAnalysisShouldSucceed(): iterable

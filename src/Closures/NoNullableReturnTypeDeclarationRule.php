@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Closures;
 
+use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Node;
 use PHPStan\Analyser;
 use PHPStan\Rules;
@@ -47,7 +48,7 @@ final class NoNullableReturnTypeDeclarationRule implements Rules\Rule
         $ruleErrorBuilder = Rules\RuleErrorBuilder::message('Closure has a nullable return type declaration.');
 
         return [
-            $ruleErrorBuilder->build(),
+            $ruleErrorBuilder->identifier(ErrorIdentifier::noNullableReturnTypeDeclaration()->toString())->build(),
         ];
     }
 

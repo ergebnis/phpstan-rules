@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Files;
 
+use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Node;
 use PHPStan\Analyser;
 use PHPStan\Node\FileNode;
@@ -72,7 +73,7 @@ final class DeclareStrictTypesRule implements Rules\Rule
         $ruleErrorBuilder = Rules\RuleErrorBuilder::message('File is missing a "declare(strict_types=1)" declaration.');
 
         return [
-            $ruleErrorBuilder->build(),
+            $ruleErrorBuilder->identifier(ErrorIdentifier::declareStrictTypes()->toString())->build(),
         ];
     }
 }

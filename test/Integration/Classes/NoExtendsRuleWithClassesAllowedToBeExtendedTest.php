@@ -14,12 +14,14 @@ declare(strict_types=1);
 namespace Ergebnis\PHPStan\Rules\Test\Integration\Classes;
 
 use Ergebnis\PHPStan\Rules\Classes;
+use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use Ergebnis\PHPStan\Rules\Test;
 use PhpParser\Node;
 use PHPStan\Rules;
 use PHPUnit\Framework;
 
 #[Framework\Attributes\CoversClass(Classes\NoExtendsRule::class)]
+#[Framework\Attributes\UsesClass(ErrorIdentifier::class)]
 final class NoExtendsRuleWithClassesAllowedToBeExtendedTest extends Test\Integration\AbstractTestCase
 {
     public static function provideCasesWhereAnalysisShouldSucceed(): iterable

@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Methods;
 
+use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Node;
 use PHPStan\Analyser;
 use PHPStan\Reflection;
@@ -167,7 +168,7 @@ final class NoParameterWithContainerTypeDeclarationRule implements Rules\Rule
                 $classUsedInTypeDeclaration->getName(),
             ));
 
-            return $ruleErrorBuilder->build();
+            return $ruleErrorBuilder->identifier(ErrorIdentifier::noParameterWithContainerTypeDeclaration()->toString())->build();
         }
 
         $ruleErrorBuilder = Rules\RuleErrorBuilder::message(\sprintf(
@@ -178,6 +179,6 @@ final class NoParameterWithContainerTypeDeclarationRule implements Rules\Rule
             $classUsedInTypeDeclaration->getName(),
         ));
 
-        return $ruleErrorBuilder->build();
+        return $ruleErrorBuilder->identifier(ErrorIdentifier::noParameterWithContainerTypeDeclaration()->toString())->build();
     }
 }

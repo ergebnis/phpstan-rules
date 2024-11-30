@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Test\Integration\Methods;
 
+use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use Ergebnis\PHPStan\Rules\Methods;
 use Ergebnis\PHPStan\Rules\Test;
 use PhpParser\Node;
@@ -20,6 +21,7 @@ use PHPStan\Rules;
 use PHPUnit\Framework;
 
 #[Framework\Attributes\CoversClass(Methods\NoConstructorParameterWithDefaultValueRule::class)]
+#[Framework\Attributes\UsesClass(ErrorIdentifier::class)]
 final class NoConstructorParameterWithDefaultValueRuleTest extends Test\Integration\AbstractTestCase
 {
     public static function provideCasesWhereAnalysisShouldSucceed(): iterable
