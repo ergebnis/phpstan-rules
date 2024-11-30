@@ -19,6 +19,9 @@ use PHPStan\Reflection;
 use PHPStan\Rules;
 use PHPStan\ShouldNotHappenException;
 
+/**
+ * @implements Rules\Rule<Node\Stmt\ClassMethod>
+ */
 final class NoParameterWithContainerTypeDeclarationRule implements Rules\Rule
 {
     private readonly Reflection\ReflectionProvider $reflectionProvider;

@@ -18,6 +18,9 @@ use PHPStan\Analyser;
 use PHPStan\Rules;
 use PHPStan\ShouldNotHappenException;
 
+/**
+ * @implements Rules\Rule<Node\Stmt\Function_>
+ */
 final class NoParameterWithNullDefaultValueRule implements Rules\Rule
 {
     public function getNodeType(): string

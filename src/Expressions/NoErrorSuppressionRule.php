@@ -17,6 +17,9 @@ use PhpParser\Node;
 use PHPStan\Analyser;
 use PHPStan\Rules;
 
+/**
+ * @implements Rules\Rule<Node\Expr\ErrorSuppress>
+ */
 final class NoErrorSuppressionRule implements Rules\Rule
 {
     public function getNodeType(): string

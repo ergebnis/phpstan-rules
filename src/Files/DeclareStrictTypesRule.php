@@ -19,6 +19,9 @@ use PHPStan\Node\FileNode;
 use PHPStan\Rules;
 use PHPStan\ShouldNotHappenException;
 
+/**
+ * @implements Rules\Rule<FileNode>
+ */
 final class DeclareStrictTypesRule implements Rules\Rule
 {
     public function getNodeType(): string

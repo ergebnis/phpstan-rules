@@ -18,6 +18,9 @@ use PHPStan\Analyser;
 use PHPStan\Rules;
 use PHPStan\ShouldNotHappenException;
 
+/**
+ * @implements Rules\Rule<Node\Stmt\Class_>
+ */
 final class NoExtendsRule implements Rules\Rule
 {
     /**
