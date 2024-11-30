@@ -15,6 +15,7 @@ namespace Ergebnis\PHPStan\Rules\Test\Integration\Classes\PHPUnit\Framework;
 
 use Ergebnis\PHPStan\Rules\Classes;
 use Ergebnis\PHPStan\Rules\Test;
+use PhpParser\Node;
 use PHPStan\Rules;
 use PHPUnit\Framework;
 
@@ -71,6 +72,9 @@ final class TestCaseWithSuffixRuleTest extends Test\Integration\AbstractTestCase
         }
     }
 
+    /**
+     * @return Rules\Rule<Node\Stmt\Class_>
+     */
     protected function getRule(): Rules\Rule
     {
         return new Classes\PHPUnit\Framework\TestCaseWithSuffixRule(self::createReflectionProvider());

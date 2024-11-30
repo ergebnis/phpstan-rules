@@ -15,6 +15,7 @@ namespace Ergebnis\PHPStan\Rules\Test\Integration\Files;
 
 use Ergebnis\PHPStan\Rules\Files;
 use Ergebnis\PHPStan\Rules\Test;
+use PHPStan\Node;
 use PHPStan\Rules;
 use PHPUnit\Framework;
 
@@ -165,6 +166,9 @@ final class DeclareStrictTypesRuleTest extends Test\Integration\AbstractTestCase
         }
     }
 
+    /**
+     * @return Rules\Rule<Node\FileNode>
+     */
     protected function getRule(): Rules\Rule
     {
         return new Files\DeclareStrictTypesRule();

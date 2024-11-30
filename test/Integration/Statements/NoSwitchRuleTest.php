@@ -15,6 +15,7 @@ namespace Ergebnis\PHPStan\Rules\Test\Integration\Statements;
 
 use Ergebnis\PHPStan\Rules\Statements;
 use Ergebnis\PHPStan\Rules\Test;
+use PhpParser\Node;
 use PHPStan\Rules;
 use PHPUnit\Framework;
 
@@ -61,6 +62,9 @@ final class NoSwitchRuleTest extends Test\Integration\AbstractTestCase
         }
     }
 
+    /**
+     * @return Rules\Rule<Node\Stmt\Switch_>
+     */
     protected function getRule(): Rules\Rule
     {
         return new Statements\NoSwitchRule();

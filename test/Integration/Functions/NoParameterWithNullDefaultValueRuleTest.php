@@ -15,6 +15,7 @@ namespace Ergebnis\PHPStan\Rules\Test\Integration\Functions;
 
 use Ergebnis\PHPStan\Rules\Functions;
 use Ergebnis\PHPStan\Rules\Test;
+use PhpParser\Node;
 use PHPStan\Rules;
 use PHPUnit\Framework;
 
@@ -70,6 +71,9 @@ final class NoParameterWithNullDefaultValueRuleTest extends Test\Integration\Abs
         }
     }
 
+    /**
+     * @return Rules\Rule<Node\Stmt\Function_>
+     */
     protected function getRule(): Rules\Rule
     {
         return new Functions\NoParameterWithNullDefaultValueRule();

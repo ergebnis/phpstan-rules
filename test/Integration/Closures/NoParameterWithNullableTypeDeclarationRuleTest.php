@@ -15,6 +15,7 @@ namespace Ergebnis\PHPStan\Rules\Test\Integration\Closures;
 
 use Ergebnis\PHPStan\Rules\Closures;
 use Ergebnis\PHPStan\Rules\Test;
+use PhpParser\Node;
 use PHPStan\Rules;
 use PHPUnit\Framework;
 
@@ -63,6 +64,9 @@ final class NoParameterWithNullableTypeDeclarationRuleTest extends Test\Integrat
         }
     }
 
+    /**
+     * @return Rules\Rule<Node\Expr\Closure>
+     */
     protected function getRule(): Rules\Rule
     {
         return new Closures\NoParameterWithNullableTypeDeclarationRule();

@@ -15,6 +15,7 @@ namespace Ergebnis\PHPStan\Rules\Test\Integration\Classes;
 
 use Ergebnis\PHPStan\Rules\Classes;
 use Ergebnis\PHPStan\Rules\Test;
+use PhpParser\Node;
 use PHPStan\Rules;
 use PHPUnit\Framework;
 
@@ -118,6 +119,9 @@ final class FinalRuleTest extends Test\Integration\AbstractTestCase
         }
     }
 
+    /**
+     * @return Rules\Rule<Node\Stmt\Class_>
+     */
     protected function getRule(): Rules\Rule
     {
         return new Classes\FinalRule(

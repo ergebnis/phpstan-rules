@@ -15,6 +15,7 @@ namespace Ergebnis\PHPStan\Rules\Test\Integration\Expressions;
 
 use Ergebnis\PHPStan\Rules\Expressions;
 use Ergebnis\PHPStan\Rules\Test;
+use PhpParser\Node;
 use PHPStan\Rules;
 use PHPUnit\Framework;
 
@@ -68,6 +69,9 @@ final class NoCompactRuleTest extends Test\Integration\AbstractTestCase
         }
     }
 
+    /**
+     * @return Rules\Rule<Node\Expr\FuncCall>
+     */
     protected function getRule(): Rules\Rule
     {
         return new Expressions\NoCompactRule();

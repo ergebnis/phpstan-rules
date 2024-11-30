@@ -15,6 +15,7 @@ namespace Ergebnis\PHPStan\Rules\Test\Integration\Methods;
 
 use Ergebnis\PHPStan\Rules\Methods;
 use Ergebnis\PHPStan\Rules\Test;
+use PhpParser\Node;
 use PHPStan\Rules;
 use PHPUnit\Framework;
 
@@ -110,6 +111,9 @@ final class NoNullableReturnTypeDeclarationRuleTest extends Test\Integration\Abs
         }
     }
 
+    /**
+     * @return Rules\Rule<Node\Stmt\ClassMethod>
+     */
     protected function getRule(): Rules\Rule
     {
         return new Methods\NoNullableReturnTypeDeclarationRule();
