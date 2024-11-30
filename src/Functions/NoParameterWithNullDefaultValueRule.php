@@ -59,7 +59,7 @@ final class NoParameterWithNullDefaultValueRule implements Rules\Rule
 
         $functionName = $node->namespacedName;
 
-        return \array_map(static function (Node\Param $node) use ($functionName): Rules\RuleError {
+        return \array_values(\array_map(static function (Node\Param $node) use ($functionName): Rules\RuleError {
             /** @var Node\Expr\Variable $variable */
             $variable = $node->var;
 
@@ -73,6 +73,6 @@ final class NoParameterWithNullDefaultValueRule implements Rules\Rule
             ));
 
             return $ruleErrorBuilder->identifier(ErrorIdentifier::noParameterWithNullDefaultValue()->toString())->build();
-        }, $params);
+        }, $params));
     }
 }

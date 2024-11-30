@@ -62,7 +62,7 @@ final class NoConstructorParameterWithDefaultValueRule implements Rules\Rule
         $classReflection = $scope->getClassReflection();
 
         if ($classReflection->isAnonymous()) {
-            return \array_map(static function (Node\Param $node): Rules\RuleError {
+            return \array_values(\array_map(static function (Node\Param $node): Rules\RuleError {
                 /** @var Node\Expr\Variable $variable */
                 $variable = $node->var;
 
@@ -75,12 +75,12 @@ final class NoConstructorParameterWithDefaultValueRule implements Rules\Rule
                 ));
 
                 return $ruleErrorBuilder->identifier(ErrorIdentifier::noConstructorParameterWithDefaultValue()->toString())->build();
-            }, $params);
+            }, $params));
         }
 
         $className = $classReflection->getName();
 
-        return \array_map(static function (Node\Param $node) use ($className): string {
+        return \array_values(\array_map(static function (Node\Param $node) use ($className): string {
             /** @var Node\Expr\Variable $variable */
             $variable = $node->var;
 
@@ -92,6 +92,6 @@ final class NoConstructorParameterWithDefaultValueRule implements Rules\Rule
                 $className,
                 $parameterName,
             );
-        }, $params);
+        }, $params));
     }
 }

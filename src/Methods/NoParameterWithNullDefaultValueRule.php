@@ -64,7 +64,7 @@ final class NoParameterWithNullDefaultValueRule implements Rules\Rule
         $classReflection = $scope->getClassReflection();
 
         if ($classReflection->isAnonymous()) {
-            return \array_map(static function (Node\Param $node) use ($methodName): Rules\RuleError {
+            return \array_values(\array_map(static function (Node\Param $node) use ($methodName): Rules\RuleError {
                 /** @var Node\Expr\Variable $variable */
                 $variable = $node->var;
 
@@ -78,7 +78,7 @@ final class NoParameterWithNullDefaultValueRule implements Rules\Rule
                 ));
 
                 return $ruleErrorBuilder->identifier(ErrorIdentifier::noParameterWithNullDefaultValue()->toString())->build();
-            }, $params);
+            }, $params));
         }
 
         $className = $classReflection->getName();

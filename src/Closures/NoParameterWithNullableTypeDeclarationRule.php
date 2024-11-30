@@ -53,7 +53,7 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rules\Rule
             return [];
         }
 
-        return \array_map(static function (Node\Param $node): Rules\RuleError {
+        return \array_values(\array_map(static function (Node\Param $node): Rules\RuleError {
             /** @var Node\Expr\Variable $variable */
             $variable = $node->var;
 
@@ -66,7 +66,7 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rules\Rule
             ));
 
             return $ruleErrorBuilder->identifier(ErrorIdentifier::noParameterWithNullableTypeDeclaration()->toString())->build();
-        }, $params);
+        }, $params));
     }
 
     private static function isNullable(Node\Param $node): bool
