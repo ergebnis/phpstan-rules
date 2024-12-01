@@ -71,18 +71,20 @@ final class NoConstructorParameterWithDefaultValueRule implements Rules\Rule
 
         $className = $classReflection->getName();
 
-        return \array_values(\array_map(static function (Node\Param $node) use ($className): string {
+        return \array_values(\array_map(static function (Node\Param $node) use ($className): Rules\RuleError {
             /** @var Node\Expr\Variable $variable */
             $variable = $node->var;
 
             /** @var string $parameterName */
             $parameterName = $variable->name;
 
-            return \sprintf(
+            $ruleErrorBuilder = Rules\RuleErrorBuilder::message(\sprintf(
                 'Constructor in %s has parameter $%s with default value.',
                 $className,
                 $parameterName,
-            );
+            ));
+
+            return $ruleErrorBuilder->identifier(ErrorIdentifier::noConstructorParameterWithDefaultValue()->toString())->build();
         }, $params));
     }
 }
