@@ -30,7 +30,7 @@ final class NoIssetRule implements Rules\Rule
 
     public function processNode(
         Node $node,
-        Analyser\Scope $scope,
+        Analyser\Scope $scope
     ): array {
         $ruleErrorBuilder = Rules\RuleErrorBuilder::message('Language construct isset() should not be used.');
 

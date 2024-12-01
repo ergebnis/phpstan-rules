@@ -44,7 +44,7 @@ final class NoParameterWithContainerTypeDeclarationRule implements Rules\Rule
     public function __construct(
         Reflection\ReflectionProvider $reflectionProvider,
         array $interfacesImplementedByContainers,
-        array $methodsAllowedToUseContainerTypeDeclarations,
+        array $methodsAllowedToUseContainerTypeDeclarations
     ) {
         $this->reflectionProvider = $reflectionProvider;
         $this->interfacesImplementedByContainers = \array_filter(
@@ -65,13 +65,13 @@ final class NoParameterWithContainerTypeDeclarationRule implements Rules\Rule
 
     public function processNode(
         Node $node,
-        Analyser\Scope $scope,
+        Analyser\Scope $scope
     ): array {
         if (!$node instanceof Node\Stmt\ClassMethod) {
             throw new ShouldNotHappenException(\sprintf(
                 'Expected node to be instance of "%s", but got instance of "%s" instead.',
                 Node\Stmt\ClassMethod::class,
-                $node::class,
+                \get_class($node),
             ));
         }
 
@@ -158,7 +158,7 @@ final class NoParameterWithContainerTypeDeclarationRule implements Rules\Rule
         Reflection\ClassReflection $classReflection,
         string $methodName,
         string $parameterName,
-        Reflection\ClassReflection $classUsedInTypeDeclaration,
+        Reflection\ClassReflection $classUsedInTypeDeclaration
     ): Rules\RuleError {
         if ($classReflection->isAnonymous()) {
             $ruleErrorBuilder = Rules\RuleErrorBuilder::message(\sprintf(

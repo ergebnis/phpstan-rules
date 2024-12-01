@@ -45,13 +45,13 @@ final class TestCaseWithSuffixRule implements Rules\Rule
 
     public function processNode(
         Node $node,
-        Analyser\Scope $scope,
+        Analyser\Scope $scope
     ): array {
         if (!$node instanceof Node\Stmt\Class_) {
             throw new ShouldNotHappenException(\sprintf(
                 'Expected node to be instance of "%s", but got instance of "%s" instead.',
                 Node\Stmt\Class_::class,
-                $node::class,
+                \get_class($node),
             ));
         }
 

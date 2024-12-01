@@ -31,13 +31,13 @@ final class NoNullableReturnTypeDeclarationRule implements Rules\Rule
 
     public function processNode(
         Node $node,
-        Analyser\Scope $scope,
+        Analyser\Scope $scope
     ): array {
         if (!$node instanceof Node\Expr\Closure) {
             throw new ShouldNotHappenException(\sprintf(
                 'Expected node to be instance of "%s", but got instance of "%s" instead.',
                 Node\Expr\Closure::class,
-                $node::class,
+                \get_class($node),
             ));
         }
 

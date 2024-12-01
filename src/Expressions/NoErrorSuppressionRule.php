@@ -30,7 +30,7 @@ final class NoErrorSuppressionRule implements Rules\Rule
 
     public function processNode(
         Node $node,
-        Analyser\Scope $scope,
+        Analyser\Scope $scope
     ): array {
         $ruleErrorBuilder = Rules\RuleErrorBuilder::message('Error suppression via "@" should not be used.');
 

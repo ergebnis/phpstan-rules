@@ -53,7 +53,7 @@ final class FinalRule implements Rules\Rule
      */
     public function __construct(
         bool $allowAbstractClasses,
-        array $classesNotRequiredToBeAbstractOrFinal,
+        array $classesNotRequiredToBeAbstractOrFinal
     ) {
         $this->allowAbstractClasses = $allowAbstractClasses;
         $this->classesNotRequiredToBeAbstractOrFinal = \array_map(static function (string $classNotRequiredToBeAbstractOrFinal): string {
@@ -72,13 +72,13 @@ final class FinalRule implements Rules\Rule
 
     public function processNode(
         Node $node,
-        Analyser\Scope $scope,
+        Analyser\Scope $scope
     ): array {
         if (!$node instanceof Node\Stmt\Class_) {
             throw new ShouldNotHappenException(\sprintf(
                 'Expected node to be instance of "%s", but got instance of "%s" instead.',
                 Node\Stmt\Class_::class,
-                $node::class,
+                \get_class($node),
             ));
         }
 
