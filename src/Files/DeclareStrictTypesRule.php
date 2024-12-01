@@ -18,7 +18,6 @@ use PhpParser\Node;
 use PHPStan\Analyser;
 use PHPStan\Node\FileNode;
 use PHPStan\Rules;
-use PHPStan\ShouldNotHappenException;
 
 /**
  * @implements Rules\Rule<FileNode>
@@ -34,14 +33,6 @@ final class DeclareStrictTypesRule implements Rules\Rule
         Node $node,
         Analyser\Scope $scope
     ): array {
-        if (!$node instanceof FileNode) {
-            throw new ShouldNotHappenException(\sprintf(
-                'Expected node to be instance of "%s", but got instance of "%s" instead.',
-                FileNode::class,
-                \get_class($node),
-            ));
-        }
-
         $nodes = $node->getNodes();
 
         if (0 === \count($nodes)) {
