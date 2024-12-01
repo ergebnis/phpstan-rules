@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 use Ergebnis\PhpCsFixer;
 
-$ruleSet = PhpCsFixer\Config\RuleSet\Php81::create()
+$ruleSet = PhpCsFixer\Config\RuleSet\Php80::create()
     ->withHeader('')
     ->withRules(PhpCsFixer\Config\Rules::fromArray([
         'constant_case' => false,

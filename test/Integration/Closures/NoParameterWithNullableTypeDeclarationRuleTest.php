@@ -14,14 +14,15 @@ declare(strict_types=1);
 namespace Ergebnis\PHPStan\Rules\Test\Integration\Closures;
 
 use Ergebnis\PHPStan\Rules\Closures;
-use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use Ergebnis\PHPStan\Rules\Test;
 use PhpParser\Node;
 use PHPStan\Rules;
-use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(Closures\NoParameterWithNullableTypeDeclarationRule::class)]
-#[Framework\Attributes\UsesClass(ErrorIdentifier::class)]
+/**
+ * @covers \Ergebnis\PHPStan\Rules\Closures\NoParameterWithNullableTypeDeclarationRule
+ *
+ * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
+ */
 final class NoParameterWithNullableTypeDeclarationRuleTest extends Test\Integration\AbstractTestCase
 {
     public static function provideCasesWhereAnalysisShouldSucceed(): iterable

@@ -13,15 +13,16 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Test\Integration\Expressions;
 
-use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use Ergebnis\PHPStan\Rules\Expressions;
 use Ergebnis\PHPStan\Rules\Test;
 use PhpParser\Node;
 use PHPStan\Rules;
-use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(Expressions\NoEvalRule::class)]
-#[Framework\Attributes\UsesClass(ErrorIdentifier::class)]
+/**
+ * @covers \Ergebnis\PHPStan\Rules\Expressions\NoEvalRule
+ *
+ * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
+ */
 final class NoEvalRuleTest extends Test\Integration\AbstractTestCase
 {
     public static function provideCasesWhereAnalysisShouldSucceed(): iterable

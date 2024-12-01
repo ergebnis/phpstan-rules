@@ -13,15 +13,16 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Test\Integration\Expressions;
 
-use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use Ergebnis\PHPStan\Rules\Expressions;
 use Ergebnis\PHPStan\Rules\Test;
 use PhpParser\Node;
 use PHPStan\Rules;
-use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(Expressions\NoErrorSuppressionRule::class)]
-#[Framework\Attributes\UsesClass(ErrorIdentifier::class)]
+/**
+ * @covers \Ergebnis\PHPStan\Rules\Expressions\NoErrorSuppressionRule
+ *
+ * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
+ */
 final class NoErrorSuppressionRuleTest extends Test\Integration\AbstractTestCase
 {
     public static function provideCasesWhereAnalysisShouldSucceed(): iterable

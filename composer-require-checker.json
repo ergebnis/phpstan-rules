@@ -1,5 +1,9 @@
 {
   "symbol-whitelist": [
+    "array",
+    "bool",
+    "false",
+    "null",
     "PhpParser\\Comment\\Doc",
     "PhpParser\\Node",
     "PhpParser\\Node\\Expr\\Closure",
@@ -27,6 +31,9 @@
     "PHPStan\\Rules\\Rule",
     "PHPStan\\Rules\\RuleError",
     "PHPStan\\Rules\\RuleErrorBuilder",
-    "PHPStan\\ShouldNotHappenException"
+    "PHPStan\\ShouldNotHappenException",
+    "self",
+    "string",
+    "true"
   ]
 }
