@@ -11,7 +11,7 @@ For a full diff see [`2.4.0...main`][2.4.0...main].
 ### Added
 
 - Added rule error identifiers ([#875]), by [@localheinz]
-- Added support for PHP 8.4 ([#877]), by [@localheinz]
+- Added support for PHP 8.0 ([#877]), by [@localheinz]
 
 ### Changed
 
