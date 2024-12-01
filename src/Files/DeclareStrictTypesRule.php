@@ -62,7 +62,7 @@ final class DeclareStrictTypesRule implements Rules\Rule
             foreach ($firstNode->declares as $declare) {
                 if (
                     'strict_types' === $declare->key->toLowerString()
-                    && $declare->value instanceof Node\Scalar\LNumber
+                    && $declare->value instanceof Node\Scalar\Int_
                     && 1 === $declare->value->value
                 ) {
                     return [];
