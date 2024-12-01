@@ -12,6 +12,10 @@ For a full diff see [`2.4.0...main`][2.4.0...main].
 
 - Added rule error identifiers ([#875]), by [@localheinz]
 
+### Changed
+
+- Removed dependency on `nikic/php-parser` ([#878]), by [@localheinz]
+
 ## [`2.4.0`][2.4.0]
 
 For a full diff see [`2.3.0...2.4.0`][2.3.0...2.4.0].
@@ -528,6 +532,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#862]: https://github.com/ergebnis/phpstan-rules/pull/862
 [#872]: https://github.com/ergebnis/phpstan-rules/pull/872
 [#875]: https://github.com/ergebnis/phpstan-rules/pull/875
+[#878]: https://github.com/ergebnis/phpstan-rules/pull/878
 
 [@enumag]: https://github.com/enumag
 [@ergebnis]: https://github.com/ergebnis
