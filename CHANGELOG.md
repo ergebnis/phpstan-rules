@@ -11,6 +11,7 @@ For a full diff see [`2.5.0...main`][2.5.0...main].
 ### Fixed
 
 - Returned rule with error identifier ([#882]), by [@localheinz]
+- Adjusted `Methods\FinalInAbstractClassRule` to ignore Doctrine embeddables and entities ([#396]), by [@localheinz]
 
 ## [`2.5.0`][2.5.0]
 
@@ -531,6 +532,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#294]: https://github.com/ergebnis/phpstan-rules/pull/294
 [#381]: https://github.com/ergebnis/phpstan-rules/pull/381
 [#395]: https://github.com/ergebnis/phpstan-rules/pull/395
+[#396]: https://github.com/ergebnis/phpstan-rules/pull/396
 [#496]: https://github.com/ergebnis/phpstan-rules/pull/496
 [#498]: https://github.com/ergebnis/phpstan-rules/pull/498
 [#499]: https://github.com/ergebnis/phpstan-rules/pull/498

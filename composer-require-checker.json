@@ -26,6 +26,8 @@
     "PhpParser\\Node\\UnionType",
     "PHPStan\\Analyser\\Scope",
     "PHPStan\\Node\\FileNode",
+    "PHPStan\\PhpDoc\\ResolvedPhpDocBlock",
+    "PHPStan\\PhpDocParser\\Ast\\PhpDoc\\PhpDocTagNode",
     "PHPStan\\Reflection\\ClassReflection",
     "PHPStan\\Reflection\\ReflectionProvider",
     "PHPStan\\Rules\\Rule",

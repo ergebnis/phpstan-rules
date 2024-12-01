@@ -345,6 +345,11 @@ parameters:
 
 This rule reports an error when a concrete `public` or `protected `method in an `abstract` class is not `final`.
 
+:bulb: This rule ignores
+
+- Doctrine embeddables
+- Doctrine entities
+
 ##### Disabling the rule
 
 You can set the the `enabled` parameter to `false` to disable this rule.
