@@ -18,7 +18,6 @@ use PhpParser\Node;
 use PHPStan\Analyser;
 use PHPStan\Reflection;
 use PHPStan\Rules;
-use PHPStan\ShouldNotHappenException;
 
 /**
  * @implements Rules\Rule<Node\Stmt\Class_>
@@ -47,14 +46,6 @@ final class TestCaseWithSuffixRule implements Rules\Rule
         Node $node,
         Analyser\Scope $scope
     ): array {
-        if (!$node instanceof Node\Stmt\Class_) {
-            throw new ShouldNotHappenException(\sprintf(
-                'Expected node to be instance of "%s", but got instance of "%s" instead.',
-                Node\Stmt\Class_::class,
-                \get_class($node),
-            ));
-        }
-
         if ($node->isAbstract()) {
             return [];
         }

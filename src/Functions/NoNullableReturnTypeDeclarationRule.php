@@ -17,7 +17,6 @@ use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Node;
 use PHPStan\Analyser;
 use PHPStan\Rules;
-use PHPStan\ShouldNotHappenException;
 
 /**
  * @implements Rules\Rule<Node\Stmt\Function_>
@@ -33,14 +32,6 @@ final class NoNullableReturnTypeDeclarationRule implements Rules\Rule
         Node $node,
         Analyser\Scope $scope
     ): array {
-        if (!$node instanceof Node\Stmt\Function_) {
-            throw new ShouldNotHappenException(\sprintf(
-                'Expected node to be instance of "%s", but got instance of "%s" instead.',
-                Node\Stmt\Function_::class,
-                \get_class($node),
-            ));
-        }
-
         if (!isset($node->namespacedName)) {
             return [];
         }
