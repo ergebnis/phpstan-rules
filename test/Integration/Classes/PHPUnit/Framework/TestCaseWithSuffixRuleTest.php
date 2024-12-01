@@ -14,14 +14,16 @@ declare(strict_types=1);
 namespace Ergebnis\PHPStan\Rules\Test\Integration\Classes\PHPUnit\Framework;
 
 use Ergebnis\PHPStan\Rules\Classes;
-use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use Ergebnis\PHPStan\Rules\Test;
 use PhpParser\Node;
 use PHPStan\Rules;
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(Classes\PHPUnit\Framework\TestCaseWithSuffixRule::class)]
-#[Framework\Attributes\UsesClass(ErrorIdentifier::class)]
+/**
+ * @covers \Ergebnis\PHPStan\Rules\Classes\PHPUnit\Framework\TestCaseWithSuffixRule
+ *
+ * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
+ */
 final class TestCaseWithSuffixRuleTest extends Test\Integration\AbstractTestCase
 {
     public static function provideCasesWhereAnalysisShouldSucceed(): iterable

@@ -16,7 +16,9 @@ namespace Ergebnis\PHPStan\Rules\Test\Unit;
 use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(ErrorIdentifier::class)]
+/**
+ * @covers \Ergebnis\PHPStan\Rules\ErrorIdentifier
+ */
 final class ErrorIdentifierTest extends Framework\TestCase
 {
     public function testDeclareStrictTypesReturnsErrorIdentifier(): void

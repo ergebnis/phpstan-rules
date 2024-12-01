@@ -34,7 +34,7 @@ final class NoExtendsRule implements Rules\Rule
     /**
      * @var array<int, class-string>
      */
-    private readonly array $classesAllowedToBeExtended;
+    private array $classesAllowedToBeExtended;
 
     /**
      * @param array<int, class-string> $classesAllowedToBeExtended

@@ -15,14 +15,15 @@ namespace Ergebnis\PHPStan\Rules\Test\Integration;
 
 use PHPStan\Rules;
 use PHPStan\Testing;
-use PHPUnit\Framework;
 
 /**
  * @extends Testing\RuleTestCase<Rules\Rule>
  */
 abstract class AbstractTestCase extends Testing\RuleTestCase
 {
-    #[Framework\Attributes\DataProvider('provideCasesWhereAnalysisShouldSucceed')]
+    /**
+     * @dataProvider provideCasesWhereAnalysisShouldSucceed
+     */
     final public function testAnalysisSucceeds(string $path): void
     {
         self::assertFileExists($path);
@@ -36,9 +37,10 @@ abstract class AbstractTestCase extends Testing\RuleTestCase
     }
 
     /**
+     * @dataProvider provideCasesWhereAnalysisShouldFail
+     *
      * @param array{0: string, 1: int} $error
      */
-    #[Framework\Attributes\DataProvider('provideCasesWhereAnalysisShouldFail')]
     final public function testAnalysisFails(string $path, array $error): void
     {
         self::assertFileExists($path);

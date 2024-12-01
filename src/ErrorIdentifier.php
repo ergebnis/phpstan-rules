@@ -18,7 +18,7 @@ namespace Ergebnis\PHPStan\Rules;
  */
 final class ErrorIdentifier
 {
-    private function __construct(private readonly string $value)
+    private function __construct(private string $value)
     {
     }
 
