@@ -32,13 +32,13 @@ final class FinalInAbstractClassRule implements Rules\Rule
 
     public function processNode(
         Node $node,
-        Analyser\Scope $scope,
+        Analyser\Scope $scope
     ): array {
         if (!$node instanceof Node\Stmt\ClassMethod) {
             throw new ShouldNotHappenException(\sprintf(
                 'Expected node to be instance of "%s", but got instance of "%s" instead.',
                 Node\Stmt\ClassMethod::class,
-                $node::class,
+                \get_class($node),
             ));
         }
 

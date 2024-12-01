@@ -12,6 +12,7 @@ For a full diff see [`2.4.0...main`][2.4.0...main].
 
 - Added rule error identifiers ([#875]), by [@localheinz]
 - Added support for PHP 8.0 ([#877]), by [@localheinz]
+- Added support for PHP 7.4 ([#880]), by [@localheinz]
 
 ### Changed
 
@@ -535,6 +536,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#875]: https://github.com/ergebnis/phpstan-rules/pull/875
 [#877]: https://github.com/ergebnis/phpstan-rules/pull/877
 [#878]: https://github.com/ergebnis/phpstan-rules/pull/878
+[#880]: https://github.com/ergebnis/phpstan-rules/pull/880
 
 [@enumag]: https://github.com/enumag
 [@ergebnis]: https://github.com/ergebnis

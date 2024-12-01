@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 use Ergebnis\PhpCsFixer;
 
-$ruleSet = PhpCsFixer\Config\RuleSet\Php80::create()
+$ruleSet = PhpCsFixer\Config\RuleSet\Php74::create()
     ->withHeader('')
     ->withRules(PhpCsFixer\Config\Rules::fromArray([
         'constant_case' => false,
@@ -33,8 +33,20 @@ $ruleSet = PhpCsFixer\Config\RuleSet\Php80::create()
 $config = PhpCsFixer\Config\Factory::fromRuleSet($ruleSet);
 
 $config->getFinder()
-    ->in(__DIR__ . '/test/Fixture')
-    ->notPath('Classes/PHPUnit/Framework/TestCaseWithSuffixRule/Success/ImplicitlyAbstractTestCase.php');
+    ->in(__DIR__ . '/test/Fixture/')
+    ->notPath([
+        'Classes/PHPUnit/Framework/TestCaseWithSuffixRule/Success/ImplicitlyAbstractTestCase.php',
+        'Closures/NoNullableReturnTypeDeclarationRule/Failure/closure-with-nullable-union-type-return-type-declaration.php',
+        'Closures/NoParameterWithNullableTypeDeclarationRule/Failure/closure-with-parameter-with-nullable-union-type-declaration.php',
+        'Functions/NoNullableReturnTypeDeclarationRule/Failure/function-with-nullable-union-return-type-declaration.php',
+        'Functions/NoParameterWithNullableTypeDeclarationRule/Failure/function-with-parameter-with-nullable-union-type-declaration.php',
+        'Methods/NoNullableReturnTypeDeclarationRule/Failure/MethodInAnonymousClassWithNullableUnionReturnTypeDeclaration.php',
+        'Methods/NoNullableReturnTypeDeclarationRule/Failure/MethodInClassWithNullableUnionReturnTypeDeclaration.php',
+        'Methods/NoNullableReturnTypeDeclarationRule/Failure/MethodInInterfaceWithNullableUnionReturnTypeDeclaration.php',
+        'Methods/NoParameterWithNullableTypeDeclarationRule/Failure/method-in-anonymous-class-with-parameter-with-nullable-union-type-declaration.php',
+        'Methods/NoParameterWithNullableTypeDeclarationRule/Failure/MethodInClassWithParameterWithNullableUnionTypeDeclaration.php',
+        'Methods/NoParameterWithNullableTypeDeclarationRule/Failure/MethodInInterfaceWithParameterWithNullableUnionTypeDeclaration.php',
+    ]);
 
 $config->setCacheFile(__DIR__ . '/.build/php-cs-fixer/.php_cs.fixture.cache');
 

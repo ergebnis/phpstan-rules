@@ -32,13 +32,13 @@ final class DeclareStrictTypesRule implements Rules\Rule
 
     public function processNode(
         Node $node,
-        Analyser\Scope $scope,
+        Analyser\Scope $scope
     ): array {
         if (!$node instanceof FileNode) {
             throw new ShouldNotHappenException(\sprintf(
                 'Expected node to be instance of "%s", but got instance of "%s" instead.',
                 FileNode::class,
-                $node::class,
+                \get_class($node),
             ));
         }
 

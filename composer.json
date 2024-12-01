@@ -21,7 +21,7 @@
     "security": "https://github.com/ergebnis/phpstan-rules/blob/main/.github/SECURITY.md"
   },
   "require": {
-    "php": "~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0",
+    "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0",
     "ext-mbstring": "*",
     "phpstan/phpstan": "^1.10.21"
   },
@@ -58,7 +58,7 @@
       "abandoned": "report"
     },
     "platform": {
-      "php": "8.0.30"
+      "php": "7.4.33"
     },
     "preferred-install": "dist",
     "sort-packages": true

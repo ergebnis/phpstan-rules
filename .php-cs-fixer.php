@@ -26,7 +26,7 @@ $license = License\Type\MIT::markdown(
 
 $license->save();
 
-$ruleSet = PhpCsFixer\Config\RuleSet\Php80::create()->withHeader($license->header());
+$ruleSet = PhpCsFixer\Config\RuleSet\Php74::create()->withHeader($license->header());
 
 $config = PhpCsFixer\Config\Factory::fromRuleSet($ruleSet);
 
