@@ -150,7 +150,7 @@ final class NoParameterWithContainerTypeDeclarationRule implements Rules\Rule
         string $methodName,
         string $parameterName,
         Reflection\ClassReflection $classUsedInTypeDeclaration
-    ): Rules\RuleError {
+    ): Rules\IdentifierRuleError {
         if ($classReflection->isAnonymous()) {
             $ruleErrorBuilder = Rules\RuleErrorBuilder::message(\sprintf(
                 'Method %s() in anonymous class has a parameter $%s with a type declaration of %s, but containers should not be injected.',
