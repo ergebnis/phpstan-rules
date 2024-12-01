@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`2.5.0...main`][2.5.0...main].
 
+### Added
+
+- Added support for `phpstan/phpstan:^2.0.0`  ([#872]), by [@localheinz]
+
 ## [`2.5.0`][2.5.0]
 
 For a full diff see [`2.4.0...2.5.0`][2.4.0...2.5.0].
