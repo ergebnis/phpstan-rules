@@ -35,6 +35,7 @@ final class PrivateInFinalClassRuleTest extends Test\Integration\AbstractTestCas
             'final-class-with-protected-method-extending-class-with-same-protected-method' => __DIR__ . '/../../Fixture/Methods/PrivateInFinalClassRule/Success/FinalClassWithProtectedMethodExtendingClassWithSameProtectedMethod.php',
             'final-class-with-protected-method-from-trait' => __DIR__ . '/../../Fixture/Methods/PrivateInFinalClassRule/Success/FinalClassWithProtectedMethodFromTrait.php',
             'final-class-with-public-method' => __DIR__ . '/../../Fixture/Methods/PrivateInFinalClassRule/Success/FinalClassWithPublicMethod.php',
+            'final-class-with-protected-method-using-php-unit-attribute' => __DIR__ . '/../../Fixture/Methods/PrivateInFinalClassRule/Success/FinalClassWithProtectedMethodUsingPhpUnitAttribute.php',
         ];
 
         foreach ($paths as $description => $path) {
