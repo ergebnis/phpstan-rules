@@ -37,7 +37,7 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rules\Rule
         }
 
         $params = \array_filter($node->params, static function (Node\Param $node): bool {
-            return self::isNullable($node);
+            return self::hasNullableTypeDeclration($node);
         });
 
         if (0 === \count($params)) {
@@ -65,7 +65,7 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rules\Rule
         }, $params));
     }
 
-    private static function isNullable(Node\Param $node): bool
+    private static function hasNullableTypeDeclration(Node\Param $node): bool
     {
         if ($node->type instanceof Node\NullableType) {
             return true;
