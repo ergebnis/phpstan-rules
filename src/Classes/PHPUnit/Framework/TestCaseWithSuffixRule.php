@@ -87,10 +87,8 @@ final class TestCaseWithSuffixRule implements Rules\Rule
             $extendedPhpunitTestCaseClassName,
         );
 
-        $ruleErrorBuilder = Rules\RuleErrorBuilder::message($message);
-
         return [
-            $ruleErrorBuilder
+            Rules\RuleErrorBuilder::message($message)
                 ->identifier(ErrorIdentifier::testCaseWithSuffix()->toString())
                 ->build(),
         ];

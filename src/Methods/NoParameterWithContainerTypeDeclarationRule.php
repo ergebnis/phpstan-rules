@@ -159,9 +159,7 @@ final class NoParameterWithContainerTypeDeclarationRule implements Rules\Rule
                 $classUsedInTypeDeclaration->getName(),
             );
 
-            $ruleErrorBuilder = Rules\RuleErrorBuilder::message($message);
-
-            return $ruleErrorBuilder
+            return Rules\RuleErrorBuilder::message($message)
                 ->identifier(ErrorIdentifier::noParameterWithContainerTypeDeclaration()->toString())
                 ->build();
         }
@@ -174,9 +172,7 @@ final class NoParameterWithContainerTypeDeclarationRule implements Rules\Rule
             $classUsedInTypeDeclaration->getName(),
         );
 
-        $ruleErrorBuilder = Rules\RuleErrorBuilder::message($message);
-
-        return $ruleErrorBuilder
+        return Rules\RuleErrorBuilder::message($message)
             ->identifier(ErrorIdentifier::noParameterWithContainerTypeDeclaration()->toString())
             ->build();
     }

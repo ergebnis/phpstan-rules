@@ -32,10 +32,8 @@ final class NoSwitchRule implements Rules\Rule
         Node $node,
         Analyser\Scope $scope
     ): array {
-        $ruleErrorBuilder = Rules\RuleErrorBuilder::message('Control structures using switch should not be used.');
-
         return [
-            $ruleErrorBuilder
+            Rules\RuleErrorBuilder::message('Control structures using switch should not be used.')
                 ->identifier(ErrorIdentifier::noSwitch()->toString())
                 ->build(),
         ];

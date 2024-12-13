@@ -66,10 +66,8 @@ final class PrivateInFinalClassRule implements Rules\Rule
             $methodName,
         );
 
-        $ruleErrorBuilder = Rules\RuleErrorBuilder::message($message);
-
         return [
-            $ruleErrorBuilder
+            Rules\RuleErrorBuilder::message($message)
                 ->identifier(ErrorIdentifier::privateInFinalClass()->toString())
                 ->build(),
         ];

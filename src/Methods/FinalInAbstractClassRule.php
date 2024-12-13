@@ -85,10 +85,8 @@ final class FinalInAbstractClassRule implements Rules\Rule
             $node->name->toString(),
         );
 
-        $ruleErrorBuilder = Rules\RuleErrorBuilder::message($message);
-
         return [
-            $ruleErrorBuilder
+            Rules\RuleErrorBuilder::message($message)
                 ->identifier(ErrorIdentifier::finalInAbstractClass()->toString())
                 ->build(),
         ];

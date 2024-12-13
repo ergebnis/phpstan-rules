@@ -59,9 +59,7 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rules\Rule
                 $parameterName,
             );
 
-            $ruleErrorBuilder = Rules\RuleErrorBuilder::message($message);
-
-            return $ruleErrorBuilder
+            return Rules\RuleErrorBuilder::message($message)
                 ->identifier(ErrorIdentifier::noParameterWithNullableTypeDeclaration()->toString())
                 ->build();
         }, $params));

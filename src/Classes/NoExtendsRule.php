@@ -74,10 +74,8 @@ final class NoExtendsRule implements Rules\Rule
                 $extendedClassName,
             );
 
-            $ruleErrorBuilder = Rules\RuleErrorBuilder::message($message);
-
             return [
-                $ruleErrorBuilder
+                Rules\RuleErrorBuilder::message($message)
                     ->identifier(ErrorIdentifier::noExtends()->toString())
                     ->build(),
             ];
@@ -89,10 +87,8 @@ final class NoExtendsRule implements Rules\Rule
             $extendedClassName,
         );
 
-        $ruleErrorBuilder = Rules\RuleErrorBuilder::message($message);
-
         return [
-            $ruleErrorBuilder
+            Rules\RuleErrorBuilder::message($message)
                 ->identifier(ErrorIdentifier::noExtends()->toString())
                 ->build(),
         ];
