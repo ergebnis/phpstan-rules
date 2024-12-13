@@ -37,9 +37,9 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rules\Rule
             return [];
         }
 
-        $parametersWithNullableTypeDeclaration = \array_filter($node->params, static function (Node\Param $parameter): bool {
+        $parametersWithNullableTypeDeclaration = \array_values(\array_filter($node->params, static function (Node\Param $parameter): bool {
             return self::hasNullableTypeDeclaration($parameter);
-        });
+        }));
 
         if (0 === \count($parametersWithNullableTypeDeclaration)) {
             return [];
@@ -51,7 +51,7 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rules\Rule
         $classReflection = $scope->getClassReflection();
 
         if ($classReflection->isAnonymous()) {
-            return \array_values(\array_map(static function (Node\Param $node) use ($methodName): Rules\RuleError {
+            return \array_map(static function (Node\Param $node) use ($methodName): Rules\RuleError {
                 /** @var Node\Expr\Variable $variable */
                 $variable = $node->var;
 
@@ -67,12 +67,12 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rules\Rule
                 return Rules\RuleErrorBuilder::message($message)
                     ->identifier(ErrorIdentifier::noParameterWithContainerTypeDeclaration()->toString())
                     ->build();
-            }, $parametersWithNullableTypeDeclaration));
+            }, $parametersWithNullableTypeDeclaration);
         }
 
         $className = $classReflection->getName();
 
-        return \array_values(\array_map(static function (Node\Param $node) use ($className, $methodName): Rules\RuleError {
+        return \array_map(static function (Node\Param $node) use ($className, $methodName): Rules\RuleError {
             /** @var Node\Expr\Variable $variable */
             $variable = $node->var;
 
@@ -89,7 +89,7 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rules\Rule
             return Rules\RuleErrorBuilder::message($message)
                 ->identifier(ErrorIdentifier::noParameterWithContainerTypeDeclaration()->toString())
                 ->build();
-        }, $parametersWithNullableTypeDeclaration));
+        }, $parametersWithNullableTypeDeclaration);
     }
 
     private static function hasNullableTypeDeclaration(Node\Param $node): bool
