@@ -37,8 +37,8 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rules\Rule
             return [];
         }
 
-        $parametersWithNullableTypeDeclaration = \array_filter($node->params, static function (Node\Param $node): bool {
-            return self::isNullable($node);
+        $parametersWithNullableTypeDeclaration = \array_filter($node->params, static function (Node\Param $parameter): bool {
+            return self::isNullable($parameter);
         });
 
         if (0 === \count($parametersWithNullableTypeDeclaration)) {
