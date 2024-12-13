@@ -37,9 +37,9 @@ final class NoParameterWithNullDefaultValueRule implements Rules\Rule
             return [];
         }
 
-        $parametersWithNullDefaultValue = \array_filter($node->params, static function (Node\Param $parameter): bool {
+        $parametersWithNullDefaultValue = \array_values(\array_filter($node->params, static function (Node\Param $parameter): bool {
             return self::hasNullDefaultValue($parameter);
-        });
+        }));
 
         if (0 === \count($parametersWithNullDefaultValue)) {
             return [];
@@ -51,7 +51,7 @@ final class NoParameterWithNullDefaultValueRule implements Rules\Rule
         $classReflection = $scope->getClassReflection();
 
         if ($classReflection->isAnonymous()) {
-            return \array_values(\array_map(static function (Node\Param $parameterWithNullDefaultValue) use ($methodName): Rules\RuleError {
+            return \array_map(static function (Node\Param $parameterWithNullDefaultValue) use ($methodName): Rules\RuleError {
                 /** @var Node\Expr\Variable $variable */
                 $variable = $parameterWithNullDefaultValue->var;
 
@@ -67,12 +67,12 @@ final class NoParameterWithNullDefaultValueRule implements Rules\Rule
                 return Rules\RuleErrorBuilder::message($message)
                     ->identifier(ErrorIdentifier::noParameterWithNullDefaultValue()->toString())
                     ->build();
-            }, $parametersWithNullDefaultValue));
+            }, $parametersWithNullDefaultValue);
         }
 
         $className = $classReflection->getName();
 
-        return \array_values(\array_map(static function (Node\Param $parameterWithNullDefaultValue) use ($className, $methodName): Rules\RuleError {
+        return \array_map(static function (Node\Param $parameterWithNullDefaultValue) use ($className, $methodName): Rules\RuleError {
             /** @var Node\Expr\Variable $variable */
             $variable = $parameterWithNullDefaultValue->var;
 
@@ -89,7 +89,7 @@ final class NoParameterWithNullDefaultValueRule implements Rules\Rule
             return Rules\RuleErrorBuilder::message($message)
                 ->identifier(ErrorIdentifier::noParameterWithNullDefaultValue()->toString())
                 ->build();
-        }, $parametersWithNullDefaultValue));
+        }, $parametersWithNullDefaultValue);
     }
 
     private static function hasNullDefaultValue(Node\Param $parameter): bool
