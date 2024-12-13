@@ -41,9 +41,9 @@ final class NoConstructorParameterWithDefaultValueRule implements Rules\Rule
             return [];
         }
 
-        $params = \array_filter($node->params, static function (Node\Param $parameter): bool {
+        $params = \array_values(\array_filter($node->params, static function (Node\Param $parameter): bool {
             return self::hasDefaultValue($parameter);
-        });
+        }));
 
         if (0 === \count($params)) {
             return [];
@@ -53,7 +53,7 @@ final class NoConstructorParameterWithDefaultValueRule implements Rules\Rule
         $classReflection = $scope->getClassReflection();
 
         if ($classReflection->isAnonymous()) {
-            return \array_values(\array_map(static function (Node\Param $node): Rules\RuleError {
+            return \array_map(static function (Node\Param $node): Rules\RuleError {
                 /** @var Node\Expr\Variable $variable */
                 $variable = $node->var;
 
@@ -68,12 +68,12 @@ final class NoConstructorParameterWithDefaultValueRule implements Rules\Rule
                 return Rules\RuleErrorBuilder::message($message)
                     ->identifier(ErrorIdentifier::noConstructorParameterWithDefaultValue()->toString())
                     ->build();
-            }, $params));
+            }, $params);
         }
 
         $className = $classReflection->getName();
 
-        return \array_values(\array_map(static function (Node\Param $node) use ($className): Rules\RuleError {
+        return \array_map(static function (Node\Param $node) use ($className): Rules\RuleError {
             /** @var Node\Expr\Variable $variable */
             $variable = $node->var;
 
@@ -89,7 +89,7 @@ final class NoConstructorParameterWithDefaultValueRule implements Rules\Rule
             return Rules\RuleErrorBuilder::message($message)
                 ->identifier(ErrorIdentifier::noConstructorParameterWithDefaultValue()->toString())
                 ->build();
-        }, $params));
+        }, $params);
     }
 
     private static function hasDefaultValue(Node\Param $parameter): bool
