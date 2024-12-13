@@ -35,7 +35,9 @@ final class NoSwitchRule implements Rules\Rule
         $ruleErrorBuilder = Rules\RuleErrorBuilder::message('Control structures using switch should not be used.');
 
         return [
-            $ruleErrorBuilder->identifier(ErrorIdentifier::noSwitch()->toString())->build(),
+            $ruleErrorBuilder
+                ->identifier(ErrorIdentifier::noSwitch()->toString())
+                ->build(),
         ];
     }
 }

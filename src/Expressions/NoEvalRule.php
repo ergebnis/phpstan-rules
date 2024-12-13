@@ -35,7 +35,9 @@ final class NoEvalRule implements Rules\Rule
         $ruleErrorBuilder = Rules\RuleErrorBuilder::message('Language construct eval() should not be used.');
 
         return [
-            $ruleErrorBuilder->identifier(ErrorIdentifier::noEval()->toString())->build(),
+            $ruleErrorBuilder
+                ->identifier(ErrorIdentifier::noEval()->toString())
+                ->build(),
         ];
     }
 }

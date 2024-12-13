@@ -35,7 +35,9 @@ final class NoIssetRule implements Rules\Rule
         $ruleErrorBuilder = Rules\RuleErrorBuilder::message('Language construct isset() should not be used.');
 
         return [
-            $ruleErrorBuilder->identifier(ErrorIdentifier::noIsset()->toString())->build(),
+            $ruleErrorBuilder
+                ->identifier(ErrorIdentifier::noIsset()->toString())
+                ->build(),
         ];
     }
 }

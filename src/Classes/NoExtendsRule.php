@@ -75,7 +75,9 @@ final class NoExtendsRule implements Rules\Rule
             ));
 
             return [
-                $ruleErrorBuilder->identifier(ErrorIdentifier::noExtends()->toString())->build(),
+                $ruleErrorBuilder
+                    ->identifier(ErrorIdentifier::noExtends()->toString())
+                    ->build(),
             ];
         }
 
@@ -86,7 +88,9 @@ final class NoExtendsRule implements Rules\Rule
         ));
 
         return [
-            $ruleErrorBuilder->identifier(ErrorIdentifier::noExtends()->toString())->build(),
+            $ruleErrorBuilder
+                ->identifier(ErrorIdentifier::noExtends()->toString())
+                ->build(),
         ];
     }
 }

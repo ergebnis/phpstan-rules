@@ -35,7 +35,9 @@ final class NoErrorSuppressionRule implements Rules\Rule
         $ruleErrorBuilder = Rules\RuleErrorBuilder::message('Error suppression via "@" should not be used.');
 
         return [
-            $ruleErrorBuilder->identifier(ErrorIdentifier::noErrorSuppression()->toString())->build(),
+            $ruleErrorBuilder
+                ->identifier(ErrorIdentifier::noErrorSuppression()->toString())
+                ->build(),
         ];
     }
 }

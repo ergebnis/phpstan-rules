@@ -88,7 +88,9 @@ final class TestCaseWithSuffixRule implements Rules\Rule
         ));
 
         return [
-            $ruleErrorBuilder->identifier(ErrorIdentifier::testCaseWithSuffix()->toString())->build(),
+            $ruleErrorBuilder
+                ->identifier(ErrorIdentifier::testCaseWithSuffix()->toString())
+                ->build(),
         ];
     }
 }

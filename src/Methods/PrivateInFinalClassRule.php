@@ -67,7 +67,9 @@ final class PrivateInFinalClassRule implements Rules\Rule
         ));
 
         return [
-            $ruleErrorBuilder->identifier(ErrorIdentifier::privateInFinalClass()->toString())->build(),
+            $ruleErrorBuilder
+                ->identifier(ErrorIdentifier::privateInFinalClass()->toString())
+                ->build(),
         ];
     }
 }

@@ -60,7 +60,9 @@ final class NoParameterWithNullDefaultValueRule implements Rules\Rule
                 $parameterName,
             ));
 
-            return $ruleErrorBuilder->identifier(ErrorIdentifier::noParameterWithNullDefaultValue()->toString())->build();
+            return $ruleErrorBuilder
+                ->identifier(ErrorIdentifier::noParameterWithNullDefaultValue()->toString())
+                ->build();
         }, $params));
     }
 }

@@ -43,7 +43,9 @@ final class NoCompactRule implements Rules\Rule
         $ruleErrorBuilder = Rules\RuleErrorBuilder::message('Function compact() should not be used.');
 
         return [
-            $ruleErrorBuilder->identifier(ErrorIdentifier::noCompact()->toString())->build(),
+            $ruleErrorBuilder
+                ->identifier(ErrorIdentifier::noCompact()->toString())
+                ->build(),
         ];
     }
 }

@@ -99,7 +99,9 @@ final class FinalRule implements Rules\Rule
         ));
 
         return [
-            $ruleErrorBuilder->identifier(ErrorIdentifier::final()->toString())->build(),
+            $ruleErrorBuilder
+                ->identifier(ErrorIdentifier::final()->toString())
+                ->build(),
         ];
     }
 

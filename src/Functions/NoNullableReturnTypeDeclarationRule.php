@@ -46,7 +46,9 @@ final class NoNullableReturnTypeDeclarationRule implements Rules\Rule
         ));
 
         return [
-            $ruleErrorBuilder->identifier(ErrorIdentifier::noNullableReturnTypeDeclaration()->toString())->build(),
+            $ruleErrorBuilder
+                ->identifier(ErrorIdentifier::noNullableReturnTypeDeclaration()->toString())
+                ->build(),
         ];
     }
 

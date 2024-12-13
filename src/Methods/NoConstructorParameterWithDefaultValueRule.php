@@ -65,7 +65,9 @@ final class NoConstructorParameterWithDefaultValueRule implements Rules\Rule
                     $parameterName,
                 ));
 
-                return $ruleErrorBuilder->identifier(ErrorIdentifier::noConstructorParameterWithDefaultValue()->toString())->build();
+                return $ruleErrorBuilder
+                    ->identifier(ErrorIdentifier::noConstructorParameterWithDefaultValue()->toString())
+                    ->build();
             }, $params));
         }
 
@@ -84,7 +86,9 @@ final class NoConstructorParameterWithDefaultValueRule implements Rules\Rule
                 $parameterName,
             ));
 
-            return $ruleErrorBuilder->identifier(ErrorIdentifier::noConstructorParameterWithDefaultValue()->toString())->build();
+            return $ruleErrorBuilder
+                ->identifier(ErrorIdentifier::noConstructorParameterWithDefaultValue()->toString())
+                ->build();
         }, $params));
     }
 }

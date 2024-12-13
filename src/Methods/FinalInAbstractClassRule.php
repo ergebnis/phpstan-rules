@@ -86,7 +86,9 @@ final class FinalInAbstractClassRule implements Rules\Rule
         ));
 
         return [
-            $ruleErrorBuilder->identifier(ErrorIdentifier::finalInAbstractClass()->toString())->build(),
+            $ruleErrorBuilder
+                ->identifier(ErrorIdentifier::finalInAbstractClass()->toString())
+                ->build(),
         ];
     }
 
