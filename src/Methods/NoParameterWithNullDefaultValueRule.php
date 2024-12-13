@@ -51,9 +51,9 @@ final class NoParameterWithNullDefaultValueRule implements Rules\Rule
         $classReflection = $scope->getClassReflection();
 
         if ($classReflection->isAnonymous()) {
-            return \array_values(\array_map(static function (Node\Param $node) use ($methodName): Rules\RuleError {
+            return \array_values(\array_map(static function (Node\Param $parameterWithNullDefaultValue) use ($methodName): Rules\RuleError {
                 /** @var Node\Expr\Variable $variable */
-                $variable = $node->var;
+                $variable = $parameterWithNullDefaultValue->var;
 
                 /** @var string $parameterName */
                 $parameterName = $variable->name;
@@ -72,9 +72,9 @@ final class NoParameterWithNullDefaultValueRule implements Rules\Rule
 
         $className = $classReflection->getName();
 
-        return \array_values(\array_map(static function (Node\Param $node) use ($className, $methodName): Rules\RuleError {
+        return \array_values(\array_map(static function (Node\Param $parameterWithNullDefaultValue) use ($className, $methodName): Rules\RuleError {
             /** @var Node\Expr\Variable $variable */
-            $variable = $node->var;
+            $variable = $parameterWithNullDefaultValue->var;
 
             /** @var string $parameterName */
             $parameterName = $variable->name;
