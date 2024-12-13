@@ -40,13 +40,13 @@ final class NoExtendsRule implements Rules\Rule
      */
     public function __construct(array $classesAllowedToBeExtended)
     {
-        $this->classesAllowedToBeExtended = \array_unique(\array_merge(
+        $this->classesAllowedToBeExtended = \array_values(\array_unique(\array_merge(
             self::$defaultClassesAllowedToBeExtended,
             \array_map(static function (string $classAllowedToBeExtended): string {
                 /** @var class-string $classAllowedToBeExtended */
                 return $classAllowedToBeExtended;
             }, $classesAllowedToBeExtended),
-        ));
+        )));
     }
 
     public function getNodeType(): string

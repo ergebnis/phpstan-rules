@@ -46,14 +46,14 @@ final class NoParameterWithContainerTypeDeclarationRule implements Rules\Rule
         array $methodsAllowedToUseContainerTypeDeclarations
     ) {
         $this->reflectionProvider = $reflectionProvider;
-        $this->interfacesImplementedByContainers = \array_filter(
+        $this->interfacesImplementedByContainers = \array_values(\array_filter(
             \array_map(static function (string $interfaceImplementedByContainers): string {
                 return $interfaceImplementedByContainers;
             }, $interfacesImplementedByContainers),
             static function (string $interfaceImplementedByContainer): bool {
                 return \interface_exists($interfaceImplementedByContainer);
             },
-        );
+        ));
         $this->methodsAllowedToUseContainerTypeDeclarations = $methodsAllowedToUseContainerTypeDeclarations;
     }
 
@@ -83,7 +83,7 @@ final class NoParameterWithContainerTypeDeclarationRule implements Rules\Rule
         /** @var Reflection\ClassReflection $containingClass */
         $containingClass = $scope->getClassReflection();
 
-        return \array_reduce(
+        return \array_values(\array_reduce(
             $node->params,
             function (array $errors, Node\Param $node) use ($scope, $containingClass, $methodName) {
                 $type = $node->type;
@@ -142,7 +142,7 @@ final class NoParameterWithContainerTypeDeclarationRule implements Rules\Rule
                 return $errors;
             },
             [],
-        );
+        ));
     }
 
     private static function createError(
