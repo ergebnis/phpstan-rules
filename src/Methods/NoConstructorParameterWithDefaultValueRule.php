@@ -41,8 +41,8 @@ final class NoConstructorParameterWithDefaultValueRule implements Rules\Rule
             return [];
         }
 
-        $params = \array_filter($node->params, static function (Node\Param $node): bool {
-            return self::hasDefaultValue($node);
+        $params = \array_filter($node->params, static function (Node\Param $parameter): bool {
+            return self::hasDefaultValue($parameter);
         });
 
         if (0 === \count($params)) {
