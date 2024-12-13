@@ -43,9 +43,9 @@ final class NoNullableReturnTypeDeclarationRule implements Rules\Rule
         ];
     }
 
-    private static function hasNullableReturnTypeDeclaration(Node\Expr\Closure $node): bool
+    private static function hasNullableReturnTypeDeclaration(Node\Expr\Closure $closure): bool
     {
-        $returnType = $node->getReturnType();
+        $returnType = $closure->getReturnType();
 
         if ($returnType instanceof Node\NullableType) {
             return true;

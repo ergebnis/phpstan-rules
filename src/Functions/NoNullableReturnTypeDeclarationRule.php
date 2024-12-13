@@ -52,9 +52,9 @@ final class NoNullableReturnTypeDeclarationRule implements Rules\Rule
         ];
     }
 
-    private static function hasNullableReturnType(Node\Stmt\Function_ $node): bool
+    private static function hasNullableReturnType(Node\Stmt\Function_ $function): bool
     {
-        $returnType = $node->getReturnType();
+        $returnType = $function->getReturnType();
 
         if ($returnType instanceof Node\NullableType) {
             return true;

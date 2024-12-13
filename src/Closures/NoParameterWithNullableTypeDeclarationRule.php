@@ -62,14 +62,14 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rules\Rule
         }, $parametersWithNullableTypeDeclaration);
     }
 
-    private static function hasNullableTypeDeclaration(Node\Param $node): bool
+    private static function hasNullableTypeDeclaration(Node\Param $parameter): bool
     {
-        if ($node->type instanceof Node\NullableType) {
+        if ($parameter->type instanceof Node\NullableType) {
             return true;
         }
 
-        if ($node->type instanceof Node\UnionType) {
-            foreach ($node->type->types as $type) {
+        if ($parameter->type instanceof Node\UnionType) {
+            foreach ($parameter->type->types as $type) {
                 if (!$type instanceof Node\Identifier) {
                     continue;
                 }
