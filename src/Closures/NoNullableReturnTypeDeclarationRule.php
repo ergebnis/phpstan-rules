@@ -32,7 +32,7 @@ final class NoNullableReturnTypeDeclarationRule implements Rules\Rule
         Node $node,
         Analyser\Scope $scope
     ): array {
-        if (!self::hasNullableReturnType($node)) {
+        if (!self::hasNullableReturnTypeDeclaration($node)) {
             return [];
         }
 
@@ -43,7 +43,7 @@ final class NoNullableReturnTypeDeclarationRule implements Rules\Rule
         ];
     }
 
-    private static function hasNullableReturnType(Node\Expr\Closure $node): bool
+    private static function hasNullableReturnTypeDeclaration(Node\Expr\Closure $node): bool
     {
         $returnType = $node->getReturnType();
 
