@@ -42,7 +42,7 @@ final class NoConstructorParameterWithDefaultValueRule implements Rules\Rule
         }
 
         $params = \array_filter($node->params, static function (Node\Param $node): bool {
-            return self::hasNullDefaultValue($node);
+            return self::hasDefaultValue($node);
         });
 
         if (0 === \count($params)) {
@@ -92,7 +92,7 @@ final class NoConstructorParameterWithDefaultValueRule implements Rules\Rule
         }, $params));
     }
 
-    private static function hasNullDefaultValue(Node\Param $parameter): bool
+    private static function hasDefaultValue(Node\Param $parameter): bool
     {
         return null !== $parameter->default;
     }
