@@ -25,7 +25,7 @@ use PHPStan\Rules;
 final class FinalRule implements Rules\Rule
 {
     /**
-     * @var array<int, string>
+     * @var list<string>
      */
     private static array $whitelistedAnnotations = [
         'Entity',
@@ -34,7 +34,7 @@ final class FinalRule implements Rules\Rule
     ];
 
     /**
-     * @var array<int, class-string>
+     * @var list<class-string>
      */
     private static array $whitelistedAttributes = [
         'Doctrine\ORM\Mapping\Entity',
@@ -42,13 +42,13 @@ final class FinalRule implements Rules\Rule
     private bool $allowAbstractClasses;
 
     /**
-     * @var array<int, string>
+     * @var list<string>
      */
     private array $classesNotRequiredToBeAbstractOrFinal;
     private string $errorMessageTemplate = 'Class %s is not final.';
 
     /**
-     * @param array<int, class-string> $classesNotRequiredToBeAbstractOrFinal
+     * @param list<class-string> $classesNotRequiredToBeAbstractOrFinal
      */
     public function __construct(
         bool $allowAbstractClasses,

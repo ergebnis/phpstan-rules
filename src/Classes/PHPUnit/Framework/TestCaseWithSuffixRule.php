@@ -25,7 +25,7 @@ use PHPStan\Rules;
 final class TestCaseWithSuffixRule implements Rules\Rule
 {
     /**
-     * @var array<int, class-string>
+     * @var list<class-string>
      */
     private static array $phpunitTestCaseClassNames = [
         'PHPUnit\Framework\TestCase',

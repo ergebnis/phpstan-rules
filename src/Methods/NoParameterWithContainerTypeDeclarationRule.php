@@ -27,18 +27,18 @@ final class NoParameterWithContainerTypeDeclarationRule implements Rules\Rule
     private Reflection\ReflectionProvider $reflectionProvider;
 
     /**
-     * @var array<int, string>
+     * @var list<string>
      */
     private array $interfacesImplementedByContainers;
 
     /**
-     * @var array<int, string>
+     * @var list<string>
      */
     private array $methodsAllowedToUseContainerTypeDeclarations;
 
     /**
-     * @param array<int, string> $interfacesImplementedByContainers
-     * @param array<int, string> $methodsAllowedToUseContainerTypeDeclarations
+     * @param list<string> $interfacesImplementedByContainers
+     * @param list<string> $methodsAllowedToUseContainerTypeDeclarations
      */
     public function __construct(
         Reflection\ReflectionProvider $reflectionProvider,

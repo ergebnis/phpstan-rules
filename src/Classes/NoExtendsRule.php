@@ -24,19 +24,19 @@ use PHPStan\Rules;
 final class NoExtendsRule implements Rules\Rule
 {
     /**
-     * @var array<int, class-string>
+     * @var list<class-string>
      */
     private static array $defaultClassesAllowedToBeExtended = [
         'PHPUnit\\Framework\\TestCase',
     ];
 
     /**
-     * @var array<int, class-string>
+     * @var list<class-string>
      */
     private array $classesAllowedToBeExtended;
 
     /**
-     * @param array<int, class-string> $classesAllowedToBeExtended
+     * @param list<class-string> $classesAllowedToBeExtended
      */
     public function __construct(array $classesAllowedToBeExtended)
     {
