@@ -81,11 +81,13 @@ final class TestCaseWithSuffixRule implements Rules\Rule
             return [];
         }
 
-        $ruleErrorBuilder = Rules\RuleErrorBuilder::message(\sprintf(
+        $message = \sprintf(
             'Class %s extends %s, is concrete, but does not have a Test suffix.',
             $fullyQualifiedClassName,
             $extendedPhpunitTestCaseClassName,
-        ));
+        );
+
+        $ruleErrorBuilder = Rules\RuleErrorBuilder::message($message);
 
         return [
             $ruleErrorBuilder

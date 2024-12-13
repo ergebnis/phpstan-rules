@@ -60,10 +60,12 @@ final class NoConstructorParameterWithDefaultValueRule implements Rules\Rule
                 /** @var string $parameterName */
                 $parameterName = $variable->name;
 
-                $ruleErrorBuilder = Rules\RuleErrorBuilder::message(\sprintf(
+                $message = \sprintf(
                     'Constructor in anonymous class has parameter $%s with default value.',
                     $parameterName,
-                ));
+                );
+
+                $ruleErrorBuilder = Rules\RuleErrorBuilder::message($message);
 
                 return $ruleErrorBuilder
                     ->identifier(ErrorIdentifier::noConstructorParameterWithDefaultValue()->toString())
@@ -80,11 +82,13 @@ final class NoConstructorParameterWithDefaultValueRule implements Rules\Rule
             /** @var string $parameterName */
             $parameterName = $variable->name;
 
-            $ruleErrorBuilder = Rules\RuleErrorBuilder::message(\sprintf(
+            $message = \sprintf(
                 'Constructor in %s has parameter $%s with default value.',
                 $className,
                 $parameterName,
-            ));
+            );
+
+            $ruleErrorBuilder = Rules\RuleErrorBuilder::message($message);
 
             return $ruleErrorBuilder
                 ->identifier(ErrorIdentifier::noConstructorParameterWithDefaultValue()->toString())

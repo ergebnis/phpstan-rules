@@ -57,11 +57,13 @@ final class NoParameterWithNullDefaultValueRule implements Rules\Rule
             /** @var string $parameterName */
             $parameterName = $variable->name;
 
-            $ruleErrorBuilder = Rules\RuleErrorBuilder::message(\sprintf(
+            $message = \sprintf(
                 'Function %s() has parameter $%s with null as default value.',
                 $functionName,
                 $parameterName,
-            ));
+            );
+
+            $ruleErrorBuilder = Rules\RuleErrorBuilder::message($message);
 
             return $ruleErrorBuilder
                 ->identifier(ErrorIdentifier::noParameterWithNullDefaultValue()->toString())

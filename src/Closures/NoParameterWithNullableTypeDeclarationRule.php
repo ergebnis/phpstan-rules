@@ -51,10 +51,12 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rules\Rule
             /** @var string $parameterName */
             $parameterName = $variable->name;
 
-            $ruleErrorBuilder = Rules\RuleErrorBuilder::message(\sprintf(
+            $message = \sprintf(
                 'Closure has parameter $%s with a nullable type declaration.',
                 $parameterName,
-            ));
+            );
+
+            $ruleErrorBuilder = Rules\RuleErrorBuilder::message($message);
 
             return $ruleErrorBuilder
                 ->identifier(ErrorIdentifier::noParameterWithNullableTypeDeclaration()->toString())

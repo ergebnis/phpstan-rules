@@ -79,11 +79,13 @@ final class FinalInAbstractClassRule implements Rules\Rule
             return [];
         }
 
-        $ruleErrorBuilder = Rules\RuleErrorBuilder::message(\sprintf(
+        $message = \sprintf(
             'Method %s::%s() is not final, but since the containing class is abstract, it should be.',
             $containingClass->getName(),
             $node->name->toString(),
-        ));
+        );
+
+        $ruleErrorBuilder = Rules\RuleErrorBuilder::message($message);
 
         return [
             $ruleErrorBuilder

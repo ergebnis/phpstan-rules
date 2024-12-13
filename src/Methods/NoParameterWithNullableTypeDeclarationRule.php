@@ -58,11 +58,13 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rules\Rule
                 /** @var string $parameterName */
                 $parameterName = $variable->name;
 
-                $ruleErrorBuilder = Rules\RuleErrorBuilder::message(\sprintf(
+                $message = \sprintf(
                     'Method %s() in anonymous class has parameter $%s with a nullable type declaration.',
                     $methodName,
                     $parameterName,
-                ));
+                );
+
+                $ruleErrorBuilder = Rules\RuleErrorBuilder::message($message);
 
                 return $ruleErrorBuilder
                     ->identifier(ErrorIdentifier::noParameterWithContainerTypeDeclaration()->toString())
@@ -79,12 +81,14 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rules\Rule
             /** @var string $parameterName */
             $parameterName = $variable->name;
 
-            $ruleErrorBuilder = Rules\RuleErrorBuilder::message(\sprintf(
+            $message = \sprintf(
                 'Method %s::%s() has parameter $%s with a nullable type declaration.',
                 $className,
                 $methodName,
                 $parameterName,
-            ));
+            );
+
+            $ruleErrorBuilder = Rules\RuleErrorBuilder::message($message);
 
             return $ruleErrorBuilder
                 ->identifier(ErrorIdentifier::noParameterWithContainerTypeDeclaration()->toString())

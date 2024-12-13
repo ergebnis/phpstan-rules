@@ -93,10 +93,12 @@ final class FinalRule implements Rules\Rule
             return [];
         }
 
-        $ruleErrorBuilder = Rules\RuleErrorBuilder::message(\sprintf(
+        $message = \sprintf(
             $this->errorMessageTemplate,
             $node->namespacedName->toString(),
-        ));
+        );
+
+        $ruleErrorBuilder = Rules\RuleErrorBuilder::message($message);
 
         return [
             $ruleErrorBuilder

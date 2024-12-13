@@ -40,10 +40,12 @@ final class NoNullableReturnTypeDeclarationRule implements Rules\Rule
             return [];
         }
 
-        $ruleErrorBuilder = Rules\RuleErrorBuilder::message(\sprintf(
+        $message = \sprintf(
             'Function %s() has a nullable return type declaration.',
             $node->namespacedName->toString(),
-        ));
+        );
+
+        $ruleErrorBuilder = Rules\RuleErrorBuilder::message($message);
 
         return [
             $ruleErrorBuilder

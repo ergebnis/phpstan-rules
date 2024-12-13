@@ -69,10 +69,12 @@ final class NoExtendsRule implements Rules\Rule
         }
 
         if (!isset($node->namespacedName)) {
-            $ruleErrorBuilder = Rules\RuleErrorBuilder::message(\sprintf(
+            $message = \sprintf(
                 'Anonymous class is not allowed to extend "%s".',
                 $extendedClassName,
-            ));
+            );
+
+            $ruleErrorBuilder = Rules\RuleErrorBuilder::message($message);
 
             return [
                 $ruleErrorBuilder
@@ -81,11 +83,13 @@ final class NoExtendsRule implements Rules\Rule
             ];
         }
 
-        $ruleErrorBuilder = Rules\RuleErrorBuilder::message(\sprintf(
+        $message = \sprintf(
             'Class "%s" is not allowed to extend "%s".',
             $node->namespacedName->toString(),
             $extendedClassName,
-        ));
+        );
+
+        $ruleErrorBuilder = Rules\RuleErrorBuilder::message($message);
 
         return [
             $ruleErrorBuilder

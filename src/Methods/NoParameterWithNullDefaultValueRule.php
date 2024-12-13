@@ -62,11 +62,13 @@ final class NoParameterWithNullDefaultValueRule implements Rules\Rule
                 /** @var string $parameterName */
                 $parameterName = $variable->name;
 
-                $ruleErrorBuilder = Rules\RuleErrorBuilder::message(\sprintf(
+                $message = \sprintf(
                     'Method %s() in anonymous class has parameter $%s with null as default value.',
                     $methodName,
                     $parameterName,
-                ));
+                );
+
+                $ruleErrorBuilder = Rules\RuleErrorBuilder::message($message);
 
                 return $ruleErrorBuilder
                     ->identifier(ErrorIdentifier::noParameterWithNullDefaultValue()->toString())
@@ -83,12 +85,14 @@ final class NoParameterWithNullDefaultValueRule implements Rules\Rule
             /** @var string $parameterName */
             $parameterName = $variable->name;
 
-            $ruleErrorBuilder = Rules\RuleErrorBuilder::message(\sprintf(
+            $message = \sprintf(
                 'Method %s::%s() has parameter $%s with null as default value.',
                 $className,
                 $methodName,
                 $parameterName,
-            ));
+            );
+
+            $ruleErrorBuilder = Rules\RuleErrorBuilder::message($message);
 
             return $ruleErrorBuilder
                 ->identifier(ErrorIdentifier::noParameterWithNullDefaultValue()->toString())
