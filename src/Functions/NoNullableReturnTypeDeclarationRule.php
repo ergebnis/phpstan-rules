@@ -36,7 +36,7 @@ final class NoNullableReturnTypeDeclarationRule implements Rules\Rule
             return [];
         }
 
-        if (!self::hasNullableReturnType($node)) {
+        if (!self::hasNullableReturnTypeDeclaration($node)) {
             return [];
         }
 
@@ -52,7 +52,7 @@ final class NoNullableReturnTypeDeclarationRule implements Rules\Rule
         ];
     }
 
-    private static function hasNullableReturnType(Node\Stmt\Function_ $function): bool
+    private static function hasNullableReturnTypeDeclaration(Node\Stmt\Function_ $function): bool
     {
         $returnType = $function->getReturnType();
 
