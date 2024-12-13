@@ -37,8 +37,8 @@ final class NoParameterWithNullDefaultValueRule implements Rules\Rule
             return [];
         }
 
-        $parametersWithNullDefaultValue = \array_filter($node->params, static function (Node\Param $node): bool {
-            return self::hasNullDefaultValue($node);
+        $parametersWithNullDefaultValue = \array_filter($node->params, static function (Node\Param $parameter): bool {
+            return self::hasNullDefaultValue($parameter);
         });
 
         if (0 === \count($parametersWithNullDefaultValue)) {
