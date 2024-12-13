@@ -48,9 +48,9 @@ final class NoParameterWithNullDefaultValueRule implements Rules\Rule
             return [];
         }
 
-        return \array_map(static function (Node\Param $node): Rules\RuleError {
+        return \array_map(static function (Node\Param $parameterWithNullDefaultValue): Rules\RuleError {
             /** @var Node\Expr\Variable $variable */
-            $variable = $node->var;
+            $variable = $parameterWithNullDefaultValue->var;
 
             /** @var string $parameterName */
             $parameterName = $variable->name;
