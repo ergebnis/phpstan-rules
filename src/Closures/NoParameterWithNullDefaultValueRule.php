@@ -36,7 +36,7 @@ final class NoParameterWithNullDefaultValueRule implements Rules\Rule
             return [];
         }
 
-        $params = \array_filter($node->params, static function (Node\Param $node): bool {
+        $parametersWithNullDefaultValue = \array_filter($node->params, static function (Node\Param $node): bool {
             if (!$node->default instanceof Node\Expr\ConstFetch) {
                 return false;
             }
@@ -44,7 +44,7 @@ final class NoParameterWithNullDefaultValueRule implements Rules\Rule
             return 'null' === $node->default->name->toLowerString();
         });
 
-        if (0 === \count($params)) {
+        if (0 === \count($parametersWithNullDefaultValue)) {
             return [];
         }
 
@@ -63,6 +63,6 @@ final class NoParameterWithNullDefaultValueRule implements Rules\Rule
             return Rules\RuleErrorBuilder::message($message)
                 ->identifier(ErrorIdentifier::noParameterWithNullDefaultValue()->toString())
                 ->build();
-        }, $params));
+        }, $parametersWithNullDefaultValue));
     }
 }
