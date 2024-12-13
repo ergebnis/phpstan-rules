@@ -81,9 +81,11 @@ final class NoExtendsRule implements Rules\Rule
             ];
         }
 
+        $extendingClassName = $node->namespacedName->toString();
+
         $message = \sprintf(
             'Class "%s" is not allowed to extend "%s".',
-            $node->namespacedName->toString(),
+            $extendingClassName,
             $extendedClassName,
         );
 
