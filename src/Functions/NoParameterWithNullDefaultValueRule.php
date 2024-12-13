@@ -36,9 +36,9 @@ final class NoParameterWithNullDefaultValueRule implements Rules\Rule
             return [];
         }
 
-        $parametersWithNullDefaultValue = \array_filter($node->params, static function (Node\Param $node): bool {
+        $parametersWithNullDefaultValue = \array_values(\array_filter($node->params, static function (Node\Param $node): bool {
             return self::hasNullDefaultValue($node);
-        });
+        }));
 
         if (0 === \count($parametersWithNullDefaultValue)) {
             return [];
@@ -46,7 +46,7 @@ final class NoParameterWithNullDefaultValueRule implements Rules\Rule
 
         $functionName = $node->namespacedName;
 
-        return \array_values(\array_map(static function (Node\Param $parameterWithNullDefaultValue) use ($functionName): Rules\RuleError {
+        return \array_map(static function (Node\Param $parameterWithNullDefaultValue) use ($functionName): Rules\RuleError {
             /** @var Node\Expr\Variable $variable */
             $variable = $parameterWithNullDefaultValue->var;
 
@@ -62,7 +62,7 @@ final class NoParameterWithNullDefaultValueRule implements Rules\Rule
             return Rules\RuleErrorBuilder::message($message)
                 ->identifier(ErrorIdentifier::noParameterWithNullDefaultValue()->toString())
                 ->build();
-        }, $parametersWithNullDefaultValue));
+        }, $parametersWithNullDefaultValue);
     }
 
     private static function hasNullDefaultValue(Node\Param $node): bool
