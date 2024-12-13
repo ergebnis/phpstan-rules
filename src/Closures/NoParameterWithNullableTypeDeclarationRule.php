@@ -44,9 +44,9 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rules\Rule
             return [];
         }
 
-        return \array_map(static function (Node\Param $node): Rules\RuleError {
+        return \array_map(static function (Node\Param $parameterWithNullableTypeDeclaration): Rules\RuleError {
             /** @var Node\Expr\Variable $variable */
-            $variable = $node->var;
+            $variable = $parameterWithNullableTypeDeclaration->var;
 
             /** @var string $parameterName */
             $parameterName = $variable->name;
