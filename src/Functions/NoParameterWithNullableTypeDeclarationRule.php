@@ -36,9 +36,9 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rules\Rule
             return [];
         }
 
-        $parametersWithNullableTypeDeclaration = \array_filter($node->params, static function (Node\Param $node): bool {
+        $parametersWithNullableTypeDeclaration = \array_values(\array_filter($node->params, static function (Node\Param $node): bool {
             return self::hasNullableTypeDeclration($node);
-        });
+        }));
 
         if (0 === \count($parametersWithNullableTypeDeclaration)) {
             return [];
@@ -46,7 +46,7 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rules\Rule
 
         $functionName = $node->namespacedName;
 
-        return \array_values(\array_map(static function (Node\Param $parameterWithNullableTypeDeclaration) use ($functionName): Rules\RuleError {
+        return \array_map(static function (Node\Param $parameterWithNullableTypeDeclaration) use ($functionName): Rules\RuleError {
             /** @var Node\Expr\Variable $variable */
             $variable = $parameterWithNullableTypeDeclaration->var;
 
@@ -62,7 +62,7 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rules\Rule
             return Rules\RuleErrorBuilder::message($message)
                 ->identifier(ErrorIdentifier::noParameterWithNullableTypeDeclaration()->toString())
                 ->build();
-        }, $parametersWithNullableTypeDeclaration));
+        }, $parametersWithNullableTypeDeclaration);
     }
 
     private static function hasNullableTypeDeclration(Node\Param $node): bool
