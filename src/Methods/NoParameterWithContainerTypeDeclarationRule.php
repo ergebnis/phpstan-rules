@@ -85,7 +85,7 @@ final class NoParameterWithContainerTypeDeclarationRule implements Rules\Rule
 
         return \array_values(\array_reduce(
             $node->params,
-            function (array $errors, Node\Param $node) use ($scope, $containingClass, $methodName) {
+            function (array $errors, Node\Param $node) use ($scope, $containingClass, $methodName): array {
                 $type = $node->type;
 
                 if (!$type instanceof Node\Name) {
