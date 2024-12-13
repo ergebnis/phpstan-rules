@@ -92,12 +92,12 @@ final class NoParameterWithNullDefaultValueRule implements Rules\Rule
         }, $parametersWithNullDefaultValue));
     }
 
-    private static function hasNullDefaultValue(Node\Param $node): bool
+    private static function hasNullDefaultValue(Node\Param $parameter): bool
     {
-        if (!$node->default instanceof Node\Expr\ConstFetch) {
+        if (!$parameter->default instanceof Node\Expr\ConstFetch) {
             return false;
         }
 
-        return 'null' === $node->default->name->toLowerString();
+        return 'null' === $parameter->default->name->toLowerString();
     }
 }
