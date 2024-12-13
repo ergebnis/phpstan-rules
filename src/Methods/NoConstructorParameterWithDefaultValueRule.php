@@ -41,11 +41,11 @@ final class NoConstructorParameterWithDefaultValueRule implements Rules\Rule
             return [];
         }
 
-        $params = \array_values(\array_filter($node->params, static function (Node\Param $parameter): bool {
+        $parametersWithDefaultValue = \array_values(\array_filter($node->params, static function (Node\Param $parameter): bool {
             return self::hasDefaultValue($parameter);
         }));
 
-        if (0 === \count($params)) {
+        if (0 === \count($parametersWithDefaultValue)) {
             return [];
         }
 
@@ -68,7 +68,7 @@ final class NoConstructorParameterWithDefaultValueRule implements Rules\Rule
                 return Rules\RuleErrorBuilder::message($message)
                     ->identifier(ErrorIdentifier::noConstructorParameterWithDefaultValue()->toString())
                     ->build();
-            }, $params);
+            }, $parametersWithDefaultValue);
         }
 
         $className = $classReflection->getName();
@@ -89,7 +89,7 @@ final class NoConstructorParameterWithDefaultValueRule implements Rules\Rule
             return Rules\RuleErrorBuilder::message($message)
                 ->identifier(ErrorIdentifier::noConstructorParameterWithDefaultValue()->toString())
                 ->build();
-        }, $params);
+        }, $parametersWithDefaultValue);
     }
 
     private static function hasDefaultValue(Node\Param $parameter): bool
