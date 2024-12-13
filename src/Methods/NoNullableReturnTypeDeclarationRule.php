@@ -66,9 +66,9 @@ final class NoNullableReturnTypeDeclarationRule implements Rules\Rule
         ];
     }
 
-    private static function hasNullableReturnType(Node\Stmt\ClassMethod $node): bool
+    private static function hasNullableReturnType(Node\Stmt\ClassMethod $method): bool
     {
-        $returnType = $node->getReturnType();
+        $returnType = $method->getReturnType();
 
         if ($returnType instanceof Node\NullableType) {
             return true;
