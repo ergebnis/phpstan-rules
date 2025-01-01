@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`2.5.0...main`][2.5.0...main].
 
+### Added
+
+- Added support for `phpstan/phpstan:^2.0.0`  ([#873]), by [@localheinz]
+
 ### Fixed
 
 - Returned rule with error identifier ([#882]), by [@localheinz]
@@ -545,6 +549,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#735]: https://github.com/ergebnis/phpstan-rules/pull/735
 [#862]: https://github.com/ergebnis/phpstan-rules/pull/862
 [#872]: https://github.com/ergebnis/phpstan-rules/pull/872
+[#873]: https://github.com/ergebnis/phpstan-rules/pull/873
 [#875]: https://github.com/ergebnis/phpstan-rules/pull/875
 [#877]: https://github.com/ergebnis/phpstan-rules/pull/877
 [#878]: https://github.com/ergebnis/phpstan-rules/pull/878
