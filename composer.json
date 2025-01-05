@@ -33,6 +33,7 @@
     "ergebnis/phpunit-slow-test-detector": "^2.17.0",
     "nette/di": "^3.1.10",
     "nikic/php-parser": "^4.19.4",
+    "phpstan/extension-installer": "^1.4.3",
     "phpstan/phpstan-deprecation-rules": "^1.2.1",
     "phpstan/phpstan-strict-rules": "^1.6.1",
     "phpunit/phpunit": "^9.6.21",
@@ -52,7 +53,8 @@
   "config": {
     "allow-plugins": {
       "ergebnis/composer-normalize": true,
-      "infection/extension-installer": true
+      "infection/extension-installer": true,
+      "phpstan/extension-installer": true
     },
     "audit": {
       "abandoned": "report"
