@@ -6,7 +6,6 @@ namespace Ergebnis\PHPStan\Rules\Test\Fixture\Classes\PHPUnit\Framework\TestCase
 
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversNothing()]
 final class ConcreteTestCaseWithoutTestSuffix extends Framework\TestCase
 {
     public function testFooIsNotBar(): void

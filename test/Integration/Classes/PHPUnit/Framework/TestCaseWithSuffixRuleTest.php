@@ -52,7 +52,7 @@ final class TestCaseWithSuffixRuleTest extends Test\Integration\AbstractTestCase
                         Test\Fixture\Classes\PHPUnit\Framework\TestCaseWithSuffixRule\Failure\ConcreteTestCaseExtendingAbstractTestCaseWithoutTestSuffix::class,
                         Framework\TestCase::class,
                     ),
-                    9,
+                    7,
                 ],
             ],
             'concrete-test-case-without-test-suffix' => [

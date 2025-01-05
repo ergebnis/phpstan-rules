@@ -6,7 +6,6 @@ namespace Ergebnis\PHPStan\Rules\Test\Fixture\Classes\PHPUnit\Framework\TestCase
 
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversNothing]
 class ImplicitlyAbstractTestCase extends Framework\TestCase
 {
     abstract protected function foo();
