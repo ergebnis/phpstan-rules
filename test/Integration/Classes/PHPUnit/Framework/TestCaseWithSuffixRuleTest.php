@@ -15,70 +15,46 @@ namespace Ergebnis\PHPStan\Rules\Test\Integration\Classes\PHPUnit\Framework;
 
 use Ergebnis\PHPStan\Rules\Classes;
 use Ergebnis\PHPStan\Rules\Test;
-use PhpParser\Node;
 use PHPStan\Rules;
+use PHPStan\Testing;
 use PHPUnit\Framework;
 
 /**
  * @covers \Ergebnis\PHPStan\Rules\Classes\PHPUnit\Framework\TestCaseWithSuffixRule
  *
+ * @extends Testing\RuleTestCase<Classes\PHPUnit\Framework\TestCaseWithSuffixRule>
+ *
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
  */
-final class TestCaseWithSuffixRuleTest extends Test\Integration\AbstractTestCase
+final class TestCaseWithSuffixRuleTest extends Testing\RuleTestCase
 {
-    public static function provideCasesWhereAnalysisShouldSucceed(): iterable
-    {
-        $paths = [
-            'concrete-test-case-with-suffix-test' => __DIR__ . '/../../../../Fixture/Classes/PHPUnit/Framework/TestCaseWithSuffixRule/Success/ConcreteTestCaseWithSuffixTest.php',
-            'explicitly-abstract-test-case' => __DIR__ . '/../../../../Fixture/Classes/PHPUnit/Framework/TestCaseWithSuffixRule/Success/ExplicitlyAbstractTestCase.php',
-            'implicitly-abstract-test-case' => __DIR__ . '/../../../../Fixture/Classes/PHPUnit/Framework/TestCaseWithSuffixRule/Success/ExplicitlyAbstractTestCase.php',
-        ];
+    use Test\Util\Helper;
 
-        foreach ($paths as $description => $path) {
-            yield $description => [
-                $path,
-            ];
-        }
-    }
-
-    public static function provideCasesWhereAnalysisShouldFail(): iterable
+    public function testTestCaseWithSuffixRule(): void
     {
-        $paths = [
-            'concrete-test-case-extending-abstract-test-case-without-test-suffix' => [
-                __DIR__ . '/../../../../Fixture/Classes/PHPUnit/Framework/TestCaseWithSuffixRule/Failure/ConcreteTestCaseExtendingAbstractTestCaseWithoutTestSuffix.php',
+        $this->analyse(
+            self::phpFilesIn(__DIR__ . '/../../../../Fixture/Classes/PHPUnit/Framework/TestCaseWithSuffixRule'),
+            [
                 [
                     \sprintf(
                         'Class %s extends %s, is concrete, but does not have a Test suffix.',
-                        Test\Fixture\Classes\PHPUnit\Framework\TestCaseWithSuffixRule\Failure\ConcreteTestCaseExtendingAbstractTestCaseWithoutTestSuffix::class,
+                        Test\Fixture\Classes\PHPUnit\Framework\TestCaseWithSuffixRule\ConcreteTestCaseExtendingAbstractTestCaseWithoutSuffix::class,
                         Framework\TestCase::class,
                     ),
                     7,
                 ],
-            ],
-            'concrete-test-case-without-test-suffix' => [
-                __DIR__ . '/../../../../Fixture/Classes/PHPUnit/Framework/TestCaseWithSuffixRule/Failure/ConcreteTestCaseWithoutTestSuffix.php',
                 [
                     \sprintf(
                         'Class %s extends %s, is concrete, but does not have a Test suffix.',
-                        Test\Fixture\Classes\PHPUnit\Framework\TestCaseWithSuffixRule\Failure\ConcreteTestCaseWithoutTestSuffix::class,
+                        Test\Fixture\Classes\PHPUnit\Framework\TestCaseWithSuffixRule\ConcreteTestCaseWithoutSuffix::class,
                         Framework\TestCase::class,
                     ),
                     9,
                 ],
             ],
-        ];
-
-        foreach ($paths as $description => [$path, $error]) {
-            yield $description => [
-                $path,
-                $error,
-            ];
-        }
+        );
     }
 
-    /**
-     * @return Rules\Rule<Node\Stmt\Class_>
-     */
     protected function getRule(): Rules\Rule
     {
         return new Classes\PHPUnit\Framework\TestCaseWithSuffixRule(self::createReflectionProvider());

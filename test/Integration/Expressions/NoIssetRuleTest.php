@@ -15,59 +15,37 @@ namespace Ergebnis\PHPStan\Rules\Test\Integration\Expressions;
 
 use Ergebnis\PHPStan\Rules\Expressions;
 use Ergebnis\PHPStan\Rules\Test;
-use PhpParser\Node;
 use PHPStan\Rules;
+use PHPStan\Testing;
 
 /**
  * @covers \Ergebnis\PHPStan\Rules\Expressions\NoIssetRule
  *
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
+ *
+ * @extends Testing\RuleTestCase<Expressions\NoIssetRule>
  */
-final class NoIssetRuleTest extends Test\Integration\AbstractTestCase
+final class NoIssetRuleTest extends Testing\RuleTestCase
 {
-    public static function provideCasesWhereAnalysisShouldSucceed(): iterable
-    {
-        $paths = [
-            'isset-not-used' => __DIR__ . '/../../Fixture/Expressions/NoIssetRule/Success/isset-not-used.php',
-        ];
+    use Test\Util\Helper;
 
-        foreach ($paths as $description => $path) {
-            yield $description => [
-                $path,
-            ];
-        }
-    }
-
-    public static function provideCasesWhereAnalysisShouldFail(): iterable
+    public function testNoIssetRule(): void
     {
-        $paths = [
-            'isset-used-with-correct-case' => [
-                __DIR__ . '/../../Fixture/Expressions/NoIssetRule/Failure/isset-used-with-correct-case.php',
+        $this->analyse(
+            self::phpFilesIn(__DIR__ . '/../../Fixture/Expressions/NoIssetRule'),
+            [
                 [
                     'Language construct isset() should not be used.',
-                    7,
+                    16,
                 ],
-            ],
-            'isset-used-with-incorrect-case' => [
-                __DIR__ . '/../../Fixture/Expressions/NoIssetRule/Failure/isset-used-with-incorrect-case.php',
                 [
                     'Language construct isset() should not be used.',
-                    7,
+                    20,
                 ],
             ],
-        ];
-
-        foreach ($paths as $description => [$path, $error]) {
-            yield $description => [
-                $path,
-                $error,
-            ];
-        }
+        );
     }
 
-    /**
-     * @return Rules\Rule<Node\Expr\Isset_>
-     */
     protected function getRule(): Rules\Rule
     {
         return new Expressions\NoIssetRule();

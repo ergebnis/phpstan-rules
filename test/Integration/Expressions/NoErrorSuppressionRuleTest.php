@@ -15,52 +15,33 @@ namespace Ergebnis\PHPStan\Rules\Test\Integration\Expressions;
 
 use Ergebnis\PHPStan\Rules\Expressions;
 use Ergebnis\PHPStan\Rules\Test;
-use PhpParser\Node;
 use PHPStan\Rules;
+use PHPStan\Testing;
 
 /**
  * @covers \Ergebnis\PHPStan\Rules\Expressions\NoErrorSuppressionRule
  *
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
+ *
+ * @extends Testing\RuleTestCase<Expressions\NoErrorSuppressionRule>
  */
-final class NoErrorSuppressionRuleTest extends Test\Integration\AbstractTestCase
+final class NoErrorSuppressionRuleTest extends Testing\RuleTestCase
 {
-    public static function provideCasesWhereAnalysisShouldSucceed(): iterable
-    {
-        $paths = [
-            'error-suppression-not-used' => __DIR__ . '/../../Fixture/Expressions/NoErrorSuppressionRule/Success/error-suppression-not-used.php',
-        ];
+    use Test\Util\Helper;
 
-        foreach ($paths as $description => $path) {
-            yield $description => [
-                $path,
-            ];
-        }
-    }
-
-    public static function provideCasesWhereAnalysisShouldFail(): iterable
+    public function testNoErrorSuppressionRule(): void
     {
-        $paths = [
-            'error-suppression-used' => [
-                __DIR__ . '/../../Fixture/Expressions/NoErrorSuppressionRule/Failure/error-suppression-used.php',
+        $this->analyse(
+            self::phpFilesIn(__DIR__ . '/../../Fixture/Expressions/NoErrorSuppressionRule'),
+            [
                 [
                     'Error suppression via "@" should not be used.',
-                    7,
+                    9,
                 ],
             ],
-        ];
-
-        foreach ($paths as $description => [$path, $error]) {
-            yield $description => [
-                $path,
-                $error,
-            ];
-        }
+        );
     }
 
-    /**
-     * @return Rules\Rule<Node\Expr\ErrorSuppress>
-     */
     protected function getRule(): Rules\Rule
     {
         return new Expressions\NoErrorSuppressionRule();

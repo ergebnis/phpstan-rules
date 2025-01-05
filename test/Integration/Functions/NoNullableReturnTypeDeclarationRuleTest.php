@@ -15,60 +15,37 @@ namespace Ergebnis\PHPStan\Rules\Test\Integration\Functions;
 
 use Ergebnis\PHPStan\Rules\Functions;
 use Ergebnis\PHPStan\Rules\Test;
-use PhpParser\Node;
 use PHPStan\Rules;
+use PHPStan\Testing;
 
 /**
  * @covers \Ergebnis\PHPStan\Rules\Functions\NoNullableReturnTypeDeclarationRule
  *
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
+ *
+ * @extends Testing\RuleTestCase<Functions\NoNullableReturnTypeDeclarationRule>
  */
-final class NoNullableReturnTypeDeclarationRuleTest extends Test\Integration\AbstractTestCase
+final class NoNullableReturnTypeDeclarationRuleTest extends Testing\RuleTestCase
 {
-    public static function provideCasesWhereAnalysisShouldSucceed(): iterable
-    {
-        $paths = [
-            'function-with-return-type-declaration' => __DIR__ . '/../../Fixture/Functions/NoNullableReturnTypeDeclarationRule/Success/function-with-return-type-declaration.php',
-            'function-without-return-type-declaration' => __DIR__ . '/../../Fixture/Functions/NoNullableReturnTypeDeclarationRule/Success/function-without-return-type-declaration.php',
-        ];
+    use Test\Util\Helper;
 
-        foreach ($paths as $description => $path) {
-            yield $description => [
-                $path,
-            ];
-        }
-    }
-
-    public static function provideCasesWhereAnalysisShouldFail(): iterable
+    public function testNoNullableReturnTypeDeclarationRule(): void
     {
-        $paths = [
-            'function-with-nullable-return-type-declaration' => [
-                __DIR__ . '/../../Fixture/Functions/NoNullableReturnTypeDeclarationRule/Failure/function-with-nullable-return-type-declaration.php',
+        $this->analyse(
+            self::phpFilesIn(__DIR__ . '/../../Fixture/Functions/NoNullableReturnTypeDeclarationRule'),
+            [
                 [
-                    'Function Ergebnis\PHPStan\Rules\Test\Fixture\Functions\NoNullableReturnTypeDeclarationRule\Failure\foo() has a nullable return type declaration.',
-                    7,
+                    'Function Ergebnis\PHPStan\Rules\Test\Fixture\Functions\NoNullableReturnTypeDeclarationRule\baz() has a nullable return type declaration.',
+                    17,
+                ],
+                [
+                    'Function Ergebnis\PHPStan\Rules\Test\Fixture\Functions\NoNullableReturnTypeDeclarationRule\quux() has a nullable return type declaration.',
+                    22,
                 ],
             ],
-            'function-with-nullable-union-return-type-declaration' => [
-                __DIR__ . '/../../Fixture/Functions/NoNullableReturnTypeDeclarationRule/Failure/function-with-nullable-union-return-type-declaration.php',
-                [
-                    'Function Ergebnis\PHPStan\Rules\Test\Fixture\Functions\NoNullableReturnTypeDeclarationRule\Failure\foo() has a nullable return type declaration.',
-                    7,
-                ],
-            ],
-        ];
-
-        foreach ($paths as $description => [$path, $error]) {
-            yield $description => [
-                $path,
-                $error,
-            ];
-        }
+        );
     }
 
-    /**
-     * @return Rules\Rule<Node\Stmt\Function_>
-     */
     protected function getRule(): Rules\Rule
     {
         return new Functions\NoNullableReturnTypeDeclarationRule();

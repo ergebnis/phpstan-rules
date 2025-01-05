@@ -38,6 +38,7 @@
     "phpstan/phpstan-strict-rules": "^1.6.1",
     "phpunit/phpunit": "^9.6.21",
     "psr/container": "^2.0.2",
+    "symfony/finder": "^5.4.45",
     "symfony/process": "^5.4.47"
   },
   "autoload": {

@@ -15,111 +15,65 @@ namespace Ergebnis\PHPStan\Rules\Test\Integration\Methods;
 
 use Ergebnis\PHPStan\Rules\Methods;
 use Ergebnis\PHPStan\Rules\Test;
-use PhpParser\Node;
 use PHPStan\Rules;
+use PHPStan\Testing;
 
 /**
  * @covers \Ergebnis\PHPStan\Rules\Methods\NoParameterWithNullableTypeDeclarationRule
  *
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
+ *
+ * @extends Testing\RuleTestCase<Methods\NoParameterWithNullableTypeDeclarationRule>
  */
-final class NoParameterWithNullableTypeDeclarationRuleTest extends Test\Integration\AbstractTestCase
+final class NoParameterWithNullableTypeDeclarationRuleTest extends Testing\RuleTestCase
 {
-    public static function provideCasesWhereAnalysisShouldSucceed(): iterable
-    {
-        $paths = [
-            'method-in-anonymous-class-with-parameter-with-type-declaration' => __DIR__ . '/../../Fixture/Methods/NoParameterWithNullableTypeDeclarationRule/Success/method-in-anonymous-class-with-parameter-with-type-declaration.php',
-            'method-in-anonymous-class-with-parameter-without-type-declaration' => __DIR__ . '/../../Fixture/Methods/NoParameterWithNullableTypeDeclarationRule/Success/method-in-anonymous-class-with-parameter-without-type-declaration.php',
-            'method-in-anonymous-class-without-parameters' => __DIR__ . '/../../Fixture/Methods/NoParameterWithNullableTypeDeclarationRule/Success/method-in-anonymous-class-without-parameters.php',
-            'method-in-class-with-parameter-with-type-declaration' => __DIR__ . '/../../Fixture/Methods/NoParameterWithNullableTypeDeclarationRule/Success/MethodInClassWithParameterWithTypeDeclaration.php',
-            'method-in-class-with-parameter-without-type-declaration' => __DIR__ . '/../../Fixture/Methods/NoParameterWithNullableTypeDeclarationRule/Success/MethodInClassWithParameterWithoutTypeDeclaration.php',
-            'method-in-class-without-parameters' => __DIR__ . '/../../Fixture/Methods/NoParameterWithNullableTypeDeclarationRule/Success/MethodInClassWithoutParameters.php',
-            'method-in-interface-with-parameter-with-type-declaration' => __DIR__ . '/../../Fixture/Methods/NoParameterWithNullableTypeDeclarationRule/Success/MethodInInterfaceWithParameterWithTypeDeclaration.php',
-            'method-in-interface-with-parameter-without-type-declaration' => __DIR__ . '/../../Fixture/Methods/NoParameterWithNullableTypeDeclarationRule/Success/MethodInInterfaceWithParameterWithoutTypeDeclaration.php',
-            'method-in-interface-without-parameters' => __DIR__ . '/../../Fixture/Methods/NoParameterWithNullableTypeDeclarationRule/Success/MethodInInterfaceWithoutParameters.php',
-            // traits are not supported
-            'method-in-trait-with-parameter-with-type-declaration' => __DIR__ . '/../../Fixture/Methods/NoParameterWithNullableTypeDeclarationRule/Success/MethodInTraitWithParameterWithTypeDeclaration.php',
-            'method-in-trait-with-parameter-without-type-declaration' => __DIR__ . '/../../Fixture/Methods/NoParameterWithNullableTypeDeclarationRule/Success/MethodInTraitWithParameterWithoutTypeDeclaration.php',
-            'method-in-trait-without-parameters' => __DIR__ . '/../../Fixture/Methods/NoParameterWithNullableTypeDeclarationRule/Success/MethodInTraitWithoutParameters.php',
-        ];
+    use Test\Util\Helper;
 
-        foreach ($paths as $description => $path) {
-            yield $description => [
-                $path,
-            ];
-        }
-    }
-
-    public static function provideCasesWhereAnalysisShouldFail(): iterable
+    public function testNoParameterWithNullableTypeDeclarationRule(): void
     {
-        $paths = [
-            'method-in-anonymous-class-with-parameter-with-nullable-type-declaration' => [
-                __DIR__ . '/../../Fixture/Methods/NoParameterWithNullableTypeDeclarationRule/Failure/method-in-anonymous-class-with-parameter-with-nullable-type-declaration.php',
+        $this->analyse(
+            self::phpFilesIn(__DIR__ . '/../../Fixture/Methods/NoParameterWithNullableTypeDeclarationRule'),
+            [
+                [
+                    \sprintf(
+                        'Method %s::foo() has parameter $bar with a nullable type declaration.',
+                        Test\Fixture\Methods\NoParameterWithNullableTypeDeclarationRule\MethodInClassWithParameterWithNullableTypeDeclaration::class,
+                    ),
+                    9,
+                ],
+                [
+                    \sprintf(
+                        'Method %s::foo() has parameter $bar with a nullable type declaration.',
+                        Test\Fixture\Methods\NoParameterWithNullableTypeDeclarationRule\MethodInClassWithParameterWithNullableUnionTypeDeclaration::class,
+                    ),
+                    9,
+                ],
+                [
+                    \sprintf(
+                        'Method %s::foo() has parameter $bar with a nullable type declaration.',
+                        Test\Fixture\Methods\NoParameterWithNullableTypeDeclarationRule\MethodInInterfaceWithParameterWithNullableTypeDeclaration::class,
+                    ),
+                    9,
+                ],
+                [
+                    \sprintf(
+                        'Method %s::foo() has parameter $bar with a nullable type declaration.',
+                        Test\Fixture\Methods\NoParameterWithNullableTypeDeclarationRule\MethodInInterfaceWithParameterWithNullableUnionTypeDeclaration::class,
+                    ),
+                    9,
+                ],
                 [
                     'Method foo() in anonymous class has parameter $bar with a nullable type declaration.',
-                    8,
+                    28,
                 ],
-            ],
-            'method-in-anonymous-class-with-parameter-with-nullable-union-type-declaration' => [
-                __DIR__ . '/../../Fixture/Methods/NoParameterWithNullableTypeDeclarationRule/Failure/method-in-anonymous-class-with-parameter-with-nullable-union-type-declaration.php',
                 [
                     'Method foo() in anonymous class has parameter $bar with a nullable type declaration.',
-                    8,
+                    35,
                 ],
             ],
-            'method-in-class-with-parameter-with-nullable-type-declaration' => [
-                __DIR__ . '/../../Fixture/Methods/NoParameterWithNullableTypeDeclarationRule/Failure/MethodInClassWithParameterWithNullableTypeDeclaration.php',
-                [
-                    \sprintf(
-                        'Method %s::foo() has parameter $bar with a nullable type declaration.',
-                        Test\Fixture\Methods\NoParameterWithNullableTypeDeclarationRule\Failure\MethodInClassWithParameterWithNullableTypeDeclaration::class,
-                    ),
-                    9,
-                ],
-            ],
-            'method-in-class-with-parameter-with-nullable-union-type-declaration' => [
-                __DIR__ . '/../../Fixture/Methods/NoParameterWithNullableTypeDeclarationRule/Failure/MethodInClassWithParameterWithNullableUnionTypeDeclaration.php',
-                [
-                    \sprintf(
-                        'Method %s::foo() has parameter $bar with a nullable type declaration.',
-                        Test\Fixture\Methods\NoParameterWithNullableTypeDeclarationRule\Failure\MethodInClassWithParameterWithNullableUnionTypeDeclaration::class,
-                    ),
-                    9,
-                ],
-            ],
-            'method-in-interface-with-parameter-with-nullable-type-declaration' => [
-                __DIR__ . '/../../Fixture/Methods/NoParameterWithNullableTypeDeclarationRule/Failure/MethodInInterfaceWithParameterWithNullableTypeDeclaration.php',
-                [
-                    \sprintf(
-                        'Method %s::foo() has parameter $bar with a nullable type declaration.',
-                        Test\Fixture\Methods\NoParameterWithNullableTypeDeclarationRule\Failure\MethodInInterfaceWithParameterWithNullableTypeDeclaration::class,
-                    ),
-                    9,
-                ],
-            ],
-            'method-in-interface-with-parameter-with-nullable-union-type-declaration' => [
-                __DIR__ . '/../../Fixture/Methods/NoParameterWithNullableTypeDeclarationRule/Failure/MethodInInterfaceWithParameterWithNullableUnionTypeDeclaration.php',
-                [
-                    \sprintf(
-                        'Method %s::foo() has parameter $bar with a nullable type declaration.',
-                        Test\Fixture\Methods\NoParameterWithNullableTypeDeclarationRule\Failure\MethodInInterfaceWithParameterWithNullableUnionTypeDeclaration::class,
-                    ),
-                    9,
-                ],
-            ],
-        ];
-
-        foreach ($paths as $description => [$path, $error]) {
-            yield $description => [
-                $path,
-                $error,
-            ];
-        }
+        );
     }
 
-    /**
-     * @return Rules\Rule<Node\Stmt\ClassMethod>
-     */
     protected function getRule(): Rules\Rule
     {
         return new Methods\NoParameterWithNullableTypeDeclarationRule();
