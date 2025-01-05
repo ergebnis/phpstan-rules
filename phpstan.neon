@@ -10,7 +10,7 @@ parameters:
 				- PHPStan\Testing\RuleTestCase
 
 	excludePaths:
-		- %currentWorkingDirectory%/test/Fixture/
+		- test/Fixture/
 
 	inferPrivatePropertyTypeFromConstructor: true
 
