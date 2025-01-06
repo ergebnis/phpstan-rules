@@ -551,6 +551,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#878]: https://github.com/ergebnis/phpstan-rules/pull/878
 [#880]: https://github.com/ergebnis/phpstan-rules/pull/880
 [#882]: https://github.com/ergebnis/phpstan-rules/pull/882
+[#889]: https://github.com/ergebnis/phpstan-rules/pull/889
 
 [@enumag]: https://github.com/enumag
 [@ergebnis]: https://github.com/ergebnis
