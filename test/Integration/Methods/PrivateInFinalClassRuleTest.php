@@ -37,46 +37,13 @@ final class PrivateInFinalClassRuleTest extends Testing\RuleTestCase
                 [
                     \sprintf(
                         'Method %s::method() is protected, but since the containing class is final, it can be private.',
-                        Test\Fixture\Methods\PrivateInFinalClassRule\FinalClassImplementingAbstractProtectedMethodFromTrait::class,
-                    ),
-                    11,
-                ],
-                [
-                    \sprintf(
-                        'Method %s::method() is protected, but since the containing class is final, it can be private.',
-                        Test\Fixture\Methods\PrivateInFinalClassRule\FinalClassOverridingProtectedMethodFromTrait::class,
-                    ),
-                    11,
-                ],
-                [
-                    \sprintf(
-                        'Method %s::method() is protected, but since the containing class is final, it can be private.',
                         Test\Fixture\Methods\PrivateInFinalClassRule\FinalClassWithProtectedMethod::class,
-                    ),
-                    9,
-                ],
-                [
-                    \sprintf(
-                        'Method %s::method() is protected, but since the containing class is final, it can be private.',
-                        Test\Fixture\Methods\PrivateInFinalClassRule\FinalClassWithProtectedMethodFromTrait::class,
                     ),
                     9,
                 ],
                 [
                     'Method method() in anonymous class is protected, but since the containing class is final, it can be private.',
                     8,
-                ],
-                [
-                    'Method method() in anonymous class is protected, but since the containing class is final, it can be private.',
-                    9,
-                ],
-                [
-                    'Method method() in anonymous class is protected, but since the containing class is final, it can be private.',
-                    20,
-                ],
-                [
-                    'Method method() in anonymous class is protected, but since the containing class is final, it can be private.',
-                    28,
                 ],
             ],
         );
