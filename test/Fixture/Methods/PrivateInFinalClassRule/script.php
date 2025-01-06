@@ -15,6 +15,14 @@ $bar = new class() {
 };
 
 $baz = new class() {
+    use TraitWithProtectedMethod;
+
+    protected function method(): void
+    {
+    }
+};
+
+$qux = new class() {
     use TraitWithAbstractProtectedMethod;
 
     protected function method(): void

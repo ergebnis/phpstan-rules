@@ -74,6 +74,10 @@ final class PrivateInFinalClassRuleTest extends Testing\RuleTestCase
                     'Method method() in anonymous class is protected, but since the containing class is final, it can be private.',
                     20,
                 ],
+                [
+                    'Method method() in anonymous class is protected, but since the containing class is final, it can be private.',
+                    28,
+                ],
             ],
         );
     }
