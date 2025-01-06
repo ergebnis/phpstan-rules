@@ -9,3 +9,11 @@ $foo = new class() {
     {
     }
 };
+
+$bar = new class() {
+    use TraitWithAbstractProtectedMethod;
+
+    protected function method(): void
+    {
+    }
+};
