@@ -54,6 +54,10 @@ final class PrivateInFinalClassRule implements Rules\Rule
             return [];
         }
 
+        if (self::methodIsDeclaredByTrait($containingClass, $methodName)) {
+            return [];
+        }
+
         /** @var Reflection\ClassReflection $classReflection */
         $classReflection = $scope->getClassReflection();
 
@@ -98,5 +102,18 @@ final class PrivateInFinalClassRule implements Rules\Rule
         }
 
         return true;
+    }
+
+    private static function methodIsDeclaredByTrait(
+        Reflection\ClassReflection $containingClass,
+        string $methodName
+    ): bool {
+        foreach ($containingClass->getTraits() as $trait) {
+            if ($trait->hasMethod($methodName)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
