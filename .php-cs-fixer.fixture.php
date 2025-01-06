@@ -25,6 +25,7 @@ $ruleSet = PhpCsFixer\Config\RuleSet\Php74::create()
         'header_comment' => false,
         'lowercase_keywords' => false,
         'magic_method_casing' => false,
+        'native_function_casing' => false,
         'nullable_type_declaration' => false,
         'protected_to_private' => false,
         'static_lambda' => false,

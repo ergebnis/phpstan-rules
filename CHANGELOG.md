@@ -12,6 +12,7 @@ For a full diff see [`2.5.0...main`][2.5.0...main].
 
 - Returned rule with error identifier ([#882]), by [@localheinz]
 - Adjusted `Methods\FinalInAbstractClassRule` to ignore Doctrine embeddables and entities ([#396]), by [@localheinz]
+- Adjusted `Exprsssions\NoCompactRule` to detect usages of `compact()` with incorrect case ([#889]), by [@localheinz]
 
 ## [`2.5.0`][2.5.0]
 
