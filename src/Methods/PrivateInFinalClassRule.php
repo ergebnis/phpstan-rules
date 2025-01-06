@@ -52,7 +52,10 @@ final class PrivateInFinalClassRule implements Rules\Rule
 
         $parentClass = $containingClass->getNativeReflection()->getParentClass();
 
-        if ($parentClass instanceof \ReflectionClass && $parentClass->hasMethod($methodName)) {
+        if (
+            $parentClass instanceof \ReflectionClass
+            && $parentClass->hasMethod($methodName)
+        ) {
             $parentMethod = $parentClass->getMethod($methodName);
 
             if ($parentMethod->isProtected()) {

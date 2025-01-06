@@ -81,7 +81,10 @@ final class FinalRule implements Rules\Rule
             return [];
         }
 
-        if ($this->allowAbstractClasses && $node->isAbstract()) {
+        if (
+            $this->allowAbstractClasses
+            && $node->isAbstract()
+        ) {
             return [];
         }
 
