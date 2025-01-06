@@ -37,6 +37,13 @@ final class PrivateInFinalClassRuleTest extends Testing\RuleTestCase
                 [
                     \sprintf(
                         'Method %s::method() is protected, but since the containing class is final, it can be private.',
+                        Test\Fixture\Methods\PrivateInFinalClassRule\FinalClassImplementingAbstractProtectedMethodFromTrait::class,
+                    ),
+                    11,
+                ],
+                [
+                    \sprintf(
+                        'Method %s::method() is protected, but since the containing class is final, it can be private.',
                         Test\Fixture\Methods\PrivateInFinalClassRule\FinalClassWithProtectedMethod::class,
                     ),
                     9,
