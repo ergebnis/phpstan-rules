@@ -60,6 +60,22 @@ final class PrivateInFinalClassRule implements Rules\Rule
             }
         }
 
+        /** @var Reflection\ClassReflection $classReflection */
+        $classReflection = $scope->getClassReflection();
+
+        if ($classReflection->isAnonymous()) {
+            $message = \sprintf(
+                'Method %s() in anonymous class is protected, but since the containing class is final, it can be private.',
+                $node->name->name,
+            );
+
+            return [
+                Rules\RuleErrorBuilder::message($message)
+                    ->identifier(ErrorIdentifier::privateInFinalClass()->toString())
+                    ->build(),
+            ];
+        }
+
         $message = \sprintf(
             'Method %s::%s() is protected, but since the containing class is final, it can be private.',
             $containingClass->getName(),
