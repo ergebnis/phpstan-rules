@@ -11,6 +11,10 @@ $foo = new class() {
 };
 
 $bar = new class() {
+    use TraitWithProtectedMethod;
+};
+
+$baz = new class() {
     use TraitWithAbstractProtectedMethod;
 
     protected function method(): void
