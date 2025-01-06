@@ -7,7 +7,7 @@ namespace Ergebnis\PHPStan\Rules\Test\Fixture\Expressions\NoCompactRule\Failure;
 $foo = 9000;
 $bar = 42;
 
-return \compact(
+return \cOmPaCt(
     'foo',
     'bar',
 );
