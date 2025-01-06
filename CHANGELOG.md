@@ -13,6 +13,7 @@ For a full diff see [`2.5.0...main`][2.5.0...main].
 - Returned rule with error identifier ([#882]), by [@localheinz]
 - Adjusted `Methods\FinalInAbstractClassRule` to ignore Doctrine embeddables and entities ([#396]), by [@localheinz]
 - Adjusted `Expressions\NoCompactRule` to detect usages of `compact()` with incorrect case ([#889]), by [@localheinz]
+- Adjusted `Methods\PrivateInFinalClass` to use more appropriate message when detecting a `proected` method in an anonymous class ([#890]), by [@localheinz]
 
 ## [`2.5.0`][2.5.0]
 
@@ -552,6 +553,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#880]: https://github.com/ergebnis/phpstan-rules/pull/880
 [#882]: https://github.com/ergebnis/phpstan-rules/pull/882
 [#889]: https://github.com/ergebnis/phpstan-rules/pull/889
+[#890]: https://github.com/ergebnis/phpstan-rules/pull/890
 
 [@enumag]: https://github.com/enumag
 [@ergebnis]: https://github.com/ergebnis
