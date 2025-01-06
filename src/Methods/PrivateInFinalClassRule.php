@@ -50,17 +50,8 @@ final class PrivateInFinalClassRule implements Rules\Rule
 
         $methodName = $node->name->toString();
 
-        $parentClass = $containingClass->getNativeReflection()->getParentClass();
-
-        if (
-            $parentClass instanceof \ReflectionClass
-            && $parentClass->hasMethod($methodName)
-        ) {
-            $parentMethod = $parentClass->getMethod($methodName);
-
-            if ($parentMethod->isProtected()) {
-                return [];
-            }
+        if (self::methodIsDeclaredByParentClass($containingClass, $methodName)) {
+            return [];
         }
 
         /** @var Reflection\ClassReflection $classReflection */
@@ -90,5 +81,22 @@ final class PrivateInFinalClassRule implements Rules\Rule
                 ->identifier(ErrorIdentifier::privateInFinalClass()->toString())
                 ->build(),
         ];
+    }
+
+    private static function methodIsDeclaredByParentClass(
+        Reflection\ClassReflection $containingClass,
+        string $methodName
+    ): bool {
+        $parentClass = $containingClass->getNativeReflection()->getParentClass();
+
+        if (!$parentClass instanceof \ReflectionClass) {
+            return false;
+        }
+
+        if (!$parentClass->hasMethod($methodName)) {
+            return false;
+        }
+
+        return true;
     }
 }
