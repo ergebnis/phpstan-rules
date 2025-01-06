@@ -47,6 +47,13 @@ final class PrivateInFinalClassRuleTest extends Test\Integration\AbstractTestCas
     public static function provideCasesWhereAnalysisShouldFail(): iterable
     {
         $paths = [
+            'anonymous-class-with-protected-method' => [
+                __DIR__ . '/../../Fixture/Methods/PrivateInFinalClassRule/Failure/AnonymousClassWithProtectedMethod.php',
+                [
+                    'Method method() in anonymous class is protected, but since the containing class is final, it can be private.',
+                    8,
+                ],
+            ],
             'final-class-with-protected-method' => [
                 __DIR__ . '/../../Fixture/Methods/PrivateInFinalClassRule/Failure/FinalClassWithProtectedMethod.php',
                 [
