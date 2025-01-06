@@ -15,121 +15,265 @@ namespace Ergebnis\PHPStan\Rules\Test\Integration\Classes;
 
 use Ergebnis\PHPStan\Rules\Classes;
 use Ergebnis\PHPStan\Rules\Test;
-use PhpParser\Node;
 use PHPStan\Rules;
+use PHPStan\Testing;
 
 /**
  * @covers \Ergebnis\PHPStan\Rules\Classes\FinalRule
  *
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
+ *
+ * @extends Testing\RuleTestCase<Classes\FinalRule>
  */
-final class FinalRuleTest extends Test\Integration\AbstractTestCase
+final class FinalRuleTest extends Testing\RuleTestCase
 {
-    public static function provideCasesWhereAnalysisShouldSucceed(): iterable
-    {
-        $paths = [
-            'final-class' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/FinalClass.php',
-            'final-class-with-anonymous-class' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/FinalClassWithAnonymousClass.php',
-            'interface' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/ExampleInterface.php',
-            'non-final-class-with-entity-annotation-in-inline-doc-block' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/NonFinalClassWithEntityAnnotationInInlineDocBlock.php',
-            'non-final-class-with-entity-annotation-in-multi-line-doc-block' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/NonFinalClassWithEntityAnnotationInMultilineDocBlock.php',
-            'non-final-class-with-orm-entity-annotation-in-inline-doc-block' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/NonFinalClassWithOrmEntityAnnotationInInlineDocBlock.php',
-            'non-final-class-with-orm-entity-annotation-in-multi-line-doc-block' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/NonFinalClassWithOrmEntityAnnotationInMultilineDocBlock.php',
-            'non-final-class-with-orm-mapping-entity-annotation-in-inline-doc-block' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/NonFinalClassWithOrmMappingEntityAnnotationInInlineDocBlock.php',
-            'non-final-class-with-orm-mapping-entity-annotation-in-multi-line-doc-block' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/NonFinalClassWithOrmMappingEntityAnnotationInMultilineDocBlock.php',
-            'script-with-anonymous-class' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/anonymous-class.php',
-            'trait' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/ExampleTrait.php',
-            'trait-with-anonymous-class' => __DIR__ . '/../../Fixture/Classes/FinalRule/Success/TraitWithAnonymousClass.php',
-        ];
-
-        foreach ($paths as $description => $path) {
-            yield $description => [
-                $path,
-            ];
-        }
-    }
-
-    public static function provideCasesWhereAnalysisShouldFail(): iterable
-    {
-        $paths = [
-            'abstract-class' => [
-                __DIR__ . '/../../Fixture/Classes/FinalRule/Failure/AbstractClass.php',
-                [
-                    \sprintf(
-                        'Class %s is not final.',
-                        Test\Fixture\Classes\FinalRule\Failure\AbstractClass::class,
-                    ),
-                    7,
-                ],
-            ],
-            'neither-abstract-nor-final-class' => [
-                __DIR__ . '/../../Fixture/Classes/FinalRule/Failure/NeitherAbstractNorFinalClass.php',
-                [
-                    \sprintf(
-                        'Class %s is not final.',
-                        Test\Fixture\Classes\FinalRule\Failure\NeitherAbstractNorFinalClass::class,
-                    ),
-                    7,
-                ],
-            ],
-            'non-final-class-without-entity-annotation-in-inline-doc-block' => [
-                __DIR__ . '/../../Fixture/Classes/FinalRule/Failure/NonFinalClassWithoutEntityAnnotationInInlineDocBlock.php',
-                [
-                    \sprintf(
-                        'Class %s is not final.',
-                        Test\Fixture\Classes\FinalRule\Failure\NonFinalClassWithoutEntityAnnotationInInlineDocBlock::class,
-                    ),
-                    8,
-                ],
-            ],
-            'non-final-class-without-entity-annotation-in-multi-line-doc-block' => [
-                __DIR__ . '/../../Fixture/Classes/FinalRule/Failure/NonFinalClassWithoutEntityAnnotationInMultilineDocBlock.php',
-                [
-                    \sprintf(
-                        'Class %s is not final.',
-                        Test\Fixture\Classes\FinalRule\Failure\NonFinalClassWithoutEntityAnnotationInMultilineDocBlock::class,
-                    ),
-                    12,
-                ],
-            ],
-            'non-final-class-without-orm-entity-annotation-in-inline-doc-block' => [
-                __DIR__ . '/../../Fixture/Classes/FinalRule/Failure/NonFinalClassWithoutOrmEntityAnnotationInInlineDocBlock.php',
-                [
-                    \sprintf(
-                        'Class %s is not final.',
-                        Test\Fixture\Classes\FinalRule\Failure\NonFinalClassWithoutOrmEntityAnnotationInInlineDocBlock::class,
-                    ),
-                    8,
-                ],
-            ],
-            'non-final-class-without-orm-entity-annotation-in-multi-line-doc-block' => [
-                __DIR__ . '/../../Fixture/Classes/FinalRule/Failure/NonFinalClassWithoutOrmEntityAnnotationInMultilineDocBlock.php',
-                [
-                    \sprintf(
-                        'Class %s is not final.',
-                        Test\Fixture\Classes\FinalRule\Failure\NonFinalClassWithoutOrmEntityAnnotationInMultilineDocBlock::class,
-                    ),
-                    12,
-                ],
-            ],
-        ];
-
-        foreach ($paths as $description => [$path, $error]) {
-            yield $description => [
-                $path,
-                $error,
-            ];
-        }
-    }
+    use Test\Util\Helper;
+    private bool $allowAbstractClasses;
 
     /**
-     * @return Rules\Rule<Node\Stmt\Class_>
+     * @var list<class-string>
      */
+    private array $classesNotRequiredToBeAbstractOrFinal;
+
+    public function testFinalRule(): void
+    {
+        $this->allowAbstractClasses = false;
+        $this->classesNotRequiredToBeAbstractOrFinal = [];
+
+        $this->analyse(
+            self::phpFilesIn(__DIR__ . '/../../Fixture/Classes/FinalRule'),
+            [
+                [
+                    \sprintf(
+                        'Class %s is not final.',
+                        Test\Fixture\Classes\FinalRule\AbstractClass::class,
+                    ),
+                    7,
+                ],
+                [
+                    \sprintf(
+                        'Class %s is not final.',
+                        Test\Fixture\Classes\FinalRule\NeitherAbstractNorFinalClass::class,
+                    ),
+                    7,
+                ],
+                [
+                    \sprintf(
+                        'Class %s is not final.',
+                        Test\Fixture\Classes\FinalRule\NonFinalClassWithUnqualifiedDoctrineOrmMappingEntityAttribute::class,
+                    ),
+                    7,
+                ],
+                [
+                    \sprintf(
+                        'Class %s is not final.',
+                        Test\Fixture\Classes\FinalRule\NonFinalClassWithUnqualifiedEntityAttribute::class,
+                    ),
+                    7,
+                ],
+                [
+                    \sprintf(
+                        'Class %s is not final.',
+                        Test\Fixture\Classes\FinalRule\NonFinalClassWithUnqualifiedOrmEntityAttribute::class,
+                    ),
+                    7,
+                ],
+                [
+                    \sprintf(
+                        'Class %s is not final.',
+                        Test\Fixture\Classes\FinalRule\NonFinalClassWithUnqualifiedOrmMappingEntityAttribute::class,
+                    ),
+                    7,
+                ],
+                [
+                    \sprintf(
+                        'Class %s is not final.',
+                        Test\Fixture\Classes\FinalRule\NonFinalClassWithoutEntityAnnotationInInlineDocBlock::class,
+                    ),
+                    8,
+                ],
+                [
+                    \sprintf(
+                        'Class %s is not final.',
+                        Test\Fixture\Classes\FinalRule\NonFinalClassWithoutEntityAnnotationInMultilineDocBlock::class,
+                    ),
+                    12,
+                ],
+                [
+                    \sprintf(
+                        'Class %s is not final.',
+                        Test\Fixture\Classes\FinalRule\NonFinalClassWithoutOrmEntityAnnotationInInlineDocBlock::class,
+                    ),
+                    8,
+                ],
+                [
+                    \sprintf(
+                        'Class %s is not final.',
+                        Test\Fixture\Classes\FinalRule\NonFinalClassWithoutOrmEntityAnnotationInMultilineDocBlock::class,
+                    ),
+                    12,
+                ],
+            ],
+        );
+    }
+
+    public function testFinalRuleWithAllowAbstractClasses(): void
+    {
+        $this->allowAbstractClasses = true;
+        $this->classesNotRequiredToBeAbstractOrFinal = [];
+
+        $this->analyse(
+            self::phpFilesIn(__DIR__ . '/../../Fixture/Classes/FinalRule'),
+            [
+                [
+                    \sprintf(
+                        'Class %s is neither abstract nor final.',
+                        Test\Fixture\Classes\FinalRule\NeitherAbstractNorFinalClass::class,
+                    ),
+                    7,
+                ],
+                [
+                    \sprintf(
+                        'Class %s is neither abstract nor final.',
+                        Test\Fixture\Classes\FinalRule\NonFinalClassWithUnqualifiedDoctrineOrmMappingEntityAttribute::class,
+                    ),
+                    7,
+                ],
+                [
+                    \sprintf(
+                        'Class %s is neither abstract nor final.',
+                        Test\Fixture\Classes\FinalRule\NonFinalClassWithUnqualifiedEntityAttribute::class,
+                    ),
+                    7,
+                ],
+                [
+                    \sprintf(
+                        'Class %s is neither abstract nor final.',
+                        Test\Fixture\Classes\FinalRule\NonFinalClassWithUnqualifiedOrmEntityAttribute::class,
+                    ),
+                    7,
+                ],
+                [
+                    \sprintf(
+                        'Class %s is neither abstract nor final.',
+                        Test\Fixture\Classes\FinalRule\NonFinalClassWithUnqualifiedOrmMappingEntityAttribute::class,
+                    ),
+                    7,
+                ],
+                [
+                    \sprintf(
+                        'Class %s is neither abstract nor final.',
+                        Test\Fixture\Classes\FinalRule\NonFinalClassWithoutEntityAnnotationInInlineDocBlock::class,
+                    ),
+                    8,
+                ],
+                [
+                    \sprintf(
+                        'Class %s is neither abstract nor final.',
+                        Test\Fixture\Classes\FinalRule\NonFinalClassWithoutEntityAnnotationInMultilineDocBlock::class,
+                    ),
+                    12,
+                ],
+                [
+                    \sprintf(
+                        'Class %s is neither abstract nor final.',
+                        Test\Fixture\Classes\FinalRule\NonFinalClassWithoutOrmEntityAnnotationInInlineDocBlock::class,
+                    ),
+                    8,
+                ],
+                [
+                    \sprintf(
+                        'Class %s is neither abstract nor final.',
+                        Test\Fixture\Classes\FinalRule\NonFinalClassWithoutOrmEntityAnnotationInMultilineDocBlock::class,
+                    ),
+                    12,
+                ],
+            ],
+        );
+    }
+
+    public function testFinalRuleWithClassesNotRequiredToBeAbstractOrFinal(): void
+    {
+        $this->allowAbstractClasses = false;
+        $this->classesNotRequiredToBeAbstractOrFinal = [
+            Test\Fixture\Classes\FinalRule\NeitherAbstractNorFinalClass::class,
+        ];
+
+        $this->analyse(
+            self::phpFilesIn(__DIR__ . '/../../Fixture/Classes/FinalRule'),
+            [
+                [
+                    \sprintf(
+                        'Class %s is not final.',
+                        Test\Fixture\Classes\FinalRule\AbstractClass::class,
+                    ),
+                    7,
+                ],
+                [
+                    \sprintf(
+                        'Class %s is not final.',
+                        Test\Fixture\Classes\FinalRule\NonFinalClassWithUnqualifiedDoctrineOrmMappingEntityAttribute::class,
+                    ),
+                    7,
+                ],
+                [
+                    \sprintf(
+                        'Class %s is not final.',
+                        Test\Fixture\Classes\FinalRule\NonFinalClassWithUnqualifiedEntityAttribute::class,
+                    ),
+                    7,
+                ],
+                [
+                    \sprintf(
+                        'Class %s is not final.',
+                        Test\Fixture\Classes\FinalRule\NonFinalClassWithUnqualifiedOrmEntityAttribute::class,
+                    ),
+                    7,
+                ],
+                [
+                    \sprintf(
+                        'Class %s is not final.',
+                        Test\Fixture\Classes\FinalRule\NonFinalClassWithUnqualifiedOrmMappingEntityAttribute::class,
+                    ),
+                    7,
+                ],
+                [
+                    \sprintf(
+                        'Class %s is not final.',
+                        Test\Fixture\Classes\FinalRule\NonFinalClassWithoutEntityAnnotationInInlineDocBlock::class,
+                    ),
+                    8,
+                ],
+                [
+                    \sprintf(
+                        'Class %s is not final.',
+                        Test\Fixture\Classes\FinalRule\NonFinalClassWithoutEntityAnnotationInMultilineDocBlock::class,
+                    ),
+                    12,
+                ],
+                [
+                    \sprintf(
+                        'Class %s is not final.',
+                        Test\Fixture\Classes\FinalRule\NonFinalClassWithoutOrmEntityAnnotationInInlineDocBlock::class,
+                    ),
+                    8,
+                ],
+                [
+                    \sprintf(
+                        'Class %s is not final.',
+                        Test\Fixture\Classes\FinalRule\NonFinalClassWithoutOrmEntityAnnotationInMultilineDocBlock::class,
+                    ),
+                    12,
+                ],
+            ],
+        );
+    }
+
     protected function getRule(): Rules\Rule
     {
         return new Classes\FinalRule(
-            false,
-            [],
+            $this->allowAbstractClasses,
+            $this->classesNotRequiredToBeAbstractOrFinal,
         );
     }
 }

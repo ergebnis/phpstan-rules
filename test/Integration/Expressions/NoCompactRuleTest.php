@@ -15,66 +15,41 @@ namespace Ergebnis\PHPStan\Rules\Test\Integration\Expressions;
 
 use Ergebnis\PHPStan\Rules\Expressions;
 use Ergebnis\PHPStan\Rules\Test;
-use PhpParser\Node;
 use PHPStan\Rules;
+use PHPStan\Testing;
 
 /**
  * @covers \Ergebnis\PHPStan\Rules\Expressions\NoCompactRule
  *
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
+ *
+ * @extends Testing\RuleTestCase<Expressions\NoCompactRule>
  */
-final class NoCompactRuleTest extends Test\Integration\AbstractTestCase
+final class NoCompactRuleTest extends Testing\RuleTestCase
 {
-    public static function provideCasesWhereAnalysisShouldSucceed(): iterable
-    {
-        $paths = [
-            'compact-not-used' => __DIR__ . '/../../Fixture/Expressions/NoCompactRule/Success/compact-not-used.php',
-        ];
+    use Test\Util\Helper;
 
-        foreach ($paths as $description => $path) {
-            yield $description => [
-                $path,
-            ];
-        }
+    public function testNoCompactRule(): void
+    {
+        $this->analyse(
+            self::phpFilesIn(__DIR__ . '/../../Fixture/Expressions/NoCompactRule'),
+            [
+                [
+                    'Function compact() should not be used.',
+                    22,
+                ],
+                [
+                    'Function compact() should not be used.',
+                    27,
+                ],
+                [
+                    'Function compact() should not be used.',
+                    32,
+                ],
+            ],
+        );
     }
 
-    public static function provideCasesWhereAnalysisShouldFail(): iterable
-    {
-        $paths = [
-            'compact-used-with-alias' => [
-                __DIR__ . '/../../Fixture/Expressions/NoCompactRule/Failure/compact-used-with-alias.php',
-                [
-                    'Function compact() should not be used.',
-                    12,
-                ],
-            ],
-            'compact-used-with-correct-case' => [
-                __DIR__ . '/../../Fixture/Expressions/NoCompactRule/Failure/compact-used-with-correct-case.php',
-                [
-                    'Function compact() should not be used.',
-                    10,
-                ],
-            ],
-            'compact-used-with-incorrect-case' => [
-                __DIR__ . '/../../Fixture/Expressions/NoCompactRule/Failure/compact-used-with-incorrect-case.php',
-                [
-                    'Function compact() should not be used.',
-                    10,
-                ],
-            ],
-        ];
-
-        foreach ($paths as $description => [$path, $error]) {
-            yield $description => [
-                $path,
-                $error,
-            ];
-        }
-    }
-
-    /**
-     * @return Rules\Rule<Node\Expr\FuncCall>
-     */
     protected function getRule(): Rules\Rule
     {
         return new Expressions\NoCompactRule();

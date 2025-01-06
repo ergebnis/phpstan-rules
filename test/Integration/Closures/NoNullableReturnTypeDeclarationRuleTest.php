@@ -15,60 +15,37 @@ namespace Ergebnis\PHPStan\Rules\Test\Integration\Closures;
 
 use Ergebnis\PHPStan\Rules\Closures;
 use Ergebnis\PHPStan\Rules\Test;
-use PhpParser\Node;
 use PHPStan\Rules;
+use PHPStan\Testing;
 
 /**
  * @covers \Ergebnis\PHPStan\Rules\Closures\NoNullableReturnTypeDeclarationRule
  *
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
+ *
+ * @extends Testing\RuleTestCase<Closures\NoNullableReturnTypeDeclarationRule>
  */
-final class NoNullableReturnTypeDeclarationRuleTest extends Test\Integration\AbstractTestCase
+final class NoNullableReturnTypeDeclarationRuleTest extends Testing\RuleTestCase
 {
-    public static function provideCasesWhereAnalysisShouldSucceed(): iterable
-    {
-        $paths = [
-            'closure-with-return-type-declaration' => __DIR__ . '/../../Fixture/Closures/NoNullableReturnTypeDeclarationRule/Success/closure-with-return-type-declaration.php',
-            'closure-function-without-return-type-declaration' => __DIR__ . '/../../Fixture/Closures/NoNullableReturnTypeDeclarationRule/Success/closure-without-return-type-declaration.php',
-        ];
+    use Test\Util\Helper;
 
-        foreach ($paths as $description => $path) {
-            yield $description => [
-                $path,
-            ];
-        }
-    }
-
-    public static function provideCasesWhereAnalysisShouldFail(): iterable
+    public function testNoNullableReturnTypeDeclarationRule(): void
     {
-        $paths = [
-            'closure-with-nullable-return-type-declaration' => [
-                __DIR__ . '/../../Fixture/Closures/NoNullableReturnTypeDeclarationRule/Failure/closure-with-nullable-return-type-declaration.php',
+        $this->analyse(
+            self::phpFilesIn(__DIR__ . '/../../Fixture/Closures/NoNullableReturnTypeDeclarationRule'),
+            [
                 [
                     'Closure has a nullable return type declaration.',
-                    7,
+                    15,
                 ],
-            ],
-            'closure-with-nullable-union-return-type-declaration' => [
-                __DIR__ . '/../../Fixture/Closures/NoNullableReturnTypeDeclarationRule/Failure/closure-with-nullable-union-type-return-type-declaration.php',
                 [
                     'Closure has a nullable return type declaration.',
-                    7,
+                    19,
                 ],
             ],
-        ];
-
-        foreach ($paths as $description => [$path, $error]) {
-            yield $description => [
-                $path,
-                $error,
-            ];
-        }
+        );
     }
 
-    /**
-     * @return Rules\Rule<Node\Expr\Closure>
-     */
     protected function getRule(): Rules\Rule
     {
         return new Closures\NoNullableReturnTypeDeclarationRule();

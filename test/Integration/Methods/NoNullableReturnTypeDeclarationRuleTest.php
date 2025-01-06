@@ -15,108 +15,65 @@ namespace Ergebnis\PHPStan\Rules\Test\Integration\Methods;
 
 use Ergebnis\PHPStan\Rules\Methods;
 use Ergebnis\PHPStan\Rules\Test;
-use PhpParser\Node;
 use PHPStan\Rules;
+use PHPStan\Testing;
 
 /**
  * @covers \Ergebnis\PHPStan\Rules\Methods\NoNullableReturnTypeDeclarationRule
  *
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
+ *
+ * @extends Testing\RuleTestCase<Methods\NoNullableReturnTypeDeclarationRule>
  */
-final class NoNullableReturnTypeDeclarationRuleTest extends Test\Integration\AbstractTestCase
+final class NoNullableReturnTypeDeclarationRuleTest extends Testing\RuleTestCase
 {
-    public static function provideCasesWhereAnalysisShouldSucceed(): iterable
-    {
-        $paths = [
-            'method-in-anonymous-class-with-return-type-declaration' => __DIR__ . '/../../Fixture/Methods/NoNullableReturnTypeDeclarationRule/Success/MethodInAnonymousClassWithReturnTypeDeclaration.php',
-            'method-in-anonymous-class-without-return-type-declaration' => __DIR__ . '/../../Fixture/Methods/NoNullableReturnTypeDeclarationRule/Success/MethodInAnonymousClassWithoutReturnTypeDeclaration.php',
-            'method-in-class-with-return-type-declaration' => __DIR__ . '/../../Fixture/Methods/NoNullableReturnTypeDeclarationRule/Success/MethodInClassWithReturnTypeDeclaration.php',
-            'method-in-class-without-return-type-declaration' => __DIR__ . '/../../Fixture/Methods/NoNullableReturnTypeDeclarationRule/Success/MethodInClassWithoutReturnTypeDeclaration.php',
-            'method-in-interface-with-return-type-declaration' => __DIR__ . '/../../Fixture/Methods/NoNullableReturnTypeDeclarationRule/Success/MethodInInterfaceWithReturnTypeDeclaration.php',
-            'method-in-interface-without-return-type-declaration' => __DIR__ . '/../../Fixture/Methods/NoNullableReturnTypeDeclarationRule/Success/MethodInInterfaceWithoutReturnTypeDeclaration.php',
-            // traits are currently not supported
-            'method-in-trait-with-nullable-return-type-declaration' => __DIR__ . '/../../Fixture/Methods/NoNullableReturnTypeDeclarationRule/Success/MethodInTraitWithNullableReturnTypeDeclaration.php',
-            'method-in-trait-with-return-type-declaration' => __DIR__ . '/../../Fixture/Methods/NoNullableReturnTypeDeclarationRule/Success/MethodInTraitWithReturnTypeDeclaration.php',
-            'method-in-trait-without-return-type-declaration' => __DIR__ . '/../../Fixture/Methods/NoNullableReturnTypeDeclarationRule/Success/MethodInTraitWithoutReturnTypeDeclaration.php',
-        ];
+    use Test\Util\Helper;
 
-        foreach ($paths as $description => $path) {
-            yield $description => [
-                $path,
-            ];
-        }
-    }
-
-    public static function provideCasesWhereAnalysisShouldFail(): iterable
+    public function testNoNullableReturnTypeDeclarationRule(): void
     {
-        $paths = [
-            'method-in-anonymous-class-with-nullable-return-type-declaration' => [
-                __DIR__ . '/../../Fixture/Methods/NoNullableReturnTypeDeclarationRule/Failure/MethodInAnonymousClassWithNullableReturnTypeDeclaration.php',
+        $this->analyse(
+            self::phpFilesIn(__DIR__ . '/../../Fixture/Methods/NoNullableReturnTypeDeclarationRule'),
+            [
+                [
+                    \sprintf(
+                        'Method %s::toString() has a nullable return type declaration.',
+                        Test\Fixture\Methods\NoNullableReturnTypeDeclarationRule\MethodInClassWithNullableReturnTypeDeclaration::class,
+                    ),
+                    9,
+                ],
+                [
+                    \sprintf(
+                        'Method %s::toString() has a nullable return type declaration.',
+                        Test\Fixture\Methods\NoNullableReturnTypeDeclarationRule\MethodInClassWithNullableUnionReturnTypeDeclaration::class,
+                    ),
+                    9,
+                ],
+                [
+                    \sprintf(
+                        'Method %s::toString() has a nullable return type declaration.',
+                        Test\Fixture\Methods\NoNullableReturnTypeDeclarationRule\MethodInInterfaceWithNullableReturnTypeDeclaration::class,
+                    ),
+                    9,
+                ],
+                [
+                    \sprintf(
+                        'Method %s::toString() has a nullable return type declaration.',
+                        Test\Fixture\Methods\NoNullableReturnTypeDeclarationRule\MethodInInterfaceWithNullableUnionReturnTypeDeclaration::class,
+                    ),
+                    9,
+                ],
                 [
                     'Method toString() in anonymous class has a nullable return type declaration.',
-                    12,
+                    22,
                 ],
-            ],
-            'method-in-anonymous-class-with-nullable-union-return-type-declaration' => [
-                __DIR__ . '/../../Fixture/Methods/NoNullableReturnTypeDeclarationRule/Failure/MethodInAnonymousClassWithNullableUnionReturnTypeDeclaration.php',
                 [
                     'Method toString() in anonymous class has a nullable return type declaration.',
-                    12,
+                    29,
                 ],
             ],
-            'method-in-class-with-nullable-return-type-declaration' => [
-                __DIR__ . '/../../Fixture/Methods/NoNullableReturnTypeDeclarationRule/Failure/MethodInClassWithNullableReturnTypeDeclaration.php',
-                [
-                    \sprintf(
-                        'Method %s::toString() has a nullable return type declaration.',
-                        Test\Fixture\Methods\NoNullableReturnTypeDeclarationRule\Failure\MethodInClassWithNullableReturnTypeDeclaration::class,
-                    ),
-                    9,
-                ],
-            ],
-            'method-in-class-with-nullable-union-return-type-declaration' => [
-                __DIR__ . '/../../Fixture/Methods/NoNullableReturnTypeDeclarationRule/Failure/MethodInClassWithNullableUnionReturnTypeDeclaration.php',
-                [
-                    \sprintf(
-                        'Method %s::toString() has a nullable return type declaration.',
-                        Test\Fixture\Methods\NoNullableReturnTypeDeclarationRule\Failure\MethodInClassWithNullableUnionReturnTypeDeclaration::class,
-                    ),
-                    9,
-                ],
-            ],
-            'method-in-interface-with-nullable-return-type-declaration' => [
-                __DIR__ . '/../../Fixture/Methods/NoNullableReturnTypeDeclarationRule/Failure/MethodInInterfaceWithNullableReturnTypeDeclaration.php',
-                [
-                    \sprintf(
-                        'Method %s::toString() has a nullable return type declaration.',
-                        Test\Fixture\Methods\NoNullableReturnTypeDeclarationRule\Failure\MethodInInterfaceWithNullableReturnTypeDeclaration::class,
-                    ),
-                    9,
-                ],
-            ],
-            'method-in-interface-with-nullable-union-return-type-declaration' => [
-                __DIR__ . '/../../Fixture/Methods/NoNullableReturnTypeDeclarationRule/Failure/MethodInInterfaceWithNullableUnionReturnTypeDeclaration.php',
-                [
-                    \sprintf(
-                        'Method %s::toString() has a nullable return type declaration.',
-                        Test\Fixture\Methods\NoNullableReturnTypeDeclarationRule\Failure\MethodInInterfaceWithNullableUnionReturnTypeDeclaration::class,
-                    ),
-                    9,
-                ],
-            ],
-        ];
-
-        foreach ($paths as $description => [$path, $error]) {
-            yield $description => [
-                $path,
-                $error,
-            ];
-        }
+        );
     }
 
-    /**
-     * @return Rules\Rule<Node\Stmt\ClassMethod>
-     */
     protected function getRule(): Rules\Rule
     {
         return new Methods\NoNullableReturnTypeDeclarationRule();

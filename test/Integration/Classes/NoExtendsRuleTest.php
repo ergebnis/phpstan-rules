@@ -15,72 +15,66 @@ namespace Ergebnis\PHPStan\Rules\Test\Integration\Classes;
 
 use Ergebnis\PHPStan\Rules\Classes;
 use Ergebnis\PHPStan\Rules\Test;
-use PhpParser\Node;
 use PHPStan\Rules;
+use PHPStan\Testing;
 
 /**
  * @covers \Ergebnis\PHPStan\Rules\Classes\NoExtendsRule
  *
+ * @extends Testing\RuleTestCase<Classes\NoExtendsRule>
+ *
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
  */
-final class NoExtendsRuleTest extends Test\Integration\AbstractTestCase
+final class NoExtendsRuleTest extends Testing\RuleTestCase
 {
-    public static function provideCasesWhereAnalysisShouldSucceed(): iterable
-    {
-        $paths = [
-            'class' => __DIR__ . '/../../Fixture/Classes/NoExtendsRule/Success/ExampleClass.php',
-            'class-extending-php-unit-framework-test-case' => __DIR__ . '/../../Fixture/Classes/NoExtendsRule/Success/ClassExtendingPhpUnitFrameworkTestCase.php',
-            'interface' => __DIR__ . '/../../Fixture/Classes/NoExtendsRule/Success/ExampleInterface.php',
-            'interface-extending-other-interface' => __DIR__ . '/../../Fixture/Classes/NoExtendsRule/Success/InterfaceExtendingOtherInterface.php',
-            'script-with-anonymous-class' => __DIR__ . '/../../Fixture/Classes/NoExtendsRule/Success/anonymous-class.php',
-        ];
+    use Test\Util\Helper;
 
-        foreach ($paths as $description => $path) {
-            yield $description => [
-                $path,
-            ];
-        }
-    }
+    /**
+     * @var list<class-string>
+     */
+    private array $classesAllowedToBeExtended;
 
-    public static function provideCasesWhereAnalysisShouldFail(): iterable
+    public function testNoExtendsRule(): void
     {
-        $paths = [
-            'class-extending-other-class' => [
-                __DIR__ . '/../../Fixture/Classes/NoExtendsRule/Failure/ClassExtendingOtherClass.php',
+        $this->classesAllowedToBeExtended = [];
+
+        $this->analyse(
+            self::phpFilesIn(__DIR__ . '/../../Fixture/Classes/NoExtendsRule'),
+            [
                 [
                     \sprintf(
                         'Class "%s" is not allowed to extend "%s".',
-                        Test\Fixture\Classes\NoExtendsRule\Failure\ClassExtendingOtherClass::class,
-                        Test\Fixture\Classes\NoExtendsRule\Failure\OtherClass::class,
+                        Test\Fixture\Classes\NoExtendsRule\ClassExtendingOtherClass::class,
+                        Test\Fixture\Classes\NoExtendsRule\OtherClass::class,
                     ),
                     7,
                 ],
-            ],
-            'script-with-anonymous-class-extending-other-class' => [
-                __DIR__ . '/../../Fixture/Classes/NoExtendsRule/Failure/anonymous-class-extending-other-class.php',
                 [
                     \sprintf(
                         'Anonymous class is not allowed to extend "%s".',
-                        Test\Fixture\Classes\NoExtendsRule\Failure\OtherClass::class,
+                        Test\Fixture\Classes\NoExtendsRule\OtherClass::class,
                     ),
-                    7,
+                    10,
                 ],
             ],
-        ];
-
-        foreach ($paths as $description => [$path, $error]) {
-            yield $description => [
-                $path,
-                $error,
-            ];
-        }
+        );
     }
 
-    /**
-     * @return Rules\Rule<Node\Stmt\Class_>
-     */
+    public function testNoExtendsRuleWithClassesAllowedToBeExtended(): void
+    {
+        $this->classesAllowedToBeExtended = [
+            Test\Fixture\Classes\NoExtendsRule\OtherClass::class,
+        ];
+
+        $this->analyse(
+            self::phpFilesIn(__DIR__ . '/../../Fixture/Classes/NoExtendsRule'),
+            [
+            ],
+        );
+    }
+
     protected function getRule(): Rules\Rule
     {
-        return new Classes\NoExtendsRule([]);
+        return new Classes\NoExtendsRule($this->classesAllowedToBeExtended);
     }
 }

@@ -15,59 +15,37 @@ namespace Ergebnis\PHPStan\Rules\Test\Integration\Expressions;
 
 use Ergebnis\PHPStan\Rules\Expressions;
 use Ergebnis\PHPStan\Rules\Test;
-use PhpParser\Node;
 use PHPStan\Rules;
+use PHPStan\Testing;
 
 /**
  * @covers \Ergebnis\PHPStan\Rules\Expressions\NoEvalRule
  *
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
+ *
+ * @extends Testing\RuleTestCase<Expressions\NoEvalRule>
  */
-final class NoEvalRuleTest extends Test\Integration\AbstractTestCase
+final class NoEvalRuleTest extends Testing\RuleTestCase
 {
-    public static function provideCasesWhereAnalysisShouldSucceed(): iterable
-    {
-        $paths = [
-            'eval-not-used' => __DIR__ . '/../../Fixture/Expressions/NoEvalRule/Success/eval-not-used.php',
-        ];
+    use Test\Util\Helper;
 
-        foreach ($paths as $description => $path) {
-            yield $description => [
-                $path,
-            ];
-        }
-    }
-
-    public static function provideCasesWhereAnalysisShouldFail(): iterable
+    public function testNoEvalRule(): void
     {
-        $paths = [
-            'eval-used-with-correct-case' => [
-                __DIR__ . '/../../Fixture/Expressions/NoEvalRule/Failure/eval-used-with-correct-case.php',
+        $this->analyse(
+            self::phpFilesIn(__DIR__ . '/../../Fixture/Expressions/NoEvalRule'),
+            [
                 [
                     'Language construct eval() should not be used.',
-                    7,
+                    13,
                 ],
-            ],
-            'eval-used-with-incorrect-case' => [
-                __DIR__ . '/../../Fixture/Expressions/NoEvalRule/Failure/eval-used-with-incorrect-case.php',
                 [
                     'Language construct eval() should not be used.',
-                    7,
+                    15,
                 ],
             ],
-        ];
-
-        foreach ($paths as $description => [$path, $error]) {
-            yield $description => [
-                $path,
-                $error,
-            ];
-        }
+        );
     }
 
-    /**
-     * @return Rules\Rule<Node\Expr\Eval_>
-     */
     protected function getRule(): Rules\Rule
     {
         return new Expressions\NoEvalRule();

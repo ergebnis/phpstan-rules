@@ -15,68 +15,47 @@ namespace Ergebnis\PHPStan\Rules\Test\Integration\Methods;
 
 use Ergebnis\PHPStan\Rules\Methods;
 use Ergebnis\PHPStan\Rules\Test;
-use PhpParser\Node;
 use PHPStan\Rules;
+use PHPStan\Testing;
 
 /**
  * @covers \Ergebnis\PHPStan\Rules\Methods\PrivateInFinalClassRule
  *
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
+ *
+ * @extends Testing\RuleTestCase<Methods\PrivateInFinalClassRule>
  */
-final class PrivateInFinalClassRuleTest extends Test\Integration\AbstractTestCase
+final class PrivateInFinalClassRuleTest extends Testing\RuleTestCase
 {
-    public static function provideCasesWhereAnalysisShouldSucceed(): iterable
-    {
-        $paths = [
-            'abstract-class-with-protected-method' => __DIR__ . '/../../Fixture/Methods/PrivateInFinalClassRule/Success/AbstractClassWithProtectedMethod.php',
-            'class-with-protected-method' => __DIR__ . '/../../Fixture/Methods/PrivateInFinalClassRule/Success/ClassWithProtectedMethod.php',
-            'final-class-with-private-method' => __DIR__ . '/../../Fixture/Methods/PrivateInFinalClassRule/Success/FinalClassWithPrivateMethod.php',
-            'final-class-with-protected-method-extending-class-extending-class-with-same-protected-method' => __DIR__ . '/../../Fixture/Methods/PrivateInFinalClassRule/Success/FinalClassWithProtectedMethodExtendingClassExtendingClassWithSameProtectedMethod.php',
-            'final-class-with-protected-method-extending-class-with-same-protected-method' => __DIR__ . '/../../Fixture/Methods/PrivateInFinalClassRule/Success/FinalClassWithProtectedMethodExtendingClassWithSameProtectedMethod.php',
-            'final-class-with-protected-method-from-trait' => __DIR__ . '/../../Fixture/Methods/PrivateInFinalClassRule/Success/FinalClassWithProtectedMethodFromTrait.php',
-            'final-class-with-public-method' => __DIR__ . '/../../Fixture/Methods/PrivateInFinalClassRule/Success/FinalClassWithPublicMethod.php',
-        ];
+    use Test\Util\Helper;
 
-        foreach ($paths as $description => $path) {
-            yield $description => [
-                $path,
-            ];
-        }
-    }
-
-    public static function provideCasesWhereAnalysisShouldFail(): iterable
+    public function testPrivateInFinalClassRule(): void
     {
-        $paths = [
-            'anonymous-class-with-protected-method' => [
-                __DIR__ . '/../../Fixture/Methods/PrivateInFinalClassRule/Failure/AnonymousClassWithProtectedMethod.php',
+        $this->analyse(
+            self::phpFilesIn(__DIR__ . '/../../Fixture/Methods/PrivateInFinalClassRule'),
+            [
+                [
+                    \sprintf(
+                        'Method %s::method() is protected, but since the containing class is final, it can be private.',
+                        Test\Fixture\Methods\PrivateInFinalClassRule\FinalClassWithProtectedMethod::class,
+                    ),
+                    9,
+                ],
+                [
+                    \sprintf(
+                        'Method %s::method() is protected, but since the containing class is final, it can be private.',
+                        Test\Fixture\Methods\PrivateInFinalClassRule\FinalClassWithProtectedMethodFromTrait::class,
+                    ),
+                    9,
+                ],
                 [
                     'Method method() in anonymous class is protected, but since the containing class is final, it can be private.',
                     8,
                 ],
             ],
-            'final-class-with-protected-method' => [
-                __DIR__ . '/../../Fixture/Methods/PrivateInFinalClassRule/Failure/FinalClassWithProtectedMethod.php',
-                [
-                    \sprintf(
-                        'Method %s::method() is protected, but since the containing class is final, it can be private.',
-                        Test\Fixture\Methods\PrivateInFinalClassRule\Failure\FinalClassWithProtectedMethod::class,
-                    ),
-                    9,
-                ],
-            ],
-        ];
-
-        foreach ($paths as $description => [$path, $error]) {
-            yield $description => [
-                $path,
-                $error,
-            ];
-        }
+        );
     }
 
-    /**
-     * @return Rules\Rule<Node\Stmt\ClassMethod>
-     */
     protected function getRule(): Rules\Rule
     {
         return new Methods\PrivateInFinalClassRule();
