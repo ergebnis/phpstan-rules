@@ -77,21 +77,21 @@ final class PrivateInFinalClassRule implements Rules\Rule
             return [];
         }
 
-        if ($this->methodHasWhitelistedAnnotation($node, $containingClass)) {
+        if ($this->hasWhitelistedAnnotation($node, $containingClass)) {
             return [];
         }
 
-        if (self::methodHasWhitelistedAttribute($node)) {
+        if (self::hasWhitelistedAttribute($node)) {
             return [];
         }
 
         $methodName = $node->name->toString();
 
-        if (self::methodIsDeclaredByParentClass($containingClass, $methodName)) {
+        if (self::isDeclaredByParentClass($containingClass, $methodName)) {
             return [];
         }
 
-        if (self::methodIsDeclaredByTrait($containingClass, $methodName)) {
+        if (self::isDeclaredByTrait($containingClass, $methodName)) {
             return [];
         }
 
@@ -124,7 +124,7 @@ final class PrivateInFinalClassRule implements Rules\Rule
         ];
     }
 
-    private function methodHasWhitelistedAnnotation(
+    private function hasWhitelistedAnnotation(
         Node\Stmt\ClassMethod $node,
         Reflection\ClassReflection $containingClass
     ): bool {
@@ -153,7 +153,7 @@ final class PrivateInFinalClassRule implements Rules\Rule
         return false;
     }
 
-    private static function methodHasWhitelistedAttribute(Node\Stmt\ClassMethod $node): bool
+    private static function hasWhitelistedAttribute(Node\Stmt\ClassMethod $node): bool
     {
         foreach ($node->attrGroups as $attributeGroup) {
             foreach ($attributeGroup->attrs as $attribute) {
@@ -166,7 +166,7 @@ final class PrivateInFinalClassRule implements Rules\Rule
         return false;
     }
 
-    private static function methodIsDeclaredByParentClass(
+    private static function isDeclaredByParentClass(
         Reflection\ClassReflection $containingClass,
         string $methodName
     ): bool {
@@ -183,7 +183,7 @@ final class PrivateInFinalClassRule implements Rules\Rule
         return true;
     }
 
-    private static function methodIsDeclaredByTrait(
+    private static function isDeclaredByTrait(
         Reflection\ClassReflection $containingClass,
         string $methodName
     ): bool {
