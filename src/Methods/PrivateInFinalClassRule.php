@@ -95,8 +95,8 @@ final class PrivateInFinalClassRule implements Rules\Rule
     private static function methodHasPhpUnitAttributeWhichRequiresProtectedVisibility(Node\Stmt\ClassMethod $node): bool
     {
         $attributes = [
-            Framework\Attributes\Before::class,
             Framework\Attributes\After::class,
+            Framework\Attributes\Before::class,
             Framework\Attributes\PostCondition::class,
             Framework\Attributes\PreCondition::class,
         ];
