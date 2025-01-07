@@ -15,6 +15,7 @@ For a full diff see [`2.5.0...main`][2.5.0...main].
 - Adjusted `Expressions\NoCompactRule` to detect usages of `compact()` with incorrect case ([#889]), by [@localheinz]
 - Adjusted `Methods\PrivateInFinalClass` to use more appropriate message when detecting a `protected` method in an anonymous class ([#890]), by [@localheinz]
 - Adjusted `Methods\PrivateInFinalClass` to ignore `protected` methods from traits ([#891]), by [@localheinz]
+- Adjusted `Methods\PrivateInFinalClass` to ignore `protected` methods with `phpunit/phpunit` attributes requiring methods to be `protected` ([#863]), by [@cosmastech]
 
 ## [`2.5.0`][2.5.0]
 
@@ -547,6 +548,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#567]: https://github.com/ergebnis/phpstan-rules/pull/567
 [#735]: https://github.com/ergebnis/phpstan-rules/pull/735
 [#862]: https://github.com/ergebnis/phpstan-rules/pull/862
+[#863]: https://github.com/ergebnis/phpstan-rules/pull/863
 [#872]: https://github.com/ergebnis/phpstan-rules/pull/872
 [#875]: https://github.com/ergebnis/phpstan-rules/pull/875
 [#877]: https://github.com/ergebnis/phpstan-rules/pull/877
@@ -558,6 +560,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#891]: https://github.com/ergebnis/phpstan-rules/pull/891
 
 [@enumag]: https://github.com/enumag
+[@cosmastech]: https://github.com/cosmastech
 [@ergebnis]: https://github.com/ergebnis
 [@Great-Antique]: https://github.com/Great-Antique
 [@localheinz]: https://github.com/localheinz
