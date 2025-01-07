@@ -13,12 +13,14 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Test\Integration\Functions;
 
+use Ergebnis\PHPStan\Rules\Analyzer;
 use Ergebnis\PHPStan\Rules\Functions;
 use Ergebnis\PHPStan\Rules\Test;
 use PHPStan\Rules;
 use PHPStan\Testing;
 
 /**
+ * @covers \Ergebnis\PHPStan\Rules\Analyzer
  * @covers \Ergebnis\PHPStan\Rules\Functions\NoParameterWithNullDefaultValueRule
  *
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
@@ -52,6 +54,6 @@ final class NoParameterWithNullDefaultValueRuleTest extends Testing\RuleTestCase
 
     protected function getRule(): Rules\Rule
     {
-        return new Functions\NoParameterWithNullDefaultValueRule();
+        return new Functions\NoParameterWithNullDefaultValueRule(new Analyzer());
     }
 }

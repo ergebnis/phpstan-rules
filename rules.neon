@@ -142,6 +142,9 @@ parametersSchema:
 
 services:
 	-
+		class: Ergebnis\PHPStan\Rules\Analyzer
+
+	-
 		class: Ergebnis\PHPStan\Rules\Classes\FinalRule
 		arguments:
 			allowAbstractClasses: %ergebnis.final.allowAbstractClasses%
