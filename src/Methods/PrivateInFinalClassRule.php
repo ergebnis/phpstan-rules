@@ -150,8 +150,8 @@ final class PrivateInFinalClassRule implements Rules\Rule
             Framework\Attributes\PreCondition::class,
         ];
 
-        foreach ($node->attrGroups as $attrGroup) {
-            foreach ($attrGroup->attrs as $attribute) {
+        foreach ($node->attrGroups as $attributeGroup) {
+            foreach ($attributeGroup->attrs as $attribute) {
                 if (\in_array($attribute->name->toString(), $attributes, true)) {
                     return true;
                 }
