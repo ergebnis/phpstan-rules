@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Functions;
 
+use Ergebnis\PHPStan\Rules\Analyzer;
 use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Node;
 use PHPStan\Analyser;
@@ -23,6 +24,13 @@ use PHPStan\Rules;
  */
 final class NoNullableReturnTypeDeclarationRule implements Rules\Rule
 {
+    private Analyzer $analyzer;
+
+    public function __construct(Analyzer $analyzer)
+    {
+        $this->analyzer = $analyzer;
+    }
+
     public function getNodeType(): string
     {
         return Node\Stmt\Function_::class;
@@ -36,7 +44,7 @@ final class NoNullableReturnTypeDeclarationRule implements Rules\Rule
             return [];
         }
 
-        if (!self::hasNullableReturnTypeDeclaration($node)) {
+        if (!$this->analyzer->isNullableTypeDeclaration($node->getReturnType())) {
             return [];
         }
 
@@ -50,28 +58,5 @@ final class NoNullableReturnTypeDeclarationRule implements Rules\Rule
                 ->identifier(ErrorIdentifier::noNullableReturnTypeDeclaration()->toString())
                 ->build(),
         ];
-    }
-
-    private static function hasNullableReturnTypeDeclaration(Node\Stmt\Function_ $function): bool
-    {
-        $returnType = $function->getReturnType();
-
-        if ($returnType instanceof Node\NullableType) {
-            return true;
-        }
-
-        if ($returnType instanceof Node\UnionType) {
-            foreach ($returnType->types as $type) {
-                if (!$type instanceof Node\Identifier) {
-                    continue;
-                }
-
-                if ('null' === $type->toString()) {
-                    return true;
-                }
-            }
-        }
-
-        return false;
     }
 }

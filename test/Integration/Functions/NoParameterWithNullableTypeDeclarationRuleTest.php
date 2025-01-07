@@ -13,12 +13,14 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Test\Integration\Functions;
 
+use Ergebnis\PHPStan\Rules\Analyzer;
 use Ergebnis\PHPStan\Rules\Functions;
 use Ergebnis\PHPStan\Rules\Test;
 use PHPStan\Rules;
 use PHPStan\Testing;
 
 /**
+ * @covers \Ergebnis\PHPStan\Rules\Analyzer
  * @covers \Ergebnis\PHPStan\Rules\Functions\NoParameterWithNullableTypeDeclarationRule
  *
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
@@ -48,6 +50,6 @@ final class NoParameterWithNullableTypeDeclarationRuleTest extends Testing\RuleT
 
     protected function getRule(): Rules\Rule
     {
-        return new Functions\NoParameterWithNullableTypeDeclarationRule();
+        return new Functions\NoParameterWithNullableTypeDeclarationRule(new Analyzer());
     }
 }

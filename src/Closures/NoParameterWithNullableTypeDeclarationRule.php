@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Closures;
 
+use Ergebnis\PHPStan\Rules\Analyzer;
 use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Node;
 use PHPStan\Analyser;
@@ -23,6 +24,13 @@ use PHPStan\Rules;
  */
 final class NoParameterWithNullableTypeDeclarationRule implements Rules\Rule
 {
+    private Analyzer $analyzer;
+
+    public function __construct(Analyzer $analyzer)
+    {
+        $this->analyzer = $analyzer;
+    }
+
     public function getNodeType(): string
     {
         return Node\Expr\Closure::class;
@@ -36,8 +44,8 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rules\Rule
             return [];
         }
 
-        $parametersWithNullableTypeDeclaration = \array_values(\array_filter($node->params, static function (Node\Param $parameter): bool {
-            return self::hasNullableTypeDeclaration($parameter);
+        $parametersWithNullableTypeDeclaration = \array_values(\array_filter($node->params, function (Node\Param $parameter): bool {
+            return $this->analyzer->isNullableTypeDeclaration($parameter->type);
         }));
 
         if (0 === \count($parametersWithNullableTypeDeclaration)) {
@@ -60,28 +68,5 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rules\Rule
                 ->identifier(ErrorIdentifier::noParameterWithNullableTypeDeclaration()->toString())
                 ->build();
         }, $parametersWithNullableTypeDeclaration);
-    }
-
-    private static function hasNullableTypeDeclaration(Node\Param $parameter): bool
-    {
-        if ($parameter->type instanceof Node\NullableType) {
-            return true;
-        }
-
-        if ($parameter->type instanceof Node\UnionType) {
-            foreach ($parameter->type->types as $type) {
-                if (!$type instanceof Node\Identifier) {
-                    continue;
-                }
-
-                if ('null' !== $type->toString()) {
-                    continue;
-                }
-
-                return true;
-            }
-        }
-
-        return false;
     }
 }

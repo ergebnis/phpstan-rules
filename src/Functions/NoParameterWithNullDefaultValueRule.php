@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Functions;
 
+use Ergebnis\PHPStan\Rules\Analyzer;
 use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Node;
 use PHPStan\Analyser;
@@ -23,6 +24,13 @@ use PHPStan\Rules;
  */
 final class NoParameterWithNullDefaultValueRule implements Rules\Rule
 {
+    private Analyzer $analyzer;
+
+    public function __construct(Analyzer $analyzer)
+    {
+        $this->analyzer = $analyzer;
+    }
+
     public function getNodeType(): string
     {
         return Node\Stmt\Function_::class;
@@ -36,8 +44,8 @@ final class NoParameterWithNullDefaultValueRule implements Rules\Rule
             return [];
         }
 
-        $parametersWithNullDefaultValue = \array_values(\array_filter($node->params, static function (Node\Param $parameter): bool {
-            return self::hasNullDefaultValue($parameter);
+        $parametersWithNullDefaultValue = \array_values(\array_filter($node->params, function (Node\Param $parameter): bool {
+            return $this->analyzer->hasNullDefaultValue($parameter);
         }));
 
         if (0 === \count($parametersWithNullDefaultValue)) {
@@ -63,14 +71,5 @@ final class NoParameterWithNullDefaultValueRule implements Rules\Rule
                 ->identifier(ErrorIdentifier::noParameterWithNullDefaultValue()->toString())
                 ->build();
         }, $parametersWithNullDefaultValue);
-    }
-
-    private static function hasNullDefaultValue(Node\Param $parameter): bool
-    {
-        if (!$parameter->default instanceof Node\Expr\ConstFetch) {
-            return false;
-        }
-
-        return 'null' === $parameter->default->name->toLowerString();
     }
 }
