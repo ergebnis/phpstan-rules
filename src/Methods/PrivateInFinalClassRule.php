@@ -18,6 +18,7 @@ use PhpParser\Node;
 use PHPStan\Analyser;
 use PHPStan\Reflection;
 use PHPStan\Rules;
+use PHPUnit\Framework;
 
 /**
  * @implements Rules\Rule<Node\Stmt\ClassMethod>
@@ -45,6 +46,10 @@ final class PrivateInFinalClassRule implements Rules\Rule
         }
 
         if ($node->isPrivate()) {
+            return [];
+        }
+
+        if (self::methodHasPhpUnitAttributeWhichRequiresProtectedVisibility($node)) {
             return [];
         }
 
@@ -85,6 +90,26 @@ final class PrivateInFinalClassRule implements Rules\Rule
                 ->identifier(ErrorIdentifier::privateInFinalClass()->toString())
                 ->build(),
         ];
+    }
+
+    private static function methodHasPhpUnitAttributeWhichRequiresProtectedVisibility(Node\Stmt\ClassMethod $node): bool
+    {
+        $attributes = [
+            Framework\Attributes\Before::class,
+            Framework\Attributes\After::class,
+            Framework\Attributes\PostCondition::class,
+            Framework\Attributes\PreCondition::class,
+        ];
+
+        foreach ($node->attrGroups as $attrGroup) {
+            foreach ($attrGroup->attrs as $attribute) {
+                if (\in_array($attribute->name->toString(), $attributes, true)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     private static function methodIsDeclaredByParentClass(

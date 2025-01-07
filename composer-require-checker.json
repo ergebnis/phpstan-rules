@@ -33,6 +33,10 @@
     "PHPStan\\Rules\\Rule",
     "PHPStan\\Rules\\RuleError",
     "PHPStan\\Rules\\RuleErrorBuilder",
+    "PHPUnit\\Framework\\Attributes\\After",
+    "PHPUnit\\Framework\\Attributes\\Before",
+    "PHPUnit\\Framework\\Attributes\\PostCondition",
+    "PHPUnit\\Framework\\Attributes\\PreCondition",
     "self",
     "string",
     "true"
