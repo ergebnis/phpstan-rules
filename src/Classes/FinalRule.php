@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Classes;
 
+use Doctrine\ORM;
 use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Comment;
 use PhpParser\Node;
@@ -37,7 +38,7 @@ final class FinalRule implements Rules\Rule
      * @var list<class-string>
      */
     private static array $whitelistedAttributes = [
-        'Doctrine\ORM\Mapping\Entity',
+        ORM\Mapping\Entity::class,
     ];
     private bool $allowAbstractClasses;
 

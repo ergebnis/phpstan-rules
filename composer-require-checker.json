@@ -2,6 +2,7 @@
   "symbol-whitelist": [
     "array",
     "bool",
+    "Doctrine\\ORM\\Mapping\\Entity",
     "false",
     "null",
     "PhpParser\\Comment\\Doc",
