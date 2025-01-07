@@ -13,9 +13,9 @@ For a full diff see [`2.5.0...main`][2.5.0...main].
 - Returned rule with error identifier ([#882]), by [@localheinz]
 - Adjusted `Methods\FinalInAbstractClassRule` to ignore Doctrine embeddables and entities ([#396]), by [@localheinz]
 - Adjusted `Expressions\NoCompactRule` to detect usages of `compact()` with incorrect case ([#889]), by [@localheinz]
-- Adjusted `Methods\PrivateInFinalClass` to use more appropriate message when detecting a `protected` method in an anonymous class ([#890]), by [@localheinz]
-- Adjusted `Methods\PrivateInFinalClass` to ignore `protected` methods from traits ([#891]), by [@localheinz]
-- Adjusted `Methods\PrivateInFinalClass` to ignore `protected` methods with `phpunit/phpunit` attributes requiring methods to be `protected` ([#863]), by [@cosmastech]
+- Adjusted `Methods\PrivateInFinalClassRule` to use more appropriate message when detecting a `protected` method in an anonymous class ([#890]), by [@localheinz]
+- Adjusted `Methods\PrivateInFinalClassRule` to ignore `protected` methods from traits ([#891]), by [@localheinz]
+- Adjusted `Methods\PrivateInFinalClassRule` to ignore `protected` methods with `phpunit/phpunit` attributes requiring methods to be `protected` ([#863]), by [@cosmastech]
 
 ## [`2.5.0`][2.5.0]
 
