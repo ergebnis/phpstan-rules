@@ -93,7 +93,11 @@ final class FinalRule implements Rules\Rule
             return [];
         }
 
-        if ($this->isWhitelisted($node)) {
+        if ($this->hasWhitelistedAnnotation($node)) {
+            return [];
+        }
+
+        if ($this->hasWhitelistedAttribute($node)) {
             return [];
         }
 
@@ -120,16 +124,8 @@ final class FinalRule implements Rules\Rule
      * @see https://github.com/SpacePossum
      * @see https://github.com/Slamdunk
      */
-    private function isWhitelisted(Node\Stmt\Class_ $node): bool
+    private function hasWhitelistedAnnotation(Node\Stmt\Class_ $node): bool
     {
-        foreach ($node->attrGroups as $attributeGroup) {
-            foreach ($attributeGroup->attrs as $attribute) {
-                if (\in_array($attribute->name->toString(), self::$whitelistedAttributes, true)) {
-                    return true;
-                }
-            }
-        }
-
         $docComment = $node->getDocComment();
 
         if (!$docComment instanceof Comment\Doc) {
@@ -148,6 +144,19 @@ final class FinalRule implements Rules\Rule
                     if (0 === \mb_strpos($annotation, $whitelistedAnnotation)) {
                         return true;
                     }
+                }
+            }
+        }
+
+        return false;
+    }
+
+    private function hasWhitelistedAttribute(Node\Stmt\Class_ $node): bool
+    {
+        foreach ($node->attrGroups as $attributeGroup) {
+            foreach ($attributeGroup->attrs as $attribute) {
+                if (\in_array($attribute->name->toString(), self::$whitelistedAttributes, true)) {
+                    return true;
                 }
             }
         }
