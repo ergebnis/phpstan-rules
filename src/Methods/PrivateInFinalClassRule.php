@@ -27,6 +27,25 @@ use PHPUnit\Framework;
  */
 final class PrivateInFinalClassRule implements Rules\Rule
 {
+    /**
+     * @var list<string>
+     */
+    private static array $whitelistedAnnotations = [
+        '@after',
+        '@before',
+        '@postCondition',
+        '@preCondition',
+    ];
+
+    /**
+     * @var list<class-string>
+     */
+    private static array $whitelistedAttributes = [
+        Framework\Attributes\After::class,
+        Framework\Attributes\Before::class,
+        Framework\Attributes\PostCondition::class,
+        Framework\Attributes\PreCondition::class,
+    ];
     private Type\FileTypeMapper $fileTypeMapper;
 
     public function __construct(Type\FileTypeMapper $fileTypeMapper)
@@ -58,11 +77,11 @@ final class PrivateInFinalClassRule implements Rules\Rule
             return [];
         }
 
-        if ($this->methodHasPhpUnitAnnotationWhichRequiresProtectedVisibility($node, $containingClass)) {
+        if ($this->methodHasWhitelistedAnnotation($node, $containingClass)) {
             return [];
         }
 
-        if (self::methodHasPhpUnitAttributeWhichRequiresProtectedVisibility($node)) {
+        if (self::methodHasWhitelistedAttribute($node)) {
             return [];
         }
 
@@ -105,7 +124,7 @@ final class PrivateInFinalClassRule implements Rules\Rule
         ];
     }
 
-    private function methodHasPhpUnitAnnotationWhichRequiresProtectedVisibility(
+    private function methodHasWhitelistedAnnotation(
         Node\Stmt\ClassMethod $node,
         Reflection\ClassReflection $containingClass
     ): bool {
@@ -123,16 +142,9 @@ final class PrivateInFinalClassRule implements Rules\Rule
             $docComment->getText(),
         );
 
-        $annotations = [
-            '@after',
-            '@before',
-            '@postCondition',
-            '@preCondition',
-        ];
-
         foreach ($resolvedPhpDoc->getPhpDocNodes() as $phpDocNode) {
             foreach ($phpDocNode->getTags() as $tag) {
-                if (\in_array($tag->name, $annotations, true)) {
+                if (\in_array($tag->name, self::$whitelistedAnnotations, true)) {
                     return true;
                 }
             }
@@ -141,18 +153,11 @@ final class PrivateInFinalClassRule implements Rules\Rule
         return false;
     }
 
-    private static function methodHasPhpUnitAttributeWhichRequiresProtectedVisibility(Node\Stmt\ClassMethod $node): bool
+    private static function methodHasWhitelistedAttribute(Node\Stmt\ClassMethod $node): bool
     {
-        $attributes = [
-            Framework\Attributes\After::class,
-            Framework\Attributes\Before::class,
-            Framework\Attributes\PostCondition::class,
-            Framework\Attributes\PreCondition::class,
-        ];
-
         foreach ($node->attrGroups as $attributeGroup) {
             foreach ($attributeGroup->attrs as $attribute) {
-                if (\in_array($attribute->name->toString(), $attributes, true)) {
+                if (\in_array($attribute->name->toString(), self::$whitelistedAttributes, true)) {
                     return true;
                 }
             }
