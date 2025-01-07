@@ -17,6 +17,7 @@ use Ergebnis\PHPStan\Rules\Methods;
 use Ergebnis\PHPStan\Rules\Test;
 use PHPStan\Rules;
 use PHPStan\Testing;
+use PHPStan\Type;
 
 /**
  * @covers \Ergebnis\PHPStan\Rules\Methods\PrivateInFinalClassRule
@@ -51,6 +52,8 @@ final class PrivateInFinalClassRuleTest extends Testing\RuleTestCase
 
     protected function getRule(): Rules\Rule
     {
-        return new Methods\PrivateInFinalClassRule();
+        $fileTypeMapper = self::getContainer()->getByType(Type\FileTypeMapper::class);
+
+        return new Methods\PrivateInFinalClassRule($fileTypeMapper);
     }
 }

@@ -14,10 +14,12 @@ declare(strict_types=1);
 namespace Ergebnis\PHPStan\Rules\Methods;
 
 use Ergebnis\PHPStan\Rules\ErrorIdentifier;
+use PhpParser\Comment;
 use PhpParser\Node;
 use PHPStan\Analyser;
 use PHPStan\Reflection;
 use PHPStan\Rules;
+use PHPStan\Type;
 use PHPUnit\Framework;
 
 /**
@@ -25,6 +27,13 @@ use PHPUnit\Framework;
  */
 final class PrivateInFinalClassRule implements Rules\Rule
 {
+    private Type\FileTypeMapper $fileTypeMapper;
+
+    public function __construct(Type\FileTypeMapper $fileTypeMapper)
+    {
+        $this->fileTypeMapper = $fileTypeMapper;
+    }
+
     public function getNodeType(): string
     {
         return Node\Stmt\ClassMethod::class;
@@ -46,6 +55,10 @@ final class PrivateInFinalClassRule implements Rules\Rule
         }
 
         if ($node->isPrivate()) {
+            return [];
+        }
+
+        if ($this->methodHasPhpUnitAnnotationWhichRequiresProtectedVisibility($node, $containingClass)) {
             return [];
         }
 
@@ -90,6 +103,42 @@ final class PrivateInFinalClassRule implements Rules\Rule
                 ->identifier(ErrorIdentifier::privateInFinalClass()->toString())
                 ->build(),
         ];
+    }
+
+    private function methodHasPhpUnitAnnotationWhichRequiresProtectedVisibility(
+        Node\Stmt\ClassMethod $node,
+        Reflection\ClassReflection $containingClass
+    ): bool {
+        $docComment = $node->getDocComment();
+
+        if (!$docComment instanceof Comment\Doc) {
+            return false;
+        }
+
+        $resolvedPhpDoc = $this->fileTypeMapper->getResolvedPhpDoc(
+            null,
+            $containingClass->getName(),
+            null,
+            null,
+            $docComment->getText(),
+        );
+
+        $annotations = [
+            '@after',
+            '@before',
+            '@postCondition',
+            '@preCondition',
+        ];
+
+        foreach ($resolvedPhpDoc->getPhpDocNodes() as $phpDocNode) {
+            foreach ($phpDocNode->getTags() as $tag) {
+                if (\in_array($tag->name, $annotations, true)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     private static function methodHasPhpUnitAttributeWhichRequiresProtectedVisibility(Node\Stmt\ClassMethod $node): bool

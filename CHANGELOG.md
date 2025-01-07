@@ -16,6 +16,7 @@ For a full diff see [`2.5.0...main`][2.5.0...main].
 - Adjusted `Methods\PrivateInFinalClassRule` to use more appropriate message when detecting a `protected` method in an anonymous class ([#890]), by [@localheinz]
 - Adjusted `Methods\PrivateInFinalClassRule` to ignore `protected` methods from traits ([#891]), by [@localheinz]
 - Adjusted `Methods\PrivateInFinalClassRule` to ignore `protected` methods with `phpunit/phpunit` attributes requiring methods to be `protected` ([#863]), by [@cosmastech]
+- Adjusted `Methods\PrivateInFinalClassRule` to ignore `protected` methods with `phpunit/phpunit` annotations requiring methods to be `protected` ([#895]), by [@cosmastech]
 
 ## [`2.5.0`][2.5.0]
 
@@ -558,6 +559,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#889]: https://github.com/ergebnis/phpstan-rules/pull/889
 [#890]: https://github.com/ergebnis/phpstan-rules/pull/890
 [#891]: https://github.com/ergebnis/phpstan-rules/pull/891
+[#895]: https://github.com/ergebnis/phpstan-rules/pull/895
 
 [@enumag]: https://github.com/enumag
 [@cosmastech]: https://github.com/cosmastech

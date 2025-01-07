@@ -33,6 +33,7 @@
     "PHPStan\\Rules\\Rule",
     "PHPStan\\Rules\\RuleError",
     "PHPStan\\Rules\\RuleErrorBuilder",
+    "PHPStan\\Type\\FileTypeMapper",
     "PHPUnit\\Framework\\Attributes\\After",
     "PHPUnit\\Framework\\Attributes\\Before",
     "PHPUnit\\Framework\\Attributes\\PostCondition",
