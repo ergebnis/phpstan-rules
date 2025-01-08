@@ -1,42 +1,56 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Language construct isset\\(\\) should not be used\\.$#"
+			message: '#^Language construct isset\(\) should not be used\.$#'
+			identifier: ergebnis.noIsset
 			count: 1
 			path: src/Classes/FinalRule.php
 
 		-
-			message: "#^Language construct isset\\(\\) should not be used\\.$#"
+			message: '#^Language construct isset\(\) should not be used\.$#'
+			identifier: ergebnis.noIsset
 			count: 1
 			path: src/Classes/NoExtendsRule.php
 
 		-
-			message: "#^Language construct isset\\(\\) should not be used\\.$#"
+			message: '#^Language construct isset\(\) should not be used\.$#'
+			identifier: ergebnis.noIsset
 			count: 1
 			path: src/Classes/PHPUnit/Framework/TestCaseWithSuffixRule.php
 
 		-
-			message: "#^Language construct isset\\(\\) should not be used\\.$#"
+			message: '#^Language construct isset\(\) should not be used\.$#'
+			identifier: ergebnis.noIsset
 			count: 1
 			path: src/Functions/NoNullableReturnTypeDeclarationRule.php
 
 		-
-			message: "#^Class PHPUnit\\\\Framework\\\\Attributes\\\\After not found\\.$#"
+			message: '#^Method Ergebnis\\PHPStan\\Rules\\Methods\\NoParameterWithContainerTypeDeclarationRule\:\:processNode\(\) should return list\<PHPStan\\Rules\\IdentifierRuleError\> but returns list\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Methods/NoParameterWithContainerTypeDeclarationRule.php
+
+		-
+			message: '#^Class PHPUnit\\Framework\\Attributes\\After not found\.$#'
+			identifier: class.notFound
 			count: 1
 			path: src/Methods/PrivateInFinalClassRule.php
 
 		-
-			message: "#^Class PHPUnit\\\\Framework\\\\Attributes\\\\Before not found\\.$#"
+			message: '#^Class PHPUnit\\Framework\\Attributes\\Before not found\.$#'
+			identifier: class.notFound
 			count: 1
 			path: src/Methods/PrivateInFinalClassRule.php
 
 		-
-			message: "#^Class PHPUnit\\\\Framework\\\\Attributes\\\\PostCondition not found\\.$#"
+			message: '#^Class PHPUnit\\Framework\\Attributes\\PostCondition not found\.$#'
+			identifier: class.notFound
 			count: 1
 			path: src/Methods/PrivateInFinalClassRule.php
 
 		-
-			message: "#^Class PHPUnit\\\\Framework\\\\Attributes\\\\PreCondition not found\\.$#"
+			message: '#^Class PHPUnit\\Framework\\Attributes\\PreCondition not found\.$#'
+			identifier: class.notFound
 			count: 1
 			path: src/Methods/PrivateInFinalClassRule.php
 

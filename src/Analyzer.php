@@ -49,9 +49,16 @@ final class Analyzer
 
                 if (
                     $type instanceof Node\Name\FullyQualified
-                    && 'null' === $type->toLowerString()
+                    && $type->hasAttribute('originalName')
                 ) {
-                    return true;
+                    $originalName = $type->getAttribute('originalName');
+
+                    if (
+                        $originalName instanceof Node\Name
+                        && 'null' === $originalName->toLowerString()
+                    ) {
+                        return true;
+                    }
                 }
             }
         }
