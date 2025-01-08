@@ -134,10 +134,6 @@ final class FinalRule implements Rules\Rule
 
         $reformattedComment = $docComment->getReformattedText();
 
-        if (!\is_string($reformattedComment)) {
-            return false;
-        }
-
         if (\is_int(\preg_match_all('/@(\S+)(?=\s|$)/', $reformattedComment, $matches))) {
             foreach ($matches[1] as $annotation) {
                 foreach (self::$whitelistedAnnotations as $whitelistedAnnotation) {
