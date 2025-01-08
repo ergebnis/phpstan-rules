@@ -44,6 +44,10 @@ final class NoNullableReturnTypeDeclarationRuleTest extends Testing\RuleTestCase
                     'Function Ergebnis\PHPStan\Rules\Test\Fixture\Functions\NoNullableReturnTypeDeclarationRule\quux() has a nullable return type declaration.',
                     22,
                 ],
+                [
+                    'Function Ergebnis\PHPStan\Rules\Test\Fixture\Functions\NoNullableReturnTypeDeclarationRule\quz() has a nullable return type declaration.',
+                    27,
+                ],
             ],
         );
     }

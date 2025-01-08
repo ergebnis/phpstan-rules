@@ -44,6 +44,10 @@ final class NoParameterWithNullableTypeDeclarationRuleTest extends Testing\RuleT
                     'Closure has parameter $bar with a nullable type declaration.',
                     22,
                 ],
+                [
+                    'Closure has parameter $bar with a nullable type declaration.',
+                    26,
+                ],
             ],
         );
     }

@@ -31,3 +31,17 @@ $qux = new class() {
         return 'Hello';
     }
 };
+
+$quux = new class() {
+    public function toString(): nUlL|string
+    {
+        return 'Hello';
+    }
+};
+
+$quz = new class() {
+    public function toString(): \null|string
+    {
+        return 'Hello';
+    }
+};

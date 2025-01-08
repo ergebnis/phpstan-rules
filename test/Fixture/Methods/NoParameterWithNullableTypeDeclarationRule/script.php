@@ -38,3 +38,17 @@ $quux = new class() {
     }
 };
 
+$quz = new class() {
+    public function foo(nUlL|string $bar)
+    {
+        return $bar;
+    }
+};
+
+$corge = new class() {
+    public function foo(\null|string $bar)
+    {
+        return $bar;
+    }
+};
+

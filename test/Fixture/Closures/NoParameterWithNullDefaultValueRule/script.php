@@ -19,10 +19,10 @@ $qux = function ($bar = null) {
     return $bar;
 };
 
-$quux = function ($bar = \null) {
+$quux = function ($bar = nUlL) {
     return $bar;
 };
 
-$quz = function ($bar = NuLl) {
+$quz = function ($bar = \null) {
     return $bar;
 };

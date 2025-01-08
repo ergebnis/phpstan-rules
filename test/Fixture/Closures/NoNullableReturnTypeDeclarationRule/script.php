@@ -19,3 +19,11 @@ $baz = function (): ?string {
 $qux = function (): null|string {
     return 'Hello';
 };
+
+$quux = function (): nUlL|string {
+    return 'Hello';
+};
+
+$quz = function (): \null|string {
+    return 'Hello';
+};

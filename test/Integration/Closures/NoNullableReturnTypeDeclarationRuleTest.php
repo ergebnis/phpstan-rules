@@ -44,6 +44,10 @@ final class NoNullableReturnTypeDeclarationRuleTest extends Testing\RuleTestCase
                     'Closure has a nullable return type declaration.',
                     19,
                 ],
+                [
+                    'Closure has a nullable return type declaration.',
+                    23,
+                ],
             ],
         );
     }

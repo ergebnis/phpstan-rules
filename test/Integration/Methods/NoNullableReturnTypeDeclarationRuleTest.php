@@ -72,6 +72,10 @@ final class NoNullableReturnTypeDeclarationRuleTest extends Testing\RuleTestCase
                     'Method toString() in anonymous class has a nullable return type declaration.',
                     29,
                 ],
+                [
+                    'Method toString() in anonymous class has a nullable return type declaration.',
+                    36,
+                ],
             ],
         );
     }

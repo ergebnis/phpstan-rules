@@ -32,14 +32,14 @@ $qux = new class() {
 };
 
 $quux = new class() {
-    public function foo($bar = \null)
+    public function foo($bar = nUlL)
     {
         return $bar;
     }
 };
 
 $quz = new class() {
-    public function foo($bar = NuLl)
+    public function foo($bar = \null)
     {
         return $bar;
     }

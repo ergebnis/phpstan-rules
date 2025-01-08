@@ -27,3 +27,13 @@ function quux(null|string $bar)
 {
     return $bar;
 }
+
+function quz(nUlL|string $bar)
+{
+    return $bar;
+}
+
+function corge(\null|string $bar)
+{
+    return $bar;
+}

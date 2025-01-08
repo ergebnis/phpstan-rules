@@ -23,3 +23,13 @@ function quux(): null|string
 {
     return 'Hello';
 }
+
+function quz(): nUlL|string
+{
+    return 'Hello';
+}
+
+function corge(): \null|string
+{
+    return 'Hello';
+}

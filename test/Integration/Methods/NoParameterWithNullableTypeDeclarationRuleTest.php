@@ -72,6 +72,10 @@ final class NoParameterWithNullableTypeDeclarationRuleTest extends Testing\RuleT
                     'Method foo() in anonymous class has parameter $bar with a nullable type declaration.',
                     35,
                 ],
+                [
+                    'Method foo() in anonymous class has parameter $bar with a nullable type declaration.',
+                    42,
+                ],
             ],
         );
     }

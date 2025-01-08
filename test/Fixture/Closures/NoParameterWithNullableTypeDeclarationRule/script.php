@@ -22,3 +22,11 @@ $qux = function (?string $bar) {
 $quux = function (null|string $bar) {
     return $bar;
 };
+
+$quz = function (nUlL|string $bar) {
+    return $bar;
+};
+
+$corge = function (\null|string $bar) {
+    return $bar;
+};

@@ -23,12 +23,12 @@ function qux($bar = null)
     return $bar;
 }
 
-function quux($bar = \null)
+function quux($bar = nUlL)
 {
     return $bar;
 }
 
-function quz($bar = nUlL)
+function quz($bar = \null)
 {
     return $bar;
 }
