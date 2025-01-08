@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`2.5.1...main`][2.5.1...main].
 
+### Fixed
+
+- Adjusted `Closures\NoNullableReturnTypeDeclarationRule`, `Closures\NoParameterWithNullableTypeDeclarationRule`, `Functions\NoNullableReturnTypeDeclarationRule`, `Functions\NoParameterWithNullableTypeDeclarationRule`, `Methods\NoNullableReturnTypeDeclarationRule`, `Methods\NoParameterWithNullableTypeDeclarationRule` to detect cases where `null` is referenced with incorrect case or relative to the root namespace ([#897]), by [@localheinz]
+
 ## [`2.5.1`][2.5.1]
 
 For a full diff see [`2.5.0...2.5.1`][2.5.0...2.5.1].
@@ -566,6 +570,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#890]: https://github.com/ergebnis/phpstan-rules/pull/890
 [#891]: https://github.com/ergebnis/phpstan-rules/pull/891
 [#895]: https://github.com/ergebnis/phpstan-rules/pull/895
+[#897]: https://github.com/ergebnis/phpstan-rules/pull/897
 
 [@enumag]: https://github.com/enumag
 [@cosmastech]: https://github.com/cosmastech

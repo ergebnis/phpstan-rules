@@ -15,6 +15,7 @@
     "PhpParser\\Node\\Expr\\Isset_",
     "PhpParser\\Node\\Identifier",
     "PhpParser\\Node\\Name",
+    "PhpParser\\Node\\Name\\FullyQualified",
     "PhpParser\\Node\\NullableType",
     "PhpParser\\Node\\Param",
     "PhpParser\\Node\\Scalar\\LNumber",
