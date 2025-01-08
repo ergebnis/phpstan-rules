@@ -48,6 +48,10 @@ final class NoParameterWithNullableTypeDeclarationRuleTest extends Testing\RuleT
                     'Function Ergebnis\PHPStan\Rules\Test\Fixture\Functions\NoParameterWithNullableTypeDeclarationRule\quz() has parameter $bar with a nullable type declaration.',
                     31,
                 ],
+                [
+                    'Function Ergebnis\PHPStan\Rules\Test\Fixture\Functions\NoParameterWithNullableTypeDeclarationRule\corge() has parameter $bar with a nullable type declaration.',
+                    36,
+                ],
             ],
         );
     }

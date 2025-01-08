@@ -40,11 +40,17 @@ final class Analyzer
 
         if ($typeDeclaration instanceof Node\UnionType) {
             foreach ($typeDeclaration->types as $type) {
-                if (!$type instanceof Node\Identifier) {
-                    continue;
+                if (
+                    $type instanceof Node\Identifier
+                    && 'null' === $type->toLowerString()
+                ) {
+                    return true;
                 }
 
-                if ('null' === $type->toLowerString()) {
+                if (
+                    $type instanceof Node\Name\FullyQualified
+                    && 'null' === $type->toLowerString()
+                ) {
                     return true;
                 }
             }
