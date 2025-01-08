@@ -58,7 +58,6 @@ final class TestCaseWithSuffixRule implements Rules\Rule
             return [];
         }
 
-        /** @var string $fullyQualifiedClassName */
         $fullyQualifiedClassName = $node->namespacedName->toString();
 
         $classReflection = $this->reflectionProvider->getClass($fullyQualifiedClassName);
