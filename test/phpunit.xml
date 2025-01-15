@@ -27,6 +27,9 @@
             <directory suffix=".php">../src/</directory>
         </include>
     </coverage>
+    <extensions>
+        <extension class="Ergebnis\PHPUnit\SlowTestDetector\Extension"/>
+    </extensions>
     <testsuites>
         <testsuite name="integration">
             <directory>Integration/</directory>
