@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`2.6.0...main`][2.6.0...main].
 
+### Fixed
+
+- Adjusted `Methods\NoParameterWithNullableTypeDeclarationRule` to use the appropriate error identifier ([#902]), by [@manuelkiessling]
+
 ## [`2.6.0`][2.6.0]
 
 For a full diff see [`2.5.2...2.6.0`][2.5.2...2.6.0].
@@ -588,12 +592,14 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#891]: https://github.com/ergebnis/phpstan-rules/pull/891
 [#895]: https://github.com/ergebnis/phpstan-rules/pull/895
 [#897]: https://github.com/ergebnis/phpstan-rules/pull/897
+[#902]: https://github.com/ergebnis/phpstan-rules/pull/902
 
 [@cosmastech]: https://github.com/cosmastech
 [@enumag]: https://github.com/enumag
 [@ergebnis]: https://github.com/ergebnis
 [@Great-Antique]: https://github.com/Great-Antique
 [@localheinz]: https://github.com/localheinz
+[@manuelkiessling]: https://github.com/manuelkiessling
 [@nunomaduro]: https://github.com/nunomaduro
 [@rpkamp]: https://github.com/rpkamp
 [@Slamdunk]: https://github.com/Slamdunk

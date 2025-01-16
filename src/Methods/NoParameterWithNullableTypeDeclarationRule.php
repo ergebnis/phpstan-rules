@@ -73,7 +73,7 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rules\Rule
                 );
 
                 return Rules\RuleErrorBuilder::message($message)
-                    ->identifier(ErrorIdentifier::noParameterWithContainerTypeDeclaration()->toString())
+                    ->identifier(ErrorIdentifier::noParameterWithNullableTypeDeclaration()->toString())
                     ->build();
             }, $parametersWithNullableTypeDeclaration);
         }
@@ -95,7 +95,7 @@ final class NoParameterWithNullableTypeDeclarationRule implements Rules\Rule
             );
 
             return Rules\RuleErrorBuilder::message($message)
-                ->identifier(ErrorIdentifier::noParameterWithContainerTypeDeclaration()->toString())
+                ->identifier(ErrorIdentifier::noParameterWithNullableTypeDeclaration()->toString())
                 ->build();
         }, $parametersWithNullableTypeDeclaration);
     }
