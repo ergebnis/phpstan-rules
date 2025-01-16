@@ -589,8 +589,8 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#895]: https://github.com/ergebnis/phpstan-rules/pull/895
 [#897]: https://github.com/ergebnis/phpstan-rules/pull/897
 
-[@enumag]: https://github.com/enumag
 [@cosmastech]: https://github.com/cosmastech
+[@enumag]: https://github.com/enumag
 [@ergebnis]: https://github.com/ergebnis
 [@Great-Antique]: https://github.com/Great-Antique
 [@localheinz]: https://github.com/localheinz
