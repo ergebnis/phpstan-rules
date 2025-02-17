@@ -70,6 +70,11 @@ final class ErrorIdentifier
         return new self('noIsset');
     }
 
+    public static function noParameterPassedByReference(): self
+    {
+        return new self('noParameterPassedByReference');
+    }
+
     public static function noParameterWithContainerTypeDeclaration(): self
     {
         return new self('noParameterWithContainerTypeDeclaration');

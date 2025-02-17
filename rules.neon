@@ -7,6 +7,8 @@ conditionalTags:
 		phpstan.rules.rule: %ergebnis.testCaseWithSuffix.enabled%
 	Ergebnis\PHPStan\Rules\Closures\NoNullableReturnTypeDeclarationRule:
 		phpstan.rules.rule: %ergebnis.noNullableReturnTypeDeclaration.enabled%
+	Ergebnis\PHPStan\Rules\Closures\NoParameterPassedByReferenceRule:
+		phpstan.rules.rule: %ergebnis.noParameterPassedByReference.enabled%
 	Ergebnis\PHPStan\Rules\Closures\NoParameterWithNullableTypeDeclarationRule:
 		phpstan.rules.rule: %ergebnis.noParameterWithNullableTypeDeclaration.enabled%
 	Ergebnis\PHPStan\Rules\Expressions\NoCompactRule:
@@ -21,6 +23,8 @@ conditionalTags:
 		phpstan.rules.rule: %ergebnis.declareStrictTypes.enabled%
 	Ergebnis\PHPStan\Rules\Functions\NoNullableReturnTypeDeclarationRule:
 		phpstan.rules.rule: %ergebnis.noNullableReturnTypeDeclaration.enabled%
+	Ergebnis\PHPStan\Rules\Functions\NoParameterPassedByReferenceRule:
+		phpstan.rules.rule: %ergebnis.noParameterPassedByReference.enabled%
 	Ergebnis\PHPStan\Rules\Functions\NoParameterWithNullableTypeDeclarationRule:
 		phpstan.rules.rule: %ergebnis.noParameterWithNullableTypeDeclaration.enabled%
 	Ergebnis\PHPStan\Rules\Functions\NoParameterWithNullDefaultValueRule:
@@ -31,6 +35,8 @@ conditionalTags:
 		phpstan.rules.rule: %ergebnis.noConstructorParameterWithDefaultValue.enabled%
 	Ergebnis\PHPStan\Rules\Methods\NoNullableReturnTypeDeclarationRule:
 		phpstan.rules.rule: %ergebnis.noNullableReturnTypeDeclaration.enabled%
+	Ergebnis\PHPStan\Rules\Methods\NoParameterPassedByReferenceRule:
+		phpstan.rules.rule: %ergebnis.noParameterPassedByReference.enabled%
 	Ergebnis\PHPStan\Rules\Methods\NoParameterWithContainerTypeDeclarationRule:
 		phpstan.rules.rule: %ergebnis.noParameterWithContainerTypeDeclaration.enabled%
 	Ergebnis\PHPStan\Rules\Methods\NoParameterWithNullableTypeDeclarationRule:
@@ -66,6 +72,8 @@ parameters:
 		noIsset:
 			enabled: true
 		noNullableReturnTypeDeclaration:
+			enabled: true
+		noParameterPassedByReference:
 			enabled: true
 		noParameterWithContainerTypeDeclaration:
 			enabled: true
@@ -118,6 +126,9 @@ parametersSchema:
 		noNullableReturnTypeDeclaration: structure([
 			enabled: bool(),
 		])
+		noParameterPassedByReference: structure([
+			enabled: bool(),
+		])
 		noParameterWithContainerTypeDeclaration: structure([
 			enabled: bool(),
 			interfacesImplementedByContainers: listOf(string())
@@ -162,6 +173,9 @@ services:
 		class: Ergebnis\PHPStan\Rules\Closures\NoNullableReturnTypeDeclarationRule
 
 	-
+		class: Ergebnis\PHPStan\Rules\Closures\NoParameterPassedByReferenceRule
+
+	-
 		class: Ergebnis\PHPStan\Rules\Closures\NoParameterWithNullableTypeDeclarationRule
 
 	-
@@ -183,6 +197,9 @@ services:
 		class: Ergebnis\PHPStan\Rules\Functions\NoNullableReturnTypeDeclarationRule
 
 	-
+		class: Ergebnis\PHPStan\Rules\Functions\NoParameterPassedByReferenceRule
+
+	-
 		class: Ergebnis\PHPStan\Rules\Functions\NoParameterWithNullableTypeDeclarationRule
 
 	-
@@ -196,6 +213,9 @@ services:
 
 	-
 		class: Ergebnis\PHPStan\Rules\Methods\NoNullableReturnTypeDeclarationRule
+
+	-
+		class: Ergebnis\PHPStan\Rules\Methods\NoParameterPassedByReferenceRule
 
 	-
 		class: Ergebnis\PHPStan\Rules\Methods\NoParameterWithContainerTypeDeclarationRule
