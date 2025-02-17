@@ -82,7 +82,7 @@ on the class level.
 
 ##### Disabling the rule
 
-You can set the the `enabled` parameter to `false` to disable this rule.
+You can set the `enabled` parameter to `false` to disable this rule.
 
 ```neon
 parameters:
@@ -129,7 +129,7 @@ By default, this rule allows the following classes to be extended:
 
 ##### Disabling the rule
 
-You can set the the `enabled` parameter to `false` to disable this rule.
+You can set the `enabled` parameter to `false` to disable this rule.
 
 ```neon
 parameters:
@@ -157,7 +157,7 @@ This rule reports an error when a concrete class is a sub-class of `PHPUnit\Fram
 
 ##### Disabling the rule
 
-You can set the the `enabled` parameter to `false` to disable this rule.
+You can set the `enabled` parameter to `false` to disable this rule.
 
 ```neon
 parameters:
@@ -174,7 +174,7 @@ This rule reports an error when a closure uses a nullable return type declaratio
 
 ##### Disabling the rule
 
-You can set the the `enabled` parameter to `false` to disable this rule.
+You can set the `enabled` parameter to `false` to disable this rule.
 
 ```neon
 parameters:
@@ -189,7 +189,7 @@ This rule reports an error when a closure has a parameter with a nullable type d
 
 ##### Disabling the rule
 
-You can set the the `enabled` parameter to `false` to disable this rule.
+You can set the `enabled` parameter to `false` to disable this rule.
 
 ```neon
 parameters:
@@ -204,7 +204,7 @@ This rule reports an error when a closure has a parameter with `null` as default
 
 ##### Disabling the rule
 
-You can set the the `enabled` parameter to `false` to disable this rule.
+You can set the `enabled` parameter to `false` to disable this rule.
 
 ```neon
 parameters:
@@ -221,7 +221,7 @@ This rule reports an error when the function [`compact()`](https://www.php.net/c
 
 ##### Disabling the rule
 
-You can set the the `enabled` parameter to `false` to disable this rule.
+You can set the `enabled` parameter to `false` to disable this rule.
 
 ```neon
 parameters:
@@ -236,7 +236,7 @@ This rule reports an error when the language construct [`eval()`](https://www.ph
 
 ##### Disabling the rule
 
-You can set the the `enabled` parameter to `false` to disable this rule.
+You can set the `enabled` parameter to `false` to disable this rule.
 
 ```neon
 parameters:
@@ -251,7 +251,7 @@ This rule reports an error when [`@`](https://www.php.net/manual/en/language.ope
 
 ##### Disabling the rule
 
-You can set the the `enabled` parameter to `false` to disable this rule.
+You can set the `enabled` parameter to `false` to disable this rule.
 
 ```neon
 parameters:
@@ -266,7 +266,7 @@ This rule reports an error when the language construct [`isset()`](https://www.p
 
 ##### Disabling the rule
 
-You can set the the `enabled` parameter to `false` to disable this rule.
+You can set the `enabled` parameter to `false` to disable this rule.
 
 ```neon
 parameters:
@@ -283,7 +283,7 @@ This rule reports an error when a non-empty file does not contain a `declare(str
 
 ##### Disabling the rule
 
-You can set the the `enabled` parameter to `false` to disable this rule.
+You can set the `enabled` parameter to `false` to disable this rule.
 
 ```neon
 parameters:
@@ -300,7 +300,7 @@ This rule reports an error when a function uses a nullable return type declarati
 
 ##### Disabling the rule
 
-You can set the the `enabled` parameter to `false` to disable this rule.
+You can set the `enabled` parameter to `false` to disable this rule.
 
 ```neon
 parameters:
@@ -315,7 +315,7 @@ This rule reports an error when a function has a parameter with a nullable type 
 
 ##### Disabling the rule
 
-You can set the the `enabled` parameter to `false` to disable this rule.
+You can set the `enabled` parameter to `false` to disable this rule.
 
 ```neon
 parameters:
@@ -330,7 +330,7 @@ This rule reports an error when a function has a parameter with `null` as defaul
 
 ##### Disabling the rule
 
-You can set the the `enabled` parameter to `false` to disable this rule.
+You can set the `enabled` parameter to `false` to disable this rule.
 
 ```neon
 parameters:
@@ -352,7 +352,7 @@ This rule reports an error when a concrete `public` or `protected `method in an 
 
 ##### Disabling the rule
 
-You can set the the `enabled` parameter to `false` to disable this rule.
+You can set the `enabled` parameter to `false` to disable this rule.
 
 ```neon
 parameters:
@@ -372,7 +372,7 @@ has a default value.
 
 ##### Disabling the rule
 
-You can set the the `enabled` parameter to `false` to disable this rule.
+You can set the `enabled` parameter to `false` to disable this rule.
 
 ```neon
 parameters:
@@ -393,7 +393,7 @@ uses a nullable return type declaration.
 
 ##### Disabling the rule
 
-You can set the the `enabled` parameter to `false` to disable this rule.
+You can set the `enabled` parameter to `false` to disable this rule.
 
 ```neon
 parameters:
@@ -416,7 +416,7 @@ is expected to be injected into a method.
 
 ##### Disabling the rule
 
-You can set the the `enabled` parameter to `false` to disable this rule.
+You can set the `enabled` parameter to `false` to disable this rule.
 
 ```neon
 parameters:
@@ -462,7 +462,7 @@ has a parameter with a nullable type declaration.
 
 ##### Disabling the rule
 
-You can set the the `enabled` parameter to `false` to disable this rule.
+You can set the `enabled` parameter to `false` to disable this rule.
 
 ```neon
 parameters:
@@ -483,7 +483,7 @@ has a parameter with `null` as default value.
 
 ##### Disabling the rule
 
-You can set the the `enabled` parameter to `false` to disable this rule.
+You can set the `enabled` parameter to `false` to disable this rule.
 
 ```neon
 parameters:
@@ -498,7 +498,7 @@ This rule reports an error when a method in a `final` class is `protected` but c
 
 ##### Disabling the rule
 
-You can set the the `enabled` parameter to `false` to disable this rule.
+You can set the `enabled` parameter to `false` to disable this rule.
 
 ```neon
 parameters:
@@ -515,7 +515,7 @@ This rule reports an error when the statement [`switch()`](https://www.php.net/m
 
 ##### Disabling the rule
 
-You can set the the `enabled` parameter to `false` to disable this rule.
+You can set the `enabled` parameter to `false` to disable this rule.
 
 ```neon
 parameters:
