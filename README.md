@@ -56,7 +56,7 @@ This package provides the following rules for use with [`phpstan/phpstan`](https
 - [`Ergebnis\PHPStan\Rules\Expressions\NoIssetRule`](https://github.com/ergebnis/phpstan-rules#expressionsnoissetrule)
 - [`Ergebnis\PHPStan\Rules\Files\DeclareStrictTypesRule`](https://github.com/ergebnis/phpstan-rules#filesdeclarestricttypesrule)
 - [`Ergebnis\PHPStan\Rules\Functions\NoNullableReturnTypeDeclarationRule`](https://github.com/ergebnis/phpstan-rules#functionsnonullablereturntypedeclarationrule)
-- [`Ergebnis\PHPStan\Rules\Functions\NoParameterWithNullableTypeDeclaration`](https://github.com/ergebnis/phpstan-rules#functionsnoparameterwithnullabletypedeclarationrule)
+- [`Ergebnis\PHPStan\Rules\Functions\NoParameterWithNullableTypeDeclarationRule`](https://github.com/ergebnis/phpstan-rules#functionsnoparameterwithnullabletypedeclarationrule)
 - [`Ergebnis\PHPStan\Rules\Functions\NoParameterWithNullDefaultValueRule`](https://github.com/ergebnis/phpstan-rules#functionsnoparameterwithnulldefaultvaluerule)
 - [`Ergebnis\PHPStan\Rules\Methods\FinalInAbstractClassRule`](https://github.com/ergebnis/phpstan-rules#methodsfinalinabstractclassrule)
 - [`Ergebnis\PHPStan\Rules\Methods\NoConstructorParameterWithDefaultValueRule`](https://github.com/ergebnis/phpstan-rules#methodsnoconstructorparameterwithdefaultvaluerule)
