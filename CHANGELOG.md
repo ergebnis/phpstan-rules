@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`2.6.1...main`][2.6.1...main].
 
+### Added
+
+- Added `Closures\NoParameterPassedByReferenceRule`, `Functions\NoParameterPassedByReferenceRule`, `Methods\NoParameterPassedByReferenceRule`, which report an error when a closure, a function, or a method has a parameter that is passed by reference ([#911]), by [@localheinz]
+
 ## [`2.6.1`][2.6.1]
 
 For a full diff see [`2.6.0...2.6.1`][2.6.0...2.6.1].
@@ -599,6 +603,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#895]: https://github.com/ergebnis/phpstan-rules/pull/895
 [#897]: https://github.com/ergebnis/phpstan-rules/pull/897
 [#902]: https://github.com/ergebnis/phpstan-rules/pull/902
+[#911]: https://github.com/ergebnis/phpstan-rules/pull/911
 
 [@cosmastech]: https://github.com/cosmastech
 [@enumag]: https://github.com/enumag
