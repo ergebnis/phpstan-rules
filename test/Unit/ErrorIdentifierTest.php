@@ -119,6 +119,13 @@ final class ErrorIdentifierTest extends Framework\TestCase
         self::assertSame('ergebnis.noParameterWithNullableTypeDeclaration', $errorIdentifier->toString());
     }
 
+    public function testNoReturnByReferenceErrorIdentifier(): void
+    {
+        $errorIdentifier = ErrorIdentifier::noReturnByReference();
+
+        self::assertSame('ergebnis.noReturnByReference', $errorIdentifier->toString());
+    }
+
     public function testNoSwitchReturnsErrorIdentifier(): void
     {
         $errorIdentifier = ErrorIdentifier::noSwitch();

@@ -11,6 +11,7 @@ For a full diff see [`2.6.1...main`][2.6.1...main].
 ### Added
 
 - Added `Closures\NoParameterPassedByReferenceRule`, `Functions\NoParameterPassedByReferenceRule`, `Methods\NoParameterPassedByReferenceRule`, which report an error when a closure, a function, or a method has a parameter that is passed by reference ([#911]), by [@localheinz]
+- Added `Functions\NoReturnByReferenceRule` and `Methods\NoReturnByReferenceRule`, which report an error when a function or a method returns by reference ([#912]), by [@localheinz]
 
 ## [`2.6.1`][2.6.1]
 
@@ -604,6 +605,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#897]: https://github.com/ergebnis/phpstan-rules/pull/897
 [#902]: https://github.com/ergebnis/phpstan-rules/pull/902
 [#911]: https://github.com/ergebnis/phpstan-rules/pull/911
+[#912]: https://github.com/ergebnis/phpstan-rules/pull/912
 
 [@cosmastech]: https://github.com/cosmastech
 [@enumag]: https://github.com/enumag

@@ -29,6 +29,8 @@ conditionalTags:
 		phpstan.rules.rule: %ergebnis.noParameterWithNullableTypeDeclaration.enabled%
 	Ergebnis\PHPStan\Rules\Functions\NoParameterWithNullDefaultValueRule:
 		phpstan.rules.rule: %ergebnis.noParameterWithNullDefaultValue.enabled%
+	Ergebnis\PHPStan\Rules\Functions\NoReturnByReferenceRule:
+		phpstan.rules.rule: %ergebnis.noReturnByReference.enabled%
 	Ergebnis\PHPStan\Rules\Methods\FinalInAbstractClassRule:
 		phpstan.rules.rule: %ergebnis.finalInAbstractClass.enabled%
 	Ergebnis\PHPStan\Rules\Methods\NoConstructorParameterWithDefaultValueRule:
@@ -43,6 +45,8 @@ conditionalTags:
 		phpstan.rules.rule: %ergebnis.noParameterWithNullableTypeDeclaration.enabled%
 	Ergebnis\PHPStan\Rules\Methods\NoParameterWithNullDefaultValueRule:
 		phpstan.rules.rule: %ergebnis.noParameterWithNullDefaultValue.enabled%
+	Ergebnis\PHPStan\Rules\Methods\NoReturnByReferenceRule:
+		phpstan.rules.rule: %ergebnis.noReturnByReference.enabled%
 	Ergebnis\PHPStan\Rules\Methods\PrivateInFinalClassRule:
 		phpstan.rules.rule: %ergebnis.privateInFinalClass.enabled%
 	Ergebnis\PHPStan\Rules\Statements\NoSwitchRule:
@@ -83,6 +87,8 @@ parameters:
 		noParameterWithNullableTypeDeclaration:
 			enabled: true
 		noParameterWithNullDefaultValue:
+			enabled: true
+		noReturnByReference:
 			enabled: true
 		noSwitch:
 			enabled: true
@@ -138,6 +144,9 @@ parametersSchema:
 			enabled: bool(),
 		])
 		noParameterWithNullDefaultValue: structure([
+			enabled: bool(),
+		])
+		noReturnByReference: structure([
 			enabled: bool(),
 		])
 		noSwitch: structure([
@@ -206,6 +215,9 @@ services:
 		class: Ergebnis\PHPStan\Rules\Functions\NoParameterWithNullDefaultValueRule
 
 	-
+		class: Ergebnis\PHPStan\Rules\Functions\NoReturnByReferenceRule
+
+	-
 		class: Ergebnis\PHPStan\Rules\Methods\FinalInAbstractClassRule
 
 	-
@@ -228,6 +240,9 @@ services:
 
 	-
 		class: Ergebnis\PHPStan\Rules\Methods\NoParameterWithNullDefaultValueRule
+
+	-
+		class: Ergebnis\PHPStan\Rules\Methods\NoReturnByReferenceRule
 
 	-
 		class: Ergebnis\PHPStan\Rules\Methods\PrivateInFinalClassRule
