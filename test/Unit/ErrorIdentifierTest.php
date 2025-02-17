@@ -98,6 +98,13 @@ final class ErrorIdentifierTest extends Framework\TestCase
         self::assertSame('ergebnis.noParameterWithContainerTypeDeclaration', $errorIdentifier->toString());
     }
 
+    public function testNoParameterPassedByReferenceReturnsErrorIdentifier(): void
+    {
+        $errorIdentifier = ErrorIdentifier::noParameterPassedByReference();
+
+        self::assertSame('ergebnis.noParameterPassedByReference', $errorIdentifier->toString());
+    }
+
     public function testNoParameterWithNullDefaultValueReturnsErrorIdentifier(): void
     {
         $errorIdentifier = ErrorIdentifier::noParameterWithNullDefaultValue();
