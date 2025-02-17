@@ -95,6 +95,11 @@ final class ErrorIdentifier
         return new self('noNullableReturnTypeDeclaration');
     }
 
+    public static function noReturnByReference(): self
+    {
+        return new self('noReturnByReference');
+    }
+
     public static function noSwitch(): self
     {
         return new self('noSwitch');
