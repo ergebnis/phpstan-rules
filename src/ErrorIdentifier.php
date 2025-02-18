@@ -50,6 +50,11 @@ final class ErrorIdentifier
         return new self('noConstructorParameterWithDefaultValue');
     }
 
+    public static function noAssignByReference(): self
+    {
+        return new self('noAssignByReference');
+    }
+
     public static function noErrorSuppression(): self
     {
         return new self('noErrorSuppression');

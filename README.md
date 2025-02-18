@@ -51,6 +51,7 @@ This package provides the following rules for use with [`phpstan/phpstan`](https
 - [`Ergebnis\PHPStan\Rules\Closures\NoParameterPassedByReferenceRule`](https://github.com/ergebnis/phpstan-rules#closuresnoparameterpassedbyreferencerule)
 - [`Ergebnis\PHPStan\Rules\Closures\NoParameterWithNullableTypeDeclarationRule`](https://github.com/ergebnis/phpstan-rules#closuresnoparameterwithnullabletypedeclarationrule)
 - [`Ergebnis\PHPStan\Rules\Closures\NoParameterWithNullDefaultValueRule`](https://github.com/ergebnis/phpstan-rules#closuresnoparameterwithnulldefaultvaluerule)
+- [`Ergebnis\PHPStan\Rules\Expressions\NoAssignByReferenceRule`](https://github.com/ergebnis/phpstan-rules#expressionsnoassignbyreferencerule)
 - [`Ergebnis\PHPStan\Rules\Expressions\NoCompactRule`](https://github.com/ergebnis/phpstan-rules#expressionsnocompactrule)
 - [`Ergebnis\PHPStan\Rules\Expressions\NoErrorSuppressionRule`](https://github.com/ergebnis/phpstan-rules#expressionsnoerrorsuppressionrule)
 - [`Ergebnis\PHPStan\Rules\Expressions\NoEvalRule`](https://github.com/ergebnis/phpstan-rules#expressionsnoevalrule)
@@ -234,6 +235,21 @@ parameters:
 ```
 
 ### Expressions
+
+#### `Expressions\NoAssignByReferenceRule`
+
+This rule reports an error when [a variable is assigned by reference](https://www.php.net/manual/en/language.references.whatdo.php#language.references.whatdo.assign).
+
+##### Disabling the rule
+
+You can set the `enabled` parameter to `false` to disable this rule.
+
+```neon
+parameters:
+	ergebnis:
+		noAssignByReference:
+			enabled: false
+```
 
 #### `Expressions\NoCompactRule`
 
