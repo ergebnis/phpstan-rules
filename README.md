@@ -57,6 +57,7 @@ This package provides the following rules for use with [`phpstan/phpstan`](https
 - [`Ergebnis\PHPStan\Rules\Expressions\NoEvalRule`](https://github.com/ergebnis/phpstan-rules#expressionsnoevalrule)
 - [`Ergebnis\PHPStan\Rules\Expressions\NoIssetRule`](https://github.com/ergebnis/phpstan-rules#expressionsnoissetrule)
 - [`Ergebnis\PHPStan\Rules\Files\DeclareStrictTypesRule`](https://github.com/ergebnis/phpstan-rules#filesdeclarestricttypesrule)
+- [`Ergebnis\PHPStan\Rules\FunctionCalls\NoNamedArgumentRule`](https://github.com/ergebnis/phpstan-rules#functioncallsnonamedargumentrule)
 - [`Ergebnis\PHPStan\Rules\Functions\NoNullableReturnTypeDeclarationRule`](https://github.com/ergebnis/phpstan-rules#functionsnonullablereturntypedeclarationrule)
 - [`Ergebnis\PHPStan\Rules\Functions\NoParameterPassedByReferenceRule`](https://github.com/ergebnis/phpstan-rules#functionsnoparameterpassedbyreferencerule)
 - [`Ergebnis\PHPStan\Rules\Functions\NoParameterWithNullableTypeDeclarationRule`](https://github.com/ergebnis/phpstan-rules#functionsnoparameterwithnullabletypedeclarationrule)
@@ -325,6 +326,23 @@ You can set the `enabled` parameter to `false` to disable this rule.
 parameters:
 	ergebnis:
 		declareStrictTypes:
+			enabled: false
+```
+
+### Function Calls
+
+#### `FunctionCalls\NoNamedArgumentRule`
+
+This rule reports an error when a function call uses a [named argument](https://www.php.net/manual/en/functions.arguments.php#functions.named-arguments).
+
+##### Disabling the rule
+
+You can set the `enabled` parameter to `false` to disable this rule.
+
+```neon
+parameters:
+	ergebnis:
+		noNamedArgument:
 			enabled: false
 ```
 

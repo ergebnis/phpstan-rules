@@ -23,6 +23,8 @@ conditionalTags:
 		phpstan.rules.rule: %ergebnis.noIsset.enabled%
 	Ergebnis\PHPStan\Rules\Files\DeclareStrictTypesRule:
 		phpstan.rules.rule: %ergebnis.declareStrictTypes.enabled%
+	Ergebnis\PHPStan\Rules\FunctionCalls\NoNamedArgumentRule:
+		phpstan.rules.rule: %ergebnis.noNamedArgument.enabled%
 	Ergebnis\PHPStan\Rules\Functions\NoNullableReturnTypeDeclarationRule:
 		phpstan.rules.rule: %ergebnis.noNullableReturnTypeDeclaration.enabled%
 	Ergebnis\PHPStan\Rules\Functions\NoParameterPassedByReferenceRule:
@@ -80,6 +82,8 @@ parameters:
 			enabled: %ergebnis.allRules%
 		noIsset:
 			enabled: %ergebnis.allRules%
+		noNamedArgument:
+			enabled: %ergebnis.allRules%
 		noNullableReturnTypeDeclaration:
 			enabled: %ergebnis.allRules%
 		noParameterPassedByReference:
@@ -136,6 +140,9 @@ parametersSchema:
 			enabled: bool(),
 		])
 		noIsset: structure([
+			enabled: bool(),
+		])
+		noNamedArgument: structure([
 			enabled: bool(),
 		])
 		noNullableReturnTypeDeclaration: structure([
@@ -213,6 +220,9 @@ services:
 
 	-
 		class: Ergebnis\PHPStan\Rules\Files\DeclareStrictTypesRule
+
+	-
+		class: Ergebnis\PHPStan\Rules\FunctionCalls\NoNamedArgumentRule
 
 	-
 		class: Ergebnis\PHPStan\Rules\Functions\NoNullableReturnTypeDeclarationRule
