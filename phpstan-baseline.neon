@@ -1,6 +1,12 @@
 parameters:
 	ignoreErrors:
 		-
+			message: '#^Parameter \#2 \.\.\.\$values of function sprintf expects bool\|float\|int\|string\|null, PhpParser\\Node\\Expr\|string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/CallLikes/NoNamedArgumentRule.php
+
+		-
 			message: '#^Language construct isset\(\) should not be used\.$#'
 			identifier: ergebnis.noIsset
 			count: 1

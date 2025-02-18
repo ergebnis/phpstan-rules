@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`2.8.0...main`][2.8.0...main].
 
+### Added
+
+- Added `CallLikes\NoNamedArgumentRule`, which reports an error when an anonymous function, a function, or a method is invoked using a named argument ([#914]), by [@localheinz]
+
 ### Changed
 
 - Required `phpstan/phpstan:^2.1.8` ([#938]), by [@localheinz]
