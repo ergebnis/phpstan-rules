@@ -54,51 +54,53 @@ conditionalTags:
 
 parameters:
 	ergebnis:
+		allRules: true
 		declareStrictTypes:
-			enabled: true
+			enabled: %ergebnis.allRules%
 		final:
 			allowAbstractClasses: true
 			classesNotRequiredToBeAbstractOrFinal: []
-			enabled: true
+			enabled: %ergebnis.allRules%
 		finalInAbstractClass:
-			enabled: true
+			enabled: %ergebnis.allRules%
 		noCompact:
-			enabled: true
+			enabled: %ergebnis.allRules%
 		noConstructorParameterWithDefaultValue:
-			enabled: true
+			enabled: %ergebnis.allRules%
 		noErrorSuppression:
-			enabled: true
+			enabled: %ergebnis.allRules%
 		noEval:
-			enabled: true
+			enabled: %ergebnis.allRules%
 		noExtends:
 			classesAllowedToBeExtended: []
-			enabled: true
+			enabled: %ergebnis.allRules%
 		noIsset:
-			enabled: true
+			enabled: %ergebnis.allRules%
 		noNullableReturnTypeDeclaration:
-			enabled: true
+			enabled: %ergebnis.allRules%
 		noParameterPassedByReference:
-			enabled: true
+			enabled: %ergebnis.allRules%
 		noParameterWithContainerTypeDeclaration:
-			enabled: true
+			enabled: %ergebnis.allRules%
 			interfacesImplementedByContainers:
 				- Psr\Container\ContainerInterface
 			methodsAllowedToUseContainerTypeDeclarations: []
 		noParameterWithNullableTypeDeclaration:
-			enabled: true
+			enabled: %ergebnis.allRules%
 		noParameterWithNullDefaultValue:
-			enabled: true
+			enabled: %ergebnis.allRules%
 		noReturnByReference:
-			enabled: true
+			enabled: %ergebnis.allRules%
 		noSwitch:
-			enabled: true
+			enabled: %ergebnis.allRules%
 		privateInFinalClass:
-			enabled: true
+			enabled: %ergebnis.allRules%
 		testCaseWithSuffix:
-			enabled: true
+			enabled: %ergebnis.allRules%
 
 parametersSchema:
 	ergebnis: structure([
+		allRules: bool()
 		declareStrictTypes: structure([
 			enabled: bool(),
 		])
