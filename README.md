@@ -604,6 +604,28 @@ parameters:
 			enabled: false
 ```
 
+## Disabling all rules
+
+You can disable all rules using the `allRules` configuration parameter:
+
+```neon
+parameters:
+	ergebnis:
+		allRules: false
+```
+
+## Enabling rules one-by-one
+
+If you have disabled all rules using the `allRules` configuration parameter, you can re-enable individual rules with their corresponding configuration parameters:
+
+```neon
+parameters:
+	ergebnis:
+		allRules: false
+		privateInFinalClass:
+			enabled: true
+```
+
 ## Changelog
 
 The maintainers of this project record notable changes to this project in a [changelog](CHANGELOG.md).
