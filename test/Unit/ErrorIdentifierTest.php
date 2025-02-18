@@ -126,7 +126,7 @@ final class ErrorIdentifierTest extends Framework\TestCase
         self::assertSame('ergebnis.noParameterWithNullableTypeDeclaration', $errorIdentifier->toString());
     }
 
-    public function testNoReturnByReferenceErrorIdentifier(): void
+    public function testNoReturnByReferenceReturnsErrorIdentifier(): void
     {
         $errorIdentifier = ErrorIdentifier::noReturnByReference();
 
@@ -147,7 +147,7 @@ final class ErrorIdentifierTest extends Framework\TestCase
         self::assertSame('ergebnis.privateInFinalClass', $errorIdentifier->toString());
     }
 
-    public function testTestCaseWithSuffixIdentifier(): void
+    public function testTestCaseWithSuffixReturnsErrorIdentifier(): void
     {
         $errorIdentifier = ErrorIdentifier::testCaseWithSuffix();
 
