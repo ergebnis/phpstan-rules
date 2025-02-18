@@ -11,6 +11,8 @@ conditionalTags:
 		phpstan.rules.rule: %ergebnis.noParameterPassedByReference.enabled%
 	Ergebnis\PHPStan\Rules\Closures\NoParameterWithNullableTypeDeclarationRule:
 		phpstan.rules.rule: %ergebnis.noParameterWithNullableTypeDeclaration.enabled%
+	Ergebnis\PHPStan\Rules\Expressions\NoAssignByReferenceRule:
+		phpstan.rules.rule: %ergebnis.noAssignByReference.enabled%
 	Ergebnis\PHPStan\Rules\Expressions\NoCompactRule:
 		phpstan.rules.rule: %ergebnis.noCompact.enabled%
 	Ergebnis\PHPStan\Rules\Expressions\NoErrorSuppressionRule:
@@ -63,6 +65,8 @@ parameters:
 			enabled: %ergebnis.allRules%
 		finalInAbstractClass:
 			enabled: %ergebnis.allRules%
+		noAssignByReference:
+			enabled: %ergebnis.allRules%
 		noCompact:
 			enabled: %ergebnis.allRules%
 		noConstructorParameterWithDefaultValue:
@@ -110,6 +114,9 @@ parametersSchema:
 			enabled: bool(),
 		])
 		finalInAbstractClass: structure([
+			enabled: bool(),
+		])
+		noAssignByReference: structure([
 			enabled: bool(),
 		])
 		noCompact: structure([
@@ -188,6 +195,9 @@ services:
 
 	-
 		class: Ergebnis\PHPStan\Rules\Closures\NoParameterWithNullableTypeDeclarationRule
+
+	-
+		class: Ergebnis\PHPStan\Rules\Expressions\NoAssignByReferenceRule
 
 	-
 		class: Ergebnis\PHPStan\Rules\Expressions\NoCompactRule
