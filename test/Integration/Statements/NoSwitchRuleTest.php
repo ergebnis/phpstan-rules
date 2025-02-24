@@ -40,7 +40,11 @@ final class NoSwitchRuleTest extends Testing\RuleTestCase
                 ],
                 [
                     'Control structures using switch should not be used.',
-                    7,
+                    15,
+                ],
+                [
+                    'Control structures using switch should not be used.',
+                    23,
                 ],
             ],
         );
