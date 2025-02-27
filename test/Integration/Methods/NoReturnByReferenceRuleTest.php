@@ -37,14 +37,14 @@ final class NoReturnByReferenceRuleTest extends Testing\RuleTestCase
                 [
                     \sprintf(
                         'Method %s::foo() returns by reference.',
-                        Test\Fixture\Methods\NoReturnByReferenceRule\MethodInClassReturningByReference::class,
+                        Test\Fixture\Methods\NoReturnByReferenceRule\ClassWithMethodReturningByReference::class,
                     ),
                     9,
                 ],
                 [
                     \sprintf(
                         'Method %s::foo() returns by reference.',
-                        Test\Fixture\Methods\NoReturnByReferenceRule\MethodInInterfaceReturningByReference::class,
+                        Test\Fixture\Methods\NoReturnByReferenceRule\InterfaceWithMethodReturningByReference::class,
                     ),
                     9,
                 ],

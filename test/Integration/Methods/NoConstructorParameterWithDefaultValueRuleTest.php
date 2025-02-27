@@ -37,14 +37,14 @@ final class NoConstructorParameterWithDefaultValueRuleTest extends Testing\RuleT
                 [
                     \sprintf(
                         'Constructor in %s has parameter $bar with default value.',
-                        Test\Fixture\Methods\NoConstructorParameterWithDefaultValueRule\ConstructorInClassWithParameterWithDefaultValue::class,
+                        Test\Fixture\Methods\NoConstructorParameterWithDefaultValueRule\ClassWithConstructorWithParameterWithDefaultValue::class,
                     ),
                     9,
                 ],
                 [
                     \sprintf(
                         'Constructor in %s has parameter $bar with default value.',
-                        Test\Fixture\Methods\NoConstructorParameterWithDefaultValueRule\ConstructorWithWrongCapitalizationInClassWithParameterWithDefaultValue::class,
+                        Test\Fixture\Methods\NoConstructorParameterWithDefaultValueRule\ClassWithConstructorWithWrongCapitalizationWithParameterWithDefaultValue::class,
                     ),
                     9,
                 ],

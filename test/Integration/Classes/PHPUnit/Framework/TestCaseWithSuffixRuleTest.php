@@ -38,7 +38,7 @@ final class TestCaseWithSuffixRuleTest extends Testing\RuleTestCase
                 [
                     \sprintf(
                         'Class %s extends %s, is concrete, but does not have a Test suffix.',
-                        Test\Fixture\Classes\PHPUnit\Framework\TestCaseWithSuffixRule\ConcreteTestCaseExtendingAbstractTestCaseWithoutSuffix::class,
+                        Test\Fixture\Classes\PHPUnit\Framework\TestCaseWithSuffixRule\TestCaseExtendingAbstractTestCaseWithoutSuffix::class,
                         Framework\TestCase::class,
                     ),
                     7,
@@ -46,7 +46,7 @@ final class TestCaseWithSuffixRuleTest extends Testing\RuleTestCase
                 [
                     \sprintf(
                         'Class %s extends %s, is concrete, but does not have a Test suffix.',
-                        Test\Fixture\Classes\PHPUnit\Framework\TestCaseWithSuffixRule\ConcreteTestCaseWithoutSuffix::class,
+                        Test\Fixture\Classes\PHPUnit\Framework\TestCaseWithSuffixRule\TestCaseWithoutSuffix::class,
                         Framework\TestCase::class,
                     ),
                     9,

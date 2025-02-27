@@ -37,28 +37,28 @@ final class NoParameterPassedByReferenceTest extends Testing\RuleTestCase
                 [
                     \sprintf(
                         'Method %s::foo() has parameter $bar that is passed by reference.',
-                        Test\Fixture\Methods\NoParameterPassedByReferenceRule\MethodInClassWithTypedParameterExplicitlyPassedByReference::class,
+                        Test\Fixture\Methods\NoParameterPassedByReferenceRule\ClassWithMethodWithTypedParameterExplicitlyPassedByReference::class,
                     ),
                     9,
                 ],
                 [
                     \sprintf(
                         'Method %s::foo() has parameter $bar that is passed by reference.',
-                        Test\Fixture\Methods\NoParameterPassedByReferenceRule\MethodInClassWithUntypedParameterExplicitlyPassedByReference::class,
+                        Test\Fixture\Methods\NoParameterPassedByReferenceRule\ClassWithMethodWithUntypedParameterExplicitlyPassedByReference::class,
                     ),
                     9,
                 ],
                 [
                     \sprintf(
                         'Method %s::foo() has parameter $bar that is passed by reference.',
-                        Test\Fixture\Methods\NoParameterPassedByReferenceRule\MethodInInterfaceWithTypedParameterExplicitlyPassedByReference::class,
+                        Test\Fixture\Methods\NoParameterPassedByReferenceRule\InterfaceWithMethodWithTypedParameterExplicitlyPassedByReference::class,
                     ),
                     9,
                 ],
                 [
                     \sprintf(
                         'Method %s::foo() has parameter $bar that is passed by reference.',
-                        Test\Fixture\Methods\NoParameterPassedByReferenceRule\MethodInInterfaceWithUntypedParameterExplicitlyPassedByReference::class,
+                        Test\Fixture\Methods\NoParameterPassedByReferenceRule\InterfaceWithMethodWithUntypedParameterExplicitlyPassedByReference::class,
                     ),
                     9,
                 ],

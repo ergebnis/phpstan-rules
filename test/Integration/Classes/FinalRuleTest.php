@@ -53,65 +53,65 @@ final class FinalRuleTest extends Testing\RuleTestCase
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Test\Fixture\Classes\FinalRule\NeitherAbstractNorFinalClass::class,
+                        Test\Fixture\Classes\FinalRule\ClassWithUnqualifiedDoctrineOrmMappingEntityAttribute::class,
                     ),
                     7,
                 ],
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Test\Fixture\Classes\FinalRule\NonFinalClassWithUnqualifiedDoctrineOrmMappingEntityAttribute::class,
+                        Test\Fixture\Classes\FinalRule\ClassWithUnqualifiedEntityAttribute::class,
                     ),
                     7,
                 ],
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Test\Fixture\Classes\FinalRule\NonFinalClassWithUnqualifiedEntityAttribute::class,
+                        Test\Fixture\Classes\FinalRule\ClassWithUnqualifiedOrmEntityAttribute::class,
                     ),
                     7,
                 ],
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Test\Fixture\Classes\FinalRule\NonFinalClassWithUnqualifiedOrmEntityAttribute::class,
+                        Test\Fixture\Classes\FinalRule\ClassWithUnqualifiedOrmMappingEntityAttribute::class,
                     ),
                     7,
                 ],
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Test\Fixture\Classes\FinalRule\NonFinalClassWithUnqualifiedOrmMappingEntityAttribute::class,
-                    ),
-                    7,
-                ],
-                [
-                    \sprintf(
-                        'Class %s is not final.',
-                        Test\Fixture\Classes\FinalRule\NonFinalClassWithoutEntityAnnotationInInlineDocBlock::class,
+                        Test\Fixture\Classes\FinalRule\ClassWithoutEntityAnnotationInInlineDocBlock::class,
                     ),
                     8,
                 ],
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Test\Fixture\Classes\FinalRule\NonFinalClassWithoutEntityAnnotationInMultilineDocBlock::class,
+                        Test\Fixture\Classes\FinalRule\ClassWithoutEntityAnnotationInMultilineDocBlock::class,
                     ),
                     12,
                 ],
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Test\Fixture\Classes\FinalRule\NonFinalClassWithoutOrmEntityAnnotationInInlineDocBlock::class,
+                        Test\Fixture\Classes\FinalRule\ClassWithoutOrmEntityAnnotationInInlineDocBlock::class,
                     ),
                     8,
                 ],
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Test\Fixture\Classes\FinalRule\NonFinalClassWithoutOrmEntityAnnotationInMultilineDocBlock::class,
+                        Test\Fixture\Classes\FinalRule\ClassWithoutOrmEntityAnnotationInMultilineDocBlock::class,
                     ),
                     12,
+                ],
+                [
+                    \sprintf(
+                        'Class %s is not final.',
+                        Test\Fixture\Classes\FinalRule\ExampleClass::class,
+                    ),
+                    7,
                 ],
             ],
         );
@@ -128,65 +128,65 @@ final class FinalRuleTest extends Testing\RuleTestCase
                 [
                     \sprintf(
                         'Class %s is neither abstract nor final.',
-                        Test\Fixture\Classes\FinalRule\NeitherAbstractNorFinalClass::class,
+                        Test\Fixture\Classes\FinalRule\ClassWithUnqualifiedDoctrineOrmMappingEntityAttribute::class,
                     ),
                     7,
                 ],
                 [
                     \sprintf(
                         'Class %s is neither abstract nor final.',
-                        Test\Fixture\Classes\FinalRule\NonFinalClassWithUnqualifiedDoctrineOrmMappingEntityAttribute::class,
+                        Test\Fixture\Classes\FinalRule\ClassWithUnqualifiedEntityAttribute::class,
                     ),
                     7,
                 ],
                 [
                     \sprintf(
                         'Class %s is neither abstract nor final.',
-                        Test\Fixture\Classes\FinalRule\NonFinalClassWithUnqualifiedEntityAttribute::class,
+                        Test\Fixture\Classes\FinalRule\ClassWithUnqualifiedOrmEntityAttribute::class,
                     ),
                     7,
                 ],
                 [
                     \sprintf(
                         'Class %s is neither abstract nor final.',
-                        Test\Fixture\Classes\FinalRule\NonFinalClassWithUnqualifiedOrmEntityAttribute::class,
+                        Test\Fixture\Classes\FinalRule\ClassWithUnqualifiedOrmMappingEntityAttribute::class,
                     ),
                     7,
                 ],
                 [
                     \sprintf(
                         'Class %s is neither abstract nor final.',
-                        Test\Fixture\Classes\FinalRule\NonFinalClassWithUnqualifiedOrmMappingEntityAttribute::class,
-                    ),
-                    7,
-                ],
-                [
-                    \sprintf(
-                        'Class %s is neither abstract nor final.',
-                        Test\Fixture\Classes\FinalRule\NonFinalClassWithoutEntityAnnotationInInlineDocBlock::class,
+                        Test\Fixture\Classes\FinalRule\ClassWithoutEntityAnnotationInInlineDocBlock::class,
                     ),
                     8,
                 ],
                 [
                     \sprintf(
                         'Class %s is neither abstract nor final.',
-                        Test\Fixture\Classes\FinalRule\NonFinalClassWithoutEntityAnnotationInMultilineDocBlock::class,
+                        Test\Fixture\Classes\FinalRule\ClassWithoutEntityAnnotationInMultilineDocBlock::class,
                     ),
                     12,
                 ],
                 [
                     \sprintf(
                         'Class %s is neither abstract nor final.',
-                        Test\Fixture\Classes\FinalRule\NonFinalClassWithoutOrmEntityAnnotationInInlineDocBlock::class,
+                        Test\Fixture\Classes\FinalRule\ClassWithoutOrmEntityAnnotationInInlineDocBlock::class,
                     ),
                     8,
                 ],
                 [
                     \sprintf(
                         'Class %s is neither abstract nor final.',
-                        Test\Fixture\Classes\FinalRule\NonFinalClassWithoutOrmEntityAnnotationInMultilineDocBlock::class,
+                        Test\Fixture\Classes\FinalRule\ClassWithoutOrmEntityAnnotationInMultilineDocBlock::class,
                     ),
                     12,
+                ],
+                [
+                    \sprintf(
+                        'Class %s is neither abstract nor final.',
+                        Test\Fixture\Classes\FinalRule\ExampleClass::class,
+                    ),
+                    7,
                 ],
             ],
         );
@@ -196,7 +196,7 @@ final class FinalRuleTest extends Testing\RuleTestCase
     {
         $this->allowAbstractClasses = false;
         $this->classesNotRequiredToBeAbstractOrFinal = [
-            Test\Fixture\Classes\FinalRule\NeitherAbstractNorFinalClass::class,
+            Test\Fixture\Classes\FinalRule\ExampleClass::class,
         ];
 
         $this->analyse(
@@ -212,56 +212,56 @@ final class FinalRuleTest extends Testing\RuleTestCase
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Test\Fixture\Classes\FinalRule\NonFinalClassWithUnqualifiedDoctrineOrmMappingEntityAttribute::class,
+                        Test\Fixture\Classes\FinalRule\ClassWithUnqualifiedDoctrineOrmMappingEntityAttribute::class,
                     ),
                     7,
                 ],
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Test\Fixture\Classes\FinalRule\NonFinalClassWithUnqualifiedEntityAttribute::class,
+                        Test\Fixture\Classes\FinalRule\ClassWithUnqualifiedEntityAttribute::class,
                     ),
                     7,
                 ],
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Test\Fixture\Classes\FinalRule\NonFinalClassWithUnqualifiedOrmEntityAttribute::class,
+                        Test\Fixture\Classes\FinalRule\ClassWithUnqualifiedOrmEntityAttribute::class,
                     ),
                     7,
                 ],
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Test\Fixture\Classes\FinalRule\NonFinalClassWithUnqualifiedOrmMappingEntityAttribute::class,
+                        Test\Fixture\Classes\FinalRule\ClassWithUnqualifiedOrmMappingEntityAttribute::class,
                     ),
                     7,
                 ],
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Test\Fixture\Classes\FinalRule\NonFinalClassWithoutEntityAnnotationInInlineDocBlock::class,
+                        Test\Fixture\Classes\FinalRule\ClassWithoutEntityAnnotationInInlineDocBlock::class,
                     ),
                     8,
                 ],
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Test\Fixture\Classes\FinalRule\NonFinalClassWithoutEntityAnnotationInMultilineDocBlock::class,
+                        Test\Fixture\Classes\FinalRule\ClassWithoutEntityAnnotationInMultilineDocBlock::class,
                     ),
                     12,
                 ],
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Test\Fixture\Classes\FinalRule\NonFinalClassWithoutOrmEntityAnnotationInInlineDocBlock::class,
+                        Test\Fixture\Classes\FinalRule\ClassWithoutOrmEntityAnnotationInInlineDocBlock::class,
                     ),
                     8,
                 ],
                 [
                     \sprintf(
                         'Class %s is not final.',
-                        Test\Fixture\Classes\FinalRule\NonFinalClassWithoutOrmEntityAnnotationInMultilineDocBlock::class,
+                        Test\Fixture\Classes\FinalRule\ClassWithoutOrmEntityAnnotationInMultilineDocBlock::class,
                     ),
                     12,
                 ],

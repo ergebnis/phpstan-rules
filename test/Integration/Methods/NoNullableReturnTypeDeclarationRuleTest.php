@@ -39,28 +39,28 @@ final class NoNullableReturnTypeDeclarationRuleTest extends Testing\RuleTestCase
                 [
                     \sprintf(
                         'Method %s::toString() has a nullable return type declaration.',
-                        Test\Fixture\Methods\NoNullableReturnTypeDeclarationRule\MethodInClassWithNullableReturnTypeDeclaration::class,
+                        Test\Fixture\Methods\NoNullableReturnTypeDeclarationRule\ClassWithMethodWithNullableReturnTypeDeclaration::class,
                     ),
                     9,
                 ],
                 [
                     \sprintf(
                         'Method %s::toString() has a nullable return type declaration.',
-                        Test\Fixture\Methods\NoNullableReturnTypeDeclarationRule\MethodInClassWithNullableUnionReturnTypeDeclaration::class,
+                        Test\Fixture\Methods\NoNullableReturnTypeDeclarationRule\ClassWithMethodWithNullableUnionReturnTypeDeclaration::class,
                     ),
                     9,
                 ],
                 [
                     \sprintf(
                         'Method %s::toString() has a nullable return type declaration.',
-                        Test\Fixture\Methods\NoNullableReturnTypeDeclarationRule\MethodInInterfaceWithNullableReturnTypeDeclaration::class,
+                        Test\Fixture\Methods\NoNullableReturnTypeDeclarationRule\InterfaceWithMethodWithNullableReturnTypeDeclaration::class,
                     ),
                     9,
                 ],
                 [
                     \sprintf(
                         'Method %s::toString() has a nullable return type declaration.',
-                        Test\Fixture\Methods\NoNullableReturnTypeDeclarationRule\MethodInInterfaceWithNullableUnionReturnTypeDeclaration::class,
+                        Test\Fixture\Methods\NoNullableReturnTypeDeclarationRule\InterfaceWithMethodWithNullableUnionReturnTypeDeclaration::class,
                     ),
                     9,
                 ],

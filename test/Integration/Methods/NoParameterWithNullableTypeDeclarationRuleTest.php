@@ -39,28 +39,28 @@ final class NoParameterWithNullableTypeDeclarationRuleTest extends Testing\RuleT
                 [
                     \sprintf(
                         'Method %s::foo() has parameter $bar with a nullable type declaration.',
-                        Test\Fixture\Methods\NoParameterWithNullableTypeDeclarationRule\MethodInClassWithParameterWithNullableTypeDeclaration::class,
+                        Test\Fixture\Methods\NoParameterWithNullableTypeDeclarationRule\ClassWithMethodWithParameterWithNullableTypeDeclaration::class,
                     ),
                     9,
                 ],
                 [
                     \sprintf(
                         'Method %s::foo() has parameter $bar with a nullable type declaration.',
-                        Test\Fixture\Methods\NoParameterWithNullableTypeDeclarationRule\MethodInClassWithParameterWithNullableUnionTypeDeclaration::class,
+                        Test\Fixture\Methods\NoParameterWithNullableTypeDeclarationRule\ClassWithMethodWithParameterWithNullableUnionTypeDeclaration::class,
                     ),
                     9,
                 ],
                 [
                     \sprintf(
                         'Method %s::foo() has parameter $bar with a nullable type declaration.',
-                        Test\Fixture\Methods\NoParameterWithNullableTypeDeclarationRule\MethodInInterfaceWithParameterWithNullableTypeDeclaration::class,
+                        Test\Fixture\Methods\NoParameterWithNullableTypeDeclarationRule\InterfaceWithMethodWithParameterWithNullableTypeDeclaration::class,
                     ),
                     9,
                 ],
                 [
                     \sprintf(
                         'Method %s::foo() has parameter $bar with a nullable type declaration.',
-                        Test\Fixture\Methods\NoParameterWithNullableTypeDeclarationRule\MethodInInterfaceWithParameterWithNullableUnionTypeDeclaration::class,
+                        Test\Fixture\Methods\NoParameterWithNullableTypeDeclarationRule\InterfaceWithMethodWithParameterWithNullableUnionTypeDeclaration::class,
                     ),
                     9,
                 ],

@@ -39,42 +39,42 @@ final class NoParameterWithNullDefaultValueRuleTest extends Testing\RuleTestCase
                 [
                     \sprintf(
                         'Method %s::foo() has parameter $bar with null as default value.',
-                        Test\Fixture\Methods\NoParameterWithNullDefaultValueRule\MethodInClassWithParameterWithNullDefaultValue::class,
+                        Test\Fixture\Methods\NoParameterWithNullDefaultValueRule\ClassWithMethodWithParameterWithNullDefaultValue::class,
                     ),
                     9,
                 ],
                 [
                     \sprintf(
                         'Method %s::foo() has parameter $bar with null as default value.',
-                        Test\Fixture\Methods\NoParameterWithNullDefaultValueRule\MethodInClassWithParameterWithRootNamespaceReferencedNullDefaultValue::class,
+                        Test\Fixture\Methods\NoParameterWithNullDefaultValueRule\ClassWithMethodWithParameterWithRootNamespaceReferencedNullDefaultValue::class,
                     ),
                     9,
                 ],
                 [
                     \sprintf(
                         'Method %s::foo() has parameter $bar with null as default value.',
-                        Test\Fixture\Methods\NoParameterWithNullDefaultValueRule\MethodInClassWithParameterWithWronglyCapitalizedNullDefaultValue::class,
+                        Test\Fixture\Methods\NoParameterWithNullDefaultValueRule\ClassWithMethodWithParameterWithWronglyCapitalizedNullDefaultValue::class,
                     ),
                     9,
                 ],
                 [
                     \sprintf(
                         'Method %s::foo() has parameter $bar with null as default value.',
-                        Test\Fixture\Methods\NoParameterWithNullDefaultValueRule\MethodInInterfaceWithParameterWithNullDefaultValue::class,
+                        Test\Fixture\Methods\NoParameterWithNullDefaultValueRule\InterfaceWithMethodWithParameterWithNullDefaultValue::class,
                     ),
                     9,
                 ],
                 [
                     \sprintf(
                         'Method %s::foo() has parameter $bar with null as default value.',
-                        Test\Fixture\Methods\NoParameterWithNullDefaultValueRule\MethodInInterfaceWithParameterWithRootNamespaceReferencedNullDefaultValue::class,
+                        Test\Fixture\Methods\NoParameterWithNullDefaultValueRule\InterfaceWithMethodWithParameterWithRootNamespaceReferencedNullDefaultValue::class,
                     ),
                     9,
                 ],
                 [
                     \sprintf(
                         'Method %s::foo() has parameter $bar with null as default value.',
-                        Test\Fixture\Methods\NoParameterWithNullDefaultValueRule\MethodInInterfaceWithParameterWithWronlgyCapitalizedNullDefaultValue::class,
+                        Test\Fixture\Methods\NoParameterWithNullDefaultValueRule\InterfaceWithMethodWithParameterWithWronglyCapitalizedNullDefaultValue::class,
                     ),
                     9,
                 ],
