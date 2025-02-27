@@ -75,6 +75,11 @@ final class ErrorIdentifier
         return new self('noIsset');
     }
 
+    public static function noNamedArgument(): self
+    {
+        return new self('noNamedArgument');
+    }
+
     public static function noParameterPassedByReference(): self
     {
         return new self('noParameterPassedByReference');
