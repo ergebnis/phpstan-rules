@@ -41,11 +41,14 @@ $config->getFinder()
         'Closures/NoParameterWithNullableTypeDeclarationRule/script.php',
         'Functions/NoNullableReturnTypeDeclarationRule/script.php',
         'Functions/NoParameterWithNullableTypeDeclarationRule/script.php',
+        'Methods/NoNullableReturnTypeDeclarationRule/ClassWithMethodWithNullableUnionReturnTypeDeclaration.php',
+        'Methods/NoNullableReturnTypeDeclarationRule/InterfaceWithMethodWithNullableUnionReturnTypeDeclaration.php',
         'Methods/NoNullableReturnTypeDeclarationRule/MethodInClassWithNullableUnionReturnTypeDeclaration.php',
         'Methods/NoNullableReturnTypeDeclarationRule/MethodInInterfaceWithNullableUnionReturnTypeDeclaration.php',
         'Methods/NoNullableReturnTypeDeclarationRule/script.php',
-        'Methods/NoParameterWithNullableTypeDeclarationRule/MethodInClassWithParameterWithNullableUnionTypeDeclaration.php',
-        'Methods/NoParameterWithNullableTypeDeclarationRule/MethodInInterfaceWithParameterWithNullableUnionTypeDeclaration.php',
+        'Methods/NoNullableReturnTypeDeclarationRule/TraitWithMethodWithNullableUnionReturnTypeDeclaration.php',
+        'Methods/NoParameterWithNullableTypeDeclarationRule/ClassWithMethodWithParameterWithNullableUnionTypeDeclaration.php',
+        'Methods/NoParameterWithNullableTypeDeclarationRule/InterfaceWithMethodWithParameterWithNullableUnionTypeDeclaration.php',
         'Methods/NoParameterWithNullableTypeDeclarationRule/script.php',
     ]);
 
