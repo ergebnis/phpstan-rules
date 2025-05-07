@@ -39,6 +39,7 @@ $config->getFinder()
     ->notPath([
         'Closures/NoNullableReturnTypeDeclarationRule/script.php',
         'Closures/NoParameterWithNullableTypeDeclarationRule/script.php',
+        'FunctionCalls/NoNamedArgumentRule/script.php',
         'Functions/NoNullableReturnTypeDeclarationRule/script.php',
         'Functions/NoParameterWithNullableTypeDeclarationRule/script.php',
         'Methods/NoNullableReturnTypeDeclarationRule/MethodInClassWithNullableUnionReturnTypeDeclaration.php',
