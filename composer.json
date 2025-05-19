@@ -33,7 +33,7 @@
     "ergebnis/phpunit-slow-test-detector": "^2.19.1",
     "nette/di": "^3.1.10",
     "phpstan/extension-installer": "^1.4.3",
-    "phpstan/phpstan-deprecation-rules": "^2.0.1",
+    "phpstan/phpstan-deprecation-rules": "^2.0.3",
     "phpstan/phpstan-phpunit": "^2.0.4",
     "phpstan/phpstan-strict-rules": "^2.0.3",
     "phpunit/phpunit": "^9.6.21",
