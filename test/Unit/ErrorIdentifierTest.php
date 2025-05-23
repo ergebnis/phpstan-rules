@@ -91,6 +91,13 @@ final class ErrorIdentifierTest extends Framework\TestCase
         self::assertSame('ergebnis.noIsset', $errorIdentifier->toString());
     }
 
+    public function testNoNamedArgumentReturnsErrorIdentifier(): void
+    {
+        $errorIdentifier = ErrorIdentifier::noNamedArgument();
+
+        self::assertSame('ergebnis.noNamedArgument', $errorIdentifier->toString());
+    }
+
     public function testNoNullableReturnTypeDeclarationReturnsErrorIdentifier(): void
     {
         $errorIdentifier = ErrorIdentifier::noNullableReturnTypeDeclaration();
