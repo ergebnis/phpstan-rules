@@ -409,7 +409,7 @@ parameters:
 
 #### `Methods\FinalInAbstractClassRule`
 
-This rule reports an error when a concrete `public` or `protected `method in an `abstract` class is not `final`.
+This rule reports an error when a concrete `public` or `protected` method in an `abstract` class is not `final`.
 
 :bulb: This rule ignores
 
