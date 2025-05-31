@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`2.9.0...main`][2.9.0...main].
 
+### Added
+
+- Added `Methods\InvokeParentHookMethodRule`, which reports an error when a hook method that overrides a hook method in a parent class does not invoke the overridden hook method in the expected order ([#939]), by [@localheinz]
+
 ## [`2.9.0`][2.9.0]
 
 For a full diff see [`2.8.0...2.9.0`][2.8.0...2.9.0].
@@ -640,6 +644,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#913]: https://github.com/ergebnis/phpstan-rules/pull/913
 [#914]: https://github.com/ergebnis/phpstan-rules/pull/914
 [#938]: https://github.com/ergebnis/phpstan-rules/pull/938
+[#939]: https://github.com/ergebnis/phpstan-rules/pull/939
 
 [@cosmastech]: https://github.com/cosmastech
 [@enumag]: https://github.com/enumag

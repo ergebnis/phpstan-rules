@@ -40,6 +40,11 @@ final class ErrorIdentifier
         return new self('finalInAbstractClass');
     }
 
+    public static function invokeParentMethod(): self
+    {
+        return new self('invokeParentMethod');
+    }
+
     public static function noCompact(): self
     {
         return new self('noCompact');
