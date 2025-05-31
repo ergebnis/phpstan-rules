@@ -42,6 +42,13 @@ final class ErrorIdentifierTest extends Framework\TestCase
         self::assertSame('ergebnis.final', $errorIdentifier->toString());
     }
 
+    public function testInvokeParentMethodReturnsErrorIdentifier(): void
+    {
+        $errorIdentifier = ErrorIdentifier::invokeParentMethod();
+
+        self::assertSame('ergebnis.invokeParentMethod', $errorIdentifier->toString());
+    }
+
     public function testNoAssignByReferenceReturnsErrorIdentifier(): void
     {
         $errorIdentifier = ErrorIdentifier::noAssignByReference();
