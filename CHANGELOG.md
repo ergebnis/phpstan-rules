@@ -14,7 +14,7 @@ For a full diff see [`2.7.0...2.8.0`][2.7.0...2.8.0].
 
 ### Added
 
-- Added `allRules` parameter to allow disabling and enabling all rules  ([#913]), by [@localheinz]
+- Added `allRules` parameter to allow disabling and enabling all rules ([#913]), by [@localheinz]
 - Added `Expressions\NoAssignByReferenceRule`, which reports an error when a variable is assigned by reference ([#914]), by [@localheinz]
 
 ## [`2.7.0`][2.7.0]
