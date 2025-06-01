@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Ergebnis\PHPStan\Rules;
 
 /**
- * @internale
+ * @internal
  */
 final class ErrorIdentifier
 {
