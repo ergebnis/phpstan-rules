@@ -31,7 +31,7 @@ final class FinalInAbstractClassRule implements Rules\Rule
         ORM\Mapping\Embeddable::class,
         ORM\Mapping\Entity::class,
     ];
-    private const DOCTRINE_TAG_NAMES = [
+    private const DOCTRINE_ANNOTATION_NAMES = [
         '@ORM\\Mapping\\Embeddable',
         '@ORM\\Embeddable',
         '@Embeddable',
@@ -112,7 +112,7 @@ final class FinalInAbstractClassRule implements Rules\Rule
                         continue;
                     }
 
-                    if (\in_array($child->name, self::DOCTRINE_TAG_NAMES, true)) {
+                    if (\in_array($child->name, self::DOCTRINE_ANNOTATION_NAMES, true)) {
                         return true;
                     }
                 }
