@@ -150,7 +150,7 @@ This rule reports an error when a class extends another class.
 
 By default, this rule allows the following classes to be extended:
 
-- [`PHPUnit\Framework\TestCase`](https://github.com/sebastianbergmann/phpunit/blob/7.5.2/src/Framework/TestCase.php)
+- [`PHPUnit\Framework\TestCase`](https://github.com/sebastianbergmann/phpunit/blob/6.0.0/src/Framework/TestCase.php)
 
 ##### Disabling the rule
 
