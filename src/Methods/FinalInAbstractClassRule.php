@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Methods;
 
+use Doctrine\ORM;
 use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Node;
 use PHPStan\Analyser;
@@ -27,8 +28,8 @@ use PHPStan\Rules;
 final class FinalInAbstractClassRule implements Rules\Rule
 {
     private const DOCTRINE_ATTRIBUTE_NAMES = [
-        'Doctrine\\ORM\\Mapping\\Embeddable',
-        'Doctrine\\ORM\\Mapping\\Entity',
+        ORM\Mapping\Embeddable::class,
+        ORM\Mapping\Entity::class,
     ];
     private const DOCTRINE_TAG_NAMES = [
         '@ORM\\Mapping\\Embeddable',
