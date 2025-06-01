@@ -25,11 +25,6 @@ final class ErrorIdentifier
         $this->value = $value;
     }
 
-    public static function fromString(string $value): self
-    {
-        return new self($value);
-    }
-
     public static function declareStrictTypes(): self
     {
         return new self('declareStrictTypes');
