@@ -7,6 +7,12 @@ parameters:
 			path: src/CallLikes/NoNamedArgumentRule.php
 
 		-
+			message: '#^Method Ergebnis\\PHPStan\\Rules\\ClassName\:\:toString\(\) should return class\-string but returns string\.$#'
+			identifier: return.type
+			count: 1
+			path: src/ClassName.php
+
+		-
 			message: '#^Language construct isset\(\) should not be used\.$#'
 			identifier: ergebnis.noIsset
 			count: 1
@@ -29,6 +35,48 @@ parameters:
 			identifier: ergebnis.noIsset
 			count: 1
 			path: src/Functions/NoNullableReturnTypeDeclarationRule.php
+
+		-
+			message: '#^Method Ergebnis\\PHPStan\\Rules\\Invocation\:\:toString\(\) should return non\-empty\-string but returns string\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Invocation.php
+
+		-
+			message: '#^Method Ergebnis\\PHPStan\\Rules\\MethodName\:\:toString\(\) should return non\-empty\-string but returns string\.$#'
+			identifier: return.type
+			count: 1
+			path: src/MethodName.php
+
+		-
+			message: '#^Constructor in Ergebnis\\PHPStan\\Rules\\Methods\\InvokeParentHookMethodRule has parameter \$hookMethods with default value\.$#'
+			identifier: ergebnis.noConstructorParameterWithDefaultValue
+			count: 1
+			path: src/Methods/InvokeParentHookMethodRule.php
+
+		-
+			message: '#^Method Ergebnis\\PHPStan\\Rules\\Methods\\InvokeParentHookMethodRule\:\:findMatchingHookMethod\(\) has a nullable return type declaration\.$#'
+			identifier: ergebnis.noNullableReturnTypeDeclaration
+			count: 1
+			path: src/Methods/InvokeParentHookMethodRule.php
+
+		-
+			message: '#^Method Ergebnis\\PHPStan\\Rules\\Methods\\InvokeParentHookMethodRule\:\:findParentHookMethodInvocation\(\) has a nullable return type declaration\.$#'
+			identifier: ergebnis.noNullableReturnTypeDeclaration
+			count: 1
+			path: src/Methods/InvokeParentHookMethodRule.php
+
+		-
+			message: '#^Parameter \#1 \$value of static method Ergebnis\\PHPStan\\Rules\\ClassName\:\:fromString\(\) expects class\-string, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Methods/InvokeParentHookMethodRule.php
+
+		-
+			message: '#^Parameter \#1 \$value of static method Ergebnis\\PHPStan\\Rules\\MethodName\:\:fromString\(\) expects non\-empty\-string, string given\.$#'
+			identifier: argument.type
+			count: 2
+			path: src/Methods/InvokeParentHookMethodRule.php
 
 		-
 			message: '#^Method Ergebnis\\PHPStan\\Rules\\Methods\\NoParameterWithContainerTypeDeclarationRule\:\:processNode\(\) should return list\<PHPStan\\Rules\\IdentifierRuleError\> but returns list\.$#'
@@ -59,4 +107,22 @@ parameters:
 			identifier: class.notFound
 			count: 1
 			path: src/Methods/PrivateInFinalClassRule.php
+
+		-
+			message: '#^Parameter \#2 \$hookMethods of class Ergebnis\\PHPStan\\Rules\\Methods\\InvokeParentHookMethodRule constructor expects array\<class\-string, array\<string, string\>\>, array\<int, array\<string, string\>\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: test/Integration/Methods/InvokeParentHookMethodRuleWithCustomConfigurationTest.php
+
+		-
+			message: '#^Parameter \#3 \$invocation of static method Ergebnis\\PHPStan\\Rules\\HookMethod\:\:create\(\) expects Ergebnis\\PHPStan\\Rules\\Invocation, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: test/Unit/HookMethodTest.php
+
+		-
+			message: '#^Parameter \#4 \$hasContent of static method Ergebnis\\PHPStan\\Rules\\HookMethod\:\:create\(\) expects Ergebnis\\PHPStan\\Rules\\HasContent, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: test/Unit/HookMethodTest.php
 
