@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`2.10.1...main`][2.10.1...main].
 
+### Fixed
+
+- Renamed error identifier for `Methods\InvokeParentHookMethodRule` ([#943]), by [@localheinz]
+
 ## [`2.10.1`][2.10.1]
 
 For a full diff see [`2.10.0...2.10.1`][2.10.0...2.10.1].
@@ -662,6 +666,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#938]: https://github.com/ergebnis/phpstan-rules/pull/938
 [#939]: https://github.com/ergebnis/phpstan-rules/pull/939
 [#940]: https://github.com/ergebnis/phpstan-rules/pull/940
+[#943]: https://github.com/ergebnis/phpstan-rules/pull/943
 
 [@cosmastech]: https://github.com/cosmastech
 [@enumag]: https://github.com/enumag
