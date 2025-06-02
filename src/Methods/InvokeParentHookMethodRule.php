@@ -126,7 +126,7 @@ final class InvokeParentHookMethodRule implements Rules\Rule
 
             return [
                 Rules\RuleErrorBuilder::message($message)
-                    ->identifier(ErrorIdentifier::invokeParentMethod()->toString())
+                    ->identifier(ErrorIdentifier::invokeParentHookMethod()->toString())
                     ->build(),
             ];
         }
@@ -145,7 +145,7 @@ final class InvokeParentHookMethodRule implements Rules\Rule
 
             return [
                 Rules\RuleErrorBuilder::message($message)
-                    ->identifier(ErrorIdentifier::invokeParentMethod()->toString())
+                    ->identifier(ErrorIdentifier::invokeParentHookMethod()->toString())
                     ->build(),
             ];
         }
@@ -160,7 +160,7 @@ final class InvokeParentHookMethodRule implements Rules\Rule
 
             return [
                 Rules\RuleErrorBuilder::message($message)
-                    ->identifier(ErrorIdentifier::invokeParentMethod()->toString())
+                    ->identifier(ErrorIdentifier::invokeParentHookMethod()->toString())
                     ->build(),
             ];
         }
