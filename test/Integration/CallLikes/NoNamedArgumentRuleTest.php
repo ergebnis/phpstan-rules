@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/phpstan-rules
  */
 
-namespace CallLikes;
+namespace Ergebnis\PHPStan\Rules\Test\Integration\CallLikes;
 
 use Ergebnis\PHPStan\Rules\CallLikes;
 use Ergebnis\PHPStan\Rules\Test;
