@@ -112,7 +112,7 @@ final class InvokeParentHookMethodRule implements Rules\Rule
             $hookMethod,
         );
 
-        if (!$parentHookMethodInvocation instanceof Invocation) {
+        if ($parentHookMethodInvocation->equals(Invocation::never())) {
             if ($hookMethod->hasContent()->equals(HasContent::no())) {
                 return [];
             }
@@ -211,7 +211,7 @@ final class InvokeParentHookMethodRule implements Rules\Rule
     private static function findParentHookMethodInvocation(
         array $statements,
         HookMethod $hookMethod
-    ): ?Invocation {
+    ): Invocation {
         $statementCount = \count($statements);
 
         foreach ($statements as $index => $statement) {
@@ -254,7 +254,7 @@ final class InvokeParentHookMethodRule implements Rules\Rule
             }
         }
 
-        return null;
+        return Invocation::never();
     }
 
     /**
