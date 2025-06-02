@@ -2,6 +2,7 @@
   "symbol-whitelist": [
     "array",
     "bool",
+    "Doctrine\\ORM\\Mapping\\Embeddable",
     "Doctrine\\ORM\\Mapping\\Entity",
     "false",
     "null",
@@ -48,6 +49,7 @@
     "PHPUnit\\Framework\\Attributes\\Before",
     "PHPUnit\\Framework\\Attributes\\PostCondition",
     "PHPUnit\\Framework\\Attributes\\PreCondition",
+    "PHPUnit\\Framework\\TestCase",
     "self",
     "string",
     "true"
