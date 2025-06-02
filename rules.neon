@@ -130,7 +130,7 @@ parametersSchema:
 			hookMethods: listOf(structure([
 				className: string(),
 				hasContent: anyOf("no", "yes"),
-				invocation: anyOf("after", "any", "before"),
+				invocation: anyOf("any", "first", "last", "never"),
 				methodName: string(),
 			]))
 		])
