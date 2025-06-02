@@ -61,12 +61,6 @@ parameters:
 			path: src/Methods/InvokeParentHookMethodRule.php
 
 		-
-			message: '#^Method Ergebnis\\PHPStan\\Rules\\Methods\\InvokeParentHookMethodRule\:\:findParentHookMethodInvocation\(\) has a nullable return type declaration\.$#'
-			identifier: ergebnis.noNullableReturnTypeDeclaration
-			count: 1
-			path: src/Methods/InvokeParentHookMethodRule.php
-
-		-
 			message: '#^Parameter \#1 \$value of static method Ergebnis\\PHPStan\\Rules\\ClassName\:\:fromString\(\) expects class\-string, string given\.$#'
 			identifier: argument.type
 			count: 1
