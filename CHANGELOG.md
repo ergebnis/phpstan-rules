@@ -12,7 +12,6 @@ For a full diff see [`2.10.2...main`][2.10.2...main].
 
 - Adjusted `Methods\InvokeParentHookMethodRule` to ignore comments ([#944]), by [@localheinz]
 
-
 ## [`2.10.2`][2.10.2]
 
 For a full diff see [`2.10.1...2.10.2`][2.10.1...2.10.2].
