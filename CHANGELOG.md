@@ -10,7 +10,7 @@ For a full diff see [`2.10.2...main`][2.10.2...main].
 
 ### Fixed
 
-- Adjusted `Methods\InvokeParentHookMethodRule` to ignore comments ([#943]), by [@localheinz]
+- Adjusted `Methods\InvokeParentHookMethodRule` to ignore comments ([#944]), by [@localheinz]
 
 
 ## [`2.10.2`][2.10.2]
@@ -678,6 +678,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#939]: https://github.com/ergebnis/phpstan-rules/pull/939
 [#940]: https://github.com/ergebnis/phpstan-rules/pull/940
 [#943]: https://github.com/ergebnis/phpstan-rules/pull/943
+[#944]: https://github.com/ergebnis/phpstan-rules/pull/944
 
 [@cosmastech]: https://github.com/cosmastech
 [@enumag]: https://github.com/enumag
