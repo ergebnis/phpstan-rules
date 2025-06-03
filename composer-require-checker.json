@@ -35,6 +35,7 @@
     "PhpParser\\Node\\Stmt\\Expression",
     "PhpParser\\Node\\Stmt\\Function_",
     "PhpParser\\Node\\Stmt\\InlineHTML",
+    "PhpParser\\Node\\Stmt\\Nop",
     "PhpParser\\Node\\Stmt\\Switch_",
     "PhpParser\\Node\\UnionType",
     "PHPStan\\Analyser\\Scope",

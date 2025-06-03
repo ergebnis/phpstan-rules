@@ -212,9 +212,17 @@ final class InvokeParentHookMethodRule implements Rules\Rule
         array $statements,
         HookMethod $hookMethod
     ): Invocation {
-        $statementCount = \count($statements);
+        $statementsWithOperations = \array_filter($statements, static function (Node $statement): bool {
+            if ($statement instanceof Node\Stmt\Nop) {
+                return false;
+            }
 
-        foreach ($statements as $index => $statement) {
+            return true;
+        });
+
+        $statementCount = \count($statementsWithOperations);
+
+        foreach ($statementsWithOperations as $index => $statement) {
             if (!$statement instanceof Node\Stmt\Expression) {
                 continue;
             }
