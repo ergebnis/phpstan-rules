@@ -8,6 +8,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`2.10.2...main`][2.10.2...main].
 
+### Fixed
+
+- Adjusted `Methods\InvokeParentHookMethodRule` to ignore comments ([#943]), by [@localheinz]
+
+
 ## [`2.10.2`][2.10.2]
 
 For a full diff see [`2.10.1...2.10.2`][2.10.1...2.10.2].
