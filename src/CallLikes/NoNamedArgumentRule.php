@@ -139,7 +139,26 @@ final class NoNamedArgumentRule implements Rules\Rule
 
         if ($node instanceof Node\Expr\StaticCall) {
             $className = $node->class;
+
+            /** @var Node\Identifier $methodName */
             $methodName = $node->name;
+
+            if ($className instanceof Node\Expr\Variable) {
+                return \array_map(static function (Node\Arg $namedArgument) use ($methodName): Rules\RuleError {
+                    /** @var Node\Identifier $argumentName */
+                    $argumentName = $namedArgument->name;
+
+                    $message = \sprintf(
+                        'Method %s() is invoked with named argument for parameter $%s.',
+                        $methodName,
+                        $argumentName->toString(),
+                    );
+
+                    return Rules\RuleErrorBuilder::message($message)
+                        ->identifier(ErrorIdentifier::noNamedArgument()->toString())
+                        ->build();
+                }, $namedArguments);
+            }
 
             return \array_map(static function (Node\Arg $namedArgument) use ($className, $methodName): Rules\RuleError {
                 /** @var Node\Identifier $argumentName */

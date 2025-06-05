@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`2.10.3...main`][2.10.3...main].
 
+### Fixed
+
+- Adjusted `Methods\NoNamedArgumentRule` to handle static calls on variable expressions ([#947]), by [@localheinz]
+
 ## [`2.10.3`][2.10.3]
 
 For a full diff see [`2.10.2...2.10.3`][2.10.2...2.10.3].
@@ -684,6 +688,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#940]: https://github.com/ergebnis/phpstan-rules/pull/940
 [#943]: https://github.com/ergebnis/phpstan-rules/pull/943
 [#944]: https://github.com/ergebnis/phpstan-rules/pull/944
+[#947]: https://github.com/ergebnis/phpstan-rules/pull/947
 
 [@cosmastech]: https://github.com/cosmastech
 [@enumag]: https://github.com/enumag
