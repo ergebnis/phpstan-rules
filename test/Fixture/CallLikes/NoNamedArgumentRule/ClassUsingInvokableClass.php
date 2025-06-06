@@ -16,4 +16,9 @@ final class ClassUsingInvokableClass
         ($this->invokableClass)($baz);
         ($this->invokableClass)(bar: $baz);
     }
+
+    public function baz(): InvokableClass
+    {
+        return $this->invokableClass;
+    }
 }
