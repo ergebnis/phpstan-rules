@@ -120,3 +120,8 @@ $exampleClass::create(bar: 1);
 
 $anonymousClass::create(1);
 $anonymousClass::create(bar: 1);
+
+$invokableClass = new InvokableClass();
+
+$invokableClass(1);
+$invokableClass(bar: 1);

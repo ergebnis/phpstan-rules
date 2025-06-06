@@ -80,7 +80,7 @@ final class NoNamedArgumentRule implements Rules\Rule
 
             if ($functionName instanceof Node\Expr\Variable) {
                 return \sprintf(
-                    'Anonymous function referenced by $%s',
+                    'Callable referenced by $%s',
                     $functionName->name,
                 );
             }
