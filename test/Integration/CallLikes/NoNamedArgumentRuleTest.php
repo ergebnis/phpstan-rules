@@ -192,6 +192,14 @@ final class NoNamedArgumentRuleTest extends Testing\RuleTestCase
                     'Callable referenced by $invokableClass is invoked with named argument for parameter $bar.',
                     127,
                 ],
+                [
+                    'Callable referenced by $staticClassMethodCallable is invoked with named argument for parameter $bar.',
+                    135,
+                ],
+                [
+                    'Callable referenced by $dynamicClassMethodCallable is invoked with named argument for parameter $bar.',
+                    143,
+                ],
             ],
         );
     }

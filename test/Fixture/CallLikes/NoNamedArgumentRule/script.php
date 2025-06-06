@@ -125,3 +125,19 @@ $invokableClass = new InvokableClass();
 
 $invokableClass(1);
 $invokableClass(bar: 1);
+
+$staticClassMethodCallable = [
+    ExampleClass::class,
+    'create'
+];
+
+$staticClassMethodCallable(1);
+$staticClassMethodCallable(bar: 1);
+
+$dynamicClassMethodCallable = [
+    $exampleClass,
+    'bar'
+];
+
+$dynamicClassMethodCallable(1);
+$dynamicClassMethodCallable(bar: 1);
