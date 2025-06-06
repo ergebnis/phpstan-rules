@@ -50,40 +50,45 @@ final class NoNamedArgumentRule implements Rules\Rule
             return [];
         }
 
+        $callable = self::describeCallable(
+            $node,
+            $scope,
+        );
+
+        return \array_map(static function (Node\Arg $namedArgument) use ($callable): Rules\RuleError {
+            /** @var Node\Identifier $argumentName */
+            $argumentName = $namedArgument->name;
+
+            $message = \sprintf(
+                '%s is invoked with named argument for parameter $%s.',
+                $callable,
+                $argumentName->toString(),
+            );
+
+            return Rules\RuleErrorBuilder::message($message)
+                ->identifier(ErrorIdentifier::noNamedArgument()->toString())
+                ->build();
+        }, $namedArguments);
+    }
+
+    private static function describeCallable(
+        Node\Expr\CallLike $node,
+        Analyser\Scope $scope
+    ): string {
         if ($node instanceof Node\Expr\FuncCall) {
             $functionName = $node->name;
 
             if ($functionName instanceof Node\Expr\Variable) {
-                return \array_map(static function (Node\Arg $namedArgument) use ($functionName): Rules\RuleError {
-                    /** @var Node\Identifier $argumentName */
-                    $argumentName = $namedArgument->name;
-
-                    $message = \sprintf(
-                        'Anonymous function referenced by $%s is invoked with named argument for parameter $%s.',
-                        $functionName->name,
-                        $argumentName->toString(),
-                    );
-
-                    return Rules\RuleErrorBuilder::message($message)
-                        ->identifier(ErrorIdentifier::noNamedArgument()->toString())
-                        ->build();
-                }, $namedArguments);
+                return \sprintf(
+                    'Anonymous function referenced by $%s',
+                    $functionName->name,
+                );
             }
 
-            return \array_map(static function (Node\Arg $namedArgument) use ($functionName): Rules\RuleError {
-                /** @var Node\Identifier $argumentName */
-                $argumentName = $namedArgument->name;
-
-                $message = \sprintf(
-                    'Function %s() is invoked with named argument for parameter $%s.',
-                    $functionName,
-                    $argumentName->toString(),
-                );
-
-                return Rules\RuleErrorBuilder::message($message)
-                    ->identifier(ErrorIdentifier::noNamedArgument()->toString())
-                    ->build();
-            }, $namedArguments);
+            return \sprintf(
+                'Function %s()',
+                $functionName,
+            );
         }
 
         if ($node instanceof Node\Expr\MethodCall) {
@@ -104,37 +109,17 @@ final class NoNamedArgumentRule implements Rules\Rule
             $declaringClass = $methodReflection->getDeclaringClass();
 
             if ($declaringClass->isAnonymous()) {
-                return \array_map(static function (Node\Arg $namedArgument) use ($methodName): Rules\RuleError {
-                    /** @var Node\Identifier $argumentName */
-                    $argumentName = $namedArgument->name;
-
-                    $message = \sprintf(
-                        'Method %s() of anonymous class is invoked with named argument for parameter $%s.',
-                        $methodName,
-                        $argumentName->toString(),
-                    );
-
-                    return Rules\RuleErrorBuilder::message($message)
-                        ->identifier(ErrorIdentifier::noNamedArgument()->toString())
-                        ->build();
-                }, $namedArguments);
+                return \sprintf(
+                    'Method %s() of anonymous class',
+                    $methodName,
+                );
             }
 
-            return \array_map(static function (Node\Arg $namedArgument) use ($declaringClass, $methodName): Rules\RuleError {
-                /** @var Node\Identifier $argumentName */
-                $argumentName = $namedArgument->name;
-
-                $message = \sprintf(
-                    'Method %s::%s() is invoked with named argument for parameter $%s.',
-                    $declaringClass->getName(),
-                    $methodName,
-                    $argumentName->toString(),
-                );
-
-                return Rules\RuleErrorBuilder::message($message)
-                    ->identifier(ErrorIdentifier::noNamedArgument()->toString())
-                    ->build();
-            }, $namedArguments);
+            return \sprintf(
+                'Method %s::%s()',
+                $declaringClass->getName(),
+                $methodName,
+            );
         }
 
         if ($node instanceof Node\Expr\StaticCall) {
@@ -144,59 +129,29 @@ final class NoNamedArgumentRule implements Rules\Rule
             $methodName = $node->name;
 
             if ($className instanceof Node\Expr\Variable) {
-                return \array_map(static function (Node\Arg $namedArgument) use ($methodName): Rules\RuleError {
-                    /** @var Node\Identifier $argumentName */
-                    $argumentName = $namedArgument->name;
-
-                    $message = \sprintf(
-                        'Method %s() is invoked with named argument for parameter $%s.',
-                        $methodName,
-                        $argumentName->toString(),
-                    );
-
-                    return Rules\RuleErrorBuilder::message($message)
-                        ->identifier(ErrorIdentifier::noNamedArgument()->toString())
-                        ->build();
-                }, $namedArguments);
+                return \sprintf(
+                    'Method %s()',
+                    $methodName,
+                );
             }
 
-            return \array_map(static function (Node\Arg $namedArgument) use ($className, $methodName): Rules\RuleError {
-                /** @var Node\Identifier $argumentName */
-                $argumentName = $namedArgument->name;
-
-                $message = \sprintf(
-                    'Method %s::%s() is invoked with named argument for parameter $%s.',
-                    $className,
-                    $methodName,
-                    $argumentName->toString(),
-                );
-
-                return Rules\RuleErrorBuilder::message($message)
-                    ->identifier(ErrorIdentifier::noNamedArgument()->toString())
-                    ->build();
-            }, $namedArguments);
+            return \sprintf(
+                'Method %s::%s()',
+                $className,
+                $methodName,
+            );
         }
 
         if ($node instanceof Node\Expr\New_) {
             /** @var Node\Name\FullyQualified $className */
             $className = $node->class;
 
-            return \array_map(static function (Node\Arg $namedArgument) use ($className): Rules\RuleError {
-                /** @var Node\Identifier $argumentName */
-                $argumentName = $namedArgument->name;
-
-                $message = \sprintf(
-                    'Constructor of %s is invoked with named argument for parameter $%s.',
-                    $className->toString(),
-                    $argumentName->toString(),
-                );
-
-                return Rules\RuleErrorBuilder::message($message)
-                    ->identifier(ErrorIdentifier::noNamedArgument()->toString())
-                    ->build();
-            }, $namedArguments);
+            return \sprintf(
+                'Constructor of %s',
+                $className->toString(),
+            );
         }
 
-        return [];
+        throw new ShouldNotHappenException();
     }
 }
