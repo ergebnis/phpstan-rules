@@ -141,3 +141,8 @@ $dynamicClassMethodCallable = [
 
 $dynamicClassMethodCallable(1);
 $dynamicClassMethodCallable(bar: 1);
+
+$firstClassCallable = $exampleClass->bar(...);
+
+$firstClassCallable(1);
+$firstClassCallable(bar: 1);
