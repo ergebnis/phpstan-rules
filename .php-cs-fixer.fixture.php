@@ -39,6 +39,7 @@ $config = PhpCsFixer\Config\Factory::fromRuleSet($ruleSet);
 $config->getFinder()
     ->in(__DIR__ . '/test/Fixture/')
     ->notPath([
+        'CallLikes/NoNamedArgumentRule/ClassUsingInvokableClass.php',
         'CallLikes/NoNamedArgumentRule/script.php',
         'Closures/NoNullableReturnTypeDeclarationRule/script.php',
         'Closures/NoParameterWithNullableTypeDeclarationRule/script.php',
