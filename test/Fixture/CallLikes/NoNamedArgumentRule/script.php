@@ -114,3 +114,9 @@ $anonymousClass = new class() implements ExampleInterface {
 
 $anonymousClass->bar(1, 2);
 $anonymousClass->bar(baz: 1, 2);
+
+$exampleClass::create(1);
+$exampleClass::create(bar: 1);
+
+$anonymousClass::create(1);
+$anonymousClass::create(bar: 1);

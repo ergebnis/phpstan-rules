@@ -180,6 +180,14 @@ final class NoNamedArgumentRuleTest extends Testing\RuleTestCase
                     'Method bar() of anonymous class is invoked with named argument for parameter $baz.',
                     116,
                 ],
+                [
+                    'Method create() is invoked with named argument for parameter $bar.',
+                    119,
+                ],
+                [
+                    'Method create() is invoked with named argument for parameter $bar.',
+                    122,
+                ],
             ],
         );
     }
