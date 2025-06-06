@@ -47,7 +47,7 @@ final class NoNamedArgumentRuleTest extends Testing\RuleTestCase
                     17,
                 ],
                 [
-                    'Anonymous function referenced by $bar is invoked with named argument for parameter $baz.',
+                    'Callable referenced by $bar is invoked with named argument for parameter $baz.',
                     26,
                 ],
                 [
@@ -187,6 +187,10 @@ final class NoNamedArgumentRuleTest extends Testing\RuleTestCase
                 [
                     'Method create() is invoked with named argument for parameter $bar.',
                     122,
+                ],
+                [
+                    'Callable referenced by $invokableClass is invoked with named argument for parameter $bar.',
+                    127,
                 ],
             ],
         );
