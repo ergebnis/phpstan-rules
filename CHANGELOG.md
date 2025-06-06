@@ -12,6 +12,7 @@ For a full diff see [`2.10.3...main`][2.10.3...main].
 
 - Adjusted `Methods\NoNamedArgumentRule` to handle static calls on variable expressions ([#947]), by [@localheinz]
 - Adjusted `Methods\NoNamedArgumentRule` to handle calls on invokables ([#948]), by [@localheinz]
+- Adjusted `Methods\NoNamedArgumentRule` to handle calls on callables assigned to properties ([#949]), by [@localheinz]
 
 ## [`2.10.3`][2.10.3]
 
@@ -691,6 +692,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#944]: https://github.com/ergebnis/phpstan-rules/pull/944
 [#947]: https://github.com/ergebnis/phpstan-rules/pull/947
 [#948]: https://github.com/ergebnis/phpstan-rules/pull/948
+[#949]: https://github.com/ergebnis/phpstan-rules/pull/949
 
 [@cosmastech]: https://github.com/cosmastech
 [@enumag]: https://github.com/enumag

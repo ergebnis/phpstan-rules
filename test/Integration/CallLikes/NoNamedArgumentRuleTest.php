@@ -35,6 +35,10 @@ final class NoNamedArgumentRuleTest extends Testing\RuleTestCase
             self::phpFilesIn(__DIR__ . '/../../Fixture/CallLikes/NoNamedArgumentRule'),
             [
                 [
+                    'Callable referenced by property $invokableClass is invoked with named argument for parameter $bar.',
+                    17,
+                ],
+                [
                     'Function json_encode() is invoked with named argument for parameter $value.',
                     8,
                 ],

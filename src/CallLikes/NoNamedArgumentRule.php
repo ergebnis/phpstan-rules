@@ -78,6 +78,13 @@ final class NoNamedArgumentRule implements Rules\Rule
         if ($node instanceof Node\Expr\FuncCall) {
             $functionName = $node->name;
 
+            if ($functionName instanceof Node\Expr\PropertyFetch) {
+                return \sprintf(
+                    'Callable referenced by property $%s',
+                    $functionName->name,
+                );
+            }
+
             if ($functionName instanceof Node\Expr\Variable) {
                 return \sprintf(
                     'Callable referenced by $%s',

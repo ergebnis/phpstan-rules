@@ -21,6 +21,7 @@
     "PhpParser\\Node\\Expr\\Isset_",
     "PhpParser\\Node\\Expr\\MethodCall",
     "PhpParser\\Node\\Expr\\New_",
+    "PhpParser\\Node\\Expr\\PropertyFetch",
     "PhpParser\\Node\\Expr\\StaticCall",
     "PhpParser\\Node\\Expr\\Variable",
     "PhpParser\\Node\\Identifier",
