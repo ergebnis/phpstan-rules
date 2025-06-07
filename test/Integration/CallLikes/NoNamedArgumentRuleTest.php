@@ -208,6 +208,10 @@ final class NoNamedArgumentRuleTest extends Testing\RuleTestCase
                     'Callable referenced by $firstClassCallable is invoked with named argument for parameter $bar.',
                     148,
                 ],
+                [
+                    'Callable is invoked with named argument for parameter $bar.',
+                    153,
+                ],
             ],
         );
     }

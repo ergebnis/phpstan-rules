@@ -92,10 +92,12 @@ final class NoNamedArgumentRule implements Rules\Rule
                 );
             }
 
-            return \sprintf(
-                'Function %s()',
-                $functionName,
-            );
+            if ($functionName instanceof Node\Name) {
+                return \sprintf(
+                    'Function %s()',
+                    $functionName,
+                );
+            }
         }
 
         if ($node instanceof Node\Expr\MethodCall) {
@@ -159,6 +161,6 @@ final class NoNamedArgumentRule implements Rules\Rule
             );
         }
 
-        throw new ShouldNotHappenException();
+        return 'Callable';
     }
 }

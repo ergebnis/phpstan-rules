@@ -146,3 +146,8 @@ $firstClassCallable = $exampleClass->bar(...);
 
 $firstClassCallable(1);
 $firstClassCallable(bar: 1);
+
+$classUsingInvokableClass = new ClassUsingInvokableClass(new InvokableClass());
+
+($classUsingInvokableClass->baz())(1);
+($classUsingInvokableClass->baz())(bar: 1);
