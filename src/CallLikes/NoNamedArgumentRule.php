@@ -152,13 +152,16 @@ final class NoNamedArgumentRule implements Rules\Rule
         }
 
         if ($node instanceof Node\Expr\New_) {
-            /** @var Node\Name\FullyQualified $className */
             $className = $node->class;
 
-            return \sprintf(
-                'Constructor of %s',
-                $className->toString(),
-            );
+            if ($className instanceof Node\Name) {
+                return \sprintf(
+                    'Constructor of %s',
+                    $className->toString(),
+                );
+            }
+
+            return 'Constructor';
         }
 
         return 'Callable';
