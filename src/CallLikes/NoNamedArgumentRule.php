@@ -95,7 +95,7 @@ final class NoNamedArgumentRule implements Rules\Rule
             if ($functionName instanceof Node\Name) {
                 return \sprintf(
                     'Function %s()',
-                    $functionName,
+                    $functionName->name,
                 );
             }
         }
