@@ -151,3 +151,9 @@ $classUsingInvokableClass = new ClassUsingInvokableClass(new InvokableClass());
 
 ($classUsingInvokableClass->baz())(1);
 ($classUsingInvokableClass->baz())(bar: 1);
+
+$className = ExampleClass::class;
+
+new $className();
+new $className(1);
+new $className(bar: 1);
