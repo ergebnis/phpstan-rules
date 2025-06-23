@@ -212,6 +212,10 @@ final class NoNamedArgumentRuleTest extends Testing\RuleTestCase
                     'Callable is invoked with named argument for parameter $bar.',
                     153,
                 ],
+                [
+                    'Constructor is invoked with named argument for parameter $bar.',
+                    159,
+                ],
             ],
         );
     }

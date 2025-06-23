@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`2.10.4...main`][2.10.4...main].
 
+### Fixed
+
+- Adjusted `Methods\NoNamedArgumentRule` to handle calls to constructors of variable class names ([#957]), by [@localheinz]
+
 ## [`2.10.4`][2.10.4]
 
 For a full diff see [`2.10.3...2.10.4`][2.10.3...2.10.4].
