@@ -101,54 +101,60 @@ final class NoNamedArgumentRule implements Rules\Rule
         }
 
         if ($node instanceof Node\Expr\MethodCall) {
-            /** @var Node\Identifier $methodName */
             $methodName = $node->name;
 
-            $objectType = $scope->getType($node->var);
+            if ($methodName instanceof Node\Identifier) {
+                $objectType = $scope->getType($node->var);
 
-            $methodReflection = $scope->getMethodReflection(
-                $objectType,
-                $methodName->name,
-            );
+                $methodReflection = $scope->getMethodReflection(
+                    $objectType,
+                    $methodName->name,
+                );
 
-            if (null === $methodReflection) {
-                throw new ShouldNotHappenException();
-            }
+                if (null === $methodReflection) {
+                    throw new ShouldNotHappenException();
+                }
 
-            $declaringClass = $methodReflection->getDeclaringClass();
+                $declaringClass = $methodReflection->getDeclaringClass();
 
-            if ($declaringClass->isAnonymous()) {
+                if ($declaringClass->isAnonymous()) {
+                    return \sprintf(
+                        'Method %s() of anonymous class',
+                        $methodName->toString(),
+                    );
+                }
+
                 return \sprintf(
-                    'Method %s() of anonymous class',
-                    $methodName,
+                    'Method %s::%s()',
+                    $declaringClass->getName(),
+                    $methodName->toString(),
                 );
             }
 
-            return \sprintf(
-                'Method %s::%s()',
-                $declaringClass->getName(),
-                $methodName,
-            );
+            return 'Method';
         }
 
         if ($node instanceof Node\Expr\StaticCall) {
-            $className = $node->class;
-
-            /** @var Node\Identifier $methodName */
             $methodName = $node->name;
 
-            if ($className instanceof Node\Expr\Variable) {
+            if ($methodName instanceof Node\Identifier) {
+                $className = $node->class;
+
+                if ($className instanceof Node\Name) {
+                    return \sprintf(
+                        'Method %s::%s()',
+                        $className->toString(),
+                        $methodName->toString(),
+                    );
+                }
+
                 return \sprintf(
                     'Method %s()',
-                    $methodName,
+                    $methodName->toString(),
                 );
             }
 
-            return \sprintf(
-                'Method %s::%s()',
-                $className,
-                $methodName,
-            );
+            return 'Method';
         }
 
         if ($node instanceof Node\Expr\New_) {
