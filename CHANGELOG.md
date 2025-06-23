@@ -11,6 +11,7 @@ For a full diff see [`2.10.4...main`][2.10.4...main].
 ### Fixed
 
 - Adjusted `Methods\NoNamedArgumentRule` to handle calls to constructors of variable class names ([#957]), by [@localheinz]
+- Adjusted `Methods\NoNamedArgumentRule` to describe known calls only ([#958]), by [@localheinz]
 
 ## [`2.10.4`][2.10.4]
 
@@ -706,6 +707,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#949]: https://github.com/ergebnis/phpstan-rules/pull/949
 [#951]: https://github.com/ergebnis/phpstan-rules/pull/951
 [#957]: https://github.com/ergebnis/phpstan-rules/pull/957
+[#958]: https://github.com/ergebnis/phpstan-rules/pull/958
 
 [@cosmastech]: https://github.com/cosmastech
 [@enumag]: https://github.com/enumag
