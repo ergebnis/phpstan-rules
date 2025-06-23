@@ -50,18 +50,18 @@ final class NoNamedArgumentRule implements Rules\Rule
             return [];
         }
 
-        $callable = self::describeCallable(
+        $callLike = self::describeCallLike(
             $node,
             $scope,
         );
 
-        return \array_map(static function (Node\Arg $namedArgument) use ($callable): Rules\RuleError {
+        return \array_map(static function (Node\Arg $namedArgument) use ($callLike): Rules\RuleError {
             /** @var Node\Identifier $argumentName */
             $argumentName = $namedArgument->name;
 
             $message = \sprintf(
                 '%s is invoked with named argument for parameter $%s.',
-                $callable,
+                $callLike,
                 $argumentName->toString(),
             );
 
@@ -71,7 +71,7 @@ final class NoNamedArgumentRule implements Rules\Rule
         }, $namedArguments);
     }
 
-    private static function describeCallable(
+    private static function describeCallLike(
         Node\Expr\CallLike $node,
         Analyser\Scope $scope
     ): string {
