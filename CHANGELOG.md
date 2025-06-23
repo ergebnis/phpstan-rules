@@ -705,6 +705,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#948]: https://github.com/ergebnis/phpstan-rules/pull/948
 [#949]: https://github.com/ergebnis/phpstan-rules/pull/949
 [#951]: https://github.com/ergebnis/phpstan-rules/pull/951
+[#957]: https://github.com/ergebnis/phpstan-rules/pull/957
 
 [@cosmastech]: https://github.com/cosmastech
 [@enumag]: https://github.com/enumag
