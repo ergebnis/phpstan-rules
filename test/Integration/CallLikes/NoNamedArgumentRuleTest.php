@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Test\Integration\CallLikes;
 
+use Carbon\CarbonImmutable;
 use Ergebnis\PHPStan\Rules\CallLikes;
 use Ergebnis\PHPStan\Rules\Test;
 use PHPStan\Rules;
@@ -36,6 +37,20 @@ final class NoNamedArgumentRuleTest extends Testing\RuleTestCase
             [
                 [
                     'Callable referenced by property $invokableClass is invoked with named argument for parameter $bar.',
+                    17,
+                ],
+                [
+                    \sprintf(
+                        'Method %s::floatDiffInMonths() is invoked with named argument for parameter $date.',
+                        CarbonImmutable::class,
+                    ),
+                    17,
+                ],
+                [
+                    \sprintf(
+                        'Method %s::floatDiffInMonths() is invoked with named argument for parameter $absolute.',
+                        CarbonImmutable::class,
+                    ),
                     17,
                 ],
                 [
