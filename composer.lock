@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f2d2683e562e5b9ef5da528f1d6f96e6",
+    "content-hash": "3a9b231f4e245c485e1fd13276b32072",
     "packages": [
         {
             "name": "phpstan/phpstan",
-            "version": "2.1.21",
+            "version": "2.1.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "1ccf445757458c06a04eb3f803603cb118fe5fa6"
+                "reference": "41600c8379eb5aee63e9413fe9e97273e25d57e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/1ccf445757458c06a04eb3f803603cb118fe5fa6",
-                "reference": "1ccf445757458c06a04eb3f803603cb118fe5fa6",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/41600c8379eb5aee63e9413fe9e97273e25d57e4",
+                "reference": "41600c8379eb5aee63e9413fe9e97273e25d57e4",
                 "shasum": ""
             },
             "require": {
@@ -62,7 +62,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-07-28T19:35:08+00:00"
+            "time": "2025-08-04T19:17:37+00:00"
         }
     ],
     "packages-dev": [
@@ -3851,16 +3851,16 @@
         },
         {
             "name": "phpstan/phpstan-strict-rules",
-            "version": "2.0.4",
+            "version": "2.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan-strict-rules.git",
-                "reference": "3e139cbe67fafa3588e1dbe27ca50f31fdb6236a"
+                "reference": "f9f77efa9de31992a832ff77ea52eb42d675b094"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan-strict-rules/zipball/3e139cbe67fafa3588e1dbe27ca50f31fdb6236a",
-                "reference": "3e139cbe67fafa3588e1dbe27ca50f31fdb6236a",
+                "url": "https://api.github.com/repos/phpstan/phpstan-strict-rules/zipball/f9f77efa9de31992a832ff77ea52eb42d675b094",
+                "reference": "f9f77efa9de31992a832ff77ea52eb42d675b094",
                 "shasum": ""
             },
             "require": {
@@ -3893,9 +3893,9 @@
             "description": "Extra strict and opinionated rules for PHPStan",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan-strict-rules/issues",
-                "source": "https://github.com/phpstan/phpstan-strict-rules/tree/2.0.4"
+                "source": "https://github.com/phpstan/phpstan-strict-rules/tree/2.0.6"
             },
-            "time": "2025-03-18T11:42:40+00:00"
+            "time": "2025-07-21T12:19:29+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
