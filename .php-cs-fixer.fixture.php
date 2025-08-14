@@ -32,6 +32,7 @@ $ruleSet = PhpCsFixer\Config\RuleSet\Php74::create()
         'protected_to_private' => false,
         'single_line_comment_style' => false,
         'static_lambda' => false,
+        'static_private_method' => false,
     ]));
 
 $config = PhpCsFixer\Config\Factory::fromRuleSet($ruleSet);
