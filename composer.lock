@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9334fdebd2413d42d6dea1c01f6be8a1",
+    "content-hash": "bda9d45a085238f553eda9f1ad430b74",
     "packages": [
         {
             "name": "phpstan/phpstan",
@@ -7791,7 +7791,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0",
+        "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0",
         "ext-mbstring": "*"
     },
     "platform-dev": {},
