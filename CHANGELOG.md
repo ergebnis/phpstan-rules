@@ -12,6 +12,10 @@ For a full diff see [`2.11.0...main`][2.11.0...main].
 
 For a full diff see [`2.10.5...2.11.0`][2.10.5...2.11.0].
 
+### Added
+
+- Added support for PHP 8.5 ([#977]), by [@localheinz]
+
 ### Changed
 
 - Allowed installation on PHP 8.5 ([#972]), by [@localheinz]
@@ -725,6 +729,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#957]: https://github.com/ergebnis/phpstan-rules/pull/957
 [#958]: https://github.com/ergebnis/phpstan-rules/pull/958
 [#972]: https://github.com/ergebnis/phpstan-rules/pull/972
+[#977]: https://github.com/ergebnis/phpstan-rules/pull/977
 
 [@cosmastech]: https://github.com/cosmastech
 [@enumag]: https://github.com/enumag
