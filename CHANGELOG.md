@@ -8,13 +8,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`2.11.0...main`][2.11.0...main].
 
-## [`2.11.0`][2.11.0]
-
-For a full diff see [`2.10.5...2.11.0`][2.10.5...2.11.0].
-
 ### Added
 
 - Added support for PHP 8.5 ([#977]), by [@localheinz]
+
+## [`2.11.0`][2.11.0]
+
+For a full diff see [`2.10.5...2.11.0`][2.10.5...2.11.0].
 
 ### Changed
 
