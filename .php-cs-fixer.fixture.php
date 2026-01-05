@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 use Ergebnis\PhpCsFixer;
+use PhpCsFixer\Finder;
 
 $ruleSet = PhpCsFixer\Config\RuleSet\Php74::create()
     ->withHeader('')
@@ -35,9 +36,7 @@ $ruleSet = PhpCsFixer\Config\RuleSet\Php74::create()
         'static_private_method' => false,
     ]));
 
-$config = PhpCsFixer\Config\Factory::fromRuleSet($ruleSet);
-
-$config->getFinder()
+$finder = Finder::create()
     ->in(__DIR__ . '/test/Fixture/')
     ->notPath([
         'CallLikes/NoNamedArgumentRule/ClassUsingInvokableClass.php',
@@ -57,6 +56,9 @@ $config->getFinder()
         'Methods/NoParameterWithNullableTypeDeclarationRule/script.php',
     ]);
 
+$config = PhpCsFixer\Config\Factory::fromRuleSet($ruleSet);
+
 $config->setCacheFile(__DIR__ . '/.build/php-cs-fixer/.php_cs.fixture.cache');
+$config->setFinder($finder);
 
 return $config;
