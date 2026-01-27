@@ -15,6 +15,7 @@ namespace Ergebnis\PHPStan\Rules\Files;
 
 use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Node;
+use PhpParser\NodeFinder;
 use PHPStan\Analyser;
 use PHPStan\Node\FileNode;
 use PHPStan\Rules;
@@ -33,10 +34,16 @@ final class NoPhpstanIgnoreRule implements Rules\Rule
         Node $node,
         Analyser\Scope $scope
     ): array {
+        $nodeFinder = new NodeFinder();
+
+        $foundNodes = $nodeFinder->find($node->getNodes(), static function (Node $node): bool {
+            return true;
+        });
+
         $errors = [];
 
-        foreach ($node->getNodes() as $nodeInFile) {
-            foreach ($nodeInFile->getComments() as $comment) {
+        foreach ($foundNodes as $foundNode) {
+            foreach ($foundNode->getComments() as $comment) {
                 foreach (\explode("\n", $comment->getText()) as $index => $line) {
                     if (0 === \preg_match('/@phpstan-ignore(-line|-next-line)?(?=\s|$|,)/', $line, $matches)) {
                         continue;

@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`2.13.0...main`][2.13.0...main].
 
+### Fixed
+
+- Adjusted `Files\NoPhpstanIgnoreRule` to traverse into all nodes ([#1011]), by [@localheinz]
+
 ## [`2.13.0`][2.13.0]
 
 For a full diff see [`2.12.0...2.13.0`][2.12.0...2.13.0].
@@ -752,6 +756,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#977]: https://github.com/ergebnis/phpstan-rules/pull/977
 [#1009]: https://github.com/ergebnis/phpstan-rules/pull/1009
 [#1010]: https://github.com/ergebnis/phpstan-rules/pull/1010
+[#1011]: https://github.com/ergebnis/phpstan-rules/pull/1011
 
 [@cosmastech]: https://github.com/cosmastech
 [@enumag]: https://github.com/enumag
