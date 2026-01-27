@@ -140,6 +140,13 @@ final class ErrorIdentifierTest extends Framework\TestCase
         self::assertSame('ergebnis.noParameterWithNullableTypeDeclaration', $errorIdentifier->toString());
     }
 
+    public function testNoPhpstanIgnoreReturnsErrorIdentifier(): void
+    {
+        $errorIdentifier = ErrorIdentifier::noPhpstanIgnore();
+
+        self::assertSame('ergebnis.noPhpstanIgnore', $errorIdentifier->toString());
+    }
+
     public function testNoReturnByReferenceReturnsErrorIdentifier(): void
     {
         $errorIdentifier = ErrorIdentifier::noReturnByReference();

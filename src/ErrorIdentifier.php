@@ -110,6 +110,11 @@ final class ErrorIdentifier
         return new self('noNullableReturnTypeDeclaration');
     }
 
+    public static function noPhpstanIgnore(): self
+    {
+        return new self('noPhpstanIgnore');
+    }
+
     public static function noReturnByReference(): self
     {
         return new self('noReturnByReference');
