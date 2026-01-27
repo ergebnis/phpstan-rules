@@ -14,7 +14,7 @@ For a full diff see [`2.12.0...2.13.0`][2.12.0...2.13.0].
 
 ### Added
 
-- Added `PHPStan\NoPhpstanIgnoreRule`, which reports an error when a `@phpstan-ignore`, `@phpstan-ignore-line`, or `@phpstan-ignore-next-line` tag is used to suppress an error ([#1009]), by [@localheinz]
+- Added `Files\NoPhpstanIgnoreRule`, which reports an error when a `@phpstan-ignore`, `@phpstan-ignore-line`, or `@phpstan-ignore-next-line` tag is used to suppress an error ([#1009]), by [@localheinz]
 
 ### Changed
 
