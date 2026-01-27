@@ -54,16 +54,40 @@ final class NoPhpStanIgnoreRuleTest extends Testing\RuleTestCase
                     11,
                 ],
                 [
+                    'Errors reported by phpstan/phpstan should not be ignored via "@phpstan-ignore", fix the error or use the baseline instead.',
+                    11,
+                ],
+                [
                     'No error with identifier variable.undefined is reported on line 12.',
                     12,
+                ],
+                [
+                    'No error with identifier variable.undefined is reported on line 12.',
+                    12,
+                ],
+                [
+                    'Errors reported by phpstan/phpstan should not be ignored via "@phpstan-ignore", fix the error or use the baseline instead.',
+                    14,
                 ],
                 [
                     'Errors reported by phpstan/phpstan should not be ignored via "@phpstan-ignore", fix the error or use the baseline instead.',
                     15,
                 ],
                 [
+                    'No error with identifier variable.undefined is reported on line 15.',
+                    15,
+                ],
+                [
+                    'Errors reported by phpstan/phpstan should not be ignored via "@phpstan-ignore", fix the error or use the baseline instead.',
+                    17,
+                ],
+                [
                     'No error with identifier variable.undefined is reported on line 17.',
                     17,
+                ],
+                [
+                    'No error with identifier variable.undefined is reported on line 18.',
+                    18,
                 ],
                 [
                     'Errors reported by phpstan/phpstan should not be ignored via "@phpstan-ignore-line", fix the error or use the baseline instead.',
@@ -75,6 +99,14 @@ final class NoPhpStanIgnoreRuleTest extends Testing\RuleTestCase
                 ],
                 [
                     'Errors reported by phpstan/phpstan should not be ignored via "@phpstan-ignore-line", fix the error or use the baseline instead.',
+                    20,
+                ],
+                [
+                    'No error to ignore is reported on line 20.',
+                    20,
+                ],
+                [
+                    'Errors reported by phpstan/phpstan should not be ignored via "@phpstan-ignore-line", fix the error or use the baseline instead.',
                     21,
                 ],
                 [
@@ -83,6 +115,22 @@ final class NoPhpStanIgnoreRuleTest extends Testing\RuleTestCase
                 ],
                 [
                     'Errors reported by phpstan/phpstan should not be ignored via "@phpstan-ignore-line", fix the error or use the baseline instead.',
+                    22,
+                ],
+                [
+                    'No error to ignore is reported on line 22.',
+                    22,
+                ],
+                [
+                    'Errors reported by phpstan/phpstan should not be ignored via "@phpstan-ignore-next-line", fix the error or use the baseline instead.',
+                    24,
+                ],
+                [
+                    'Errors reported by phpstan/phpstan should not be ignored via "@phpstan-ignore-line", fix the error or use the baseline instead.',
+                    25,
+                ],
+                [
+                    'No error to ignore is reported on line 25.',
                     25,
                 ],
                 [
@@ -94,12 +142,28 @@ final class NoPhpStanIgnoreRuleTest extends Testing\RuleTestCase
                     27,
                 ],
                 [
+                    'Errors reported by phpstan/phpstan should not be ignored via "@phpstan-ignore-next-line", fix the error or use the baseline instead.',
+                    27,
+                ],
+                [
+                    'No error to ignore is reported on line 28.',
+                    28,
+                ],
+                [
                     'No error to ignore is reported on line 28.',
                     28,
                 ],
                 [
                     'Errors reported by phpstan/phpstan should not be ignored via "@phpstan-ignore-next-line", fix the error or use the baseline instead.',
                     30,
+                ],
+                [
+                    'Errors reported by phpstan/phpstan should not be ignored via "@phpstan-ignore-next-line", fix the error or use the baseline instead.',
+                    30,
+                ],
+                [
+                    'No error to ignore is reported on line 31.',
+                    31,
                 ],
                 [
                     'No error to ignore is reported on line 31.',

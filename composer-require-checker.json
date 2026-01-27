@@ -39,6 +39,7 @@
     "PhpParser\\Node\\Stmt\\Nop",
     "PhpParser\\Node\\Stmt\\Switch_",
     "PhpParser\\Node\\UnionType",
+    "PhpParser\\NodeFinder",
     "PHPStan\\Analyser\\Scope",
     "PHPStan\\Node\\FileNode",
     "PHPStan\\PhpDoc\\ResolvedPhpDocBlock",
