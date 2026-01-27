@@ -6,7 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`2.13.0...main`][2.13.0...main].
+For a full diff see [`2.13.1...main`][2.13.1...main].
+
+## [`2.13.1`][2.13.1]
+
+For a full diff see [`2.13.0...2.13.1`][2.13.0...2.13.1].
 
 ### Fixed
 
@@ -605,6 +609,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [2.11.0]: https://github.com/ergebnis/phpstan-rules/releases/tag/2.11.0
 [2.12.0]: https://github.com/ergebnis/phpstan-rules/releases/tag/2.12.0
 [2.13.0]: https://github.com/ergebnis/phpstan-rules/releases/tag/2.13.0
+[2.13.1]: https://github.com/ergebnis/phpstan-rules/releases/tag/2.13.1
 
 [362c7ea...0.1.0]: https://github.com/ergebnis/phpstan-rules/compare/362c7ea...0.1.0
 [0.1.0...0.2.0]: https://github.com/ergebnis/phpstan-rules/compare/0.1.0...0.2.0
@@ -656,7 +661,8 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [2.10.5...2.11.0]: https://github.com/ergebnis/phpstan-rules/compare/2.10.5...2.11.0
 [2.11.0...2.12.0]: https://github.com/ergebnis/phpstan-rules/compare/2.11.0...2.12.0
 [2.12.0...2.13.0]: https://github.com/ergebnis/phpstan-rules/compare/2.12.0...2.13.0
-[2.13.0...main]: https://github.com/ergebnis/phpstan-rules/compare/2.13.0...main
+[2.13.0...2.13.1]: https://github.com/ergebnis/phpstan-rules/compare/2.13.0...2.13.1
+[2.13.1...main]: https://github.com/ergebnis/phpstan-rules/compare/2.13.1...main
 
 [#1]: https://github.com/ergebnis/phpstan-rules/pull/1
 [#4]: https://github.com/ergebnis/phpstan-rules/pull/4
