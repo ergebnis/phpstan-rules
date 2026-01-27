@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`2.12.0...main`][2.12.0...main].
 
+### Changed
+
+- Required `phpstan/phpstan:^2.1.35` ([#1010]), by [@localheinz]
+
 ## [`2.12.0`][2.12.0]
 
 For a full diff see [`2.11.0...2.12.0`][2.11.0...2.12.0].
@@ -736,6 +740,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#958]: https://github.com/ergebnis/phpstan-rules/pull/958
 [#972]: https://github.com/ergebnis/phpstan-rules/pull/972
 [#977]: https://github.com/ergebnis/phpstan-rules/pull/977
+[#1010]: https://github.com/ergebnis/phpstan-rules/pull/1010
 
 [@cosmastech]: https://github.com/cosmastech
 [@enumag]: https://github.com/enumag
