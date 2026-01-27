@@ -10,7 +10,7 @@ For a full diff see [`2.12.0...main`][2.12.0...main].
 
 ### Added
 
-- Added `PHPStan\NoIgnoreRule`, which reports an error when a `@phpstan-ignore`, `@phpstan-ignore-line`, or `@phpstan-ignore-next-line` tag is used to suppress an error ([#1009]), by [@localheinz]
+- Added `PHPStan\NoPhpstanIgnoreRule`, which reports an error when a `@phpstan-ignore`, `@phpstan-ignore-line`, or `@phpstan-ignore-next-line` tag is used to suppress an error ([#1009]), by [@localheinz]
 
 ### Changed
 
