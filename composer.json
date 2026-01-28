@@ -40,7 +40,7 @@
     "phpunit/phpunit": "^9.6.33",
     "psr/container": "^2.0.2",
     "symfony/finder": "^5.4.45",
-    "symfony/process": "^5.4.47"
+    "symfony/process": "^5.4.51"
   },
   "autoload": {
     "psr-4": {
