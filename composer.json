@@ -37,7 +37,7 @@
     "phpstan/phpstan-deprecation-rules": "^2.0.3",
     "phpstan/phpstan-phpunit": "^2.0.12",
     "phpstan/phpstan-strict-rules": "^2.0.8",
-    "phpunit/phpunit": "^9.6.21",
+    "phpunit/phpunit": "^9.6.33",
     "psr/container": "^2.0.2",
     "symfony/finder": "^5.4.45",
     "symfony/process": "^5.4.47"
