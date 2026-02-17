@@ -29,6 +29,7 @@ $ruleSet = PhpCsFixer\Config\RuleSet\Php74::create()
         'native_function_casing' => false,
         'native_function_invocation' => false,
         'nullable_type_declaration' => false,
+        'phpdoc_line_span' => false,
         'phpdoc_summary' => false,
         'protected_to_private' => false,
         'single_line_comment_style' => false,
