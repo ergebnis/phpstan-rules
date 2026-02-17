@@ -52,6 +52,7 @@ This package provides the following rules for use with [`phpstan/phpstan`](https
 - [`Ergebnis\PHPStan\Rules\Closures\NoParameterPassedByReferenceRule`](https://github.com/ergebnis/phpstan-rules#closuresnoparameterpassedbyreferencerule)
 - [`Ergebnis\PHPStan\Rules\Closures\NoParameterWithNullableTypeDeclarationRule`](https://github.com/ergebnis/phpstan-rules#closuresnoparameterwithnullabletypedeclarationrule)
 - [`Ergebnis\PHPStan\Rules\Closures\NoParameterWithNullDefaultValueRule`](https://github.com/ergebnis/phpstan-rules#closuresnoparameterwithnulldefaultvaluerule)
+- [`Ergebnis\PHPStan\Rules\Constants\NoAccessToConstantViaInstanceRule`](https://github.com/ergebnis/phpstan-rules#constantsnoaccesstoconstantviainstancerule)
 - [`Ergebnis\PHPStan\Rules\Expressions\NoAssignByReferenceRule`](https://github.com/ergebnis/phpstan-rules#expressionsnoassignbyreferencerule)
 - [`Ergebnis\PHPStan\Rules\Expressions\NoCompactRule`](https://github.com/ergebnis/phpstan-rules#expressionsnocompactrule)
 - [`Ergebnis\PHPStan\Rules\Expressions\NoErrorSuppressionRule`](https://github.com/ergebnis/phpstan-rules#expressionsnoerrorsuppressionrule)
@@ -66,6 +67,7 @@ This package provides the following rules for use with [`phpstan/phpstan`](https
 - [`Ergebnis\PHPStan\Rules\Functions\NoReturnByReferenceRule`](https://github.com/ergebnis/phpstan-rules#functionsnoreturnbyreferencerule)
 - [`Ergebnis\PHPStan\Rules\Methods\FinalInAbstractClassRule`](https://github.com/ergebnis/phpstan-rules#methodsfinalinabstractclassrule)
 - [`Ergebnis\PHPStan\Rules\Methods\InvokeParentHookMethodRule`](https://github.com/ergebnis/phpstan-rules#methodsinvokeparenthookmethodrule)
+- [`Ergebnis\PHPStan\Rules\Methods\NoAccessToStaticMethodViaInstanceRule`](https://github.com/ergebnis/phpstan-rules#methodsnoaccesstostaticmethodviainstancerule)
 - [`Ergebnis\PHPStan\Rules\Methods\NoConstructorParameterWithDefaultValueRule`](https://github.com/ergebnis/phpstan-rules#methodsnoconstructorparameterwithdefaultvaluerule)
 - [`Ergebnis\PHPStan\Rules\Methods\NoNullableReturnTypeDeclarationRule`](https://github.com/ergebnis/phpstan-rules#methodsnonullablereturntypedeclarationrule)
 - [`Ergebnis\PHPStan\Rules\Methods\NoParameterPassedByReferenceRule`](https://github.com/ergebnis/phpstan-rules#methodsnoparameterpassedbyreferencerule)
@@ -74,6 +76,7 @@ This package provides the following rules for use with [`phpstan/phpstan`](https
 - [`Ergebnis\PHPStan\Rules\Methods\NoParameterWithNullDefaultValueRule`](https://github.com/ergebnis/phpstan-rules#methodsnoparameterwithnulldefaultvaluerule)
 - [`Ergebnis\PHPStan\Rules\Methods\NoReturnByReferenceRule`](https://github.com/ergebnis/phpstan-rules#methodsnoreturnbyreferencerule)
 - [`Ergebnis\PHPStan\Rules\Methods\PrivateInFinalClassRule`](https://github.com/ergebnis/phpstan-rules#methodsprivateinfinalclassrule)
+- [`Ergebnis\PHPStan\Rules\Properties\NoAccessToStaticPropertyViaInstanceRule`](https://github.com/ergebnis/phpstan-rules#propertiesnoaccesstostaticpropertyviainstancerule)
 - [`Ergebnis\PHPStan\Rules\Statements\NoSwitchRule`](https://github.com/ergebnis/phpstan-rules#statementsnoswitchrule)
 
 
@@ -252,6 +255,25 @@ You can set the `enabled` parameter to `false` to disable this rule.
 parameters:
 	ergebnis:
 		noParameterWithNullDefaultValue:
+			enabled: false
+```
+
+### Constants
+
+#### `Constants\NoAccessToConstantViaInstanceRule`
+
+This rule reports an error when a class constant is accessed via an instance (e.g., `$foo::BAZ`) instead of via a class name (e.g., `Foo::BAZ`, `self::BAZ`, `static::BAZ`, or `parent::BAZ`).
+
+:bulb: This rule does not report an error for `$foo::class`, which is an idiomatic way to get the runtime class of an object.
+
+##### Disabling the rule
+
+You can set the `enabled` parameter to `false` to disable this rule.
+
+```neon
+parameters:
+	ergebnis:
+		noAccessToStaticMemberViaInstance:
 			enabled: false
 ```
 
@@ -520,6 +542,21 @@ parameters:
 - `hasContent`: one of `"yes"`, `"no"`, `"maybe"`
 - `invocation`: one of `"any"` (needs to be invoked), `"first"` (needs to be invoked before all other statements in the overriding hook method, `"last"` (needs to be invoked after all other statements in the overriding hook method)
 
+#### `Methods\NoAccessToStaticMethodViaInstanceRule`
+
+This rule reports an error when a static method is called via an instance (e.g., `$foo::bar()`) instead of via a class name (e.g., `Foo::bar()`, `self::bar()`, `static::bar()`, or `parent::bar()`).
+
+##### Disabling the rule
+
+You can set the `enabled` parameter to `false` to disable this rule.
+
+```neon
+parameters:
+	ergebnis:
+		noAccessToStaticMemberViaInstance:
+			enabled: false
+```
+
 #### `Methods\NoConstructorParameterWithDefaultValueRule`
 
 This rule reports an error when a constructor declared in
@@ -693,6 +730,23 @@ You can set the `enabled` parameter to `false` to disable this rule.
 parameters:
 	ergebnis:
 		privateInFinalClass:
+			enabled: false
+```
+
+### Properties
+
+#### `Properties\NoAccessToStaticPropertyViaInstanceRule`
+
+This rule reports an error when a static property is accessed via an instance (e.g., `$foo::$BAR`) instead of via a class name (e.g., `Foo::$BAR`, `self::$BAR`, `static::$BAR`, or `parent::$BAR`).
+
+##### Disabling the rule
+
+You can set the `enabled` parameter to `false` to disable this rule.
+
+```neon
+parameters:
+	ergebnis:
+		noAccessToStaticMemberViaInstance:
 			enabled: false
 ```
 

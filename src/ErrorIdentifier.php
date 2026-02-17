@@ -120,6 +120,11 @@ final class ErrorIdentifier
         return new self('noReturnByReference');
     }
 
+    public static function noAccessToStaticMemberViaInstance(): self
+    {
+        return new self('noAccessToStaticMemberViaInstance');
+    }
+
     public static function noSwitch(): self
     {
         return new self('noSwitch');
