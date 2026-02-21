@@ -1,77 +1,72 @@
-# https://docs.github.com/en/actions
+name: Renew
 
-name: "Renew"
-
-on: # yamllint disable-line rule:truthy
+on:
   schedule:
-    - cron: "0 0 1 1 *"
+    - cron: '0 0 1 1 *'
 
 jobs:
   license:
-    name: "License"
+    name: License
 
-    runs-on: "ubuntu-latest"
+    runs-on: ubuntu-latest
 
     timeout-minutes: 5
 
     strategy:
       matrix:
-        php-version:
-          - "7.4"
-
-        dependencies:
-          - "locked"
+        php-version: ['7.4', '8.3', '8.4', '8.5']
+        dependencies: [locked]
 
     steps:
-      - name: "Checkout"
-        uses: "actions/checkout@v6.0.2"
+      - name: Checkout
+        uses: actions/checkout@v6.0.2
         with:
-          token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
+          token: ${{ secrets.ERGEBNIS_BOT_TOKEN }}
 
-      - name: "Set up PHP"
-        uses: "shivammathur/setup-php@2.36.0"
+      - name: Set up PHP
+        uses: shivammathur/setup-php@2.36.0
         with:
-          coverage: "none"
-          extensions: "none, ctype, curl, dom, iconv, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
-          php-version: "${{ matrix.php-version }}"
+          coverage: none
+          extensions: none, ctype, curl, dom, iconv, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter
+          php-version: ${{ matrix.php-version }}
 
-      - name: "Set up problem matchers for PHP"
-        run: "echo \"::add-matcher::${{ runner.tool_cache }}/php.json\""
+      - name: Set up problem matchers for PHP
+        run: echo "::add-matcher::${{ runner.tool_cache }}/php.json"
 
-      - name: "Validate composer.json and composer.lock"
-        run: "composer validate --ansi --strict"
+      - name: Validate composer.json and composer.lock
+        run: composer validate --ansi --strict
 
-      - name: "Determine composer cache directory"
-        uses: "ergebnis/.github/actions/composer/determine-cache-directory@1.10.0"
+      - name: Determine composer cache directory
+        uses: ergebnis/.github/actions/composer/determine-cache-directory@1.10.0
 
-      - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v5.0.3"
+      - name: Cache dependencies installed with composer
+        uses: actions/cache@v5.0.3
         with:
-          path: "${{ env.COMPOSER_CACHE_DIR }}"
-          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
-          restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
+          path: ${{ env.COMPOSER_CACHE_DIR }}
+          key: php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}
+          restore-keys: php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-
 
-      - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "ergebnis/.github/actions/composer/install@1.10.0"
+      - name: Install ${{ matrix.dependencies }} dependencies with composer
+        uses: ergebnis/.github/actions/composer/install@1.10.0
         with:
-          dependencies: "${{ matrix.dependencies }}"
+          dependencies: ${{ matrix.dependencies }}
 
-      - name: "Cache cache directory for friendsofphp/php-cs-fixer"
-        uses: "actions/cache@v5.0.3"
+      - name: Cache cache directory for friendsofphp/php-cs-fixer
+        uses: actions/cache@v5.0.3
         with:
-          path: ".build/php-cs-fixer"
-          key: "php-${{ matrix.php-version }}-php-cs-fixer-${{ github.ref_name }}"
+          path: .build/php-cs-fixer
+          key: php-${{ matrix.php-version }}-php-cs-fixer-${{ github.ref_name }}
           restore-keys: |
             php-${{ matrix.php-version }}-php-cs-fixer-main
             php-${{ matrix.php-version }}-php-cs-fixer-
 
-      - name: "Run friendsofphp/php-cs-fixer"
-        run: "vendor/bin/php-cs-fixer fix --ansi --config=.php-cs-fixer.php --diff --show-progress=dots --verbose"
+      - name: Run friendsofphp/php-cs-fixer
+        run: vendor/bin/php-cs-fixer fix --ansi --config=.php-cs-fixer.php --diff --show-progress=dots --verbose
 
-      - name: "Commit modified files"
-        uses: "stefanzweifel/git-auto-commit-action@v7.1.0"
+      - name: Commit modified files
+        uses: stefanzweifel/git-auto-commit-action@v7.1.0
         with:
-          commit_author: "ergebnis-bot <bot@ergebn.is>"
-          commit_message: "Enhancement: Update license year"
-          commit_user_email: "bot@ergebn.is"
-          commit_user_name: "ergebnis-bot"
+          commit_author: ergebnis-bot <bot@ergebn.is>
+          commit_message: Enhancement: Update license year
+          commit_user_email: bot@ergebn.is
+          commit_user_name: ergebnis-bot

@@ -1,368 +1,720 @@
-# https://docs.github.com/en/actions
+name: Integrate
 
-name: "Integrate"
-
-on: # yamllint disable-line rule:truthy
-  pull_request: null
+on:
+  pull_request:
   push:
     branches:
-      - "main"
+      - main
 
 jobs:
   code-coverage:
-    name: "Code Coverage"
+    name: Code Coverage
 
-    runs-on: "ubuntu-latest"
+
+
+
+
+
+    runs-on: ubuntu-latest
+
+
+
+
+
 
     timeout-minutes: 5
 
+
+
+
+
+
     strategy:
       matrix:
-        php-version:
-          - "7.4"
+        php-version: ['7.4', '8.3', '8.4', '8.5']
+        dependencies: [locked]
 
-        dependencies:
-          - "locked"
+
+
+
+
 
     steps:
-      - name: "Checkout"
-        uses: "actions/checkout@v6.0.2"
+      - name: Checkout
+        uses: actions/checkout@v6.0.2
 
-      - name: "Set up PHP"
-        uses: "shivammathur/setup-php@2.36.0"
+
+
+
+
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@2.36.0
         with:
-          coverage: "xdebug"
-          extensions: "none, ctype, curl, dom, iconv, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
-          php-version: "${{ matrix.php-version }}"
+          coverage: xdebug
+          extensions: none, ctype, curl, dom, iconv, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter
+          php-version: ${{ matrix.php-version }}
 
-      - name: "Set up problem matchers for PHP"
-        run: "echo \"::add-matcher::${{ runner.tool_cache }}/php.json\""
 
-      - name: "Set up problem matchers for phpunit/phpunit"
-        run: "echo \"::add-matcher::${{ runner.tool_cache }}/phpunit.json\""
 
-      - name: "Validate composer.json and composer.lock"
-        run: "composer validate --ansi --strict"
 
-      - name: "Determine composer cache directory"
-        uses: "ergebnis/.github/actions/composer/determine-cache-directory@1.10.0"
 
-      - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v5.0.3"
+
+      - name: Set up problem matchers for PHP
+        run: echo "::add-matcher::${{ runner.tool_cache }}/php.json"
+
+
+
+
+
+
+      - name: Set up problem matchers for phpunit/phpunit
+        run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
+
+
+
+
+
+
+      - name: Validate composer.json and composer.lock
+        run: composer validate --ansi --strict
+
+
+
+
+
+
+      - name: Determine composer cache directory
+        uses: ergebnis/.github/actions/composer/determine-cache-directory@1.10.0
+
+
+
+
+
+
+      - name: Cache dependencies installed with composer
+        uses: actions/cache@v5.0.3
         with:
-          path: "${{ env.COMPOSER_CACHE_DIR }}"
-          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
-          restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
+          path: ${{ env.COMPOSER_CACHE_DIR }}
+          key: php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}
+          restore-keys: php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-
 
-      - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "ergebnis/.github/actions/composer/install@1.10.0"
+
+
+
+
+
+      - name: Install ${{ matrix.dependencies }} dependencies with composer
+        uses: ergebnis/.github/actions/composer/install@1.10.0
         with:
-          dependencies: "${{ matrix.dependencies }}"
+          dependencies: ${{ matrix.dependencies }}
 
-      - name: "Collect code coverage with Xdebug and phpunit/phpunit"
+
+
+
+
+
+      - name: Collect code coverage with Xdebug and phpunit/phpunit
         env:
-          XDEBUG_MODE: "coverage"
-        run: "vendor/bin/phpunit --colors=always --configuration=test/phpunit.xml --coverage-clover=.build/phpunit/logs/clover.xml"
+          XDEBUG_MODE: coverage
+        run: vendor/bin/phpunit --colors=always --configuration=test/phpunit.xml --coverage-clover=.build/phpunit/logs/clover.xml
 
-      - name: "Send code coverage report to codecov.io"
-        uses: "codecov/codecov-action@v5.5.2"
+
+
+
+
+
+      - name: Send code coverage report to codecov.io
+        uses: codecov/codecov-action@v5.5.2
         with:
-          files: ".build/phpunit/logs/clover.xml"
-          token: "${{ secrets.CODECOV_TOKEN }}"
+          files: .build/phpunit/logs/clover.xml
+          token: ${{ secrets.CODECOV_TOKEN }}
 
   coding-standards:
-    name: "Coding Standards"
+    name: Coding Standards
 
-    runs-on: "ubuntu-latest"
+
+
+
+
+
+    runs-on: ubuntu-latest
+
+
+
+
+
 
     timeout-minutes: 5
 
+
+
+
+
+
     strategy:
       matrix:
-        php-version:
-          - "7.4"
+        php-version: ['7.4', '8.3', '8.4', '8.5']
+        dependencies: [locked]
 
-        dependencies:
-          - "locked"
+
+
+
+
 
     steps:
-      - name: "Checkout"
-        uses: "actions/checkout@v6.0.2"
+      - name: Checkout
+        uses: actions/checkout@v6.0.2
 
-      - name: "Lint YAML files"
-        uses: "ibiqlik/action-yamllint@v3.1.1"
+
+
+
+
+
+      - name: Lint YAML files
+        uses: ibiqlik/action-yamllint@v3.1.1
         with:
-          config_file: ".yamllint.yaml"
-          file_or_dir: "."
+          config_file: .yamllint.yaml
+          file_or_dir: .
           strict: true
 
-      - name: "Set up PHP"
-        uses: "shivammathur/setup-php@2.36.0"
+
+
+
+
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@2.36.0
         with:
-          coverage: "none"
-          extensions: "none, ctype, curl, dom, iconv, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
-          php-version: "${{ matrix.php-version }}"
+          coverage: none
+          extensions: none, ctype, curl, dom, iconv, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter
+          php-version: ${{ matrix.php-version }}
 
-      - name: "Set up problem matchers for PHP"
-        run: "echo \"::add-matcher::${{ runner.tool_cache }}/php.json\""
 
-      - name: "Validate composer.json and composer.lock"
-        run: "composer validate --ansi --strict"
 
-      - name: "Determine composer cache directory"
-        uses: "ergebnis/.github/actions/composer/determine-cache-directory@1.10.0"
 
-      - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v5.0.3"
+
+
+      - name: Set up problem matchers for PHP
+        run: echo "::add-matcher::${{ runner.tool_cache }}/php.json"
+
+
+
+
+
+
+      - name: Validate composer.json and composer.lock
+        run: composer validate --ansi --strict
+
+
+
+
+
+
+      - name: Determine composer cache directory
+        uses: ergebnis/.github/actions/composer/determine-cache-directory@1.10.0
+
+
+
+
+
+
+      - name: Cache dependencies installed with composer
+        uses: actions/cache@v5.0.3
         with:
-          path: "${{ env.COMPOSER_CACHE_DIR }}"
-          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
-          restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
+          path: ${{ env.COMPOSER_CACHE_DIR }}
+          key: php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}
+          restore-keys: php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-
 
-      - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "ergebnis/.github/actions/composer/install@1.10.0"
+
+
+
+
+
+      - name: Install ${{ matrix.dependencies }} dependencies with composer
+        uses: ergebnis/.github/actions/composer/install@1.10.0
         with:
-          dependencies: "${{ matrix.dependencies }}"
+          dependencies: ${{ matrix.dependencies }}
 
-      - name: "Run ergebnis/composer-normalize"
-        run: "composer normalize --ansi --dry-run"
 
-      - name: "Cache cache directory for friendsofphp/php-cs-fixer"
-        uses: "actions/cache@v5.0.3"
+
+
+
+
+      - name: Run ergebnis/composer-normalize
+        run: composer normalize --ansi --dry-run
+
+
+
+
+
+
+      - name: Cache cache directory for friendsofphp/php-cs-fixer
+        uses: actions/cache@v5.0.3
         with:
-          path: ".build/php-cs-fixer"
-          key: "php-${{ matrix.php-version }}-php-cs-fixer-${{ github.ref_name }}"
+          path: .build/php-cs-fixer
+          key: php-${{ matrix.php-version }}-php-cs-fixer-${{ github.ref_name }}
           restore-keys: |
             php-${{ matrix.php-version }}-php-cs-fixer-main
             php-${{ matrix.php-version }}-php-cs-fixer-
 
-      - name: "Run friendsofphp/php-cs-fixer"
-        run: "vendor/bin/php-cs-fixer fix --ansi --config=.php-cs-fixer.php --diff --dry-run --show-progress=dots --verbose"
 
-      - name: "Run friendsofphp/php-cs-fixer on fixtures"
-        run: "vendor/bin/php-cs-fixer fix --ansi --config=.php-cs-fixer.fixture.php --diff --dry-run --show-progress=dots --verbose"
+
+
+
+
+      - name: Run friendsofphp/php-cs-fixer
+        run: vendor/bin/php-cs-fixer fix --ansi --config=.php-cs-fixer.php --diff --dry-run --show-progress=dots --verbose
+
+
+
+
+
+
+      - name: Run friendsofphp/php-cs-fixer on fixtures
+        run: vendor/bin/php-cs-fixer fix --ansi --config=.php-cs-fixer.fixture.php --diff --dry-run --show-progress=dots --verbose
 
   dependency-analysis:
-    name: "Dependency Analysis"
+    name: Dependency Analysis
 
-    runs-on: "ubuntu-latest"
+
+
+
+
+
+    runs-on: ubuntu-latest
+
+
+
+
+
 
     timeout-minutes: 5
 
+
+
+
+
+
     strategy:
       matrix:
-        php-version:
-          - "7.4"
+        php-version: ['7.4', '8.3', '8.4', '8.5']
+        dependencies: [locked]
 
-        dependencies:
-          - "locked"
+
+
+
+
 
     steps:
-      - name: "Checkout"
-        uses: "actions/checkout@v6.0.2"
+      - name: Checkout
+        uses: actions/checkout@v6.0.2
 
-      - name: "Set up PHP"
-        uses: "shivammathur/setup-php@2.36.0"
+
+
+
+
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@2.36.0
         with:
-          coverage: "none"
-          extensions: "none, ctype, curl, dom, iconv, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
-          php-version: "${{ matrix.php-version }}"
-          tools: "phive"
+          coverage: none
+          extensions: none, ctype, curl, dom, iconv, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter
+          php-version: ${{ matrix.php-version }}
+          tools: phive
 
-      - name: "Set up problem matchers for PHP"
-        run: "echo \"::add-matcher::${{ runner.tool_cache }}/php.json\""
 
-      - name: "Validate composer.json and composer.lock"
-        run: "composer validate --ansi --strict"
 
-      - name: "Determine composer cache directory"
-        uses: "ergebnis/.github/actions/composer/determine-cache-directory@1.10.0"
 
-      - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v5.0.3"
+
+
+      - name: Set up problem matchers for PHP
+        run: echo "::add-matcher::${{ runner.tool_cache }}/php.json"
+
+
+
+
+
+
+      - name: Validate composer.json and composer.lock
+        run: composer validate --ansi --strict
+
+
+
+
+
+
+      - name: Determine composer cache directory
+        uses: ergebnis/.github/actions/composer/determine-cache-directory@1.10.0
+
+
+
+
+
+
+      - name: Cache dependencies installed with composer
+        uses: actions/cache@v5.0.3
         with:
-          path: "${{ env.COMPOSER_CACHE_DIR }}"
-          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
-          restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
+          path: ${{ env.COMPOSER_CACHE_DIR }}
+          key: php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}
+          restore-keys: php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-
 
-      - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "ergebnis/.github/actions/composer/install@1.10.0"
+
+
+
+
+
+      - name: Install ${{ matrix.dependencies }} dependencies with composer
+        uses: ergebnis/.github/actions/composer/install@1.10.0
         with:
-          dependencies: "${{ matrix.dependencies }}"
+          dependencies: ${{ matrix.dependencies }}
 
-      - name: "Install dependencies with phive"
-        uses: "ergebnis/.github/actions/phive/install@1.10.0"
+
+
+
+
+
+      - name: Install dependencies with phive
+        uses: ergebnis/.github/actions/phive/install@1.10.0
         with:
-          trust-gpg-keys: "0x033E5F8D801A2F8D"
+          trust-gpg-keys: 0x033E5F8D801A2F8D
 
-      - name: "Run maglnet/composer-require-checker"
-        run: ".phive/composer-require-checker check --ansi --config-file=$(pwd)/composer-require-checker.json --verbose"
+
+
+
+
+
+      - name: Run maglnet/composer-require-checker
+        run: .phive/composer-require-checker check --ansi --config-file=$(pwd)/composer-require-checker.json --verbose
 
   security-analysis:
-    name: "Security Analysis"
+    name: Security Analysis
 
-    runs-on: "ubuntu-latest"
+
+
+
+
+
+    runs-on: ubuntu-latest
+
+
+
+
+
 
     timeout-minutes: 5
 
+
+
+
+
+
     strategy:
       matrix:
-        php-version:
-          - "7.4"
+        php-version: ['7.4', '8.3', '8.4', '8.5']
+        dependencies: [locked]
 
-        dependencies:
-          - "locked"
+
+
+
+
 
     steps:
-      - name: "Checkout"
-        uses: "actions/checkout@v6.0.2"
+      - name: Checkout
+        uses: actions/checkout@v6.0.2
 
-      - name: "Set up PHP"
-        uses: "shivammathur/setup-php@2.36.0"
+
+
+
+
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@2.36.0
         with:
-          coverage: "none"
-          extensions: "none, ctype, curl, dom, iconv, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
-          php-version: "${{ matrix.php-version }}"
+          coverage: none
+          extensions: none, ctype, curl, dom, iconv, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter
+          php-version: ${{ matrix.php-version }}
 
-      - name: "Set up problem matchers for PHP"
-        run: "echo \"::add-matcher::${{ runner.tool_cache }}/php.json\""
 
-      - name: "Validate composer.json and composer.lock"
-        run: "composer validate --ansi --strict"
 
-      - name: "Determine composer cache directory"
-        uses: "ergebnis/.github/actions/composer/determine-cache-directory@1.10.0"
 
-      - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v5.0.3"
+
+
+      - name: Set up problem matchers for PHP
+        run: echo "::add-matcher::${{ runner.tool_cache }}/php.json"
+
+
+
+
+
+
+      - name: Validate composer.json and composer.lock
+        run: composer validate --ansi --strict
+
+
+
+
+
+
+      - name: Determine composer cache directory
+        uses: ergebnis/.github/actions/composer/determine-cache-directory@1.10.0
+
+
+
+
+
+
+      - name: Cache dependencies installed with composer
+        uses: actions/cache@v5.0.3
         with:
-          path: "${{ env.COMPOSER_CACHE_DIR }}"
-          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
-          restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
+          path: ${{ env.COMPOSER_CACHE_DIR }}
+          key: php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}
+          restore-keys: php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-
 
-      - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "ergebnis/.github/actions/composer/install@1.10.0"
+
+
+
+
+
+      - name: Install ${{ matrix.dependencies }} dependencies with composer
+        uses: ergebnis/.github/actions/composer/install@1.10.0
         with:
-          dependencies: "${{ matrix.dependencies }}"
+          dependencies: ${{ matrix.dependencies }}
 
-      - name: "Check installed packages for security vulnerability advisories"
-        run: "composer audit --ansi"
+
+
+
+
+
+      - name: Check installed packages for security vulnerability advisories
+        run: composer audit --ansi
 
   static-code-analysis:
-    name: "Static Code Analysis"
+    name: Static Code Analysis
 
-    runs-on: "ubuntu-latest"
+
+
+
+
+
+    runs-on: ubuntu-latest
+
+
+
+
+
 
     timeout-minutes: 5
+
+
+
+
+
 
     strategy:
       matrix:
-        php-version:
-          - "7.4"
+        php-version: ['7.4', '8.3', '8.4', '8.5']
+        dependencies: [locked]
 
-        dependencies:
-          - "locked"
+
+
+
+
 
     steps:
-      - name: "Checkout"
-        uses: "actions/checkout@v6.0.2"
+      - name: Checkout
+        uses: actions/checkout@v6.0.2
 
-      - name: "Set up PHP"
-        uses: "shivammathur/setup-php@2.36.0"
+
+
+
+
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@2.36.0
         with:
-          coverage: "none"
-          extensions: "none, ctype, curl, dom, iconv, json, mbstring, opcache, pcntl, phar, posix, simplexml, tokenizer, xml, xmlwriter"
-          php-version: "${{ matrix.php-version }}"
+          coverage: none
+          extensions: none, ctype, curl, dom, iconv, json, mbstring, opcache, pcntl, phar, posix, simplexml, tokenizer, xml, xmlwriter
+          php-version: ${{ matrix.php-version }}
 
-      - name: "Set up problem matchers for PHP"
-        run: "echo \"::add-matcher::${{ runner.tool_cache }}/php.json\""
 
-      - name: "Validate composer.json and composer.lock"
-        run: "composer validate --ansi --strict"
 
-      - name: "Determine composer cache directory"
-        uses: "ergebnis/.github/actions/composer/determine-cache-directory@1.10.0"
 
-      - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v5.0.3"
+
+
+      - name: Set up problem matchers for PHP
+        run: echo "::add-matcher::${{ runner.tool_cache }}/php.json"
+
+
+
+
+
+
+      - name: Validate composer.json and composer.lock
+        run: composer validate --ansi --strict
+
+
+
+
+
+
+      - name: Determine composer cache directory
+        uses: ergebnis/.github/actions/composer/determine-cache-directory@1.10.0
+
+
+
+
+
+
+      - name: Cache dependencies installed with composer
+        uses: actions/cache@v5.0.3
         with:
-          path: "${{ env.COMPOSER_CACHE_DIR }}"
-          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
-          restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
+          path: ${{ env.COMPOSER_CACHE_DIR }}
+          key: php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}
+          restore-keys: php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-
 
-      - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "ergebnis/.github/actions/composer/install@1.10.0"
+
+
+
+
+
+      - name: Install ${{ matrix.dependencies }} dependencies with composer
+        uses: ergebnis/.github/actions/composer/install@1.10.0
         with:
-          dependencies: "${{ matrix.dependencies }}"
+          dependencies: ${{ matrix.dependencies }}
 
-      - name: "Run phpstan/phpstan"
-        run: "vendor/bin/phpstan --ansi --configuration=phpstan.neon --memory-limit=-1"
+
+
+
+
+
+      - name: Run phpstan/phpstan
+        run: vendor/bin/phpstan --ansi --configuration=phpstan.neon --memory-limit=-1
 
   tests:
-    name: "Tests"
+    name: Tests
 
-    runs-on: "ubuntu-latest"
+
+
+
+
+
+    runs-on: ubuntu-latest
+
+
+
+
+
 
     timeout-minutes: 5
+
+
+
+
+
 
     strategy:
       fail-fast: false
       matrix:
-        php-version:
-          - "7.4"
-          - "8.0"
-          - "8.1"
-          - "8.2"
-          - "8.3"
-          - "8.4"
-          - "8.5"
+        php-version: ['7.4', '8.0', '8.1', '8.2', '8.3', '8.4', '8.5']
+        dependencies: [lowest, locked, highest]
 
-        dependencies:
-          - "lowest"
-          - "locked"
-          - "highest"
+
+
+
+
 
     steps:
-      - name: "Checkout"
-        uses: "actions/checkout@v6.0.2"
+      - name: Checkout
+        uses: actions/checkout@v6.0.2
 
-      - name: "Set up PHP"
-        uses: "shivammathur/setup-php@2.36.0"
+
+
+
+
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@2.36.0
         with:
-          coverage: "none"
-          extensions: "none, ctype, curl, dom, iconv, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
-          php-version: "${{ matrix.php-version }}"
+          coverage: none
+          extensions: none, ctype, curl, dom, iconv, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter
+          php-version: ${{ matrix.php-version }}
 
-      - name: "Set up problem matchers for PHP"
-        run: "echo \"::add-matcher::${{ runner.tool_cache }}/php.json\""
 
-      - name: "Set up problem matchers for phpunit/phpunit"
-        run: "echo \"::add-matcher::${{ runner.tool_cache }}/phpunit.json\""
 
-      - name: "Validate composer.json and composer.lock"
-        run: "composer validate --ansi --strict"
 
-      - name: "Determine composer cache directory"
-        uses: "ergebnis/.github/actions/composer/determine-cache-directory@1.10.0"
 
-      - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v5.0.3"
+
+      - name: Set up problem matchers for PHP
+        run: echo "::add-matcher::${{ runner.tool_cache }}/php.json"
+
+
+
+
+
+
+      - name: Set up problem matchers for phpunit/phpunit
+        run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
+
+
+
+
+
+
+      - name: Validate composer.json and composer.lock
+        run: composer validate --ansi --strict
+
+
+
+
+
+
+      - name: Determine composer cache directory
+        uses: ergebnis/.github/actions/composer/determine-cache-directory@1.10.0
+
+
+
+
+
+
+      - name: Cache dependencies installed with composer
+        uses: actions/cache@v5.0.3
         with:
-          path: "${{ env.COMPOSER_CACHE_DIR }}"
-          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
-          restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
+          path: ${{ env.COMPOSER_CACHE_DIR }}
+          key: php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}
+          restore-keys: php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-
 
-      - name: "Remove platform configuration with composer"
+
+
+
+
+
+      - name: Remove platform configuration with composer
         if: "matrix.dependencies != 'locked'"
-        run: "composer config platform.php --ansi --unset"
+        run: composer config platform.php --ansi --unset
 
-      - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "ergebnis/.github/actions/composer/install@1.10.0"
+
+
+
+
+
+      - name: Install ${{ matrix.dependencies }} dependencies with composer
+        uses: ergebnis/.github/actions/composer/install@1.10.0
         with:
-          dependencies: "${{ matrix.dependencies }}"
+          dependencies: ${{ matrix.dependencies }}
 
-      - name: "Run unit tests with phpunit/phpunit"
-        run: "vendor/bin/phpunit --colors=always --configuration=test/phpunit.xml --testsuite=unit"
 
-      - name: "Run integration tests with phpunit/phpunit"
-        run: "vendor/bin/phpunit --colors=always --configuration=test/phpunit.xml --testsuite=integration"
+
+
+
+
+      - name: Run unit tests with phpunit/phpunit
+        run: vendor/bin/phpunit --colors=always --configuration=test/phpunit.xml --testsuite=unit
+
+
+
+
+
+
+      - name: Run integration tests with phpunit/phpunit
+        run: vendor/bin/phpunit --colors=always --configuration=test/phpunit.xml --testsuite=integration
