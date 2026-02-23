@@ -31,7 +31,7 @@
     "ergebnis/composer-normalize": "^2.50.0",
     "ergebnis/license": "^2.7.0",
     "ergebnis/php-cs-fixer-config": "^6.60.1",
-    "ergebnis/phpunit-slow-test-detector": "^2.22.2",
+    "ergebnis/phpunit-slow-test-detector": "^2.23.0",
     "fakerphp/faker": "^1.24.1",
     "phpstan/extension-installer": "^1.4.3",
     "phpstan/phpstan-deprecation-rules": "^2.0.4",
