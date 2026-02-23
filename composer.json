@@ -30,7 +30,7 @@
     "doctrine/orm": "^2.20.0 || ^3.3.0",
     "ergebnis/composer-normalize": "^2.50.0",
     "ergebnis/license": "^2.7.0",
-    "ergebnis/php-cs-fixer-config": "^6.60.0",
+    "ergebnis/php-cs-fixer-config": "^6.60.1",
     "ergebnis/phpunit-slow-test-detector": "^2.22.2",
     "fakerphp/faker": "^1.24.1",
     "phpstan/extension-installer": "^1.4.3",
