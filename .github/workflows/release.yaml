@@ -7,6 +7,8 @@ on: # yamllint disable-line rule:truthy
     tags:
       - "**"
 
+permissions: {}
+
 jobs:
   release:
     name: "Release"
@@ -17,12 +19,12 @@ jobs:
 
     steps:
       - name: "Create release"
-        uses: "ergebnis/.github/actions/github/release/create@1.11.0"
+        uses: "ergebnis/.github/actions/github/release/create@9785f99b3546d64df9cb331449e7fcdc41885d25" # 1.11.0
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
 
       - name: "Post to twitter.com about release"
-        uses: "Eomm/why-don-t-you-tweet@v2.0.0"
+        uses: "Eomm/why-don-t-you-tweet@d9ec12835f4d494dda920f95f885df3dba380493" # v2.0.0
         env:
           TWITTER_ACCESS_TOKEN: "${{ secrets.ERGEBNIS_TWITTER_ACCESS_TOKEN }}"
           TWITTER_ACCESS_TOKEN_SECRET: "${{ secrets.ERGEBNIS_TWITTER_ACCESS_TOKEN_SECRET }}"

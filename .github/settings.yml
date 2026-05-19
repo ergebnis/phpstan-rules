@@ -17,6 +17,7 @@ branches:
           - context: "Code Coverage (7.4, locked)"
           - context: "Coding Standards (7.4, locked)"
           - context: "Dependency Analysis (7.4, locked)"
+          - context: "GitHub Actions Analysis"
           - context: "Security Analysis (7.4, locked)"
           - context: "Static Code Analysis (7.4, locked)"
           - context: "Tests (7.4, highest)"
