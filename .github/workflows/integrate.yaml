@@ -8,9 +8,14 @@ on: # yamllint disable-line rule:truthy
     branches:
       - "main"
 
+permissions: {}
+
 jobs:
   code-coverage:
     name: "Code Coverage"
+
+    permissions:
+      contents: "read"
 
     runs-on: "ubuntu-latest"
 
@@ -72,6 +77,9 @@ jobs:
 
   coding-standards:
     name: "Coding Standards"
+
+    permissions:
+      contents: "read"
 
     runs-on: "ubuntu-latest"
 
@@ -145,6 +153,9 @@ jobs:
   dependency-analysis:
     name: "Dependency Analysis"
 
+    permissions:
+      contents: "read"
+
     runs-on: "ubuntu-latest"
 
     timeout-minutes: 5
@@ -201,6 +212,9 @@ jobs:
   github-actions-analysis:
     name: "GitHub Actions Analysis"
 
+    permissions:
+      contents: "read"
+
     runs-on: "ubuntu-latest"
 
     timeout-minutes: 5
@@ -220,6 +234,9 @@ jobs:
 
   security-analysis:
     name: "Security Analysis"
+
+    permissions:
+      contents: "read"
 
     runs-on: "ubuntu-latest"
 
@@ -271,6 +288,9 @@ jobs:
   static-code-analysis:
     name: "Static Code Analysis"
 
+    permissions:
+      contents: "read"
+
     runs-on: "ubuntu-latest"
 
     timeout-minutes: 5
@@ -320,6 +340,9 @@ jobs:
 
   tests:
     name: "Tests"
+
+    permissions:
+      contents: "read"
 
     runs-on: "ubuntu-latest"
 
