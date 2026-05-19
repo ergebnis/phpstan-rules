@@ -68,8 +68,7 @@ final class NoExtendsRuleTest extends Testing\RuleTestCase
 
         $this->analyse(
             self::phpFilesIn(__DIR__ . '/../../Fixture/Classes/NoExtendsRule'),
-            [
-            ],
+            [],
         );
     }
 
