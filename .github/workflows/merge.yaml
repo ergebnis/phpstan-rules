@@ -37,7 +37,7 @@ jobs:
           reviewer: "ergebnis-bot"
 
       - name: "Assign @ergebnis-bot"
-        uses: "ergebnis/.github/actions/github/pull-request/add-assignee@04b5426bcc1ce207abf7bea5f5dabb15dd65786a" # 1.12.0
+        uses: "ergebnis/.github/actions/github/pull-request/add-assignee@fa753ba19f89b4923380b19dfcd80ad7eca4def9" # 1.13.0
         with:
           assignee: "ergebnis-bot"
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
