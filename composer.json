@@ -68,6 +68,9 @@
     "sort-packages": true
   },
   "extra": {
+    "branch-alias": {
+      "dev-main": "2.13-dev"
+    },
     "phpstan": {
       "includes": [
         "rules.neon"
