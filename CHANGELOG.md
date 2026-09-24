@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`2.13.1...main`][2.13.1...main].
 
+### Changed
+
+- Allowed installation on PHP 8.6 ([#1101]), by [@localheinz]
+
 ## [`2.13.1`][2.13.1]
 
 For a full diff see [`2.13.0...2.13.1`][2.13.0...2.13.1].
@@ -764,6 +768,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#1009]: https://github.com/ergebnis/phpstan-rules/pull/1009
 [#1010]: https://github.com/ergebnis/phpstan-rules/pull/1010
 [#1011]: https://github.com/ergebnis/phpstan-rules/pull/1011
+[#1101]: https://github.com/ergebnis/phpstan-rules/pull/1101
 
 [@cosmastech]: https://github.com/cosmastech
 [@dmecke]: https://github.com/dmecke
