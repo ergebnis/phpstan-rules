@@ -12,6 +12,10 @@ For a full diff see [`2.13.1...main`][2.13.1...main].
 
 - Allowed installation on PHP 8.6 ([#1101]), by [@localheinz]
 
+### Fixed
+
+- Adjusted `Functions\NoParameterPassedByReferenceRule` to use the appropriate error identifier ([#1036]), by [@Legend999]
+
 ## [`2.13.1`][2.13.1]
 
 For a full diff see [`2.13.0...2.13.1`][2.13.0...2.13.1].
@@ -768,6 +772,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#1009]: https://github.com/ergebnis/phpstan-rules/pull/1009
 [#1010]: https://github.com/ergebnis/phpstan-rules/pull/1010
 [#1011]: https://github.com/ergebnis/phpstan-rules/pull/1011
+[#1036]: https://github.com/ergebnis/phpstan-rules/pull/1036
 [#1101]: https://github.com/ergebnis/phpstan-rules/pull/1101
 
 [@cosmastech]: https://github.com/cosmastech
@@ -775,6 +780,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [@enumag]: https://github.com/enumag
 [@ergebnis]: https://github.com/ergebnis
 [@Great-Antique]: https://github.com/Great-Antique
+[@Legend999]: https://github.com/Legend999
 [@localheinz]: https://github.com/localheinz
 [@manuelkiessling]: https://github.com/manuelkiessling
 [@nunomaduro]: https://github.com/nunomaduro
