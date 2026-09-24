@@ -31,6 +31,12 @@ parameters:
 			path: src/Classes/PHPUnit/Framework/TestCaseWithSuffixRule.php
 
 		-
+			message: '#^Offset 0 might not exist on array\{\}\|array\{0\: non\-falsy\-string, 1\?\: ''\-line''\|''\-next\-line''\}\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: src/Files/NoPhpstanIgnoreRule.php
+
+		-
 			message: '#^Language construct isset\(\) should not be used\.$#'
 			identifier: ergebnis.noIsset
 			count: 1
