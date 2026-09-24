@@ -1,9 +1,9 @@
 # phpstan-rules
 
-[![Integrate](https://github.com/ergebnis/phpstan-rules/workflows/Integrate/badge.svg)](https://github.com/ergebnis/phpstan-rules/actions)
-[![Merge](https://github.com/ergebnis/phpstan-rules/workflows/Merge/badge.svg)](https://github.com/ergebnis/phpstan-rules/actions)
-[![Release](https://github.com/ergebnis/phpstan-rules/workflows/Release/badge.svg)](https://github.com/ergebnis/phpstan-rules/actions)
-[![Renew](https://github.com/ergebnis/phpstan-rules/workflows/Renew/badge.svg)](https://github.com/ergebnis/phpstan-rules/actions)
+[![Integrate](https://github.com/ergebnis/phpstan-rules/actions/workflows/integrate.yaml/badge.svg?branch=main)](https://github.com/ergebnis/phpstan-rules/actions/workflows/integrate.yaml)
+[![Merge](https://github.com/ergebnis/phpstan-rules/actions/workflows/merge.yaml/badge.svg)](https://github.com/ergebnis/phpstan-rules/actions/workflows/merge.yaml)
+[![Release](https://github.com/ergebnis/phpstan-rules/actions/workflows/release.yaml/badge.svg)](https://github.com/ergebnis/phpstan-rules/actions/workflows/release.yaml)
+[![Renew](https://github.com/ergebnis/phpstan-rules/actions/workflows/renew.yaml/badge.svg)](https://github.com/ergebnis/phpstan-rules/actions/workflows/renew.yaml)
 
 [![Code Coverage](https://codecov.io/gh/ergebnis/phpstan-rules/branch/main/graph/badge.svg)](https://codecov.io/gh/ergebnis/phpstan-rules)
 
