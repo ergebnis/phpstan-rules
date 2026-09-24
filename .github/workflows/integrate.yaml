@@ -238,6 +238,70 @@ jobs:
           annotations: true
           inputs: ".github/"
 
+  refactoring:
+    name: "Refactoring"
+
+    permissions:
+      contents: "read"
+
+    runs-on: "ubuntu-24.04"
+
+    timeout-minutes: 5
+
+    strategy:
+      matrix:
+        php-version:
+          - "7.4"
+
+        dependencies:
+          - "locked"
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1" # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: "Set up PHP"
+        uses: "shivammathur/setup-php@7c071dfe9dc99bdf297fa79cb49ea005b9fcadbc" # 2.37.1
+        with:
+          coverage: "none"
+          extensions: "none, ctype, curl, dom, iconv, json, mbstring, opcache, pcntl, phar, posix, simplexml, tokenizer, xml, xmlwriter"
+          php-version: "${{ matrix.php-version }}"
+
+      - name: "Set up problem matchers for PHP"
+        run: "echo \"::add-matcher::${{ runner.tool_cache }}/php.json\""
+
+      - name: "Validate composer.json and composer.lock"
+        run: "composer validate --ansi --strict"
+
+      - name: "Determine composer cache directory"
+        uses: "ergebnis/.github/actions/composer/determine-cache-directory@8fe79da501e53602e164c51b0555195b66e28275" # 1.13.2
+
+      - name: "Cache dependencies installed with composer"
+        uses: "actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9" # v6.1.0
+        with:
+          path: "${{ env.COMPOSER_CACHE_DIR }}"
+          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
+          restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
+
+      - name: "Install ${{ matrix.dependencies }} dependencies with composer"
+        uses: "ergebnis/.github/actions/composer/install@8fe79da501e53602e164c51b0555195b66e28275" # 1.13.2
+        with:
+          dependencies: "${{ matrix.dependencies }}"
+
+      - name: "Cache cache directory for rector/rector"
+        uses: "actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9" # v6.1.0
+        with:
+          path: ".build/rector"
+          key: "php-${{ matrix.php-version }}-rector-${{ github.ref_name }}"
+          restore-keys: |
+            php-${{ matrix.php-version }}-rector-main
+            php-${{ matrix.php-version }}-rector-
+
+      - name: "Run automated refactoring with rector/rector"
+        run: "vendor/bin/rector --ansi --config=rector.php --dry-run"
+
   security-analysis:
     name: "Security Analysis"
 
