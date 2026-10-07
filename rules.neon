@@ -23,6 +23,12 @@ conditionalTags:
 		phpstan.rules.rule: %ergebnis.noEval.enabled%
 	Ergebnis\PHPStan\Rules\Expressions\NoIssetRule:
 		phpstan.rules.rule: %ergebnis.noIsset.enabled%
+	Ergebnis\PHPStan\Rules\Constants\NoAccessToConstantViaInstanceRule:
+		phpstan.rules.rule: %ergebnis.noAccessToStaticMemberViaInstance.enabled%
+	Ergebnis\PHPStan\Rules\Methods\NoAccessToStaticMethodViaInstanceRule:
+		phpstan.rules.rule: %ergebnis.noAccessToStaticMemberViaInstance.enabled%
+	Ergebnis\PHPStan\Rules\Properties\NoAccessToStaticPropertyViaInstanceRule:
+		phpstan.rules.rule: %ergebnis.noAccessToStaticMemberViaInstance.enabled%
 	Ergebnis\PHPStan\Rules\Files\DeclareStrictTypesRule:
 		phpstan.rules.rule: %ergebnis.declareStrictTypes.enabled%
 	Ergebnis\PHPStan\Rules\Files\NoPhpstanIgnoreRule:
@@ -108,6 +114,8 @@ parameters:
 			enabled: %ergebnis.allRules%
 		noReturnByReference:
 			enabled: %ergebnis.allRules%
+		noAccessToStaticMemberViaInstance:
+			enabled: %ergebnis.allRules%
 		noSwitch:
 			enabled: %ergebnis.allRules%
 		privateInFinalClass:
@@ -184,6 +192,9 @@ parametersSchema:
 			enabled: bool(),
 		])
 		noReturnByReference: structure([
+			enabled: bool(),
+		])
+		noAccessToStaticMemberViaInstance: structure([
 			enabled: bool(),
 		])
 		noSwitch: structure([
@@ -297,6 +308,15 @@ services:
 
 	-
 		class: Ergebnis\PHPStan\Rules\Methods\PrivateInFinalClassRule
+
+	-
+		class: Ergebnis\PHPStan\Rules\Constants\NoAccessToConstantViaInstanceRule
+
+	-
+		class: Ergebnis\PHPStan\Rules\Methods\NoAccessToStaticMethodViaInstanceRule
+
+	-
+		class: Ergebnis\PHPStan\Rules\Properties\NoAccessToStaticPropertyViaInstanceRule
 
 	-
 		class: Ergebnis\PHPStan\Rules\Statements\NoSwitchRule

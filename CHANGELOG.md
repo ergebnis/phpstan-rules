@@ -20,6 +20,10 @@ For a full diff see [`2.13.1...2.14.0`][2.13.1...2.14.0].
 
 - Adjusted `Functions\NoParameterPassedByReferenceRule` to use the appropriate error identifier ([#1036]), by [@Legend999]
 
+### Added
+
+- Added `Constants\NoAccessToConstantViaInstanceRule`, `Methods\NoAccessToStaticMethodViaInstanceRule`, and `Properties\NoAccessToStaticPropertyViaInstanceRule`, which report an error when a static constant, method, or property is accessed via an instance instead of a class name ([#1020]), by [@localheinz]
+
 ## [`2.13.1`][2.13.1]
 
 For a full diff see [`2.13.0...2.13.1`][2.13.0...2.13.1].
