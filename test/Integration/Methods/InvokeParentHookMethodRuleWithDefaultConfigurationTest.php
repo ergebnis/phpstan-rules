@@ -167,6 +167,27 @@ final class InvokeParentHookMethodRuleWithDefaultConfigurationTest extends Testi
                 ],
                 [
                     \sprintf(
+                        'Method %s::tearDownAfterClass() does not invoke parent::tearDownAfterClass() after all other statements.',
+                        Test\Fixture\Methods\InvokeParentHookMethodRule\PHPUnit\Framework\ConcreteTestCaseInvokingNonEmptyParentHookMethodsInFinallyInWrongOrderTest::class,
+                    ),
+                    9,
+                ],
+                [
+                    \sprintf(
+                        'Method %s::assertPostConditions() does not invoke parent::assertPostConditions().',
+                        Test\Fixture\Methods\InvokeParentHookMethodRule\PHPUnit\Framework\ConcreteTestCaseInvokingNonEmptyParentHookMethodsInFinallyInWrongOrderTest::class,
+                    ),
+                    20,
+                ],
+                [
+                    \sprintf(
+                        'Method %s::tearDown() does not invoke parent::tearDown() after all other statements.',
+                        Test\Fixture\Methods\InvokeParentHookMethodRule\PHPUnit\Framework\ConcreteTestCaseInvokingNonEmptyParentHookMethodsInFinallyInWrongOrderTest::class,
+                    ),
+                    29,
+                ],
+                [
+                    \sprintf(
                         'Method %s::setUpBeforeClass() does not invoke parent::setUpBeforeClass() before all other statements.',
                         Test\Fixture\Methods\InvokeParentHookMethodRule\PHPUnit\Framework\ConcreteTestCaseInvokingNonEmptyParentHookMethodsInWrongOrderTest::class,
                     ),
