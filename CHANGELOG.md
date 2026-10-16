@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`2.14.1...main`][2.14.1...main].
 
+### Fixed
+
+- Adjusted `rules.neon` to register `Closures\NoParameterWithNullDefaultValueRule` ([#1140]), by [@alfredbez]
+
 ## [`2.14.1`][2.14.1]
 
 For a full diff see [`2.14.0...2.14.1`][2.14.0...2.14.1].
@@ -791,7 +795,9 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#1036]: https://github.com/ergebnis/phpstan-rules/pull/1036
 [#1101]: https://github.com/ergebnis/phpstan-rules/pull/1101
 [#1139]: https://github.com/ergebnis/phpstan-rules/pull/1139
+[#1140]: https://github.com/ergebnis/phpstan-rules/pull/1140
 
+[@alfredbez]: https://github.com/alfredbez
 [@cosmastech]: https://github.com/cosmastech
 [@dmecke]: https://github.com/dmecke
 [@enumag]: https://github.com/enumag
