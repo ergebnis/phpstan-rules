@@ -40,7 +40,7 @@
     "phpstan/phpstan-strict-rules": "^2.1.0",
     "phpunit/phpunit": "^9.6.33",
     "psr/container": "^2.0.2",
-    "rector/rector": "^2.3.8",
+    "rector/rector": "^2.7.0",
     "symfony/finder": "^5.4.45",
     "symfony/process": "^5.4.51"
   },
