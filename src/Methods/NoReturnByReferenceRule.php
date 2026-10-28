@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Methods;
 
+use Ergebnis\PHPStan\Rules\Documentation;
 use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Node;
 use PHPStan\Analyser;
@@ -22,8 +23,18 @@ use PHPStan\Rules;
 /**
  * @implements Rules\Rule<Node\Stmt\ClassMethod>
  */
-final class NoReturnByReferenceRule implements Rules\Rule
+final class NoReturnByReferenceRule implements
+    Documentation\HasRuleDefinition,
+    Rules\Rule
 {
+    public function ruleDefinition(): Documentation\RuleDefinition
+    {
+        return Documentation\RuleDefinition::create(
+            'noReturnByReference',
+            'This rule reports an error when a method [returns by reference](https://www.php.net/manual/en/language.references.return.php).',
+        );
+    }
+
     public function getNodeType(): string
     {
         return Node\Stmt\ClassMethod::class;

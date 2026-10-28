@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Ergebnis\PHPStan\Rules\Methods;
 
 use Ergebnis\PHPStan\Rules\Analyzer;
+use Ergebnis\PHPStan\Rules\Documentation;
 use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Node;
 use PHPStan\Analyser;
@@ -23,13 +24,31 @@ use PHPStan\Rules;
 /**
  * @implements Rules\Rule<Node\Stmt\ClassMethod>
  */
-final class NoParameterWithNullableTypeDeclarationRule implements Rules\Rule
+final class NoParameterWithNullableTypeDeclarationRule implements
+    Documentation\HasRuleDefinition,
+    Rules\Rule
 {
     private Analyzer $analyzer;
 
     public function __construct(Analyzer $analyzer)
     {
         $this->analyzer = $analyzer;
+    }
+
+    public function ruleDefinition(): Documentation\RuleDefinition
+    {
+        return Documentation\RuleDefinition::create(
+            'noParameterWithNullableTypeDeclaration',
+            <<<'MARKDOWN'
+            This rule reports an error when a method declared in
+
+            - an anonymous class
+            - a class
+            - an interface
+
+            has a parameter with a nullable type declaration.
+            MARKDOWN,
+        );
     }
 
     public function getNodeType(): string

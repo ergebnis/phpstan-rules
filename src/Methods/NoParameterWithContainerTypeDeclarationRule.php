@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Methods;
 
+use Ergebnis\PHPStan\Rules\Documentation;
 use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Node;
 use PHPStan\Analyser;
@@ -22,7 +23,9 @@ use PHPStan\Rules;
 /**
  * @implements Rules\Rule<Node\Stmt\ClassMethod>
  */
-final class NoParameterWithContainerTypeDeclarationRule implements Rules\Rule
+final class NoParameterWithContainerTypeDeclarationRule implements
+    Documentation\HasRuleDefinition,
+    Rules\Rule
 {
     private Reflection\ReflectionProvider $reflectionProvider;
 
@@ -55,6 +58,37 @@ final class NoParameterWithContainerTypeDeclarationRule implements Rules\Rule
             },
         ));
         $this->methodsAllowedToUseContainerTypeDeclarations = $methodsAllowedToUseContainerTypeDeclarations;
+    }
+
+    public function ruleDefinition(): Documentation\RuleDefinition
+    {
+        return Documentation\RuleDefinition::create(
+            'noParameterWithContainerTypeDeclaration',
+            'This rule reports an error when a method has a type declaration for a known dependency injection container or service locator.',
+            Documentation\Parameter::create(
+                'interfacesImplementedByContainers',
+                <<<'MARKDOWN'
+                By default, this rule disallows the use of type declarations indicating an implementation of
+
+                - [`Psr\Container\ContainerInterface`](https://github.com/php-fig/container/blob/1.0.0/src/ContainerInterface.php)
+
+                is expected to be injected into a method.
+
+                You can set the `interfacesImplementedByContainers` parameter to a list of interface names of additional containers and service locators.
+                MARKDOWN,
+                [
+                    'Fancy\\DependencyInjection\\ContainerInterface',
+                    'Other\\ServiceLocatorInterface',
+                ],
+            ),
+            Documentation\Parameter::create(
+                'methodsAllowedToUseContainerTypeDeclarations',
+                'You can set the `methodsAllowedToUseContainerTypeDeclarations` parameter to a list of method names that are allowed to use parameters with container type declarations.',
+                [
+                    'loadExtension',
+                ],
+            ),
+        );
     }
 
     public function getNodeType(): string

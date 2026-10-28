@@ -1,5 +1,5 @@
 .PHONY: it
-it: refactoring coding-standards security-analysis static-code-analysis tests ## Runs the refactoring, coding-standards, security-analysis, static-code-analysis, and tests targets
+it: refactoring coding-standards security-analysis static-code-analysis tests documentation ## Runs the refactoring, coding-standards, security-analysis, static-code-analysis, tests, and documentation targets
 
 .PHONY: code-coverage
 code-coverage: vendor ## Collects coverage from running unit and integration tests with phpunit/phpunit
@@ -15,6 +15,10 @@ coding-standards: vendor ## Lints YAML files with yamllint, normalizes composer.
 .PHONY: dependency-analysis
 dependency-analysis: phive vendor ## Runs a dependency analysis with maglnet/composer-require-checker
 	.phive/composer-require-checker check --config-file=$(shell pwd)/composer-require-checker.json --verbose
+
+.PHONY: documentation
+documentation: vendor ## Generates rule documentation from rule definitions
+	php bin/generate-documentation.php
 
 .PHONY: help
 help: ## Displays this list of targets with descriptions
@@ -43,9 +47,10 @@ static-code-analysis-baseline: vendor ## Generates a baseline for static code an
 	vendor/bin/phpstan --allow-empty-baseline --configuration=phpstan.neon --generate-baseline=phpstan-baseline.neon --memory-limit=-1
 
 .PHONY: tests
-tests: vendor ## Runs unit and integration tests with phpunit/phpunit
+tests: vendor ## Runs unit, integration, and documentation tests with phpunit/phpunit
 	vendor/bin/phpunit --configuration=test/phpunit.xml --testsuite=unit
 	vendor/bin/phpunit --configuration=test/phpunit.xml --testsuite=integration
+	vendor/bin/phpunit --configuration=test/phpunit.xml --testsuite=documentation
 
 vendor: composer.json composer.lock
 	composer validate --strict

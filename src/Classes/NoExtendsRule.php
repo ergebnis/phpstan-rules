@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Classes;
 
+use Ergebnis\PHPStan\Rules\Documentation;
 use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Node;
 use PHPStan\Analyser;
@@ -22,7 +23,9 @@ use PHPUnit\Framework;
 /**
  * @implements Rules\Rule<Node\Stmt\Class_>
  */
-final class NoExtendsRule implements Rules\Rule
+final class NoExtendsRule implements
+    Documentation\HasRuleDefinition,
+    Rules\Rule
 {
     /**
      * @var list<class-string>
@@ -48,6 +51,28 @@ final class NoExtendsRule implements Rules\Rule
                 return $classAllowedToBeExtended;
             }, $classesAllowedToBeExtended),
         )));
+    }
+
+    public function ruleDefinition(): Documentation\RuleDefinition
+    {
+        return Documentation\RuleDefinition::create(
+            'noExtends',
+            'This rule reports an error when a class extends another class.',
+            Documentation\Parameter::create(
+                'classesAllowedToBeExtended',
+                <<<'MARKDOWN'
+                By default, this rule allows the following classes to be extended:
+
+                - [`PHPUnit\Framework\TestCase`](https://github.com/sebastianbergmann/phpunit/blob/6.0.0/src/Framework/TestCase.php)
+
+                You can set the `classesAllowedToBeExtended` parameter to a list of class names that you want to allow to be extended.
+                MARKDOWN,
+                [
+                    'Ergebnis\\PHPStan\\Rules\\Test\\Integration\\AbstractTestCase',
+                    'PHPStan\\Testing\\RuleTestCase',
+                ],
+            ),
+        );
     }
 
     public function getNodeType(): string

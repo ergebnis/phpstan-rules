@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\CallLikes;
 
+use Ergebnis\PHPStan\Rules\Documentation;
 use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Node;
 use PHPStan\Analyser;
@@ -22,8 +23,18 @@ use PHPStan\ShouldNotHappenException;
 /**
  * @implements Rules\Rule<Node\Expr\CallLike>
  */
-final class NoNamedArgumentRule implements Rules\Rule
+final class NoNamedArgumentRule implements
+    Documentation\HasRuleDefinition,
+    Rules\Rule
 {
+    public function ruleDefinition(): Documentation\RuleDefinition
+    {
+        return Documentation\RuleDefinition::create(
+            'noNamedArgument',
+            'This rule reports an error when an anonymous function, a function, or a method is invoked using a [named argument](https://www.php.net/manual/en/functions.arguments.php#functions.named-arguments).',
+        );
+    }
+
     public function getNodeType(): string
     {
         return Node\Expr\CallLike::class;

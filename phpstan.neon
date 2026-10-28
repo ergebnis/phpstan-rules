@@ -17,6 +17,7 @@ parameters:
 	level: max
 
 	paths:
+		- bin/
 		- src/
 		- test/
 		- .php-cs-fixer.fixture.php

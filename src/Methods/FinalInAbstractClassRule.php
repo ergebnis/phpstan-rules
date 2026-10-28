@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Ergebnis\PHPStan\Rules\Methods;
 
 use Doctrine\ORM;
+use Ergebnis\PHPStan\Rules\Documentation;
 use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Node;
 use PHPStan\Analyser;
@@ -25,7 +26,9 @@ use PHPStan\Rules;
 /**
  * @implements Rules\Rule<Node\Stmt\ClassMethod>
  */
-final class FinalInAbstractClassRule implements Rules\Rule
+final class FinalInAbstractClassRule implements
+    Documentation\HasRuleDefinition,
+    Rules\Rule
 {
     private const DOCTRINE_ATTRIBUTE_NAMES = [
         ORM\Mapping\Embeddable::class,
@@ -39,6 +42,21 @@ final class FinalInAbstractClassRule implements Rules\Rule
         '@ORM\\Entity',
         '@Entity',
     ];
+
+    public function ruleDefinition(): Documentation\RuleDefinition
+    {
+        return Documentation\RuleDefinition::create(
+            'finalInAbstractClass',
+            <<<'MARKDOWN'
+            This rule reports an error when a concrete `public` or `protected` method in an `abstract` class is not `final`.
+
+            💡 This rule ignores
+
+            - Doctrine embeddables
+            - Doctrine entities
+            MARKDOWN,
+        );
+    }
 
     public function getNodeType(): string
     {

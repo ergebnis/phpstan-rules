@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Ergebnis\PHPStan\Rules\Closures;
 
 use Ergebnis\PHPStan\Rules\Analyzer;
+use Ergebnis\PHPStan\Rules\Documentation;
 use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Node;
 use PHPStan\Analyser;
@@ -22,13 +23,23 @@ use PHPStan\Rules;
 /**
  * @implements Rules\Rule<Node\Expr\Closure>
  */
-final class NoParameterWithNullDefaultValueRule implements Rules\Rule
+final class NoParameterWithNullDefaultValueRule implements
+    Documentation\HasRuleDefinition,
+    Rules\Rule
 {
     private Analyzer $analyzer;
 
     public function __construct(Analyzer $analyzer)
     {
         $this->analyzer = $analyzer;
+    }
+
+    public function ruleDefinition(): Documentation\RuleDefinition
+    {
+        return Documentation\RuleDefinition::create(
+            'noParameterWithNullDefaultValue',
+            'This rule reports an error when a closure has a parameter with `null` as default value.',
+        );
     }
 
     public function getNodeType(): string

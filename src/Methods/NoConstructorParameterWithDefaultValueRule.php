@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Methods;
 
+use Ergebnis\PHPStan\Rules\Documentation;
 use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Node;
 use PHPStan\Analyser;
@@ -22,8 +23,25 @@ use PHPStan\Rules;
 /**
  * @implements Rules\Rule<Node\Stmt\ClassMethod>
  */
-final class NoConstructorParameterWithDefaultValueRule implements Rules\Rule
+final class NoConstructorParameterWithDefaultValueRule implements
+    Documentation\HasRuleDefinition,
+    Rules\Rule
 {
+    public function ruleDefinition(): Documentation\RuleDefinition
+    {
+        return Documentation\RuleDefinition::create(
+            'noConstructorParameterWithDefaultValue',
+            <<<'MARKDOWN'
+            This rule reports an error when a constructor declared in
+
+            - an anonymous class
+            - a class
+
+            has a default value.
+            MARKDOWN,
+        );
+    }
+
     public function getNodeType(): string
     {
         return Node\Stmt\ClassMethod::class;
