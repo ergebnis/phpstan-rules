@@ -44,6 +44,7 @@ includes:
 
 This package provides the following rules for use with [`phpstan/phpstan`](https://github.com/phpstan/phpstan):
 
+- [`Ergebnis\PHPStan\Rules\ArrowFunctions\NoNullableReturnTypeDeclarationRule`](https://github.com/ergebnis/phpstan-rules#arrowfunctionsnonullablereturntypedeclarationrule)
 - [`Ergebnis\PHPStan\Rules\CallLikes\NoNamedArgumentRule`](https://github.com/ergebnis/phpstan-rules#calllikesnonamedargumentrule)
 - [`Ergebnis\PHPStan\Rules\Classes\FinalRule`](https://github.com/ergebnis/phpstan-rules#classesfinalrule)
 - [`Ergebnis\PHPStan\Rules\Classes\NoExtendsRule`](https://github.com/ergebnis/phpstan-rules#classesnoextendsrule)
@@ -76,6 +77,23 @@ This package provides the following rules for use with [`phpstan/phpstan`](https
 - [`Ergebnis\PHPStan\Rules\Methods\PrivateInFinalClassRule`](https://github.com/ergebnis/phpstan-rules#methodsprivateinfinalclassrule)
 - [`Ergebnis\PHPStan\Rules\Statements\NoSwitchRule`](https://github.com/ergebnis/phpstan-rules#statementsnoswitchrule)
 
+
+### ArrowFunctions
+
+#### `ArrowFunctions\NoNullableReturnTypeDeclarationRule`
+
+This rule reports an error when an arrow function uses a nullable return type declaration.
+
+##### Disabling the rule
+
+You can set the `enabled` parameter to `false` to disable this rule.
+
+```neon
+parameters:
+	ergebnis:
+		noNullableReturnTypeDeclaration:
+			enabled: false
+```
 
 ### CallLikes
 

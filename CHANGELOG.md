@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`2.14.2...main`][2.14.2...main].
 
+### Added
+
+- Added `ArrowFunctions\NoNullableReturnTypeDeclarationRule`, which reports an error when an arrow function has a nullable return type declaration ([#1146]), by [@localheinz]
+
 ## [`2.14.2`][2.14.2]
 
 For a full diff see [`2.14.1...2.14.2`][2.14.1...2.14.2].
@@ -802,6 +806,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#1101]: https://github.com/ergebnis/phpstan-rules/pull/1101
 [#1139]: https://github.com/ergebnis/phpstan-rules/pull/1139
 [#1140]: https://github.com/ergebnis/phpstan-rules/pull/1140
+[#1146]: https://github.com/ergebnis/phpstan-rules/pull/1146
 
 [@alfredbez]: https://github.com/alfredbez
 [@cosmastech]: https://github.com/cosmastech
