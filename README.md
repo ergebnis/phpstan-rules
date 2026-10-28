@@ -732,7 +732,7 @@ parameters:
 			enabled: false
 ```
 
-#### `Functions\NoReturnByReferenceRule`
+#### `Methods\NoReturnByReferenceRule`
 
 This rule reports an error when a method [returns by reference](https://www.php.net/manual/en/language.references.return.php).
 
