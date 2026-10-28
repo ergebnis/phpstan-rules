@@ -22,12 +22,16 @@ use PHPStan\Type;
 /**
  * @covers \Ergebnis\PHPStan\Rules\Methods\PrivateInFinalClassRule
  *
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ErrorTip
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
  *
  * @extends Testing\RuleTestCase<Methods\PrivateInFinalClassRule>
  */
 final class PrivateInFinalClassRuleTest extends Testing\RuleTestCase
 {
+    use Test\Util\ErrorTip;
     use Test\Util\Helper;
 
     public function testPrivateInFinalClassRule(): void
@@ -41,10 +45,12 @@ final class PrivateInFinalClassRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Methods\PrivateInFinalClassRule\FinalClassWithProtectedMethod::class,
                     ),
                     9,
+                    $this->errorTip(),
                 ],
                 [
                     'Method method() in anonymous class is protected, but since the containing class is final, it can be private.',
                     8,
+                    $this->errorTip(),
                 ],
             ],
         );

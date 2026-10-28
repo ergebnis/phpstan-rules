@@ -23,12 +23,16 @@ use PHPStan\Testing;
  * @covers \Ergebnis\PHPStan\Rules\Analyzer
  * @covers \Ergebnis\PHPStan\Rules\Methods\NoParameterWithNullableTypeDeclarationRule
  *
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ErrorTip
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
  *
  * @extends Testing\RuleTestCase<Methods\NoParameterWithNullableTypeDeclarationRule>
  */
 final class NoParameterWithNullableTypeDeclarationRuleTest extends Testing\RuleTestCase
 {
+    use Test\Util\ErrorTip;
     use Test\Util\Helper;
 
     public function testNoParameterWithNullableTypeDeclarationRule(): void
@@ -42,6 +46,7 @@ final class NoParameterWithNullableTypeDeclarationRuleTest extends Testing\RuleT
                         Test\Fixture\Methods\NoParameterWithNullableTypeDeclarationRule\ClassWithMethodWithParameterWithNullableTypeDeclaration::class,
                     ),
                     9,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -49,6 +54,7 @@ final class NoParameterWithNullableTypeDeclarationRuleTest extends Testing\RuleT
                         Test\Fixture\Methods\NoParameterWithNullableTypeDeclarationRule\ClassWithMethodWithParameterWithNullableUnionTypeDeclaration::class,
                     ),
                     9,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -56,6 +62,7 @@ final class NoParameterWithNullableTypeDeclarationRuleTest extends Testing\RuleT
                         Test\Fixture\Methods\NoParameterWithNullableTypeDeclarationRule\InterfaceWithMethodWithParameterWithNullableTypeDeclaration::class,
                     ),
                     9,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -63,22 +70,27 @@ final class NoParameterWithNullableTypeDeclarationRuleTest extends Testing\RuleT
                         Test\Fixture\Methods\NoParameterWithNullableTypeDeclarationRule\InterfaceWithMethodWithParameterWithNullableUnionTypeDeclaration::class,
                     ),
                     9,
+                    $this->errorTip(),
                 ],
                 [
                     'Method foo() in anonymous class has parameter $bar with a nullable type declaration.',
                     28,
+                    $this->errorTip(),
                 ],
                 [
                     'Method foo() in anonymous class has parameter $bar with a nullable type declaration.',
                     35,
+                    $this->errorTip(),
                 ],
                 [
                     'Method foo() in anonymous class has parameter $bar with a nullable type declaration.',
                     42,
+                    $this->errorTip(),
                 ],
                 [
                     'Method foo() in anonymous class has parameter $bar with a nullable type declaration.',
                     49,
+                    $this->errorTip(),
                 ],
             ],
         );

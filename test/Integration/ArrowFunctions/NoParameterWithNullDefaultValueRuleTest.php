@@ -23,12 +23,16 @@ use PHPStan\Testing;
  * @covers \Ergebnis\PHPStan\Rules\Analyzer
  * @covers \Ergebnis\PHPStan\Rules\ArrowFunctions\NoParameterWithNullDefaultValueRule
  *
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ErrorTip
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
  *
  * @extends Testing\RuleTestCase<ArrowFunctions\NoParameterWithNullDefaultValueRule>
  */
 final class NoParameterWithNullDefaultValueRuleTest extends Testing\RuleTestCase
 {
+    use Test\Util\ErrorTip;
     use Test\Util\Helper;
 
     public function testNoParameterWithNullDefaultValueRule(): void
@@ -39,14 +43,17 @@ final class NoParameterWithNullDefaultValueRuleTest extends Testing\RuleTestCase
                 [
                     'Arrow function has parameter $bar with null as default value.',
                     13,
+                    $this->errorTip(),
                 ],
                 [
                     'Arrow function has parameter $bar with null as default value.',
                     15,
+                    $this->errorTip(),
                 ],
                 [
                     'Arrow function has parameter $bar with null as default value.',
                     17,
+                    $this->errorTip(),
                 ],
             ],
         );

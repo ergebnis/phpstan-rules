@@ -2,6 +2,10 @@
 
 This rule reports an error when a closure has a parameter with `null` as default value.
 
+## Rationale
+
+A parameter with `null` as its default value makes the argument optional and nullable at once, so the closure has to handle a missing value. Separate closures or a null object make each case explicit.
+
 ## Parameters
 
 ### `enabled`

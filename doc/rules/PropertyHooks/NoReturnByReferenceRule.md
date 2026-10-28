@@ -2,6 +2,10 @@
 
 This rule reports an error when a [property hook](https://www.php.net/manual/en/language.oop5.property-hooks.php) returns by reference.
 
+## Rationale
+
+Returning by reference lets the caller change state that the property hook keeps, which makes the code harder to follow. Return a value instead.
+
 ## Parameters
 
 ### `enabled`

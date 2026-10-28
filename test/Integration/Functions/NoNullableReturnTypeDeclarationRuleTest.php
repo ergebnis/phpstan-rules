@@ -23,12 +23,16 @@ use PHPStan\Testing;
  * @covers \Ergebnis\PHPStan\Rules\Analyzer
  * @covers \Ergebnis\PHPStan\Rules\Functions\NoNullableReturnTypeDeclarationRule
  *
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ErrorTip
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
  *
  * @extends Testing\RuleTestCase<Functions\NoNullableReturnTypeDeclarationRule>
  */
 final class NoNullableReturnTypeDeclarationRuleTest extends Testing\RuleTestCase
 {
+    use Test\Util\ErrorTip;
     use Test\Util\Helper;
 
     public function testNoNullableReturnTypeDeclarationRule(): void
@@ -39,18 +43,22 @@ final class NoNullableReturnTypeDeclarationRuleTest extends Testing\RuleTestCase
                 [
                     'Function Ergebnis\PHPStan\Rules\Test\Fixture\Functions\NoNullableReturnTypeDeclarationRule\baz() has a nullable return type declaration.',
                     17,
+                    $this->errorTip(),
                 ],
                 [
                     'Function Ergebnis\PHPStan\Rules\Test\Fixture\Functions\NoNullableReturnTypeDeclarationRule\quux() has a nullable return type declaration.',
                     22,
+                    $this->errorTip(),
                 ],
                 [
                     'Function Ergebnis\PHPStan\Rules\Test\Fixture\Functions\NoNullableReturnTypeDeclarationRule\quz() has a nullable return type declaration.',
                     27,
+                    $this->errorTip(),
                 ],
                 [
                     'Function Ergebnis\PHPStan\Rules\Test\Fixture\Functions\NoNullableReturnTypeDeclarationRule\corge() has a nullable return type declaration.',
                     32,
+                    $this->errorTip(),
                 ],
             ],
         );

@@ -48,6 +48,8 @@ final class NoParameterWithNullDefaultValueRule implements
 
             has a parameter with `null` as default value.
             MARKDOWN,
+            'A parameter with `null` as its default value makes the argument optional and nullable at once, so the method has to handle a missing value. Separate methods or a null object make each case explicit.',
+            'Use separate methods or a null object instead.',
         );
     }
 
@@ -78,7 +80,7 @@ final class NoParameterWithNullDefaultValueRule implements
         $classReflection = $scope->getClassReflection();
 
         if ($classReflection->isAnonymous()) {
-            return \array_map(static function (Node\Param $parameterWithNullDefaultValue) use ($methodName): Rules\RuleError {
+            return \array_map(function (Node\Param $parameterWithNullDefaultValue) use ($methodName): Rules\RuleError {
                 /** @var Node\Expr\Variable $variable */
                 $variable = $parameterWithNullDefaultValue->var;
 
@@ -93,13 +95,14 @@ final class NoParameterWithNullDefaultValueRule implements
 
                 return Rules\RuleErrorBuilder::message($message)
                     ->identifier(ErrorIdentifier::noParameterWithNullDefaultValue()->toString())
+                    ->tip(Documentation\ErrorTip::for($this))
                     ->build();
             }, $parametersWithNullDefaultValue);
         }
 
         $className = $classReflection->getName();
 
-        return \array_map(static function (Node\Param $parameterWithNullDefaultValue) use ($className, $methodName): Rules\RuleError {
+        return \array_map(function (Node\Param $parameterWithNullDefaultValue) use ($className, $methodName): Rules\RuleError {
             /** @var Node\Expr\Variable $variable */
             $variable = $parameterWithNullDefaultValue->var;
 
@@ -115,6 +118,7 @@ final class NoParameterWithNullDefaultValueRule implements
 
             return Rules\RuleErrorBuilder::message($message)
                 ->identifier(ErrorIdentifier::noParameterWithNullDefaultValue()->toString())
+                ->tip(Documentation\ErrorTip::for($this))
                 ->build();
         }, $parametersWithNullDefaultValue);
     }

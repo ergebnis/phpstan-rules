@@ -61,6 +61,8 @@ final class PrivateInFinalClassRule implements
         return Documentation\RuleDefinition::create(
             'privateInFinalClass',
             'This rule reports an error when a method in a `final` class is `protected` but could be `private`.',
+            'A `final` class cannot be extended, so a `protected` method in it can only be used like a `private` method. Declaring the method `private` makes that explicit.',
+            'Declare the method `private` instead.',
         );
     }
 
@@ -118,6 +120,7 @@ final class PrivateInFinalClassRule implements
             return [
                 Rules\RuleErrorBuilder::message($message)
                     ->identifier(ErrorIdentifier::privateInFinalClass()->toString())
+                    ->tip(Documentation\ErrorTip::for($this))
                     ->build(),
             ];
         }
@@ -131,6 +134,7 @@ final class PrivateInFinalClassRule implements
         return [
             Rules\RuleErrorBuilder::message($message)
                 ->identifier(ErrorIdentifier::privateInFinalClass()->toString())
+                ->tip(Documentation\ErrorTip::for($this))
                 ->build(),
         ];
     }

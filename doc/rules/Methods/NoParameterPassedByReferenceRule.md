@@ -2,6 +2,10 @@
 
 This rule reports an error when a method has a parameter that is [passed by reference](https://www.php.net/manual/en/language.references.pass.php).
 
+## Rationale
+
+A parameter passed by reference lets a method change a variable of its caller as a side effect, which makes the code harder to follow. Return the new value instead.
+
 ## Parameters
 
 ### `enabled`

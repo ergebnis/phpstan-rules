@@ -2,6 +2,10 @@
 
 This rule reports an error when a closure has a parameter with a nullable type declaration.
 
+## Rationale
+
+A parameter with a nullable type declaration makes the closure handle two cases: a value and `null`. Separate closures or a null object make each case explicit.
+
 ## Parameters
 
 ### `enabled`

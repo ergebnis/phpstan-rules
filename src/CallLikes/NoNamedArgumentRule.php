@@ -32,6 +32,8 @@ final class NoNamedArgumentRule implements
         return Documentation\RuleDefinition::create(
             'noNamedArgument',
             'This rule reports an error when an anonymous function, a function, or a method is invoked using a [named argument](https://www.php.net/manual/en/functions.arguments.php#functions.named-arguments).',
+            'Named arguments make the names of parameters part of the public API, so renaming a parameter breaks callers. Positional arguments keep the names of parameters an implementation detail.',
+            'Use positional arguments instead.',
         );
     }
 
@@ -66,7 +68,7 @@ final class NoNamedArgumentRule implements
             $scope,
         );
 
-        return \array_map(static function (Node\Arg $namedArgument) use ($callLike): Rules\RuleError {
+        return \array_map(function (Node\Arg $namedArgument) use ($callLike): Rules\RuleError {
             /** @var Node\Identifier $argumentName */
             $argumentName = $namedArgument->name;
 
@@ -78,6 +80,7 @@ final class NoNamedArgumentRule implements
 
             return Rules\RuleErrorBuilder::message($message)
                 ->identifier(ErrorIdentifier::noNamedArgument()->toString())
+                ->tip(Documentation\ErrorTip::for($this))
                 ->build();
         }, $namedArguments);
     }

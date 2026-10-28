@@ -32,6 +32,8 @@ final class DeclareStrictTypesRule implements
         return Documentation\RuleDefinition::create(
             'declareStrictTypes',
             'This rule reports an error when a non-empty file does not contain a `declare(strict_types=1)` declaration.',
+            'Without a `declare(strict_types=1)` declaration, PHP coerces scalar arguments and return values to the declared types, which hides type errors.',
+            'Add a `declare(strict_types=1)` declaration at the top of the file.',
         );
     }
 
@@ -75,6 +77,7 @@ final class DeclareStrictTypesRule implements
         return [
             Rules\RuleErrorBuilder::message('File is missing a "declare(strict_types=1)" declaration.')
                 ->identifier(ErrorIdentifier::declareStrictTypes()->toString())
+                ->tip(Documentation\ErrorTip::for($this))
                 ->build(),
         ];
     }

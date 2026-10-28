@@ -8,6 +8,10 @@ This rule reports an error when a method declared in
 
 has a parameter with a nullable type declaration.
 
+## Rationale
+
+A parameter with a nullable type declaration makes the method handle two cases: a value and `null`. Separate methods or a null object make each case explicit.
+
 ## Parameters
 
 ### `enabled`

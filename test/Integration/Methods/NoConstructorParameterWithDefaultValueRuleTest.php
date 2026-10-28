@@ -21,12 +21,16 @@ use PHPStan\Testing;
 /**
  * @covers \Ergebnis\PHPStan\Rules\Methods\NoConstructorParameterWithDefaultValueRule
  *
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ErrorTip
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
  *
  * @extends Testing\RuleTestCase<Methods\NoConstructorParameterWithDefaultValueRule>
  */
 final class NoConstructorParameterWithDefaultValueRuleTest extends Testing\RuleTestCase
 {
+    use Test\Util\ErrorTip;
     use Test\Util\Helper;
 
     public function testNoConstructorParameterWithDefaultValueRule(): void
@@ -40,6 +44,7 @@ final class NoConstructorParameterWithDefaultValueRuleTest extends Testing\RuleT
                         Test\Fixture\Methods\NoConstructorParameterWithDefaultValueRule\ClassWithConstructorWithParameterWithDefaultValue::class,
                     ),
                     9,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -47,14 +52,17 @@ final class NoConstructorParameterWithDefaultValueRuleTest extends Testing\RuleT
                         Test\Fixture\Methods\NoConstructorParameterWithDefaultValueRule\ClassWithConstructorWithWrongCapitalizationWithParameterWithDefaultValue::class,
                     ),
                     9,
+                    $this->errorTip(),
                 ],
                 [
                     'Constructor in anonymous class has parameter $bar with default value.',
                     26,
+                    $this->errorTip(),
                 ],
                 [
                     'Constructor in anonymous class has parameter $bar with default value.',
                     32,
+                    $this->errorTip(),
                 ],
             ],
         );

@@ -7,6 +7,10 @@ This rule reports an error when a concrete `public` or `protected` method in an 
 - Doctrine embeddables
 - Doctrine entities
 
+## Rationale
+
+A concrete method in an `abstract` class that is not `final` can be overridden by subclasses, which can break the assumptions of the abstract class. Declare the method `final`, or `abstract` when subclasses need to provide it.
+
 ## Parameters
 
 ### `enabled`

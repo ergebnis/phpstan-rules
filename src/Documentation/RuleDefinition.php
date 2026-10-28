@@ -20,6 +20,8 @@ final class RuleDefinition
 {
     private string $configurationKey;
     private string $description;
+    private string $rationale;
+    private string $tip;
 
     /**
      * @var list<Parameter>
@@ -32,21 +34,29 @@ final class RuleDefinition
     private function __construct(
         string $configurationKey,
         string $description,
+        string $rationale,
+        string $tip,
         array $parameters
     ) {
         $this->configurationKey = $configurationKey;
         $this->description = $description;
+        $this->rationale = $rationale;
+        $this->tip = $tip;
         $this->parameters = $parameters;
     }
 
     public static function create(
         string $configurationKey,
         string $description,
+        string $rationale,
+        string $tip,
         Parameter ...$parameters
     ): self {
         return new self(
             $configurationKey,
             $description,
+            $rationale,
+            $tip,
             \array_values($parameters),
         );
     }
@@ -65,6 +75,22 @@ final class RuleDefinition
     public function description(): string
     {
         return $this->description;
+    }
+
+    /**
+     * Returns the reason for the rule, in Markdown.
+     */
+    public function rationale(): string
+    {
+        return $this->rationale;
+    }
+
+    /**
+     * Returns a short instruction for fixing errors reported by the rule, in Markdown that uses only backticks, so that it can also be shown as a tip for these errors.
+     */
+    public function tip(): string
+    {
+        return $this->tip;
     }
 
     /**

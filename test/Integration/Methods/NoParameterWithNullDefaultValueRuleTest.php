@@ -23,12 +23,16 @@ use PHPStan\Testing;
  * @covers \Ergebnis\PHPStan\Rules\Analyzer
  * @covers \Ergebnis\PHPStan\Rules\Methods\NoParameterWithNullDefaultValueRule
  *
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ErrorTip
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
  *
  * @extends Testing\RuleTestCase<Methods\NoParameterWithNullDefaultValueRule>
  */
 final class NoParameterWithNullDefaultValueRuleTest extends Testing\RuleTestCase
 {
+    use Test\Util\ErrorTip;
     use Test\Util\Helper;
 
     public function testNoParameterWithNullDefaultValueRule(): void
@@ -42,6 +46,7 @@ final class NoParameterWithNullDefaultValueRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Methods\NoParameterWithNullDefaultValueRule\ClassWithMethodWithParameterWithNullDefaultValue::class,
                     ),
                     9,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -49,6 +54,7 @@ final class NoParameterWithNullDefaultValueRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Methods\NoParameterWithNullDefaultValueRule\ClassWithMethodWithParameterWithRootNamespaceReferencedNullDefaultValue::class,
                     ),
                     9,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -56,6 +62,7 @@ final class NoParameterWithNullDefaultValueRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Methods\NoParameterWithNullDefaultValueRule\ClassWithMethodWithParameterWithWronglyCapitalizedNullDefaultValue::class,
                     ),
                     9,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -63,6 +70,7 @@ final class NoParameterWithNullDefaultValueRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Methods\NoParameterWithNullDefaultValueRule\InterfaceWithMethodWithParameterWithNullDefaultValue::class,
                     ),
                     9,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -70,6 +78,7 @@ final class NoParameterWithNullDefaultValueRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Methods\NoParameterWithNullDefaultValueRule\InterfaceWithMethodWithParameterWithRootNamespaceReferencedNullDefaultValue::class,
                     ),
                     9,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -77,18 +86,22 @@ final class NoParameterWithNullDefaultValueRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Methods\NoParameterWithNullDefaultValueRule\InterfaceWithMethodWithParameterWithWronglyCapitalizedNullDefaultValue::class,
                     ),
                     9,
+                    $this->errorTip(),
                 ],
                 [
                     'Method foo() in anonymous class has parameter $bar with null as default value.',
                     28,
+                    $this->errorTip(),
                 ],
                 [
                     'Method foo() in anonymous class has parameter $bar with null as default value.',
                     35,
+                    $this->errorTip(),
                 ],
                 [
                     'Method foo() in anonymous class has parameter $bar with null as default value.',
                     42,
+                    $this->errorTip(),
                 ],
             ],
         );

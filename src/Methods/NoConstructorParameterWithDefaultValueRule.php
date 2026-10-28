@@ -39,6 +39,8 @@ final class NoConstructorParameterWithDefaultValueRule implements
 
             has a default value.
             MARKDOWN,
+            'A constructor parameter with a default value lets callers create an object without deciding on that value. Named constructors make each way of creating the object explicit.',
+            'Remove the default value and add a named constructor for each way of creating the object.',
         );
     }
 
@@ -71,7 +73,7 @@ final class NoConstructorParameterWithDefaultValueRule implements
         $classReflection = $scope->getClassReflection();
 
         if ($classReflection->isAnonymous()) {
-            return \array_map(static function (Node\Param $parameterWithDefaultValue): Rules\RuleError {
+            return \array_map(function (Node\Param $parameterWithDefaultValue): Rules\RuleError {
                 /** @var Node\Expr\Variable $variable */
                 $variable = $parameterWithDefaultValue->var;
 
@@ -85,13 +87,14 @@ final class NoConstructorParameterWithDefaultValueRule implements
 
                 return Rules\RuleErrorBuilder::message($message)
                     ->identifier(ErrorIdentifier::noConstructorParameterWithDefaultValue()->toString())
+                    ->tip(Documentation\ErrorTip::for($this))
                     ->build();
             }, $parametersWithDefaultValue);
         }
 
         $className = $classReflection->getName();
 
-        return \array_map(static function (Node\Param $parameterWithDefaultValue) use ($className): Rules\RuleError {
+        return \array_map(function (Node\Param $parameterWithDefaultValue) use ($className): Rules\RuleError {
             /** @var Node\Expr\Variable $variable */
             $variable = $parameterWithDefaultValue->var;
 
@@ -106,6 +109,7 @@ final class NoConstructorParameterWithDefaultValueRule implements
 
             return Rules\RuleErrorBuilder::message($message)
                 ->identifier(ErrorIdentifier::noConstructorParameterWithDefaultValue()->toString())
+                ->tip(Documentation\ErrorTip::for($this))
                 ->build();
         }, $parametersWithDefaultValue);
     }

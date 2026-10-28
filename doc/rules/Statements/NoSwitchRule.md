@@ -2,6 +2,10 @@
 
 This rule reports an error when the statement [`switch()`](https://www.php.net/manual/control-structures.switch.php) is used.
 
+## Rationale
+
+A `switch` statement compares loosely and falls through to the next case without `break`, which can cause subtle bugs. Use `if` statements or `match` instead.
+
 ## Parameters
 
 ### `enabled`

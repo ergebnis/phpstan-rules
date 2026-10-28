@@ -7,6 +7,10 @@ This rule reports an error when a constructor declared in
 
 has a default value.
 
+## Rationale
+
+A constructor parameter with a default value lets callers create an object without deciding on that value. Named constructors make each way of creating the object explicit.
+
 ## Parameters
 
 ### `enabled`

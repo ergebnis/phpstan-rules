@@ -82,6 +82,8 @@ final class FinalRule implements
 
             on the class level.
             MARKDOWN,
+            'A class that is not `final` can be extended, so every change to it can break a subclass. Declare classes `final` and prefer composition over inheritance.',
+            'Declare the class `final` and prefer composition over inheritance.',
             Documentation\Parameter::create(
                 'allowAbstractClasses',
                 <<<'MARKDOWN'
@@ -146,6 +148,7 @@ final class FinalRule implements
         return [
             Rules\RuleErrorBuilder::message($message)
                 ->identifier(ErrorIdentifier::final()->toString())
+                ->tip(Documentation\ErrorTip::for($this))
                 ->build(),
         ];
     }

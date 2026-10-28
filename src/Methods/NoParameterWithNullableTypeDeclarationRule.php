@@ -48,6 +48,8 @@ final class NoParameterWithNullableTypeDeclarationRule implements
 
             has a parameter with a nullable type declaration.
             MARKDOWN,
+            'A parameter with a nullable type declaration makes the method handle two cases: a value and `null`. Separate methods or a null object make each case explicit.',
+            'Use separate methods or a null object instead.',
         );
     }
 
@@ -78,7 +80,7 @@ final class NoParameterWithNullableTypeDeclarationRule implements
         $classReflection = $scope->getClassReflection();
 
         if ($classReflection->isAnonymous()) {
-            return \array_map(static function (Node\Param $parameterWithNullableTypeDeclaration) use ($methodName): Rules\RuleError {
+            return \array_map(function (Node\Param $parameterWithNullableTypeDeclaration) use ($methodName): Rules\RuleError {
                 /** @var Node\Expr\Variable $variable */
                 $variable = $parameterWithNullableTypeDeclaration->var;
 
@@ -93,13 +95,14 @@ final class NoParameterWithNullableTypeDeclarationRule implements
 
                 return Rules\RuleErrorBuilder::message($message)
                     ->identifier(ErrorIdentifier::noParameterWithNullableTypeDeclaration()->toString())
+                    ->tip(Documentation\ErrorTip::for($this))
                     ->build();
             }, $parametersWithNullableTypeDeclaration);
         }
 
         $className = $classReflection->getName();
 
-        return \array_map(static function (Node\Param $parameterWithNullableTypeDeclaration) use ($className, $methodName): Rules\RuleError {
+        return \array_map(function (Node\Param $parameterWithNullableTypeDeclaration) use ($className, $methodName): Rules\RuleError {
             /** @var Node\Expr\Variable $variable */
             $variable = $parameterWithNullableTypeDeclaration->var;
 
@@ -115,6 +118,7 @@ final class NoParameterWithNullableTypeDeclarationRule implements
 
             return Rules\RuleErrorBuilder::message($message)
                 ->identifier(ErrorIdentifier::noParameterWithNullableTypeDeclaration()->toString())
+                ->tip(Documentation\ErrorTip::for($this))
                 ->build();
         }, $parametersWithNullableTypeDeclaration);
     }

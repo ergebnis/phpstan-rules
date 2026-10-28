@@ -21,12 +21,16 @@ use PHPStan\Testing;
 /**
  * @covers \Ergebnis\PHPStan\Rules\Functions\NoReturnByReferenceRule
  *
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ErrorTip
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
  *
  * @extends Testing\RuleTestCase<Functions\NoReturnByReferenceRule>
  */
 final class NoReturnByReferenceRuleTest extends Testing\RuleTestCase
 {
+    use Test\Util\ErrorTip;
     use Test\Util\Helper;
 
     public function testNoReturnByReferenceRule(): void
@@ -37,6 +41,7 @@ final class NoReturnByReferenceRuleTest extends Testing\RuleTestCase
                 [
                     'Function Ergebnis\PHPStan\Rules\Test\Fixture\Functions\NoReturnByReferenceRule\bar() returns by reference.',
                     11,
+                    $this->errorTip(),
                 ],
             ],
         );

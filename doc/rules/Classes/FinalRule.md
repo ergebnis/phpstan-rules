@@ -9,6 +9,10 @@ This rule reports an error when a non-anonymous class is not `final`.
 
 on the class level.
 
+## Rationale
+
+A class that is not `final` can be extended, so every change to it can break a subclass. Declare classes `final` and prefer composition over inheritance.
+
 ## Parameters
 
 ### `enabled`

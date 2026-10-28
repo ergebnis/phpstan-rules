@@ -22,12 +22,16 @@ use Psr\Container;
 /**
  * @covers \Ergebnis\PHPStan\Rules\Methods\NoParameterWithContainerTypeDeclarationRule
  *
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ErrorTip
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
  *
  * @extends Testing\RuleTestCase<Methods\NoParameterWithContainerTypeDeclarationRule>
  */
 final class NoParameterWithContainerTypeDeclarationRuleTest extends Testing\RuleTestCase
 {
+    use Test\Util\ErrorTip;
     use Test\Util\Helper;
 
     public function testNoParameterWithContainerTypeDeclarationRuleTest(): void
@@ -42,6 +46,7 @@ final class NoParameterWithContainerTypeDeclarationRuleTest extends Testing\Rule
                         Test\Fixture\Methods\NoParameterWithContainerTypeDeclarationRule\ClassImplementingContainerInterfaceWithMethodWithParameterWithSelfAsTypeDeclaration::class,
                     ),
                     11,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -50,6 +55,7 @@ final class NoParameterWithContainerTypeDeclarationRuleTest extends Testing\Rule
                         Test\Fixture\Methods\NoParameterWithContainerTypeDeclarationRule\ClassImplementingContainerInterface::class,
                     ),
                     9,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -58,6 +64,7 @@ final class NoParameterWithContainerTypeDeclarationRuleTest extends Testing\Rule
                         Container\ContainerInterface::class,
                     ),
                     11,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -66,6 +73,7 @@ final class NoParameterWithContainerTypeDeclarationRuleTest extends Testing\Rule
                         Test\Fixture\Methods\NoParameterWithContainerTypeDeclarationRule\InterfaceExtendingContainerInterface::class,
                     ),
                     9,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -74,6 +82,7 @@ final class NoParameterWithContainerTypeDeclarationRuleTest extends Testing\Rule
                         Container\ContainerInterface::class,
                     ),
                     11,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -81,6 +90,7 @@ final class NoParameterWithContainerTypeDeclarationRuleTest extends Testing\Rule
                         Test\Fixture\Methods\NoParameterWithContainerTypeDeclarationRule\ClassImplementingContainerInterface::class,
                     ),
                     29,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -88,6 +98,7 @@ final class NoParameterWithContainerTypeDeclarationRuleTest extends Testing\Rule
                         Container\ContainerInterface::class,
                     ),
                     36,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -95,6 +106,7 @@ final class NoParameterWithContainerTypeDeclarationRuleTest extends Testing\Rule
                         Test\Fixture\Methods\NoParameterWithContainerTypeDeclarationRule\InterfaceExtendingContainerInterface::class,
                     ),
                     43,
+                    $this->errorTip(),
                 ],
             ],
         );

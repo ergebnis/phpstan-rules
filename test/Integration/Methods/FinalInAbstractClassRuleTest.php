@@ -21,12 +21,16 @@ use PHPStan\Testing;
 /**
  * @covers \Ergebnis\PHPStan\Rules\Methods\FinalInAbstractClassRule
  *
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ErrorTip
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
  *
  * @extends Testing\RuleTestCase<Methods\FinalInAbstractClassRule>
  */
 final class FinalInAbstractClassRuleTest extends Testing\RuleTestCase
 {
+    use Test\Util\ErrorTip;
     use Test\Util\Helper;
 
     public function testFinalInAbstractClassRule(): void
@@ -40,6 +44,7 @@ final class FinalInAbstractClassRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Methods\FinalInAbstractClassRule\AbstractClassWithProtectedMethod::class,
                     ),
                     9,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -47,6 +52,7 @@ final class FinalInAbstractClassRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Methods\FinalInAbstractClassRule\AbstractClassWithPublicMethod::class,
                     ),
                     9,
+                    $this->errorTip(),
                 ],
             ],
         );

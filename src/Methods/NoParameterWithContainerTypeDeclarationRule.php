@@ -65,6 +65,8 @@ final class NoParameterWithContainerTypeDeclarationRule implements
         return Documentation\RuleDefinition::create(
             'noParameterWithContainerTypeDeclaration',
             'This rule reports an error when a method has a type declaration for a known dependency injection container or service locator.',
+            'A method that receives a dependency injection container or service locator hides its actual dependencies. Inject the dependencies directly instead.',
+            'Inject the dependencies directly instead.',
             Documentation\Parameter::create(
                 'interfacesImplementedByContainers',
                 <<<'MARKDOWN'
@@ -137,7 +139,7 @@ final class NoParameterWithContainerTypeDeclarationRule implements
                 if ($classUsedInTypeDeclaration->isInterface()) {
                     foreach ($this->interfacesImplementedByContainers as $interfaceImplementedByContainer) {
                         if ($classUsedInTypeDeclaration->getName() === $interfaceImplementedByContainer) {
-                            $errors[] = self::createError(
+                            $errors[] = $this->createError(
                                 $containingClass,
                                 $methodName,
                                 $parameterName,
@@ -148,7 +150,7 @@ final class NoParameterWithContainerTypeDeclarationRule implements
                         }
 
                         if ($classUsedInTypeDeclaration->getNativeReflection()->isSubclassOf($interfaceImplementedByContainer)) {
-                            $errors[] = self::createError(
+                            $errors[] = $this->createError(
                                 $containingClass,
                                 $methodName,
                                 $parameterName,
@@ -162,7 +164,7 @@ final class NoParameterWithContainerTypeDeclarationRule implements
 
                 foreach ($this->interfacesImplementedByContainers as $interfaceImplementedByContainer) {
                     if ($classUsedInTypeDeclaration->getNativeReflection()->implementsInterface($interfaceImplementedByContainer)) {
-                        $errors[] = self::createError(
+                        $errors[] = $this->createError(
                             $containingClass,
                             $methodName,
                             $parameterName,
@@ -179,7 +181,7 @@ final class NoParameterWithContainerTypeDeclarationRule implements
         ));
     }
 
-    private static function createError(
+    private function createError(
         Reflection\ClassReflection $classReflection,
         string $methodName,
         string $parameterName,
@@ -195,6 +197,7 @@ final class NoParameterWithContainerTypeDeclarationRule implements
 
             return Rules\RuleErrorBuilder::message($message)
                 ->identifier(ErrorIdentifier::noParameterWithContainerTypeDeclaration()->toString())
+                ->tip(Documentation\ErrorTip::for($this))
                 ->build();
         }
 
@@ -208,6 +211,7 @@ final class NoParameterWithContainerTypeDeclarationRule implements
 
         return Rules\RuleErrorBuilder::message($message)
             ->identifier(ErrorIdentifier::noParameterWithContainerTypeDeclaration()->toString())
+            ->tip(Documentation\ErrorTip::for($this))
             ->build();
     }
 }

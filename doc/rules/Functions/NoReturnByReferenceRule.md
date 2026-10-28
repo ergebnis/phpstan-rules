@@ -2,6 +2,10 @@
 
 This rule reports an error when a function [returns by reference](https://www.php.net/manual/en/language.references.return.php).
 
+## Rationale
+
+Returning by reference lets the caller change state that the function keeps, which makes the code harder to follow. Return a value instead.
+
 ## Parameters
 
 ### `enabled`

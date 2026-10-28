@@ -23,12 +23,16 @@ use PHPStan\Testing;
  * @covers \Ergebnis\PHPStan\Rules\Analyzer
  * @covers \Ergebnis\PHPStan\Rules\Closures\NoParameterWithNullableTypeDeclarationRule
  *
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ErrorTip
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
  *
  * @extends Testing\RuleTestCase<Closures\NoParameterWithNullableTypeDeclarationRule>
  */
 final class NoParameterWithNullableTypeDeclarationRuleTest extends Testing\RuleTestCase
 {
+    use Test\Util\ErrorTip;
     use Test\Util\Helper;
 
     public function testNoParameterWithNullableTypeDeclarationRule(): void
@@ -39,18 +43,22 @@ final class NoParameterWithNullableTypeDeclarationRuleTest extends Testing\RuleT
                 [
                     'Closure has parameter $bar with a nullable type declaration.',
                     18,
+                    $this->errorTip(),
                 ],
                 [
                     'Closure has parameter $bar with a nullable type declaration.',
                     22,
+                    $this->errorTip(),
                 ],
                 [
                     'Closure has parameter $bar with a nullable type declaration.',
                     26,
+                    $this->errorTip(),
                 ],
                 [
                     'Closure has parameter $bar with a nullable type declaration.',
                     30,
+                    $this->errorTip(),
                 ],
             ],
         );

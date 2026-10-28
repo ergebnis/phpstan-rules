@@ -2,6 +2,10 @@
 
 This rule reports an error when the language construct [`eval()`](https://www.php.net/eval) is used.
 
+## Rationale
+
+The language construct `eval()` executes a string as code, which is a security risk and cannot be analyzed statically.
+
 ## Parameters
 
 ### `enabled`

@@ -2,6 +2,10 @@
 
 This rule reports an error when a class extends another class.
 
+## Rationale
+
+Extending a class couples the subclass to the implementation of its parent class. Prefer composition: inject collaborators and implement interfaces.
+
 ## Parameters
 
 ### `enabled`

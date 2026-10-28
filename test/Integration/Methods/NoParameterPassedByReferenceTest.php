@@ -21,12 +21,16 @@ use PHPStan\Testing;
 /**
  * @covers \Ergebnis\PHPStan\Rules\Methods\NoParameterPassedByReferenceRule
  *
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ErrorTip
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
  *
  * @extends Testing\RuleTestCase<Methods\NoParameterPassedByReferenceRule>
  */
 final class NoParameterPassedByReferenceTest extends Testing\RuleTestCase
 {
+    use Test\Util\ErrorTip;
     use Test\Util\Helper;
 
     public function testNoParameterPassedByReferenceRule(): void
@@ -40,6 +44,7 @@ final class NoParameterPassedByReferenceTest extends Testing\RuleTestCase
                         Test\Fixture\Methods\NoParameterPassedByReferenceRule\ClassWithMethodWithTypedParameterExplicitlyPassedByReference::class,
                     ),
                     9,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -47,6 +52,7 @@ final class NoParameterPassedByReferenceTest extends Testing\RuleTestCase
                         Test\Fixture\Methods\NoParameterPassedByReferenceRule\ClassWithMethodWithUntypedParameterExplicitlyPassedByReference::class,
                     ),
                     9,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -54,6 +60,7 @@ final class NoParameterPassedByReferenceTest extends Testing\RuleTestCase
                         Test\Fixture\Methods\NoParameterPassedByReferenceRule\InterfaceWithMethodWithTypedParameterExplicitlyPassedByReference::class,
                     ),
                     9,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -61,14 +68,17 @@ final class NoParameterPassedByReferenceTest extends Testing\RuleTestCase
                         Test\Fixture\Methods\NoParameterPassedByReferenceRule\InterfaceWithMethodWithUntypedParameterExplicitlyPassedByReference::class,
                     ),
                     9,
+                    $this->errorTip(),
                 ],
                 [
                     'Method foo() in anonymous class has parameter $bar that is passed by reference.',
                     28,
+                    $this->errorTip(),
                 ],
                 [
                     'Method foo() in anonymous class has parameter $bar that is passed by reference.',
                     35,
+                    $this->errorTip(),
                 ],
             ],
         );

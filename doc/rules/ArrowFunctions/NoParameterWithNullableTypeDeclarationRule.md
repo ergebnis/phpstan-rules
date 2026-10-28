@@ -2,6 +2,10 @@
 
 This rule reports an error when an arrow function has a parameter with a nullable type declaration.
 
+## Rationale
+
+A parameter with a nullable type declaration makes the arrow function handle two cases: a value and `null`. Separate arrow functions or a null object make each case explicit.
+
 ## Parameters
 
 ### `enabled`

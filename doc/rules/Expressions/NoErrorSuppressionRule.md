@@ -2,6 +2,10 @@
 
 This rule reports an error when [`@`](https://www.php.net/manual/en/language.operators.errorcontrol.php) is used to suppress errors.
 
+## Rationale
+
+The error control operator hides every error that the expression causes, including errors you did not expect. Check for the error condition explicitly instead.
+
 ## Parameters
 
 ### `enabled`

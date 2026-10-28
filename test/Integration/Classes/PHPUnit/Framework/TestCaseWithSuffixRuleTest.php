@@ -24,10 +24,14 @@ use PHPUnit\Framework;
  *
  * @extends Testing\RuleTestCase<Classes\PHPUnit\Framework\TestCaseWithSuffixRule>
  *
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ErrorTip
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
  */
 final class TestCaseWithSuffixRuleTest extends Testing\RuleTestCase
 {
+    use Test\Util\ErrorTip;
     use Test\Util\Helper;
 
     public function testTestCaseWithSuffixRule(): void
@@ -42,6 +46,7 @@ final class TestCaseWithSuffixRuleTest extends Testing\RuleTestCase
                         Framework\TestCase::class,
                     ),
                     7,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -50,6 +55,7 @@ final class TestCaseWithSuffixRuleTest extends Testing\RuleTestCase
                         Framework\TestCase::class,
                     ),
                     9,
+                    $this->errorTip(),
                 ],
             ],
         );

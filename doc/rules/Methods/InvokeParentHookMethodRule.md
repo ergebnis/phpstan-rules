@@ -2,6 +2,10 @@
 
 This rule reports an error when a hook method that overrides a hook method in a parent class does not invoke the overridden hook method in the expected order.
 
+## Rationale
+
+A hook method such as `setUp()` that overrides a hook method of a parent class needs to invoke the parent hook method in the expected order, or the parent class does not set up or tear down as intended.
+
 ## Parameters
 
 ### `enabled`

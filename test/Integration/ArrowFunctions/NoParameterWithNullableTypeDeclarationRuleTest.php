@@ -23,12 +23,16 @@ use PHPStan\Testing;
  * @covers \Ergebnis\PHPStan\Rules\Analyzer
  * @covers \Ergebnis\PHPStan\Rules\ArrowFunctions\NoParameterWithNullableTypeDeclarationRule
  *
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ErrorTip
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
  *
  * @extends Testing\RuleTestCase<ArrowFunctions\NoParameterWithNullableTypeDeclarationRule>
  */
 final class NoParameterWithNullableTypeDeclarationRuleTest extends Testing\RuleTestCase
 {
+    use Test\Util\ErrorTip;
     use Test\Util\Helper;
 
     public function testNoParameterWithNullableTypeDeclarationRule(): void
@@ -39,18 +43,22 @@ final class NoParameterWithNullableTypeDeclarationRuleTest extends Testing\RuleT
                 [
                     'Arrow function has parameter $bar with a nullable type declaration.',
                     13,
+                    $this->errorTip(),
                 ],
                 [
                     'Arrow function has parameter $bar with a nullable type declaration.',
                     15,
+                    $this->errorTip(),
                 ],
                 [
                     'Arrow function has parameter $bar with a nullable type declaration.',
                     17,
+                    $this->errorTip(),
                 ],
                 [
                     'Arrow function has parameter $bar with a nullable type declaration.',
                     19,
+                    $this->errorTip(),
                 ],
             ],
         );
