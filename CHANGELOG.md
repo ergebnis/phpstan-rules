@@ -8,6 +8,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`2.15.0...main`][2.15.0...main].
 
+### Added
+
+- Added `PropertyHooks\NoReturnByReferenceRule`, which reports an error when a property hook returns by reference ([#915]), by [@localheinz]
+- Added `PropertyHooks\NoParameterWithNullableTypeDeclarationRule`, which reports an error when a property hook has a parameter with a nullable type declaration ([#1154]), by [@localheinz]
+
 ## [`2.15.0`][2.15.0]
 
 For a full diff see [`2.14.2...2.15.0`][2.14.2...2.15.0].
@@ -795,6 +800,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#912]: https://github.com/ergebnis/phpstan-rules/pull/912
 [#913]: https://github.com/ergebnis/phpstan-rules/pull/913
 [#914]: https://github.com/ergebnis/phpstan-rules/pull/914
+[#915]: https://github.com/ergebnis/phpstan-rules/pull/915
 [#938]: https://github.com/ergebnis/phpstan-rules/pull/938
 [#939]: https://github.com/ergebnis/phpstan-rules/pull/939
 [#940]: https://github.com/ergebnis/phpstan-rules/pull/940
@@ -819,6 +825,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#1149]: https://github.com/ergebnis/phpstan-rules/pull/1149
 [#1150]: https://github.com/ergebnis/phpstan-rules/pull/1150
 [#1151]: https://github.com/ergebnis/phpstan-rules/pull/1151
+[#1154]: https://github.com/ergebnis/phpstan-rules/pull/1154
 
 [@alfredbez]: https://github.com/alfredbez
 [@cosmastech]: https://github.com/cosmastech

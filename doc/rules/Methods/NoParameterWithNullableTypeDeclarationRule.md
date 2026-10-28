@@ -28,3 +28,4 @@ parameters:
 - [`ArrowFunctions\NoParameterWithNullableTypeDeclarationRule`](../../../doc/rules/ArrowFunctions/NoParameterWithNullableTypeDeclarationRule.md)
 - [`Closures\NoParameterWithNullableTypeDeclarationRule`](../../../doc/rules/Closures/NoParameterWithNullableTypeDeclarationRule.md)
 - [`Functions\NoParameterWithNullableTypeDeclarationRule`](../../../doc/rules/Functions/NoParameterWithNullableTypeDeclarationRule.md)
+- [`PropertyHooks\NoParameterWithNullableTypeDeclarationRule`](../../../doc/rules/PropertyHooks/NoParameterWithNullableTypeDeclarationRule.md)

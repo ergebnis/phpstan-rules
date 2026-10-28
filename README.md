@@ -80,6 +80,8 @@ This package provides the following rules for use with [`phpstan/phpstan`](https
 - [`Ergebnis\PHPStan\Rules\Methods\NoParameterWithNullableTypeDeclarationRule`](#methodsnoparameterwithnullabletypedeclarationrule)
 - [`Ergebnis\PHPStan\Rules\Methods\NoReturnByReferenceRule`](#methodsnoreturnbyreferencerule)
 - [`Ergebnis\PHPStan\Rules\Methods\PrivateInFinalClassRule`](#methodsprivateinfinalclassrule)
+- [`Ergebnis\PHPStan\Rules\PropertyHooks\NoParameterWithNullableTypeDeclarationRule`](#propertyhooksnoparameterwithnullabletypedeclarationrule)
+- [`Ergebnis\PHPStan\Rules\PropertyHooks\NoReturnByReferenceRule`](#propertyhooksnoreturnbyreferencerule)
 - [`Ergebnis\PHPStan\Rules\Statements\NoSwitchRule`](#statementsnoswitchrule)
 
 ### ArrowFunctions
@@ -336,6 +338,20 @@ This rule reports an error when a method [returns by reference](https://www.php.
 This rule reports an error when a method in a `final` class is `protected` but could be `private`.
 
 💡 Find out more in the rule documentation for [`Methods\PrivateInFinalClassRule`](doc/rules/Methods/PrivateInFinalClassRule.md).
+
+### PropertyHooks
+
+#### `PropertyHooks\NoParameterWithNullableTypeDeclarationRule`
+
+This rule reports an error when a [property hook](https://www.php.net/manual/en/language.oop5.property-hooks.php) has a parameter with a nullable type declaration.
+
+💡 Find out more in the rule documentation for [`PropertyHooks\NoParameterWithNullableTypeDeclarationRule`](doc/rules/PropertyHooks/NoParameterWithNullableTypeDeclarationRule.md).
+
+#### `PropertyHooks\NoReturnByReferenceRule`
+
+This rule reports an error when a [property hook](https://www.php.net/manual/en/language.oop5.property-hooks.php) returns by reference.
+
+💡 Find out more in the rule documentation for [`PropertyHooks\NoReturnByReferenceRule`](doc/rules/PropertyHooks/NoReturnByReferenceRule.md).
 
 ### Statements
 
