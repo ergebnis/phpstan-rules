@@ -1,12 +1,6 @@
 # `Methods\NoParameterWithNullDefaultValueRule`
 
-This rule reports an error when a method declared in
-
-- an anonymous class
-- a class
-- an interface
-
-has a parameter with `null` as default value.
+This rule reports an error when a method has a parameter with `null` as default value.
 
 ## Rationale
 

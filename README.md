@@ -270,24 +270,13 @@ This rule reports an error when a hook method that overrides a hook method in a 
 
 #### `Methods\NoConstructorParameterWithDefaultValueRule`
 
-This rule reports an error when a constructor declared in
-
-- an anonymous class
-- a class
-
-has a default value.
+This rule reports an error when a constructor has a parameter with a default value.
 
 💡 Find out more in the rule documentation for [`Methods\NoConstructorParameterWithDefaultValueRule`](doc/rules/Methods/NoConstructorParameterWithDefaultValueRule.md).
 
 #### `Methods\NoNullableReturnTypeDeclarationRule`
 
-This rule reports an error when a method declared in
-
-- an anonymous class
-- a class
-- an interface
-
-uses a nullable return type declaration.
+This rule reports an error when a method uses a nullable return type declaration.
 
 💡 Find out more in the rule documentation for [`Methods\NoNullableReturnTypeDeclarationRule`](doc/rules/Methods/NoNullableReturnTypeDeclarationRule.md).
 
@@ -305,25 +294,13 @@ This rule reports an error when a method has a type declaration for a known depe
 
 #### `Methods\NoParameterWithNullDefaultValueRule`
 
-This rule reports an error when a method declared in
-
-- an anonymous class
-- a class
-- an interface
-
-has a parameter with `null` as default value.
+This rule reports an error when a method has a parameter with `null` as default value.
 
 💡 Find out more in the rule documentation for [`Methods\NoParameterWithNullDefaultValueRule`](doc/rules/Methods/NoParameterWithNullDefaultValueRule.md).
 
 #### `Methods\NoParameterWithNullableTypeDeclarationRule`
 
-This rule reports an error when a method declared in
-
-- an anonymous class
-- a class
-- an interface
-
-has a parameter with a nullable type declaration.
+This rule reports an error when a method has a parameter with a nullable type declaration.
 
 💡 Find out more in the rule documentation for [`Methods\NoParameterWithNullableTypeDeclarationRule`](doc/rules/Methods/NoParameterWithNullableTypeDeclarationRule.md).
 

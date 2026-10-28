@@ -1,11 +1,6 @@
 # `Methods\NoConstructorParameterWithDefaultValueRule`
 
-This rule reports an error when a constructor declared in
-
-- an anonymous class
-- a class
-
-has a default value.
+This rule reports an error when a constructor has a parameter with a default value.
 
 ## Rationale
 

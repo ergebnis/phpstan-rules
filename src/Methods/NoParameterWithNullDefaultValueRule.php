@@ -39,15 +39,7 @@ final class NoParameterWithNullDefaultValueRule implements
     {
         return Documentation\RuleDefinition::create(
             'noParameterWithNullDefaultValue',
-            <<<'MARKDOWN'
-            This rule reports an error when a method declared in
-
-            - an anonymous class
-            - a class
-            - an interface
-
-            has a parameter with `null` as default value.
-            MARKDOWN,
+            'This rule reports an error when a method has a parameter with `null` as default value.',
             'A parameter with `null` as its default value makes the argument optional and nullable at once, so the method has to handle a missing value. Separate methods or a null object make each case explicit.',
             'Use separate methods or a null object instead.',
         )->withCodeSamples(
