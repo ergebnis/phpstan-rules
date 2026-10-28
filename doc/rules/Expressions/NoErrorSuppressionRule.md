@@ -6,6 +6,32 @@ This rule reports an error when [`@`](https://www.php.net/manual/en/language.ope
 
 The error control operator hides every error that the expression causes, including errors you did not expect. Check for the error condition explicitly instead.
 
+## Examples
+
+### Reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+$contents = @\file_get_contents(__DIR__ . '/example.txt');
+```
+
+### Not reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+$path = __DIR__ . '/example.txt';
+
+if (\is_readable($path)) {
+    $contents = \file_get_contents($path);
+}
+```
+
 ## Parameters
 
 ### `enabled`

@@ -12,6 +12,50 @@ uses a nullable return type declaration.
 
 A nullable return type forces every caller to handle `null`. Throwing an exception, returning a null object, or splitting the method in two keeps the callers simpler.
 
+## Examples
+
+### Reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Example;
+
+final class Greeting
+{
+    public function greet(string $name): ?string
+    {
+        return \sprintf(
+            'Hello, %s!',
+            $name,
+        );
+    }
+}
+```
+
+### Not reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Example;
+
+final class Greeting
+{
+    public function greet(string $name): string
+    {
+        return \sprintf(
+            'Hello, %s!',
+            $name,
+        );
+    }
+}
+```
+
 ## Parameters
 
 ### `enabled`

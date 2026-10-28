@@ -50,6 +50,43 @@ final class NoParameterWithNullableTypeDeclarationRule implements
             MARKDOWN,
             'A parameter with a nullable type declaration makes the method handle two cases: a value and `null`. Separate methods or a null object make each case explicit.',
             'Use separate methods or a null object instead.',
+        )->withCodeSamples(
+            Documentation\CodeSample::reported(<<<'PHP'
+                <?php
+
+                declare(strict_types=1);
+
+                namespace Example;
+
+                final class Greeting
+                {
+                    public function greet(?string $name): string
+                    {
+                        return \sprintf(
+                            'Hello, %s!',
+                            (string) $name,
+                        );
+                    }
+                }
+                PHP),
+            Documentation\CodeSample::notReported(<<<'PHP'
+                <?php
+
+                declare(strict_types=1);
+
+                namespace Example;
+
+                final class Greeting
+                {
+                    public function greet(string $name): string
+                    {
+                        return \sprintf(
+                            'Hello, %s!',
+                            $name,
+                        );
+                    }
+                }
+                PHP),
         );
     }
 

@@ -41,6 +41,27 @@ final class NoParameterWithNullDefaultValueRule implements
             'This rule reports an error when a function has a parameter with `null` as default value.',
             'A parameter with `null` as its default value makes the argument optional and nullable at once, so the function has to handle a missing value. Separate functions or a null object make each case explicit.',
             'Use separate functions or a null object instead.',
+        )->withCodeSamples(
+            Documentation\CodeSample::reported(<<<'PHP'
+                <?php
+
+                declare(strict_types=1);
+
+                function toUpperCase($value = null): string
+                {
+                    return \strtoupper((string) $value);
+                }
+                PHP),
+            Documentation\CodeSample::notReported(<<<'PHP'
+                <?php
+
+                declare(strict_types=1);
+
+                function toUpperCase(string $value): string
+                {
+                    return \strtoupper($value);
+                }
+                PHP),
         );
     }
 

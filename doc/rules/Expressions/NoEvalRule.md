@@ -6,6 +6,28 @@ This rule reports an error when the language construct [`eval()`](https://www.ph
 
 The language construct `eval()` executes a string as code, which is a security risk and cannot be analyzed statically.
 
+## Examples
+
+### Reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+$sum = eval('return 1 + 2;');
+```
+
+### Not reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+$sum = 1 + 2;
+```
+
 ## Parameters
 
 ### `enabled`

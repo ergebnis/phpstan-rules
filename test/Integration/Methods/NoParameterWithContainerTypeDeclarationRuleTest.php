@@ -22,6 +22,7 @@ use Psr\Container;
 /**
  * @covers \Ergebnis\PHPStan\Rules\Methods\NoParameterWithContainerTypeDeclarationRule
  *
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\CodeSample
  * @uses \Ergebnis\PHPStan\Rules\Documentation\ErrorTip
  * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
  * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition

@@ -20,6 +20,7 @@ use PHPStan\Testing;
 /**
  * @covers \Ergebnis\PHPStan\Rules\Files\NoPhpstanIgnoreRule
  *
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\CodeSample
  * @uses \Ergebnis\PHPStan\Rules\Documentation\ErrorTip
  * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
  * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition

@@ -90,6 +90,47 @@ final class NoParameterWithContainerTypeDeclarationRule implements
                     'loadExtension',
                 ],
             ),
+        )->withCodeSamples(
+            Documentation\CodeSample::reported(<<<'PHP'
+                <?php
+
+                declare(strict_types=1);
+
+                namespace Example;
+
+                use Psr\Container;
+
+                final class Greeting
+                {
+                    public function greet(Container\ContainerInterface $container): string
+                    {
+                        return $container->get('salutation');
+                    }
+                }
+                PHP),
+            Documentation\CodeSample::notReported(<<<'PHP'
+                <?php
+
+                declare(strict_types=1);
+
+                namespace Example;
+
+                final class Salutation
+                {
+                    public function toString(): string
+                    {
+                        return 'Hello';
+                    }
+                }
+
+                final class Greeting
+                {
+                    public function greet(Salutation $salutation): string
+                    {
+                        return $salutation->toString();
+                    }
+                }
+                PHP),
         );
     }
 

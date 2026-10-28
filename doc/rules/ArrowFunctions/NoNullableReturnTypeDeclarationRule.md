@@ -6,6 +6,28 @@ This rule reports an error when an arrow function uses a nullable return type de
 
 A nullable return type forces every caller to handle `null`. Throwing an exception, returning a null object, or splitting the arrow function in two keeps the callers simpler.
 
+## Examples
+
+### Reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+$toUpperCase = static fn (string $value): ?string => \strtoupper($value);
+```
+
+### Not reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+$toUpperCase = static fn (string $value): string => \strtoupper($value);
+```
+
 ## Parameters
 
 ### `enabled`

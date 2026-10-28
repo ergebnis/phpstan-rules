@@ -6,6 +6,32 @@ This rule reports an error when a closure has a parameter with `null` as default
 
 A parameter with `null` as its default value makes the argument optional and nullable at once, so the closure has to handle a missing value. Separate closures or a null object make each case explicit.
 
+## Examples
+
+### Reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+$toUpperCase = static function ($value = null): string {
+    return \strtoupper((string) $value);
+};
+```
+
+### Not reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+$toUpperCase = static function (string $value): string {
+    return \strtoupper($value);
+};
+```
+
 ## Parameters
 
 ### `enabled`

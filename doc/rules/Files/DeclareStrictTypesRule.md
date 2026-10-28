@@ -6,6 +6,26 @@ This rule reports an error when a non-empty file does not contain a `declare(str
 
 Without a `declare(strict_types=1)` declaration, PHP coerces scalar arguments and return values to the declared types, which hides type errors.
 
+## Examples
+
+### Reported
+
+```php
+<?php
+
+echo 'Hello, Jane!';
+```
+
+### Not reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+echo 'Hello, Jane!';
+```
+
 ## Parameters
 
 ### `enabled`

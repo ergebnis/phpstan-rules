@@ -6,6 +6,28 @@ This rule reports an error when an arrow function has a parameter that is [passe
 
 A parameter passed by reference lets an arrow function change a variable of its caller as a side effect, which makes the code harder to follow. Return the new value instead.
 
+## Examples
+
+### Reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+$increment = static fn (int &$value): int => $value + 1;
+```
+
+### Not reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+$increment = static fn (int $value): int => $value + 1;
+```
+
 ## Parameters
 
 ### `enabled`

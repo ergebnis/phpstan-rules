@@ -6,6 +6,34 @@ This rule reports an error when a function has a parameter with `null` as defaul
 
 A parameter with `null` as its default value makes the argument optional and nullable at once, so the function has to handle a missing value. Separate functions or a null object make each case explicit.
 
+## Examples
+
+### Reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+function toUpperCase($value = null): string
+{
+    return \strtoupper((string) $value);
+}
+```
+
+### Not reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+function toUpperCase(string $value): string
+{
+    return \strtoupper($value);
+}
+```
+
 ## Parameters
 
 ### `enabled`

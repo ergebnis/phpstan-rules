@@ -57,6 +57,37 @@ final class FinalInAbstractClassRule implements
             MARKDOWN,
             'A concrete method in an `abstract` class that is not `final` can be overridden by subclasses, which can break the assumptions of the abstract class. Declare the method `final`, or `abstract` when subclasses need to provide it.',
             'Declare the method `final`, or `abstract` when subclasses need to provide it.',
+        )->withCodeSamples(
+            Documentation\CodeSample::reported(<<<'PHP'
+                <?php
+
+                declare(strict_types=1);
+
+                namespace Example;
+
+                abstract class AbstractGreeting
+                {
+                    public function greet(): string
+                    {
+                        return 'Hello!';
+                    }
+                }
+                PHP),
+            Documentation\CodeSample::notReported(<<<'PHP'
+                <?php
+
+                declare(strict_types=1);
+
+                namespace Example;
+
+                abstract class AbstractGreeting
+                {
+                    final public function greet(): string
+                    {
+                        return 'Hello!';
+                    }
+                }
+                PHP),
         );
     }
 

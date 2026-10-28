@@ -6,6 +6,34 @@ This rule reports an error when the function [`compact()`](https://www.php.net/c
 
 The function `compact()` refers to variables by their names in strings, which static analysis and automated refactoring cannot follow. Build the array explicitly instead.
 
+## Examples
+
+### Reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+$name = 'Jane';
+
+$context = \compact('name');
+```
+
+### Not reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+$name = 'Jane';
+
+$context = [
+    'name' => $name,
+];
+```
+
 ## Parameters
 
 ### `enabled`

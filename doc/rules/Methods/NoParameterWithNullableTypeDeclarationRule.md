@@ -12,6 +12,50 @@ has a parameter with a nullable type declaration.
 
 A parameter with a nullable type declaration makes the method handle two cases: a value and `null`. Separate methods or a null object make each case explicit.
 
+## Examples
+
+### Reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Example;
+
+final class Greeting
+{
+    public function greet(?string $name): string
+    {
+        return \sprintf(
+            'Hello, %s!',
+            (string) $name,
+        );
+    }
+}
+```
+
+### Not reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Example;
+
+final class Greeting
+{
+    public function greet(string $name): string
+    {
+        return \sprintf(
+            'Hello, %s!',
+            $name,
+        );
+    }
+}
+```
+
 ## Parameters
 
 ### `enabled`

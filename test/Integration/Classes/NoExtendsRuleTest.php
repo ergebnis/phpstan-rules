@@ -23,6 +23,7 @@ use PHPStan\Testing;
  *
  * @extends Testing\RuleTestCase<Classes\NoExtendsRule>
  *
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\CodeSample
  * @uses \Ergebnis\PHPStan\Rules\Documentation\ErrorTip
  * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
  * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition

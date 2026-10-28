@@ -12,6 +12,50 @@ has a parameter with `null` as default value.
 
 A parameter with `null` as its default value makes the argument optional and nullable at once, so the method has to handle a missing value. Separate methods or a null object make each case explicit.
 
+## Examples
+
+### Reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Example;
+
+final class Greeting
+{
+    public function greet($name = null): string
+    {
+        return \sprintf(
+            'Hello, %s!',
+            (string) $name,
+        );
+    }
+}
+```
+
+### Not reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Example;
+
+final class Greeting
+{
+    public function greet(string $name): string
+    {
+        return \sprintf(
+            'Hello, %s!',
+            $name,
+        );
+    }
+}
+```
+
 ## Parameters
 
 ### `enabled`

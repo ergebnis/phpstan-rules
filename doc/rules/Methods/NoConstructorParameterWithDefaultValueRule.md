@@ -11,6 +11,48 @@ has a default value.
 
 A constructor parameter with a default value lets callers create an object without deciding on that value. Named constructors make each way of creating the object explicit.
 
+## Examples
+
+### Reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Example;
+
+final class Greeting
+{
+    private string $salutation;
+
+    public function __construct(string $salutation = 'Hello')
+    {
+        $this->salutation = $salutation;
+    }
+}
+```
+
+### Not reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Example;
+
+final class Greeting
+{
+    private string $salutation;
+
+    public function __construct(string $salutation)
+    {
+        $this->salutation = $salutation;
+    }
+}
+```
+
 ## Parameters
 
 ### `enabled`

@@ -116,6 +116,45 @@ final class InvokeParentHookMethodRule implements
                     ],
                 ],
             ),
+        )->withCodeSamples(
+            Documentation\CodeSample::reported(<<<'PHP'
+                <?php
+
+                declare(strict_types=1);
+
+                namespace Example\Test;
+
+                use PHPUnit\Framework;
+
+                final class GreetingTest extends Framework\TestCase
+                {
+                    protected function setUp(): void
+                    {
+                        \putenv('GREETING=Hello');
+
+                        parent::setUp();
+                    }
+                }
+                PHP),
+            Documentation\CodeSample::notReported(<<<'PHP'
+                <?php
+
+                declare(strict_types=1);
+
+                namespace Example\Test;
+
+                use PHPUnit\Framework;
+
+                final class GreetingTest extends Framework\TestCase
+                {
+                    protected function setUp(): void
+                    {
+                        parent::setUp();
+
+                        \putenv('GREETING=Hello');
+                    }
+                }
+                PHP),
         );
     }
 

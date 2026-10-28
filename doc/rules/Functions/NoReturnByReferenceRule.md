@@ -6,6 +6,36 @@ This rule reports an error when a function [returns by reference](https://www.ph
 
 Returning by reference lets the caller change state that the function keeps, which makes the code harder to follow. Return a value instead.
 
+## Examples
+
+### Reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+function &values(): array
+{
+    static $values = [];
+
+    return $values;
+}
+```
+
+### Not reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+function values(): array
+{
+    return [];
+}
+```
+
 ## Parameters
 
 ### `enabled`

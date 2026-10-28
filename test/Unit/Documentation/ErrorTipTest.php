@@ -20,6 +20,7 @@ use PHPUnit\Framework;
 /**
  * @covers \Ergebnis\PHPStan\Rules\Documentation\ErrorTip
  *
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\CodeSample
  * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition
  * @uses \Ergebnis\PHPStan\Rules\Statements\NoSwitchRule
  */

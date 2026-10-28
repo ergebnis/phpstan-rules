@@ -11,6 +11,44 @@ This rule reports an error when a concrete `public` or `protected` method in an 
 
 A concrete method in an `abstract` class that is not `final` can be overridden by subclasses, which can break the assumptions of the abstract class. Declare the method `final`, or `abstract` when subclasses need to provide it.
 
+## Examples
+
+### Reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Example;
+
+abstract class AbstractGreeting
+{
+    public function greet(): string
+    {
+        return 'Hello!';
+    }
+}
+```
+
+### Not reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Example;
+
+abstract class AbstractGreeting
+{
+    final public function greet(): string
+    {
+        return 'Hello!';
+    }
+}
+```
+
 ## Parameters
 
 ### `enabled`

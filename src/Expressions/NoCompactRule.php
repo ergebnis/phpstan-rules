@@ -33,6 +33,27 @@ final class NoCompactRule implements
             'This rule reports an error when the function [`compact()`](https://www.php.net/compact) is used.',
             'The function `compact()` refers to variables by their names in strings, which static analysis and automated refactoring cannot follow. Build the array explicitly instead.',
             'Build the array explicitly instead.',
+        )->withCodeSamples(
+            Documentation\CodeSample::reported(<<<'PHP'
+                <?php
+
+                declare(strict_types=1);
+
+                $name = 'Jane';
+
+                $context = \compact('name');
+                PHP),
+            Documentation\CodeSample::notReported(<<<'PHP'
+                <?php
+
+                declare(strict_types=1);
+
+                $name = 'Jane';
+
+                $context = [
+                    'name' => $name,
+                ];
+                PHP),
         );
     }
 

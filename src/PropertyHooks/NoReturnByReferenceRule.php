@@ -34,6 +34,39 @@ final class NoReturnByReferenceRule implements
             'This rule reports an error when a [property hook](https://www.php.net/manual/en/language.oop5.property-hooks.php) returns by reference.',
             'Returning by reference lets the caller change state that the property hook keeps, which makes the code harder to follow. Return a value instead.',
             'Return a value instead.',
+        )->withCodeSamples(
+            Documentation\CodeSample::reported(<<<'PHP'
+                <?php
+
+                declare(strict_types=1);
+
+                namespace Example;
+
+                final class Greetings
+                {
+                    private array $values = [];
+
+                    public array $salutations {
+                        &get => $this->values;
+                    }
+                }
+                PHP),
+            Documentation\CodeSample::notReported(<<<'PHP'
+                <?php
+
+                declare(strict_types=1);
+
+                namespace Example;
+
+                final class Greetings
+                {
+                    private array $values = [];
+
+                    public array $salutations {
+                        get => $this->values;
+                    }
+                }
+                PHP),
         );
     }
 

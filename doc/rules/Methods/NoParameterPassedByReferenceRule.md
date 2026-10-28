@@ -6,6 +6,44 @@ This rule reports an error when a method has a parameter that is [passed by refe
 
 A parameter passed by reference lets a method change a variable of its caller as a side effect, which makes the code harder to follow. Return the new value instead.
 
+## Examples
+
+### Reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Example;
+
+final class Greeting
+{
+    public function increment(int &$value): void
+    {
+        ++$value;
+    }
+}
+```
+
+### Not reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Example;
+
+final class Greeting
+{
+    public function increment(int $value): int
+    {
+        return $value + 1;
+    }
+}
+```
+
 ## Parameters
 
 ### `enabled`

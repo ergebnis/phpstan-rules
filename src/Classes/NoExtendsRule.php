@@ -74,6 +74,37 @@ final class NoExtendsRule implements
                     'PHPStan\\Testing\\RuleTestCase',
                 ],
             ),
+        )->withCodeSamples(
+            Documentation\CodeSample::reported(<<<'PHP'
+                <?php
+
+                declare(strict_types=1);
+
+                namespace Example;
+
+                abstract class AbstractGreeting
+                {
+                }
+
+                final class Greeting extends AbstractGreeting
+                {
+                }
+                PHP),
+            Documentation\CodeSample::notReported(<<<'PHP'
+                <?php
+
+                declare(strict_types=1);
+
+                namespace Example;
+
+                interface Greeting
+                {
+                }
+
+                final class FriendlyGreeting implements Greeting
+                {
+                }
+                PHP),
         );
     }
 

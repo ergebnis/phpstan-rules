@@ -6,6 +6,34 @@ This rule reports an error when a function has a parameter with a nullable type 
 
 A parameter with a nullable type declaration makes the function handle two cases: a value and `null`. Separate functions or a null object make each case explicit.
 
+## Examples
+
+### Reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+function toUpperCase(?string $value): string
+{
+    return \strtoupper((string) $value);
+}
+```
+
+### Not reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+function toUpperCase(string $value): string
+{
+    return \strtoupper($value);
+}
+```
+
 ## Parameters
 
 ### `enabled`

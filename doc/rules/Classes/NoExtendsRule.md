@@ -6,6 +6,44 @@ This rule reports an error when a class extends another class.
 
 Extending a class couples the subclass to the implementation of its parent class. Prefer composition: inject collaborators and implement interfaces.
 
+## Examples
+
+### Reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Example;
+
+abstract class AbstractGreeting
+{
+}
+
+final class Greeting extends AbstractGreeting
+{
+}
+```
+
+### Not reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Example;
+
+interface Greeting
+{
+}
+
+final class FriendlyGreeting implements Greeting
+{
+}
+```
+
 ## Parameters
 
 ### `enabled`
