@@ -67,6 +67,8 @@ conditionalTags:
 		phpstan.rules.rule: %ergebnis.noReturnByReference.enabled%
 	Ergebnis\PHPStan\Rules\Methods\PrivateInFinalClassRule:
 		phpstan.rules.rule: %ergebnis.privateInFinalClass.enabled%
+	Ergebnis\PHPStan\Rules\PropertyHooks\NoParameterWithNullableTypeDeclarationRule:
+		phpstan.rules.rule: %ergebnis.noParameterWithNullableTypeDeclaration.enabled%
 	Ergebnis\PHPStan\Rules\PropertyHooks\NoReturnByReferenceRule:
 		phpstan.rules.rule: %ergebnis.noReturnByReference.enabled%
 	Ergebnis\PHPStan\Rules\Statements\NoSwitchRule:
@@ -324,6 +326,9 @@ services:
 
 	-
 		class: Ergebnis\PHPStan\Rules\Methods\PrivateInFinalClassRule
+
+	-
+		class: Ergebnis\PHPStan\Rules\PropertyHooks\NoParameterWithNullableTypeDeclarationRule
 
 	-
 		class: Ergebnis\PHPStan\Rules\PropertyHooks\NoReturnByReferenceRule
