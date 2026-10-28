@@ -55,6 +55,7 @@ $finder = Finder::create()
         'Methods/NoParameterWithNullableTypeDeclarationRule/ClassWithMethodWithParameterWithNullableUnionTypeDeclaration.php',
         'Methods/NoParameterWithNullableTypeDeclarationRule/InterfaceWithMethodWithParameterWithNullableUnionTypeDeclaration.php',
         'Methods/NoParameterWithNullableTypeDeclarationRule/script.php',
+        'PropertyHooks/',
     ]);
 
 $config = PhpCsFixer\Config\Factory::fromRuleSet($ruleSet);

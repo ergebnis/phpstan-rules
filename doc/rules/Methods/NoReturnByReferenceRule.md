@@ -20,3 +20,4 @@ parameters:
 💡 The `enabled` parameter for `noReturnByReference` also enables or disables the following rules:
 
 - [`Functions\NoReturnByReferenceRule`](../../../doc/rules/Functions/NoReturnByReferenceRule.md)
+- [`PropertyHooks\NoReturnByReferenceRule`](../../../doc/rules/PropertyHooks/NoReturnByReferenceRule.md)

@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`2.15.0...main`][2.15.0...main].
 
+### Added
+
+- Added `PropertyHooks\NoReturnByReferenceRule`, which reports an error when a property hook returns by reference ([#915]), by [@localheinz]
+
 ## [`2.15.0`][2.15.0]
 
 For a full diff see [`2.14.2...2.15.0`][2.14.2...2.15.0].
@@ -795,6 +799,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#912]: https://github.com/ergebnis/phpstan-rules/pull/912
 [#913]: https://github.com/ergebnis/phpstan-rules/pull/913
 [#914]: https://github.com/ergebnis/phpstan-rules/pull/914
+[#915]: https://github.com/ergebnis/phpstan-rules/pull/915
 [#938]: https://github.com/ergebnis/phpstan-rules/pull/938
 [#939]: https://github.com/ergebnis/phpstan-rules/pull/939
 [#940]: https://github.com/ergebnis/phpstan-rules/pull/940
