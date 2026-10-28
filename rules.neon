@@ -83,8 +83,10 @@ parameters:
 			allowAbstractClasses: true
 			classesNotRequiredToBeAbstractOrFinal: []
 			enabled: %ergebnis.allRules%
+			ignoreDoctrineEntities: true
 		finalInAbstractClass:
 			enabled: %ergebnis.allRules%
+			ignoreDoctrineEntities: true
 		invokeParentHookMethod:
 			enabled: %ergebnis.allRules%
 			hookMethods: []
@@ -139,9 +141,11 @@ parametersSchema:
 			allowAbstractClasses: bool()
 			classesNotRequiredToBeAbstractOrFinal: listOf(string())
 			enabled: bool(),
+			ignoreDoctrineEntities: bool(),
 		])
 		finalInAbstractClass: structure([
 			enabled: bool(),
+			ignoreDoctrineEntities: bool(),
 		])
 		invokeParentHookMethod: structure([
 			enabled: bool(),
@@ -235,6 +239,7 @@ services:
 		arguments:
 			allowAbstractClasses: %ergebnis.final.allowAbstractClasses%
 			classesNotRequiredToBeAbstractOrFinal: %ergebnis.final.classesNotRequiredToBeAbstractOrFinal%
+			ignoreDoctrineEntities: %ergebnis.final.ignoreDoctrineEntities%
 
 	-
 		class: Ergebnis\PHPStan\Rules\Classes\NoExtendsRule
@@ -294,6 +299,8 @@ services:
 
 	-
 		class: Ergebnis\PHPStan\Rules\Methods\FinalInAbstractClassRule
+		arguments:
+			ignoreDoctrineEntities: %ergebnis.finalInAbstractClass.ignoreDoctrineEntities%
 
 	-
 		class: Ergebnis\PHPStan\Rules\Methods\InvokeParentHookMethodRule

@@ -39,6 +39,7 @@ final class FinalRuleTest extends Testing\RuleTestCase
      * @var list<class-string>
      */
     private array $classesNotRequiredToBeAbstractOrFinal;
+    private bool $ignoreDoctrineEntities = true;
 
     public function testFinalRule(): void
     {
@@ -302,11 +303,185 @@ final class FinalRuleTest extends Testing\RuleTestCase
         );
     }
 
+    public function testFinalRuleWithIgnoreDoctrineEntitiesSetToFalse(): void
+    {
+        $this->allowAbstractClasses = true;
+        $this->classesNotRequiredToBeAbstractOrFinal = [];
+        $this->ignoreDoctrineEntities = false;
+
+        $this->analyse(
+            self::phpFilesIn(__DIR__ . '/../../Fixture/Classes/FinalRule'),
+            [
+                [
+                    \sprintf(
+                        'Class %s is neither abstract nor final.',
+                        Test\Fixture\Classes\FinalRule\ClassWithQualifiedDoctrineOrmMappingEntityAttribute::class,
+                    ),
+                    7,
+                    $this->errorTip(),
+                ],
+                [
+                    \sprintf(
+                        'Class %s is neither abstract nor final.',
+                        Test\Fixture\Classes\FinalRule\ClassWithUnqualifiedDoctrineOrmMappingEntityAttribute::class,
+                    ),
+                    7,
+                    $this->errorTip(),
+                ],
+                [
+                    \sprintf(
+                        'Class %s is neither abstract nor final.',
+                        Test\Fixture\Classes\FinalRule\ClassWithUnqualifiedEntityAttribute::class,
+                    ),
+                    7,
+                    $this->errorTip(),
+                ],
+                [
+                    \sprintf(
+                        'Class %s is neither abstract nor final.',
+                        Test\Fixture\Classes\FinalRule\ClassWithUnqualifiedOrmEntityAttribute::class,
+                    ),
+                    7,
+                    $this->errorTip(),
+                ],
+                [
+                    \sprintf(
+                        'Class %s is neither abstract nor final.',
+                        Test\Fixture\Classes\FinalRule\ClassWithUnqualifiedOrmMappingEntityAttribute::class,
+                    ),
+                    7,
+                    $this->errorTip(),
+                ],
+                [
+                    \sprintf(
+                        'Class %s is neither abstract nor final.',
+                        Test\Fixture\Classes\FinalRule\ExampleClass::class,
+                    ),
+                    7,
+                    $this->errorTip(),
+                ],
+                [
+                    \sprintf(
+                        'Class %s is neither abstract nor final.',
+                        Test\Fixture\Classes\FinalRule\ClassWithEntityAnnotationInInlineDocBlock::class,
+                    ),
+                    8,
+                    $this->errorTip(),
+                ],
+                [
+                    \sprintf(
+                        'Class %s is neither abstract nor final.',
+                        Test\Fixture\Classes\FinalRule\ClassWithOrmEntityAnnotationInInlineDocBlock::class,
+                    ),
+                    8,
+                    $this->errorTip(),
+                ],
+                [
+                    \sprintf(
+                        'Class %s is neither abstract nor final.',
+                        Test\Fixture\Classes\FinalRule\ClassWithOrmMappingEntityAnnotationInInlineDocBlock::class,
+                    ),
+                    8,
+                    $this->errorTip(),
+                ],
+                [
+                    \sprintf(
+                        'Class %s is neither abstract nor final.',
+                        Test\Fixture\Classes\FinalRule\ClassWithoutEntityAnnotationInInlineDocBlock::class,
+                    ),
+                    8,
+                    $this->errorTip(),
+                ],
+                [
+                    \sprintf(
+                        'Class %s is neither abstract nor final.',
+                        Test\Fixture\Classes\FinalRule\ClassWithoutOrmEntityAnnotationInInlineDocBlock::class,
+                    ),
+                    8,
+                    $this->errorTip(),
+                ],
+                [
+                    \sprintf(
+                        'Class %s is neither abstract nor final.',
+                        Test\Fixture\Classes\FinalRule\ClassWithAliasedOrmEntityAttribute::class,
+                    ),
+                    9,
+                    $this->errorTip(),
+                ],
+                [
+                    \sprintf(
+                        'Class %s is neither abstract nor final.',
+                        Test\Fixture\Classes\FinalRule\ClassWithQualifiedEntityAttribute::class,
+                    ),
+                    9,
+                    $this->errorTip(),
+                ],
+                [
+                    \sprintf(
+                        'Class %s is neither abstract nor final.',
+                        Test\Fixture\Classes\FinalRule\ClassWithQualifiedMappingEntityAttribute::class,
+                    ),
+                    9,
+                    $this->errorTip(),
+                ],
+                [
+                    \sprintf(
+                        'Class %s is neither abstract nor final.',
+                        Test\Fixture\Classes\FinalRule\ClassWithQualifiedOrmMappingEntityAttribute::class,
+                    ),
+                    9,
+                    $this->errorTip(),
+                ],
+                [
+                    \sprintf(
+                        'Class %s is neither abstract nor final.',
+                        Test\Fixture\Classes\FinalRule\ClassWithEntityAnnotationInMultilineDocBlock::class,
+                    ),
+                    12,
+                    $this->errorTip(),
+                ],
+                [
+                    \sprintf(
+                        'Class %s is neither abstract nor final.',
+                        Test\Fixture\Classes\FinalRule\ClassWithOrmEntityAnnotationInMultilineDocBlock::class,
+                    ),
+                    12,
+                    $this->errorTip(),
+                ],
+                [
+                    \sprintf(
+                        'Class %s is neither abstract nor final.',
+                        Test\Fixture\Classes\FinalRule\ClassWithOrmMappingEntityAnnotationInMultilineDocBlock::class,
+                    ),
+                    12,
+                    $this->errorTip(),
+                ],
+                [
+                    \sprintf(
+                        'Class %s is neither abstract nor final.',
+                        Test\Fixture\Classes\FinalRule\ClassWithoutEntityAnnotationInMultilineDocBlock::class,
+                    ),
+                    12,
+                    $this->errorTip(),
+                ],
+                [
+                    \sprintf(
+                        'Class %s is neither abstract nor final.',
+                        Test\Fixture\Classes\FinalRule\ClassWithoutOrmEntityAnnotationInMultilineDocBlock::class,
+                    ),
+                    12,
+                    $this->errorTip(),
+                ],
+            ],
+        );
+    }
+
     protected function getRule(): Rules\Rule
     {
         return new Classes\FinalRule(
             $this->allowAbstractClasses,
             $this->classesNotRequiredToBeAbstractOrFinal,
+            $this->ignoreDoctrineEntities,
         );
     }
 }

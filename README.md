@@ -124,7 +124,7 @@ This rule reports an error when an anonymous function, a function, or a method i
 
 This rule reports an error when a non-anonymous class is not `final`.
 
-💡 This rule ignores classes that
+💡 By default, this rule ignores classes that
 
 - use `@Entity`, `@ORM\Entity`, or `@ORM\Mapping\Entity` annotations
 - use `Doctrine\ORM\Mapping\Entity` attributes
@@ -255,7 +255,7 @@ This rule reports an error when a function [returns by reference](https://www.ph
 
 This rule reports an error when a concrete `public` or `protected` method in an `abstract` class is not `final`.
 
-💡 This rule ignores Doctrine entities.
+💡 By default, this rule ignores Doctrine entities.
 
 💡 Find out more in the rule documentation for [`Methods\FinalInAbstractClassRule`](doc/rules/Methods/FinalInAbstractClassRule.md).
 

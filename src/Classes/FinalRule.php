@@ -44,6 +44,7 @@ final class FinalRule implements
         ORM\Mapping\Entity::class,
     ];
     private bool $allowAbstractClasses;
+    private bool $ignoreDoctrineEntities;
 
     /**
      * @var list<string>
@@ -56,9 +57,11 @@ final class FinalRule implements
      */
     public function __construct(
         bool $allowAbstractClasses,
-        array $classesNotRequiredToBeAbstractOrFinal
+        array $classesNotRequiredToBeAbstractOrFinal,
+        bool $ignoreDoctrineEntities
     ) {
         $this->allowAbstractClasses = $allowAbstractClasses;
+        $this->ignoreDoctrineEntities = $ignoreDoctrineEntities;
         $this->classesNotRequiredToBeAbstractOrFinal = \array_map(static function (string $classNotRequiredToBeAbstractOrFinal): string {
             return $classNotRequiredToBeAbstractOrFinal;
         }, $classesNotRequiredToBeAbstractOrFinal);
@@ -75,7 +78,7 @@ final class FinalRule implements
             <<<'MARKDOWN'
             This rule reports an error when a non-anonymous class is not `final`.
 
-            💡 This rule ignores classes that
+            💡 By default, this rule ignores classes that
 
             - use `@Entity`, `@ORM\Entity`, or `@ORM\Mapping\Entity` annotations
             - use `Doctrine\ORM\Mapping\Entity` attributes
@@ -100,6 +103,15 @@ final class FinalRule implements
                     'Foo\\Bar\\NeitherAbstractNorFinal',
                     'Bar\\Baz\\NeitherAbstractNorFinal',
                 ],
+            ),
+            Documentation\Parameter::create(
+                'ignoreDoctrineEntities',
+                <<<'MARKDOWN'
+                By default, this rule ignores Doctrine entities, because Doctrine creates proxies for lazy loading by extending them.
+
+                When you use [native lazy objects](https://github.com/doctrine/orm/pull/11853) with `doctrine/orm:^3.4.0` on PHP 8.4 or later, Doctrine no longer extends entities, and you can set the `ignoreDoctrineEntities` parameter to `false` to require Doctrine entities to be `final` as well.
+                MARKDOWN,
+                false,
             ),
         )->withCodeSamples(
             Documentation\CodeSample::reported(<<<'PHP'
@@ -155,11 +167,17 @@ final class FinalRule implements
             return [];
         }
 
-        if (self::hasWhitelistedAnnotation($node)) {
+        if (
+            $this->ignoreDoctrineEntities
+            && self::hasWhitelistedAnnotation($node)
+        ) {
             return [];
         }
 
-        if (self::hasWhitelistedAttribute($node)) {
+        if (
+            $this->ignoreDoctrineEntities
+            && self::hasWhitelistedAttribute($node)
+        ) {
             return [];
         }
 
