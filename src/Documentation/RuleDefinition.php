@@ -29,20 +29,28 @@ final class RuleDefinition
     private array $parameters;
 
     /**
-     * @param list<Parameter> $parameters
+     * @var list<CodeSample>
+     */
+    private array $codeSamples;
+
+    /**
+     * @param list<Parameter>  $parameters
+     * @param list<CodeSample> $codeSamples
      */
     private function __construct(
         string $configurationKey,
         string $description,
         string $rationale,
         string $tip,
-        array $parameters
+        array $parameters,
+        array $codeSamples
     ) {
         $this->configurationKey = $configurationKey;
         $this->description = $description;
         $this->rationale = $rationale;
         $this->tip = $tip;
         $this->parameters = $parameters;
+        $this->codeSamples = $codeSamples;
     }
 
     public static function create(
@@ -58,6 +66,22 @@ final class RuleDefinition
             $rationale,
             $tip,
             \array_values($parameters),
+            [],
+        );
+    }
+
+    /**
+     * Returns a copy of the rule definition with the code samples.
+     */
+    public function withCodeSamples(CodeSample ...$codeSamples): self
+    {
+        return new self(
+            $this->configurationKey,
+            $this->description,
+            $this->rationale,
+            $this->tip,
+            $this->parameters,
+            \array_values($codeSamples),
         );
     }
 
@@ -101,5 +125,15 @@ final class RuleDefinition
     public function parameters(): array
     {
         return $this->parameters;
+    }
+
+    /**
+     * Returns code samples for which the rule reports or does not report an error.
+     *
+     * @return list<CodeSample>
+     */
+    public function codeSamples(): array
+    {
+        return $this->codeSamples;
     }
 }

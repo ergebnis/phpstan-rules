@@ -41,6 +41,25 @@ final class NoNullableReturnTypeDeclarationRule implements
             'This rule reports an error when a closure uses a nullable return type declaration.',
             'A nullable return type forces every caller to handle `null`. Throwing an exception, returning a null object, or splitting the closure in two keeps the callers simpler.',
             'Throw an exception, return a null object, or split the closure in two instead.',
+        )->withCodeSamples(
+            Documentation\CodeSample::reported(<<<'PHP'
+                <?php
+
+                declare(strict_types=1);
+
+                $toUpperCase = static function (string $value): ?string {
+                    return \strtoupper($value);
+                };
+                PHP),
+            Documentation\CodeSample::notReported(<<<'PHP'
+                <?php
+
+                declare(strict_types=1);
+
+                $toUpperCase = static function (string $value): string {
+                    return \strtoupper($value);
+                };
+                PHP),
         );
     }
 

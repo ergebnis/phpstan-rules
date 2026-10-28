@@ -22,6 +22,7 @@ use PHPStan\Type;
 /**
  * @covers \Ergebnis\PHPStan\Rules\Methods\PrivateInFinalClassRule
  *
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\CodeSample
  * @uses \Ergebnis\PHPStan\Rules\Documentation\ErrorTip
  * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
  * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition

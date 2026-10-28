@@ -6,6 +6,28 @@ This rule reports an error when an arrow function has a parameter with a nullabl
 
 A parameter with a nullable type declaration makes the arrow function handle two cases: a value and `null`. Separate arrow functions or a null object make each case explicit.
 
+## Examples
+
+### Reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+$toUpperCase = static fn (?string $value): string => \strtoupper((string) $value);
+```
+
+### Not reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+$toUpperCase = static fn (string $value): string => \strtoupper($value);
+```
+
 ## Parameters
 
 ### `enabled`

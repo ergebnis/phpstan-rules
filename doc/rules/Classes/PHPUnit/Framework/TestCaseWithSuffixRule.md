@@ -6,6 +6,40 @@ This rule reports an error when a concrete class is a sub-class of `PHPUnit\Fram
 
 By default, PHPUnit only runs tests from files whose names end with `Test.php`, and the suffix tells readers which classes are tests.
 
+## Examples
+
+### Reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Example\Test;
+
+use PHPUnit\Framework;
+
+final class Greeting extends Framework\TestCase
+{
+}
+```
+
+### Not reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Example\Test;
+
+use PHPUnit\Framework;
+
+final class GreetingTest extends Framework\TestCase
+{
+}
+```
+
 ## Parameters
 
 ### `enabled`

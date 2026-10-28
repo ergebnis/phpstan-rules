@@ -101,6 +101,29 @@ final class FinalRule implements
                     'Bar\\Baz\\NeitherAbstractNorFinal',
                 ],
             ),
+        )->withCodeSamples(
+            Documentation\CodeSample::reported(<<<'PHP'
+                <?php
+
+                declare(strict_types=1);
+
+                namespace Example;
+
+                class Greeting
+                {
+                }
+                PHP),
+            Documentation\CodeSample::notReported(<<<'PHP'
+                <?php
+
+                declare(strict_types=1);
+
+                namespace Example;
+
+                final class Greeting
+                {
+                }
+                PHP),
         );
     }
 

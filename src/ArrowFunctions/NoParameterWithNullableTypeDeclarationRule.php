@@ -41,6 +41,21 @@ final class NoParameterWithNullableTypeDeclarationRule implements
             'This rule reports an error when an arrow function has a parameter with a nullable type declaration.',
             'A parameter with a nullable type declaration makes the arrow function handle two cases: a value and `null`. Separate arrow functions or a null object make each case explicit.',
             'Use separate arrow functions or a null object instead.',
+        )->withCodeSamples(
+            Documentation\CodeSample::reported(<<<'PHP'
+                <?php
+
+                declare(strict_types=1);
+
+                $toUpperCase = static fn (?string $value): string => \strtoupper((string) $value);
+                PHP),
+            Documentation\CodeSample::notReported(<<<'PHP'
+                <?php
+
+                declare(strict_types=1);
+
+                $toUpperCase = static fn (string $value): string => \strtoupper($value);
+                PHP),
         );
     }
 

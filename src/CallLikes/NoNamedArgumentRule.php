@@ -34,6 +34,37 @@ final class NoNamedArgumentRule implements
             'This rule reports an error when an anonymous function, a function, or a method is invoked using a [named argument](https://www.php.net/manual/en/functions.arguments.php#functions.named-arguments).',
             'Named arguments make the names of parameters part of the public API, so renaming a parameter breaks callers. Positional arguments keep the names of parameters an implementation detail.',
             'Use positional arguments instead.',
+        )->withCodeSamples(
+            Documentation\CodeSample::reported(<<<'PHP'
+                <?php
+
+                declare(strict_types=1);
+
+                function greet(string $name): string
+                {
+                    return \sprintf(
+                        'Hello, %s!',
+                        $name,
+                    );
+                }
+
+                greet(name: 'Jane');
+                PHP),
+            Documentation\CodeSample::notReported(<<<'PHP'
+                <?php
+
+                declare(strict_types=1);
+
+                function greet(string $name): string
+                {
+                    return \sprintf(
+                        'Hello, %s!',
+                        $name,
+                    );
+                }
+
+                greet('Jane');
+                PHP),
         );
     }
 

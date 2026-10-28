@@ -6,6 +6,52 @@ This rule reports an error when a hook method that overrides a hook method in a 
 
 A hook method such as `setUp()` that overrides a hook method of a parent class needs to invoke the parent hook method in the expected order, or the parent class does not set up or tear down as intended.
 
+## Examples
+
+### Reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Example\Test;
+
+use PHPUnit\Framework;
+
+final class GreetingTest extends Framework\TestCase
+{
+    protected function setUp(): void
+    {
+        \putenv('GREETING=Hello');
+
+        parent::setUp();
+    }
+}
+```
+
+### Not reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Example\Test;
+
+use PHPUnit\Framework;
+
+final class GreetingTest extends Framework\TestCase
+{
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        \putenv('GREETING=Hello');
+    }
+}
+```
+
 ## Parameters
 
 ### `enabled`

@@ -6,6 +6,34 @@ This rule reports an error when a function has a parameter that is [passed by re
 
 A parameter passed by reference lets a function change a variable of its caller as a side effect, which makes the code harder to follow. Return the new value instead.
 
+## Examples
+
+### Reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+function increment(int &$value): void
+{
+    ++$value;
+}
+```
+
+### Not reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+function increment(int $value): int
+{
+    return $value + 1;
+}
+```
+
 ## Parameters
 
 ### `enabled`

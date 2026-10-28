@@ -237,6 +237,29 @@ require_once __DIR__ . '/../vendor/autoload.php';
             $lines[] = '';
             $lines[] = $ruleDefinition->rationale();
             $lines[] = '';
+
+            $codeSamples = $ruleDefinition->codeSamples();
+
+            if ([] !== $codeSamples) {
+                $lines[] = '## Examples';
+                $lines[] = '';
+
+                foreach ($codeSamples as $codeSample) {
+                    $heading = '### Not reported';
+
+                    if ($codeSample->isReported()) {
+                        $heading = '### Reported';
+                    }
+
+                    $lines[] = $heading;
+                    $lines[] = '';
+                    $lines[] = '```php';
+                    $lines[] = $codeSample->code();
+                    $lines[] = '```';
+                    $lines[] = '';
+                }
+            }
+
             $lines[] = '## Parameters';
             $lines[] = '';
             $lines[] = '### `enabled`';

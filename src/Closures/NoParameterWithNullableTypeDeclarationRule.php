@@ -41,6 +41,25 @@ final class NoParameterWithNullableTypeDeclarationRule implements
             'This rule reports an error when a closure has a parameter with a nullable type declaration.',
             'A parameter with a nullable type declaration makes the closure handle two cases: a value and `null`. Separate closures or a null object make each case explicit.',
             'Use separate closures or a null object instead.',
+        )->withCodeSamples(
+            Documentation\CodeSample::reported(<<<'PHP'
+                <?php
+
+                declare(strict_types=1);
+
+                $toUpperCase = static function (?string $value): string {
+                    return \strtoupper((string) $value);
+                };
+                PHP),
+            Documentation\CodeSample::notReported(<<<'PHP'
+                <?php
+
+                declare(strict_types=1);
+
+                $toUpperCase = static function (string $value): string {
+                    return \strtoupper($value);
+                };
+                PHP),
         );
     }
 

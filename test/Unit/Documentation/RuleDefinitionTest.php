@@ -20,6 +20,7 @@ use PHPUnit\Framework;
 /**
  * @covers \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition
  *
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\CodeSample
  * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
  */
 final class RuleDefinitionTest extends Framework\TestCase
@@ -47,6 +48,7 @@ final class RuleDefinitionTest extends Framework\TestCase
         self::assertSame($rationale, $ruleDefinition->rationale());
         self::assertSame($tip, $ruleDefinition->tip());
         self::assertSame([], $ruleDefinition->parameters());
+        self::assertSame([], $ruleDefinition->codeSamples());
     }
 
     public function testCreateReturnsRuleDefinitionWithParameters(): void
@@ -90,5 +92,39 @@ final class RuleDefinitionTest extends Framework\TestCase
         self::assertSame($rationale, $ruleDefinition->rationale());
         self::assertSame($tip, $ruleDefinition->tip());
         self::assertSame($expected, $ruleDefinition->parameters());
+    }
+
+    public function testWithCodeSamplesReturnsRuleDefinitionWithCodeSamples(): void
+    {
+        $faker = self::faker();
+
+        $ruleDefinition = Documentation\RuleDefinition::create(
+            $faker->word(),
+            $faker->sentence(),
+            $faker->sentence(),
+            $faker->sentence(),
+        );
+
+        $codeSampleOne = Documentation\CodeSample::reported($faker->sentence());
+        $codeSampleTwo = Documentation\CodeSample::notReported($faker->sentence());
+
+        $mutated = $ruleDefinition->withCodeSamples(
+            $codeSampleOne,
+            $codeSampleTwo,
+        );
+
+        $expected = [
+            $codeSampleOne,
+            $codeSampleTwo,
+        ];
+
+        self::assertNotSame($ruleDefinition, $mutated);
+        self::assertSame([], $ruleDefinition->codeSamples());
+        self::assertSame($ruleDefinition->configurationKey(), $mutated->configurationKey());
+        self::assertSame($ruleDefinition->description(), $mutated->description());
+        self::assertSame($ruleDefinition->rationale(), $mutated->rationale());
+        self::assertSame($ruleDefinition->tip(), $mutated->tip());
+        self::assertSame($ruleDefinition->parameters(), $mutated->parameters());
+        self::assertSame($expected, $mutated->codeSamples());
     }
 }

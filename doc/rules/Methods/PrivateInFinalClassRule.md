@@ -6,6 +6,44 @@ This rule reports an error when a method in a `final` class is `protected` but c
 
 A `final` class cannot be extended, so a `protected` method in it can only be used like a `private` method. Declaring the method `private` makes that explicit.
 
+## Examples
+
+### Reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Example;
+
+final class Greeting
+{
+    protected function salutation(): string
+    {
+        return 'Hello';
+    }
+}
+```
+
+### Not reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Example;
+
+final class Greeting
+{
+    private function salutation(): string
+    {
+        return 'Hello';
+    }
+}
+```
+
 ## Parameters
 
 ### `enabled`

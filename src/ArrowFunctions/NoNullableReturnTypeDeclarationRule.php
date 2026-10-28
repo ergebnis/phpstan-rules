@@ -41,6 +41,21 @@ final class NoNullableReturnTypeDeclarationRule implements
             'This rule reports an error when an arrow function uses a nullable return type declaration.',
             'A nullable return type forces every caller to handle `null`. Throwing an exception, returning a null object, or splitting the arrow function in two keeps the callers simpler.',
             'Throw an exception, return a null object, or split the arrow function in two instead.',
+        )->withCodeSamples(
+            Documentation\CodeSample::reported(<<<'PHP'
+                <?php
+
+                declare(strict_types=1);
+
+                $toUpperCase = static fn (string $value): ?string => \strtoupper($value);
+                PHP),
+            Documentation\CodeSample::notReported(<<<'PHP'
+                <?php
+
+                declare(strict_types=1);
+
+                $toUpperCase = static fn (string $value): string => \strtoupper($value);
+                PHP),
         );
     }
 

@@ -41,6 +41,41 @@ final class NoConstructorParameterWithDefaultValueRule implements
             MARKDOWN,
             'A constructor parameter with a default value lets callers create an object without deciding on that value. Named constructors make each way of creating the object explicit.',
             'Remove the default value and add a named constructor for each way of creating the object.',
+        )->withCodeSamples(
+            Documentation\CodeSample::reported(<<<'PHP'
+                <?php
+
+                declare(strict_types=1);
+
+                namespace Example;
+
+                final class Greeting
+                {
+                    private string $salutation;
+
+                    public function __construct(string $salutation = 'Hello')
+                    {
+                        $this->salutation = $salutation;
+                    }
+                }
+                PHP),
+            Documentation\CodeSample::notReported(<<<'PHP'
+                <?php
+
+                declare(strict_types=1);
+
+                namespace Example;
+
+                final class Greeting
+                {
+                    private string $salutation;
+
+                    public function __construct(string $salutation)
+                    {
+                        $this->salutation = $salutation;
+                    }
+                }
+                PHP),
         );
     }
 

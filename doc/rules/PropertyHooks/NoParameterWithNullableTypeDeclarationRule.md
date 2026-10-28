@@ -6,6 +6,46 @@ This rule reports an error when a [property hook](https://www.php.net/manual/en/
 
 A parameter with a nullable type declaration makes the property hook handle two cases: a value and `null`. Separate properties or a null object make each case explicit.
 
+## Examples
+
+### Reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Example;
+
+final class Greeting
+{
+    public string $salutation = 'Hello' {
+        set(?string $value) {
+            $this->salutation = (string) $value;
+        }
+    }
+}
+```
+
+### Not reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Example;
+
+final class Greeting
+{
+    public string $salutation = 'Hello' {
+        set(string $value) {
+            $this->salutation = $value;
+        }
+    }
+}
+```
+
 ## Parameters
 
 ### `enabled`

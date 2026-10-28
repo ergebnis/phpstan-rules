@@ -42,6 +42,39 @@ final class NoParameterWithNullableTypeDeclarationRule implements
             'This rule reports an error when a [property hook](https://www.php.net/manual/en/language.oop5.property-hooks.php) has a parameter with a nullable type declaration.',
             'A parameter with a nullable type declaration makes the property hook handle two cases: a value and `null`. Separate properties or a null object make each case explicit.',
             'Use a separate property or a null object instead.',
+        )->withCodeSamples(
+            Documentation\CodeSample::reported(<<<'PHP'
+                <?php
+
+                declare(strict_types=1);
+
+                namespace Example;
+
+                final class Greeting
+                {
+                    public string $salutation = 'Hello' {
+                        set(?string $value) {
+                            $this->salutation = (string) $value;
+                        }
+                    }
+                }
+                PHP),
+            Documentation\CodeSample::notReported(<<<'PHP'
+                <?php
+
+                declare(strict_types=1);
+
+                namespace Example;
+
+                final class Greeting
+                {
+                    public string $salutation = 'Hello' {
+                        set(string $value) {
+                            $this->salutation = $value;
+                        }
+                    }
+                }
+                PHP),
         );
     }
 

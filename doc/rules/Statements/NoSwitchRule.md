@@ -6,6 +6,44 @@ This rule reports an error when the statement [`switch()`](https://www.php.net/m
 
 A `switch` statement compares loosely and falls through to the next case without `break`, which can cause subtle bugs. Use `if` statements or `match` instead.
 
+## Examples
+
+### Reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+$status = 'active';
+
+switch ($status) {
+    case 'active':
+        echo 'Active';
+
+        break;
+
+    default:
+        echo 'Inactive';
+}
+```
+
+### Not reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+$status = 'active';
+
+if ('active' === $status) {
+    echo 'Active';
+} else {
+    echo 'Inactive';
+}
+```
+
 ## Parameters
 
 ### `enabled`

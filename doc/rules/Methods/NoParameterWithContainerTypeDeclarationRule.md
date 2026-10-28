@@ -6,6 +6,54 @@ This rule reports an error when a method has a type declaration for a known depe
 
 A method that receives a dependency injection container or service locator hides its actual dependencies. Inject the dependencies directly instead.
 
+## Examples
+
+### Reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Example;
+
+use Psr\Container;
+
+final class Greeting
+{
+    public function greet(Container\ContainerInterface $container): string
+    {
+        return $container->get('salutation');
+    }
+}
+```
+
+### Not reported
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Example;
+
+final class Salutation
+{
+    public function toString(): string
+    {
+        return 'Hello';
+    }
+}
+
+final class Greeting
+{
+    public function greet(Salutation $salutation): string
+    {
+        return $salutation->toString();
+    }
+}
+```
+
 ## Parameters
 
 ### `enabled`

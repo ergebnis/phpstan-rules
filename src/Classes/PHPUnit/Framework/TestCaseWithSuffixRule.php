@@ -47,6 +47,33 @@ final class TestCaseWithSuffixRule implements
             'This rule reports an error when a concrete class is a sub-class of `PHPUnit\\Framework\\TestCase` but does not have a `Test` suffix.',
             'By default, PHPUnit only runs tests from files whose names end with `Test.php`, and the suffix tells readers which classes are tests.',
             'Add the `Test` suffix to the name of the class.',
+        )->withCodeSamples(
+            Documentation\CodeSample::reported(<<<'PHP'
+                <?php
+
+                declare(strict_types=1);
+
+                namespace Example\Test;
+
+                use PHPUnit\Framework;
+
+                final class Greeting extends Framework\TestCase
+                {
+                }
+                PHP),
+            Documentation\CodeSample::notReported(<<<'PHP'
+                <?php
+
+                declare(strict_types=1);
+
+                namespace Example\Test;
+
+                use PHPUnit\Framework;
+
+                final class GreetingTest extends Framework\TestCase
+                {
+                }
+                PHP),
         );
     }
 
