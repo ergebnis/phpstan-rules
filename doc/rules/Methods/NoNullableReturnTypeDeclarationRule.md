@@ -1,12 +1,6 @@
 # `Methods\NoNullableReturnTypeDeclarationRule`
 
-This rule reports an error when a method declared in
-
-- an anonymous class
-- a class
-- an interface
-
-uses a nullable return type declaration.
+This rule reports an error when a method uses a nullable return type declaration.
 
 ## Rationale
 

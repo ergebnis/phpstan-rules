@@ -39,15 +39,7 @@ final class NoNullableReturnTypeDeclarationRule implements
     {
         return Documentation\RuleDefinition::create(
             'noNullableReturnTypeDeclaration',
-            <<<'MARKDOWN'
-            This rule reports an error when a method declared in
-
-            - an anonymous class
-            - a class
-            - an interface
-
-            uses a nullable return type declaration.
-            MARKDOWN,
+            'This rule reports an error when a method uses a nullable return type declaration.',
             'A nullable return type forces every caller to handle `null`. Throwing an exception, returning a null object, or splitting the method in two keeps the callers simpler.',
             'Throw an exception, return a null object, or split the method in two instead.',
         )->withCodeSamples(

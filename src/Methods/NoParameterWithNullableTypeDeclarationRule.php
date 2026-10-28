@@ -39,15 +39,7 @@ final class NoParameterWithNullableTypeDeclarationRule implements
     {
         return Documentation\RuleDefinition::create(
             'noParameterWithNullableTypeDeclaration',
-            <<<'MARKDOWN'
-            This rule reports an error when a method declared in
-
-            - an anonymous class
-            - a class
-            - an interface
-
-            has a parameter with a nullable type declaration.
-            MARKDOWN,
+            'This rule reports an error when a method has a parameter with a nullable type declaration.',
             'A parameter with a nullable type declaration makes the method handle two cases: a value and `null`. Separate methods or a null object make each case explicit.',
             'Use separate methods or a null object instead.',
         )->withCodeSamples(

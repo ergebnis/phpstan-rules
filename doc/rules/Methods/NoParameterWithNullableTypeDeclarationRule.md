@@ -1,12 +1,6 @@
 # `Methods\NoParameterWithNullableTypeDeclarationRule`
 
-This rule reports an error when a method declared in
-
-- an anonymous class
-- a class
-- an interface
-
-has a parameter with a nullable type declaration.
+This rule reports an error when a method has a parameter with a nullable type declaration.
 
 ## Rationale
 

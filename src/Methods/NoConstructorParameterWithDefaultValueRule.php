@@ -31,14 +31,7 @@ final class NoConstructorParameterWithDefaultValueRule implements
     {
         return Documentation\RuleDefinition::create(
             'noConstructorParameterWithDefaultValue',
-            <<<'MARKDOWN'
-            This rule reports an error when a constructor declared in
-
-            - an anonymous class
-            - a class
-
-            has a default value.
-            MARKDOWN,
+            'This rule reports an error when a constructor has a parameter with a default value.',
             'A constructor parameter with a default value lets callers create an object without deciding on that value. Named constructors make each way of creating the object explicit.',
             'Remove the default value and add a named constructor for each way of creating the object.',
         )->withCodeSamples(
