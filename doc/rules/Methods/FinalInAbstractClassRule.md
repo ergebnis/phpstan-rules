@@ -2,7 +2,7 @@
 
 This rule reports an error when a concrete `public` or `protected` method in an `abstract` class is not `final`.
 
-💡 This rule ignores Doctrine entities.
+💡 By default, this rule ignores Doctrine entities.
 
 ## Rationale
 
@@ -59,4 +59,21 @@ parameters:
 	ergebnis:
 		finalInAbstractClass:
 			enabled: false
+```
+
+### `ignoreDoctrineEntities`
+
+By default, this rule ignores Doctrine entities, because Doctrine creates proxies for lazy loading by extending them.
+
+When you use [native lazy objects](https://github.com/doctrine/orm/pull/11853) with `doctrine/orm:^3.4.0` on PHP 8.4 or later, Doctrine no longer extends entities, and you can set the `ignoreDoctrineEntities` parameter to `false` to require concrete methods in `abstract` Doctrine entities to be `final` as well.
+
+Default value: `true`
+
+Example:
+
+```neon
+parameters:
+	ergebnis:
+		finalInAbstractClass:
+			ignoreDoctrineEntities: false
 ```

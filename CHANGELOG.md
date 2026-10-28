@@ -15,6 +15,7 @@ For a full diff see [`2.15.0...main`][2.15.0...main].
 - Added documentation for every rule in `doc/rules/`, generated from the definitions of the rules ([#1156]), by [@localheinz]
 - Added a rationale to the documentation of every rule and a tip with a link to the documentation to every error reported by a rule, which requires `composer-runtime-api:^2.0.0` ([#1158]), by [@localheinz]
 - Added code samples to the documentation of every rule ([#1159]), by [@localheinz]
+- Added an `ignoreDoctrineEntities` parameter to `Classes\FinalRule` and `Methods\FinalInAbstractClassRule`, which allow requiring Doctrine entities to be `final` when using native lazy objects ([#1162]), by [@localheinz]
 
 ### Fixed
 
@@ -840,6 +841,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#1158]: https://github.com/ergebnis/phpstan-rules/pull/1158
 [#1159]: https://github.com/ergebnis/phpstan-rules/pull/1159
 [#1160]: https://github.com/ergebnis/phpstan-rules/pull/1160
+[#1162]: https://github.com/ergebnis/phpstan-rules/pull/1162
 [#1163]: https://github.com/ergebnis/phpstan-rules/pull/1163
 
 [@alfredbez]: https://github.com/alfredbez

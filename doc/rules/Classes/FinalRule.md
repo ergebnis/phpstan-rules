@@ -2,7 +2,7 @@
 
 This rule reports an error when a non-anonymous class is not `final`.
 
-💡 This rule ignores classes that
+💡 By default, this rule ignores classes that
 
 - use `@Entity`, `@ORM\Entity`, or `@ORM\Mapping\Entity` annotations
 - use `Doctrine\ORM\Mapping\Entity` attributes
@@ -90,4 +90,21 @@ parameters:
 			classesNotRequiredToBeAbstractOrFinal:
 				- Foo\Bar\NeitherAbstractNorFinal
 				- Bar\Baz\NeitherAbstractNorFinal
+```
+
+### `ignoreDoctrineEntities`
+
+By default, this rule ignores Doctrine entities, because Doctrine creates proxies for lazy loading by extending them.
+
+When you use [native lazy objects](https://github.com/doctrine/orm/pull/11853) with `doctrine/orm:^3.4.0` on PHP 8.4 or later, Doctrine no longer extends entities, and you can set the `ignoreDoctrineEntities` parameter to `false` to require Doctrine entities to be `final` as well.
+
+Default value: `true`
+
+Example:
+
+```neon
+parameters:
+	ergebnis:
+		final:
+			ignoreDoctrineEntities: false
 ```
