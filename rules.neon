@@ -1,6 +1,8 @@
 conditionalTags:
 	Ergebnis\PHPStan\Rules\ArrowFunctions\NoNullableReturnTypeDeclarationRule:
 		phpstan.rules.rule: %ergebnis.noNullableReturnTypeDeclaration.enabled%
+	Ergebnis\PHPStan\Rules\ArrowFunctions\NoParameterWithNullableTypeDeclarationRule:
+		phpstan.rules.rule: %ergebnis.noParameterWithNullableTypeDeclaration.enabled%
 	Ergebnis\PHPStan\Rules\CallLikes\NoNamedArgumentRule:
 		phpstan.rules.rule: %ergebnis.noNamedArgument.enabled%
 	Ergebnis\PHPStan\Rules\Classes\FinalRule:
@@ -207,6 +209,9 @@ services:
 
 	-
 		class: Ergebnis\PHPStan\Rules\ArrowFunctions\NoNullableReturnTypeDeclarationRule
+
+	-
+		class: Ergebnis\PHPStan\Rules\ArrowFunctions\NoParameterWithNullableTypeDeclarationRule
 
 	-
 		class: Ergebnis\PHPStan\Rules\CallLikes\NoNamedArgumentRule
