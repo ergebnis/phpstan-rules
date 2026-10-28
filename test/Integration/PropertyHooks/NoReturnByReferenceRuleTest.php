@@ -21,12 +21,16 @@ use PHPStan\Testing;
 /**
  * @covers \Ergebnis\PHPStan\Rules\PropertyHooks\NoReturnByReferenceRule
  *
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ErrorTip
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
  *
  * @extends Testing\RuleTestCase<PropertyHooks\NoReturnByReferenceRule>
  */
 final class NoReturnByReferenceRuleTest extends Testing\RuleTestCase
 {
+    use Test\Util\ErrorTip;
     use Test\Util\Helper;
 
     public function testNoReturnByReferenceRule(): void
@@ -37,22 +41,27 @@ final class NoReturnByReferenceRuleTest extends Testing\RuleTestCase
                 [
                     'Property hook get of property Ergebnis\\PHPStan\\Rules\\Test\\Fixture\\PropertyHooks\\NoReturnByReferenceRule\\InterfaceWithPropertyHooksReturningByReference::$foo returns by reference.',
                     10,
+                    $this->errorTip(),
                 ],
                 [
                     'Property hook get of property Ergebnis\\PHPStan\\Rules\\Test\\Fixture\\PropertyHooks\\NoReturnByReferenceRule\\ClassWithPropertyHooksReturningByReference::$foo returns by reference.',
                     12,
+                    $this->errorTip(),
                 ],
                 [
                     'Property hook get of property Ergebnis\\PHPStan\\Rules\\Test\\Fixture\\PropertyHooks\\NoReturnByReferenceRule\\ClassUsingTraitWithPropertyHooksReturningByReference::$foo returns by reference.',
                     12,
+                    $this->errorTip(),
                 ],
                 [
                     'Property hook get of property Ergebnis\\PHPStan\\Rules\\Test\\Fixture\\PropertyHooks\\NoReturnByReferenceRule\\ClassWithPropertyHooksReturningByReference::$baz returns by reference.',
                     19,
+                    $this->errorTip(),
                 ],
                 [
                     'Property hook get of property $foo in anonymous class returns by reference.',
                     21,
+                    $this->errorTip(),
                 ],
             ],
         );

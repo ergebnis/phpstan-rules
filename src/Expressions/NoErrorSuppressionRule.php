@@ -31,6 +31,8 @@ final class NoErrorSuppressionRule implements
         return Documentation\RuleDefinition::create(
             'noErrorSuppression',
             'This rule reports an error when [`@`](https://www.php.net/manual/en/language.operators.errorcontrol.php) is used to suppress errors.',
+            'The error control operator hides every error that the expression causes, including errors you did not expect. Check for the error condition explicitly instead.',
+            'Check for the error condition explicitly instead.',
         );
     }
 
@@ -46,6 +48,7 @@ final class NoErrorSuppressionRule implements
         return [
             Rules\RuleErrorBuilder::message('Error suppression via "@" should not be used.')
                 ->identifier(ErrorIdentifier::noErrorSuppression()->toString())
+                ->tip(Documentation\ErrorTip::for($this))
                 ->build(),
         ];
     }

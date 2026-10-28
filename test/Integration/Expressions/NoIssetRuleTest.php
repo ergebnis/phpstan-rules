@@ -21,12 +21,16 @@ use PHPStan\Testing;
 /**
  * @covers \Ergebnis\PHPStan\Rules\Expressions\NoIssetRule
  *
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ErrorTip
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
  *
  * @extends Testing\RuleTestCase<Expressions\NoIssetRule>
  */
 final class NoIssetRuleTest extends Testing\RuleTestCase
 {
+    use Test\Util\ErrorTip;
     use Test\Util\Helper;
 
     public function testNoIssetRule(): void
@@ -37,10 +41,12 @@ final class NoIssetRuleTest extends Testing\RuleTestCase
                 [
                     'Language construct isset() should not be used.',
                     16,
+                    $this->errorTip(),
                 ],
                 [
                     'Language construct isset() should not be used.',
                     20,
+                    $this->errorTip(),
                 ],
             ],
         );

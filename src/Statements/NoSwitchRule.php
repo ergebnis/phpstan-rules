@@ -31,6 +31,8 @@ final class NoSwitchRule implements
         return Documentation\RuleDefinition::create(
             'noSwitch',
             'This rule reports an error when the statement [`switch()`](https://www.php.net/manual/control-structures.switch.php) is used.',
+            'A `switch` statement compares loosely and falls through to the next case without `break`, which can cause subtle bugs. Use `if` statements or `match` instead.',
+            'Use `if` statements or `match` instead.',
         );
     }
 
@@ -46,6 +48,7 @@ final class NoSwitchRule implements
         return [
             Rules\RuleErrorBuilder::message('Control structures using switch should not be used.')
                 ->identifier(ErrorIdentifier::noSwitch()->toString())
+                ->tip(Documentation\ErrorTip::for($this))
                 ->build(),
         ];
     }

@@ -31,6 +31,8 @@ final class NoIssetRule implements
         return Documentation\RuleDefinition::create(
             'noIsset',
             'This rule reports an error when the language construct [`isset()`](https://www.php.net/isset) is used.',
+            'The language construct `isset()` returns `false` both when a variable, array key, or property does not exist and when it holds `null`, so it hides which of the two applies. Use `array_key_exists()`, `property_exists()`, or a comparison with `null` instead.',
+            'Use `array_key_exists()`, `property_exists()`, or a comparison with `null` instead.',
         );
     }
 
@@ -46,6 +48,7 @@ final class NoIssetRule implements
         return [
             Rules\RuleErrorBuilder::message('Language construct isset() should not be used.')
                 ->identifier(ErrorIdentifier::noIsset()->toString())
+                ->tip(Documentation\ErrorTip::for($this))
                 ->build(),
         ];
     }

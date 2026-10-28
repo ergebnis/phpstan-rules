@@ -32,14 +32,20 @@ final class RuleDefinitionTest extends Framework\TestCase
 
         $configurationKey = $faker->word();
         $description = $faker->sentence();
+        $rationale = $faker->sentence();
+        $tip = $faker->sentence();
 
         $ruleDefinition = Documentation\RuleDefinition::create(
             $configurationKey,
             $description,
+            $rationale,
+            $tip,
         );
 
         self::assertSame($configurationKey, $ruleDefinition->configurationKey());
         self::assertSame($description, $ruleDefinition->description());
+        self::assertSame($rationale, $ruleDefinition->rationale());
+        self::assertSame($tip, $ruleDefinition->tip());
         self::assertSame([], $ruleDefinition->parameters());
     }
 
@@ -49,6 +55,8 @@ final class RuleDefinitionTest extends Framework\TestCase
 
         $configurationKey = $faker->word();
         $description = $faker->sentence();
+        $rationale = $faker->sentence();
+        $tip = $faker->sentence();
         $parameterOne = Documentation\Parameter::create(
             $faker->word(),
             $faker->sentence(),
@@ -66,6 +74,8 @@ final class RuleDefinitionTest extends Framework\TestCase
         $ruleDefinition = Documentation\RuleDefinition::create(
             $configurationKey,
             $description,
+            $rationale,
+            $tip,
             $parameterOne,
             $parameterTwo,
         );
@@ -77,6 +87,8 @@ final class RuleDefinitionTest extends Framework\TestCase
 
         self::assertSame($configurationKey, $ruleDefinition->configurationKey());
         self::assertSame($description, $ruleDefinition->description());
+        self::assertSame($rationale, $ruleDefinition->rationale());
+        self::assertSame($tip, $ruleDefinition->tip());
         self::assertSame($expected, $ruleDefinition->parameters());
     }
 }

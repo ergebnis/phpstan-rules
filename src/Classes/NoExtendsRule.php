@@ -58,6 +58,8 @@ final class NoExtendsRule implements
         return Documentation\RuleDefinition::create(
             'noExtends',
             'This rule reports an error when a class extends another class.',
+            'Extending a class couples the subclass to the implementation of its parent class. Prefer composition: inject collaborators and implement interfaces.',
+            'Inject collaborators and implement interfaces instead.',
             Documentation\Parameter::create(
                 'classesAllowedToBeExtended',
                 <<<'MARKDOWN'
@@ -103,6 +105,7 @@ final class NoExtendsRule implements
             return [
                 Rules\RuleErrorBuilder::message($message)
                     ->identifier(ErrorIdentifier::noExtends()->toString())
+                    ->tip(Documentation\ErrorTip::for($this))
                     ->build(),
             ];
         }
@@ -118,6 +121,7 @@ final class NoExtendsRule implements
         return [
             Rules\RuleErrorBuilder::message($message)
                 ->identifier(ErrorIdentifier::noExtends()->toString())
+                ->tip(Documentation\ErrorTip::for($this))
                 ->build(),
         ];
     }

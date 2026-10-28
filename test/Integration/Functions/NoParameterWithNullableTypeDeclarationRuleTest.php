@@ -23,12 +23,16 @@ use PHPStan\Testing;
  * @covers \Ergebnis\PHPStan\Rules\Analyzer
  * @covers \Ergebnis\PHPStan\Rules\Functions\NoParameterWithNullableTypeDeclarationRule
  *
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ErrorTip
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
  *
  * @extends Testing\RuleTestCase<Functions\NoParameterWithNullableTypeDeclarationRule>
  */
 final class NoParameterWithNullableTypeDeclarationRuleTest extends Testing\RuleTestCase
 {
+    use Test\Util\ErrorTip;
     use Test\Util\Helper;
 
     public function testNoParameterWithNullableTypeDeclarationRule(): void
@@ -39,18 +43,22 @@ final class NoParameterWithNullableTypeDeclarationRuleTest extends Testing\RuleT
                 [
                     'Function Ergebnis\PHPStan\Rules\Test\Fixture\Functions\NoParameterWithNullableTypeDeclarationRule\qux() has parameter $bar with a nullable type declaration.',
                     21,
+                    $this->errorTip(),
                 ],
                 [
                     'Function Ergebnis\PHPStan\Rules\Test\Fixture\Functions\NoParameterWithNullableTypeDeclarationRule\quux() has parameter $bar with a nullable type declaration.',
                     26,
+                    $this->errorTip(),
                 ],
                 [
                     'Function Ergebnis\PHPStan\Rules\Test\Fixture\Functions\NoParameterWithNullableTypeDeclarationRule\quz() has parameter $bar with a nullable type declaration.',
                     31,
+                    $this->errorTip(),
                 ],
                 [
                     'Function Ergebnis\PHPStan\Rules\Test\Fixture\Functions\NoParameterWithNullableTypeDeclarationRule\corge() has parameter $bar with a nullable type declaration.',
                     36,
+                    $this->errorTip(),
                 ],
             ],
         );

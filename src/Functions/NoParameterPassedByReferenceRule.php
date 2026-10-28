@@ -31,6 +31,8 @@ final class NoParameterPassedByReferenceRule implements
         return Documentation\RuleDefinition::create(
             'noParameterPassedByReference',
             'This rule reports an error when a function has a parameter that is [passed by reference](https://www.php.net/manual/en/language.references.pass.php).',
+            'A parameter passed by reference lets a function change a variable of its caller as a side effect, which makes the code harder to follow. Return the new value instead.',
+            'Return the new value instead.',
         );
     }
 
@@ -57,7 +59,7 @@ final class NoParameterPassedByReferenceRule implements
 
         $functionName = $node->namespacedName;
 
-        return \array_map(static function (Node\Param $parameterPassedByReference) use ($functionName): Rules\RuleError {
+        return \array_map(function (Node\Param $parameterPassedByReference) use ($functionName): Rules\RuleError {
             /** @var Node\Expr\Variable $variable */
             $variable = $parameterPassedByReference->var;
 
@@ -72,6 +74,7 @@ final class NoParameterPassedByReferenceRule implements
 
             return Rules\RuleErrorBuilder::message($message)
                 ->identifier(ErrorIdentifier::noParameterPassedByReference()->toString())
+                ->tip(Documentation\ErrorTip::for($this))
                 ->build();
         }, $parametersPassedByReference);
     }

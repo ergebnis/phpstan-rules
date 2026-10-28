@@ -32,6 +32,8 @@ final class NoReturnByReferenceRule implements
         return Documentation\RuleDefinition::create(
             'noReturnByReference',
             'This rule reports an error when a [property hook](https://www.php.net/manual/en/language.oop5.property-hooks.php) returns by reference.',
+            'Returning by reference lets the caller change state that the property hook keeps, which makes the code harder to follow. Return a value instead.',
+            'Return a value instead.',
         );
     }
 
@@ -60,7 +62,7 @@ final class NoReturnByReferenceRule implements
         $classReflection = $node->getClassReflection();
 
         if ($classReflection->isAnonymous()) {
-            return \array_map(static function (Node\PropertyHook $propertyHookReturningByReference) use ($propertyName): Rules\RuleError {
+            return \array_map(function (Node\PropertyHook $propertyHookReturningByReference) use ($propertyName): Rules\RuleError {
                 $message = \sprintf(
                     'Property hook %s of property $%s in anonymous class returns by reference.',
                     $propertyHookReturningByReference->name->toString(),
@@ -69,6 +71,7 @@ final class NoReturnByReferenceRule implements
 
                 return Rules\RuleErrorBuilder::message($message)
                     ->identifier(ErrorIdentifier::noReturnByReference()->toString())
+                    ->tip(Documentation\ErrorTip::for($this))
                     ->line($propertyHookReturningByReference->getStartLine())
                     ->build();
             }, $propertyHooksReturningByReference);
@@ -76,7 +79,7 @@ final class NoReturnByReferenceRule implements
 
         $className = $classReflection->getName();
 
-        return \array_map(static function (Node\PropertyHook $propertyHookReturningByReference) use ($className, $propertyName): Rules\RuleError {
+        return \array_map(function (Node\PropertyHook $propertyHookReturningByReference) use ($className, $propertyName): Rules\RuleError {
             $message = \sprintf(
                 'Property hook %s of property %s::$%s returns by reference.',
                 $propertyHookReturningByReference->name->toString(),
@@ -86,6 +89,7 @@ final class NoReturnByReferenceRule implements
 
             return Rules\RuleErrorBuilder::message($message)
                 ->identifier(ErrorIdentifier::noReturnByReference()->toString())
+                ->tip(Documentation\ErrorTip::for($this))
                 ->line($propertyHookReturningByReference->getStartLine())
                 ->build();
         }, $propertyHooksReturningByReference);

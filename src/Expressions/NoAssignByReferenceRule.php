@@ -31,6 +31,8 @@ final class NoAssignByReferenceRule implements
         return Documentation\RuleDefinition::create(
             'noAssignByReference',
             'This rule reports an error when [a variable is assigned by reference](https://www.php.net/manual/en/language.references.whatdo.php#language.references.whatdo.assign).',
+            'Assigning by reference makes two variables share one value, so changing one changes the other, which makes the code harder to follow.',
+            'Assign the value instead.',
         );
     }
 
@@ -46,6 +48,7 @@ final class NoAssignByReferenceRule implements
         return [
             Rules\RuleErrorBuilder::message('Assign by reference should not be used.')
                 ->identifier(ErrorIdentifier::noAssignByReference()->toString())
+                ->tip(Documentation\ErrorTip::for($this))
                 ->build(),
         ];
     }

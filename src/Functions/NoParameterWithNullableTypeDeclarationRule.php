@@ -39,6 +39,8 @@ final class NoParameterWithNullableTypeDeclarationRule implements
         return Documentation\RuleDefinition::create(
             'noParameterWithNullableTypeDeclaration',
             'This rule reports an error when a function has a parameter with a nullable type declaration.',
+            'A parameter with a nullable type declaration makes the function handle two cases: a value and `null`. Separate functions or a null object make each case explicit.',
+            'Use separate functions or a null object instead.',
         );
     }
 
@@ -65,7 +67,7 @@ final class NoParameterWithNullableTypeDeclarationRule implements
 
         $functionName = $node->namespacedName;
 
-        return \array_map(static function (Node\Param $parameterWithNullableTypeDeclaration) use ($functionName): Rules\RuleError {
+        return \array_map(function (Node\Param $parameterWithNullableTypeDeclaration) use ($functionName): Rules\RuleError {
             /** @var Node\Expr\Variable $variable */
             $variable = $parameterWithNullableTypeDeclaration->var;
 
@@ -80,6 +82,7 @@ final class NoParameterWithNullableTypeDeclarationRule implements
 
             return Rules\RuleErrorBuilder::message($message)
                 ->identifier(ErrorIdentifier::noParameterWithNullableTypeDeclaration()->toString())
+                ->tip(Documentation\ErrorTip::for($this))
                 ->build();
         }, $parametersWithNullableTypeDeclaration);
     }

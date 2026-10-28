@@ -8,6 +8,10 @@ This rule reports an error when a method declared in
 
 has a parameter with `null` as default value.
 
+## Rationale
+
+A parameter with `null` as its default value makes the argument optional and nullable at once, so the method has to handle a missing value. Separate methods or a null object make each case explicit.
+
 ## Parameters
 
 ### `enabled`

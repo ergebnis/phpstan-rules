@@ -2,6 +2,10 @@
 
 This rule reports an error when a method has a type declaration for a known dependency injection container or service locator.
 
+## Rationale
+
+A method that receives a dependency injection container or service locator hides its actual dependencies. Inject the dependencies directly instead.
+
 ## Parameters
 
 ### `enabled`

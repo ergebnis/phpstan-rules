@@ -21,12 +21,16 @@ use PHPStan\Testing;
 /**
  * @covers \Ergebnis\PHPStan\Rules\Classes\FinalRule
  *
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ErrorTip
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
  *
  * @extends Testing\RuleTestCase<Classes\FinalRule>
  */
 final class FinalRuleTest extends Testing\RuleTestCase
 {
+    use Test\Util\ErrorTip;
     use Test\Util\Helper;
     private bool $allowAbstractClasses;
 
@@ -49,6 +53,7 @@ final class FinalRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Classes\FinalRule\AbstractClass::class,
                     ),
                     7,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -56,6 +61,7 @@ final class FinalRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Classes\FinalRule\ClassWithUnqualifiedDoctrineOrmMappingEntityAttribute::class,
                     ),
                     7,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -63,6 +69,7 @@ final class FinalRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Classes\FinalRule\ClassWithUnqualifiedEntityAttribute::class,
                     ),
                     7,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -70,6 +77,7 @@ final class FinalRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Classes\FinalRule\ClassWithUnqualifiedOrmEntityAttribute::class,
                     ),
                     7,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -77,6 +85,7 @@ final class FinalRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Classes\FinalRule\ClassWithUnqualifiedOrmMappingEntityAttribute::class,
                     ),
                     7,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -84,6 +93,7 @@ final class FinalRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Classes\FinalRule\ClassWithoutEntityAnnotationInInlineDocBlock::class,
                     ),
                     8,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -91,6 +101,7 @@ final class FinalRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Classes\FinalRule\ClassWithoutEntityAnnotationInMultilineDocBlock::class,
                     ),
                     12,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -98,6 +109,7 @@ final class FinalRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Classes\FinalRule\ClassWithoutOrmEntityAnnotationInInlineDocBlock::class,
                     ),
                     8,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -105,6 +117,7 @@ final class FinalRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Classes\FinalRule\ClassWithoutOrmEntityAnnotationInMultilineDocBlock::class,
                     ),
                     12,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -112,6 +125,7 @@ final class FinalRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Classes\FinalRule\ExampleClass::class,
                     ),
                     7,
+                    $this->errorTip(),
                 ],
             ],
         );
@@ -131,6 +145,7 @@ final class FinalRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Classes\FinalRule\ClassWithUnqualifiedDoctrineOrmMappingEntityAttribute::class,
                     ),
                     7,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -138,6 +153,7 @@ final class FinalRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Classes\FinalRule\ClassWithUnqualifiedEntityAttribute::class,
                     ),
                     7,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -145,6 +161,7 @@ final class FinalRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Classes\FinalRule\ClassWithUnqualifiedOrmEntityAttribute::class,
                     ),
                     7,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -152,6 +169,7 @@ final class FinalRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Classes\FinalRule\ClassWithUnqualifiedOrmMappingEntityAttribute::class,
                     ),
                     7,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -159,6 +177,7 @@ final class FinalRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Classes\FinalRule\ClassWithoutEntityAnnotationInInlineDocBlock::class,
                     ),
                     8,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -166,6 +185,7 @@ final class FinalRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Classes\FinalRule\ClassWithoutEntityAnnotationInMultilineDocBlock::class,
                     ),
                     12,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -173,6 +193,7 @@ final class FinalRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Classes\FinalRule\ClassWithoutOrmEntityAnnotationInInlineDocBlock::class,
                     ),
                     8,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -180,6 +201,7 @@ final class FinalRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Classes\FinalRule\ClassWithoutOrmEntityAnnotationInMultilineDocBlock::class,
                     ),
                     12,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -187,6 +209,7 @@ final class FinalRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Classes\FinalRule\ExampleClass::class,
                     ),
                     7,
+                    $this->errorTip(),
                 ],
             ],
         );
@@ -208,6 +231,7 @@ final class FinalRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Classes\FinalRule\AbstractClass::class,
                     ),
                     7,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -215,6 +239,7 @@ final class FinalRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Classes\FinalRule\ClassWithUnqualifiedDoctrineOrmMappingEntityAttribute::class,
                     ),
                     7,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -222,6 +247,7 @@ final class FinalRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Classes\FinalRule\ClassWithUnqualifiedEntityAttribute::class,
                     ),
                     7,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -229,6 +255,7 @@ final class FinalRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Classes\FinalRule\ClassWithUnqualifiedOrmEntityAttribute::class,
                     ),
                     7,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -236,6 +263,7 @@ final class FinalRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Classes\FinalRule\ClassWithUnqualifiedOrmMappingEntityAttribute::class,
                     ),
                     7,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -243,6 +271,7 @@ final class FinalRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Classes\FinalRule\ClassWithoutEntityAnnotationInInlineDocBlock::class,
                     ),
                     8,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -250,6 +279,7 @@ final class FinalRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Classes\FinalRule\ClassWithoutEntityAnnotationInMultilineDocBlock::class,
                     ),
                     12,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -257,6 +287,7 @@ final class FinalRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Classes\FinalRule\ClassWithoutOrmEntityAnnotationInInlineDocBlock::class,
                     ),
                     8,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -264,6 +295,7 @@ final class FinalRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Classes\FinalRule\ClassWithoutOrmEntityAnnotationInMultilineDocBlock::class,
                     ),
                     12,
+                    $this->errorTip(),
                 ],
             ],
         );

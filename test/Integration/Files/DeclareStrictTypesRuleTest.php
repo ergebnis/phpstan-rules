@@ -21,12 +21,16 @@ use PHPStan\Testing;
 /**
  * @covers \Ergebnis\PHPStan\Rules\Files\DeclareStrictTypesRule
  *
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ErrorTip
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
  *
  * @extends Testing\RuleTestCase<Files\DeclareStrictTypesRule>
  */
 final class DeclareStrictTypesRuleTest extends Testing\RuleTestCase
 {
+    use Test\Util\ErrorTip;
     use Test\Util\Helper;
 
     public function testDeclareStrictTypesRule(): void
@@ -37,62 +41,77 @@ final class DeclareStrictTypesRuleTest extends Testing\RuleTestCase
                 [
                     'File is missing a "declare(strict_types=1)" declaration.',
                     5,
+                    $this->errorTip(),
                 ],
                 [
                     'File is missing a "declare(strict_types=1)" declaration.',
                     5,
+                    $this->errorTip(),
                 ],
                 [
                     'File is missing a "declare(strict_types=1)" declaration.',
                     5,
+                    $this->errorTip(),
                 ],
                 [
                     'File is missing a "declare(strict_types=1)" declaration.',
                     3,
+                    $this->errorTip(),
                 ],
                 [
                     'File is missing a "declare(strict_types=1)" declaration.',
                     3,
+                    $this->errorTip(),
                 ],
                 [
                     'File is missing a "declare(strict_types=1)" declaration.',
                     3,
+                    $this->errorTip(),
                 ],
                 [
                     'File is missing a "declare(strict_types=1)" declaration.',
                     3,
+                    $this->errorTip(),
                 ],
                 [
                     'File is missing a "declare(strict_types=1)" declaration.',
                     7,
+                    $this->errorTip(),
                 ],
                 [
                     'File is missing a "declare(strict_types=1)" declaration.',
                     7,
+                    $this->errorTip(),
                 ],
                 [
                     'File is missing a "declare(strict_types=1)" declaration.',
                     7,
+                    $this->errorTip(),
                 ],
                 [
                     'File is missing a "declare(strict_types=1)" declaration.',
                     1,
+                    $this->errorTip(),
                 ],
                 [
                     'File is missing a "declare(strict_types=1)" declaration.',
                     1,
+                    $this->errorTip(),
                 ],
                 [
                     'File is missing a "declare(strict_types=1)" declaration.',
                     1,
+                    $this->errorTip(),
                 ],
                 [
                     'File is missing a "declare(strict_types=1)" declaration.',
                     3,
+                    $this->errorTip(),
                 ],
                 [
                     'File is missing a "declare(strict_types=1)" declaration.',
                     3,
+                    $this->errorTip(),
                 ],
             ],
         );

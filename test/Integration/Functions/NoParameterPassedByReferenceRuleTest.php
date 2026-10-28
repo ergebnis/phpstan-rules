@@ -21,12 +21,16 @@ use PHPStan\Testing;
 /**
  * @covers \Ergebnis\PHPStan\Rules\Functions\NoParameterPassedByReferenceRule
  *
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ErrorTip
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
  *
  * @extends Testing\RuleTestCase<Functions\NoParameterPassedByReferenceRule>
  */
 final class NoParameterPassedByReferenceRuleTest extends Testing\RuleTestCase
 {
+    use Test\Util\ErrorTip;
     use Test\Util\Helper;
 
     public function testNoParameterPassedByReferenceRule(): void
@@ -37,10 +41,12 @@ final class NoParameterPassedByReferenceRuleTest extends Testing\RuleTestCase
                 [
                     'Function Ergebnis\PHPStan\Rules\Test\Fixture\Functions\NoParameterPassedByReferenceRule\baz() has parameter $bar that is passed by reference.',
                     16,
+                    $this->errorTip(),
                 ],
                 [
                     'Function Ergebnis\PHPStan\Rules\Test\Fixture\Functions\NoParameterPassedByReferenceRule\qux() has parameter $bar that is passed by reference.',
                     21,
+                    $this->errorTip(),
                 ],
             ],
         );

@@ -2,6 +2,10 @@
 
 This rule reports an error when a [property hook](https://www.php.net/manual/en/language.oop5.property-hooks.php) has a parameter with a nullable type declaration.
 
+## Rationale
+
+A parameter with a nullable type declaration makes the property hook handle two cases: a value and `null`. Separate properties or a null object make each case explicit.
+
 ## Parameters
 
 ### `enabled`

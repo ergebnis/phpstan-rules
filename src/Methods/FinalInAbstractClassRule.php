@@ -55,6 +55,8 @@ final class FinalInAbstractClassRule implements
             - Doctrine embeddables
             - Doctrine entities
             MARKDOWN,
+            'A concrete method in an `abstract` class that is not `final` can be overridden by subclasses, which can break the assumptions of the abstract class. Declare the method `final`, or `abstract` when subclasses need to provide it.',
+            'Declare the method `final`, or `abstract` when subclasses need to provide it.',
         );
     }
 
@@ -107,6 +109,7 @@ final class FinalInAbstractClassRule implements
         return [
             Rules\RuleErrorBuilder::message($message)
                 ->identifier(ErrorIdentifier::finalInAbstractClass()->toString())
+                ->tip(Documentation\ErrorTip::for($this))
                 ->build(),
         ];
     }

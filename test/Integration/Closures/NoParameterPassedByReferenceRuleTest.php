@@ -21,12 +21,16 @@ use PHPStan\Testing;
 /**
  * @covers \Ergebnis\PHPStan\Rules\Closures\NoParameterPassedByReferenceRule
  *
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ErrorTip
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
  *
  * @extends Testing\RuleTestCase<Closures\NoParameterPassedByReferenceRule>
  */
 final class NoParameterPassedByReferenceRuleTest extends Testing\RuleTestCase
 {
+    use Test\Util\ErrorTip;
     use Test\Util\Helper;
 
     public function testNoParameterPassedByReferenceRule(): void
@@ -37,10 +41,12 @@ final class NoParameterPassedByReferenceRuleTest extends Testing\RuleTestCase
                 [
                     'Closure has parameter $bar that is passed by reference.',
                     18,
+                    $this->errorTip(),
                 ],
                 [
                     'Closure has parameter $bar that is passed by reference.',
                     22,
+                    $this->errorTip(),
                 ],
             ],
         );

@@ -23,12 +23,16 @@ use PHPStan\Testing;
  * @covers \Ergebnis\PHPStan\Rules\Analyzer
  * @covers \Ergebnis\PHPStan\Rules\PropertyHooks\NoParameterWithNullableTypeDeclarationRule
  *
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ErrorTip
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
  *
  * @extends Testing\RuleTestCase<PropertyHooks\NoParameterWithNullableTypeDeclarationRule>
  */
 final class NoParameterWithNullableTypeDeclarationRuleTest extends Testing\RuleTestCase
 {
+    use Test\Util\ErrorTip;
     use Test\Util\Helper;
 
     public function testNoParameterWithNullableTypeDeclarationRule(): void
@@ -39,30 +43,37 @@ final class NoParameterWithNullableTypeDeclarationRuleTest extends Testing\RuleT
                 [
                     'Property hook set of property Ergebnis\\PHPStan\\Rules\\Test\\Fixture\\PropertyHooks\\NoParameterWithNullableTypeDeclarationRule\\InterfaceWithPropertyHooksWithParameterWithNullableTypeDeclaration::$foo has parameter $value with a nullable type declaration.',
                     10,
+                    $this->errorTip(),
                 ],
                 [
                     'Property hook set of property Ergebnis\\PHPStan\\Rules\\Test\\Fixture\\PropertyHooks\\NoParameterWithNullableTypeDeclarationRule\\ClassWithPropertyHooksWithParameterWithNullableTypeDeclaration::$foo has parameter $value with a nullable type declaration.',
                     10,
+                    $this->errorTip(),
                 ],
                 [
                     'Property hook set of property Ergebnis\\PHPStan\\Rules\\Test\\Fixture\\PropertyHooks\\NoParameterWithNullableTypeDeclarationRule\\ClassUsingTraitWithPropertyHooksWithParameterWithNullableTypeDeclaration::$foo has parameter $value with a nullable type declaration.',
                     10,
+                    $this->errorTip(),
                 ],
                 [
                     'Property hook set of property Ergebnis\\PHPStan\\Rules\\Test\\Fixture\\PropertyHooks\\NoParameterWithNullableTypeDeclarationRule\\ClassWithPropertyHooksWithParameterWithNullableTypeDeclaration::$bar has parameter $value with a nullable type declaration.',
                     16,
+                    $this->errorTip(),
                 ],
                 [
                     'Property hook set of property Ergebnis\\PHPStan\\Rules\\Test\\Fixture\\PropertyHooks\\NoParameterWithNullableTypeDeclarationRule\\ClassWithPropertyHooksWithParameterWithNullableTypeDeclaration::$baz has parameter $value with a nullable type declaration.',
                     22,
+                    $this->errorTip(),
                 ],
                 [
                     'Property hook set of property Ergebnis\\PHPStan\\Rules\\Test\\Fixture\\PropertyHooks\\NoParameterWithNullableTypeDeclarationRule\\ClassWithPropertyHooksWithParameterWithNullableTypeDeclaration::$qux has parameter $value with a nullable type declaration.',
                     29,
+                    $this->errorTip(),
                 ],
                 [
                     'Property hook set of property $foo in anonymous class has parameter $value with a nullable type declaration.',
                     17,
+                    $this->errorTip(),
                 ],
             ],
         );

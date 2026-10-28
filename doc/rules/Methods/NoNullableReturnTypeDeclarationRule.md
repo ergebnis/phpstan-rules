@@ -8,6 +8,10 @@ This rule reports an error when a method declared in
 
 uses a nullable return type declaration.
 
+## Rationale
+
+A nullable return type forces every caller to handle `null`. Throwing an exception, returning a null object, or splitting the method in two keeps the callers simpler.
+
 ## Parameters
 
 ### `enabled`

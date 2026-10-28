@@ -2,6 +2,10 @@
 
 This rule reports an error when a method in a `final` class is `protected` but could be `private`.
 
+## Rationale
+
+A `final` class cannot be extended, so a `protected` method in it can only be used like a `private` method. Declaring the method `private` makes that explicit.
+
 ## Parameters
 
 ### `enabled`

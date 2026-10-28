@@ -39,6 +39,8 @@ final class NoParameterWithNullDefaultValueRule implements
         return Documentation\RuleDefinition::create(
             'noParameterWithNullDefaultValue',
             'This rule reports an error when a closure has a parameter with `null` as default value.',
+            'A parameter with `null` as its default value makes the argument optional and nullable at once, so the closure has to handle a missing value. Separate closures or a null object make each case explicit.',
+            'Use separate closures or a null object instead.',
         );
     }
 
@@ -63,7 +65,7 @@ final class NoParameterWithNullDefaultValueRule implements
             return [];
         }
 
-        return \array_map(static function (Node\Param $parameterWithNullDefaultValue): Rules\RuleError {
+        return \array_map(function (Node\Param $parameterWithNullDefaultValue): Rules\RuleError {
             /** @var Node\Expr\Variable $variable */
             $variable = $parameterWithNullDefaultValue->var;
 
@@ -77,6 +79,7 @@ final class NoParameterWithNullDefaultValueRule implements
 
             return Rules\RuleErrorBuilder::message($message)
                 ->identifier(ErrorIdentifier::noParameterWithNullDefaultValue()->toString())
+                ->tip(Documentation\ErrorTip::for($this))
                 ->build();
         }, $parametersWithNullDefaultValue);
     }

@@ -32,6 +32,9 @@
     <extensions>
         <extension class="Ergebnis\PHPUnit\SlowTestDetector\Extension"/>
     </extensions>
+    <php>
+        <ini name="memory_limit" value="256M"/>
+    </php>
     <testsuites>
         <testsuite name="documentation">
             <directory>Documentation/</directory>

@@ -31,6 +31,8 @@ final class NoEvalRule implements
         return Documentation\RuleDefinition::create(
             'noEval',
             'This rule reports an error when the language construct [`eval()`](https://www.php.net/eval) is used.',
+            'The language construct `eval()` executes a string as code, which is a security risk and cannot be analyzed statically.',
+            'Write the code directly instead.',
         );
     }
 
@@ -46,6 +48,7 @@ final class NoEvalRule implements
         return [
             Rules\RuleErrorBuilder::message('Language construct eval() should not be used.')
                 ->identifier(ErrorIdentifier::noEval()->toString())
+                ->tip(Documentation\ErrorTip::for($this))
                 ->build(),
         ];
     }

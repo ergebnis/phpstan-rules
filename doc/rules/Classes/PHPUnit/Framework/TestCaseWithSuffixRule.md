@@ -2,6 +2,10 @@
 
 This rule reports an error when a concrete class is a sub-class of `PHPUnit\Framework\TestCase` but does not have a `Test` suffix.
 
+## Rationale
+
+By default, PHPUnit only runs tests from files whose names end with `Test.php`, and the suffix tells readers which classes are tests.
+
 ## Parameters
 
 ### `enabled`

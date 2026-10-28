@@ -39,6 +39,8 @@ final class NoNullableReturnTypeDeclarationRule implements
         return Documentation\RuleDefinition::create(
             'noNullableReturnTypeDeclaration',
             'This rule reports an error when a function uses a nullable return type declaration.',
+            'A nullable return type forces every caller to handle `null`. Throwing an exception, returning a null object, or splitting the function in two keeps the callers simpler.',
+            'Throw an exception, return a null object, or split the function in two instead.',
         );
     }
 
@@ -67,6 +69,7 @@ final class NoNullableReturnTypeDeclarationRule implements
         return [
             Rules\RuleErrorBuilder::message($message)
                 ->identifier(ErrorIdentifier::noNullableReturnTypeDeclaration()->toString())
+                ->tip(Documentation\ErrorTip::for($this))
                 ->build(),
         ];
     }

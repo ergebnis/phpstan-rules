@@ -31,6 +31,8 @@ final class NoCompactRule implements
         return Documentation\RuleDefinition::create(
             'noCompact',
             'This rule reports an error when the function [`compact()`](https://www.php.net/compact) is used.',
+            'The function `compact()` refers to variables by their names in strings, which static analysis and automated refactoring cannot follow. Build the array explicitly instead.',
+            'Build the array explicitly instead.',
         );
     }
 
@@ -54,6 +56,7 @@ final class NoCompactRule implements
         return [
             Rules\RuleErrorBuilder::message('Function compact() should not be used.')
                 ->identifier(ErrorIdentifier::noCompact()->toString())
+                ->tip(Documentation\ErrorTip::for($this))
                 ->build(),
         ];
     }

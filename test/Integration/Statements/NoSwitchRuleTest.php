@@ -23,10 +23,14 @@ use PHPStan\Testing;
  *
  * @extends \PHPStan\Testing\RuleTestCase<Statements\NoSwitchRule>
  *
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ErrorTip
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
  */
 final class NoSwitchRuleTest extends Testing\RuleTestCase
 {
+    use Test\Util\ErrorTip;
     use Test\Util\Helper;
 
     public function testNoSwitchRule(): void
@@ -37,14 +41,17 @@ final class NoSwitchRuleTest extends Testing\RuleTestCase
                 [
                     'Control structures using switch should not be used.',
                     7,
+                    $this->errorTip(),
                 ],
                 [
                     'Control structures using switch should not be used.',
                     15,
+                    $this->errorTip(),
                 ],
                 [
                     'Control structures using switch should not be used.',
                     23,
+                    $this->errorTip(),
                 ],
             ],
         );

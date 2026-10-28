@@ -23,10 +23,14 @@ use PHPStan\Testing;
  *
  * @extends Testing\RuleTestCase<Classes\NoExtendsRule>
  *
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ErrorTip
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
  */
 final class NoExtendsRuleTest extends Testing\RuleTestCase
 {
+    use Test\Util\ErrorTip;
     use Test\Util\Helper;
 
     /**
@@ -48,6 +52,7 @@ final class NoExtendsRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Classes\NoExtendsRule\OtherClass::class,
                     ),
                     7,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -55,6 +60,7 @@ final class NoExtendsRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Classes\NoExtendsRule\OtherClass::class,
                     ),
                     10,
+                    $this->errorTip(),
                 ],
             ],
         );

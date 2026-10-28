@@ -21,12 +21,16 @@ use PHPStan\Testing;
 /**
  * @covers \Ergebnis\PHPStan\Rules\Expressions\NoCompactRule
  *
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ErrorTip
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
  *
  * @extends Testing\RuleTestCase<Expressions\NoCompactRule>
  */
 final class NoCompactRuleTest extends Testing\RuleTestCase
 {
+    use Test\Util\ErrorTip;
     use Test\Util\Helper;
 
     public function testNoCompactRule(): void
@@ -37,14 +41,17 @@ final class NoCompactRuleTest extends Testing\RuleTestCase
                 [
                     'Function compact() should not be used.',
                     22,
+                    $this->errorTip(),
                 ],
                 [
                     'Function compact() should not be used.',
                     27,
+                    $this->errorTip(),
                 ],
                 [
                     'Function compact() should not be used.',
                     32,
+                    $this->errorTip(),
                 ],
             ],
         );

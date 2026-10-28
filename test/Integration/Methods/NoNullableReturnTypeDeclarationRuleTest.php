@@ -23,12 +23,16 @@ use PHPStan\Testing;
  * @covers \Ergebnis\PHPStan\Rules\Analyzer
  * @covers \Ergebnis\PHPStan\Rules\Methods\NoNullableReturnTypeDeclarationRule
  *
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ErrorTip
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
  *
  * @extends Testing\RuleTestCase<Methods\NoNullableReturnTypeDeclarationRule>
  */
 final class NoNullableReturnTypeDeclarationRuleTest extends Testing\RuleTestCase
 {
+    use Test\Util\ErrorTip;
     use Test\Util\Helper;
 
     public function testNoNullableReturnTypeDeclarationRule(): void
@@ -42,6 +46,7 @@ final class NoNullableReturnTypeDeclarationRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Methods\NoNullableReturnTypeDeclarationRule\ClassWithMethodWithNullableReturnTypeDeclaration::class,
                     ),
                     9,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -49,6 +54,7 @@ final class NoNullableReturnTypeDeclarationRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Methods\NoNullableReturnTypeDeclarationRule\ClassWithMethodWithNullableUnionReturnTypeDeclaration::class,
                     ),
                     9,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -56,6 +62,7 @@ final class NoNullableReturnTypeDeclarationRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Methods\NoNullableReturnTypeDeclarationRule\InterfaceWithMethodWithNullableReturnTypeDeclaration::class,
                     ),
                     9,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -63,22 +70,27 @@ final class NoNullableReturnTypeDeclarationRuleTest extends Testing\RuleTestCase
                         Test\Fixture\Methods\NoNullableReturnTypeDeclarationRule\InterfaceWithMethodWithNullableUnionReturnTypeDeclaration::class,
                     ),
                     9,
+                    $this->errorTip(),
                 ],
                 [
                     'Method toString() in anonymous class has a nullable return type declaration.',
                     22,
+                    $this->errorTip(),
                 ],
                 [
                     'Method toString() in anonymous class has a nullable return type declaration.',
                     29,
+                    $this->errorTip(),
                 ],
                 [
                     'Method toString() in anonymous class has a nullable return type declaration.',
                     36,
+                    $this->errorTip(),
                 ],
                 [
                     'Method toString() in anonymous class has a nullable return type declaration.',
                     43,
+                    $this->errorTip(),
                 ],
             ],
         );

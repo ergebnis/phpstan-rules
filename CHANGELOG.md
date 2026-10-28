@@ -12,6 +12,7 @@ For a full diff see [`2.15.0...main`][2.15.0...main].
 
 - Added `PropertyHooks\NoReturnByReferenceRule`, which reports an error when a property hook returns by reference ([#915]), by [@localheinz]
 - Added `PropertyHooks\NoParameterWithNullableTypeDeclarationRule`, which reports an error when a property hook has a parameter with a nullable type declaration ([#1154]), by [@localheinz]
+- Added a rationale to the documentation of every rule and a tip with a link to the documentation to every error reported by a rule, which requires `composer-runtime-api:^2.0.0` ([#1158]), by [@localheinz]
 
 ## [`2.15.0`][2.15.0]
 
@@ -826,6 +827,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#1150]: https://github.com/ergebnis/phpstan-rules/pull/1150
 [#1151]: https://github.com/ergebnis/phpstan-rules/pull/1151
 [#1154]: https://github.com/ergebnis/phpstan-rules/pull/1154
+[#1158]: https://github.com/ergebnis/phpstan-rules/pull/1158
 
 [@alfredbez]: https://github.com/alfredbez
 [@cosmastech]: https://github.com/cosmastech

@@ -22,6 +22,9 @@ use PHPStan\Testing;
  * @covers \Ergebnis\PHPStan\Rules\Methods\InvokeParentHookMethodRule
  *
  * @uses \Ergebnis\PHPStan\Rules\ClassName
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ErrorTip
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
  * @uses \Ergebnis\PHPStan\Rules\HasContent
  * @uses \Ergebnis\PHPStan\Rules\HookMethod
@@ -32,6 +35,7 @@ use PHPStan\Testing;
  */
 final class InvokeParentHookMethodRuleWithCustomConfigurationTest extends Testing\RuleTestCase
 {
+    use Test\Util\ErrorTip;
     use Test\Util\Helper;
 
     public function testInvokeParentHookMethodRuleWithCustomConfiguration(): void
@@ -45,6 +49,7 @@ final class InvokeParentHookMethodRuleWithCustomConfigurationTest extends Testin
                         Test\Fixture\Methods\InvokeParentHookMethodRule\Codeception\Cest\ConcreteCestCaseInvokingNonEmptyParentHookMethodsInWrongOrderCestHook::class,
                     ),
                     9,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -52,6 +57,7 @@ final class InvokeParentHookMethodRuleWithCustomConfigurationTest extends Testin
                         Test\Fixture\Methods\InvokeParentHookMethodRule\Codeception\Cest\ConcreteCestCaseInvokingNonEmptyParentHookMethodsInWrongOrderCestHook::class,
                     ),
                     16,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -59,6 +65,7 @@ final class InvokeParentHookMethodRuleWithCustomConfigurationTest extends Testin
                         Test\Fixture\Methods\InvokeParentHookMethodRule\Codeception\Cest\ConcreteCestCaseNotInvokingNonEmptyParentHookMethodsCestHook::class,
                     ),
                     9,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -66,6 +73,7 @@ final class InvokeParentHookMethodRuleWithCustomConfigurationTest extends Testin
                         Test\Fixture\Methods\InvokeParentHookMethodRule\Codeception\Cest\ConcreteCestCaseNotInvokingNonEmptyParentHookMethodsCestHook::class,
                     ),
                     14,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -73,6 +81,7 @@ final class InvokeParentHookMethodRuleWithCustomConfigurationTest extends Testin
                         Test\Fixture\Methods\InvokeParentHookMethodRule\Codeception\Test\ConcreteTestCaseInvokingEmptyParentHookMethodsInWrongOrderTest::class,
                     ),
                     11,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -80,6 +89,7 @@ final class InvokeParentHookMethodRuleWithCustomConfigurationTest extends Testin
                         Test\Fixture\Methods\InvokeParentHookMethodRule\Codeception\Test\ConcreteTestCaseInvokingEmptyParentHookMethodsInWrongOrderTest::class,
                     ),
                     18,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -87,6 +97,7 @@ final class InvokeParentHookMethodRuleWithCustomConfigurationTest extends Testin
                         Test\Fixture\Methods\InvokeParentHookMethodRule\Codeception\Test\ConcreteTestCaseInvokingNonEmptyParentHookMethodsInWrongOrderTest::class,
                     ),
                     9,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -94,6 +105,7 @@ final class InvokeParentHookMethodRuleWithCustomConfigurationTest extends Testin
                         Test\Fixture\Methods\InvokeParentHookMethodRule\Codeception\Test\ConcreteTestCaseInvokingNonEmptyParentHookMethodsInWrongOrderTest::class,
                     ),
                     16,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -101,6 +113,7 @@ final class InvokeParentHookMethodRuleWithCustomConfigurationTest extends Testin
                         Test\Fixture\Methods\InvokeParentHookMethodRule\Codeception\Test\ConcreteTestCaseInvokingNonEmptyParentHookMethodsInWrongOrderTest::class,
                     ),
                     23,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -108,6 +121,7 @@ final class InvokeParentHookMethodRuleWithCustomConfigurationTest extends Testin
                         Test\Fixture\Methods\InvokeParentHookMethodRule\Codeception\Test\ConcreteTestCaseInvokingNonEmptyParentHookMethodsInWrongOrderTest::class,
                     ),
                     30,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -115,6 +129,7 @@ final class InvokeParentHookMethodRuleWithCustomConfigurationTest extends Testin
                         Test\Fixture\Methods\InvokeParentHookMethodRule\Codeception\Test\ConcreteTestCaseInvokingNonEmptyParentHookMethodsInWrongOrderTest::class,
                     ),
                     37,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -122,6 +137,7 @@ final class InvokeParentHookMethodRuleWithCustomConfigurationTest extends Testin
                         Test\Fixture\Methods\InvokeParentHookMethodRule\Codeception\Test\ConcreteTestCaseInvokingNonEmptyParentHookMethodsInWrongOrderTest::class,
                     ),
                     44,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -129,6 +145,7 @@ final class InvokeParentHookMethodRuleWithCustomConfigurationTest extends Testin
                         Test\Fixture\Methods\InvokeParentHookMethodRule\Codeception\Test\ConcreteTestCaseNotInvokingNonEmptyParentHookMethodsTest::class,
                     ),
                     9,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -136,6 +153,7 @@ final class InvokeParentHookMethodRuleWithCustomConfigurationTest extends Testin
                         Test\Fixture\Methods\InvokeParentHookMethodRule\Codeception\Test\ConcreteTestCaseNotInvokingNonEmptyParentHookMethodsTest::class,
                     ),
                     14,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -143,6 +161,7 @@ final class InvokeParentHookMethodRuleWithCustomConfigurationTest extends Testin
                         Test\Fixture\Methods\InvokeParentHookMethodRule\Codeception\Test\ConcreteTestCaseNotInvokingNonEmptyParentHookMethodsTest::class,
                     ),
                     24,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -150,6 +169,7 @@ final class InvokeParentHookMethodRuleWithCustomConfigurationTest extends Testin
                         Test\Fixture\Methods\InvokeParentHookMethodRule\Codeception\Test\ConcreteTestCaseNotInvokingNonEmptyParentHookMethodsTest::class,
                     ),
                     34,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -157,6 +177,7 @@ final class InvokeParentHookMethodRuleWithCustomConfigurationTest extends Testin
                         Test\Fixture\Methods\InvokeParentHookMethodRule\PHPUnit\Framework\ConcreteTestCaseInvokingEmptyParentHookMethodsInWrongOrderTest::class,
                     ),
                     11,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -164,6 +185,7 @@ final class InvokeParentHookMethodRuleWithCustomConfigurationTest extends Testin
                         Test\Fixture\Methods\InvokeParentHookMethodRule\PHPUnit\Framework\ConcreteTestCaseInvokingEmptyParentHookMethodsInWrongOrderTest::class,
                     ),
                     18,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -171,6 +193,7 @@ final class InvokeParentHookMethodRuleWithCustomConfigurationTest extends Testin
                         Test\Fixture\Methods\InvokeParentHookMethodRule\PHPUnit\Framework\ConcreteTestCaseInvokingEmptyParentHookMethodsInWrongOrderTest::class,
                     ),
                     25,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -178,6 +201,7 @@ final class InvokeParentHookMethodRuleWithCustomConfigurationTest extends Testin
                         Test\Fixture\Methods\InvokeParentHookMethodRule\PHPUnit\Framework\ConcreteTestCaseInvokingEmptyParentHookMethodsInWrongOrderTest::class,
                     ),
                     32,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -185,6 +209,7 @@ final class InvokeParentHookMethodRuleWithCustomConfigurationTest extends Testin
                         Test\Fixture\Methods\InvokeParentHookMethodRule\PHPUnit\Framework\ConcreteTestCaseInvokingEmptyParentHookMethodsInWrongOrderTest::class,
                     ),
                     39,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -192,6 +217,7 @@ final class InvokeParentHookMethodRuleWithCustomConfigurationTest extends Testin
                         Test\Fixture\Methods\InvokeParentHookMethodRule\PHPUnit\Framework\ConcreteTestCaseInvokingEmptyParentHookMethodsInWrongOrderTest::class,
                     ),
                     46,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -199,6 +225,7 @@ final class InvokeParentHookMethodRuleWithCustomConfigurationTest extends Testin
                         Test\Fixture\Methods\InvokeParentHookMethodRule\PHPUnit\Framework\ConcreteTestCaseInvokingNonEmptyParentHookMethodsInFinallyInWrongOrderTest::class,
                     ),
                     9,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -206,6 +233,7 @@ final class InvokeParentHookMethodRuleWithCustomConfigurationTest extends Testin
                         Test\Fixture\Methods\InvokeParentHookMethodRule\PHPUnit\Framework\ConcreteTestCaseInvokingNonEmptyParentHookMethodsInFinallyInWrongOrderTest::class,
                     ),
                     20,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -213,6 +241,7 @@ final class InvokeParentHookMethodRuleWithCustomConfigurationTest extends Testin
                         Test\Fixture\Methods\InvokeParentHookMethodRule\PHPUnit\Framework\ConcreteTestCaseInvokingNonEmptyParentHookMethodsInFinallyInWrongOrderTest::class,
                     ),
                     29,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -220,6 +249,7 @@ final class InvokeParentHookMethodRuleWithCustomConfigurationTest extends Testin
                         Test\Fixture\Methods\InvokeParentHookMethodRule\PHPUnit\Framework\ConcreteTestCaseInvokingNonEmptyParentHookMethodsInWrongOrderTest::class,
                     ),
                     9,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -227,6 +257,7 @@ final class InvokeParentHookMethodRuleWithCustomConfigurationTest extends Testin
                         Test\Fixture\Methods\InvokeParentHookMethodRule\PHPUnit\Framework\ConcreteTestCaseInvokingNonEmptyParentHookMethodsInWrongOrderTest::class,
                     ),
                     16,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -234,6 +265,7 @@ final class InvokeParentHookMethodRuleWithCustomConfigurationTest extends Testin
                         Test\Fixture\Methods\InvokeParentHookMethodRule\PHPUnit\Framework\ConcreteTestCaseInvokingNonEmptyParentHookMethodsInWrongOrderTest::class,
                     ),
                     23,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -241,6 +273,7 @@ final class InvokeParentHookMethodRuleWithCustomConfigurationTest extends Testin
                         Test\Fixture\Methods\InvokeParentHookMethodRule\PHPUnit\Framework\ConcreteTestCaseInvokingNonEmptyParentHookMethodsInWrongOrderTest::class,
                     ),
                     30,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -248,6 +281,7 @@ final class InvokeParentHookMethodRuleWithCustomConfigurationTest extends Testin
                         Test\Fixture\Methods\InvokeParentHookMethodRule\PHPUnit\Framework\ConcreteTestCaseInvokingNonEmptyParentHookMethodsInWrongOrderTest::class,
                     ),
                     37,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -255,6 +289,7 @@ final class InvokeParentHookMethodRuleWithCustomConfigurationTest extends Testin
                         Test\Fixture\Methods\InvokeParentHookMethodRule\PHPUnit\Framework\ConcreteTestCaseInvokingNonEmptyParentHookMethodsInWrongOrderTest::class,
                     ),
                     44,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -262,6 +297,7 @@ final class InvokeParentHookMethodRuleWithCustomConfigurationTest extends Testin
                         Test\Fixture\Methods\InvokeParentHookMethodRule\PHPUnit\Framework\ConcreteTestCaseNotInvokingNonEmptyParentHookMethodsTest::class,
                     ),
                     9,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -269,6 +305,7 @@ final class InvokeParentHookMethodRuleWithCustomConfigurationTest extends Testin
                         Test\Fixture\Methods\InvokeParentHookMethodRule\PHPUnit\Framework\ConcreteTestCaseNotInvokingNonEmptyParentHookMethodsTest::class,
                     ),
                     14,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -276,6 +313,7 @@ final class InvokeParentHookMethodRuleWithCustomConfigurationTest extends Testin
                         Test\Fixture\Methods\InvokeParentHookMethodRule\PHPUnit\Framework\ConcreteTestCaseNotInvokingNonEmptyParentHookMethodsTest::class,
                     ),
                     19,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -283,6 +321,7 @@ final class InvokeParentHookMethodRuleWithCustomConfigurationTest extends Testin
                         Test\Fixture\Methods\InvokeParentHookMethodRule\PHPUnit\Framework\ConcreteTestCaseNotInvokingNonEmptyParentHookMethodsTest::class,
                     ),
                     24,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -290,6 +329,7 @@ final class InvokeParentHookMethodRuleWithCustomConfigurationTest extends Testin
                         Test\Fixture\Methods\InvokeParentHookMethodRule\PHPUnit\Framework\ConcreteTestCaseNotInvokingNonEmptyParentHookMethodsTest::class,
                     ),
                     29,
+                    $this->errorTip(),
                 ],
                 [
                     \sprintf(
@@ -297,6 +337,7 @@ final class InvokeParentHookMethodRuleWithCustomConfigurationTest extends Testin
                         Test\Fixture\Methods\InvokeParentHookMethodRule\PHPUnit\Framework\ConcreteTestCaseNotInvokingNonEmptyParentHookMethodsTest::class,
                     ),
                     34,
+                    $this->errorTip(),
                 ],
             ],
         );

@@ -21,12 +21,16 @@ use PHPStan\Testing;
 /**
  * @covers \Ergebnis\PHPStan\Rules\Expressions\NoAssignByReferenceRule
  *
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ErrorTip
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
  *
  * @extends Testing\RuleTestCase<Expressions\NoAssignByReferenceRule>
  */
 final class NoAssignByReferenceRuleTest extends Testing\RuleTestCase
 {
+    use Test\Util\ErrorTip;
     use Test\Util\Helper;
 
     public function testNoAssignByReferenceRule(): void
@@ -37,6 +41,7 @@ final class NoAssignByReferenceRuleTest extends Testing\RuleTestCase
                 [
                     'Assign by reference should not be used.',
                     11,
+                    $this->errorTip(),
                 ],
             ],
         );

@@ -32,6 +32,8 @@ final class NoParameterPassedByReferenceRule implements
         return Documentation\RuleDefinition::create(
             'noParameterPassedByReference',
             'This rule reports an error when a method has a parameter that is [passed by reference](https://www.php.net/manual/en/language.references.pass.php).',
+            'A parameter passed by reference lets a method change a variable of its caller as a side effect, which makes the code harder to follow. Return the new value instead.',
+            'Return the new value instead.',
         );
     }
 
@@ -62,7 +64,7 @@ final class NoParameterPassedByReferenceRule implements
         $classReflection = $scope->getClassReflection();
 
         if ($classReflection->isAnonymous()) {
-            return \array_map(static function (Node\Param $parameterExplicitlyPassedByReference) use ($methodName): Rules\RuleError {
+            return \array_map(function (Node\Param $parameterExplicitlyPassedByReference) use ($methodName): Rules\RuleError {
                 /** @var Node\Expr\Variable $variable */
                 $variable = $parameterExplicitlyPassedByReference->var;
 
@@ -77,13 +79,14 @@ final class NoParameterPassedByReferenceRule implements
 
                 return Rules\RuleErrorBuilder::message($message)
                     ->identifier(ErrorIdentifier::noParameterPassedByReference()->toString())
+                    ->tip(Documentation\ErrorTip::for($this))
                     ->build();
             }, $parametersExplicitlyPassedByReference);
         }
 
         $className = $classReflection->getName();
 
-        return \array_map(static function (Node\Param $parameterExplicitlyPassedByReference) use ($className, $methodName): Rules\RuleError {
+        return \array_map(function (Node\Param $parameterExplicitlyPassedByReference) use ($className, $methodName): Rules\RuleError {
             /** @var Node\Expr\Variable $variable */
             $variable = $parameterExplicitlyPassedByReference->var;
 
@@ -99,6 +102,7 @@ final class NoParameterPassedByReferenceRule implements
 
             return Rules\RuleErrorBuilder::message($message)
                 ->identifier(ErrorIdentifier::noParameterPassedByReference()->toString())
+                ->tip(Documentation\ErrorTip::for($this))
                 ->build();
         }, $parametersExplicitlyPassedByReference);
     }

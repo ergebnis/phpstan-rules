@@ -23,12 +23,16 @@ use PHPStan\Testing;
  * @covers \Ergebnis\PHPStan\Rules\Analyzer
  * @covers \Ergebnis\PHPStan\Rules\Closures\NoNullableReturnTypeDeclarationRule
  *
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ErrorTip
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
  *
  * @extends Testing\RuleTestCase<Closures\NoNullableReturnTypeDeclarationRule>
  */
 final class NoNullableReturnTypeDeclarationRuleTest extends Testing\RuleTestCase
 {
+    use Test\Util\ErrorTip;
     use Test\Util\Helper;
 
     public function testNoNullableReturnTypeDeclarationRule(): void
@@ -39,18 +43,22 @@ final class NoNullableReturnTypeDeclarationRuleTest extends Testing\RuleTestCase
                 [
                     'Closure has a nullable return type declaration.',
                     15,
+                    $this->errorTip(),
                 ],
                 [
                     'Closure has a nullable return type declaration.',
                     19,
+                    $this->errorTip(),
                 ],
                 [
                     'Closure has a nullable return type declaration.',
                     23,
+                    $this->errorTip(),
                 ],
                 [
                     'Closure has a nullable return type declaration.',
                     27,
+                    $this->errorTip(),
                 ],
             ],
         );

@@ -31,6 +31,8 @@ final class NoParameterPassedByReferenceRule implements
         return Documentation\RuleDefinition::create(
             'noParameterPassedByReference',
             'This rule reports an error when an arrow function has a parameter that is [passed by reference](https://www.php.net/manual/en/language.references.pass.php).',
+            'A parameter passed by reference lets an arrow function change a variable of its caller as a side effect, which makes the code harder to follow. Return the new value instead.',
+            'Return the new value instead.',
         );
     }
 
@@ -55,7 +57,7 @@ final class NoParameterPassedByReferenceRule implements
             return [];
         }
 
-        return \array_map(static function (Node\Param $parameterPassedByReference): Rules\RuleError {
+        return \array_map(function (Node\Param $parameterPassedByReference): Rules\RuleError {
             /** @var Node\Expr\Variable $variable */
             $variable = $parameterPassedByReference->var;
 
@@ -69,6 +71,7 @@ final class NoParameterPassedByReferenceRule implements
 
             return Rules\RuleErrorBuilder::message($message)
                 ->identifier(ErrorIdentifier::noParameterPassedByReference()->toString())
+                ->tip(Documentation\ErrorTip::for($this))
                 ->build();
         }, $parametersPassedByReference);
     }

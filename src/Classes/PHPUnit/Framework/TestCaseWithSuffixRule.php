@@ -45,6 +45,8 @@ final class TestCaseWithSuffixRule implements
         return Documentation\RuleDefinition::create(
             'testCaseWithSuffix',
             'This rule reports an error when a concrete class is a sub-class of `PHPUnit\\Framework\\TestCase` but does not have a `Test` suffix.',
+            'By default, PHPUnit only runs tests from files whose names end with `Test.php`, and the suffix tells readers which classes are tests.',
+            'Add the `Test` suffix to the name of the class.',
         );
     }
 
@@ -100,6 +102,7 @@ final class TestCaseWithSuffixRule implements
         return [
             Rules\RuleErrorBuilder::message($message)
                 ->identifier(ErrorIdentifier::testCaseWithSuffix()->toString())
+                ->tip(Documentation\ErrorTip::for($this))
                 ->build(),
         ];
     }

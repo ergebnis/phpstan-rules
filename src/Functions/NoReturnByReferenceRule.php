@@ -31,6 +31,8 @@ final class NoReturnByReferenceRule implements
         return Documentation\RuleDefinition::create(
             'noReturnByReference',
             'This rule reports an error when a function [returns by reference](https://www.php.net/manual/en/language.references.return.php).',
+            'Returning by reference lets the caller change state that the function keeps, which makes the code harder to follow. Return a value instead.',
+            'Return a value instead.',
         );
     }
 
@@ -55,6 +57,7 @@ final class NoReturnByReferenceRule implements
         return [
             Rules\RuleErrorBuilder::message($message)
                 ->identifier(ErrorIdentifier::noReturnByReference()->toString())
+                ->tip(Documentation\ErrorTip::for($this))
                 ->build(),
         ];
     }
