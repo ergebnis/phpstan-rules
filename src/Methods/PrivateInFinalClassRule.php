@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Methods;
 
+use Ergebnis\PHPStan\Rules\Documentation;
 use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Comment;
 use PhpParser\Node;
@@ -25,7 +26,9 @@ use PHPUnit\Framework;
 /**
  * @implements Rules\Rule<Node\Stmt\ClassMethod>
  */
-final class PrivateInFinalClassRule implements Rules\Rule
+final class PrivateInFinalClassRule implements
+    Documentation\HasRuleDefinition,
+    Rules\Rule
 {
     /**
      * @var list<string>
@@ -51,6 +54,14 @@ final class PrivateInFinalClassRule implements Rules\Rule
     public function __construct(Type\FileTypeMapper $fileTypeMapper)
     {
         $this->fileTypeMapper = $fileTypeMapper;
+    }
+
+    public function ruleDefinition(): Documentation\RuleDefinition
+    {
+        return Documentation\RuleDefinition::create(
+            'privateInFinalClass',
+            'This rule reports an error when a method in a `final` class is `protected` but could be `private`.',
+        );
     }
 
     public function getNodeType(): string

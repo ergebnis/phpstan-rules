@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Classes\PHPUnit\Framework;
 
+use Ergebnis\PHPStan\Rules\Documentation;
 use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Node;
 use PHPStan\Analyser;
@@ -22,7 +23,9 @@ use PHPStan\Rules;
 /**
  * @implements Rules\Rule<Node\Stmt\Class_>
  */
-final class TestCaseWithSuffixRule implements Rules\Rule
+final class TestCaseWithSuffixRule implements
+    Documentation\HasRuleDefinition,
+    Rules\Rule
 {
     /**
      * @var list<class-string>
@@ -35,6 +38,14 @@ final class TestCaseWithSuffixRule implements Rules\Rule
     public function __construct(Reflection\ReflectionProvider $reflectionProvider)
     {
         $this->reflectionProvider = $reflectionProvider;
+    }
+
+    public function ruleDefinition(): Documentation\RuleDefinition
+    {
+        return Documentation\RuleDefinition::create(
+            'testCaseWithSuffix',
+            'This rule reports an error when a concrete class is a sub-class of `PHPUnit\\Framework\\TestCase` but does not have a `Test` suffix.',
+        );
     }
 
     public function getNodeType(): string

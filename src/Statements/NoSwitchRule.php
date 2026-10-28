@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Statements;
 
+use Ergebnis\PHPStan\Rules\Documentation;
 use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Node;
 use PHPStan\Analyser;
@@ -21,8 +22,18 @@ use PHPStan\Rules;
 /**
  * @implements Rules\Rule<Node\Stmt\Switch_>
  */
-final class NoSwitchRule implements Rules\Rule
+final class NoSwitchRule implements
+    Documentation\HasRuleDefinition,
+    Rules\Rule
 {
+    public function ruleDefinition(): Documentation\RuleDefinition
+    {
+        return Documentation\RuleDefinition::create(
+            'noSwitch',
+            'This rule reports an error when the statement [`switch()`](https://www.php.net/manual/control-structures.switch.php) is used.',
+        );
+    }
+
     public function getNodeType(): string
     {
         return Node\Stmt\Switch_::class;

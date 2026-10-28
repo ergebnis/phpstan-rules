@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Expressions;
 
+use Ergebnis\PHPStan\Rules\Documentation;
 use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Node;
 use PHPStan\Analyser;
@@ -21,8 +22,18 @@ use PHPStan\Rules;
 /**
  * @implements Rules\Rule<Node\Expr\AssignRef>
  */
-final class NoAssignByReferenceRule implements Rules\Rule
+final class NoAssignByReferenceRule implements
+    Documentation\HasRuleDefinition,
+    Rules\Rule
 {
+    public function ruleDefinition(): Documentation\RuleDefinition
+    {
+        return Documentation\RuleDefinition::create(
+            'noAssignByReference',
+            'This rule reports an error when [a variable is assigned by reference](https://www.php.net/manual/en/language.references.whatdo.php#language.references.whatdo.assign).',
+        );
+    }
+
     public function getNodeType(): string
     {
         return Node\Expr\AssignRef::class;

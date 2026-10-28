@@ -33,6 +33,9 @@
         <extension class="Ergebnis\PHPUnit\SlowTestDetector\Extension"/>
     </extensions>
     <testsuites>
+        <testsuite name="documentation">
+            <directory>Documentation/</directory>
+        </testsuite>
         <testsuite name="integration">
             <directory>Integration/</directory>
         </testsuite>

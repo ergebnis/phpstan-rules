@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Files;
 
+use Ergebnis\PHPStan\Rules\Documentation;
 use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Node;
 use PhpParser\NodeFinder;
@@ -23,8 +24,18 @@ use PHPStan\Rules;
 /**
  * @implements Rules\Rule<FileNode>
  */
-final class NoPhpstanIgnoreRule implements Rules\Rule
+final class NoPhpstanIgnoreRule implements
+    Documentation\HasRuleDefinition,
+    Rules\Rule
 {
+    public function ruleDefinition(): Documentation\RuleDefinition
+    {
+        return Documentation\RuleDefinition::create(
+            'noPhpstanIgnore',
+            'This rule reports an error when a `@phpstan-ignore`, `@phpstan-ignore-line`, or `@phpstan-ignore-next-line` tag is used to [ignore errors reported by `phpstan/phpstan`](https://phpstan.org/user-guide/ignoring-errors#ignoring-in-code-using-phpdocs).',
+        );
+    }
+
     public function getNodeType(): string
     {
         return FileNode::class;

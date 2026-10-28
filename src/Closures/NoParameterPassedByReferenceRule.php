@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Closures;
 
+use Ergebnis\PHPStan\Rules\Documentation;
 use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Node;
 use PHPStan\Analyser;
@@ -21,8 +22,18 @@ use PHPStan\Rules;
 /**
  * @implements Rules\Rule<Node\Expr\Closure>
  */
-final class NoParameterPassedByReferenceRule implements Rules\Rule
+final class NoParameterPassedByReferenceRule implements
+    Documentation\HasRuleDefinition,
+    Rules\Rule
 {
+    public function ruleDefinition(): Documentation\RuleDefinition
+    {
+        return Documentation\RuleDefinition::create(
+            'noParameterPassedByReference',
+            'This rule reports an error when a closure has a parameter that is [passed by reference](https://www.php.net/manual/en/language.references.pass.php).',
+        );
+    }
+
     public function getNodeType(): string
     {
         return Node\Expr\Closure::class;

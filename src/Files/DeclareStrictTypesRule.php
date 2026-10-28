@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Files;
 
+use Ergebnis\PHPStan\Rules\Documentation;
 use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Node;
 use PHPStan\Analyser;
@@ -22,8 +23,18 @@ use PHPStan\Rules;
 /**
  * @implements Rules\Rule<FileNode>
  */
-final class DeclareStrictTypesRule implements Rules\Rule
+final class DeclareStrictTypesRule implements
+    Documentation\HasRuleDefinition,
+    Rules\Rule
 {
+    public function ruleDefinition(): Documentation\RuleDefinition
+    {
+        return Documentation\RuleDefinition::create(
+            'declareStrictTypes',
+            'This rule reports an error when a non-empty file does not contain a `declare(strict_types=1)` declaration.',
+        );
+    }
+
     public function getNodeType(): string
     {
         return FileNode::class;

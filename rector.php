@@ -20,6 +20,7 @@ return static function (Config\RectorConfig $rectorConfig): void {
     $rectorConfig->cacheDirectory(__DIR__ . '/.build/rector/');
 
     $rectorConfig->paths([
+        __DIR__ . '/bin/',
         __DIR__ . '/src/',
         __DIR__ . '/test/',
         __DIR__ . '/.php-cs-fixer.php',

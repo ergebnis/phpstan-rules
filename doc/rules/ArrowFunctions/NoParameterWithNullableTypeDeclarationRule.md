@@ -1,0 +1,24 @@
+# `ArrowFunctions\NoParameterWithNullableTypeDeclarationRule`
+
+This rule reports an error when an arrow function has a parameter with a nullable type declaration.
+
+## Parameters
+
+### `enabled`
+
+By default, this rule is enabled, unless you set the [`allRules`](../../../README.md#disabling-all-rules) parameter to `false`.
+
+You can set the `enabled` parameter to `false` to disable this rule.
+
+```neon
+parameters:
+	ergebnis:
+		noParameterWithNullableTypeDeclaration:
+			enabled: false
+```
+
+💡 The `enabled` parameter for `noParameterWithNullableTypeDeclaration` also enables or disables the following rules:
+
+- [`Closures\NoParameterWithNullableTypeDeclarationRule`](../../../doc/rules/Closures/NoParameterWithNullableTypeDeclarationRule.md)
+- [`Functions\NoParameterWithNullableTypeDeclarationRule`](../../../doc/rules/Functions/NoParameterWithNullableTypeDeclarationRule.md)
+- [`Methods\NoParameterWithNullableTypeDeclarationRule`](../../../doc/rules/Methods/NoParameterWithNullableTypeDeclarationRule.md)

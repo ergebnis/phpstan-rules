@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Expressions;
 
+use Ergebnis\PHPStan\Rules\Documentation;
 use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Node;
 use PHPStan\Analyser;
@@ -21,8 +22,18 @@ use PHPStan\Rules;
 /**
  * @implements Rules\Rule<Node\Expr\Isset_>
  */
-final class NoIssetRule implements Rules\Rule
+final class NoIssetRule implements
+    Documentation\HasRuleDefinition,
+    Rules\Rule
 {
+    public function ruleDefinition(): Documentation\RuleDefinition
+    {
+        return Documentation\RuleDefinition::create(
+            'noIsset',
+            'This rule reports an error when the language construct [`isset()`](https://www.php.net/isset) is used.',
+        );
+    }
+
     public function getNodeType(): string
     {
         return Node\Expr\Isset_::class;

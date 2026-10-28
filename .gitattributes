@@ -1,5 +1,6 @@
 /.github/                       export-ignore
 /.phive/                        export-ignore
+/bin/                           export-ignore
 /test/                          export-ignore
 /.editorconfig                  export-ignore
 /.gitattributes                 export-ignore
