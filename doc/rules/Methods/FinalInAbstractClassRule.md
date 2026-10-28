@@ -2,10 +2,7 @@
 
 This rule reports an error when a concrete `public` or `protected` method in an `abstract` class is not `final`.
 
-💡 This rule ignores
-
-- Doctrine embeddables
-- Doctrine entities
+💡 This rule ignores Doctrine entities.
 
 ## Rationale
 

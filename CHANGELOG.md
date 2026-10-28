@@ -20,6 +20,7 @@ For a full diff see [`2.15.0...main`][2.15.0...main].
 
 - Adjusted `CallLikes\NoNamedArgumentRule` to report named arguments instead of causing an internal error when the invoked method cannot be resolved ([#959]), by [@localheinz]
 - Adjusted the descriptions of rules for methods to match the descriptions of the corresponding rules for arrow functions, closures, and functions ([#1160]), by [@localheinz]
+- Adjusted `Methods\FinalInAbstractClassRule` to no longer ignore Doctrine embeddables, which Doctrine does not extend ([#1163]), by [@localheinz]
 
 ## [`2.15.0`][2.15.0]
 
@@ -839,6 +840,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#1158]: https://github.com/ergebnis/phpstan-rules/pull/1158
 [#1159]: https://github.com/ergebnis/phpstan-rules/pull/1159
 [#1160]: https://github.com/ergebnis/phpstan-rules/pull/1160
+[#1163]: https://github.com/ergebnis/phpstan-rules/pull/1163
 
 [@alfredbez]: https://github.com/alfredbez
 [@cosmastech]: https://github.com/cosmastech

@@ -255,10 +255,7 @@ This rule reports an error when a function [returns by reference](https://www.ph
 
 This rule reports an error when a concrete `public` or `protected` method in an `abstract` class is not `final`.
 
-💡 This rule ignores
-
-- Doctrine embeddables
-- Doctrine entities
+💡 This rule ignores Doctrine entities.
 
 💡 Find out more in the rule documentation for [`Methods\FinalInAbstractClassRule`](doc/rules/Methods/FinalInAbstractClassRule.md).
 
