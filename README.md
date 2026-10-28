@@ -46,6 +46,7 @@ This package provides the following rules for use with [`phpstan/phpstan`](https
 
 - [`Ergebnis\PHPStan\Rules\ArrowFunctions\NoNullableReturnTypeDeclarationRule`](https://github.com/ergebnis/phpstan-rules#arrowfunctionsnonullablereturntypedeclarationrule)
 - [`Ergebnis\PHPStan\Rules\ArrowFunctions\NoParameterWithNullableTypeDeclarationRule`](https://github.com/ergebnis/phpstan-rules#arrowfunctionsnoparameterwithnullabletypedeclarationrule)
+- [`Ergebnis\PHPStan\Rules\ArrowFunctions\NoParameterWithNullDefaultValueRule`](https://github.com/ergebnis/phpstan-rules#arrowfunctionsnoparameterwithnulldefaultvaluerule)
 - [`Ergebnis\PHPStan\Rules\CallLikes\NoNamedArgumentRule`](https://github.com/ergebnis/phpstan-rules#calllikesnonamedargumentrule)
 - [`Ergebnis\PHPStan\Rules\Classes\FinalRule`](https://github.com/ergebnis/phpstan-rules#classesfinalrule)
 - [`Ergebnis\PHPStan\Rules\Classes\NoExtendsRule`](https://github.com/ergebnis/phpstan-rules#classesnoextendsrule)
@@ -108,6 +109,21 @@ You can set the `enabled` parameter to `false` to disable this rule.
 parameters:
 	ergebnis:
 		noParameterWithNullableTypeDeclaration:
+			enabled: false
+```
+
+#### `ArrowFunctions\NoParameterWithNullDefaultValueRule`
+
+This rule reports an error when an arrow function has a parameter with `null` as default value.
+
+##### Disabling the rule
+
+You can set the `enabled` parameter to `false` to disable this rule.
+
+```neon
+parameters:
+	ergebnis:
+		noParameterWithNullDefaultValue:
 			enabled: false
 ```
 
