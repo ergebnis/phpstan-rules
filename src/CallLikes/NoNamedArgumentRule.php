@@ -18,7 +18,6 @@ use Ergebnis\PHPStan\Rules\ErrorIdentifier;
 use PhpParser\Node;
 use PHPStan\Analyser;
 use PHPStan\Rules;
-use PHPStan\ShouldNotHappenException;
 
 /**
  * @implements Rules\Rule<Node\Expr\CallLike>
@@ -157,7 +156,20 @@ final class NoNamedArgumentRule implements
                 );
 
                 if (null === $methodReflection) {
-                    throw new ShouldNotHappenException();
+                    $objectClassNames = $objectType->getObjectClassNames();
+
+                    if (1 === \count($objectClassNames)) {
+                        return \sprintf(
+                            'Method %s::%s()',
+                            $objectClassNames[0],
+                            $methodName->toString(),
+                        );
+                    }
+
+                    return \sprintf(
+                        'Method %s()',
+                        $methodName->toString(),
+                    );
                 }
 
                 $declaringClass = $methodReflection->getDeclaringClass();

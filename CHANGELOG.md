@@ -18,6 +18,7 @@ For a full diff see [`2.15.0...main`][2.15.0...main].
 
 ### Fixed
 
+- Adjusted `CallLikes\NoNamedArgumentRule` to report named arguments instead of causing an internal error when the invoked method cannot be resolved ([#959]), by [@localheinz]
 - Adjusted the descriptions of rules for methods to match the descriptions of the corresponding rules for arrow functions, closures, and functions ([#1160]), by [@localheinz]
 
 ## [`2.15.0`][2.15.0]
@@ -819,6 +820,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#951]: https://github.com/ergebnis/phpstan-rules/pull/951
 [#957]: https://github.com/ergebnis/phpstan-rules/pull/957
 [#958]: https://github.com/ergebnis/phpstan-rules/pull/958
+[#959]: https://github.com/ergebnis/phpstan-rules/pull/959
 [#972]: https://github.com/ergebnis/phpstan-rules/pull/972
 [#977]: https://github.com/ergebnis/phpstan-rules/pull/977
 [#1009]: https://github.com/ergebnis/phpstan-rules/pull/1009

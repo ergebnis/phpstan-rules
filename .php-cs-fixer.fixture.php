@@ -40,6 +40,7 @@ $ruleSet = PhpCsFixer\Config\RuleSet\Php74::create()
 $finder = Finder::create()
     ->in(__DIR__ . '/test/Fixture/')
     ->notPath([
+        'CallLikes/NoNamedArgumentRule/ClassInvokingMethodsThatCannotBeResolved.php',
         'CallLikes/NoNamedArgumentRule/ClassUsingInvokableClass.php',
         'CallLikes/NoNamedArgumentRule/script.php',
         'Closures/NoNullableReturnTypeDeclarationRule/script.php',

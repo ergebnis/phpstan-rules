@@ -253,6 +253,24 @@ final class NoNamedArgumentRuleTest extends Testing\RuleTestCase
                     159,
                     $this->errorTip(),
                 ],
+                [
+                    'Method Ergebnis\PHPStan\Rules\Test\Fixture\CallLikes\NoNamedArgumentRule\UnknownClass::bar() is invoked with named argument for parameter $baz.',
+                    11,
+                    $this->errorTip(),
+                ],
+                [
+                    \sprintf(
+                        'Method %s::unknownMethod() is invoked with named argument for parameter $baz.',
+                        Test\Fixture\CallLikes\NoNamedArgumentRule\ExampleClass::class,
+                    ),
+                    16,
+                    $this->errorTip(),
+                ],
+                [
+                    'Method bar() is invoked with named argument for parameter $baz.',
+                    24,
+                    $this->errorTip(),
+                ],
             ],
         );
     }
