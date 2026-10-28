@@ -4,13 +4,13 @@
 
 The following versions of `ergebnis/phpstan-rules` have active support:
 
-- `^2.14.2`
+- `^2.15.0`
 
 ## Unsupported Versions
 
 The following versions of `ergebnis/phpstan-rules` have reached their end of life:
 
-- `<2.14.2`
+- `<2.15.0`
 
 ## Reporting a Vulnerability
 
