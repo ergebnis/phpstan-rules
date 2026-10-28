@@ -1,6 +1,8 @@
 conditionalTags:
 	Ergebnis\PHPStan\Rules\ArrowFunctions\NoNullableReturnTypeDeclarationRule:
 		phpstan.rules.rule: %ergebnis.noNullableReturnTypeDeclaration.enabled%
+	Ergebnis\PHPStan\Rules\ArrowFunctions\NoParameterPassedByReferenceRule:
+		phpstan.rules.rule: %ergebnis.noParameterPassedByReference.enabled%
 	Ergebnis\PHPStan\Rules\ArrowFunctions\NoParameterWithNullableTypeDeclarationRule:
 		phpstan.rules.rule: %ergebnis.noParameterWithNullableTypeDeclaration.enabled%
 	Ergebnis\PHPStan\Rules\ArrowFunctions\NoParameterWithNullDefaultValueRule:
@@ -211,6 +213,9 @@ services:
 
 	-
 		class: Ergebnis\PHPStan\Rules\ArrowFunctions\NoNullableReturnTypeDeclarationRule
+
+	-
+		class: Ergebnis\PHPStan\Rules\ArrowFunctions\NoParameterPassedByReferenceRule
 
 	-
 		class: Ergebnis\PHPStan\Rules\ArrowFunctions\NoParameterWithNullableTypeDeclarationRule

@@ -45,6 +45,7 @@ includes:
 This package provides the following rules for use with [`phpstan/phpstan`](https://github.com/phpstan/phpstan):
 
 - [`Ergebnis\PHPStan\Rules\ArrowFunctions\NoNullableReturnTypeDeclarationRule`](https://github.com/ergebnis/phpstan-rules#arrowfunctionsnonullablereturntypedeclarationrule)
+- [`Ergebnis\PHPStan\Rules\ArrowFunctions\NoParameterPassedByReferenceRule`](https://github.com/ergebnis/phpstan-rules#arrowfunctionsnoparameterpassedbyreferencerule)
 - [`Ergebnis\PHPStan\Rules\ArrowFunctions\NoParameterWithNullableTypeDeclarationRule`](https://github.com/ergebnis/phpstan-rules#arrowfunctionsnoparameterwithnullabletypedeclarationrule)
 - [`Ergebnis\PHPStan\Rules\ArrowFunctions\NoParameterWithNullDefaultValueRule`](https://github.com/ergebnis/phpstan-rules#arrowfunctionsnoparameterwithnulldefaultvaluerule)
 - [`Ergebnis\PHPStan\Rules\CallLikes\NoNamedArgumentRule`](https://github.com/ergebnis/phpstan-rules#calllikesnonamedargumentrule)
@@ -94,6 +95,21 @@ You can set the `enabled` parameter to `false` to disable this rule.
 parameters:
 	ergebnis:
 		noNullableReturnTypeDeclaration:
+			enabled: false
+```
+
+#### `ArrowFunctions\NoParameterPassedByReferenceRule`
+
+This rule reports an error when an arrow function has a parameter that is [passed by reference](https://www.php.net/manual/en/language.references.pass.php).
+
+##### Disabling the rule
+
+You can set the `enabled` parameter to `false` to disable this rule.
+
+```neon
+parameters:
+	ergebnis:
+		noParameterPassedByReference:
 			enabled: false
 ```
 
