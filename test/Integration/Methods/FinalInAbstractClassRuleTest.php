@@ -55,6 +55,118 @@ final class FinalInAbstractClassRuleTest extends Testing\RuleTestCase
                     9,
                     $this->errorTip(),
                 ],
+                [
+                    \sprintf(
+                        'Method %s::method() is not final, but since the containing class is abstract, it should be.',
+                        Test\Fixture\Methods\FinalInAbstractClassRule\AbstractClassWithProtectedMethodAndEmbeddableAnnotationInInlineDocBlock::class,
+                    ),
+                    10,
+                    $this->errorTip(),
+                ],
+                [
+                    \sprintf(
+                        'Method %s::method() is not final, but since the containing class is abstract, it should be.',
+                        Test\Fixture\Methods\FinalInAbstractClassRule\AbstractClassWithProtectedMethodAndOrmEmbeddableAnnotationInInlineDocBlock::class,
+                    ),
+                    10,
+                    $this->errorTip(),
+                ],
+                [
+                    \sprintf(
+                        'Method %s::method() is not final, but since the containing class is abstract, it should be.',
+                        Test\Fixture\Methods\FinalInAbstractClassRule\AbstractClassWithProtectedMethodAndOrmMappingEmbeddableAnnotationInInlineDocBlock::class,
+                    ),
+                    10,
+                    $this->errorTip(),
+                ],
+                [
+                    \sprintf(
+                        'Method %s::method() is not final, but since the containing class is abstract, it should be.',
+                        Test\Fixture\Methods\FinalInAbstractClassRule\AbstractClassWithPublicMethodAndEmbeddableAnnotationInInlineDocBlock::class,
+                    ),
+                    10,
+                    $this->errorTip(),
+                ],
+                [
+                    \sprintf(
+                        'Method %s::method() is not final, but since the containing class is abstract, it should be.',
+                        Test\Fixture\Methods\FinalInAbstractClassRule\AbstractClassWithPublicMethodAndOrmEmbeddableAnnotationInInlineDocBlock::class,
+                    ),
+                    10,
+                    $this->errorTip(),
+                ],
+                [
+                    \sprintf(
+                        'Method %s::method() is not final, but since the containing class is abstract, it should be.',
+                        Test\Fixture\Methods\FinalInAbstractClassRule\AbstractClassWithPublicMethodAndOrmMappingEmbeddableAnnotationInInlineDocBlock::class,
+                    ),
+                    10,
+                    $this->errorTip(),
+                ],
+                [
+                    \sprintf(
+                        'Method %s::method() is not final, but since the containing class is abstract, it should be.',
+                        Test\Fixture\Methods\FinalInAbstractClassRule\AbstractClassWithProtectedMethodAndEmbeddableAnnotationInMultilineDocBlock::class,
+                    ),
+                    12,
+                    $this->errorTip(),
+                ],
+                [
+                    \sprintf(
+                        'Method %s::method() is not final, but since the containing class is abstract, it should be.',
+                        Test\Fixture\Methods\FinalInAbstractClassRule\AbstractClassWithProtectedMethodAndEmbeddableAttribute::class,
+                    ),
+                    12,
+                    $this->errorTip(),
+                ],
+                [
+                    \sprintf(
+                        'Method %s::method() is not final, but since the containing class is abstract, it should be.',
+                        Test\Fixture\Methods\FinalInAbstractClassRule\AbstractClassWithProtectedMethodAndOrmEmbeddableAnnotationInMultilineDocBlock::class,
+                    ),
+                    12,
+                    $this->errorTip(),
+                ],
+                [
+                    \sprintf(
+                        'Method %s::method() is not final, but since the containing class is abstract, it should be.',
+                        Test\Fixture\Methods\FinalInAbstractClassRule\AbstractClassWithProtectedMethodAndOrmMappingEmbeddableAnnotationInMultilineDocBlock::class,
+                    ),
+                    12,
+                    $this->errorTip(),
+                ],
+                [
+                    \sprintf(
+                        'Method %s::method() is not final, but since the containing class is abstract, it should be.',
+                        Test\Fixture\Methods\FinalInAbstractClassRule\AbstractClassWithPublicMethodAndEmbeddableAnnotationInMultilineDocBlock::class,
+                    ),
+                    12,
+                    $this->errorTip(),
+                ],
+                [
+                    \sprintf(
+                        'Method %s::method() is not final, but since the containing class is abstract, it should be.',
+                        Test\Fixture\Methods\FinalInAbstractClassRule\AbstractClassWithPublicMethodAndEmbeddableAttribute::class,
+                    ),
+                    12,
+                    $this->errorTip(),
+                ],
+                [
+                    \sprintf(
+                        'Method %s::method() is not final, but since the containing class is abstract, it should be.',
+                        Test\Fixture\Methods\FinalInAbstractClassRule\AbstractClassWithPublicMethodAndOrmEmbeddableAnnotationInMultilineDocBlock::class,
+                    ),
+                    12,
+                    $this->errorTip(),
+                ],
+                [
+                    \sprintf(
+                        'Method %s::method() is not final, but since the containing class is abstract, it should be.',
+                        Test\Fixture\Methods\FinalInAbstractClassRule\AbstractClassWithPublicMethodAndOrmMappingEmbeddableAnnotationInMultilineDocBlock::class,
+                    ),
+                    12,
+                    $this->errorTip(),
+                ],
             ],
         );
     }

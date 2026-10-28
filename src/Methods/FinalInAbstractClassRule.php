@@ -31,13 +31,9 @@ final class FinalInAbstractClassRule implements
     Rules\Rule
 {
     private const DOCTRINE_ATTRIBUTE_NAMES = [
-        ORM\Mapping\Embeddable::class,
         ORM\Mapping\Entity::class,
     ];
     private const DOCTRINE_ANNOTATION_NAMES = [
-        '@ORM\\Mapping\\Embeddable',
-        '@ORM\\Embeddable',
-        '@Embeddable',
         '@ORM\\Mapping\\Entity',
         '@ORM\\Entity',
         '@Entity',
@@ -50,10 +46,7 @@ final class FinalInAbstractClassRule implements
             <<<'MARKDOWN'
             This rule reports an error when a concrete `public` or `protected` method in an `abstract` class is not `final`.
 
-            💡 This rule ignores
-
-            - Doctrine embeddables
-            - Doctrine entities
+            💡 This rule ignores Doctrine entities.
             MARKDOWN,
             'A concrete method in an `abstract` class that is not `final` can be overridden by subclasses, which can break the assumptions of the abstract class. Declare the method `final`, or `abstract` when subclasses need to provide it.',
             'Declare the method `final`, or `abstract` when subclasses need to provide it.',
