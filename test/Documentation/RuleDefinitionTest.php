@@ -110,7 +110,7 @@ final class RuleDefinitionTest extends Framework\TestCase
 
         foreach (self::ruleDefinitions() as $ruleDefinition) {
             foreach ($ruleDefinition->parameters()->toArray() as $parameter) {
-                $configuration[$ruleDefinition->configurationKey()->toString()][$parameter->name()] = $parameter->example();
+                $configuration[$ruleDefinition->configurationKey()->toString()][$parameter->name()->toString()] = $parameter->example();
             }
         }
 

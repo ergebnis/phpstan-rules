@@ -26,6 +26,7 @@ use PHPUnit\Framework;
  * @uses \Ergebnis\PHPStan\Rules\Documentation\Description
  * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
  * @uses \Ergebnis\PHPStan\Rules\Documentation\ParameterList
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ParameterName
  * @uses \Ergebnis\PHPStan\Rules\Documentation\Rationale
  * @uses \Ergebnis\PHPStan\Rules\Documentation\Tip
  */
@@ -42,7 +43,7 @@ final class RuleDefinitionTest extends Framework\TestCase
         $rationale = Documentation\Rationale::fromString($faker->sentence());
         $tip = Documentation\Tip::fromString($faker->sentence());
         $parameters = Documentation\ParameterList::create(Documentation\Parameter::create(
-            $faker->word(),
+            Documentation\ParameterName::fromString($faker->word()),
             Documentation\Description::fromString($faker->sentence()),
             $faker->boolean(),
         ));

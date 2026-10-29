@@ -76,7 +76,7 @@ final class InvokeParentHookMethodRule implements
             Documentation\Rationale::fromString('A hook method such as `setUp()` that overrides a hook method of a parent class needs to invoke the parent hook method in the expected order, or the parent class does not set up or tear down as intended.'),
             Documentation\Tip::fromString('Move the invocation of the parent hook method to the expected position.'),
             Documentation\ParameterList::create(Documentation\Parameter::create(
-                'hookMethods',
+                Documentation\ParameterName::fromString('hookMethods'),
                 Documentation\Description::fromString(<<<'MARKDOWN'
                 By default, this rule requires the following hook methods to be invoked before doing something in the overriding method:
 

@@ -67,7 +67,7 @@ final class NoParameterWithContainerTypeDeclarationRule implements
             Documentation\Tip::fromString('Inject the dependencies directly instead.'),
             Documentation\ParameterList::create(
                 Documentation\Parameter::create(
-                    'interfacesImplementedByContainers',
+                    Documentation\ParameterName::fromString('interfacesImplementedByContainers'),
                     Documentation\Description::fromString(<<<'MARKDOWN'
                     By default, this rule disallows the use of type declarations indicating an implementation of
 
@@ -83,7 +83,7 @@ final class NoParameterWithContainerTypeDeclarationRule implements
                     ],
                 ),
                 Documentation\Parameter::create(
-                    'methodsAllowedToUseContainerTypeDeclarations',
+                    Documentation\ParameterName::fromString('methodsAllowedToUseContainerTypeDeclarations'),
                     Documentation\Description::fromString('You can set the `methodsAllowedToUseContainerTypeDeclarations` parameter to a list of method names that are allowed to use parameters with container type declarations.'),
                     [
                         'loadExtension',

@@ -302,7 +302,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
             }
 
             foreach ($ruleDefinition->parameters()->toArray() as $parameter) {
-                $name = $parameter->name();
+                $name = $parameter->name()->toString();
 
                 if (!\array_key_exists($name, $configuration)) {
                     throw new \RuntimeException(\sprintf(

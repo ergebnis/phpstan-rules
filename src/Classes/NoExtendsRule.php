@@ -59,7 +59,7 @@ final class NoExtendsRule implements
             Documentation\Rationale::fromString('Extending a class couples the subclass to the implementation of its parent class. Prefer composition: inject collaborators and implement interfaces.'),
             Documentation\Tip::fromString('Inject collaborators and implement interfaces instead.'),
             Documentation\ParameterList::create(Documentation\Parameter::create(
-                'classesAllowedToBeExtended',
+                Documentation\ParameterName::fromString('classesAllowedToBeExtended'),
                 Documentation\Description::fromString(<<<'MARKDOWN'
                 By default, this rule allows the following classes to be extended:
 

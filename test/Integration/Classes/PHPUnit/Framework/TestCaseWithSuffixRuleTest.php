@@ -31,6 +31,7 @@ use PHPUnit\Framework;
  * @uses \Ergebnis\PHPStan\Rules\Documentation\ErrorTip
  * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
  * @uses \Ergebnis\PHPStan\Rules\Documentation\ParameterList
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ParameterName
  * @uses \Ergebnis\PHPStan\Rules\Documentation\Rationale
  * @uses \Ergebnis\PHPStan\Rules\Documentation\Reference
  * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition

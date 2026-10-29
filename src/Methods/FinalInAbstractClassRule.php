@@ -55,7 +55,7 @@ final class FinalInAbstractClassRule implements
             Documentation\Rationale::fromString('A concrete method in an `abstract` class that is not `final` can be overridden by subclasses, which can break the assumptions of the abstract class. Declare the method `final`, or `abstract` when subclasses need to provide it.'),
             Documentation\Tip::fromString('Declare the method `final`, or `abstract` when subclasses need to provide it.'),
             Documentation\ParameterList::create(Documentation\Parameter::create(
-                'ignoreDoctrineEntities',
+                Documentation\ParameterName::fromString('ignoreDoctrineEntities'),
                 Documentation\Description::fromString(<<<'MARKDOWN'
                 By default, this rule ignores Doctrine entities, because Doctrine creates proxies for lazy loading by extending them.
 
