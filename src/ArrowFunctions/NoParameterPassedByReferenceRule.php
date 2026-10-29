@@ -26,9 +26,11 @@ final class NoParameterPassedByReferenceRule implements
     Documentation\HasRuleDefinition,
     Rules\Rule
 {
-    public function ruleDefinition(): Documentation\RuleDefinition
+    private Documentation\RuleDefinition $ruleDefinition;
+
+    public function __construct()
     {
-        return Documentation\RuleDefinition::create(
+        $this->ruleDefinition = Documentation\RuleDefinition::create(
             'noParameterPassedByReference',
             'This rule reports an error when an arrow function has a parameter that is [passed by reference](https://www.php.net/manual/en/language.references.pass.php).',
             'A parameter passed by reference lets an arrow function change a variable of its caller as a side effect, which makes the code harder to follow. Return the new value instead.',
@@ -49,6 +51,11 @@ final class NoParameterPassedByReferenceRule implements
                 $increment = static fn (int $value): int => $value + 1;
                 PHP),
         );
+    }
+
+    public function ruleDefinition(): Documentation\RuleDefinition
+    {
+        return $this->ruleDefinition;
     }
 
     public function getNodeType(): string

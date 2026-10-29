@@ -26,9 +26,11 @@ final class NoEvalRule implements
     Documentation\HasRuleDefinition,
     Rules\Rule
 {
-    public function ruleDefinition(): Documentation\RuleDefinition
+    private Documentation\RuleDefinition $ruleDefinition;
+
+    public function __construct()
     {
-        return Documentation\RuleDefinition::create(
+        $this->ruleDefinition = Documentation\RuleDefinition::create(
             'noEval',
             'This rule reports an error when the language construct [`eval()`](https://www.php.net/eval) is used.',
             'The language construct `eval()` executes a string as code, which is a security risk and cannot be analyzed statically.',
@@ -49,6 +51,11 @@ final class NoEvalRule implements
                 $sum = 1 + 2;
                 PHP),
         );
+    }
+
+    public function ruleDefinition(): Documentation\RuleDefinition
+    {
+        return $this->ruleDefinition;
     }
 
     public function getNodeType(): string

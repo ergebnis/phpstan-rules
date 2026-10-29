@@ -26,9 +26,11 @@ final class NoSwitchRule implements
     Documentation\HasRuleDefinition,
     Rules\Rule
 {
-    public function ruleDefinition(): Documentation\RuleDefinition
+    private Documentation\RuleDefinition $ruleDefinition;
+
+    public function __construct()
     {
-        return Documentation\RuleDefinition::create(
+        $this->ruleDefinition = Documentation\RuleDefinition::create(
             'noSwitch',
             'This rule reports an error when the statement [`switch()`](https://www.php.net/manual/control-structures.switch.php) is used.',
             'A `switch` statement compares loosely and falls through to the next case without `break`, which can cause subtle bugs. Use `if` statements or `match` instead.',
@@ -65,6 +67,11 @@ final class NoSwitchRule implements
                 }
                 PHP),
         );
+    }
+
+    public function ruleDefinition(): Documentation\RuleDefinition
+    {
+        return $this->ruleDefinition;
     }
 
     public function getNodeType(): string

@@ -42,6 +42,7 @@ final class InvokeParentHookMethodRule implements
      * @var list<HookMethod>
      */
     private array $hookMethods;
+    private Documentation\RuleDefinition $ruleDefinition;
 
     /**
      * @param array<class-string, array<string, string>> $hookMethods
@@ -68,11 +69,8 @@ final class InvokeParentHookMethodRule implements
                 ),
             ),
         );
-    }
 
-    public function ruleDefinition(): Documentation\RuleDefinition
-    {
-        return Documentation\RuleDefinition::create(
+        $this->ruleDefinition = Documentation\RuleDefinition::create(
             'invokeParentHookMethod',
             'This rule reports an error when a hook method that overrides a hook method in a parent class does not invoke the overridden hook method in the expected order.',
             'A hook method such as `setUp()` that overrides a hook method of a parent class needs to invoke the parent hook method in the expected order, or the parent class does not set up or tear down as intended.',
@@ -156,6 +154,11 @@ final class InvokeParentHookMethodRule implements
                 }
                 PHP),
         );
+    }
+
+    public function ruleDefinition(): Documentation\RuleDefinition
+    {
+        return $this->ruleDefinition;
     }
 
     public function getNodeType(): string

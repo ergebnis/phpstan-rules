@@ -28,15 +28,13 @@ final class NoParameterWithNullableTypeDeclarationRule implements
     Rules\Rule
 {
     private Analyzer $analyzer;
+    private Documentation\RuleDefinition $ruleDefinition;
 
     public function __construct(Analyzer $analyzer)
     {
         $this->analyzer = $analyzer;
-    }
 
-    public function ruleDefinition(): Documentation\RuleDefinition
-    {
-        return Documentation\RuleDefinition::create(
+        $this->ruleDefinition = Documentation\RuleDefinition::create(
             'noParameterWithNullableTypeDeclaration',
             'This rule reports an error when a function has a parameter with a nullable type declaration.',
             'A parameter with a nullable type declaration makes the function handle two cases: a value and `null`. Separate functions or a null object make each case explicit.',
@@ -63,6 +61,11 @@ final class NoParameterWithNullableTypeDeclarationRule implements
                 }
                 PHP),
         );
+    }
+
+    public function ruleDefinition(): Documentation\RuleDefinition
+    {
+        return $this->ruleDefinition;
     }
 
     public function getNodeType(): string

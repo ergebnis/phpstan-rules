@@ -51,6 +51,7 @@ final class FinalRule implements
      */
     private array $classesNotRequiredToBeAbstractOrFinal;
     private string $errorMessageTemplate = 'Class %s is not final.';
+    private Documentation\RuleDefinition $ruleDefinition;
 
     /**
      * @param list<class-string> $classesNotRequiredToBeAbstractOrFinal
@@ -69,11 +70,8 @@ final class FinalRule implements
         if ($allowAbstractClasses) {
             $this->errorMessageTemplate = 'Class %s is neither abstract nor final.';
         }
-    }
 
-    public function ruleDefinition(): Documentation\RuleDefinition
-    {
-        return Documentation\RuleDefinition::create(
+        $this->ruleDefinition = Documentation\RuleDefinition::create(
             'final',
             <<<'MARKDOWN'
             This rule reports an error when a non-anonymous class is not `final`.
@@ -137,6 +135,11 @@ final class FinalRule implements
                 }
                 PHP),
         );
+    }
+
+    public function ruleDefinition(): Documentation\RuleDefinition
+    {
+        return $this->ruleDefinition;
     }
 
     public function getNodeType(): string

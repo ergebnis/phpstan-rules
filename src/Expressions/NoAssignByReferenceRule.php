@@ -26,9 +26,11 @@ final class NoAssignByReferenceRule implements
     Documentation\HasRuleDefinition,
     Rules\Rule
 {
-    public function ruleDefinition(): Documentation\RuleDefinition
+    private Documentation\RuleDefinition $ruleDefinition;
+
+    public function __construct()
     {
-        return Documentation\RuleDefinition::create(
+        $this->ruleDefinition = Documentation\RuleDefinition::create(
             'noAssignByReference',
             'This rule reports an error when [a variable is assigned by reference](https://www.php.net/manual/en/language.references.whatdo.php#language.references.whatdo.assign).',
             'Assigning by reference makes two variables share one value, so changing one changes the other, which makes the code harder to follow.',
@@ -57,6 +59,11 @@ final class NoAssignByReferenceRule implements
                 $copy = $values;
                 PHP),
         );
+    }
+
+    public function ruleDefinition(): Documentation\RuleDefinition
+    {
+        return $this->ruleDefinition;
     }
 
     public function getNodeType(): string

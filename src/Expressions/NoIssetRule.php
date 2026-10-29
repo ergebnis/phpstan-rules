@@ -26,9 +26,11 @@ final class NoIssetRule implements
     Documentation\HasRuleDefinition,
     Rules\Rule
 {
-    public function ruleDefinition(): Documentation\RuleDefinition
+    private Documentation\RuleDefinition $ruleDefinition;
+
+    public function __construct()
     {
-        return Documentation\RuleDefinition::create(
+        $this->ruleDefinition = Documentation\RuleDefinition::create(
             'noIsset',
             'This rule reports an error when the language construct [`isset()`](https://www.php.net/isset) is used.',
             'The language construct `isset()` returns `false` both when a variable, array key, or property does not exist and when it holds `null`, so it hides which of the two applies. Use `array_key_exists()`, `property_exists()`, or a comparison with `null` instead.',
@@ -61,6 +63,11 @@ final class NoIssetRule implements
                 }
                 PHP),
         );
+    }
+
+    public function ruleDefinition(): Documentation\RuleDefinition
+    {
+        return $this->ruleDefinition;
     }
 
     public function getNodeType(): string

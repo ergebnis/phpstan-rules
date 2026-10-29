@@ -29,15 +29,13 @@ final class NoNullableReturnTypeDeclarationRule implements
     Rules\Rule
 {
     private Analyzer $analyzer;
+    private Documentation\RuleDefinition $ruleDefinition;
 
     public function __construct(Analyzer $analyzer)
     {
         $this->analyzer = $analyzer;
-    }
 
-    public function ruleDefinition(): Documentation\RuleDefinition
-    {
-        return Documentation\RuleDefinition::create(
+        $this->ruleDefinition = Documentation\RuleDefinition::create(
             'noNullableReturnTypeDeclaration',
             'This rule reports an error when a method uses a nullable return type declaration.',
             'A nullable return type forces every caller to handle `null`. Throwing an exception, returning a null object, or splitting the method in two keeps the callers simpler.',
@@ -80,6 +78,11 @@ final class NoNullableReturnTypeDeclarationRule implements
                 }
                 PHP),
         );
+    }
+
+    public function ruleDefinition(): Documentation\RuleDefinition
+    {
+        return $this->ruleDefinition;
     }
 
     public function getNodeType(): string

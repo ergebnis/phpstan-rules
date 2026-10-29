@@ -22,6 +22,7 @@ final class ErrorTip
 {
     private const NAMESPACE_PREFIX = 'Ergebnis\\PHPStan\\Rules\\';
     private const PACKAGE_NAME = 'ergebnis/phpstan-rules';
+    private static ?string $installedReference = null;
 
     /**
      * Returns the tip of the rule without Markdown backticks, followed by a link to the documentation of the rule for the installed version.
@@ -48,9 +49,21 @@ final class ErrorTip
     }
 
     /**
-     * Returns the tag of the installed release, or the commit of an installed development version, or main when neither is known.
+     * Returns the reference of the installed version, which is determined only once.
      */
     private static function installedReference(): string
+    {
+        if (null === self::$installedReference) {
+            self::$installedReference = self::determineInstalledReference();
+        }
+
+        return self::$installedReference;
+    }
+
+    /**
+     * Returns the tag of the installed release, or the commit of an installed development version, or main when neither is known.
+     */
+    private static function determineInstalledReference(): string
     {
         if (!InstalledVersions::isInstalled(self::PACKAGE_NAME)) {
             return 'main';
