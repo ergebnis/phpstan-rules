@@ -93,15 +93,15 @@ final class FinalRule implements
 
                     You can set the `allowAbstractClasses` parameter to `false` to disallow abstract classes.
                     MARKDOWN),
-                    false,
+                    Documentation\ParameterExample::fromBool(false),
                 ),
                 Documentation\Parameter::create(
                     Documentation\ParameterName::fromString('classesNotRequiredToBeAbstractOrFinal'),
                     Documentation\Description::fromString('You can set the `classesNotRequiredToBeAbstractOrFinal` parameter to a list of class names that you want to exclude from inspection.'),
-                    [
+                    Documentation\ParameterExample::fromStrings(
                         'Foo\\Bar\\NeitherAbstractNorFinal',
                         'Bar\\Baz\\NeitherAbstractNorFinal',
-                    ],
+                    ),
                 ),
                 Documentation\Parameter::create(
                     Documentation\ParameterName::fromString('ignoreDoctrineEntities'),
@@ -110,7 +110,7 @@ final class FinalRule implements
 
                     When you use [native lazy objects](https://github.com/doctrine/orm/pull/11853) with `doctrine/orm:^3.4.0` on PHP 8.4 or later, Doctrine no longer extends entities, and you can set the `ignoreDoctrineEntities` parameter to `false` to require Doctrine entities to be `final` as well.
                     MARKDOWN),
-                    false,
+                    Documentation\ParameterExample::fromBool(false),
                 ),
             ),
             Documentation\CodeSampleList::create(

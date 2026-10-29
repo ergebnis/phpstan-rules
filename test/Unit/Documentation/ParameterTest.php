@@ -21,6 +21,7 @@ use PHPUnit\Framework;
  * @covers \Ergebnis\PHPStan\Rules\Documentation\Parameter
  *
  * @uses \Ergebnis\PHPStan\Rules\Documentation\Description
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ParameterExample
  * @uses \Ergebnis\PHPStan\Rules\Documentation\ParameterName
  */
 final class ParameterTest extends Framework\TestCase
@@ -33,10 +34,10 @@ final class ParameterTest extends Framework\TestCase
 
         $name = Documentation\ParameterName::fromString($faker->word());
         $description = Documentation\Description::fromString($faker->sentence());
-        $example = [
+        $example = Documentation\ParameterExample::fromStrings(
             $faker->word(),
             $faker->word(),
-        ];
+        );
 
         $parameter = Documentation\Parameter::create(
             $name,

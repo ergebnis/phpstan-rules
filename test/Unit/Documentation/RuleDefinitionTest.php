@@ -25,6 +25,7 @@ use PHPUnit\Framework;
  * @uses \Ergebnis\PHPStan\Rules\Documentation\ConfigurationKey
  * @uses \Ergebnis\PHPStan\Rules\Documentation\Description
  * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ParameterExample
  * @uses \Ergebnis\PHPStan\Rules\Documentation\ParameterList
  * @uses \Ergebnis\PHPStan\Rules\Documentation\ParameterName
  * @uses \Ergebnis\PHPStan\Rules\Documentation\Rationale
@@ -45,7 +46,7 @@ final class RuleDefinitionTest extends Framework\TestCase
         $parameters = Documentation\ParameterList::create(Documentation\Parameter::create(
             Documentation\ParameterName::fromString($faker->word()),
             Documentation\Description::fromString($faker->sentence()),
-            $faker->boolean(),
+            Documentation\ParameterExample::fromBool($faker->boolean()),
         ));
         $codeSamples = Documentation\CodeSampleList::create(
             Documentation\CodeSample::reported($faker->sentence()),

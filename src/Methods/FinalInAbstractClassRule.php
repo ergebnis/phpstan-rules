@@ -61,7 +61,7 @@ final class FinalInAbstractClassRule implements
 
                 When you use [native lazy objects](https://github.com/doctrine/orm/pull/11853) with `doctrine/orm:^3.4.0` on PHP 8.4 or later, Doctrine no longer extends entities, and you can set the `ignoreDoctrineEntities` parameter to `false` to require concrete methods in `abstract` Doctrine entities to be `final` as well.
                 MARKDOWN),
-                false,
+                Documentation\ParameterExample::fromBool(false),
             )),
             Documentation\CodeSampleList::create(
                 Documentation\CodeSample::reported(<<<'PHP'

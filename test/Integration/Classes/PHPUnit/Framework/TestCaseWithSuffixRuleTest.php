@@ -30,6 +30,7 @@ use PHPUnit\Framework;
  * @uses \Ergebnis\PHPStan\Rules\Documentation\Description
  * @uses \Ergebnis\PHPStan\Rules\Documentation\ErrorTip
  * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ParameterExample
  * @uses \Ergebnis\PHPStan\Rules\Documentation\ParameterList
  * @uses \Ergebnis\PHPStan\Rules\Documentation\ParameterName
  * @uses \Ergebnis\PHPStan\Rules\Documentation\Rationale
