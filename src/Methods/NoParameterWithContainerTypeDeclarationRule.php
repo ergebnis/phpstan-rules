@@ -77,17 +77,15 @@ final class NoParameterWithContainerTypeDeclarationRule implements
 
                     You can set the `interfacesImplementedByContainers` parameter to a list of interface names of additional containers and service locators.
                     MARKDOWN),
-                    [
+                    Documentation\ParameterExample::fromStrings(
                         'Fancy\\DependencyInjection\\ContainerInterface',
                         'Other\\ServiceLocatorInterface',
-                    ],
+                    ),
                 ),
                 Documentation\Parameter::create(
                     Documentation\ParameterName::fromString('methodsAllowedToUseContainerTypeDeclarations'),
                     Documentation\Description::fromString('You can set the `methodsAllowedToUseContainerTypeDeclarations` parameter to a list of method names that are allowed to use parameters with container type declarations.'),
-                    [
-                        'loadExtension',
-                    ],
+                    Documentation\ParameterExample::fromStrings('loadExtension'),
                 ),
             ),
             Documentation\CodeSampleList::create(

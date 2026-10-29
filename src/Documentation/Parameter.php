@@ -20,32 +20,22 @@ final class Parameter
 {
     private ParameterName $name;
     private Description $description;
+    private ParameterExample $example;
 
-    /**
-     * @var bool|list<array<string, string>>|list<string>
-     */
-    private $example;
-
-    /**
-     * @param bool|list<array<string, string>>|list<string> $example
-     */
     private function __construct(
         ParameterName $name,
         Description $description,
-        $example
+        ParameterExample $example
     ) {
         $this->name = $name;
         $this->description = $description;
         $this->example = $example;
     }
 
-    /**
-     * @param bool|list<array<string, string>>|list<string> $example
-     */
     public static function create(
         ParameterName $name,
         Description $description,
-        $example
+        ParameterExample $example
     ): self {
         return new self(
             $name,
@@ -64,10 +54,7 @@ final class Parameter
         return $this->description;
     }
 
-    /**
-     * @return bool|list<array<string, string>>|list<string>
-     */
-    public function example()
+    public function example(): ParameterExample
     {
         return $this->example;
     }

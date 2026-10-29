@@ -105,14 +105,12 @@ final class InvokeParentHookMethodRule implements
                 - `invocation`: one of `"any"` (needs to be invoked), `"first"` (needs to be invoked before all other statements in the overriding hook method), `"last"` (needs to be invoked after all other statements in the overriding hook method)
                 - `methodName`: name of the hook method
                 MARKDOWN),
-                [
-                    [
-                        'className' => 'Example\\Test\\Functional\\AbstractCest',
-                        'hasContent' => 'yes',
-                        'invocation' => 'first',
-                        'methodName' => '_before',
-                    ],
-                ],
+                Documentation\ParameterExample::fromMaps([
+                    'className' => 'Example\\Test\\Functional\\AbstractCest',
+                    'hasContent' => 'yes',
+                    'invocation' => 'first',
+                    'methodName' => '_before',
+                ]),
             )),
             Documentation\CodeSampleList::create(
                 Documentation\CodeSample::reported(<<<'PHP'

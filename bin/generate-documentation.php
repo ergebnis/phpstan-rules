@@ -330,7 +330,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
                 $lines[] = self::neonExample(
                     $configurationKey,
                     $name,
-                    $parameter->example(),
+                    $parameter->example()->toValue(),
                 );
                 $lines[] = '';
             }

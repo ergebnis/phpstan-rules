@@ -67,10 +67,10 @@ final class NoExtendsRule implements
 
                 You can set the `classesAllowedToBeExtended` parameter to a list of class names that you want to allow to be extended.
                 MARKDOWN),
-                [
+                Documentation\ParameterExample::fromStrings(
                     'Ergebnis\\PHPStan\\Rules\\Test\\Integration\\AbstractTestCase',
                     'PHPStan\\Testing\\RuleTestCase',
-                ],
+                ),
             )),
             Documentation\CodeSampleList::create(
                 Documentation\CodeSample::reported(<<<'PHP'
