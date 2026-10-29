@@ -159,7 +159,7 @@ final class CodeSampleTest extends Testing\RuleTestCase
                 continue;
             }
 
-            foreach ($rule->ruleDefinition()->codeSamples() as $index => $codeSample) {
+            foreach ($rule->ruleDefinition()->codeSamples()->toArray() as $index => $codeSample) {
                 $key = \sprintf(
                     '%s, code sample %d (not reported)',
                     $ruleClassName,

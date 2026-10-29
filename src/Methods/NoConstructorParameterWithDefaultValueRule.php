@@ -32,45 +32,47 @@ final class NoConstructorParameterWithDefaultValueRule implements
     public function __construct()
     {
         $this->ruleDefinition = Documentation\RuleDefinition::create(
-            'noConstructorParameterWithDefaultValue',
-            'This rule reports an error when a constructor has a parameter with a default value.',
-            'A constructor parameter with a default value lets callers create an object without deciding on that value. Named constructors make each way of creating the object explicit.',
-            'Remove the default value and add a named constructor for each way of creating the object.',
-        )->withCodeSamples(
-            Documentation\CodeSample::reported(<<<'PHP'
-                <?php
+            Documentation\ConfigurationKey::fromString('noConstructorParameterWithDefaultValue'),
+            Documentation\Description::fromString('This rule reports an error when a constructor has a parameter with a default value.'),
+            Documentation\Rationale::fromString('A constructor parameter with a default value lets callers create an object without deciding on that value. Named constructors make each way of creating the object explicit.'),
+            Documentation\Tip::fromString('Remove the default value and add a named constructor for each way of creating the object.'),
+            Documentation\ParameterList::create(),
+            Documentation\CodeSampleList::create(
+                Documentation\CodeSample::reported(<<<'PHP'
+                    <?php
 
-                declare(strict_types=1);
+                    declare(strict_types=1);
 
-                namespace Example;
+                    namespace Example;
 
-                final class Greeting
-                {
-                    private string $salutation;
-
-                    public function __construct(string $salutation = 'Hello')
+                    final class Greeting
                     {
-                        $this->salutation = $salutation;
+                        private string $salutation;
+
+                        public function __construct(string $salutation = 'Hello')
+                        {
+                            $this->salutation = $salutation;
+                        }
                     }
-                }
-                PHP),
-            Documentation\CodeSample::notReported(<<<'PHP'
-                <?php
+                    PHP),
+                Documentation\CodeSample::notReported(<<<'PHP'
+                    <?php
 
-                declare(strict_types=1);
+                    declare(strict_types=1);
 
-                namespace Example;
+                    namespace Example;
 
-                final class Greeting
-                {
-                    private string $salutation;
-
-                    public function __construct(string $salutation)
+                    final class Greeting
                     {
-                        $this->salutation = $salutation;
+                        private string $salutation;
+
+                        public function __construct(string $salutation)
+                        {
+                            $this->salutation = $salutation;
+                        }
                     }
-                }
-                PHP),
+                    PHP),
+            ),
         );
     }
 

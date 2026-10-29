@@ -18,32 +18,20 @@ namespace Ergebnis\PHPStan\Rules\Documentation;
  */
 final class RuleDefinition
 {
-    private string $configurationKey;
-    private string $description;
-    private string $rationale;
-    private string $tip;
+    private ConfigurationKey $configurationKey;
+    private Description $description;
+    private Rationale $rationale;
+    private Tip $tip;
+    private ParameterList $parameters;
+    private CodeSampleList $codeSamples;
 
-    /**
-     * @var list<Parameter>
-     */
-    private array $parameters;
-
-    /**
-     * @var list<CodeSample>
-     */
-    private array $codeSamples;
-
-    /**
-     * @param list<Parameter>  $parameters
-     * @param list<CodeSample> $codeSamples
-     */
     private function __construct(
-        string $configurationKey,
-        string $description,
-        string $rationale,
-        string $tip,
-        array $parameters,
-        array $codeSamples
+        ConfigurationKey $configurationKey,
+        Description $description,
+        Rationale $rationale,
+        Tip $tip,
+        ParameterList $parameters,
+        CodeSampleList $codeSamples
     ) {
         $this->configurationKey = $configurationKey;
         $this->description = $description;
@@ -54,66 +42,49 @@ final class RuleDefinition
     }
 
     public static function create(
-        string $configurationKey,
-        string $description,
-        string $rationale,
-        string $tip,
-        Parameter ...$parameters
+        ConfigurationKey $configurationKey,
+        Description $description,
+        Rationale $rationale,
+        Tip $tip,
+        ParameterList $parameters,
+        CodeSampleList $codeSamples
     ): self {
         return new self(
             $configurationKey,
             $description,
             $rationale,
             $tip,
-            \array_values($parameters),
-            [],
+            $parameters,
+            $codeSamples,
         );
     }
 
-    public function withCodeSamples(CodeSample ...$codeSamples): self
-    {
-        return new self(
-            $this->configurationKey,
-            $this->description,
-            $this->rationale,
-            $this->tip,
-            $this->parameters,
-            \array_values($codeSamples),
-        );
-    }
-
-    public function configurationKey(): string
+    public function configurationKey(): ConfigurationKey
     {
         return $this->configurationKey;
     }
 
-    public function description(): string
+    public function description(): Description
     {
         return $this->description;
     }
 
-    public function rationale(): string
+    public function rationale(): Rationale
     {
         return $this->rationale;
     }
 
-    public function tip(): string
+    public function tip(): Tip
     {
         return $this->tip;
     }
 
-    /**
-     * @return list<Parameter>
-     */
-    public function parameters(): array
+    public function parameters(): ParameterList
     {
         return $this->parameters;
     }
 
-    /**
-     * @return list<CodeSample>
-     */
-    public function codeSamples(): array
+    public function codeSamples(): CodeSampleList
     {
         return $this->codeSamples;
     }

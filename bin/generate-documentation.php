@@ -74,7 +74,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
             $ruleClassNamesByConfigurationKey = [];
 
             foreach ($ruleDefinitions as $ruleClassName => $ruleDefinition) {
-                $ruleClassNamesByConfigurationKey[$ruleDefinition->configurationKey()][] = $ruleClassName;
+                $ruleClassNamesByConfigurationKey[$ruleDefinition->configurationKey()->toString()][] = $ruleClassName;
             }
 
             $documentationDirectory = \sprintf(
@@ -101,7 +101,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
                     );
                 }
 
-                $configurationKey = $ruleDefinition->configurationKey();
+                $configurationKey = $ruleDefinition->configurationKey()->toString();
 
                 if (!\array_key_exists($configurationKey, $configuration)) {
                     throw new \RuntimeException(\sprintf(
@@ -214,7 +214,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
             array $configuration,
             array $ruleClassNamesSharingConfigurationKey
         ): string {
-            $configurationKey = $ruleDefinition->configurationKey();
+            $configurationKey = $ruleDefinition->configurationKey()->toString();
 
             $pathToProjectDirectory = \str_repeat(
                 '../',
@@ -231,14 +231,14 @@ require_once __DIR__ . '/../vendor/autoload.php';
                 self::shortName($ruleClassName),
             );
             $lines[] = '';
-            $lines[] = $ruleDefinition->description();
+            $lines[] = $ruleDefinition->description()->toString();
             $lines[] = '';
             $lines[] = '## Rationale';
             $lines[] = '';
-            $lines[] = $ruleDefinition->rationale();
+            $lines[] = $ruleDefinition->rationale()->toString();
             $lines[] = '';
 
-            $codeSamples = $ruleDefinition->codeSamples();
+            $codeSamples = $ruleDefinition->codeSamples()->toArray();
 
             if ([] !== $codeSamples) {
                 $lines[] = '## Examples';
@@ -301,7 +301,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
                 $lines[] = '';
             }
 
-            foreach ($ruleDefinition->parameters() as $parameter) {
+            foreach ($ruleDefinition->parameters()->toArray() as $parameter) {
                 $name = $parameter->name();
 
                 if (!\array_key_exists($name, $configuration)) {
@@ -318,7 +318,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
                     $name,
                 );
                 $lines[] = '';
-                $lines[] = $parameter->description();
+                $lines[] = $parameter->description()->toString();
                 $lines[] = '';
                 $lines[] = \sprintf(
                     'Default value: `%s`',
@@ -589,7 +589,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
                     self::shortName($ruleClassName),
                 );
                 $lines[] = '';
-                $lines[] = $ruleDefinition->description();
+                $lines[] = $ruleDefinition->description()->toString();
                 $lines[] = '';
                 $lines[] = \sprintf(
                     '💡 Find out more in the rule documentation for [`%s`](%s).',

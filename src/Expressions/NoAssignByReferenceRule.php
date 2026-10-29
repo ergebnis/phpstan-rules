@@ -31,33 +31,35 @@ final class NoAssignByReferenceRule implements
     public function __construct()
     {
         $this->ruleDefinition = Documentation\RuleDefinition::create(
-            'noAssignByReference',
-            'This rule reports an error when [a variable is assigned by reference](https://www.php.net/manual/en/language.references.whatdo.php#language.references.whatdo.assign).',
-            'Assigning by reference makes two variables share one value, so changing one changes the other, which makes the code harder to follow.',
-            'Assign the value instead.',
-        )->withCodeSamples(
-            Documentation\CodeSample::reported(<<<'PHP'
-                <?php
+            Documentation\ConfigurationKey::fromString('noAssignByReference'),
+            Documentation\Description::fromString('This rule reports an error when [a variable is assigned by reference](https://www.php.net/manual/en/language.references.whatdo.php#language.references.whatdo.assign).'),
+            Documentation\Rationale::fromString('Assigning by reference makes two variables share one value, so changing one changes the other, which makes the code harder to follow.'),
+            Documentation\Tip::fromString('Assign the value instead.'),
+            Documentation\ParameterList::create(),
+            Documentation\CodeSampleList::create(
+                Documentation\CodeSample::reported(<<<'PHP'
+                    <?php
 
-                declare(strict_types=1);
+                    declare(strict_types=1);
 
-                $values = [
-                    'foo',
-                ];
+                    $values = [
+                        'foo',
+                    ];
 
-                $alias = &$values;
-                PHP),
-            Documentation\CodeSample::notReported(<<<'PHP'
-                <?php
+                    $alias = &$values;
+                    PHP),
+                Documentation\CodeSample::notReported(<<<'PHP'
+                    <?php
 
-                declare(strict_types=1);
+                    declare(strict_types=1);
 
-                $values = [
-                    'foo',
-                ];
+                    $values = [
+                        'foo',
+                    ];
 
-                $copy = $values;
-                PHP),
+                    $copy = $values;
+                    PHP),
+            ),
         );
     }
 

@@ -32,23 +32,25 @@ final class DeclareStrictTypesRule implements
     public function __construct()
     {
         $this->ruleDefinition = Documentation\RuleDefinition::create(
-            'declareStrictTypes',
-            'This rule reports an error when a non-empty file does not contain a `declare(strict_types=1)` declaration.',
-            'Without a `declare(strict_types=1)` declaration, PHP coerces scalar arguments and return values to the declared types, which hides type errors.',
-            'Add a `declare(strict_types=1)` declaration at the top of the file.',
-        )->withCodeSamples(
-            Documentation\CodeSample::reported(<<<'PHP'
-                <?php
+            Documentation\ConfigurationKey::fromString('declareStrictTypes'),
+            Documentation\Description::fromString('This rule reports an error when a non-empty file does not contain a `declare(strict_types=1)` declaration.'),
+            Documentation\Rationale::fromString('Without a `declare(strict_types=1)` declaration, PHP coerces scalar arguments and return values to the declared types, which hides type errors.'),
+            Documentation\Tip::fromString('Add a `declare(strict_types=1)` declaration at the top of the file.'),
+            Documentation\ParameterList::create(),
+            Documentation\CodeSampleList::create(
+                Documentation\CodeSample::reported(<<<'PHP'
+                    <?php
 
-                echo 'Hello, Jane!';
-                PHP),
-            Documentation\CodeSample::notReported(<<<'PHP'
-                <?php
+                    echo 'Hello, Jane!';
+                    PHP),
+                Documentation\CodeSample::notReported(<<<'PHP'
+                    <?php
 
-                declare(strict_types=1);
+                    declare(strict_types=1);
 
-                echo 'Hello, Jane!';
-                PHP),
+                    echo 'Hello, Jane!';
+                    PHP),
+            ),
         );
     }
 

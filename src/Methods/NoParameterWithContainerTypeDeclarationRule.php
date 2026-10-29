@@ -61,74 +61,77 @@ final class NoParameterWithContainerTypeDeclarationRule implements
         $this->methodsAllowedToUseContainerTypeDeclarations = $methodsAllowedToUseContainerTypeDeclarations;
 
         $this->ruleDefinition = Documentation\RuleDefinition::create(
-            'noParameterWithContainerTypeDeclaration',
-            'This rule reports an error when a method has a type declaration for a known dependency injection container or service locator.',
-            'A method that receives a dependency injection container or service locator hides its actual dependencies. Inject the dependencies directly instead.',
-            'Inject the dependencies directly instead.',
-            Documentation\Parameter::create(
-                'interfacesImplementedByContainers',
-                <<<'MARKDOWN'
-                By default, this rule disallows the use of type declarations indicating an implementation of
+            Documentation\ConfigurationKey::fromString('noParameterWithContainerTypeDeclaration'),
+            Documentation\Description::fromString('This rule reports an error when a method has a type declaration for a known dependency injection container or service locator.'),
+            Documentation\Rationale::fromString('A method that receives a dependency injection container or service locator hides its actual dependencies. Inject the dependencies directly instead.'),
+            Documentation\Tip::fromString('Inject the dependencies directly instead.'),
+            Documentation\ParameterList::create(
+                Documentation\Parameter::create(
+                    'interfacesImplementedByContainers',
+                    Documentation\Description::fromString(<<<'MARKDOWN'
+                    By default, this rule disallows the use of type declarations indicating an implementation of
 
-                - [`Psr\Container\ContainerInterface`](https://github.com/php-fig/container/blob/1.0.0/src/ContainerInterface.php)
+                    - [`Psr\Container\ContainerInterface`](https://github.com/php-fig/container/blob/1.0.0/src/ContainerInterface.php)
 
-                is expected to be injected into a method.
+                    is expected to be injected into a method.
 
-                You can set the `interfacesImplementedByContainers` parameter to a list of interface names of additional containers and service locators.
-                MARKDOWN,
-                [
-                    'Fancy\\DependencyInjection\\ContainerInterface',
-                    'Other\\ServiceLocatorInterface',
-                ],
+                    You can set the `interfacesImplementedByContainers` parameter to a list of interface names of additional containers and service locators.
+                    MARKDOWN),
+                    [
+                        'Fancy\\DependencyInjection\\ContainerInterface',
+                        'Other\\ServiceLocatorInterface',
+                    ],
+                ),
+                Documentation\Parameter::create(
+                    'methodsAllowedToUseContainerTypeDeclarations',
+                    Documentation\Description::fromString('You can set the `methodsAllowedToUseContainerTypeDeclarations` parameter to a list of method names that are allowed to use parameters with container type declarations.'),
+                    [
+                        'loadExtension',
+                    ],
+                ),
             ),
-            Documentation\Parameter::create(
-                'methodsAllowedToUseContainerTypeDeclarations',
-                'You can set the `methodsAllowedToUseContainerTypeDeclarations` parameter to a list of method names that are allowed to use parameters with container type declarations.',
-                [
-                    'loadExtension',
-                ],
+            Documentation\CodeSampleList::create(
+                Documentation\CodeSample::reported(<<<'PHP'
+                    <?php
+
+                    declare(strict_types=1);
+
+                    namespace Example;
+
+                    use Psr\Container;
+
+                    final class Greeting
+                    {
+                        public function greet(Container\ContainerInterface $container): string
+                        {
+                            return $container->get('salutation');
+                        }
+                    }
+                    PHP),
+                Documentation\CodeSample::notReported(<<<'PHP'
+                    <?php
+
+                    declare(strict_types=1);
+
+                    namespace Example;
+
+                    final class Salutation
+                    {
+                        public function toString(): string
+                        {
+                            return 'Hello';
+                        }
+                    }
+
+                    final class Greeting
+                    {
+                        public function greet(Salutation $salutation): string
+                        {
+                            return $salutation->toString();
+                        }
+                    }
+                    PHP),
             ),
-        )->withCodeSamples(
-            Documentation\CodeSample::reported(<<<'PHP'
-                <?php
-
-                declare(strict_types=1);
-
-                namespace Example;
-
-                use Psr\Container;
-
-                final class Greeting
-                {
-                    public function greet(Container\ContainerInterface $container): string
-                    {
-                        return $container->get('salutation');
-                    }
-                }
-                PHP),
-            Documentation\CodeSample::notReported(<<<'PHP'
-                <?php
-
-                declare(strict_types=1);
-
-                namespace Example;
-
-                final class Salutation
-                {
-                    public function toString(): string
-                    {
-                        return 'Hello';
-                    }
-                }
-
-                final class Greeting
-                {
-                    public function greet(Salutation $salutation): string
-                    {
-                        return $salutation->toString();
-                    }
-                }
-                PHP),
         );
     }
 

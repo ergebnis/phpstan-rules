@@ -19,7 +19,7 @@ namespace Ergebnis\PHPStan\Rules\Documentation;
 final class Parameter
 {
     private string $name;
-    private string $description;
+    private Description $description;
 
     /**
      * @var bool|list<array<string, string>>|list<string>
@@ -31,7 +31,7 @@ final class Parameter
      */
     private function __construct(
         string $name,
-        string $description,
+        Description $description,
         $example
     ) {
         $this->name = $name;
@@ -44,7 +44,7 @@ final class Parameter
      */
     public static function create(
         string $name,
-        string $description,
+        Description $description,
         $example
     ): self {
         return new self(
@@ -59,7 +59,7 @@ final class Parameter
         return $this->name;
     }
 
-    public function description(): string
+    public function description(): Description
     {
         return $this->description;
     }

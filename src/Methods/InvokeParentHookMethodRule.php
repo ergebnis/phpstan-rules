@@ -71,13 +71,13 @@ final class InvokeParentHookMethodRule implements
         );
 
         $this->ruleDefinition = Documentation\RuleDefinition::create(
-            'invokeParentHookMethod',
-            'This rule reports an error when a hook method that overrides a hook method in a parent class does not invoke the overridden hook method in the expected order.',
-            'A hook method such as `setUp()` that overrides a hook method of a parent class needs to invoke the parent hook method in the expected order, or the parent class does not set up or tear down as intended.',
-            'Move the invocation of the parent hook method to the expected position.',
-            Documentation\Parameter::create(
+            Documentation\ConfigurationKey::fromString('invokeParentHookMethod'),
+            Documentation\Description::fromString('This rule reports an error when a hook method that overrides a hook method in a parent class does not invoke the overridden hook method in the expected order.'),
+            Documentation\Rationale::fromString('A hook method such as `setUp()` that overrides a hook method of a parent class needs to invoke the parent hook method in the expected order, or the parent class does not set up or tear down as intended.'),
+            Documentation\Tip::fromString('Move the invocation of the parent hook method to the expected position.'),
+            Documentation\ParameterList::create(Documentation\Parameter::create(
                 'hookMethods',
-                <<<'MARKDOWN'
+                Documentation\Description::fromString(<<<'MARKDOWN'
                 By default, this rule requires the following hook methods to be invoked before doing something in the overriding method:
 
                 - [`Codeception\PHPUnit\TestCase::_setUp()`](https://github.com/Codeception/phpunit-wrapper/blob/9.0.0/src/TestCase.php#L11-L13)
@@ -104,7 +104,7 @@ final class InvokeParentHookMethodRule implements
                 - `hasContent`: one of `"yes"`, `"no"`
                 - `invocation`: one of `"any"` (needs to be invoked), `"first"` (needs to be invoked before all other statements in the overriding hook method), `"last"` (needs to be invoked after all other statements in the overriding hook method)
                 - `methodName`: name of the hook method
-                MARKDOWN,
+                MARKDOWN),
                 [
                     [
                         'className' => 'Example\\Test\\Functional\\AbstractCest',
@@ -113,46 +113,47 @@ final class InvokeParentHookMethodRule implements
                         'methodName' => '_before',
                     ],
                 ],
+            )),
+            Documentation\CodeSampleList::create(
+                Documentation\CodeSample::reported(<<<'PHP'
+                    <?php
+
+                    declare(strict_types=1);
+
+                    namespace Example\Test;
+
+                    use PHPUnit\Framework;
+
+                    final class GreetingTest extends Framework\TestCase
+                    {
+                        protected function setUp(): void
+                        {
+                            \putenv('GREETING=Hello');
+
+                            parent::setUp();
+                        }
+                    }
+                    PHP),
+                Documentation\CodeSample::notReported(<<<'PHP'
+                    <?php
+
+                    declare(strict_types=1);
+
+                    namespace Example\Test;
+
+                    use PHPUnit\Framework;
+
+                    final class GreetingTest extends Framework\TestCase
+                    {
+                        protected function setUp(): void
+                        {
+                            parent::setUp();
+
+                            \putenv('GREETING=Hello');
+                        }
+                    }
+                    PHP),
             ),
-        )->withCodeSamples(
-            Documentation\CodeSample::reported(<<<'PHP'
-                <?php
-
-                declare(strict_types=1);
-
-                namespace Example\Test;
-
-                use PHPUnit\Framework;
-
-                final class GreetingTest extends Framework\TestCase
-                {
-                    protected function setUp(): void
-                    {
-                        \putenv('GREETING=Hello');
-
-                        parent::setUp();
-                    }
-                }
-                PHP),
-            Documentation\CodeSample::notReported(<<<'PHP'
-                <?php
-
-                declare(strict_types=1);
-
-                namespace Example\Test;
-
-                use PHPUnit\Framework;
-
-                final class GreetingTest extends Framework\TestCase
-                {
-                    protected function setUp(): void
-                    {
-                        parent::setUp();
-
-                        \putenv('GREETING=Hello');
-                    }
-                }
-                PHP),
         );
     }
 

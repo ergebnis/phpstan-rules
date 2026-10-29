@@ -77,7 +77,7 @@ final class RuleDefinitionTest extends Framework\TestCase
 
             foreach (self::ruleDefinitions() as $ruleClassName => $ruleDefinition) {
                 $number = \array_search(
-                    $ruleDefinition->configurationKey(),
+                    $ruleDefinition->configurationKey()->toString(),
                     $configurationKeys,
                     true,
                 );
@@ -97,7 +97,7 @@ final class RuleDefinitionTest extends Framework\TestCase
 
                 self::assertSame($expected, $actual, \sprintf(
                     'Failed asserting that the enabled parameter of configuration key "%s" enables rule "%s".',
-                    $ruleDefinition->configurationKey(),
+                    $ruleDefinition->configurationKey()->toString(),
                     $ruleClassName,
                 ));
             }
@@ -109,8 +109,8 @@ final class RuleDefinitionTest extends Framework\TestCase
         $configuration = [];
 
         foreach (self::ruleDefinitions() as $ruleDefinition) {
-            foreach ($ruleDefinition->parameters() as $parameter) {
-                $configuration[$ruleDefinition->configurationKey()][$parameter->name()] = $parameter->example();
+            foreach ($ruleDefinition->parameters()->toArray() as $parameter) {
+                $configuration[$ruleDefinition->configurationKey()->toString()][$parameter->name()] = $parameter->example();
             }
         }
 
@@ -148,7 +148,7 @@ final class RuleDefinitionTest extends Framework\TestCase
     private static function configurationKeys(): array
     {
         $configurationKeys = \array_values(\array_unique(\array_map(static function (Documentation\RuleDefinition $ruleDefinition): string {
-            return $ruleDefinition->configurationKey();
+            return $ruleDefinition->configurationKey()->toString();
         }, self::ruleDefinitions())));
 
         \sort($configurationKeys);

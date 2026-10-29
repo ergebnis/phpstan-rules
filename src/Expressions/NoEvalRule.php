@@ -31,25 +31,27 @@ final class NoEvalRule implements
     public function __construct()
     {
         $this->ruleDefinition = Documentation\RuleDefinition::create(
-            'noEval',
-            'This rule reports an error when the language construct [`eval()`](https://www.php.net/eval) is used.',
-            'The language construct `eval()` executes a string as code, which is a security risk and cannot be analyzed statically.',
-            'Write the code directly instead.',
-        )->withCodeSamples(
-            Documentation\CodeSample::reported(<<<'PHP'
-                <?php
+            Documentation\ConfigurationKey::fromString('noEval'),
+            Documentation\Description::fromString('This rule reports an error when the language construct [`eval()`](https://www.php.net/eval) is used.'),
+            Documentation\Rationale::fromString('The language construct `eval()` executes a string as code, which is a security risk and cannot be analyzed statically.'),
+            Documentation\Tip::fromString('Write the code directly instead.'),
+            Documentation\ParameterList::create(),
+            Documentation\CodeSampleList::create(
+                Documentation\CodeSample::reported(<<<'PHP'
+                    <?php
 
-                declare(strict_types=1);
+                    declare(strict_types=1);
 
-                $sum = eval('return 1 + 2;');
-                PHP),
-            Documentation\CodeSample::notReported(<<<'PHP'
-                <?php
+                    $sum = eval('return 1 + 2;');
+                    PHP),
+                Documentation\CodeSample::notReported(<<<'PHP'
+                    <?php
 
-                declare(strict_types=1);
+                    declare(strict_types=1);
 
-                $sum = 1 + 2;
-                PHP),
+                    $sum = 1 + 2;
+                    PHP),
+            ),
         );
     }
 

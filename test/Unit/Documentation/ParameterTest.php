@@ -19,6 +19,8 @@ use PHPUnit\Framework;
 
 /**
  * @covers \Ergebnis\PHPStan\Rules\Documentation\Parameter
+ *
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Description
  */
 final class ParameterTest extends Framework\TestCase
 {
@@ -29,7 +31,7 @@ final class ParameterTest extends Framework\TestCase
         $faker = self::faker();
 
         $name = $faker->word();
-        $description = $faker->sentence();
+        $description = Documentation\Description::fromString($faker->sentence());
         $example = [
             $faker->word(),
             $faker->word(),
