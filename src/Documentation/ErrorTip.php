@@ -23,9 +23,6 @@ final class ErrorTip
     private const NAMESPACE_PREFIX = 'Ergebnis\\PHPStan\\Rules\\';
     private const PACKAGE_NAME = 'ergebnis/phpstan-rules';
 
-    /**
-     * Returns the tip of the rule without Markdown backticks, followed by a link to the documentation of the rule for the installed version.
-     */
     public static function for(HasRuleDefinition $rule): string
     {
         return \sprintf(
@@ -47,9 +44,6 @@ final class ErrorTip
         );
     }
 
-    /**
-     * Returns the tag of the installed release, or the commit of an installed development version, or main when neither is known.
-     */
     private static function installedReference(): string
     {
         if (!InstalledVersions::isInstalled(self::PACKAGE_NAME)) {

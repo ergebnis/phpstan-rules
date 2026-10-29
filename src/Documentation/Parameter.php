@@ -59,17 +59,12 @@ final class Parameter
         return $this->name;
     }
 
-    /**
-     * Returns a description of the parameter, in Markdown.
-     */
     public function description(): string
     {
         return $this->description;
     }
 
     /**
-     * Returns an example value for the parameter.
-     *
      * @return bool|list<array<string, string>>|list<string>
      */
     public function example()

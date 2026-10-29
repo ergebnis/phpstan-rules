@@ -70,9 +70,6 @@ final class RuleDefinition
         );
     }
 
-    /**
-     * Returns a copy of the rule definition with the code samples.
-     */
     public function withCodeSamples(CodeSample ...$codeSamples): self
     {
         return new self(
@@ -85,41 +82,27 @@ final class RuleDefinition
         );
     }
 
-    /**
-     * Returns the key below parameters.ergebnis that holds the configuration of the rule.
-     */
     public function configurationKey(): string
     {
         return $this->configurationKey;
     }
 
-    /**
-     * Returns a description of the rule, in Markdown.
-     */
     public function description(): string
     {
         return $this->description;
     }
 
-    /**
-     * Returns the reason for the rule, in Markdown.
-     */
     public function rationale(): string
     {
         return $this->rationale;
     }
 
-    /**
-     * Returns a short instruction for fixing errors reported by the rule, in Markdown that uses only backticks, so that it can also be shown as a tip for these errors.
-     */
     public function tip(): string
     {
         return $this->tip;
     }
 
     /**
-     * Returns the parameters for configuring the rule, other than the enabled parameter that every rule has.
-     *
      * @return list<Parameter>
      */
     public function parameters(): array
@@ -128,8 +111,6 @@ final class RuleDefinition
     }
 
     /**
-     * Returns code samples for which the rule reports or does not report an error.
-     *
      * @return list<CodeSample>
      */
     public function codeSamples(): array
