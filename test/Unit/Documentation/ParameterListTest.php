@@ -22,6 +22,7 @@ use PHPUnit\Framework;
  *
  * @uses \Ergebnis\PHPStan\Rules\Documentation\Description
  * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ParameterName
  */
 final class ParameterListTest extends Framework\TestCase
 {
@@ -39,12 +40,12 @@ final class ParameterListTest extends Framework\TestCase
         $faker = self::faker();
 
         $parameterOne = Documentation\Parameter::create(
-            $faker->word(),
+            Documentation\ParameterName::fromString($faker->word()),
             Documentation\Description::fromString($faker->sentence()),
             $faker->boolean(),
         );
         $parameterTwo = Documentation\Parameter::create(
-            $faker->word(),
+            Documentation\ParameterName::fromString($faker->word()),
             Documentation\Description::fromString($faker->sentence()),
             [
                 $faker->word(),

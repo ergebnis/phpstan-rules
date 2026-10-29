@@ -87,7 +87,7 @@ final class FinalRule implements
             Documentation\Tip::fromString('Declare the class `final` and prefer composition over inheritance.'),
             Documentation\ParameterList::create(
                 Documentation\Parameter::create(
-                    'allowAbstractClasses',
+                    Documentation\ParameterName::fromString('allowAbstractClasses'),
                     Documentation\Description::fromString(<<<'MARKDOWN'
                     By default, this rule allows to declare `abstract` classes.
 
@@ -96,7 +96,7 @@ final class FinalRule implements
                     false,
                 ),
                 Documentation\Parameter::create(
-                    'classesNotRequiredToBeAbstractOrFinal',
+                    Documentation\ParameterName::fromString('classesNotRequiredToBeAbstractOrFinal'),
                     Documentation\Description::fromString('You can set the `classesNotRequiredToBeAbstractOrFinal` parameter to a list of class names that you want to exclude from inspection.'),
                     [
                         'Foo\\Bar\\NeitherAbstractNorFinal',
@@ -104,7 +104,7 @@ final class FinalRule implements
                     ],
                 ),
                 Documentation\Parameter::create(
-                    'ignoreDoctrineEntities',
+                    Documentation\ParameterName::fromString('ignoreDoctrineEntities'),
                     Documentation\Description::fromString(<<<'MARKDOWN'
                     By default, this rule ignores Doctrine entities, because Doctrine creates proxies for lazy loading by extending them.
 
