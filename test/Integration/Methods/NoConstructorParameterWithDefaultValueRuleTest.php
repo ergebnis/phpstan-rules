@@ -29,6 +29,7 @@ use PHPStan\Testing;
  * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
  * @uses \Ergebnis\PHPStan\Rules\Documentation\ParameterList
  * @uses \Ergebnis\PHPStan\Rules\Documentation\Rationale
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Reference
  * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition
  * @uses \Ergebnis\PHPStan\Rules\Documentation\Tip
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
