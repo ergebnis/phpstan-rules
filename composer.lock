@@ -4,8 +4,85 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fe3898f0dcc00213c6755eddae9e08f5",
+    "content-hash": "19eff7b0c9bafbf8521dae9d0ea90828",
     "packages": [
+        {
+            "name": "ergebnis/version",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ergebnis/version.git",
+                "reference": "cfdde08dac36650286acf310a8f99138201a484b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ergebnis/version/zipball/cfdde08dac36650286acf310a8f99138201a484b",
+                "reference": "cfdde08dac36650286acf310a8f99138201a484b",
+                "shasum": ""
+            },
+            "require": {
+                "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0"
+            },
+            "require-dev": {
+                "ergebnis/composer-normalize": "^2.53.0",
+                "ergebnis/data-provider": "^3.6.0",
+                "ergebnis/license": "^2.7.0",
+                "ergebnis/php-cs-fixer-config": "^6.63.2",
+                "ergebnis/phpunit-slow-test-detector": "^2.25.0",
+                "ergebnis/rector-rules": "^1.18.3",
+                "ext-bcmath": "*",
+                "fakerphp/faker": "^1.24.1",
+                "infection/infection": "~0.26.6",
+                "phpstan/extension-installer": "^1.4.3",
+                "phpstan/phpstan": "^2.2.14",
+                "phpstan/phpstan-deprecation-rules": "^2.0.5",
+                "phpstan/phpstan-phpunit": "^2.0.18",
+                "phpstan/phpstan-strict-rules": "^2.0.12",
+                "phpunit/phpunit": "^9.6.33",
+                "rector/rector": "^2.6.7"
+            },
+            "suggest": {
+                "ext-bcmath": "If you want to bump Major, Minor, or Patch versions greater than PHP_MAX_INT."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.4-dev"
+                },
+                "composer-normalize": {
+                    "indent-size": 2,
+                    "indent-style": "space"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Ergebnis\\Version\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Möller",
+                    "email": "am@localheinz.com",
+                    "homepage": "https://localheinz.com"
+                }
+            ],
+            "description": "Provides an abstraction of a semantic version.",
+            "homepage": "https://github.com/ergebnis/version",
+            "keywords": [
+                "semantic",
+                "version"
+            ],
+            "support": {
+                "issues": "https://github.com/ergebnis/version/issues",
+                "security": "https://github.com/ergebnis/version/blob/main/.github/SECURITY.md",
+                "source": "https://github.com/ergebnis/version"
+            },
+            "time": "2026-09-24T19:43:55+00:00"
+        },
         {
             "name": "phpstan/phpstan",
             "version": "2.3.1",

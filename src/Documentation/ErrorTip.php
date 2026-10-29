@@ -13,22 +13,29 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Documentation;
 
-use Composer\InstalledVersions;
-
 /**
  * @internal
  */
 final class ErrorTip
 {
     private const NAMESPACE_PREFIX = 'Ergebnis\\PHPStan\\Rules\\';
-    private const PACKAGE_NAME = 'ergebnis/phpstan-rules';
 
     public static function for(HasRuleDefinition $rule): string
     {
+        return self::forReference(
+            $rule,
+            Reference::installed(),
+        );
+    }
+
+    public static function forReference(
+        HasRuleDefinition $rule,
+        Reference $reference
+    ): string {
         return \sprintf(
             '%s Learn more at https://github.com/ergebnis/phpstan-rules/blob/%s/doc/rules/%s.md',
             $rule->ruleDefinition()->tip()->toPlainText(),
-            self::installedReference(),
+            $reference->toString(),
             \str_replace(
                 '\\',
                 '/',
@@ -38,32 +45,5 @@ final class ErrorTip
                 ),
             ),
         );
-    }
-
-    private static function installedReference(): string
-    {
-        if (!InstalledVersions::isInstalled(self::PACKAGE_NAME)) {
-            return 'main';
-        }
-
-        $version = InstalledVersions::getPrettyVersion(self::PACKAGE_NAME);
-
-        if (
-            \is_string($version)
-            && 1 === \preg_match('/^\d+\.\d+\.\d+$/', $version)
-        ) {
-            return $version;
-        }
-
-        $reference = InstalledVersions::getReference(self::PACKAGE_NAME);
-
-        if (
-            \is_string($reference)
-            && '' !== $reference
-        ) {
-            return $reference;
-        }
-
-        return 'main';
     }
 }

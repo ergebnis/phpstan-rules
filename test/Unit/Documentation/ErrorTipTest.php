@@ -15,6 +15,8 @@ namespace Ergebnis\PHPStan\Rules\Test\Unit\Documentation;
 
 use Ergebnis\PHPStan\Rules\Documentation;
 use Ergebnis\PHPStan\Rules\Statements;
+use Ergebnis\PHPStan\Rules\Test;
+use Ergebnis\Version;
 use PHPUnit\Framework;
 
 /**
@@ -26,12 +28,15 @@ use PHPUnit\Framework;
  * @uses \Ergebnis\PHPStan\Rules\Documentation\Description
  * @uses \Ergebnis\PHPStan\Rules\Documentation\ParameterList
  * @uses \Ergebnis\PHPStan\Rules\Documentation\Rationale
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Reference
  * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition
  * @uses \Ergebnis\PHPStan\Rules\Documentation\Tip
  * @uses \Ergebnis\PHPStan\Rules\Statements\NoSwitchRule
  */
 final class ErrorTipTest extends Framework\TestCase
 {
+    use Test\Util\Helper;
+
     public function testForReturnsTipWithoutBackticksFollowedByLinkToDocumentationOfRule(): void
     {
         $rule = new Statements\NoSwitchRule();
@@ -39,6 +44,24 @@ final class ErrorTipTest extends Framework\TestCase
         $errorTip = Documentation\ErrorTip::for($rule);
 
         self::assertSame('Use `if` statements or `match` instead.', $rule->ruleDefinition()->tip()->toString());
-        self::assertMatchesRegularExpression('@^Use if statements or match instead\. Learn more at https://github\.com/ergebnis/phpstan-rules/blob/[^/]+/doc/rules/Statements/NoSwitchRule\.md$@', $errorTip);
+        self::assertMatchesRegularExpression('@^Use if statements or match instead\. Learn more at https://github\.com/ergebnis/phpstan-rules/blob/(\d+\.\d+\.\d+|main)/doc/rules/Statements/NoSwitchRule\.md$@', $errorTip);
+    }
+
+    public function testForReferenceReturnsTipWithoutBackticksFollowedByLinkToDocumentationOfRuleForReference(): void
+    {
+        $rule = new Statements\NoSwitchRule();
+        $reference = Documentation\Reference::fromVersion(Version\Version::fromString(self::faker()->numerify('#.#.#')));
+
+        $errorTip = Documentation\ErrorTip::forReference(
+            $rule,
+            $reference,
+        );
+
+        $expected = \sprintf(
+            'Use if statements or match instead. Learn more at https://github.com/ergebnis/phpstan-rules/blob/%s/doc/rules/Statements/NoSwitchRule.md',
+            $reference->toString(),
+        );
+
+        self::assertSame($expected, $errorTip);
     }
 }
