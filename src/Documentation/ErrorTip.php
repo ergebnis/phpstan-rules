@@ -27,11 +27,7 @@ final class ErrorTip
     {
         return \sprintf(
             '%s Learn more at https://github.com/ergebnis/phpstan-rules/blob/%s/doc/rules/%s.md',
-            \str_replace(
-                '`',
-                '',
-                $rule->ruleDefinition()->tip(),
-            ),
+            $rule->ruleDefinition()->tip()->toPlainText(),
             self::installedReference(),
             \str_replace(
                 '\\',

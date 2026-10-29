@@ -7,6 +7,7 @@ parameters:
 		noExtends:
 			classesAllowedToBeExtended:
 				- Ergebnis\PHPStan\Rules\Test\Integration\AbstractTestCase
+				- InvalidArgumentException
 				- PHPStan\Testing\RuleTestCase
 
 	excludePaths:

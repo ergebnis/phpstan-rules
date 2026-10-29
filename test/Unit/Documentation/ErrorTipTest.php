@@ -21,7 +21,13 @@ use PHPUnit\Framework;
  * @covers \Ergebnis\PHPStan\Rules\Documentation\ErrorTip
  *
  * @uses \Ergebnis\PHPStan\Rules\Documentation\CodeSample
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\CodeSampleList
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ConfigurationKey
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Description
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ParameterList
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Rationale
  * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Tip
  * @uses \Ergebnis\PHPStan\Rules\Statements\NoSwitchRule
  */
 final class ErrorTipTest extends Framework\TestCase
@@ -32,7 +38,7 @@ final class ErrorTipTest extends Framework\TestCase
 
         $errorTip = Documentation\ErrorTip::for($rule);
 
-        self::assertSame('Use `if` statements or `match` instead.', $rule->ruleDefinition()->tip());
+        self::assertSame('Use `if` statements or `match` instead.', $rule->ruleDefinition()->tip()->toString());
         self::assertMatchesRegularExpression('@^Use if statements or match instead\. Learn more at https://github\.com/ergebnis/phpstan-rules/blob/[^/]+/doc/rules/Statements/NoSwitchRule\.md$@', $errorTip);
     }
 }

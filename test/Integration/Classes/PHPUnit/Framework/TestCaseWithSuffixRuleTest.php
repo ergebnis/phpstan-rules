@@ -25,9 +25,15 @@ use PHPUnit\Framework;
  * @extends Testing\RuleTestCase<Classes\PHPUnit\Framework\TestCaseWithSuffixRule>
  *
  * @uses \Ergebnis\PHPStan\Rules\Documentation\CodeSample
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\CodeSampleList
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ConfigurationKey
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Description
  * @uses \Ergebnis\PHPStan\Rules\Documentation\ErrorTip
  * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ParameterList
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Rationale
  * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Tip
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
  */
 final class TestCaseWithSuffixRuleTest extends Testing\RuleTestCase

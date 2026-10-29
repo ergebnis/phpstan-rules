@@ -35,25 +35,27 @@ final class NoParameterWithNullDefaultValueRule implements
         $this->analyzer = $analyzer;
 
         $this->ruleDefinition = Documentation\RuleDefinition::create(
-            'noParameterWithNullDefaultValue',
-            'This rule reports an error when an arrow function has a parameter with `null` as default value.',
-            'A parameter with `null` as its default value makes the argument optional and nullable at once, so the arrow function has to handle a missing value. Separate arrow functions or a null object make each case explicit.',
-            'Use separate arrow functions or a null object instead.',
-        )->withCodeSamples(
-            Documentation\CodeSample::reported(<<<'PHP'
-                <?php
+            Documentation\ConfigurationKey::fromString('noParameterWithNullDefaultValue'),
+            Documentation\Description::fromString('This rule reports an error when an arrow function has a parameter with `null` as default value.'),
+            Documentation\Rationale::fromString('A parameter with `null` as its default value makes the argument optional and nullable at once, so the arrow function has to handle a missing value. Separate arrow functions or a null object make each case explicit.'),
+            Documentation\Tip::fromString('Use separate arrow functions or a null object instead.'),
+            Documentation\ParameterList::create(),
+            Documentation\CodeSampleList::create(
+                Documentation\CodeSample::reported(<<<'PHP'
+                    <?php
 
-                declare(strict_types=1);
+                    declare(strict_types=1);
 
-                $toUpperCase = static fn ($value = null): string => \strtoupper((string) $value);
-                PHP),
-            Documentation\CodeSample::notReported(<<<'PHP'
-                <?php
+                    $toUpperCase = static fn ($value = null): string => \strtoupper((string) $value);
+                    PHP),
+                Documentation\CodeSample::notReported(<<<'PHP'
+                    <?php
 
-                declare(strict_types=1);
+                    declare(strict_types=1);
 
-                $toUpperCase = static fn (string $value): string => \strtoupper($value);
-                PHP),
+                    $toUpperCase = static fn (string $value): string => \strtoupper($value);
+                    PHP),
+            ),
         );
     }
 

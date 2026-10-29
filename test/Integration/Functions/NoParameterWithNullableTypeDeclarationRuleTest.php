@@ -24,9 +24,15 @@ use PHPStan\Testing;
  * @covers \Ergebnis\PHPStan\Rules\Functions\NoParameterWithNullableTypeDeclarationRule
  *
  * @uses \Ergebnis\PHPStan\Rules\Documentation\CodeSample
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\CodeSampleList
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ConfigurationKey
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Description
  * @uses \Ergebnis\PHPStan\Rules\Documentation\ErrorTip
  * @uses \Ergebnis\PHPStan\Rules\Documentation\Parameter
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\ParameterList
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Rationale
  * @uses \Ergebnis\PHPStan\Rules\Documentation\RuleDefinition
+ * @uses \Ergebnis\PHPStan\Rules\Documentation\Tip
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
  *
  * @extends Testing\RuleTestCase<Functions\NoParameterWithNullableTypeDeclarationRule>

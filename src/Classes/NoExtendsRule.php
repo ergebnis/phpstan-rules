@@ -54,55 +54,56 @@ final class NoExtendsRule implements
         )));
 
         $this->ruleDefinition = Documentation\RuleDefinition::create(
-            'noExtends',
-            'This rule reports an error when a class extends another class.',
-            'Extending a class couples the subclass to the implementation of its parent class. Prefer composition: inject collaborators and implement interfaces.',
-            'Inject collaborators and implement interfaces instead.',
-            Documentation\Parameter::create(
+            Documentation\ConfigurationKey::fromString('noExtends'),
+            Documentation\Description::fromString('This rule reports an error when a class extends another class.'),
+            Documentation\Rationale::fromString('Extending a class couples the subclass to the implementation of its parent class. Prefer composition: inject collaborators and implement interfaces.'),
+            Documentation\Tip::fromString('Inject collaborators and implement interfaces instead.'),
+            Documentation\ParameterList::create(Documentation\Parameter::create(
                 'classesAllowedToBeExtended',
-                <<<'MARKDOWN'
+                Documentation\Description::fromString(<<<'MARKDOWN'
                 By default, this rule allows the following classes to be extended:
 
                 - [`PHPUnit\Framework\TestCase`](https://github.com/sebastianbergmann/phpunit/blob/6.0.0/src/Framework/TestCase.php)
 
                 You can set the `classesAllowedToBeExtended` parameter to a list of class names that you want to allow to be extended.
-                MARKDOWN,
+                MARKDOWN),
                 [
                     'Ergebnis\\PHPStan\\Rules\\Test\\Integration\\AbstractTestCase',
                     'PHPStan\\Testing\\RuleTestCase',
                 ],
+            )),
+            Documentation\CodeSampleList::create(
+                Documentation\CodeSample::reported(<<<'PHP'
+                    <?php
+
+                    declare(strict_types=1);
+
+                    namespace Example;
+
+                    abstract class AbstractGreeting
+                    {
+                    }
+
+                    final class Greeting extends AbstractGreeting
+                    {
+                    }
+                    PHP),
+                Documentation\CodeSample::notReported(<<<'PHP'
+                    <?php
+
+                    declare(strict_types=1);
+
+                    namespace Example;
+
+                    interface Greeting
+                    {
+                    }
+
+                    final class FriendlyGreeting implements Greeting
+                    {
+                    }
+                    PHP),
             ),
-        )->withCodeSamples(
-            Documentation\CodeSample::reported(<<<'PHP'
-                <?php
-
-                declare(strict_types=1);
-
-                namespace Example;
-
-                abstract class AbstractGreeting
-                {
-                }
-
-                final class Greeting extends AbstractGreeting
-                {
-                }
-                PHP),
-            Documentation\CodeSample::notReported(<<<'PHP'
-                <?php
-
-                declare(strict_types=1);
-
-                namespace Example;
-
-                interface Greeting
-                {
-                }
-
-                final class FriendlyGreeting implements Greeting
-                {
-                }
-                PHP),
         );
     }
 

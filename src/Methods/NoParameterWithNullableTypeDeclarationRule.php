@@ -36,47 +36,49 @@ final class NoParameterWithNullableTypeDeclarationRule implements
         $this->analyzer = $analyzer;
 
         $this->ruleDefinition = Documentation\RuleDefinition::create(
-            'noParameterWithNullableTypeDeclaration',
-            'This rule reports an error when a method has a parameter with a nullable type declaration.',
-            'A parameter with a nullable type declaration makes the method handle two cases: a value and `null`. Separate methods or a null object make each case explicit.',
-            'Use separate methods or a null object instead.',
-        )->withCodeSamples(
-            Documentation\CodeSample::reported(<<<'PHP'
-                <?php
+            Documentation\ConfigurationKey::fromString('noParameterWithNullableTypeDeclaration'),
+            Documentation\Description::fromString('This rule reports an error when a method has a parameter with a nullable type declaration.'),
+            Documentation\Rationale::fromString('A parameter with a nullable type declaration makes the method handle two cases: a value and `null`. Separate methods or a null object make each case explicit.'),
+            Documentation\Tip::fromString('Use separate methods or a null object instead.'),
+            Documentation\ParameterList::create(),
+            Documentation\CodeSampleList::create(
+                Documentation\CodeSample::reported(<<<'PHP'
+                    <?php
 
-                declare(strict_types=1);
+                    declare(strict_types=1);
 
-                namespace Example;
+                    namespace Example;
 
-                final class Greeting
-                {
-                    public function greet(?string $name): string
+                    final class Greeting
                     {
-                        return \sprintf(
-                            'Hello, %s!',
-                            (string) $name,
-                        );
+                        public function greet(?string $name): string
+                        {
+                            return \sprintf(
+                                'Hello, %s!',
+                                (string) $name,
+                            );
+                        }
                     }
-                }
-                PHP),
-            Documentation\CodeSample::notReported(<<<'PHP'
-                <?php
+                    PHP),
+                Documentation\CodeSample::notReported(<<<'PHP'
+                    <?php
 
-                declare(strict_types=1);
+                    declare(strict_types=1);
 
-                namespace Example;
+                    namespace Example;
 
-                final class Greeting
-                {
-                    public function greet(string $name): string
+                    final class Greeting
                     {
-                        return \sprintf(
-                            'Hello, %s!',
-                            $name,
-                        );
+                        public function greet(string $name): string
+                        {
+                            return \sprintf(
+                                'Hello, %s!',
+                                $name,
+                            );
+                        }
                     }
-                }
-                PHP),
+                    PHP),
+            ),
         );
     }
 

@@ -35,25 +35,27 @@ final class NoParameterWithNullableTypeDeclarationRule implements
         $this->analyzer = $analyzer;
 
         $this->ruleDefinition = Documentation\RuleDefinition::create(
-            'noParameterWithNullableTypeDeclaration',
-            'This rule reports an error when an arrow function has a parameter with a nullable type declaration.',
-            'A parameter with a nullable type declaration makes the arrow function handle two cases: a value and `null`. Separate arrow functions or a null object make each case explicit.',
-            'Use separate arrow functions or a null object instead.',
-        )->withCodeSamples(
-            Documentation\CodeSample::reported(<<<'PHP'
-                <?php
+            Documentation\ConfigurationKey::fromString('noParameterWithNullableTypeDeclaration'),
+            Documentation\Description::fromString('This rule reports an error when an arrow function has a parameter with a nullable type declaration.'),
+            Documentation\Rationale::fromString('A parameter with a nullable type declaration makes the arrow function handle two cases: a value and `null`. Separate arrow functions or a null object make each case explicit.'),
+            Documentation\Tip::fromString('Use separate arrow functions or a null object instead.'),
+            Documentation\ParameterList::create(),
+            Documentation\CodeSampleList::create(
+                Documentation\CodeSample::reported(<<<'PHP'
+                    <?php
 
-                declare(strict_types=1);
+                    declare(strict_types=1);
 
-                $toUpperCase = static fn (?string $value): string => \strtoupper((string) $value);
-                PHP),
-            Documentation\CodeSample::notReported(<<<'PHP'
-                <?php
+                    $toUpperCase = static fn (?string $value): string => \strtoupper((string) $value);
+                    PHP),
+                Documentation\CodeSample::notReported(<<<'PHP'
+                    <?php
 
-                declare(strict_types=1);
+                    declare(strict_types=1);
 
-                $toUpperCase = static fn (string $value): string => \strtoupper($value);
-                PHP),
+                    $toUpperCase = static fn (string $value): string => \strtoupper($value);
+                    PHP),
+            ),
         );
     }
 

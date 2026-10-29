@@ -11,6 +11,7 @@ For a full diff see [`2.16.0...main`][2.16.0...main].
 ### Changed
 
 - Adjusted the rules to build their rule definitions once, when they are created, instead of once for every reported error ([#1164]), by [@localheinz]
+- Extracted value objects for the configuration key, description, rationale, tip, parameters, and code samples of rule definitions ([#1165]), by [@localheinz]
 
 ## [`2.16.0`][2.16.0]
 
@@ -854,6 +855,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#1162]: https://github.com/ergebnis/phpstan-rules/pull/1162
 [#1163]: https://github.com/ergebnis/phpstan-rules/pull/1163
 [#1164]: https://github.com/ergebnis/phpstan-rules/pull/1164
+[#1165]: https://github.com/ergebnis/phpstan-rules/pull/1165
 
 [@alfredbez]: https://github.com/alfredbez
 [@cosmastech]: https://github.com/cosmastech

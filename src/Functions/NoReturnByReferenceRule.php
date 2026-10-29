@@ -31,33 +31,35 @@ final class NoReturnByReferenceRule implements
     public function __construct()
     {
         $this->ruleDefinition = Documentation\RuleDefinition::create(
-            'noReturnByReference',
-            'This rule reports an error when a function [returns by reference](https://www.php.net/manual/en/language.references.return.php).',
-            'Returning by reference lets the caller change state that the function keeps, which makes the code harder to follow. Return a value instead.',
-            'Return a value instead.',
-        )->withCodeSamples(
-            Documentation\CodeSample::reported(<<<'PHP'
-                <?php
+            Documentation\ConfigurationKey::fromString('noReturnByReference'),
+            Documentation\Description::fromString('This rule reports an error when a function [returns by reference](https://www.php.net/manual/en/language.references.return.php).'),
+            Documentation\Rationale::fromString('Returning by reference lets the caller change state that the function keeps, which makes the code harder to follow. Return a value instead.'),
+            Documentation\Tip::fromString('Return a value instead.'),
+            Documentation\ParameterList::create(),
+            Documentation\CodeSampleList::create(
+                Documentation\CodeSample::reported(<<<'PHP'
+                    <?php
 
-                declare(strict_types=1);
+                    declare(strict_types=1);
 
-                function &values(): array
-                {
-                    static $values = [];
+                    function &values(): array
+                    {
+                        static $values = [];
 
-                    return $values;
-                }
-                PHP),
-            Documentation\CodeSample::notReported(<<<'PHP'
-                <?php
+                        return $values;
+                    }
+                    PHP),
+                Documentation\CodeSample::notReported(<<<'PHP'
+                    <?php
 
-                declare(strict_types=1);
+                    declare(strict_types=1);
 
-                function values(): array
-                {
-                    return [];
-                }
-                PHP),
+                    function values(): array
+                    {
+                        return [];
+                    }
+                    PHP),
+            ),
         );
     }
 

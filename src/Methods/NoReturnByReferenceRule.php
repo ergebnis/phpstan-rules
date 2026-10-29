@@ -32,45 +32,47 @@ final class NoReturnByReferenceRule implements
     public function __construct()
     {
         $this->ruleDefinition = Documentation\RuleDefinition::create(
-            'noReturnByReference',
-            'This rule reports an error when a method [returns by reference](https://www.php.net/manual/en/language.references.return.php).',
-            'Returning by reference lets the caller change state that the method keeps, which makes the code harder to follow. Return a value instead.',
-            'Return a value instead.',
-        )->withCodeSamples(
-            Documentation\CodeSample::reported(<<<'PHP'
-                <?php
+            Documentation\ConfigurationKey::fromString('noReturnByReference'),
+            Documentation\Description::fromString('This rule reports an error when a method [returns by reference](https://www.php.net/manual/en/language.references.return.php).'),
+            Documentation\Rationale::fromString('Returning by reference lets the caller change state that the method keeps, which makes the code harder to follow. Return a value instead.'),
+            Documentation\Tip::fromString('Return a value instead.'),
+            Documentation\ParameterList::create(),
+            Documentation\CodeSampleList::create(
+                Documentation\CodeSample::reported(<<<'PHP'
+                    <?php
 
-                declare(strict_types=1);
+                    declare(strict_types=1);
 
-                namespace Example;
+                    namespace Example;
 
-                final class Greetings
-                {
-                    private array $values = [];
-
-                    public function &values(): array
+                    final class Greetings
                     {
-                        return $this->values;
+                        private array $values = [];
+
+                        public function &values(): array
+                        {
+                            return $this->values;
+                        }
                     }
-                }
-                PHP),
-            Documentation\CodeSample::notReported(<<<'PHP'
-                <?php
+                    PHP),
+                Documentation\CodeSample::notReported(<<<'PHP'
+                    <?php
 
-                declare(strict_types=1);
+                    declare(strict_types=1);
 
-                namespace Example;
+                    namespace Example;
 
-                final class Greetings
-                {
-                    private array $values = [];
-
-                    public function values(): array
+                    final class Greetings
                     {
-                        return $this->values;
+                        private array $values = [];
+
+                        public function values(): array
+                        {
+                            return $this->values;
+                        }
                     }
-                }
-                PHP),
+                    PHP),
+            ),
         );
     }
 

@@ -46,54 +46,55 @@ final class FinalInAbstractClassRule implements
         $this->ignoreDoctrineEntities = $ignoreDoctrineEntities;
 
         $this->ruleDefinition = Documentation\RuleDefinition::create(
-            'finalInAbstractClass',
-            <<<'MARKDOWN'
+            Documentation\ConfigurationKey::fromString('finalInAbstractClass'),
+            Documentation\Description::fromString(<<<'MARKDOWN'
             This rule reports an error when a concrete `public` or `protected` method in an `abstract` class is not `final`.
 
             💡 By default, this rule ignores Doctrine entities.
-            MARKDOWN,
-            'A concrete method in an `abstract` class that is not `final` can be overridden by subclasses, which can break the assumptions of the abstract class. Declare the method `final`, or `abstract` when subclasses need to provide it.',
-            'Declare the method `final`, or `abstract` when subclasses need to provide it.',
-            Documentation\Parameter::create(
+            MARKDOWN),
+            Documentation\Rationale::fromString('A concrete method in an `abstract` class that is not `final` can be overridden by subclasses, which can break the assumptions of the abstract class. Declare the method `final`, or `abstract` when subclasses need to provide it.'),
+            Documentation\Tip::fromString('Declare the method `final`, or `abstract` when subclasses need to provide it.'),
+            Documentation\ParameterList::create(Documentation\Parameter::create(
                 'ignoreDoctrineEntities',
-                <<<'MARKDOWN'
+                Documentation\Description::fromString(<<<'MARKDOWN'
                 By default, this rule ignores Doctrine entities, because Doctrine creates proxies for lazy loading by extending them.
 
                 When you use [native lazy objects](https://github.com/doctrine/orm/pull/11853) with `doctrine/orm:^3.4.0` on PHP 8.4 or later, Doctrine no longer extends entities, and you can set the `ignoreDoctrineEntities` parameter to `false` to require concrete methods in `abstract` Doctrine entities to be `final` as well.
-                MARKDOWN,
+                MARKDOWN),
                 false,
+            )),
+            Documentation\CodeSampleList::create(
+                Documentation\CodeSample::reported(<<<'PHP'
+                    <?php
+
+                    declare(strict_types=1);
+
+                    namespace Example;
+
+                    abstract class AbstractGreeting
+                    {
+                        public function greet(): string
+                        {
+                            return 'Hello!';
+                        }
+                    }
+                    PHP),
+                Documentation\CodeSample::notReported(<<<'PHP'
+                    <?php
+
+                    declare(strict_types=1);
+
+                    namespace Example;
+
+                    abstract class AbstractGreeting
+                    {
+                        final public function greet(): string
+                        {
+                            return 'Hello!';
+                        }
+                    }
+                    PHP),
             ),
-        )->withCodeSamples(
-            Documentation\CodeSample::reported(<<<'PHP'
-                <?php
-
-                declare(strict_types=1);
-
-                namespace Example;
-
-                abstract class AbstractGreeting
-                {
-                    public function greet(): string
-                    {
-                        return 'Hello!';
-                    }
-                }
-                PHP),
-            Documentation\CodeSample::notReported(<<<'PHP'
-                <?php
-
-                declare(strict_types=1);
-
-                namespace Example;
-
-                abstract class AbstractGreeting
-                {
-                    final public function greet(): string
-                    {
-                        return 'Hello!';
-                    }
-                }
-                PHP),
         );
     }
 
