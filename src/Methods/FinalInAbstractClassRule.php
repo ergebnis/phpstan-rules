@@ -39,15 +39,13 @@ final class FinalInAbstractClassRule implements
         '@Entity',
     ];
     private bool $ignoreDoctrineEntities;
+    private Documentation\RuleDefinition $ruleDefinition;
 
     public function __construct(bool $ignoreDoctrineEntities)
     {
         $this->ignoreDoctrineEntities = $ignoreDoctrineEntities;
-    }
 
-    public function ruleDefinition(): Documentation\RuleDefinition
-    {
-        return Documentation\RuleDefinition::create(
+        $this->ruleDefinition = Documentation\RuleDefinition::create(
             'finalInAbstractClass',
             <<<'MARKDOWN'
             This rule reports an error when a concrete `public` or `protected` method in an `abstract` class is not `final`.
@@ -97,6 +95,11 @@ final class FinalInAbstractClassRule implements
                 }
                 PHP),
         );
+    }
+
+    public function ruleDefinition(): Documentation\RuleDefinition
+    {
+        return $this->ruleDefinition;
     }
 
     public function getNodeType(): string

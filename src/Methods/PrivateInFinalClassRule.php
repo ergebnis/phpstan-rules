@@ -50,15 +50,13 @@ final class PrivateInFinalClassRule implements
         Framework\Attributes\PreCondition::class,
     ];
     private Type\FileTypeMapper $fileTypeMapper;
+    private Documentation\RuleDefinition $ruleDefinition;
 
     public function __construct(Type\FileTypeMapper $fileTypeMapper)
     {
         $this->fileTypeMapper = $fileTypeMapper;
-    }
 
-    public function ruleDefinition(): Documentation\RuleDefinition
-    {
-        return Documentation\RuleDefinition::create(
+        $this->ruleDefinition = Documentation\RuleDefinition::create(
             'privateInFinalClass',
             'This rule reports an error when a method in a `final` class is `protected` but could be `private`.',
             'A `final` class cannot be extended, so a `protected` method in it can only be used like a `private` method. Declaring the method `private` makes that explicit.',
@@ -95,6 +93,11 @@ final class PrivateInFinalClassRule implements
                 }
                 PHP),
         );
+    }
+
+    public function ruleDefinition(): Documentation\RuleDefinition
+    {
+        return $this->ruleDefinition;
     }
 
     public function getNodeType(): string

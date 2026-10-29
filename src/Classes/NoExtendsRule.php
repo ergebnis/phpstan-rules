@@ -38,6 +38,7 @@ final class NoExtendsRule implements
      * @var list<class-string>
      */
     private array $classesAllowedToBeExtended;
+    private Documentation\RuleDefinition $ruleDefinition;
 
     /**
      * @param list<class-string> $classesAllowedToBeExtended
@@ -51,11 +52,8 @@ final class NoExtendsRule implements
                 return $classAllowedToBeExtended;
             }, $classesAllowedToBeExtended),
         )));
-    }
 
-    public function ruleDefinition(): Documentation\RuleDefinition
-    {
-        return Documentation\RuleDefinition::create(
+        $this->ruleDefinition = Documentation\RuleDefinition::create(
             'noExtends',
             'This rule reports an error when a class extends another class.',
             'Extending a class couples the subclass to the implementation of its parent class. Prefer composition: inject collaborators and implement interfaces.',
@@ -106,6 +104,11 @@ final class NoExtendsRule implements
                 }
                 PHP),
         );
+    }
+
+    public function ruleDefinition(): Documentation\RuleDefinition
+    {
+        return $this->ruleDefinition;
     }
 
     public function getNodeType(): string

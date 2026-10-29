@@ -28,9 +28,11 @@ final class NoPhpstanIgnoreRule implements
     Documentation\HasRuleDefinition,
     Rules\Rule
 {
-    public function ruleDefinition(): Documentation\RuleDefinition
+    private Documentation\RuleDefinition $ruleDefinition;
+
+    public function __construct()
     {
-        return Documentation\RuleDefinition::create(
+        $this->ruleDefinition = Documentation\RuleDefinition::create(
             'noPhpstanIgnore',
             'This rule reports an error when a `@phpstan-ignore`, `@phpstan-ignore-line`, or `@phpstan-ignore-next-line` tag is used to [ignore errors reported by `phpstan/phpstan`](https://phpstan.org/user-guide/ignoring-errors#ignoring-in-code-using-phpdocs).',
             'An ignore tag hides an error where it occurs and tends to stay after the reason for it is gone. Fix the error, or ignore it in the configuration or the baseline, where it stays visible.',
@@ -54,6 +56,11 @@ final class NoPhpstanIgnoreRule implements
                 echo $name;
                 PHP),
         );
+    }
+
+    public function ruleDefinition(): Documentation\RuleDefinition
+    {
+        return $this->ruleDefinition;
     }
 
     public function getNodeType(): string

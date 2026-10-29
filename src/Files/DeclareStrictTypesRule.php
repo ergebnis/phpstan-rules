@@ -27,9 +27,11 @@ final class DeclareStrictTypesRule implements
     Documentation\HasRuleDefinition,
     Rules\Rule
 {
-    public function ruleDefinition(): Documentation\RuleDefinition
+    private Documentation\RuleDefinition $ruleDefinition;
+
+    public function __construct()
     {
-        return Documentation\RuleDefinition::create(
+        $this->ruleDefinition = Documentation\RuleDefinition::create(
             'declareStrictTypes',
             'This rule reports an error when a non-empty file does not contain a `declare(strict_types=1)` declaration.',
             'Without a `declare(strict_types=1)` declaration, PHP coerces scalar arguments and return values to the declared types, which hides type errors.',
@@ -48,6 +50,11 @@ final class DeclareStrictTypesRule implements
                 echo 'Hello, Jane!';
                 PHP),
         );
+    }
+
+    public function ruleDefinition(): Documentation\RuleDefinition
+    {
+        return $this->ruleDefinition;
     }
 
     public function getNodeType(): string

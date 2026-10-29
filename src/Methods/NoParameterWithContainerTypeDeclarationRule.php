@@ -38,6 +38,7 @@ final class NoParameterWithContainerTypeDeclarationRule implements
      * @var list<string>
      */
     private array $methodsAllowedToUseContainerTypeDeclarations;
+    private Documentation\RuleDefinition $ruleDefinition;
 
     /**
      * @param list<string> $interfacesImplementedByContainers
@@ -58,11 +59,8 @@ final class NoParameterWithContainerTypeDeclarationRule implements
             },
         ));
         $this->methodsAllowedToUseContainerTypeDeclarations = $methodsAllowedToUseContainerTypeDeclarations;
-    }
 
-    public function ruleDefinition(): Documentation\RuleDefinition
-    {
-        return Documentation\RuleDefinition::create(
+        $this->ruleDefinition = Documentation\RuleDefinition::create(
             'noParameterWithContainerTypeDeclaration',
             'This rule reports an error when a method has a type declaration for a known dependency injection container or service locator.',
             'A method that receives a dependency injection container or service locator hides its actual dependencies. Inject the dependencies directly instead.',
@@ -132,6 +130,11 @@ final class NoParameterWithContainerTypeDeclarationRule implements
                 }
                 PHP),
         );
+    }
+
+    public function ruleDefinition(): Documentation\RuleDefinition
+    {
+        return $this->ruleDefinition;
     }
 
     public function getNodeType(): string

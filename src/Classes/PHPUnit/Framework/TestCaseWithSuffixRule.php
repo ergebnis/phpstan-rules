@@ -34,15 +34,13 @@ final class TestCaseWithSuffixRule implements
         'PHPUnit\Framework\TestCase',
     ];
     private Reflection\ReflectionProvider $reflectionProvider;
+    private Documentation\RuleDefinition $ruleDefinition;
 
     public function __construct(Reflection\ReflectionProvider $reflectionProvider)
     {
         $this->reflectionProvider = $reflectionProvider;
-    }
 
-    public function ruleDefinition(): Documentation\RuleDefinition
-    {
-        return Documentation\RuleDefinition::create(
+        $this->ruleDefinition = Documentation\RuleDefinition::create(
             'testCaseWithSuffix',
             'This rule reports an error when a concrete class is a sub-class of `PHPUnit\\Framework\\TestCase` but does not have a `Test` suffix.',
             'By default, PHPUnit only runs tests from files whose names end with `Test.php`, and the suffix tells readers which classes are tests.',
@@ -75,6 +73,11 @@ final class TestCaseWithSuffixRule implements
                 }
                 PHP),
         );
+    }
+
+    public function ruleDefinition(): Documentation\RuleDefinition
+    {
+        return $this->ruleDefinition;
     }
 
     public function getNodeType(): string

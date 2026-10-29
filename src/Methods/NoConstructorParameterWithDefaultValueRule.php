@@ -27,9 +27,11 @@ final class NoConstructorParameterWithDefaultValueRule implements
     Documentation\HasRuleDefinition,
     Rules\Rule
 {
-    public function ruleDefinition(): Documentation\RuleDefinition
+    private Documentation\RuleDefinition $ruleDefinition;
+
+    public function __construct()
     {
-        return Documentation\RuleDefinition::create(
+        $this->ruleDefinition = Documentation\RuleDefinition::create(
             'noConstructorParameterWithDefaultValue',
             'This rule reports an error when a constructor has a parameter with a default value.',
             'A constructor parameter with a default value lets callers create an object without deciding on that value. Named constructors make each way of creating the object explicit.',
@@ -70,6 +72,11 @@ final class NoConstructorParameterWithDefaultValueRule implements
                 }
                 PHP),
         );
+    }
+
+    public function ruleDefinition(): Documentation\RuleDefinition
+    {
+        return $this->ruleDefinition;
     }
 
     public function getNodeType(): string
