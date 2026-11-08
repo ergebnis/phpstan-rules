@@ -7622,16 +7622,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v5.4.54",
+            "version": "v5.4.56",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "f27a7131106e8cb792d434e8faea7f3ffb615263"
+                "reference": "8ff81e554b0d78653a146b35e344e0a022d7e838"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/f27a7131106e8cb792d434e8faea7f3ffb615263",
-                "reference": "f27a7131106e8cb792d434e8faea7f3ffb615263",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/8ff81e554b0d78653a146b35e344e0a022d7e838",
+                "reference": "8ff81e554b0d78653a146b35e344e0a022d7e838",
                 "shasum": ""
             },
             "require": {
@@ -7677,7 +7677,7 @@
             "description": "Loads and dumps YAML files",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/yaml/tree/v5.4.54"
+                "source": "https://github.com/symfony/yaml/tree/v5.4.56"
             },
             "funding": [
                 {
@@ -7697,7 +7697,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-08-30T06:09:20+00:00"
+            "time": "2026-11-03T13:19:21+00:00"
         },
         {
             "name": "theseer/tokenizer",
