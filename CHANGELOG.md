@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`2.17.1...main`][2.17.1...main].
 
+### Added
+
+- Added support for PHP 8.6 ([#1186]), by [@localheinz]
+
 ## [`2.17.1`][2.17.1]
 
 For a full diff see [`2.17.0...2.17.1`][2.17.0...2.17.1].
@@ -879,6 +883,7 @@ For a full diff see [`362c7ea...0.1.0`][362c7ea...0.1.0].
 [#1168]: https://github.com/ergebnis/phpstan-rules/pull/1168
 [#1169]: https://github.com/ergebnis/phpstan-rules/pull/1169
 [#1182]: https://github.com/ergebnis/phpstan-rules/pull/1182
+[#1186]: https://github.com/ergebnis/phpstan-rules/pull/1186
 
 [@alfredbez]: https://github.com/alfredbez
 [@cosmastech]: https://github.com/cosmastech
