@@ -21,7 +21,7 @@
     "security": "https://github.com/ergebnis/phpstan-rules/blob/main/.github/SECURITY.md"
   },
   "require": {
-    "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0",
+    "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0 || ~8.7.0",
     "ext-mbstring": "*",
     "composer-runtime-api": "^2.0.0",
     "ergebnis/version": "^1.4.0",
