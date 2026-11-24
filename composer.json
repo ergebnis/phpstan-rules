@@ -73,7 +73,7 @@
   },
   "extra": {
     "branch-alias": {
-      "dev-main": "2.18-dev"
+      "dev-main": "2.19-dev"
     },
     "phpstan": {
       "includes": [
