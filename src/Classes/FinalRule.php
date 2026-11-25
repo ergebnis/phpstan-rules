@@ -74,25 +74,25 @@ final class FinalRule implements
         $this->ruleDefinition = Documentation\RuleDefinition::create(
             Documentation\ConfigurationKey::fromString('final'),
             Documentation\Description::fromString(<<<'MARKDOWN'
-            This rule reports an error when a non-anonymous class is not `final`.
+                This rule reports an error when a non-anonymous class is not `final`.
 
-            💡 By default, this rule ignores classes that
+                💡 By default, this rule ignores classes that
 
-            - use `@Entity`, `@ORM\Entity`, or `@ORM\Mapping\Entity` annotations
-            - use `Doctrine\ORM\Mapping\Entity` attributes
+                - use `@Entity`, `@ORM\Entity`, or `@ORM\Mapping\Entity` annotations
+                - use `Doctrine\ORM\Mapping\Entity` attributes
 
-            on the class level.
-            MARKDOWN),
+                on the class level.
+                MARKDOWN),
             Documentation\Rationale::fromString('A class that is not `final` can be extended, so every change to it can break a subclass. Declare classes `final` and prefer composition over inheritance.'),
             Documentation\Tip::fromString('Declare the class `final` and prefer composition over inheritance.'),
             Documentation\ParameterList::create(
                 Documentation\Parameter::create(
                     Documentation\ParameterName::fromString('allowAbstractClasses'),
                     Documentation\Description::fromString(<<<'MARKDOWN'
-                    By default, this rule allows to declare `abstract` classes.
+                        By default, this rule allows to declare `abstract` classes.
 
-                    You can set the `allowAbstractClasses` parameter to `false` to disallow abstract classes.
-                    MARKDOWN),
+                        You can set the `allowAbstractClasses` parameter to `false` to disallow abstract classes.
+                        MARKDOWN),
                     Documentation\ParameterExample::fromBool(false),
                 ),
                 Documentation\Parameter::create(
@@ -106,10 +106,10 @@ final class FinalRule implements
                 Documentation\Parameter::create(
                     Documentation\ParameterName::fromString('ignoreDoctrineEntities'),
                     Documentation\Description::fromString(<<<'MARKDOWN'
-                    By default, this rule ignores Doctrine entities, because Doctrine creates proxies for lazy loading by extending them.
+                        By default, this rule ignores Doctrine entities, because Doctrine creates proxies for lazy loading by extending them.
 
-                    When you use [native lazy objects](https://github.com/doctrine/orm/pull/11853) with `doctrine/orm:^3.4.0` on PHP 8.4 or later, Doctrine no longer extends entities, and you can set the `ignoreDoctrineEntities` parameter to `false` to require Doctrine entities to be `final` as well.
-                    MARKDOWN),
+                        When you use [native lazy objects](https://github.com/doctrine/orm/pull/11853) with `doctrine/orm:^3.4.0` on PHP 8.4 or later, Doctrine no longer extends entities, and you can set the `ignoreDoctrineEntities` parameter to `false` to require Doctrine entities to be `final` as well.
+                        MARKDOWN),
                     Documentation\ParameterExample::fromBool(false),
                 ),
             ),

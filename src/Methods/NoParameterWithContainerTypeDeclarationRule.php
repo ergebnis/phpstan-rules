@@ -69,14 +69,14 @@ final class NoParameterWithContainerTypeDeclarationRule implements
                 Documentation\Parameter::create(
                     Documentation\ParameterName::fromString('interfacesImplementedByContainers'),
                     Documentation\Description::fromString(<<<'MARKDOWN'
-                    By default, this rule disallows the use of type declarations indicating an implementation of
+                        By default, this rule disallows the use of type declarations indicating an implementation of
 
-                    - [`Psr\Container\ContainerInterface`](https://github.com/php-fig/container/blob/1.0.0/src/ContainerInterface.php)
+                        - [`Psr\Container\ContainerInterface`](https://github.com/php-fig/container/blob/1.0.0/src/ContainerInterface.php)
 
-                    is expected to be injected into a method.
+                        is expected to be injected into a method.
 
-                    You can set the `interfacesImplementedByContainers` parameter to a list of interface names of additional containers and service locators.
-                    MARKDOWN),
+                        You can set the `interfacesImplementedByContainers` parameter to a list of interface names of additional containers and service locators.
+                        MARKDOWN),
                     Documentation\ParameterExample::fromStrings(
                         'Fancy\\DependencyInjection\\ContainerInterface',
                         'Other\\ServiceLocatorInterface',

@@ -48,19 +48,19 @@ final class FinalInAbstractClassRule implements
         $this->ruleDefinition = Documentation\RuleDefinition::create(
             Documentation\ConfigurationKey::fromString('finalInAbstractClass'),
             Documentation\Description::fromString(<<<'MARKDOWN'
-            This rule reports an error when a concrete `public` or `protected` method in an `abstract` class is not `final`.
+                This rule reports an error when a concrete `public` or `protected` method in an `abstract` class is not `final`.
 
-            💡 By default, this rule ignores Doctrine entities.
-            MARKDOWN),
+                💡 By default, this rule ignores Doctrine entities.
+                MARKDOWN),
             Documentation\Rationale::fromString('A concrete method in an `abstract` class that is not `final` can be overridden by subclasses, which can break the assumptions of the abstract class. Declare the method `final`, or `abstract` when subclasses need to provide it.'),
             Documentation\Tip::fromString('Declare the method `final`, or `abstract` when subclasses need to provide it.'),
             Documentation\ParameterList::create(Documentation\Parameter::create(
                 Documentation\ParameterName::fromString('ignoreDoctrineEntities'),
                 Documentation\Description::fromString(<<<'MARKDOWN'
-                By default, this rule ignores Doctrine entities, because Doctrine creates proxies for lazy loading by extending them.
+                    By default, this rule ignores Doctrine entities, because Doctrine creates proxies for lazy loading by extending them.
 
-                When you use [native lazy objects](https://github.com/doctrine/orm/pull/11853) with `doctrine/orm:^3.4.0` on PHP 8.4 or later, Doctrine no longer extends entities, and you can set the `ignoreDoctrineEntities` parameter to `false` to require concrete methods in `abstract` Doctrine entities to be `final` as well.
-                MARKDOWN),
+                    When you use [native lazy objects](https://github.com/doctrine/orm/pull/11853) with `doctrine/orm:^3.4.0` on PHP 8.4 or later, Doctrine no longer extends entities, and you can set the `ignoreDoctrineEntities` parameter to `false` to require concrete methods in `abstract` Doctrine entities to be `final` as well.
+                    MARKDOWN),
                 Documentation\ParameterExample::fromBool(false),
             )),
             Documentation\CodeSampleList::create(
