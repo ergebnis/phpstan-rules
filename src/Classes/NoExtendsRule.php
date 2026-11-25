@@ -61,12 +61,12 @@ final class NoExtendsRule implements
             Documentation\ParameterList::create(Documentation\Parameter::create(
                 Documentation\ParameterName::fromString('classesAllowedToBeExtended'),
                 Documentation\Description::fromString(<<<'MARKDOWN'
-                By default, this rule allows the following classes to be extended:
+                    By default, this rule allows the following classes to be extended:
 
-                - [`PHPUnit\Framework\TestCase`](https://github.com/sebastianbergmann/phpunit/blob/6.0.0/src/Framework/TestCase.php)
+                    - [`PHPUnit\Framework\TestCase`](https://github.com/sebastianbergmann/phpunit/blob/6.0.0/src/Framework/TestCase.php)
 
-                You can set the `classesAllowedToBeExtended` parameter to a list of class names that you want to allow to be extended.
-                MARKDOWN),
+                    You can set the `classesAllowedToBeExtended` parameter to a list of class names that you want to allow to be extended.
+                    MARKDOWN),
                 Documentation\ParameterExample::fromStrings(
                     'Ergebnis\\PHPStan\\Rules\\Test\\Integration\\AbstractTestCase',
                     'PHPStan\\Testing\\RuleTestCase',
