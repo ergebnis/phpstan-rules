@@ -12,32 +12,27 @@ declare(strict_types=1);
  */
 
 use Ergebnis\Rector;
-use Rector\Config;
-use Rector\PHPUnit;
-use Rector\ValueObject;
 
-return static function (Config\RectorConfig $rectorConfig): void {
-    $rectorConfig->cacheDirectory(__DIR__ . '/.build/rector/');
+$ruleSet = Rector\Config\RuleSet\Php74::create()->withRules(Rector\Config\Rules::fromArray([
+    \Rector\TypeDeclarationDocblocks\Rector\ClassMethod\AddReturnDocblockForCommonObjectDenominatorRector::class => false,
+    Rector\Rules\Files\ReferenceNamespacedSymbolsRelativeToNamespacePrefixRector::class => [
+        'discoverNamespacePrefixes' => true,
+        'parentNamespacePrefixes' => [
+            'Ergebnis\PHPStan\Rules',
+            'Symfony\Component',
+        ],
+    ],
+]));
 
-    $rectorConfig->paths([
+return Rector\Config\Factory::fromRuleSet($ruleSet)
+    ->withCache(__DIR__ . '/.build/rector/')
+    ->withPaths([
         __DIR__ . '/bin/',
         __DIR__ . '/src/',
         __DIR__ . '/test/',
         __DIR__ . '/.php-cs-fixer.php',
         __DIR__ . '/rector.php',
-    ]);
-
-    $rectorConfig->phpVersion(ValueObject\PhpVersion::PHP_74);
-
-    $rectorConfig->rules([
-        Rector\Rules\Faker\GeneratorPropertyFetchToMethodCallRector::class,
-    ]);
-
-    $rectorConfig->sets([
-        PHPUnit\Set\PHPUnitSetList::COMPOSER_BASED,
-    ]);
-
-    $rectorConfig->skip([
+    ])
+    ->withSkip([
         __DIR__ . '/test/Fixture/',
     ]);
-};
