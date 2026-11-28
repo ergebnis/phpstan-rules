@@ -17,6 +17,7 @@ use Ergebnis\PHPStan\Rules\Classes;
 use PHPStan\Reflection;
 use PHPStan\Rules;
 use PHPStan\Testing;
+use PHPUnit\Framework;
 
 /**
  * @covers \Ergebnis\PHPStan\Rules\Classes\PHPUnit\Framework\TestCaseWithSuffixRule
@@ -59,7 +60,7 @@ final class TestCaseWithSuffixRuleWithoutPHPUnitTest extends Testing\RuleTestCas
         $reflectionProviderWithoutPHPUnitTestCase
             ->method('hasClass')
             ->willReturnCallback(static function (string $className) use ($reflectionProvider): bool {
-                if ('PHPUnit\\Framework\\TestCase' === $className) {
+                if (Framework\TestCase::class === $className) {
                     return false;
                 }
 
@@ -69,7 +70,7 @@ final class TestCaseWithSuffixRuleWithoutPHPUnitTest extends Testing\RuleTestCas
         $reflectionProviderWithoutPHPUnitTestCase
             ->method('getClass')
             ->willReturnCallback(static function (string $className) use ($reflectionProvider): Reflection\ClassReflection {
-                if ('PHPUnit\\Framework\\TestCase' === $className) {
+                if (Framework\TestCase::class === $className) {
                     throw new \LogicException('PHPUnit\\Framework\\TestCase must not be looked up when it does not exist.');
                 }
 

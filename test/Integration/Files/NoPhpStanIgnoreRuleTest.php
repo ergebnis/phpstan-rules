@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\PHPStan\Rules\Test\Integration\Files;
 
+use Ergebnis\PHPStan\Rules\Files;
 use Ergebnis\PHPStan\Rules\Test;
 use PHPStan\Rules;
 use PHPStan\Testing;
@@ -35,7 +36,7 @@ use PHPStan\Testing;
  * @uses \Ergebnis\PHPStan\Rules\Documentation\Tip
  * @uses \Ergebnis\PHPStan\Rules\ErrorIdentifier
  *
- * @extends Testing\RuleTestCase<\Ergebnis\PHPStan\Rules\Files\NoPhpstanIgnoreRule>
+ * @extends Testing\RuleTestCase<Files\NoPhpstanIgnoreRule>
  */
 final class NoPhpStanIgnoreRuleTest extends Testing\RuleTestCase
 {
@@ -215,6 +216,6 @@ final class NoPhpStanIgnoreRuleTest extends Testing\RuleTestCase
 
     protected function getRule(): Rules\Rule
     {
-        return new \Ergebnis\PHPStan\Rules\Files\NoPhpstanIgnoreRule();
+        return new Files\NoPhpstanIgnoreRule();
     }
 }

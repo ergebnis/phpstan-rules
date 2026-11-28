@@ -61,7 +61,7 @@ final class NoParameterWithNullableTypeDeclarationRuleTest extends Testing\RuleT
                     $this->errorTip(),
                 ],
                 [
-                    'Property hook set of property Ergebnis\\PHPStan\\Rules\\Test\\Fixture\\PropertyHooks\\NoParameterWithNullableTypeDeclarationRule\\ClassUsingTraitWithPropertyHooksWithParameterWithNullableTypeDeclaration::$foo has parameter $value with a nullable type declaration.',
+                    'Property hook set of property ' . Test\Fixture\PropertyHooks\NoParameterWithNullableTypeDeclarationRule\ClassUsingTraitWithPropertyHooksWithParameterWithNullableTypeDeclaration::class . '::$foo has parameter $value with a nullable type declaration.',
                     10,
                     $this->errorTip(),
                 ],

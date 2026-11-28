@@ -19,6 +19,7 @@ use PhpParser\Node;
 use PHPStan\Analyser;
 use PHPStan\Reflection;
 use PHPStan\Rules;
+use PHPUnit\Framework;
 
 /**
  * @implements Rules\Rule<Node\Stmt\Class_>
@@ -31,7 +32,7 @@ final class TestCaseWithSuffixRule implements
      * @var list<class-string>
      */
     private static array $phpunitTestCaseClassNames = [
-        'PHPUnit\Framework\TestCase',
+        Framework\TestCase::class,
     ];
     private Reflection\ReflectionProvider $reflectionProvider;
     private Documentation\RuleDefinition $ruleDefinition;

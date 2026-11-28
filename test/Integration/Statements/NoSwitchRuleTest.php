@@ -21,7 +21,7 @@ use PHPStan\Testing;
 /**
  * @covers \Ergebnis\PHPStan\Rules\Statements\NoSwitchRule
  *
- * @extends \PHPStan\Testing\RuleTestCase<Statements\NoSwitchRule>
+ * @extends Testing\RuleTestCase<Statements\NoSwitchRule>
  *
  * @uses \Ergebnis\PHPStan\Rules\Documentation\CodeSample
  * @uses \Ergebnis\PHPStan\Rules\Documentation\CodeSampleList
