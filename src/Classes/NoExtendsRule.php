@@ -15,6 +15,7 @@ namespace Ergebnis\PHPStan\Rules\Classes;
 
 use Ergebnis\PHPStan\Rules\Documentation;
 use Ergebnis\PHPStan\Rules\ErrorIdentifier;
+use PHPStan\Testing;
 use PhpParser\Node;
 use PHPStan\Analyser;
 use PHPStan\Rules;
@@ -69,7 +70,7 @@ final class NoExtendsRule implements
                     MARKDOWN),
                 Documentation\ParameterExample::fromStrings(
                     'Ergebnis\\PHPStan\\Rules\\Test\\Integration\\AbstractTestCase',
-                    'PHPStan\\Testing\\RuleTestCase',
+                    Testing\RuleTestCase::class,
                 ),
             )),
             Documentation\CodeSampleList::create(

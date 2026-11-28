@@ -15,6 +15,7 @@ namespace Ergebnis\PHPStan\Rules\CallLikes;
 
 use Ergebnis\PHPStan\Rules\Documentation;
 use Ergebnis\PHPStan\Rules\ErrorIdentifier;
+use PHPStan\Reflection;
 use PhpParser\Node;
 use PHPStan\Analyser;
 use PHPStan\Rules;
@@ -164,7 +165,7 @@ final class NoNamedArgumentRule implements
                     $methodName->name,
                 );
 
-                if (null === $methodReflection) {
+                if (!$methodReflection instanceof Reflection\ExtendedMethodReflection) {
                     $objectClassNames = $objectType->getObjectClassNames();
 
                     if (1 === \count($objectClassNames)) {

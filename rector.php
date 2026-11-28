@@ -12,9 +12,10 @@ declare(strict_types=1);
  */
 
 use Ergebnis\Rector;
+use Rector\TypeDeclarationDocblocks;
 
 $ruleSet = Rector\Config\RuleSet\Php74::create()->withRules(Rector\Config\Rules::fromArray([
-    \Rector\TypeDeclarationDocblocks\Rector\ClassMethod\AddReturnDocblockForCommonObjectDenominatorRector::class => false,
+    TypeDeclarationDocblocks\Rector\ClassMethod\AddReturnDocblockForCommonObjectDenominatorRector::class => false,
     Rector\Rules\Files\ReferenceNamespacedSymbolsRelativeToNamespacePrefixRector::class => [
         'discoverNamespacePrefixes' => true,
         'parentNamespacePrefixes' => [

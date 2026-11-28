@@ -171,13 +171,13 @@ final class InvokeParentHookMethodRule implements
     ): array {
         $classReflection = $scope->getClassReflection();
 
-        if (null === $classReflection) {
+        if (!$classReflection instanceof Reflection\ClassReflection) {
             return [];
         }
 
         $parentClassReflection = $classReflection->getParentClass();
 
-        if (null === $parentClassReflection) {
+        if (!$parentClassReflection instanceof Reflection\ClassReflection) {
             return [];
         }
 

@@ -15,6 +15,7 @@ namespace Ergebnis\PHPStan\Rules\Classes\PHPUnit\Framework;
 
 use Ergebnis\PHPStan\Rules\Documentation;
 use Ergebnis\PHPStan\Rules\ErrorIdentifier;
+use PHPUnit\Framework;
 use PhpParser\Node;
 use PHPStan\Analyser;
 use PHPStan\Reflection;
@@ -31,7 +32,7 @@ final class TestCaseWithSuffixRule implements
      * @var list<class-string>
      */
     private static array $phpunitTestCaseClassNames = [
-        'PHPUnit\Framework\TestCase',
+        Framework\TestCase::class,
     ];
     private Reflection\ReflectionProvider $reflectionProvider;
     private Documentation\RuleDefinition $ruleDefinition;

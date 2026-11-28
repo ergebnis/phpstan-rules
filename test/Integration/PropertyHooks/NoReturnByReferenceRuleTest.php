@@ -59,7 +59,7 @@ final class NoReturnByReferenceRuleTest extends Testing\RuleTestCase
                     $this->errorTip(),
                 ],
                 [
-                    'Property hook get of property Ergebnis\\PHPStan\\Rules\\Test\\Fixture\\PropertyHooks\\NoReturnByReferenceRule\\ClassUsingTraitWithPropertyHooksReturningByReference::$foo returns by reference.',
+                    'Property hook get of property ' . Test\Fixture\PropertyHooks\NoReturnByReferenceRule\ClassUsingTraitWithPropertyHooksReturningByReference::class . '::$foo returns by reference.',
                     12,
                     $this->errorTip(),
                 ],

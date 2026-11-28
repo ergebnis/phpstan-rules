@@ -33,7 +33,7 @@ final class Reference
     {
         try {
             $version = Version\Version::fromString($prettyVersion);
-        } catch (Version\Exception\InvalidVersion $exception) {
+        } catch (Version\Exception\InvalidVersion $invalidVersion) {
             return new self('main');
         }
 

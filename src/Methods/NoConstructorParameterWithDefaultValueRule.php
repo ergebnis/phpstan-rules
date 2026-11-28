@@ -153,6 +153,6 @@ final class NoConstructorParameterWithDefaultValueRule implements
 
     private static function hasDefaultValue(Node\Param $parameter): bool
     {
-        return null !== $parameter->default;
+        return $parameter->default instanceof Node\Expr;
     }
 }
