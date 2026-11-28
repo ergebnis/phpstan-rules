@@ -15,9 +15,9 @@ namespace Ergebnis\PHPStan\Rules\CallLikes;
 
 use Ergebnis\PHPStan\Rules\Documentation;
 use Ergebnis\PHPStan\Rules\ErrorIdentifier;
-use PHPStan\Reflection;
 use PhpParser\Node;
 use PHPStan\Analyser;
+use PHPStan\Reflection;
 use PHPStan\Rules;
 
 /**

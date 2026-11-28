@@ -15,11 +15,11 @@ namespace Ergebnis\PHPStan\Rules\Classes\PHPUnit\Framework;
 
 use Ergebnis\PHPStan\Rules\Documentation;
 use Ergebnis\PHPStan\Rules\ErrorIdentifier;
-use PHPUnit\Framework;
 use PhpParser\Node;
 use PHPStan\Analyser;
 use PHPStan\Reflection;
 use PHPStan\Rules;
+use PHPUnit\Framework;
 
 /**
  * @implements Rules\Rule<Node\Stmt\Class_>
